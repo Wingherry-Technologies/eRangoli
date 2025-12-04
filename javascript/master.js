@@ -16,25 +16,54 @@ hamburger?.addEventListener("click", () => {
 });
 
 // MOBILE DROPDOWN ACCORDION
-const dropdownItems = document.querySelectorAll(".mobile-dropdown");
+// ===============================
+// Level 1 Dropdown (Main Category)
+// ===============================
+const level1Dropdowns = document.querySelectorAll(".mobile-dropdown");
 
-dropdownItems.forEach(item => {
-  const header = item.querySelector(".dropdown-header");
+level1Dropdowns.forEach(item => {
+    const header = item.querySelector(".dropdown-header");
 
-  header.addEventListener("click", (e) => {
-    e.stopPropagation(); // important: prevents submenu clicks from toggling
+    header.addEventListener("click", (e) => {
+        e.stopPropagation();
 
-    // Close other dropdowns
-    dropdownItems.forEach(other => {
-      if (other !== item) {
-        other.classList.remove("open");
-      }
+        // Close other level 1 dropdowns
+        level1Dropdowns.forEach(other => {
+            if (other !== item) {
+                other.classList.remove("open");
+            }
+        });
+
+        item.classList.toggle("open");
     });
-
-    // Toggle current
-    item.classList.toggle("open");
-  });
 });
+
+
+// ===============================
+// Level 2 Dropdown (Inside Category)
+// ===============================
+const level2Dropdowns = document.querySelectorAll(".mobile-dropdown-sub");
+
+level2Dropdowns.forEach(subItem => {
+    const subHeader = subItem.querySelector("span");
+
+    subHeader.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        // Close other level 2 menus inside the same main category only
+        const parentSubmenu = subItem.closest(".mobile-submenu");
+        const siblings = parentSubmenu.querySelectorAll(".mobile-dropdown-sub");
+
+        siblings.forEach(other => {
+            if (other !== subItem) {
+                other.classList.remove("open-sub");
+            }
+        });
+
+        subItem.classList.toggle("open-sub");
+    });
+});
+
 
 
 

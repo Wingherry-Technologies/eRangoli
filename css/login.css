@@ -1,14 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Nunito Sans";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
 }
 
       body {
         background: #c7d6bd;
+        height: 100vh;
       }
 
       .page-wrapper {
@@ -22,6 +23,7 @@
       /* LEFT PANEL */
       .custumerLoginLeftPanel {
         width: 40%;
+        background: #f8f4f1;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -40,8 +42,8 @@
       .custumerLoginHeader {
         width: 100%;
         height: 100px;
-        background-image: url("../assets/master/loginbg.svg");
-        background-color: #a1040417;
+        background-image: url("../assets/login/loginbg.svg");
+        background-color: rgba(255, 0, 0, 0.112);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -142,7 +144,7 @@
         width: 100%;
         margin-top: 10px;
         padding: 10px;
-        border-radius: 8px;
+        border-radius: 4px;
         border: none;
         background: #A10404;
         color: #fff;
@@ -156,9 +158,8 @@
         margin: 40px 80px 18px;
 
         text-align: center;
-        font-size: 16px;
-        color: black;
-        font-weight: 500;
+        font-size: 12px;
+        color: #999;
         padding: 0 60px;
       }
 
@@ -252,14 +253,13 @@
       }
 
       .custumerLoginHeroCard {
-        background: #bca4a425;
+        background: #BCA4A41A;
         padding: 35px 55px 0;
-        backdrop-filter: blur(2px);
+
         max-width: 500px;
         height: 400px;
         width: 100%;
         margin-top: 30px;
-        border: 1px solid #BCA4A41A;
         border-radius: 8px;
       }
 
@@ -296,7 +296,7 @@
         padding: 12px 0;
         text-align: center;
         border: none;
-        background: #A104044F;
+        background: rgba(183, 18, 34, 0.508);
         color: #FFFFFF;
         font-size: 20px;
         font-weight: 600;
@@ -330,3 +330,4 @@
           padding: 35px 30px 0;
         }
       }
+      
