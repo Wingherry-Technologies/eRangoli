@@ -8,6 +8,8 @@ const otpTimerSpan = document.getElementById("otpTimer");
 const form = document.getElementById("custumerLoginForm");
 const mobileLabel = document.querySelector('label[for="custumerLoginMobile"]');
 const otpLabel    = document.querySelector('label[for="custumerLoginOTP"]');
+const correctOTP = "123456"; 
+
 let otpTimerInterval = null;
 let otpTimeLeft = 30;      
 let wasMobileValid = false; 
@@ -18,24 +20,35 @@ function updateOtpTimerDisplay() {
     otpTimerSpan.textContent = `${m}:${s}`;
 }
 function startOtpTimer() {
-
+    // Always reset to 30 seconds
     otpTimeLeft = 30;
     updateOtpTimerDisplay();
-    resendOtpBtn.disabled = true;
 
+    // Show timer UI, hide resend button
+    otpTimerSpan.style.display = "inline";      
+    resendOtpBtn.style.display = "none";       
+    resendOtpBtn.disabled = true;              
+
+    // Clear any previous interval
     if (otpTimerInterval) {
         clearInterval(otpTimerInterval);
+        otpTimerInterval = null;
     }
 
+    // Start countdown
     otpTimerInterval = setInterval(() => {
         otpTimeLeft--;
-        updateOtpTimerDisplay();
+        if (otpTimeLeft >= 0) {
+            updateOtpTimerDisplay();
+        }
 
         if (otpTimeLeft <= 0) {
             clearInterval(otpTimerInterval);
             otpTimerInterval = null;
             otpTimerSpan.textContent = "00:00";
-            resendOtpBtn.disabled = false;
+            otpTimerSpan.style.display = "none";    
+            resendOtpBtn.style.display = "inline"; 
+            resendOtpBtn.disabled = false;         
         }
     }, 1000);
 }
@@ -43,14 +56,15 @@ function startOtpTimer() {
 const otpExtraRow = document.getElementById("otpExtraRow");
 
 function validateMobile() {
+    mobileInput.value = mobileInput.value.replace(/[^0-9]/g, "");
     const mobile = mobileInput.value.trim();
     const isValid = /^[6-9]\d{9}$/.test(mobile);
 
     if (!isValid) {
         mobileInput.classList.add("error");
         mobileError.style.display = "block";
-        mobileLabel.classList.add("error");      // 🔴 label bhi red
-        otpExtraRow.style.display = "none";      // resend/timer hide
+        mobileLabel.classList.add("error");      
+        otpExtraRow.style.display = "none";     
     } else {
         mobileInput.classList.remove("error");
         mobileError.style.display = "none";
@@ -68,17 +82,18 @@ function validateMobile() {
 
 // ---------- OTP VALIDATION ----------
 function validateOTP() {
+    otpInput.value = otpInput.value.replace(/[^0-9]/g, "");
     const otp = otpInput.value.trim();
     const isValid = /^\d{6}$/.test(otp);
 
     if (!isValid) {
         otpInput.classList.add("error");
         otpError.style.display = "block";
-        otpLabel.classList.add("error");        // 🔴 label red
+        otpLabel.classList.add("error");        
     } else {
         otpInput.classList.remove("error");
         otpError.style.display = "none";
-        otpLabel.classList.remove("error");     // ✅ normal
+        otpLabel.classList.remove("error");     
     }
     return isValid;
 }
@@ -93,10 +108,22 @@ resendOtpBtn.addEventListener("click", () => {
     startOtpTimer();
 });
 
+document.getElementById("custumerLoginSkip").addEventListener("click", function () {
+    window.history.back();
+});
+
 // Form submit validation
 form.addEventListener("submit", function (e) {
     const mobileOk = validateMobile();
     const otpOk = validateOTP();
+
+    if(otpInput.value !== correctOTP) {
+        otpInput.classList.add("error");
+        otpError.style.display = "block";   
+        otpLabel.classList.add("error");     
+        e.preventDefault();
+        return;
+    }
 
     if (!mobileOk || !otpOk) {
         e.preventDefault();
