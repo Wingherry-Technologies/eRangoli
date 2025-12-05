@@ -32,7 +32,7 @@ body {
   width: 100%;
   height: 100px;
   background-image: url("../assets/login/loginbg.svg");
-  background-color: rgba(255, 0, 0, 0.043);
+  background-color: rgba(255, 0, 0, 0.112);
   background-size: cover;
   background-position: center;
   border-radius: 6px;
@@ -110,6 +110,19 @@ body {
   color: white;
   font-weight: 700;
   cursor: pointer;
+}
+.RegisterBtn{
+    width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #a10404;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+    display: none;
 }
 
 /* SUCCESS BOX */
@@ -333,6 +346,9 @@ body {
   .vendorLoginSuccessMsg {
     margin: 25px;
   }
+    .RegisterBtn{
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
@@ -340,6 +356,13 @@ body {
     flex-direction: column;
     height: auto;
     width: 100%;
+  }
+  .vendorLoginHeader{
+    padding-top: 40px;
+  }
+
+  .RegisterBtn{
+    display: block;
   }
 
   .vendorLoginLeft {
