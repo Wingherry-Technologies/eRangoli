@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito Sans" ;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
 }
-
 
 body {
   background: #c7d6bd;
@@ -25,7 +24,7 @@ body {
 /* LEFT PANEL */
 .vendorLoginLeft {
   width: 40%;
-  background: #f8f4f1;
+  background: #ffffff;
   position: relative;
 }
 
@@ -33,7 +32,7 @@ body {
   width: 100%;
   height: 100px;
   background-image: url("../assets/login/loginbg.svg");
-  background-color: rgba(255, 0, 0, 0.112);
+  background-color: rgba(255, 0, 0, 0.043);
   background-size: cover;
   background-position: center;
   border-radius: 6px;
@@ -93,7 +92,7 @@ body {
   font-size: 11px;
   color: #0250d9;
   position: absolute;
-  top: 65px;
+  top: 70px;
   right: 0;
   margin-top: 5px;
   cursor: pointer;
@@ -115,8 +114,8 @@ body {
 
 /* SUCCESS BOX */
 .vendorLoginSuccessMsg {
-  background: #d9f3dc;
-  color: #009605;
+  background: #f8d8d8;
+  color: #b71c1c;
   margin: 40px 20px;
   padding: 10px;
   border-radius: 6px;
@@ -148,8 +147,10 @@ body {
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 25px;
   padding: 40px;
 }
 
@@ -180,6 +181,21 @@ body {
   margin-top: 15px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.vendorRegisterRightBtn {
+  width: 430px;
+  margin-top: 20px;
+  padding: 14px;
+  background: #a10404;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: block;
+  text-align: center;
 }
 
 /* RESET PASSWORD PAGE */
@@ -268,25 +284,113 @@ body {
   color: #0250d9;
   text-decoration: none;
   margin-top: 40px;
+  margin-bottom: 26px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (min-width: 481px) and (max-width: 1024px) {
+  body {
+    background-image: url("../assets/login/loginbackground.svg");
+    background-size: cover;
+  }
+
+  .vendorLoginPage {
+    width: 100%;
+    height: auto;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .vendorLoginLeft {
+    width: 90%;
+    max-width: 550px;
+    background: white;
+    border-radius: 12px;
+    padding-bottom: 40px;
+    margin: auto;
+  }
+
+  .vendorLoginRight {
+    display: none;
+  }
+
+  .vendorLoginHeader {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .vendorLoginForm {
+    padding: 0 25px;
+  }
+
+  .vendorLoginSubtitle {
+    padding: 0 25px;
+    margin-bottom: 20px;
+  }
+
+  .vendorLoginSuccessMsg {
+    margin: 25px;
+  }
+}
+
+@media (max-width: 480px) {
   .vendorLoginPage {
     flex-direction: column;
     height: auto;
-  }
-
-  .vendorLoginLeft,
-  .vendorLoginRight {
     width: 100%;
   }
 
-  .vendorLoginRight {
-    height: 350px;
+  .vendorLoginLeft {
+    width: 100%;
   }
 
-  .vendorLoginHeroCard {
-    width: 95%;
+  .vendorLoginSubtitle {
+    padding: 0 20px;
+    font-size: 15px;
+  }
+
+  .vendorLoginForm {
+    padding: 0 10px;
+    margin-top: 25px;
+  }
+
+  .vendorLoginGroup {
+    margin-bottom: 15px;
+  }
+
+  .vendorLoginInput {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .vendorLoginButton {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .vendorLoginForgot {
+    font-size: 10px;
+    right: 5px;
+    top: 70px;
+  }
+
+  .vendorLoginSuccessMsg {
+    margin: 20px 10px !important;
+    font-size: 13px;
+  }
+
+  .vendorLoginRight {
+    display: none;
+  }
+
+  .vendorLoginPage {
+    min-height: 100vh !important;
+    height: auto !important;
+    display: block;
   }
 }
