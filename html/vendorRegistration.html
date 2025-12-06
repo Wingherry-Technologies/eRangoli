@@ -71,16 +71,21 @@
                     class="vendorRegistrationLabel"
                     for="vendorRegistrationGender"
                   >
-                    Gender
+                    Gender *
                   </label>
                   <select
                     id="vendorRegistrationGender"
                     class="vendorRegistrationInput vendorRegistrationSelect"
                   >
-                    <option value="">Female</option>
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
                     <option value="male">Male</option>
                     <option value="other">Other</option>
                   </select>
+                  <span
+                    id="vendorRegistrationGenderError"
+                    class="vendorRegistrationErrorText"
+                  ></span>
                 </div>
               </div>
 
@@ -119,6 +124,10 @@
                   class="vendorRegistrationInput"
                   placeholder="davidjohn23@gmail.com"
                 />
+                <span
+                  id="vendorRegistrationEmailError"
+                  class="vendorRegistrationErrorText"
+                ></span>
               </div>
 
               <!-- Designation -->
@@ -147,7 +156,7 @@
                     class="vendorRegistrationLabel"
                     for="vendorRegistrationIdType"
                   >
-                    Select the Identity Proof
+                    Select the Identity Proof *
                   </label>
                   <select
                     id="vendorRegistrationIdType"
@@ -212,7 +221,7 @@
                     <span class="vendorRegistrationUploadIcon">
                       <img src="../assets/login/UploadSimple.svg" alt="" />
                     </span>
-                    <span>Upload Front</span>
+                    <span>Upload Back</span>
                     <input
                       type="file"
                       id="vendorIdBack"
@@ -221,6 +230,7 @@
                     />
                   </label>
                 </div>
+                
               </div>
 
               <!-- BUTTON -->
@@ -285,7 +295,9 @@
               </div>
 
               <div class="vendorRegistrationRow vendorStep2RowCityZip">
-                <div class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2City">
+                <div
+                  class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2City"
+                >
                   <label class="vendorRegistrationLabel">City *</label>
                   <input
                     type="text"
@@ -299,7 +311,9 @@
                   ></span>
                 </div>
 
-                <div class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2Zip">
+                <div
+                  class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2Zip"
+                >
                   <label class="vendorRegistrationLabel">Zipcode *</label>
                   <input
                     type="text"
@@ -676,7 +690,8 @@
                 >
                   <input type="checkbox" id="vendorBankTerms" />
                   <span style="font-size: 11px">
-                    I Agree to the <a href="#" class="vendorTermsLink">Terms & Conditions</a> *
+                    I Agree to the
+                    <a href="#" class="vendorTermsLink">Terms & Conditions</a> *
                   </span>
                 </label>
                 <span

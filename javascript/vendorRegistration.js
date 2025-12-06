@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const fullNameInput = document.getElementById("vendorRegistrationFullName");
   const mobileInput = document.getElementById("vendorRegistrationMobile");
+    const genderSelect = document.getElementById("vendorRegistrationGender");
+     const emailInput = document.getElementById("vendorRegistrationEmail");
+       const designationInput = document.getElementById("vendorRegistrationDesignation");
   const step1Form = document.getElementById("vendorRegistrationFormStep1");
   const step1Container = document.getElementById("vendorRegistrationStep1");
   const step2Container = document.getElementById("vendorRegistrationStep2");
@@ -50,7 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //   Validate Name Function
   function validateName() {
-    const value = fullNameInput.value.trim();
+    let value = fullNameInput.value;
+    value = value.replace(/[^A-Za-z\s]/g, ""); 
+    value = value.replace(/^\s+/, ""); 
+    value = value.replace(/\s{2,}/g, " "); 
+
+    fullNameInput.value = value;
+    value = value.trim();
+
     let error = "";
 
     if (!value) {
@@ -72,6 +82,120 @@ document.addEventListener("DOMContentLoaded", function () {
       return true;
     }
   }
+  fullNameInput.addEventListener("keydown", function (e) {
+    const key = e.key;
+
+    if (key === "Enter") {
+      e.preventDefault(); 
+      if (validateName()) {
+        document.getElementById("vendorRegistrationGender").focus();
+      }
+      return;
+    }
+    const isLetter = /^[A-Za-z]$/.test(key);
+    const isSpace = key === " ";
+    const controlKeys = [
+      "Backspace",
+      "Tab",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+    ];
+
+    if (controlKeys.includes(key) || e.ctrlKey || e.metaKey) {
+      return;
+    }
+
+    if (!isLetter && !isSpace) {
+      e.preventDefault();
+      return;
+    }
+
+    if (isSpace) {
+      const cursorPos = this.selectionStart;
+      const value = this.value;
+
+      if (value.length === 0 || cursorPos === 0) {
+        e.preventDefault();
+        return;
+      }
+
+      if (value[cursorPos - 1] === " ") {
+        e.preventDefault();
+        return;
+      }
+    }
+  });
+
+  // Extra safety for paste etc.
+  fullNameInput.addEventListener("input", function () {
+    let v = this.value;
+
+    v = v.replace(/[^A-Za-z\s]/g, ""); // only letters + spaces
+    v = v.replace(/^\s+/, ""); // no leading space
+    v = v.replace(/\s{2,}/g, " "); // no multiple spaces
+
+    this.value = v;
+  });
+// Validate Email 
+  function validateEmail() {
+  let value = emailInput.value.trim();
+
+  // If empty -> no error, field is optional
+  if (!value) {
+    clearError(emailInput, "vendorRegistrationEmailError");
+    return true;
+  }
+
+  let error = "";
+
+  // 1) Allowed characters only: letters, numbers, @ . - _
+  if (!/^[A-Za-z0-9@._-]+$/.test(value)) {
+    error = "Email can contain only letters, numbers, @ . - _";
+  }
+  // 2) Should not start or end with special character
+  else if (/^[.@_-]/.test(value) || /[.@_-]$/.test(value)) {
+    error = "Email cannot start or end with a special character";
+  }
+  // 3) Must include @ and .
+  else if (!value.includes("@") || !value.includes(".")) {
+    error = "Email must contain @ and .";
+  }
+  // 4) No consecutive periods
+  else if (value.includes("..")) {
+    error = "Periods cannot appear consecutively";
+  }
+
+  if (error) {
+    showError(emailInput, "vendorRegistrationEmailError", error);
+    return false;
+  } else {
+    clearError(emailInput, "vendorRegistrationEmailError");
+    return true;
+  }
+}
+// Validate Gender
+function validateGender() {
+  const genderSelect = document.getElementById("vendorRegistrationGender");
+
+  if (genderSelect.value.trim() === "") {
+    showError(
+      genderSelect,
+      "vendorRegistrationGenderError",
+      "Please select gender"
+    );
+    return false;
+  } else {
+    clearError(genderSelect, "vendorRegistrationGenderError");
+    return true;
+  }
+}
+
+
+
+
   // Mobile Validation Function
   function validateMobile() {
     let value = mobileInput.value.replace(/\D/g, "");
@@ -103,17 +227,77 @@ document.addEventListener("DOMContentLoaded", function () {
     this.value = this.value.replace(/\D/g, "");
   });
 
+
+  // validate DESIGNATION - ONLY ALPHABETS
+designationInput.addEventListener("keydown", function (e) {
+  const key = e.key;
+
+  const isLetter = /^[A-Za-z]$/.test(key);
+  const isSpace = key === " ";
+  const controlKeys = [
+    "Backspace",
+    "Tab",
+    "Delete",
+    "ArrowLeft",
+    "ArrowRight",
+    "Home",
+    "End"
+  ];
+
+  // Allow navigation / control
+  if (controlKeys.includes(key) || e.ctrlKey || e.metaKey) return;
+
+  // Block anything that is not a letter or space
+  if (!isLetter && !isSpace) {
+    e.preventDefault();
+    return;
+  }
+
+  // OPTIONAL: Prevent space as first character and double spaces
+  if (isSpace) {
+    const cursorPos = this.selectionStart;
+    const value = this.value;
+
+    if (cursorPos === 0) {
+      e.preventDefault();
+      return;
+    }
+
+    if (value[cursorPos - 1] === " ") {
+      e.preventDefault();
+      return;
+    }
+  }
+});
+
+// Clean pasted text
+designationInput.addEventListener("input", function () {
+  let v = this.value;
+
+  v = v.replace(/[^A-Za-z\s]/g, ""); // only alphabets + spaces
+  v = v.replace(/^\s+/, ""); // no leading space
+  v = v.replace(/\s{2,}/g, " "); // no double spaces
+
+  this.value = v;
+});
+
+
   fullNameInput.addEventListener("blur", validateName);
   mobileInput.addEventListener("blur", validateMobile);
+  emailInput.addEventListener("blur", validateEmail);
+  genderSelect.addEventListener("change", validateGender);
+genderSelect.addEventListener("blur", validateGender);
 
   // STEP 1 submit -> validation -> STEP 2
   step1Form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isGenderValid = validateGender();
     const isMobileValid = validateMobile();
 
-    if (isNameValid && isMobileValid) {
+    if (isNameValid && isEmailValid && isGenderValid && isMobileValid) {
       step1Container.style.display = "none";
       step2Container.style.display = "block";
       setStep(1); // second dot green
