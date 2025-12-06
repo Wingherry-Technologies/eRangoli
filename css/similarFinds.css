@@ -190,7 +190,7 @@
 
 /* PRODUCT NAME */
 .rv-name {
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 12px;
   color: #3d3434;
   font-weight: 600;
@@ -211,13 +211,15 @@
 
 .rv-tags .free {
   color: #009605;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .rv-tags .left {
   color: #ff0000;
   margin-left: 10px;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 /* PRICE */
