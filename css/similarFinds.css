@@ -1,0 +1,89 @@
+/* Section */
+.similar-finds-section {
+  background: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+.similar-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3f3f3f;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.similar-title::after {
+  content: "";
+  width: 120px;
+  height: 3px;
+  background: #a10404;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+}
+
+.similar-list {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.similar-card {
+  width: 170px;
+  text-align: center;
+}
+
+.similar-card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.similar-card h3 {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3a3f45;
+}
+
+.brand {
+  font-size: 13px;
+  color: #716b6b;
+  margin: 4px 0;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 400;
+  color: #3f3f3f;
+  margin-top: 4px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #716b6b;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.offer {
+  color: #3f3f3f;
+  margin-left: 4px;
+  font-size: 13px;
+}
+
+/* button */
+.load-more-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 22px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #a10404;
+  cursor: pointer;
+}
