@@ -172,7 +172,7 @@
   margin-top: 10px;
 }
 
-.vendorRegistrationUploadPlus {
+/* .vendorRegistrationUploadPlus {
   position: absolute;
   top: 0px;
   right: -25px;
@@ -189,7 +189,7 @@
 .vendorRegistrationUploadIcon {
   font-size: 20px;
   margin-bottom: 4px;
-}
+} */
 
 /* STEP-1 CUSTOM LAYOUT FIXES  */
 .vendorStep1Row1 {
@@ -248,7 +248,7 @@
 
 .vendorRegistrationRow {
   display: flex;
-  gap: 35px;
+  gap: 25px;
 }
 
 .vendorRegistrationHalf {
@@ -396,7 +396,8 @@
 
   .vendorRegistrationHeader {
     height: 90px;
-    padding: 20px 10px 35px;
+    padding: 40px 10px 35px;
+    text-align: left;
   }
 
   .vendorRegistrationTitle {
@@ -405,5 +406,18 @@
 
   .vendorRegistrationRow {
     flex-direction: column;
+  }
+  .vendorRegistrationRowUpload{
+    flex-direction: row;
+  }
+  .vendorRegistrationUploadBox {
+    padding: 5px;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+  }
+  .vendorRegistrationRow{
+    gap: 20px;
   }
 }
