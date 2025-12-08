@@ -318,6 +318,119 @@ nav{
     font-weight: 500;
 }
 
+/* Mobile Radio buttons */
+.signup-page-navigations{
+    display: none;
+}
+
+@media (max-width: 595px) {
+    .signup-page-navigations {
+        display: block;
+        position: absolute;
+        background-color: white;
+        top: 0px;
+        height: 100%;
+        z-index: 99999;
+        width: 100%;
+    }
+    .sigup-navigation-heading {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 20px;
+        padding-left: 20px;
+        background-image: url("../assets/master/Rectangle\ 398.svg");
+        background-color: #a1040413;
+        height: 100px;
+    }
+    .sigup-navigation-heading>span {
+        color: #A10404;
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .radio-buttons-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-left: 20px;
+        gap: 10px;
+    }
+    .radio-button {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .radio-input-main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .radio-img-main {
+        background-color: #EFDFDF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+    }
+    .radio-input-main>span {
+        font-weight: 600;
+    }
+    .continue-btn {
+        margin-top: 30px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .continue-btn>span {
+        background-color: #A10404;
+        padding: 10px 60px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+
+    /* Hide the default radio button */
+    .radio-buttons-main input[type="radio"] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+
+    /* Create a custom radio button */
+    .radio-buttons-main input[type="radio"] + label::before {
+        content: '';
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 2px solid #4caf50; /* Green border */
+        background-color: white;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-right: 10px;
+    }
+
+    /* When the radio is checked, change the background to green */
+    .radio-buttons-main input[type="radio"]:checked + label::before {
+        background-color: #4caf50;
+        border-color: #4caf50;
+        transform: scale(1.1); /* Slightly increase the size when checked */
+    }
+    #error-tostify{
+        margin-top: 50px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    #error-tostify>span{
+        background-color: rgba(168, 20, 20, 0.267);
+        padding: 5px 10px;
+        border-radius: 5px;
+
+    }
+}
+
 
 
 
@@ -747,9 +860,13 @@ nav{
         gap: 10px;
     }
     .dropdown{
-        left: -50px;
+        left: -60px;
         font-size: 12px;
     }
+    #home-furnishing-dropdown{
+        left: -100px !important;
+    }
+
 }
 @media (max-width:595px) {
     /* .middle-nav-bar, .menu-section .search-bar, .round-button, .signup-button{
