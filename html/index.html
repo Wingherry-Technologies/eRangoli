@@ -16,7 +16,12 @@
 
     <nav>
         <div class="logo-section">
-            <img src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="desktop-erangoli-logo" src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" src="../assets/master/eRangoli 2-1.svg" alt="">
+            <div class="search-bar">
+                <img src="../assets/master/MagnifyingGlass.svg" alt="" />
+                <input type="text" id="search-bar-search" placeholder="Search" />
+            </div>
         </div>
 
         <!-- HAMBURGER (Mobile Only) -->
@@ -32,15 +37,15 @@
               </div>
               <div class="welcome-text-section">
                 <span>Welcome !</span>
-                <a href="../html/whoareyou.html" id="mobile-signup">Sign Up</a>
+                <a href="../html/whoareyou.html" id="welcome-name">Sign Up</a>
               </div>
             </div>
 
-            <div class="main-bottom-section">
+            <div class="main-bottom-section account-section">
               <div class="sub-section">
                 <span>Categories</span>
 
-                <ul class="mobile-nav-menu">
+                <ul class="mobile-nav-menu not-logged-in" id="account-menu">
 
                   <!-- ITEM -->
                 <li class="mobile-dropdown">
@@ -258,11 +263,11 @@
               </div>
             </div>
 
-            <div class="main-bottom-section">
+            <div class="main-bottom-section support-section">
               <div class="sub-section">
                 <span>Account</span>
 
-                <ul class="mobile-nav-menu not-logged-in">
+                <ul class="mobile-nav-menu not-logged-in" id="support-menu">
 
                   <!-- ITEM -->
                   <li class="mobile-dropdown">
@@ -377,25 +382,21 @@
             </div>
           </div>  
 
-
-
         <!-- MENU -->
         <div class="menu-section" >
-            <div class="search-bar">
-                <img src="../assets/master/MagnifyingGlass.svg" alt="" />
-                <input type="text" id="search-bar-search" placeholder="Search" />
-            </div>
 
-            <div class="round-button">
+            <div class="round-button" id="round-button-wishlist">
                 <img src="../assets/master/Heart.svg" alt="" />
             </div>
 
-            <div class="round-button">
+            <div class="round-button" id="round-button-cart">
                 <img src="../assets/master/ShoppingCart.svg" alt="" />
             </div>
 
+            
+
             <div class="signup-wrapper">
-                <div class="signup-button">
+                <div class="signup-button" id="signup-button">
                     <span>Sign Up</span>
                 </div>
 
@@ -403,6 +404,52 @@
                     <li onclick="window.location.href='../html/login.html'">Customer</li>
                     <li onclick="window.location.href='../html/vendorlogin.html'">Vendor</li>
                 </ul>
+            </div>
+            <div class="user-profile-icon" id="user-profile-icon" style="display: none;">
+                    <div class="img-name">
+                      <img src="../assets/master/Group 2055248221.svg" alt="User Profile" />
+                      <span>John David</span>
+                    </div>
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <ul>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/Package.svg" alt="">
+                              </div>
+                              <span>My Orders</span>
+                            </li>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/UserCircle.svg" alt="">
+                              </div>
+                              <span>My Profile</span>
+                            </li>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/UserSwitch.svg" alt="">
+                              </div>
+                              <span>Coupons & Referals</span>
+                            </li>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/Headset.svg" alt="">
+                              </div>
+                              <span>Help & Support</span>
+                            </li>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/Info.svg" alt="">
+                              </div>
+                              <span>Privacy Policy</span>
+                            </li>
+                            <li>
+                              <div class="profile-dropdown-image">
+                                <img src="../assets/master/Question.svg" alt="">
+                              </div>
+                              <span>FAQ</span>
+                            </li>
+                        </ul>
+                    </div>
             </div>
         </div>
     </nav>

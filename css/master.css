@@ -25,6 +25,9 @@ nav{
 }
 .logo-section{
     height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 .logo-section>img{
     height: 100%;
@@ -35,21 +38,23 @@ nav{
     justify-content: flex-start;
     gap: 10px;
 }
-.menu-section .search-bar{
+ .search-bar{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 5px;
-    border: 1px solid #D9D9D9;
-    border-radius: 8px;
-    background-color: #FCFCFC;
+    border: 1px solid #3F3F3F;
+    border-radius: 20px;
     padding: 5px;
-    width: 300px;
+    width: 400px;
 }
-.menu-section .search-bar>img{
-    height: 20px;
+.search-bar>img{
+    height: 30px;
+    background-color: #EFDFDF;
+    border-radius: 50%;
+    padding: 5px;
 }
-.menu-section .search-bar>input{
+.search-bar>input{
     background-color: transparent;
     border: none;
     outline: none;
@@ -61,6 +66,7 @@ nav{
     justify-content: center;
     padding: 8px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .round-button>img{
     height: 20px;
@@ -431,6 +437,69 @@ nav{
     }
 }
 
+/* Ensure the profile dropdown is hidden by default */
+.user-profile-icon .img-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+
+}
+.img-name>img{
+    height: 40px;
+    width: 50px;
+    border-radius: 50%;
+}
+.img-name>span{
+    font-size: 12px;
+}
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.profile-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-dropdown ul li {
+    padding: 5px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:30px;
+    border-bottom: 1px solid #D9D9D9;
+    color: #3F3F3F;
+    border-radius: 5px;
+}
+.profile-dropdown-image{
+    background-color: #EFDFDF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 50%;
+}
+.profile-dropdown ul li:hover{
+    background-color: #EFDFDF;
+    color: #A10404;
+}
+.profile-dropdown ul li:hover .profile-dropdown-image{
+    background-color: white;
+}
+
+
 
 
 
@@ -751,12 +820,17 @@ nav{
         font-size: 14px;
     }
 }
+@media (max-width:916px) {
+    .search-bar{
+        width: 300px;
+    }
+}
 
 @media (max-width:815px) {
 
     /* Nav Bar */
-    .menu-section .search-bar{
-        width: 200px;
+     .search-bar{
+        width: 250px;
     }
     .signup-button{
         padding: 10px 20px;
@@ -815,6 +889,14 @@ nav{
         gap: 10px;
     }
 }
+@media (max-width:716px) {
+    .logo-section{
+        gap: 10px;
+    }
+    .search-bar{
+        width: 230px;
+    }
+}
 @media (max-width:698px) {
     .dropdown{
         left: -80px;
@@ -824,6 +906,12 @@ nav{
     }
     .submenu-dropdown-main>li{
         font-size: 10px;
+    }
+}
+
+@media (max-width:672px) {
+    .search-bar{
+        width: 200px;
     }
 }
 
@@ -900,6 +988,9 @@ nav{
     background-color: #A10404;
     border-radius: 4px;
 }
+#mobile-erangoli-logo{
+    display: none;
+}
 
 @media (max-width: 595px) {
 
@@ -909,6 +1000,23 @@ nav{
 
     .hamburger-menu {
         display: flex;
+    }
+
+    #mobile-erangoli-logo{
+        display: flex;
+        z-index: 99;
+    }
+    .search-bar{
+        width: 300px;
+        padding: 2px 10px;
+        position: relative;
+        right: 52px;
+        z-index: 1;
+        border: 1px solid #8E8989;
+    }
+
+    #desktop-erangoli-logo{
+        display: none;
     }
 
     .menu-section {
@@ -939,6 +1047,11 @@ nav{
 
     .heading-tag-for-section>div{
         font-size: 18px;
+    }
+}
+@media (max-width:425px) {
+    .search-bar{
+        width: 200px;
     }
 }
 
