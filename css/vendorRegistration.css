@@ -75,7 +75,7 @@
   top: 50%;
   left: 40px;
   right: 40px;
-  height: 2px;
+  height: 2.5px;
   background: #e1e1e1;
   z-index: 0;
 }
@@ -380,10 +380,10 @@
     width: 100% !important;
   }
   .vendorRegistrationSteps {
-    gap: 60px;
+    justify-content: space-between;
   }
   .vendorRegistrationStepsWrapper {
-    padding: 12px 20px 0;
+    padding: 20px 20px 0;
   }
 
   .vendorRegistrationCard {
@@ -420,4 +420,29 @@
   .vendorRegistrationRow{
     gap: 20px;
   }
+}
+
+/* scroll bar  */
+::-webkit-scrollbar {
+  width: 6px;            
+  height: 6px;           
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;   
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
+
+* {
+  scrollbar-width: thin;        
+  scrollbar-color: #888 #f0f0f0; 
 }
