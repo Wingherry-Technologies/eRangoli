@@ -245,6 +245,10 @@
   background-color: #a10404;
   color: #ffffff;
 }
+.vendorRegistrationPreviousBtn{
+  background-color: unset;
+  color: #3f3f3f;
+}
 
 .vendorRegistrationRow {
   display: flex;
