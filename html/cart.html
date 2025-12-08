@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- BACK TO SEARCH -->
+      <div class="back-row">
+        <img src="../assets/cart/back.svg" class="back-icon" />
+        <span>Back to search</span>
+      </div>
+
+      <div class="main-grid">
+        <!-- LEFT BANNER -->
+        <div class="left-banner">
+          <img src="../assets/cart/banner.svg" class="banner-img" />
+          <div class="offer-box">
+            <h1 class="offer-title">50%</h1>
+            <h2 class="offer-sub">OFF on<br />furniture</h2>
+            <p class="offer-small">
+              Handcrafted Finds to Elevate Every Corner.
+            </p>
+          </div>
+        </div>
+
+        <!-- DELIVERY DETAILS -->
+        <div class="delivery-card">
+          <h2 class="section-heading">Delivery Details</h2>
+
+          <!-- DELIVERY FORM -->
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="name" placeholder="David John" />
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="davidjohn23@gmail.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="text" id="phone" placeholder="95367 89905" />
+          </div>
+
+          <h3 class="sub-heading">Address</h3>
+
+          <div class="form-group">
+            <label>House No/ Society *</label>
+            <input type="text" id="hno" placeholder="C - 605 , Eden Park" />
+          </div>
+
+          <div class="form-group">
+            <label>Area / Lane *</label>
+            <input
+              type="text"
+              id="lane"
+              placeholder="Mudhuban colony, parsi road"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Landmark (Optional)</label>
+            <input
+              type="text"
+              id="landmark"
+              placeholder="Near Appolo Hospital"
+            />
+          </div>
+
+          <div class="inline-row">
+            <div class="form-group half">
+              <label>City *</label>
+              <input type="text" id="city" placeholder="Pune" />
+            </div>
+
+            <div class="form-group half">
+              <label>Zipcode *</label>
+              <input type="text" id="zip" placeholder="234 678" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>State *</label>
+            <input type="text" id="state" placeholder="Maharashtra" />
+          </div>
+
+          <button class="save-btn" id="saveAddressBtn">Save</button>
+
+          <!-- SAVED ADDRESS SECTION -->
+          <div id="saved-address-section" class="saved-address hidden">
+            <h3 class="saved-address-heading">Address</h3>
+
+            <!-- ADDRESS TEMPLATE (HIDDEN) -->
+            <div id="address-template" class="address-wrapper hidden">
+              <!-- WHITE BOX -->
+              <div class="address-card">
+                <p class="add-name"></p>
+                <p class="add-email"></p>
+                <p class="add-phone"></p>
+                <p class="add-full"></p>
+              </div>
+
+              <!-- FOOTER BELOW WHITE BOX -->
+              <div class="address-footer">
+                <label class="use-detail">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  Use these delivery detail
+                </label>
+
+                <img
+                  src="../assets/cart/delete.svg"
+                  class="address-delete-btn"
+                />
+              </div>
+            </div>
+
+            <!-- Address cards will be injected here -->
+            <div id="address-list"></div>
+
+            <button class="new-address-btn" id="openPopupBtn">
+              Add a new Address
+            </button>
+          </div>
+
+          <!-- INLINE POPUP -->
+          <div id="inlinePopup" class="inline-popup hidden">
+            <div class="popup-header">
+              <h2 class="popup-heading">Add New Address</h2>
+              <span id="closeInlinePopup" class="popup-close">✕</span>
+            </div>
+
+            <div class="popup-form">
+              <label>Your Name</label>
+              <input
+                type="text"
+                id="p-name"
+                class="popup-input"
+                placeholder="David John"
+              />
+
+              <label>Email Address</label>
+              <input
+                type="email"
+                id="p-email"
+                class="popup-input"
+                placeholder="davidjohn23@gmail.com"
+              />
+
+              <label>Mobile Number</label>
+              <input
+                type="text"
+                id="p-phone"
+                class="popup-input"
+                placeholder="95367 89905"
+              />
+
+              <label>House No/ Society *</label>
+              <input
+                type="text"
+                id="p-hno"
+                class="popup-input"
+                placeholder="C - 605 , Eden Park"
+              />
+
+              <label>Area / Lane *</label>
+              <input
+                type="text"
+                id="p-lane"
+                class="popup-input"
+                placeholder="Mudhuban colony, parsi road"
+              />
+
+              <label>Landmark (Optional)</label>
+              <input
+                type="text"
+                id="p-landmark"
+                class="popup-input"
+                placeholder="Near Appolo Hospital"
+              />
+
+              <label>City *</label>
+              <input
+                type="text"
+                id="p-city"
+                class="popup-input"
+                placeholder="Pune"
+              />
+
+              <label>Zipcode *</label>
+              <input
+                type="text"
+                id="p-zip"
+                class="popup-input"
+                placeholder="234 678"
+              />
+
+              <label>State *</label>
+              <input
+                type="text"
+                id="p-state"
+                class="popup-input"
+                placeholder="Maharashtra"
+              />
+            </div>
+
+            <button class="popup-save-btn" id="popupSaveBtn">Save</button>
+          </div>
+        </div>
+
+        <!-- BILLING DETAILS -->
+
+        <div class="billing-card">
+          <div class="bill-header">
+            <h2>Billing Details</h2>
+          </div>
+
+          <div class="detailed-cart">
+            <span class="your-cart">Your Cart</span>
+            <span class="total-items">Total Items - 2</span>
+          </div>
+
+          <!-- PRODUCT 1 -->
+          <div class="product-row">
+            <img src="../assets/cart/product1.svg" class="prod-img" />
+
+            <div class="prod-info">
+              <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
+              <p class="company">by Sanskriti Collection</p>
+              <p class="color">Colour - Mahagony</p>
+
+              <div class="price-qty-row">
+                <p class="price">Price - <span class="rupee">₹2,674</span></p>
+
+                <div class="qty-box">
+                  <button><img src="../assets/cart/minus.svg" /></button>
+                  <span>1</span>
+                  <button><img src="../assets/cart/plus.svg" /></button>
+                </div>
+              </div>
+            </div>
+
+            <img src="../assets/cart/delete.svg" class="delete-btn" />
+          </div>
+
+          <hr />
+
+          <!-- PRODUCT 2 -->
+          <div class="product-row">
+            <img src="../assets/cart/product2.svg" class="prod-img" />
+
+            <div class="prod-info">
+              <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
+              <p class="company">by Sanskriti Collection</p>
+              <p class="color">Colour - Mahagony</p>
+
+              <div class="price-qty-row">
+                <p class="price">Price - <span class="rupee">₹2,674</span></p>
+
+                <div class="qty-box">
+                  <button><img src="../assets/cart/minus.svg" /></button>
+                  <span>1</span>
+                  <button><img src="../assets/cart/plus.svg" /></button>
+                </div>
+              </div>
+            </div>
+
+            <img src="../assets/cart/delete.svg" class="delete-btn" />
+          </div>
+
+          <hr />
+
+          <!-- COUPON -->
+          <div class="coupon-box">
+            <img src="../assets/cart/tag.svg" class="coupon-icon" />
+
+            <input type="text" value="FIRST 500" />
+
+            <button class="apply-btn">Apply</button>
+          </div>
+
+          <div class="billing-summary">
+            <div class="line">
+              <span>Subtotal</span>
+              <span id="subtotalAmount">2674</span>
+            </div>
+
+            <div class="line">
+              <span>Shipping</span>
+              <span class="free">Free delivery</span>
+            </div>
+
+            <div class="line">
+              <span>Discount</span>
+              <span id="discountAmount">₹0</span>
+            </div>
+
+            <div class="line">
+              <span>GST</span>
+              <span id="gstAmount">234</span>
+            </div>
+            <hr />
+            <div class="line payable">
+              <span>Payable</span>
+              <span id="payableAmount">0</span>
+            </div>
+          </div>
+
+          <button class="pay-btn">Pay</button>
+          <div id="stockWarning" class="stock-warning hidden">
+            <span>One item out of stock, remove it</span>
+            <span id="closeWarning" class="close-warning">✕</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/cart.js"></script>
+  </body>
+</html>
