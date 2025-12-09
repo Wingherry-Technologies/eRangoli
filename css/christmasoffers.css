@@ -10,7 +10,7 @@
 /*Christmas Section*/
 .category-section {
   width: 100%;
-  padding: 20px 0;
+  padding-top: 40px;
   background-color: #9f040405;
 }
 
@@ -188,7 +188,7 @@
 
 /* Experience Section */
 .features-section {
-  margin-top: 20px;
+  padding-top: 40px;
   width: 100%;
   text-align: center;
 }
@@ -278,7 +278,7 @@
 
 .crafted-section {
   width: 100%;
-  padding-top: 30px;
+  padding-top: 40px;
 }
 
 .heading-line-exclusive-crafted {
@@ -371,7 +371,7 @@
 /*Collection Section*/
 .collection-section {
   width: 100%;
-  padding-top: 20px;
+  padding-top: 30px;
   background-color: #9f040405;
 }
 
@@ -443,7 +443,7 @@
 }
 
 .customer-section {
-  padding: 0px 30px;
+  padding: 30px 30px;
   background-color: #9f040405;
 }
 
@@ -653,11 +653,14 @@ body {
 /*responsive*/
 @media (max-width: 1024px) and (min-width: 768px) {
 
-  .heading-line,
-  .heading-line-experience,
+  /* .heading-line,
+  
   .heading-line-exclusive-crafted {
     width: 150px;
   }
+  .heading-line-experience{
+    width: 180px;
+  } */
 
   .category-grid,
   .crafted-grid,
@@ -665,7 +668,6 @@ body {
     grid-template-columns: 1.4fr 1fr 1fr;
     grid-template-rows: 200px 200px;
     gap: 12px;
-    padding: 0 20px;
   }
 
   .heading-tag-for-section {
@@ -710,7 +712,6 @@ body {
   }
 
   .features-row {
-    padding: 0 20px;
     gap: 15px;
     justify-content: center;
   }
@@ -863,7 +864,6 @@ body {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 0 15px;
   }
 
   .feature-text {
@@ -889,7 +889,7 @@ body {
     width: 100% !important;
   }
 }
-@media (max-width:424px) {
+@media (max-width:595px) {
   .heading-tag-for-section .heading-line{
         width: 140px;
   }

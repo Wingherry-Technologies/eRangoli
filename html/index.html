@@ -17,11 +17,12 @@
     <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" src="../assets/master/eRangoli 2.svg" alt="" />
-            <img id="mobile-erangoli-logo" src="../assets/master/eRangoli 2-1.svg" alt="">
+            <img id="mobile-erangoli-logo" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
             <div class="search-bar">
                 <img src="../assets/master/MagnifyingGlass.svg" alt="" />
-                <input type="text" id="search-bar-search" placeholder="Search" />
+                <input type="search" id="desktop-search" placeholder="Search" onkeyup="showSuggestions(this)">
             </div>
+            <ul id="desktop-suggestions" class="suggestions-box"></ul>
         </div>
 
         <!-- HAMBURGER (Mobile Only) -->
@@ -31,26 +32,33 @@
 
         <!-- Mobile Menu -->
           <div id="mobile-menu">
-            <div class="welcome-main-section">
+            <div class="welcome-main-section" id="welcome-section">
               <div class="image-section">
-                <img src="../assets/master/Ellipse 28.svg" alt="">
+                <div class="circle-image">
+                  <span>eR</span>
+                </div>
               </div>
               <div class="welcome-text-section">
                 <span>Welcome !</span>
-                <a href="../html/whoareyou.html" id="welcome-name">Sign Up</a>
+                <a id="welcome-name">Sign Up</a>
               </div>
             </div>
 
-            <div class="main-bottom-section account-section">
+            <div class="main-bottom-section">
               <div class="sub-section">
                 <span>Categories</span>
 
-                <ul class="mobile-nav-menu not-logged-in" id="account-menu">
+                <ul class="mobile-nav-menu1" id="account-menu">
 
                   <!-- ITEM -->
                 <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Arts & Crafts</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/Dress.svg" alt="">
+                        </div>
+                        <span>Arts & Crafts</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -116,7 +124,12 @@
                   <!-- JEWELLERY -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Jewellery</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/necklace-fashion-svgrepo-com 1.svg" alt="">
+                        </div>
+                        <span>Jewellery</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -146,7 +159,12 @@
                   <!-- FOOTWEAR -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Footwear</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/womans-sandal-svgrepo-com 1.svg" alt="">
+                        </div>
+                        <span>Footwear</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -173,7 +191,12 @@
                   <!-- HANDLOOMS -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Handlooms</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/clean-cleaning-towels-svgrepo-com (1) 1.svg" alt="">
+                        </div>
+                        <span>Handlooms</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -215,7 +238,12 @@
                   <!-- HERITAGE WRAPS -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Heritage Wraps</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/scarf-svgrepo-com 1.svg" alt="">
+                        </div>
+                        <span>Heritage Wraps</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -230,7 +258,12 @@
                   <!-- HOME FURNISHING -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
-                      <span>Home Furnishing</span>
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/Chair.svg" alt="">
+                        </div>
+                        <span>Home Furnishing</span>
+                      </div>
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
 
@@ -258,19 +291,98 @@
                     </ul>
                   </li>
 
+                  <!-- SHOP BY STATES -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/HandsPraying.svg" alt="">
+                        </div>
+                        <span>Shop By States</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+
+                    <ul class="mobile-submenu">
+
+                      <li class="mobile-dropdown-sub">
+                        <span>Andra Pradesh</span>
+                        <!-- <ul>
+                          <li>Bedsheets</li>
+                          <li>Pillow Covers</li>
+                          <li>Towels</li>
+                          <li>Handkerchiefs</li>
+                        </ul> -->
+                      </li>
+
+                      <li class="mobile-dropdown-sub">
+                        <span>Assam</span>
+                        <!-- <ul>
+                          <li>Curtains</li>
+                          <li>Cushion Covers</li>
+                          <li>Deewan Sets</li>
+                        </ul> -->
+                      </li>
+
+                      <li class="mobile-dropdown-sub">
+                        <span>Bihar</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Chhattisgarh</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Himachal Pradesh</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Jammu and Kashmir</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Jharkhand</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Karnataka</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Gujarat</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Maharastra</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Madhya Pradesh</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Odisha</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Rajasthan</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Tamil Nadu</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>Uttar Pradesh</span>
+                      </li>
+                      <li class="mobile-dropdown-sub">
+                        <span>West Bengal</span>
+                      </li>
+
+                    </ul>
+                  </li>
+
 
                 </ul>
               </div>
             </div>
 
-            <div class="main-bottom-section support-section">
+            <div class="main-bottom-section account-section">
               <div class="sub-section">
                 <span>Account</span>
 
-                <ul class="mobile-nav-menu not-logged-in" id="support-menu">
+                <ul class="mobile-nav-menu not-logged-in" id="account-menu">
 
                   <!-- ITEM -->
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-my-wishlist">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -282,7 +394,7 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-my-cart">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -294,19 +406,19 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-order">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
                           <img src="../assets/master/Package.svg" alt="">
                         </div>
-                        <span>Order</span>
+                        <span>My Orders</span>
                       </div>
                       <img src="../assets/master/CaretDown.svg">
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-my-profile">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -318,25 +430,25 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-referal">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
                           <img src="../assets/master/UserSwitch.svg" alt="">
                         </div>
-                        <span>Referral</span>
+                        <span>Coupons & Referals</span>
                       </div>
                       <img src="../assets/master/CaretDown.svg">
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown1" id="mobile-faqs">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
-                          <img src="../assets/master/NyTimesLogo.svg" alt="">
+                          <img src="../assets/master/Question.svg" alt="">
                         </div>
-                        <span>Antiques</span>
+                        <span>FAQ</span>
                       </div>
                       <img src="../assets/master/CaretDown.svg">
                     </div>
@@ -346,14 +458,14 @@
               </div>
             </div>
 
-            <div class="main-bottom-section">
+            <div class="main-bottom-section support-section">
               <div class="sub-section">
                 <span>Support</span>
 
-                <ul class="mobile-nav-menu not-logged-in">
+                <ul class="mobile-nav-menu not-logged-in" id="support-menu">
 
                   <!-- ITEM -->
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown2" id="mobile-customer-care">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -365,7 +477,7 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown2" id="mobile-privacy-policy">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -380,22 +492,39 @@
                 </ul>
               </div>
             </div>
+
+            <div class="mobile-logout-section">
+              <div class="mobile-logout-sub">
+                <div class="version">
+                  <span>eRangoli Version 1.0.0</span>
+                </div>
+                <div class="logout-button">
+                  <img src="../assets/master/SignOut.svg" alt="">
+                  <span>Logout</span>
+                </div>
+              </div>
+            </div>
           </div>  
 
         <!-- MENU -->
         <div class="menu-section" >
 
+            <div class="round-button" id="round-button-notification">
+                <span class="number-of-round" id="number-of-notification">2</span>
+                <img src="../assets/master/Bell.svg" alt="" />
+            </div>
+
             <div class="round-button" id="round-button-wishlist">
+              <span class="number-of-round" id="number-of-wishlist">4</span>
                 <img src="../assets/master/Heart.svg" alt="" />
             </div>
 
             <div class="round-button" id="round-button-cart">
+              <span class="number-of-round" id="number-of-cart">1</span>
                 <img src="../assets/master/ShoppingCart.svg" alt="" />
             </div>
 
-            
-
-            <div class="signup-wrapper">
+            <div class="signup-wrapper" id="signup-wrapper">
                 <div class="signup-button" id="signup-button">
                     <span>Sign Up</span>
                 </div>
@@ -405,10 +534,13 @@
                     <li onclick="window.location.href='../html/vendorlogin.html'">Vendor</li>
                 </ul>
             </div>
+
             <div class="user-profile-icon" id="user-profile-icon" style="display: none;">
                     <div class="img-name">
-                      <img src="../assets/master/Group 2055248221.svg" alt="User Profile" />
-                      <span>John David</span>
+                      <div class="circle-image">
+                        <span>JD</span>
+                      </div>
+                      <span id="user-name">John David</span>
                     </div>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <ul>
@@ -449,10 +581,49 @@
                               <span>FAQ</span>
                             </li>
                         </ul>
+                        <div class="logout-option-desktop">
+                          <img src="../assets/master/SignOut1.svg" alt="">
+                          <span>Logout</span>
+                        </div>
                     </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/master/Vector.svg" alt="">
+        <span class="bottom-nav__label">Home</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-wishlist">
+        <img src="../assets/master/likednav.svg" alt="">
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Wishlist</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="">
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
+        <img src="../assets/master/ShoppingCart (1).svg" alt="">
+        <span class="bottom-bar-numbers">4</span>
+        <span class="bottom-nav__label">Cart</span>
+      </a>
+    </div>
+
+    <!-- Mobile Search Bar -->
+     <div class="mobile-search-bar-main">
+        <div class="mobile-search-bar">
+            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
+            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
+        </div>
+    </div>
+    <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
 
     <!-- Banner Section -->
@@ -631,6 +802,31 @@
                   <li>Curtains</li>
                   <li>Cushion Covers</li>
                   <li>Deewan Sets</li>
+                </ul>
+                
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            Shop By State
+            <ul class="dropdown" id="home-furnishing-dropdown">
+              <li>
+                <ul class="submenu-dropdown-main">
+                  <li>Andhra Pradesh</li>
+                  <li>Assam</li>
+                  <li>Bihar</li>
+                  <li>Chhattisgarh</li>
+                  <li>Himachal Pradesh</li>
+                  <li>Jammu and Kashmir</li>
+                  <li>Jharkhand</li>
+                  <li>Karnataka</li>
+                  <li>Gujarat</li>
+                  <li>Maharastra</li>
+                  <li>Madhya Pradesh</li>
+                  <li>Rajasthan</li>
+                  <li>Tamil Nadu</li>
+                  <li>West Bengal</li>
                 </ul>
                 
               </li>
@@ -1994,28 +2190,7 @@
     </footer>
 
 
-  <!-- Mobile Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="index.html" class="bottom-nav__item">
-    <img src="../assets/master/Vector.svg" alt="">
-    <span class="bottom-nav__label">Home</span>
-  </a>
-  
-  <a href="#" class="bottom-nav__item">
-    <img src="../assets/master/likednav.svg" alt="">
-    <span class="bottom-nav__label">Wishlist</span>
-  </a>
-  
-  <a href="#" class="bottom-nav__item">
-<img src="../assets/master/notificationnav.svg" alt="">
-    <span class="bottom-nav__label">Notifications</span>
-  </a>
-  
-  <a href="#" class="bottom-nav__item">
-<img src="../assets/master/ShoppingCart (1).svg" alt="">
-    <span class="bottom-nav__label">Cart</span>
-  </a>
-</nav>
+
 
     <script src="../javascript/master.js"></script>
     <script src="../javascript/christmasoffers.js"></script>

@@ -20,7 +20,7 @@ nav{
     padding: 0px 30px;
     position: fixed;
     top: 0px;
-    z-index: 9999 !important;
+    z-index: 999 !important;
     background-color: white;
 }
 .logo-section{
@@ -60,16 +60,28 @@ nav{
     outline: none;
 }
 .round-button{
-    background-color: #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
     border-radius: 50%;
     cursor: pointer;
+    padding: 0px 6px;
 }
 .round-button>img{
-    height: 20px;
+    height: 28px;
+}
+.number-of-round{
+    background-color: #FF0000;
+    color: white;
+    height: 15px;
+    width: 15px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    display: none;
 }
 .signup-button {
     background-color: #A10404;
@@ -129,18 +141,29 @@ nav{
 #mobile-menu {
   display: none; /* keep as you already had for desktop */
   position: absolute;
-  top: 60px;
+  top: 75px;
   left: 0;
   width: 100%;
   background: #fff;
   overflow-y: auto;
   max-height: calc(100vh - 60px);
   z-index: 9999;
-  padding-bottom: 80px;
 }
 
 /* dropdown item wrapper */
 .mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: transparent;
+}
+.mobile-dropdown1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: transparent;
+}
+.mobile-dropdown2 {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -200,6 +223,7 @@ nav{
 }
 
 
+
 .mobile-dropdown.open .arrow {
     transform: rotate(180deg);
 }
@@ -210,6 +234,20 @@ nav{
     gap: 10px;
     padding: 10px 15px;
     background-color: #a1040413;
+}
+.image-section .circle-image{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-section .circle-image>span{
+    font-size: 20px;
+    color: #2a882e;
+    font-weight: 600;
 }
 .welcome-text-section{
     display: flex;
@@ -233,14 +271,25 @@ nav{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: 10px 20px;
 }
 .sub-section>span{
     color: #3F3F3F;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
+    padding: 15px 0px 5px 0px;
 }
 .mobile-nav-menu{
+    margin-top: 10px;
+    background-color: white;
+    list-style: none;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mobile-nav-menu1{
     margin-top: 10px;
     background-color: white;
     list-style: none;
@@ -266,12 +315,18 @@ nav{
     justify-content: space-between;
     width: 100%;
 }
+.mobile-nav-menu1>li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 .mobile-icon-main{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.mobile-nav-menu .mobile-icon{
+ .mobile-icon{
     background-color: #EFDFDF;
     border-radius: 50%;
     display: flex;
@@ -280,6 +335,7 @@ nav{
     padding: 5px;
 
 }
+
 .mobile-icon-main>span{
     font-size: 16px;
     font-weight: 500;
@@ -328,6 +384,91 @@ nav{
 .signup-page-navigations{
     display: none;
 }
+
+.mobile-logout-section{
+    padding-top: 30px;
+    background-color: #f7f7f7;
+}
+.mobile-logout-sub{
+    background-color: #A10404;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 30px;
+    color: white;
+}
+.logout-button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.suggestions-box {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 78px;
+    left: 120px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.suggestions-box li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #D9D9D9;
+    color: #3F3F3F;
+    font-size: 14px;
+}
+
+.suggestions-box li:hover {
+    background: #EFDFDF;
+    color: #A10404;
+}
+/* Hide scrollbar buttons + custom scrollbar */
+.suggestions-box::-webkit-scrollbar {
+    width: 6px; /* thin scrollbar */
+}
+
+.suggestions-box::-webkit-scrollbar-track {
+    background: #f2dada;      /* light track */
+    border-radius: 10px;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb {
+    background: rgb(179, 179, 179);      /* darker thumb */
+    border-radius: 10px;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb:hover {
+    background: #a10404;      /* stronger on hover */
+}
+
+/* Remove scrollbar arrows */
+.suggestions-box::-webkit-scrollbar-button {
+    display: none;
+}
+
+#desktop-search::-webkit-search-cancel-button,
+#mobile-search::-webkit-search-cancel-button {
+    display: none;
+}
+
+#desktop-search,
+#mobile-search {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 
 @media (max-width: 595px) {
     .signup-page-navigations {
@@ -438,30 +579,42 @@ nav{
 }
 
 /* Ensure the profile dropdown is hidden by default */
-.user-profile-icon .img-name{
+.user-profile-icon .img-name {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     height: 100%;
+    padding-left: 20px;
+}
 
-}
-.img-name>img{
+.img-name > .circle-image {
     height: 40px;
-    width: 50px;
+    width: 40px;
     border-radius: 50%;
+    background-color: #a104042d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.img-name>span{
+.img-name .circle-image>span{
+    color: rgb(42, 71, 165);
+    font-weight: 700;
+}
+
+.img-name #user-name {
     font-size: 12px;
+    text-wrap: nowrap;
 }
+
+
+/* Initially hide the profile dropdown */
 .profile-dropdown {
     display: none;
     position: absolute;
     top: 65px;
     right: 10px;
     background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 10px;
 }
@@ -478,12 +631,16 @@ nav{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap:30px;
+    gap: 20px;
     border-bottom: 1px solid #D9D9D9;
     color: #3F3F3F;
     border-radius: 5px;
 }
-.profile-dropdown-image{
+.profile-dropdown ul li>span{
+    font-size: 14px;
+}
+
+.profile-dropdown-image {
     background-color: #EFDFDF;
     display: flex;
     align-items: center;
@@ -491,18 +648,61 @@ nav{
     padding: 5px;
     border-radius: 50%;
 }
-.profile-dropdown ul li:hover{
+
+/* Show the profile dropdown on hover */
+.user-profile-icon:hover .profile-dropdown {
+    display: block;
+}
+
+/* Hover effect for list items */
+.profile-dropdown ul li:hover {
     background-color: #EFDFDF;
     color: #A10404;
 }
-.profile-dropdown ul li:hover .profile-dropdown-image{
+
+.profile-dropdown ul li:hover .profile-dropdown-image {
     background-color: white;
+}
+.logout-option-desktop{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+        color: #716B6B;
+
+}
+.logout-option-desktop:hover{
+    color: #A10404;
 }
 
 
 
-
-
+/* Mobile Search Bar */
+.mobile-search-bar-main{
+    display: none;
+    position: relative;
+    top: 75px;
+    padding: 20px 15px;
+    background-color: #f7f7f7;
+    z-index: 999;
+    transition: all 0.5s ease;
+}
+.mobile-search-bar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 30px;
+}
+.mobile-search-bar>input{
+    border: none;
+    outline: none;
+    background-color:transparent;
+    font-size:16px;
+    margin-left: 15px;
+}
 
 /* Banner Section */
 
@@ -545,8 +745,8 @@ nav{
 }
 
 .dot {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
     background-color: #D9D9D9;
     border-radius: 50%;
     display: inline-block;
@@ -574,7 +774,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
     list-style: none;
     padding: 5px 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -611,7 +811,7 @@ nav{
     transform: translateY(10px); 
     transition: all 0.25s ease;
     z-index: 9999;
-    padding: 10px 10px;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     height: max-content;
@@ -633,9 +833,7 @@ nav{
     flex-wrap: wrap;
     gap: 8px;
     list-style: none;
-    border: 1px solid #D9D9D9;
     border-radius: 8px;
-    padding: 10px 15px;
 }
 .submenu-dropdown-main>li{
     font-size: 14px;
@@ -663,7 +861,7 @@ nav{
 .banner-main-content{
     position: absolute;
     z-index: 99;
-    top: 260px;
+    top: 220px;
     left: 50%;
     transform: translate(-50%);
     display: flex;
@@ -709,7 +907,7 @@ nav{
 
 /* Featured Brands */
 .featured-brands{
-    padding-top: 20px;
+    padding-top: 40px;
     background-color: transparent;
 }
 .heading-tag-for-section{
@@ -810,19 +1008,31 @@ nav{
         font-size: 12px;
         padding: 4px 8px;
     }
+    .nav-menu{
+        gap: 30px;
+    }
 }
+
 
 @media (max-width:835px) {
     .dropdown{
         left: -80px;
     }
-    .nav-item{
-        font-size: 14px;
-    }
+    
 }
 @media (max-width:916px) {
     .search-bar{
         width: 300px;
+    }
+    .nav-item{
+        font-size: 14px;
+    }
+}
+@media (max-width:840px) {
+    .signup-button{
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-left: 20px;
     }
 }
 
@@ -832,10 +1042,7 @@ nav{
      .search-bar{
         width: 250px;
     }
-    .signup-button{
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+
 
     /* Banner Section */
     .nav-menu{
@@ -869,6 +1076,12 @@ nav{
 @media (max-width:790px) {
     .dropdown{
         left: -100px;
+    }
+    .round-button{
+        padding: 0px 3px;
+    }
+    .round-button>img{
+        height: 20px;
     }
 }
 
@@ -918,14 +1131,14 @@ nav{
 @media (max-width:660px) {
     /* Nav Bar */
     nav{
-        height: 60px;
+        height: 75px;
     }
     .middle-nav-bar{
         top: 80px;
     }
      .nav-menu{
         gap: 10px;
-        padding: 5px 10px;
+        padding: 5px 5px;
     }
 
     .logo-section{
@@ -939,7 +1152,7 @@ nav{
         font-size: 20px;    
     }
     .carousel-container { 
-        margin-top: 60px;
+        margin-top: 75px;
         height: 300px;
         width: 100%;
     }
@@ -1001,23 +1214,24 @@ nav{
     .hamburger-menu {
         display: flex;
     }
+    
 
-    #mobile-erangoli-logo{
+    /* #mobile-erangoli-logo{
         display: flex;
         z-index: 99;
-    }
+    } */
     .search-bar{
-        width: 300px;
-        padding: 2px 10px;
-        position: relative;
-        right: 52px;
-        z-index: 1;
-        border: 1px solid #8E8989;
-    }
-
-    #desktop-erangoli-logo{
         display: none;
     }
+
+    /* #desktop-erangoli-logo{
+        display: none;
+    } */
+   
+    .mobile-search-bar-main{
+        display: block;
+    }
+
 
     .menu-section {
         display: none;
@@ -1033,6 +1247,7 @@ nav{
         flex-direction: column;
     }
 
+
     .signup-wrapper {
         width: 100%;
     }
@@ -1047,6 +1262,13 @@ nav{
 
     .heading-tag-for-section>div{
         font-size: 18px;
+    }
+    .banner-main-content{
+        top: 180px;
+    }
+    .suggestions-box{
+        top: 150px;
+        left: 5px;
     }
 }
 @media (max-width:425px) {
