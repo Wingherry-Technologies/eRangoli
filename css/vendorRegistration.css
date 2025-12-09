@@ -75,7 +75,7 @@
   top: 50%;
   left: 40px;
   right: 40px;
-  height: 2px;
+  height: 2.5px;
   background: #e1e1e1;
   z-index: 0;
 }
@@ -172,7 +172,7 @@
   margin-top: 10px;
 }
 
-.vendorRegistrationUploadPlus {
+/* .vendorRegistrationUploadPlus {
   position: absolute;
   top: 0px;
   right: -25px;
@@ -189,7 +189,7 @@
 .vendorRegistrationUploadIcon {
   font-size: 20px;
   margin-bottom: 4px;
-}
+} */
 
 /* STEP-1 CUSTOM LAYOUT FIXES  */
 .vendorStep1Row1 {
@@ -245,10 +245,14 @@
   background-color: #a10404;
   color: #ffffff;
 }
+.vendorRegistrationPreviousBtn{
+  background-color: unset;
+  color: #3f3f3f;
+}
 
 .vendorRegistrationRow {
   display: flex;
-  gap: 35px;
+  gap: 25px;
 }
 
 .vendorRegistrationHalf {
@@ -380,10 +384,10 @@
     width: 100% !important;
   }
   .vendorRegistrationSteps {
-    gap: 60px;
+    justify-content: space-between;
   }
   .vendorRegistrationStepsWrapper {
-    padding: 12px 20px 0;
+    padding: 20px 20px 0;
   }
 
   .vendorRegistrationCard {
@@ -396,7 +400,8 @@
 
   .vendorRegistrationHeader {
     height: 90px;
-    padding: 20px 10px 35px;
+    padding: 40px 10px 35px;
+    text-align: left;
   }
 
   .vendorRegistrationTitle {
@@ -406,4 +411,42 @@
   .vendorRegistrationRow {
     flex-direction: column;
   }
+  .vendorRegistrationRowUpload{
+    flex-direction: row;
+  }
+  .vendorRegistrationUploadBox {
+    padding: 5px;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+  }
+  .vendorRegistrationRow{
+    gap: 20px;
+  }
+}
+
+/* scroll bar  */
+::-webkit-scrollbar {
+  width: 6px;            
+  height: 6px;           
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;   
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
+
+* {
+  scrollbar-width: thin;        
+  scrollbar-color: #888 #f0f0f0; 
 }

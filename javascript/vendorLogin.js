@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function validateAllowedChars(el) {
   el.addEventListener("keypress", function (e) {
-    if (!/^[A-Za-z0-9@._-]+$/.test(e.key)) e.preventDefault();
+    if (!/^[A-Za-z0-9_-]+$/.test(e.key)) e.preventDefault();
   });
 }
 

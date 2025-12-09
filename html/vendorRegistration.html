@@ -71,16 +71,21 @@
                     class="vendorRegistrationLabel"
                     for="vendorRegistrationGender"
                   >
-                    Gender
+                    Gender *
                   </label>
                   <select
                     id="vendorRegistrationGender"
                     class="vendorRegistrationInput vendorRegistrationSelect"
                   >
-                    <option value="">Female</option>
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
                     <option value="male">Male</option>
                     <option value="other">Other</option>
                   </select>
+                  <span
+                    id="vendorRegistrationGenderError"
+                    class="vendorRegistrationErrorText"
+                  ></span>
                 </div>
               </div>
 
@@ -119,6 +124,10 @@
                   class="vendorRegistrationInput"
                   placeholder="davidjohn23@gmail.com"
                 />
+                <span
+                  id="vendorRegistrationEmailError"
+                  class="vendorRegistrationErrorText"
+                ></span>
               </div>
 
               <!-- Designation -->
@@ -147,17 +156,22 @@
                     class="vendorRegistrationLabel"
                     for="vendorRegistrationIdType"
                   >
-                    Select the Identity Proof
+                    Select the Identity Proof *
                   </label>
                   <select
                     id="vendorRegistrationIdType"
                     class="vendorRegistrationInput vendorRegistrationSelect"
                   >
-                    <option value="">Aadhar Card</option>
+                    <option value="">Select Identity Proof</option>
+                    <option value="Aadhar-Card">Aadhar Card</option>
                     <option value="pan">PAN Card</option>
                     <option value="voter">Voter ID</option>
                     <option value="passport">Passport</option>
                   </select>
+                  <span
+                    id="vendorRegistrationIdTypeError"
+                    class="vendorRegistrationErrorText"
+                  ></span>
                 </div>
 
                 <!-- Identity Number -->
@@ -168,7 +182,7 @@
                     class="vendorRegistrationLabel"
                     for="vendorRegistrationIdNumber"
                   >
-                    Mention Identity Number
+                    Mention Identity Number *
                   </label>
                   <input
                     type="text"
@@ -176,26 +190,30 @@
                     class="vendorRegistrationInput"
                     placeholder="2546 6778 7744 6778"
                   />
+                  <span
+                    id="vendorRegistrationIdNumberError"
+                    class="vendorRegistrationErrorText"
+                  ></span>
                 </div>
               </div>
 
               <!-- Identity Proof Upload (Front + Back) -->
               <div class="vendorRegistrationUploadWrapper">
-                <label class="vendorRegistrationLabel"> Identity Proof </label>
+                <label class="vendorRegistrationLabel"> Identity Proof(front & back) *</label>
 
-                <div class="vendorRegistrationRow">
+                <div class="vendorRegistrationRow vendorRegistrationRowUpload ">
                   <!-- Front -->
                   <label
                     class="vendorRegistrationUploadBox"
                     for="vendorIdFront"
                   >
-                    <span class="vendorRegistrationUploadPlus">
+                    <!-- <span class="vendorRegistrationUploadPlus">
                       <img src="../assets/login/PlusCircle.svg" alt="" />
-                    </span>
+                    </span> -->
                     <span class="vendorRegistrationUploadIcon">
                       <img src="../assets/login/UploadSimple.svg" alt="" />
                     </span>
-                    <span>Upload Front</span>
+                    <span>Upload Front </span>
                     <input
                       type="file"
                       id="vendorIdFront"
@@ -206,13 +224,13 @@
 
                   <!-- Back -->
                   <label class="vendorRegistrationUploadBox" for="vendorIdBack">
-                    <span class="vendorRegistrationUploadPlus">
+                    <!-- <span class="vendorRegistrationUploadPlus">
                       <img src="../assets/login/PlusCircle.svg" alt="" />
-                    </span>
+                    </span> -->
                     <span class="vendorRegistrationUploadIcon">
                       <img src="../assets/login/UploadSimple.svg" alt="" />
                     </span>
-                    <span>Upload Front</span>
+                    <span>Upload Back</span>
                     <input
                       type="file"
                       id="vendorIdBack"
@@ -221,6 +239,10 @@
                     />
                   </label>
                 </div>
+                <span
+                  id="vendorIdUploadError"
+                  class="vendorRegistrationErrorText"
+                ></span>
               </div>
 
               <!-- BUTTON -->
@@ -285,7 +307,9 @@
               </div>
 
               <div class="vendorRegistrationRow vendorStep2RowCityZip">
-                <div class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2City">
+                <div
+                  class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2City"
+                >
                   <label class="vendorRegistrationLabel">City *</label>
                   <input
                     type="text"
@@ -299,7 +323,9 @@
                   ></span>
                 </div>
 
-                <div class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2Zip">
+                <div
+                  class="vendorRegistrationFormGroup vendorRegistrationHalf vendorStep2Zip"
+                >
                   <label class="vendorRegistrationLabel">Zipcode *</label>
                   <input
                     type="text"
@@ -334,6 +360,14 @@
                 id="vendorRegistrationStep2Continue"
               >
                 Continue
+              </button>
+              <button
+                type="button"
+                class="vendorRegistrationButton vendorRegistrationPreviousBtn"
+                id="vendorRegistrationStep2Previous"
+                style="margin-top: 8px"
+              >
+                Previous
               </button>
             </form>
           </div>
@@ -443,6 +477,14 @@
                 id="vendorRegistrationStep3Continue"
               >
                 Continue
+              </button>
+              <button
+                type="button"
+                class="vendorRegistrationButton vendorRegistrationPreviousBtn"
+                id="vendorRegistrationStep3Previous"
+                style="margin-top: 8px"
+              >
+                Previous
               </button>
             </form>
           </div>
@@ -569,6 +611,14 @@
               >
                 Continue
               </button>
+              <button
+                type="button"
+                class="vendorRegistrationButton vendorRegistrationPreviousBtn"
+                id="vendorRegistrationStep4Previous"
+                style="margin-top: 8px"
+              >
+                Previous
+              </button>
             </form>
           </div>
 
@@ -676,7 +726,8 @@
                 >
                   <input type="checkbox" id="vendorBankTerms" />
                   <span style="font-size: 11px">
-                    I Agree to the <a href="#" class="vendorTermsLink">Terms & Conditions</a> *
+                    I Agree to the
+                    <a href="#" class="vendorTermsLink">Terms & Conditions</a> *
                   </span>
                 </label>
                 <span
@@ -684,13 +735,19 @@
                   id="vendorBankTermsError"
                 ></span>
               </div>
-
               <button
                 type="button"
                 class="vendorRegistrationButton"
                 id="vendorRegistrationStep5Register"
               >
                 Register
+              </button>
+              <button
+                type="button"
+                class="vendorRegistrationButton vendorRegistrationPreviousBtn"
+                id="vendorRegistrationStep5Previous"
+              >
+                Previous
               </button>
             </form>
           </div>

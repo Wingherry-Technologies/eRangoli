@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
 /* Section */
 .similar-finds-section {
   background: #ffffff;
@@ -5,8 +14,8 @@
   text-align: center;
 }
 .similar-title {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #3f3f3f;
   position: relative;
   margin-bottom: 40px;
@@ -97,7 +106,7 @@
 
 .rv-title {
   text-align: center;
-  font-size: 36px;
+  font-size: 22px;
   font-weight: 700;
   color: #000;
   position: relative;
@@ -124,7 +133,7 @@
 /* CARD */
 .rv-card {
   background: #ffffff;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 12px;
   position: relative;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -165,7 +174,7 @@
   background: linear-gradient(135deg, #ffffff40, #00000020);
   backdrop-filter: blur(2px);
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 2px;
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -197,15 +206,25 @@
 }
 
 /* COMPANY + STATE */
-.rv-company {
-  font-size: 13px;
-  color: #716b6b;
+.rv-line {
   margin-top: 4px;
+}
+.rv-company {
+  font-size: 14px;
+  color: #716b6b;
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.rv-state {
+  font-size: 12px;
+  color: #716b6b;
+  font-weight: 400;
 }
 
 /* FREE + LEFT ONLY TAGS */
 .rv-tags {
-  margin-top: 3px;
+  margin-top: 10px;
   font-size: 12px;
 }
 
@@ -227,7 +246,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 .rv-price {
   font-size: 16px;
@@ -253,4 +272,109 @@
   opacity: 0.85;
   cursor: pointer;
   transition: 0.2s;
+}
+
+/* Responsive */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .similar-title {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .similar-title::after {
+    display: none;
+  }
+  .similar-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-left: 20px;
+  }
+
+  .similar-card {
+    width: 150px;
+    flex: 0 0 auto;
+  }
+
+  .similar-card img {
+    width: 90px;
+    height: 90px;
+  }
+  .load-more-btn {
+    display: none;
+  }
+  .offer {
+    color: #a10404;
+    font-size: 8px;
+  }
+  .price {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .old-price {
+    font-size: 10px;
+  }
+  .brand {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .similar-finds-section {
+    background: #efdfdf;
+  }
+
+  .similar-title {
+    text-align: left;
+    color: #a10404;
+    margin-bottom: 20px;
+  }
+
+  .similar-title::after {
+    display: none;
+  }
+
+  .similar-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-left: 10px;
+  }
+
+  .similar-card {
+    width: 150px;
+    flex: 0 0 auto;
+  }
+
+  .similar-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .load-more-btn {
+    display: none;
+  }
+
+  .offer {
+    color: #a10404;
+    font-size: 8px;
+  }
+
+  .price {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .old-price {
+    font-size: 10px;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
 }
