@@ -84,3 +84,57 @@ detailSections.forEach(section => {
             this.textContent = this.textContent === '♡' ? '♥' : '♡';
             this.style.color = this.textContent === '♥' ? '#ff0000' : '#666';
         });
+
+
+        /* Responsive DOM reordering: move Reviews to the end on tablet sizes
+   Paste into productOverflow.js (at end) */
+
+(function() {
+  const mq = window.matchMedia('(min-width: 600px) and (max-width: 980px)');
+  const reviews = document.querySelector('.productOverviewReviewsSection');
+  if (!reviews) return;
+
+  // store original place so we can restore
+  const originalParent = reviews.parentNode;
+  const originalNext = reviews.nextSibling; // null if last
+
+  // target after which to append reviews on tablet
+  const targetAfter = document.querySelector('.productOverviewInnerBottom') || document.querySelector('.productOverviewFeatures') || document.querySelector('.productOverviewContainer');
+
+  function moveReviewsToEnd() {
+    // only move if not already moved
+    if (!reviews.classList.contains('moved-to-tablet')) {
+      // append reviews after "inner bottom" (so features/similar remain above)
+      if (targetAfter && targetAfter.parentNode) {
+        // insert after targetAfter
+        const parent = targetAfter.parentNode;
+        parent.insertBefore(reviews, targetAfter.nextSibling);
+        reviews.classList.add('moved-to-tablet');
+      }
+    }
+  }
+
+  function restoreReviews() {
+    if (reviews.classList.contains('moved-to-tablet')) {
+      // restore to the original location
+      if (originalNext) originalParent.insertBefore(reviews, originalNext);
+      else originalParent.appendChild(reviews);
+      reviews.classList.remove('moved-to-tablet');
+    }
+  }
+
+  function handleMqChange(e) {
+    if (e.matches) {
+      moveReviewsToEnd();
+    } else {
+      restoreReviews();
+    }
+  }
+
+  // initial check
+  handleMqChange(mq);
+
+  // listen for changes
+  if (mq.addEventListener) mq.addEventListener('change', handleMqChange);
+  else mq.addListener(handleMqChange); // legacy
+})();

@@ -15,6 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const urlParams = new URLSearchParams(window.location.search);
   const cameFromRegistration = urlParams.get("registered");
+  const registerBtn =document.getElementById("VendorRegisterBtn");
+  const registerBtnRight =document.getElementById("vendorRegisterRightBtn");
+
+  if(registerBtnRight){
+        registerBtnRight.addEventListener("click", () => {
+      window.location.href="../html/vendorRegistration.html";
+    });
+
+  }
+
+  if(registerBtn){
+    registerBtn.addEventListener("click", () => {
+      window.location.href="../html/vendorRegistration.html";
+    });
+  }
+
+
 
   if (successBox) {
     successBox.style.display = cameFromRegistration === "1" ? "block" : "none";

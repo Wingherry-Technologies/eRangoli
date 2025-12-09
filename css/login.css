@@ -23,7 +23,6 @@ body {
 /* LEFT PANEL */
 .custumerLoginLeftPanel {
   width: 40%;
-  background: #f8f4f1;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -315,6 +314,7 @@ body {
   .custumerLoginLeftPanel {
     flex: 1 1 100%;
     width: 100%;
+    overflow: auto;
   }
   .custumerLoginForm {
     padding: 0 25px;
