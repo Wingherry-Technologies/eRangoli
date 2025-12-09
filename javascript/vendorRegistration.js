@@ -882,11 +882,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  businessGstInput.addEventListener("input", function () {
-    let v = this.value;
-    v = v.replace(/[^A-Za-z0-9]/g, ""); 
-    this.value = v.toUpperCase(); 
-  });
+businessGstInput.addEventListener("input", function () {
+  let v = this.value;
+  v = v.replace(/[^A-Za-z0-9]/g, ""); 
+  v = v.toUpperCase();               
+  v = v.slice(0, 15);                
+  this.value = v;
+});
+
 
   // STEP 3 VALIDATION
 
@@ -959,24 +962,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function validateBusinessGST() {
-    const value = businessGstInput.value.trim();
-    let error = "";
+function validateBusinessGST() {
+  const value = businessGstInput.value.trim().toUpperCase();
+  businessGstInput.value = value;
 
-    if (!value) {
-      error = "Please enter GST number";
-    } else if (!/^[A-Za-z0-9]+$/.test(value)) {
-      error = "GST must contain only letters and numbers";
-    }
+  // GST FORMAT:
+  const gstRegex = /^[0-9]{2}[A-Z0-9]{10}[A-Z0-9]Z[A-Z0-9]$/;
 
-    if (error) {
-      showError(businessGstInput, "vendorBusinessGSTError", error);
-      return false;
-    } else {
-      clearError(businessGstInput, "vendorBusinessGSTError");
-      return true;
-    }
+  let error = "";
+
+  if (!value) {
+    error = "Please enter GST number";
+  } else if (!gstRegex.test(value)) {
+    error =
+      "GST must be 15 characters";
   }
+
+  if (error) {
+    showError(businessGstInput, "vendorBusinessGSTError", error);
+    return false;
+  } else {
+    clearError(businessGstInput, "vendorBusinessGSTError");
+    return true;
+  }
+}
+
 
   // MAIN STEP 3 VALIDATION (for Continue button)
   function validateStep3() {
@@ -1362,63 +1372,80 @@ document.addEventListener("DOMContentLoaded", function () {
     return h && a && c && z && s;
   }
 
-  // ---------- CHECKBOX: Same as permanent address ----------
+// ---------- CHECKBOX: Same as permanent address ----------
 
-  shippingSameCheckbox.addEventListener("change", function () {
-    if (this.checked) {
-      // Copy from permanent (Step 2) to shipping (Step 4)
-      shippingHouseInput.value = houseInput.value;
-      shippingAreaInput.value = areaInput.value;
-      shippingLandmarkInput.value = landmarkInput.value;
-      shippingCityInput.value = cityInput.value;
-      shippingZipcodeInput.value = zipcodeInput.value;
-      shippingStateInput.value = stateInput.value;
+shippingSameCheckbox.addEventListener("change", function () {
+  if (this.checked) {
+    // Copy from permanent (Step 2) to shipping (Step 4)
+    shippingHouseInput.value = houseInput.value;
+    shippingAreaInput.value = areaInput.value;
+    shippingLandmarkInput.value = landmarkInput.value;
+    shippingCityInput.value = cityInput.value;
+    shippingZipcodeInput.value = zipcodeInput.value;
+    shippingStateInput.value = stateInput.value;
 
-      // Clear any previous shipping errors
-      document.getElementById("shippingHouseError").textContent = "";
-      document.getElementById("shippingHouseError").style.display = "none";
-      document.getElementById("shippingAreaError").textContent = "";
-      document.getElementById("shippingAreaError").style.display = "none";
-      document.getElementById("shippingCityError").textContent = "";
-      document.getElementById("shippingCityError").style.display = "none";
-      document.getElementById("shippingZipcodeError").textContent = "";
-      document.getElementById("shippingZipcodeError").style.display = "none";
-      document.getElementById("shippingStateError").textContent = "";
-      document.getElementById("shippingStateError").style.display = "none";
+    // Disable all shipping inputs so user cannot edit
+    shippingHouseInput.disabled = true;
+    shippingAreaInput.disabled = true;
+    shippingLandmarkInput.disabled = true;
+    shippingCityInput.disabled = true;
+    shippingZipcodeInput.disabled = true;
+    shippingStateInput.disabled = true;
 
-      shippingHouseInput.classList.remove("error");
-      shippingAreaInput.classList.remove("error");
-      shippingCityInput.classList.remove("error");
-      shippingZipcodeInput.classList.remove("error");
-      shippingStateInput.classList.remove("error");
-    } else {
-      // Unchecked → clear the autofilled data
-      shippingHouseInput.value = "";
-      shippingAreaInput.value = "";
-      shippingLandmarkInput.value = "";
-      shippingCityInput.value = "";
-      shippingZipcodeInput.value = "";
-      shippingStateInput.value = "";
+    // Clear any previous shipping errors
+    document.getElementById("shippingHouseError").textContent = "";
+    document.getElementById("shippingHouseError").style.display = "none";
+    document.getElementById("shippingAreaError").textContent = "";
+    document.getElementById("shippingAreaError").style.display = "none";
+    document.getElementById("shippingCityError").textContent = "";
+    document.getElementById("shippingCityError").style.display = "none";
+    document.getElementById("shippingZipcodeError").textContent = "";
+    document.getElementById("shippingZipcodeError").style.display = "none";
+    document.getElementById("shippingStateError").textContent = "";
+    document.getElementById("shippingStateError").style.display = "none";
 
-      // Also clear any errors
-      document.getElementById("shippingHouseError").textContent = "";
-      document.getElementById("shippingHouseError").style.display = "none";
-      document.getElementById("shippingAreaError").textContent = "";
-      document.getElementById("shippingAreaError").style.display = "none";
-      document.getElementById("shippingCityError").textContent = "";
-      document.getElementById("shippingCityError").style.display = "none";
-      document.getElementById("shippingZipcodeError").textContent = "";
-      document.getElementById("shippingZipcodeError").style.display = "none";
-      document.getElementById("shippingStateError").textContent = "";
-      document.getElementById("shippingStateError").style.display = "none";
+    shippingHouseInput.classList.remove("error");
+    shippingAreaInput.classList.remove("error");
+    shippingCityInput.classList.remove("error");
+    shippingZipcodeInput.classList.remove("error");
+    shippingStateInput.classList.remove("error");
+  } else {
+    // Unchecked → clear the autofilled data
+    shippingHouseInput.value = "";
+    shippingAreaInput.value = "";
+    shippingLandmarkInput.value = "";
+    shippingCityInput.value = "";
+    shippingZipcodeInput.value = "";
+    shippingStateInput.value = "";
 
-      shippingHouseInput.classList.remove("error");
-      shippingAreaInput.classList.remove("error");
-      shippingCityInput.classList.remove("error");
-      shippingZipcodeInput.classList.remove("error");
-      shippingStateInput.classList.remove("error");
-    }
-  });
+    // Enable all shipping inputs again
+    shippingHouseInput.disabled = false;
+    shippingAreaInput.disabled = false;
+    shippingLandmarkInput.disabled = false;
+    shippingCityInput.disabled = false;
+    shippingZipcodeInput.disabled = false;
+    shippingStateInput.disabled = false;
+
+    // Also clear any errors
+    document.getElementById("shippingHouseError").textContent = "";
+    document.getElementById("shippingHouseError").style.display = "none";
+    document.getElementById("shippingAreaError").textContent = "";
+    document.getElementById("shippingAreaError").style.display = "none";
+    document.getElementById("shippingCityError").textContent = "";
+    document.getElementById("shippingCityError").style.display = "none";
+    document.getElementById("shippingZipcodeError").textContent = "";
+    document.getElementById("shippingZipcodeError").style.display = "none";
+    document.getElementById("shippingStateError").textContent = "";
+    document.getElementById("shippingStateError").style.display = "none";
+
+    shippingHouseInput.classList.remove("error");
+    shippingAreaInput.classList.remove("error");
+    shippingCityInput.classList.remove("error");
+    shippingZipcodeInput.classList.remove("error");
+    shippingStateInput.classList.remove("error");
+  }
+});
+
 
   // ---------- BLUR VALIDATIONS (show error when leaving field) ----------
 
