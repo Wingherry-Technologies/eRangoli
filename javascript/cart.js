@@ -116,11 +116,9 @@ function updatePayButton() {
   const anyChecked = [...allChecks].some((chk) => chk.checked);
 
   if (anyChecked) {
-    // Active pay button
     payBtn.style.background = "#A10404";
     payBtn.style.cursor = "pointer";
   } else {
-    // Disabled / Grey button
     payBtn.style.background = "#716B6B";
     payBtn.style.cursor = "not-allowed";
   }
@@ -128,7 +126,6 @@ function updatePayButton() {
 
 document.addEventListener("change", function (e) {
   if (e.target.matches("#address-list .use-detail input")) {
-    // Only allow ONE address selection at a time
     const allChecks = document.querySelectorAll(
       "#address-list .use-detail input"
     );
@@ -140,9 +137,6 @@ document.addEventListener("change", function (e) {
     updatePayButton();
   }
 });
-
-// When an address is added → update the button state
-document.addEventListener("addressAdded", updatePayButton);
 
 // When deleted → update the button
 document.addEventListener("click", function (e) {
@@ -156,54 +150,33 @@ document.addEventListener("click", function (e) {
 document.querySelector(".apply-btn").addEventListener("click", function () {
   const input = document.querySelector(".coupon-box input").value.trim();
 
-  // Read values from HTML
-  const subtotal = parseInt(
-    document.getElementById("subtotalAmount").textContent
-  );
-  const gst = parseInt(document.getElementById("gstAmount").textContent);
-  const discountBox = document.getElementById("discountAmount");
-  const payableBox = document.getElementById("payableAmount");
-
   let discount = 0;
 
-  if (input === "FIRST500") {
+  if (input === "FIRST 500") {
     discount = 500;
-  } else {
-    alert("Invalid coupon code!");
-    discount = 0;
   }
 
-  // Update discount
-  discountBox.textContent = discount;
+  // Set discount with currency
+  document.getElementById("discountAmount").textContent = "₹" + discount;
 
-  // Calculate final payable
-  const payable = subtotal + gst - discount;
-
-  payableBox.textContent = payable;
+  updateBillingTotals();
 });
 
 /* OUT OF STOCK FUNCTION */
 
 function markOutOfStock(productRow) {
-  // Show Warning Popup
   const warning = document.getElementById("stockWarning");
   warning.classList.remove("hidden");
 
-  // Turn DELETE icon red
   const deleteBtn = productRow.querySelector(".delete-btn");
-  // turn icon RED using CSS filter
   deleteBtn.style.filter =
     "brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(7481%) hue-rotate(357deg) brightness(103%) contrast(118%)";
 
-  // 3️⃣ Disable + and – buttons
   const qtyBox = productRow.querySelector(".qty-box");
-  const qtyIcons = qtyBox.querySelectorAll("img");
-
-  qtyIcons.forEach((icon) => {
+  qtyBox.querySelectorAll("img").forEach((icon) => {
     icon.style.filter = "grayscale(1) opacity(0.4)";
   });
 
-  // Disable clicking
   qtyBox.style.pointerEvents = "none";
 }
 
@@ -213,3 +186,193 @@ document.getElementById("closeWarning").addEventListener("click", function () {
 });
 
 markOutOfStock(document.querySelectorAll(".product-row")[1]);
+
+/* ------------------------ DELIVERY VALIDATION -------------------------- */
+
+document.getElementById("name").addEventListener("input", function () {
+  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+document.getElementById("email").addEventListener("input", function () {
+  this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, "");
+});
+
+document.getElementById("phone").addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9]/g, "");
+
+  if (this.value.length > 10) {
+    this.value = this.value.slice(0, 10);
+  }
+});
+
+document.getElementById("hno").addEventListener("input", function () {
+  this.value = this.value.replace(/[^A-Za-z0-9 -]/g, "");
+});
+
+document.getElementById("lane").addEventListener("input", function () {
+  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+document.getElementById("city").addEventListener("input", function () {
+  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+document.getElementById("state").addEventListener("input", function () {
+  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+document.getElementById("zip").addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9]/g, "");
+
+  if (this.value.length > 6) {
+    this.value = this.value.slice(0, 6);
+  }
+});
+/* ---------------------- SAVE MAIN FORM ---------------------- */
+
+document
+  .getElementById("saveAddressBtn")
+  .addEventListener("click", function () {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let hno = document.getElementById("hno").value;
+    let lane = document.getElementById("lane").value;
+    let landmark = document.getElementById("landmark").value;
+    let city = document.getElementById("city").value;
+    let zip = document.getElementById("zip").value;
+    let state = document.getElementById("state").value;
+
+    if (
+      !validateDeliveryForm(name, email, phone, hno, lane, city, zip, state)
+    ) {
+      return;
+    }
+
+    let fullAddress = `${hno}, ${lane}, ${landmark}, ${city}, ${state}, ${zip}`;
+
+    let template = document.getElementById("address-template");
+    let newCard = template.cloneNode(true);
+    newCard.classList.remove("hidden");
+
+    newCard.querySelector(".add-name").textContent = name;
+    newCard.querySelector(".add-email").textContent = email;
+    newCard.querySelector(".add-phone").textContent = phone;
+    newCard.querySelector(".add-full").textContent = fullAddress;
+
+    document.getElementById("address-list").appendChild(newCard);
+
+    document.getElementById("saved-address-section").classList.remove("hidden");
+  });
+
+/* ---------------------- BILLING QUANTITY LOGIC ---------------------- */
+
+document.querySelectorAll(".product-row").forEach((row) => {
+  let qtySpan = row.querySelector(".qty-box span");
+  let priceBox = row.querySelector(".price .rupee");
+
+  let basePrice = parseInt(
+    priceBox.textContent.replace("₹", "").replace(/,/g, "")
+  );
+
+  let minusBtn = row.querySelector(".qty-box button:nth-child(1)");
+  let plusBtn = row.querySelector(".qty-box button:nth-child(3)");
+
+  plusBtn.addEventListener("click", () => {
+    let qty = parseInt(qtySpan.textContent);
+    qty++;
+    qtySpan.textContent = qty;
+
+    priceBox.textContent = "₹" + (basePrice * qty).toLocaleString();
+
+    updateBillingTotals();
+  });
+
+  minusBtn.addEventListener("click", () => {
+    let qty = parseInt(qtySpan.textContent);
+    if (qty > 1) {
+      qty--;
+      qtySpan.textContent = qty;
+
+      priceBox.textContent = "₹" + (basePrice * qty).toLocaleString();
+
+      updateBillingTotals();
+    }
+  });
+});
+
+/* -------------------- UPDATE BILLING TOTALS -------------------- */
+
+function updateBillingTotals() {
+  let subtotal = 0;
+
+  document.querySelectorAll(".product-row").forEach((row) => {
+    if (!row.isConnected) return;
+
+    // Skip out-of-stock rows
+    if (row.classList.contains("out-of-stock")) return;
+
+    let priceText = row.querySelector(".rupee").textContent;
+    let price = parseInt(priceText.replace("₹", "").replace(/,/g, ""));
+    subtotal += price;
+  });
+
+  document.getElementById("subtotalAmount").textContent =
+    subtotal.toLocaleString();
+
+  let gst = Math.round(subtotal * 0.1);
+  document.getElementById("gstAmount").textContent = gst.toLocaleString();
+
+  let discountText = document.getElementById("discountAmount").textContent;
+  let discount = parseInt(discountText.replace("₹", "").trim()) || 0;
+
+  let payable = subtotal + gst - discount;
+  document.getElementById("payableAmount").textContent =
+    payable.toLocaleString();
+}
+
+/* ---------------- OUT OF STOCK PRODUCT ---------------- */
+
+function markOutOfStock(productRow) {
+  const warning = document.getElementById("stockWarning");
+  warning.classList.remove("hidden");
+
+  productRow.classList.add("out-of-stock"); // NEW ✔
+
+  const deleteBtn = productRow.querySelector(".delete-btn");
+  deleteBtn.style.filter =
+    "brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(7481%) hue-rotate(357deg) brightness(103%) contrast(118%)";
+
+  const qtyBox = productRow.querySelector(".qty-box");
+  qtyBox.querySelectorAll("img").forEach((icon) => {
+    icon.style.filter = "grayscale(1) opacity(0.4)";
+  });
+
+  qtyBox.style.pointerEvents = "none";
+}
+
+/* Close out-of-stock popup */
+document.getElementById("closeWarning").addEventListener("click", function () {
+  document.getElementById("stockWarning").classList.add("hidden");
+});
+
+/* Remove popup when out-of-stock item is deleted */
+document.querySelectorAll(".delete-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    let row = btn.closest(".product-row");
+
+    // Remove the <hr> that comes right after the product
+    let hr = row.nextElementSibling;
+    if (hr && hr.tagName.toLowerCase() === "hr") {
+      hr.remove();
+    }
+
+    // Remove the product row
+    row.remove();
+
+    // Hide stock popup
+    document.getElementById("stockWarning").classList.add("hidden");
+
+    updateBillingTotals();
+  });
+});
