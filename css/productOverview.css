@@ -1,0 +1,980 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+.productOverviewContainer {
+  background: #fff;
+  padding: 0;              
+}
+
+/* naya wrapper – isme wahi 80px padding rahegi */
+.productOverviewInner {
+  padding: 0 80px;
+}
+
+/* neeche wale inner me top padding nahi chahiye (Similar Finds ke liye) */
+.productOverviewInnerBottom {
+  padding: 0 80px 80px;
+}
+
+
+.productOverviewBackBtn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #3F3F3F;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.productOverviewBackBtn img{
+    width: 15px;
+    height: 15px;
+}
+
+.productOverviewBreadcrumb {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.productOverviewMainContent {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.productOverviewLeftSection {
+  flex: 1;
+}
+
+.productOverviewMainImage {
+  width: 100%;
+  background: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.productOverviewMainImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.productOverviewThumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.productOverviewThumbnail {
+  width: 80px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+
+.productOverviewThumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* NEW: main image + thumbnails wrapper */
+.productOverviewImageWrapper {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* thumbnails size same rehne dena */
+.productOverviewThumbnail {
+  width: 80px;
+  height: 80px;
+  /* border: 2px solid transparent; */
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* main image ko thoda flex de do */
+.productOverviewMainImage {
+  flex: 1;
+  position: relative;
+  background: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+    height: 430px;        /* You can increase or decrease this */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 550px;
+}
+.productOverviewMainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* If you want full crop */
+    /* object-fit: contain;  <- If you want full image visible */
+}
+
+
+.mainImgArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+/* Arrow images */
+.mainImgArrow img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)); /* optional – for visibility */
+}
+
+/* Left & Right positioning */
+.leftArrow {
+    left: 20px;
+}
+
+.rightArrow {
+    right: 20px;
+}
+
+/* Hover effect if you want */
+.mainImgArrow:hover img {
+    transform: scale(1.08);
+    transition: 0.15s ease;
+}
+
+
+
+.productOverviewRightSection {
+  flex: 1;
+}
+
+.productOverviewTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 25rem;
+}
+
+.productOverviewBrand {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.productOverviewPrice {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.productOverviewDiscount {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 30px;
+}
+
+.productOverviewDiscount span {
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.productOverviewDiscount .productOverviewDiscountPercent {
+  color: #ff0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.productOverviewActions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.productOverviewBuyNow {
+  padding: 12px 50px;
+  background: #fff;
+  border: 1px solid #8b0000;
+  color: #8b0000;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.productOverviewAddToCart {
+
+  padding: 12px 50px;
+  background: #8b0000;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.productOverviewColorSection {
+  margin-bottom: 20px;
+}
+
+.productOverviewSectionTitle {
+  font-size: 14px;
+  color: #A10404;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.productOverviewColorOptions {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+}
+.colorName {
+    font-size: 10px;
+    margin-top: 4px;
+    color: #333;
+}
+.productOverviewColorOption {
+  /* width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid transparent; */
+  cursor: pointer;
+}
+.productOverviewColorOption img {
+  width: 40px;
+  height: 40px;
+}
+
+.productOverviewDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionToggleIcon {
+    width: 15px;
+    cursor: pointer;
+}
+.productOverviewDelivery {
+  margin-bottom: 25px;
+}
+
+.productOverviewDeliveryLabel {
+  font-size: 13px;
+  color: #3f3f3f;
+  margin-bottom: 6px;
+}
+
+.productOverviewDeliveryRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.productOverviewPincodeInput {
+
+  padding: 2px 3px;
+  border: 1px solid #8E8989;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 100px;
+  outline: none;
+}
+
+
+
+
+.productOverviewPincodeBtn {
+  /* padding: 8px 22px; */
+  border: none;
+  background-color: transparent;
+  color: #008000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.productOverviewDeliveryEstimate {
+  font-size: 12px;
+  color: #666666;
+}
+
+
+.productOverviewPersonalization {
+  margin-top: 20px;
+}
+
+.productOverviewPersonalizationTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.productOverviewPersonalizationInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #D6D6D6;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: vertical;
+  background-color: #fff7f7;
+  resize: none;
+}
+
+.productOverviewCharCount {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+.personalSaveBtn {
+    background: none;
+    border: none;
+    color: #A10404;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+    display: block;
+    text-align: right;
+}
+
+.productOverviewDetailsSection {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.productOverviewDetailsList {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.productOverviewDetailsList li {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Default: sirf pehla point visible */
+.productOverviewDetailsSection .productOverviewDetailsList li {
+  display: none;
+}
+
+.productOverviewDetailsSection .productOverviewDetailsList li:first-child {
+  display: list-item;
+}
+
+/* Jab section expanded ho, sab points dikhao */
+.productOverviewDetailsSection.expanded .productOverviewDetailsList li {
+  display: list-item;
+}
+
+
+.productOverviewReviewsSection {
+  margin-top: 30px;
+}
+
+.productOverviewReviewsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.productOverviewReviewsTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.productOverviewRating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productOverviewStars {
+  color: #ffd700;
+  font-size: 18px;
+  margin-top: -5px;
+}
+
+.productOverviewReviewCount {
+  color: #666;
+  font-size: 14px;
+}
+
+/* NEW: row = images left + view all right */
+.productOverviewReviewImagesRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* sirf images ka group */
+.productOverviewReviewImages {
+  display: flex;
+  gap: 10px;
+}
+
+/* images thodi wide, screenshot jaisi */
+.productOverviewReviewImage {
+  width: 160px;
+  height: 110px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.productOverviewReviewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* “View all” right side aligned */
+.productOverviewReviewImagesRow .productOverviewViewAll {
+  color: #3F3F3F;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+
+}
+/* View all under image row, aligned right */
+.reviewImagesViewAll {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #3F3F3F;
+    cursor: pointer;
+    font-weight: 600;
+    font-weight: 500;
+}
+
+/* last image tile with dark overlay + text */
+.reviewImageMore {
+  position: relative;
+}
+
+.reviewImageMoreOverlay {
+    position: absolute;
+    bottom: 30px;            /* Text image ke bottom-center par */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background: #ffffff;     /* Only text background white */
+    padding: 10px 6px;        /* Bubble spacing */
+    border-radius: 50%;      /* Rounded pill shape */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #000;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.1;
+
+    width: auto;              /* No full width */
+    height: auto;             /* Only enough for text */
+}
+
+
+
+.productOverviewReviewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productOverviewViewAll {
+  color: #3F3F3F;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: right;
+}
+
+.productOverviewReviewCard {
+    display: flex;
+    gap: 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.reviewCardLeft {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.reviewCardLeft img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviewCardRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reviewCardTop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.productOverviewReviewDate {
+    margin-left: auto;
+    font-size: 12px;
+    color: #999;
+}
+
+.productOverviewReviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.productOverviewReviewer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.productOverviewReviewerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.productOverviewReviewerAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.productOverviewReviewerInfo{
+  display: flex;
+  gap: 25px;
+}
+
+.productOverviewReviewerInfo h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3F3F3F;
+  margin-bottom: 3px;
+}
+
+.productOverviewReviewDate {
+  font-size: 12px;
+  color: #3F3F3F;
+}
+
+.productOverviewReviewText {
+  font-size: 14px;
+  color: #3F3F3F;
+  line-height: 1.6;
+}
+
+.productOverviewFeatures {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: space-around;
+  background: #EFDFDF;
+  padding: 30px 150px;
+  margin: 40px 0;
+}
+
+.productOverviewFeature {
+  text-align: center;
+  width: 150px; 
+}
+
+/* Perfect round white background circle */
+.productOverviewFeatureIcon {
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;   /* center + gap below */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* subtle depth like your screenshot */
+}
+
+.productOverviewFeatureIcon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    color: #3F3F3F;
+}
+
+
+.productOverviewFeatureText {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.productOverviewSimilarSection {
+  margin-top: 50px;
+}
+
+.productOverviewSimilarTitle {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #3F3F3F;
+}
+.productOverviewSimilarTitle::after {
+  content: "";
+  width: 220px;               /* underline width */
+  height: 3px;               /* underline thickness */
+  background-color: #A10404; /* red color */
+  display: block;
+  margin: 1px auto 0;        /* center underline + small gap */
+  border-radius: 2px;        /* smooth ends */
+}
+.productOverviewSimilarProducts {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.productOverviewSimilarProduct {
+  flex: 0 0 200px;        /* thoda wide card, screenshot jaisa */
+  text-align: center;
+}
+
+.productOverviewSimilarProductImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 16px;   /* center + neeche gap */
+}
+
+.productOverviewSimilarProductImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Name – bada & bold */
+.productOverviewSimilarProductName {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3A3F45;
+  margin-bottom: 4px;
+}
+/* "by Sanskriti Collection" line */
+.productOverviewSimilarProductBrand {
+  font-size: 12px;
+  color: #716B6B;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.productOverviewSimilarProductPrice {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+
+.productOverviewSimilarProductOldPrice {
+  font-size: 12px;
+  color: #716B6B;
+  font-weight: 400;
+  text-decoration: line-through;
+  margin: 0 6px;
+}
+
+.productOverviewSimilarProductDiscount {
+  font-size: 12px;
+  color: #3F3F3F;
+  font-weight: 400;
+}
+.productOverviewLoadMore {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.productOverviewLoadMoreBtn {
+  color: #A10404;
+  font-size: 27px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.productOverviewIcons {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.productOverviewIcon {
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+}
+.productOverviewIcon img{
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ---------------------------
+   Tablet responsive (tablet)
+   Paste at end of productOverview.css
+   --------------------------- */
+@media (min-width: 600px) and (max-width: 980px) {
+  /* reduce global inner padding on tablet */
+  .productOverviewInner,
+  .productOverviewInnerBottom {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Stack left & right sections vertically */
+  .productOverviewMainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  /* Make image wrapper vertical: main image first, thumbnails below */
+  .productOverviewImageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  /* thumbnails become horizontal row under the main image */
+  .productOverviewThumbnails {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .productOverviewThumbnail {
+    width: 72px;
+    height: 72px;
+    border-radius: 6px;
+    flex: 0 0 auto;
+  }
+
+  /* Larger main image (landscape) */
+  .productOverviewMainImage {
+    width: 100%;
+    height: 360px;        /* tablet-friendly height */
+    border-radius: 8px;
+  }
+  .productOverviewMainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Right section becomes below the image; full width */
+  .productOverviewRightSection {
+    width: 100%;
+  }
+
+  /* Title & meta scaling */
+  .productOverviewTitle {
+    font-size: 20px;
+    width: auto;
+  }
+  .productOverviewBrand {
+    font-size: 13px;
+  }
+  .productOverviewPrice {
+    font-size: 28px;
+  }
+  .productOverviewDiscount {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  /* Buttons: keep them side-by-side but smaller and responsive */
+  .productOverviewActions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .productOverviewBuyNow,
+  .productOverviewAddToCart {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* Color options: reduce icon size */
+  .productOverviewColorOption img {
+    width: 36px;
+    height: 36px;
+  }
+  .colorName {
+    font-size: 11px;
+  }
+
+  /* Delivery pincode row compact */
+  .productOverviewDeliveryRow {
+    gap: 8px;
+  }
+  .productOverviewPincodeInput {
+    width: 120px;
+    padding: 6px 8px;
+  }
+  .productOverviewPincodeBtn {
+    padding: 0;
+  }
+
+  /* Reviews images row scale down */
+  .productOverviewReviewImage {
+    width: 130px;
+    height: 90px;
+  }
+  .reviewImageMoreOverlay {
+    bottom: 16px;
+    padding: 6px 10px;
+    border-radius: 18px;
+    font-size: 11px;
+  }
+
+  /* Review cards: keep same stacked layout but tighten padding */
+  .productOverviewReviewCard {
+    padding: 14px;
+    border-radius: 8px;
+  }
+  .reviewCardLeft {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Features strip: reduce left/right padding and icon size */
+  .productOverviewFeatures {
+    padding: 20px 12px;
+    margin: 28px 0;
+    gap: 6px;
+  }
+  .productOverviewFeature {
+    width: 120px;
+  }
+  .productOverviewFeatureIcon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+  .productOverviewFeatureIcon img {
+    width: 28px;
+    height: 28px;
+  }
+  .productOverviewFeatureText {
+    font-size: 13px;
+  }
+
+  /* Similar finds: smaller product cards, maintain horizontal scroll */
+  .productOverviewSimilarProducts {
+    gap: 18px;
+  }
+  .productOverviewSimilarProduct {
+    flex: 0 0 160px;
+  }
+  .productOverviewSimilarProductImage {
+    width: 120px;
+    height: 120px;
+  }
+  .productOverviewSimilarProductName {
+    font-size: 16px;
+  }
+  .productOverviewSimilarProductBrand,
+  .productOverviewSimilarProductOldPrice,
+  .productOverviewSimilarProductDiscount {
+    font-size: 12px;
+  }
+
+  /* Textarea fixed height still applies; ensure width is full */
+  .productOverviewPersonalizationInput {
+    width: 100%;
+    height: 80px; /* keep fixed height on tablet too */
+  }
+
+  /* Make sure icons (share/heart) stay placed reasonably */
+  .productOverviewIcons {
+    top: 8px;
+    right: 12px;
+  }
+
+  /* Minor global typographic tweaks for tablet */
+  body {
+    font-size: 15px;
+  }
+}
