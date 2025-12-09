@@ -205,6 +205,10 @@
   font-weight: 600;
 }
 
+.rv-rating-media {
+  display: none;
+}
+
 /* COMPANY + STATE */
 .rv-line {
   margin-top: 4px;
@@ -376,5 +380,37 @@
 
   .brand {
     font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rv-title {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .rv-grid {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-left: 20px;
+  }
+
+  .rv-card {
+    width: 150px;
+    height: auto;
+    flex: 0 0 auto;
+  }
+  .rv-title::after {
+    display: none;
+  }
+  .rv-rating {
+    display: none;
+  }
+  .rv-rating-media {
+    display: block;
   }
 }
