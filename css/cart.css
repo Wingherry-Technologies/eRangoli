@@ -151,6 +151,19 @@ input:focus {
   margin-top: 18px;
 }
 
+.continue-btn {
+  width: 100%;
+  background: #a10404;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 18px;
+  display: none;
+}
+
 .saved-address {
   margin-top: 20px;
 }
@@ -569,4 +582,225 @@ hr {
 
 .hidden {
   display: none !important;
+}
+
+.error {
+  border-color: red !important;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+  display: none;
+}
+
+.checkout-wrapper {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 595px) and (max-width: 1024px) {
+  .banner-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .offer-box {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    height: 174px;
+    width: 306px;
+    padding: 20px 25px;
+    border-radius: 12px;
+    background: #bca4a41a;
+  }
+
+  .offer-title {
+    font-size: 38px;
+  }
+
+  .offer-sub {
+    font-size: 18px;
+  }
+
+  .offer-small {
+    font-size: 12px;
+  }
+
+  .page-container {
+    padding: 20px 0;
+    padding-bottom: 0;
+  }
+
+  .back-row {
+    margin: 0 20px 20px 20px;
+  }
+
+  .main-grid {
+    display: block;
+    padding: 0;
+  }
+
+  .billing-card {
+    display: none;
+    margin: 0 0 20px 0;
+    border-radius: 8px;
+  }
+
+  .billing-card.show-on-tablet {
+    display: block;
+    width: 100%;
+  }
+
+  .left-banner {
+    margin: 0 20px 20px 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .left-banner .banner-img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .delivery-card {
+    background: #ffffff;
+  }
+
+  .total-items {
+    display: none;
+  }
+
+  .bill-header {
+    display: none;
+  }
+
+  .your-cart {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .section-heading {
+    margin: 0 20px 20px 20px;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .form-group {
+    margin: 0 20px 14px 20px;
+  }
+
+  .sub-heading {
+    margin: 20px;
+  }
+
+  .inline-row {
+    margin: 0 20px;
+    margin-bottom: 14px;
+  }
+
+  .inline-row .form-group {
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+  .save-btn {
+    display: none;
+  }
+
+  .continue-btn {
+    margin: 18px 20px 20px 20px;
+    width: calc(100% - 40px);
+    display: block;
+  }
+
+  .saved-address {
+    margin: 20px;
+    padding-bottom: 20px;
+  }
+
+  #address-list {
+    margin: 0;
+  }
+
+  .new-address-btn {
+    margin: 0;
+    width: 100%;
+  }
+
+  .inline-popup {
+    margin: 15px 20px 20px 20px;
+    width: calc(100% - 40px);
+  }
+
+  .address-card {
+    margin-bottom: 22px;
+  }
+
+  .address-wrapper {
+    margin-bottom: 25px;
+  }
+
+  .stock-warning {
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    height: auto;
+  }
+
+  .billing-card #saved-address-section .address-card {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 8px;
+    color: #3f3f3f;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .address-delete-btn {
+    display: none;
+  }
+
+  .billing-card #saved-address-section {
+    display: block;
+    margin-top: 10px;
+    padding: 0;
+    margin: 10px 0 18px 0;
+  }
+
+  .billing-card #saved-address-section .address-footer {
+    margin-top: 8px;
+  }
+
+  .billing-card #saved-address-section .use-detail {
+    margin: 0;
+  }
+
+  .moved-to-billing .saved-address-heading {
+    display: none;
+  }
+  .line {
+    display: block;
+  }
+}
+
+.line {
+  display: none;
 }

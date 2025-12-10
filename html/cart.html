@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cart Page</title>
-    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="/css/cart.css" />
   </head>
   <body>
     <div class="page-container">
@@ -34,6 +34,7 @@
           <div class="form-group">
             <label>Your Name</label>
             <input type="text" id="name" placeholder="David John" />
+            <span class="error-text" id="nameError"></span>
           </div>
 
           <div class="form-group">
@@ -43,11 +44,13 @@
               id="email"
               placeholder="davidjohn23@gmail.com"
             />
+            <span class="error-text" id="emailError"></span>
           </div>
 
           <div class="form-group">
             <label>Mobile Number</label>
             <input type="text" id="phone" placeholder="95367 89905" />
+            <span class="error-text" id="phoneError"></span>
           </div>
 
           <h3 class="sub-heading">Address</h3>
@@ -55,6 +58,7 @@
           <div class="form-group">
             <label>House No/ Society *</label>
             <input type="text" id="hno" placeholder="C - 605 , Eden Park" />
+            <span class="error-text" id="hnoError"></span>
           </div>
 
           <div class="form-group">
@@ -64,6 +68,7 @@
               id="lane"
               placeholder="Mudhuban colony, parsi road"
             />
+            <span class="error-text" id="laneError"></span>
           </div>
 
           <div class="form-group">
@@ -79,20 +84,24 @@
             <div class="form-group half">
               <label>City *</label>
               <input type="text" id="city" placeholder="Pune" />
+              <span class="error-text" id="cityError"></span>
             </div>
 
             <div class="form-group half">
               <label>Zipcode *</label>
               <input type="text" id="zip" placeholder="234 678" />
+              <span class="error-text" id="zipError"></span>
             </div>
           </div>
 
           <div class="form-group">
             <label>State *</label>
             <input type="text" id="state" placeholder="Maharashtra" />
+            <span class="error-text" id="stateError"></span>
           </div>
 
           <button class="save-btn" id="saveAddressBtn">Save</button>
+          <button class="continue-btn" id="continueBtn">Continue</button>
 
           <!-- SAVED ADDRESS SECTION -->
           <div id="saved-address-section" class="saved-address hidden">
@@ -218,7 +227,7 @@
 
         <!-- BILLING DETAILS -->
 
-        <div class="billing-card">
+        <div class="billing-card" id="billingCard">
           <div class="bill-header">
             <h2>Billing Details</h2>
           </div>
@@ -312,7 +321,10 @@
               <span>Payable</span>
               <span id="payableAmount">0</span>
             </div>
+            <hr class="line" />
           </div>
+          <!-- Injected Saved Address (Billing View) -->
+          <div id="billing-saved-address-container"></div>
 
           <button class="pay-btn">Pay</button>
           <div id="stockWarning" class="stock-warning hidden">
