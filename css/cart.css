@@ -796,11 +796,4 @@ hr {
   .moved-to-billing .saved-address-heading {
     display: none;
   }
-  .line {
-    display: block;
-  }
-}
-
-.line {
-  display: none;
 }
