@@ -25,6 +25,7 @@ body {
   width: 40%;
   position: relative;
   display: flex;
+  overflow: auto;
   flex-direction: column;
 }
 
@@ -302,6 +303,16 @@ body {
   border: 1px solid #dbcbcb4f;
   border-radius: 8px;
 }
+
+.custumerLoginLeftPanel::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custumerLoginLeftPanel::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
 
 @media (max-width: 595px) {
   .page-wrapper {

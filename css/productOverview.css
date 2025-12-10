@@ -8,40 +8,37 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: white;
   color: #000000;
 }
 
 .productOverviewContainer {
-  background: #fff;
-  padding: 0;              
+  background: #f4f2f2e1;
+  padding: 0;
 }
 
-/* naya wrapper – isme wahi 80px padding rahegi */
 .productOverviewInner {
   padding: 0 80px;
 }
 
-/* neeche wale inner me top padding nahi chahiye (Similar Finds ke liye) */
 .productOverviewInnerBottom {
   padding: 0 80px 80px;
 }
-
 
 .productOverviewBackBtn {
   display: flex;
   align-items: center;
   gap: 15px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 20px;
   cursor: pointer;
   text-decoration: none;
 }
-.productOverviewBackBtn img{
-    width: 15px;
-    height: 15px;
+.productOverviewBackBtn img {
+  width: 15px;
+  height: 15px;
 }
 
 .productOverviewBreadcrumb {
@@ -76,11 +73,11 @@ body {
 }
 
 .productOverviewThumbnails {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 450px;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 .productOverviewThumbnail {
@@ -93,89 +90,79 @@ body {
   flex-shrink: 0;
 }
 
-
 .productOverviewThumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* NEW: main image + thumbnails wrapper */
 .productOverviewImageWrapper {
   display: flex;
   gap: 15px;
   align-items: flex-start;
 }
 
-/* thumbnails size same rehne dena */
 .productOverviewThumbnail {
   width: 80px;
   height: 80px;
-  /* border: 2px solid transparent; */
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
   flex-shrink: 0;
 }
 
-/* main image ko thoda flex de do */
 .productOverviewMainImage {
   flex: 1;
   position: relative;
   background: #f8f8f8;
   border-radius: 8px;
   overflow: hidden;
-    height: 430px;        /* You can increase or decrease this */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 550px;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
 }
 .productOverviewMainImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* If you want full crop */
-    /* object-fit: contain;  <- If you want full image visible */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
 .mainImgArrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none !important;
-    border: none !important;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
 }
 
 /* Arrow images */
 .mainImgArrow img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)); /* optional – for visibility */
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
 }
 
 /* Left & Right positioning */
 .leftArrow {
-    left: 20px;
+  left: 20px;
 }
 
 .rightArrow {
-    right: 20px;
+  right: 20px;
 }
 
-/* Hover effect if you want */
 .mainImgArrow:hover img {
-    transform: scale(1.08);
-    transition: 0.15s ease;
+  transform: scale(1.08);
+  transition: 0.15s ease;
 }
-
-
 
 .productOverviewRightSection {
   flex: 1;
@@ -184,7 +171,7 @@ body {
 .productOverviewTitle {
   font-size: 26px;
   font-weight: 700;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 5px;
   width: 25rem;
 }
@@ -192,14 +179,14 @@ body {
 .productOverviewBrand {
   font-size: 14px;
   font-weight: 400;
-  color: #716B6B;
+  color: #716b6b;
   margin-bottom: 15px;
 }
 
 .productOverviewPrice {
   font-size: 40px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 5px;
 }
 
@@ -209,13 +196,13 @@ body {
 
 .productOverviewDiscount span {
   text-decoration: line-through;
-   font-size: 17px;
+  font-size: 17px;
   margin-right: 10px;
-  color: #716B6B;
+  color: #716b6b;
 }
 
 .productOverviewDiscount .productOverviewDiscountPercent {
-  color: #A10404;
+  color: #a10404;
   font-size: 15px;
   font-weight: 400;
   text-decoration: none;
@@ -230,8 +217,8 @@ body {
 .productOverviewBuyNow {
   padding: 12px 50px;
   background: #fff;
-  border: 1px solid #716B6B;
-  color: #3F3F3F;
+  border: 1px solid #716b6b;
+  color: #3f3f3f;
   font-size: 20px;
   cursor: pointer;
   border-radius: 4px;
@@ -239,11 +226,10 @@ body {
 }
 
 .productOverviewAddToCart {
-
   padding: 12px 50px;
   background: #8b0000;
   border: none;
-  color: #D9D9D9;
+  color: #d9d9d9;
   font-size: 20px;
   cursor: pointer;
   border-radius: 4px;
@@ -256,7 +242,7 @@ body {
 
 .productOverviewSectionTitle {
   font-size: 15px;
-  color: #A10404;
+  color: #a10404;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -267,20 +253,20 @@ body {
   text-align: center;
 }
 .colorName {
-    font-size: 10px;
-    margin-top: 4px;
-    color: #333;
+  font-size: 10px;
+  margin-top: 4px;
+  color: #333;
 }
 .productOverviewColorOption {
-  /* width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid transparent; */
   cursor: pointer;
 }
 .productOverviewColorOption img {
   width: 50px;
   height: 50px;
+}
+.productOverviewColorOption.productOverviewActive img {
+  border: 2px solid #8b0000;
+  border-radius: 50%;
 }
 
 .productOverviewDescription {
@@ -292,14 +278,14 @@ body {
 }
 
 .sectionHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sectionToggleIcon {
-    width: 15px;
-    cursor: pointer;
+  width: 15px;
+  cursor: pointer;
 }
 .productOverviewDelivery {
   margin-bottom: 25px;
@@ -320,17 +306,13 @@ body {
 }
 
 .productOverviewPincodeInput {
-
   padding: 2px 3px;
-  border: 1px solid #8E8989;
+  border: 1px solid #8e8989;
   border-radius: 4px;
   font-size: 13px;
   width: 100px;
   outline: none;
 }
-
-
-
 
 .productOverviewPincodeBtn {
   /* padding: 8px 22px; */
@@ -347,14 +329,13 @@ body {
   color: #666666;
 }
 
-
 .productOverviewPersonalization {
   margin-top: 20px;
 }
 
 .productOverviewPersonalizationTitle {
   font-size: 16px;
-  color: #A10404;
+  color: #a10404;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -363,11 +344,11 @@ body {
   width: 100%;
   height: 100px;
   padding: 10px;
-  border: 1px solid #D6D6D6;
+  border: 1px solid #d6d6d6;
   border-radius: 8px;
   font-size: 14px;
   resize: vertical;
-  background-color: #fff7f7;
+  background-color: #ffffff;
   resize: none;
 }
 
@@ -380,20 +361,19 @@ body {
   margin-top: 5px;
 }
 .personalSaveBtn {
-    background: none;
-    border: none;
-    color: #A10404;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 5px;
-    display: block;
-    text-align: right;
+  background: none;
+  border: none;
+  color: #a10404;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  display: block;
+  text-align: right;
 }
 
 .productOverviewDetailsSection {
   margin-top: 30px;
-  border-top: 1px solid #eee;
   padding-top: 20px;
 }
 
@@ -403,14 +383,12 @@ body {
 }
 
 .productOverviewDetailsList li {
-  margin-top: 1rem;
   font-size: 14px;
   font-weight: 400;
   color: #000000;
   line-height: 1.8;
 }
 
-/* Default: sirf pehla point visible */
 .productOverviewDetailsSection .productOverviewDetailsList li {
   display: none;
 }
@@ -419,11 +397,9 @@ body {
   display: list-item;
 }
 
-/* Jab section expanded ho, sab points dikhao */
 .productOverviewDetailsSection.expanded .productOverviewDetailsList li {
   display: list-item;
 }
-
 
 .productOverviewReviewsSection {
   margin-top: 30px;
@@ -439,7 +415,7 @@ body {
 .productOverviewReviewsTitle {
   font-size: 16px;
   font-weight: 500;
-  color: #A10404;
+  color: #a10404;
 }
 
 .productOverviewRating {
@@ -459,7 +435,6 @@ body {
   font-size: 14px;
 }
 
-/* NEW: row = images left + view all right */
 .productOverviewReviewImagesRow {
   display: flex;
   align-items: center;
@@ -467,13 +442,11 @@ body {
   margin-bottom: 20px;
 }
 
-/* sirf images ka group */
 .productOverviewReviewImages {
   display: flex;
   gap: 10px;
 }
 
-/* images thodi wide, screenshot jaisi */
 .productOverviewReviewImage {
   width: 160px;
   height: 110px;
@@ -488,57 +461,55 @@ body {
   object-fit: cover;
 }
 
-/* “View all” right side aligned */
 .productOverviewReviewImagesRow .productOverviewViewAll {
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-
 }
-/* View all under image row, aligned right */
 .reviewImagesViewAll {
-    text-align: right;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #3F3F3F;
-    cursor: pointer;
-    font-weight: 600;
-    font-weight: 500;
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #3f3f3f;
+  cursor: pointer;
+  font-weight: 600;
+  font-weight: 500;
 }
 
-/* last image tile with dark overlay + text */
+.reviewReadMoreBtn {
+  display: none;
+}
+
 .reviewImageMore {
   position: relative;
 }
 
 .reviewImageMoreOverlay {
-    position: absolute;
-    bottom: 30px;            /* Text image ke bottom-center par */
-    left: 50%;
-    transform: translateX(-50%);
-    
-    background: #ffffff;     /* Only text background white */
-    padding: 10px 6px;        /* Bubble spacing */
-    border-radius: 50%;      /* Rounded pill shape */
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
 
-    color: #000;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.1;
+  background: #ffffff;
+  padding: 10px 6px;
+  border-radius: 50%;
 
-    width: auto;              /* No full width */
-    height: auto;             /* Only enough for text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.1;
+
+  width: auto;
+  height: auto;
 }
-
-
 
 .productOverviewReviewImage img {
   width: 100%;
@@ -547,7 +518,7 @@ body {
 }
 
 .productOverviewViewAll {
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -555,43 +526,43 @@ body {
 }
 
 .productOverviewReviewCard {
-    display: flex;
-    gap: 20px;
-    border: 1px solid #D9D9D9;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 .reviewCardLeft {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .reviewCardLeft img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .reviewCardRight {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .reviewCardTop {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .productOverviewReviewDate {
-    margin-left: auto;
-    font-size: 12px;
-    color: #999;
+  margin-left: auto;
+  font-size: 12px;
+  color: #999;
 }
 
 .productOverviewReviewHeader {
@@ -619,7 +590,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.productOverviewReviewerInfo{
+.productOverviewReviewerInfo {
   display: flex;
   gap: 25px;
 }
@@ -627,18 +598,18 @@ body {
 .productOverviewReviewerInfo h4 {
   font-size: 14px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 3px;
 }
 
 .productOverviewReviewDate {
   font-size: 12px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .productOverviewReviewText {
   font-size: 14px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.6;
 }
 
@@ -647,36 +618,34 @@ body {
   padding-right: 30px;
   display: flex;
   justify-content: space-around;
-  background: #EFDFDF;
+  background: #efdfdf;
   padding: 30px 150px;
   margin: 40px 0;
 }
 
 .productOverviewFeature {
   text-align: center;
-  width: 150px; 
+  width: 150px;
 }
 
-/* Perfect round white background circle */
 .productOverviewFeatureIcon {
-    width: 80px;
-    height: 80px;
-    background: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 12px;   /* center + gap below */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* subtle depth like your screenshot */
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .productOverviewFeatureIcon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    color: #3F3F3F;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  color: #3f3f3f;
 }
-
 
 .productOverviewFeatureText {
   font-size: 14px;
@@ -693,25 +662,26 @@ body {
   font-size: 35px;
   font-weight: 700;
   margin-bottom: 50px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 .productOverviewSimilarTitle::after {
   content: "";
-  width: 220px;               /* underline width */
-  height: 3px;               /* underline thickness */
-  background-color: #A10404; /* red color */
+  width: 220px;
+  height: 3px;
+  background-color: #a10404;
   display: block;
-  margin: 1px auto 0;        /* center underline + small gap */
-  border-radius: 2px;        /* smooth ends */
+  margin: 1px auto 0;
+  border-radius: 2px;
 }
+
 .productOverviewSimilarProducts {
   display: flex;
-  overflow-x: auto;
+  overflow: hidden;
   padding-bottom: 20px;
 }
 
 .productOverviewSimilarProduct {
-  flex: 0 0 200px;        /* thoda wide card, screenshot jaisa */
+  flex: 0 0 200px;
   text-align: center;
 }
 
@@ -720,7 +690,7 @@ body {
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto 16px;   /* center + neeche gap */
+  margin: 0 auto 16px;
 }
 
 .productOverviewSimilarProductImage img {
@@ -729,30 +699,28 @@ body {
   object-fit: cover;
 }
 
-/* Product Name – bada & bold */
 .productOverviewSimilarProductName {
   font-size: 20px;
   font-weight: 500;
-  color: #3A3F45;
+  color: #3a3f45;
   margin-bottom: 4px;
 }
-/* "by Sanskriti Collection" line */
+
 .productOverviewSimilarProductBrand {
   font-size: 12px;
-  color: #716B6B;
+  color: #716b6b;
   font-weight: 400;
   margin-bottom: 12px;
 }
 .productOverviewSimilarProductPrice {
   font-size: 16px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
-
 
 .productOverviewSimilarProductOldPrice {
   font-size: 12px;
-  color: #716B6B;
+  color: #716b6b;
   font-weight: 400;
   text-decoration: line-through;
   margin: 0 6px;
@@ -760,7 +728,7 @@ body {
 
 .productOverviewSimilarProductDiscount {
   font-size: 12px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 400;
 }
 .productOverviewLoadMore {
@@ -769,7 +737,7 @@ body {
 }
 
 .productOverviewLoadMoreBtn {
-  color: #A10404;
+  color: #a10404;
   font-size: 27px;
   font-weight: 400;
   cursor: pointer;
@@ -789,207 +757,686 @@ body {
   font-size: 20px;
   color: #666;
 }
-.productOverviewIcon img{
-    width: 20px;
-    height: 20px;
+.productOverviewIcon img {
+  width: 20px;
+  height: 20px;
+}
+.productOverviewReviewListWrapper {
+  max-height: 300px;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
 }
 
+.productOverviewReviewListWrapper.expanded {
+  overflow: auto;
+}
 
-/* ---------------------------
-   Tablet responsive (tablet)
-   Paste at end of productOverview.css
-   --------------------------- */
-@media (min-width: 600px) and (max-width: 980px) {
-  /* reduce global inner padding on tablet */
-  .productOverviewInner,
+.productOverviewReviewToggleBtn {
+  text-align: center;
+  margin-top: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Pincode */
+.productOverviewDeliveryEstimate {
+  display: block;
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.productOverviewDeliveryEstimate .deliveryLabel {
+  color: #3f3f3f;
+  font-weight: 500;
+}
+
+.productOverviewDeliveryEstimate .deliveryDate {
+  color: #009605;
+  font-weight: 400;
+  display: none;
+}
+.productOverviewDeliveryEstimate.show-date .deliveryLabel {
+  color: #009605 !important;
+  font-weight: 400;
+}
+
+/* error message occupies same container and looks like an error */
+.productOverviewDeliveryEstimate .pincodeError {
+  display: none;
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* utility classes */
+.productOverviewDeliveryEstimate.show-date .deliveryDate {
+  display: inline;
+}
+.productOverviewDeliveryEstimate.show-error .pincodeError {
+  display: inline;
+}
+.productOverviewDeliveryEstimate.show-error .deliveryLabel,
+.productOverviewDeliveryEstimate.show-error .deliveryDate {
+  display: none;
+}
+
+/* Photo Gallery Modal  pop up */
+.photoGalleryModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1200;
+  padding: 20px;
+}
+
+.photoGalleryModal.show {
+  display: flex;
+}
+
+.photoGalleryContent {
+  width: 100%;
+  height: 100%;
+  max-width: calc(100% - 40px);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 14px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* header */
+.photoGalleryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.photoGalleryTitle {
+  color: #3f3f3f;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* close button image */
+.photoGalleryClose {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+.photoGalleryClose img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+}
+
+/* grid */
+.photoGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.photoGalleryItem {
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photoGalleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+/* responsive: on very small screens make it 2 columns */
+@media (max-width: 360px) {
+  .photoGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== TABLET (595px - 1025px) ===== */
+@media (min-width: 595px) and (max-width: 1025px) {
+  .productOverviewContainer {
+    background: #f4f2f2 !important;
+  }
+
+  .productOverviewInner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background: transparent !important;
+  }
+
   .productOverviewInnerBottom {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background: #f4f2f2 !important;
   }
 
-  /* Stack left & right sections vertically */
   .productOverviewMainContent {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-bottom: 24px;
+    flex-direction: column !important;
+    gap: 0 !important;
+    background: transparent !important;
   }
 
-  /* Make image wrapper vertical: main image first, thumbnails below */
+  .productOverviewLeftSection {
+    width: 100% !important;
+    flex: none !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+
+  .productOverviewBreadcrumb {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+
+  .productOverviewRightSection {
+    width: 100% !important;
+    flex: none !important;
+    background: #f4f2f2 !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+
   .productOverviewImageWrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 12px;
-    align-items: stretch;
+    flex-direction: column-reverse !important;
+    gap: 10px;
+    align-items: stretch !important;
   }
 
-  /* thumbnails become horizontal row under the main image */
+  .productOverviewFeatures {
+    margin: 0 0;
+  }
+
+  .productOverviewMainImage {
+    width: 100% !important;
+    height: auto;
+    max-height: 350px;
+    background: #f8f8f8 !important;
+  }
+
+  .productOverviewFeatureIcon {
+    box-shadow: none;
+  }
+
+  /* Thumbnails: horizontal scrollable row */
   .productOverviewThumbnails {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 6px;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-height: none !important;
+    gap: 8px;
+    padding-bottom: 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .productOverviewThumbnail {
-    width: 100px;
-    height: 72px;
-    border-radius: 6px;
-    flex: 0 0 auto;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
-  /* Larger main image (landscape) */
-  .productOverviewMainImage {
-    width: 100%;
-    height: 360px;        /* tablet-friendly height */
-    border-radius: 8px;
+  .productOverviewReviewsSection {
+    padding: 20px !important;
+    margin: 0 !important;
   }
-  .productOverviewMainImage img {
+  .productOverviewReviewsTitle {
+    font-size: 20px;
+    color: #3a3f45;
+    font-weight: 500;
+  }
+
+  .productOverviewSimilarSection {
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+
+  .productOverviewSimilarTitle {
+    text-align: left !important;
+    font-size: 28px;
+    margin-bottom: 15px;
+    padding-left: 12px;
+  }
+
+  .productOverviewSimilarTitle::after {
+    display: none;
+  }
+
+  .productOverviewSimilarProducts {
+    display: flex;
+    overflow: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
+
+  .productOverviewSimilarProduct {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+  }
+
+  .productOverviewSimilarProductImage {
+    width: 100px;
+    height: 100px;
+  }
+  /* Review images */
+  .productOverviewReviewImagesRow {
+    overflow: auto;
+  }
+
+  /* Hide Load More */
+  .productOverviewLoadMore,
+  .productOverviewLoadMoreBtn {
+    text-align: right;
+    font-size: 17px;
+    margin: 0 10px;
+  }
+
+  /* Features inline */
+  .productOverviewFeatures {
+    padding: 20px 20px;
+    gap: 10px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    background: #ffffff !important;
+  }
+
+  .productOverviewSimilarSection {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background-color: #efdfdf;
+  }
+
+  .productOverviewFeature {
+    width: auto;
+    flex: 0 0 auto;
+    min-width: 100px;
+  }
+  .productOverviewReviewListWrapper.expanded {
+    max-height: 100%;
+  }
+  /* ===== MOBILE ICON COLOR ===== */
+  .sectionToggleIcon {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%)
+      hue-rotate(0deg) brightness(100%);
+    /* This gives an Gay shade "3F3F3F" */
+  }
+}
+
+/* ===== MOBILE (≤595px) ===== */
+@media (max-width: 595px) {
+  /* Two-tone background setup */
+  .productOverviewContainer {
+    background: #f4f2f2 !important;
+    padding: 0 !important;
+  }
+
+  .productOverviewInner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: transparent !important;
+  }
+
+  .productOverviewInnerBottom {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #f4f2f2 !important;
+  }
+
+  /* Main content transparent */
+  .productOverviewMainContent {
+    flex-direction: column !important;
+    gap: 0 !important;
+    display: flex !important;
+    background: transparent !important;
+  }
+
+  .productOverviewBreadcrumb {
+    padding-left: 15px;
+    margin-bottom: 0;
+  }
+
+  /* Left section:  */
+  .productOverviewLeftSection {
+    width: 100% !important;
+    flex: none !important;
+    padding: 15px !important;
+    margin: 0 !important;
+  }
+
+  /* Right section: LIGHT GRAY background */
+  .productOverviewRightSection {
+    width: 100% !important;
+    flex: none !important;
+    background: #f4f2f2 !important;
+    padding: 15px !important;
+    margin: 0 !important;
+  }
+
+  /* Image wrapper */
+  .productOverviewImageWrapper {
+    flex-direction: column-reverse !important;
+    gap: 8px;
+    align-items: stretch !important;
+  }
+
+  .productOverviewMainImage {
+    width: 100% !important;
+    height: auto;
+    max-height: 280px;
+    background: #f8f8f8 !important;
+  }
+
+  /* Thumbnails horizontal */
+  .productOverviewThumbnails {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-height: none !important;
+    gap: 6px;
+    padding-bottom: 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .productOverviewThumbnail {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    scroll-snap-align: start;
+  }
+  /* Title sizing */
+  .productOverviewTitle {
+    font-size: 20px;
+    width: 70%;
+  }
+
+  /* Actions in row */
+  .productOverviewActions {
+    flex-direction: row !important;
+    gap: 10px;
+    display: flex !important;
+  }
+
+  .productOverviewBuyNow,
+  .productOverviewAddToCart {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  .productOverviewFeatures {
+    margin: 0 0;
+  }
+  /* Reviews section: WHITE background */
+  .productOverviewReviewsSection {
+    padding: 15px !important;
+    margin: 0 !important;
+  }
+  .productOverviewReviewsTitle {
+    font-size: 20px;
+    color: #3a3f45;
+    font-weight: 500;
+  }
+
+  /* Similar Finds: LIGHT GRAY background */
+  .productOverviewSimilarSection {
+    padding: 15px !important;
+    margin: 0 !important;
+  }
+
+  .productOverviewSimilarTitle {
+    text-align: left !important;
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-left: 12px;
+  }
+
+  .productOverviewSimilarTitle::after {
+    display: none !important;
+  }
+
+  /* Similar products carousel */
+  .productOverviewSimilarProducts {
+    display: flex;
+    overflow: hidden;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+
+  .productOverviewSimilarProduct {
+    flex: 0 0 130px;
+    scroll-snap-align: start;
+  }
+
+  .productOverviewSimilarProductImage {
+    width: 80px;
+    height: 80px;
+  }
+
+  .productOverviewSimilarProductName {
+    font-size: 16px;
+  }
+
+  /* ===== MOBILE ICON COLOR ===== */
+  .sectionToggleIcon {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(0%) saturate(0%)
+      hue-rotate(0deg) brightness(100%);
+    /* This gives an Gay shade "3F3F3F" */
+  }
+
+  /* Hide Load More */
+  .productOverviewLoadMore,
+  .productOverviewLoadMoreBtn {
+    text-align: right;
+    font-size: 17px;
+    margin: 0 5px;
+  }
+
+  /* Review images */
+  .productOverviewReviewImagesRow {
+    overflow: auto;
+  }
+  .productOverviewReviewImages {
+    gap: 8px;
+  }
+
+  .productOverviewReviewImage {
+    width: 120px;
+    height: 85px;
+  }
+
+  /* Features inline */
+  .productOverviewFeatures {
+    flex-wrap: nowrap !important;
+    padding: 15px 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #ffffff !important;
+  }
+  .productOverviewSimilarSection {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #efdfdf !important;
+  }
+  .productOverviewFeatureIcon {
+    box-shadow: none;
+  }
+
+  .productOverviewFeature {
+    flex: 0 0 auto;
+    min-width: 80px;
+    width: auto;
+  }
+
+  .productOverviewFeatureIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .productOverviewFeatureText {
+    font-size: 12px;
+  }
+
+  /* Read more btn in review */
+  .productOverviewReviewCard {
+    padding: 12px;
+    gap: 10px;
+  }
+  .productOverviewReviewListWrapper.expanded {
+    max-height: 100%;
+  }
+  .productOverviewReviewText {
+    max-height: 3.6em;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  /* expanded text */
+  .productOverviewReviewCard.expanded .productOverviewReviewText {
+    max-height: 500px;
+  }
+
+  /* show button only on mobile */
+  .reviewReadMoreBtn {
+    display: inline-block;
+    text-align: right;
+    border: none;
+    background: none;
+    color: #3f3f3f;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* =============================
+   MOBILE REVIEW CARD — EXACT MATCH TO SCREENSHOT
+   ============================= */
+
+  .productOverviewReviewCard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    gap: 12px;
+  }
+
+  /* Left side (Avatar + Name + Rating stacked) */
+  .productOverviewReviewCard .reviewCardLeft {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+  .productOverviewReviewCard .reviewCardLeft img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  .productOverviewReviewCard {
+    flex-direction: row;
+  }
+  .reviewCardTop {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    margin-bottom: -15px;
+  }
+  .productOverviewReviewDate {
+    position: relative;
+    top: -37px;
+  }
+  .reviewCardRight {
+    gap: 0;
+  }
+}
 
-  /* Right section becomes below the image; full width */
-  .productOverviewRightSection {
-    width: 100%;
-    order: 2;
-  }
-    .productOverviewLeftSection {
-    width: 100%;
-    order: 1;
-  }
- 
+/* ===== Review images single-row responsive layout ===== */
 
-  /* Title & meta scaling */
-  .productOverviewTitle {
-    font-size: 20px;
-    width: auto;
-  }
-  .productOverviewBrand {
-    font-size: 13px;
-  }
-  .productOverviewPrice {
-    font-size: 28px;
-  }
-  .productOverviewDiscount {
-    font-size: 13px;
-    margin-bottom: 18px;
-  }
+.productOverviewReviewImagesRow {
+  overflow: hidden;
+}
 
-  /* Buttons: keep them side-by-side but smaller and responsive */
-  .productOverviewActions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: nowrap;
-  }
-  .productOverviewBuyNow,
-  .productOverviewAddToCart {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
+.productOverviewReviewImages {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
 
-  /* Color options: reduce icon size */
-  .productOverviewColorOption img {
-    width: 36px;
-    height: 36px;
-  }
-  .colorName {
-    font-size: 11px;
-  }
+.productOverviewReviewImage {
+  flex: 1;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-  /* Delivery pincode row compact */
-  .productOverviewDeliveryRow {
-    gap: 8px;
-  }
-  .productOverviewPincodeInput {
-    width: 120px;
-    padding: 6px 8px;
-  }
-  .productOverviewPincodeBtn {
-    padding: 0;
+.productOverviewReviewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* MOBILE → only show 2 images */
+@media (max-width: 595px) {
+  .productOverviewReviewImages .productOverviewReviewImage:nth-child(n + 3) {
+    display: none;
   }
 
-  /* Reviews images row scale down */
   .productOverviewReviewImage {
-    width: 130px;
     height: 90px;
   }
-  .reviewImageMoreOverlay {
-    bottom: 16px;
-    padding: 6px 10px;
-    border-radius: 18px;
-    font-size: 11px;
+}
+
+/* TABLET → show first 3 images */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .productOverviewReviewImages .productOverviewReviewImage:nth-child(n + 4) {
+    display: none;
   }
 
-  /* Review cards: keep same stacked layout but tighten padding */
-  .productOverviewReviewCard {
-    padding: 14px;
-    border-radius: 8px;
+  .productOverviewReviewImage {
+    height: 100px;
   }
-  .reviewCardLeft {
-    width: 72px;
-    height: 72px;
-  }
+}
 
-  /* Features strip: reduce left/right padding and icon size */
-  .productOverviewFeatures {
-    padding: 20px 12px;
-    margin: 28px 0;
-    gap: 6px;
-  }
-  .productOverviewFeature {
-    width: 120px;
-  }
-  .productOverviewFeatureIcon {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 8px;
-  }
-  .productOverviewFeatureIcon img {
-    width: 28px;
-    height: 28px;
-  }
-  .productOverviewFeatureText {
-    font-size: 13px;
-  }
-
-  /* Similar finds: smaller product cards, maintain horizontal scroll */
-  .productOverviewSimilarProducts {
-    gap: 18px;
-  }
-  .productOverviewSimilarProduct {
-    flex: 0 0 160px;
-  }
-  .productOverviewSimilarProductImage {
-    width: 120px;
+/* DESKTOP → show all (or you can hide 4th if you want) */
+@media (min-width: 1025px) {
+  .productOverviewReviewImage {
     height: 120px;
   }
-  .productOverviewSimilarProductName {
-    font-size: 16px;
-  }
-  .productOverviewSimilarProductBrand,
-  .productOverviewSimilarProductOldPrice,
-  .productOverviewSimilarProductDiscount {
-    font-size: 12px;
+}
+
+@media (min-width: 1025px) {
+  .productOverviewReviewImages .productOverviewReviewImage:nth-child(n + 5) {
+    display: none;
   }
 
-  /* Textarea fixed height still applies; ensure width is full */
-  .productOverviewPersonalizationInput {
-    width: 100%;
-    height: 80px; /* keep fixed height on tablet too */
-  }
-
-  /* Make sure icons (share/heart) stay placed reasonably */
-  .productOverviewIcons {
-    top: 8px;
-    right: 12px;
-  }
-
-  /* Minor global typographic tweaks for tablet */
-  body {
-    font-size: 15px;
+  .productOverviewReviewImage {
+    height: 120px;
   }
 }
