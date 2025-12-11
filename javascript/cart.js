@@ -1,5 +1,5 @@
 function showError(input, errorId, message) {
-  const label = input.closest(".form-group")?.querySelector("label");
+  const label = input.previousElementSibling;
   const errorSpan = document.getElementById(errorId);
 
   if (errorSpan) {
@@ -12,7 +12,7 @@ function showError(input, errorId, message) {
 }
 
 function clearError(input, errorId) {
-  const label = input.closest(".form-group")?.querySelector("label");
+  const label = input.previousElementSibling;
   const errorSpan = document.getElementById(errorId);
 
   if (errorSpan) {
@@ -73,7 +73,7 @@ function validateZip() {
   return true;
 }
 
-/* ======================== ADDITIONAL VALIDATION FUNCTIONS ======================== */
+//ADDITIONAL VALIDATION FUNCTIONS
 
 function validateFullName() {
   const input = document.getElementById("name");
@@ -159,7 +159,7 @@ function validateState() {
   return true;
 }
 
-/* ======================== POPUP VALIDATION FUNCTIONS ======================== */
+//POPUP VALIDATION FUNCTIONS
 
 function validatePopupName() {
   const input = document.getElementById("p-name");
@@ -281,7 +281,7 @@ function validatePopupState() {
   return true;
 }
 
-/* ======================== BLUR EVENT LISTENERS ======================== */
+//BLUR EVENT LISTENERS
 
 document.getElementById("name").addEventListener("blur", () => {
   validateFullName();
@@ -315,7 +315,7 @@ document.getElementById("state").addEventListener("blur", () => {
   validateState();
 });
 
-/* ======================== POPUP BLUR EVENT LISTENERS ======================== */
+// POPUP BLUR EVENT LISTENERS
 
 document.getElementById("p-name").addEventListener("blur", () => {
   validatePopupName();
@@ -349,7 +349,7 @@ document.getElementById("p-state").addEventListener("blur", () => {
   validatePopupState();
 });
 
-/* ======================== INPUT EVENT VALIDATION ======================== */
+// INPUT EVENT VALIDATION
 
 document.getElementById("name").addEventListener("input", function () {
   if (this.value.trim() !== "") {
@@ -399,7 +399,7 @@ document.getElementById("state").addEventListener("input", function () {
   }
 });
 
-/* ======================== POPUP INPUT EVENT LISTENERS ======================== */
+//POPUP INPUT EVENT LISTENERS
 
 document.getElementById("p-name").addEventListener("input", function () {
   if (this.value.trim() !== "") {
@@ -658,6 +658,7 @@ function markOutOfStock(productRow) {
   qtyBox.querySelectorAll("img").forEach((icon) => {
     icon.style.filter = "grayscale(1) opacity(0.4)";
   });
+  qtyBox.querySelector("span").style.color = "#a2a2a2";
 
   qtyBox.style.pointerEvents = "none";
 }
@@ -690,7 +691,7 @@ document.querySelectorAll(".delete-btn").forEach((btn, index) => {
   });
 });
 
-/* ======================== UPDATE CONTINUE BUTTON VALIDATION ======================== */
+// UPDATE CONTINUE BUTTON VALIDATION
 
 document.getElementById("continueBtn").addEventListener("click", () => {
   const isFullNameValid = validateFullName();
@@ -716,13 +717,14 @@ document.getElementById("continueBtn").addEventListener("click", () => {
   }
 
   document.getElementById("billingCard").classList.add("show");
+
   try {
     const deliveryCard = document.querySelector(".delivery-card");
     if (deliveryCard) deliveryCard.classList.add("hidden");
 
     const billingCard = document.getElementById("billingCard");
     const isTablet = window.matchMedia(
-      "(min-width: 768px) and (max-width: 1024px)"
+      "(min-width: 320px) and (max-width: 1024px)"
     ).matches;
 
     if (billingCard) {
@@ -751,10 +753,10 @@ document.getElementById("continueBtn").addEventListener("click", () => {
     document.getElementById("billing-saved-address-container").innerHTML = `
       <h3 class="billing-address-heading">Delivery Address</h3>
       <div class="billing-address-block">
-        <p>${name}</p>
-        <p>${fullAddress}</p>
-        <p>${email}</p>
-        <p>${phone}</p>
+        <p class="billing-text">${name}</p>
+        <p class="billing-text">${fullAddress}</p>
+        <p class="billing-text">${email}</p>
+        <p class="billing-text">${phone}</p>
         <label class="use-detail">
           <input type="checkbox" id="billingAddressCheck" checked />
           <span class="checkmark"></span>
@@ -772,11 +774,14 @@ document.getElementById("continueBtn").addEventListener("click", () => {
       savedAddress.classList.remove("hidden");
       billingSavedContainer.appendChild(savedAddress);
       savedAddress.classList.add("billing-plain-address", "moved-to-billing");
+
       const newBtn = savedAddress.querySelector(".new-address-btn");
       if (newBtn) newBtn.style.display = "none";
+
       savedAddress
         .querySelectorAll(".address-delete-btn")
         .forEach((btn) => (btn.style.display = "none"));
+
       savedAddress.querySelectorAll(".address-card").forEach((card) => {
         card.style.border = "none";
         card.style.background = "transparent";
@@ -788,9 +793,10 @@ document.getElementById("continueBtn").addEventListener("click", () => {
     if (typeof updateBillingTotals === "function") updateBillingTotals();
     if (typeof updatePayButton === "function") updatePayButton();
 
-    // ---------------- FIX LINE HERE ----------------
     handleBillingPayButton();
-    // -----------------------------------------------
+
+    // ⭐ YOUR NEW REQUIRED LINE — change top heading
+    updateTopLabel("billing");
   } catch (err) {
     console.error("Continue navigation error:", err);
   }
@@ -836,7 +842,7 @@ function hasAvailableProduct() {
   );
 }
 
-/* ------------------------ DELIVERY VALIDATION -------------------------- */
+// DELIVERY VALIDATION
 
 document.getElementById("name").addEventListener("input", function () {
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
@@ -876,7 +882,7 @@ document.getElementById("zip").addEventListener("input", function () {
   }
 });
 
-/* ======================== POPUP FIELD INPUT SANITIZATION ======================== */
+// POPUP FIELD INPUT SANITIZATION
 
 document.getElementById("p-name").addEventListener("input", function () {
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
@@ -916,7 +922,7 @@ document.getElementById("p-zip").addEventListener("input", function () {
   }
 });
 
-/* ---------------------- BILLING QUANTITY LOGIC ---------------------- */
+// BILLING QUANTITY LOGIC
 
 document.querySelectorAll(".product-row").forEach((row) => {
   const qtySpan = row.querySelector(".qty-box span");
@@ -953,7 +959,7 @@ document.querySelectorAll(".product-row").forEach((row) => {
   });
 });
 
-/* -------------------- UPDATE BILLING TOTALS -------------------- */
+// UPDATE BILLING TOTALS
 
 function updateBillingTotals() {
   let subtotal = 0;
@@ -983,3 +989,11 @@ function updateBillingTotals() {
 }
 
 markOutOfStock(document.querySelectorAll(".product-row")[1]);
+
+function updateTopLabel(section) {
+  const label = document.getElementById("pageHeading");
+  if (!label) return;
+
+  if (section === "delivery") label.textContent = "Delivery Details";
+  if (section === "billing") label.textContent = "Billing Details";
+}

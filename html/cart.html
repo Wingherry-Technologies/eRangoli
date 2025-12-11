@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cart Page</title>
-    <link rel="stylesheet" href="/css/cart.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
   </head>
   <body>
     <div class="page-container">
       <!-- BACK TO SEARCH -->
       <div class="back-row">
         <img src="../assets/cart/back.svg" class="back-icon" />
-        <span>Back to search</span>
+        <span class="search">Back to search</span>
+        <span id="pageHeading">Delivery Details</span>
       </div>
 
       <div class="main-grid">
@@ -132,7 +134,7 @@
               </div>
             </div>
 
-            <!-- Address cards will be injected here -->
+            <!-- Address cards will be added here -->
             <div id="address-list"></div>
 
             <button class="new-address-btn" id="openPopupBtn">
@@ -144,7 +146,9 @@
           <div id="inlinePopup" class="inline-popup hidden">
             <div class="popup-header">
               <h2 class="popup-heading">Add New Address</h2>
-              <span id="closeInlinePopup" class="popup-close">✕</span>
+              <span id="closeInlinePopup" class="popup-close"
+                ><img src="../assets/cart/X.svg" class="x-icon"
+              /></span>
             </div>
 
             <div class="popup-form">
@@ -155,6 +159,7 @@
                 class="popup-input"
                 placeholder="David John"
               />
+              <span class="error-text" id="p-nameError"></span>
 
               <label>Email Address</label>
               <input
@@ -163,6 +168,7 @@
                 class="popup-input"
                 placeholder="davidjohn23@gmail.com"
               />
+              <span class="error-text" id="p-emailError"></span>
 
               <label>Mobile Number</label>
               <input
@@ -171,6 +177,7 @@
                 class="popup-input"
                 placeholder="95367 89905"
               />
+              <span class="error-text" id="p-phoneError"></span>
 
               <label>House No/ Society *</label>
               <input
@@ -179,6 +186,7 @@
                 class="popup-input"
                 placeholder="C - 605 , Eden Park"
               />
+              <span class="error-text" id="p-hnoError"></span>
 
               <label>Area / Lane *</label>
               <input
@@ -187,6 +195,7 @@
                 class="popup-input"
                 placeholder="Mudhuban colony, parsi road"
               />
+              <span class="error-text" id="p-laneError"></span>
 
               <label>Landmark (Optional)</label>
               <input
@@ -195,6 +204,7 @@
                 class="popup-input"
                 placeholder="Near Appolo Hospital"
               />
+              <!-- No need error -->
 
               <label>City *</label>
               <input
@@ -203,6 +213,7 @@
                 class="popup-input"
                 placeholder="Pune"
               />
+              <span class="error-text" id="p-cityError"></span>
 
               <label>Zipcode *</label>
               <input
@@ -211,6 +222,7 @@
                 class="popup-input"
                 placeholder="234 678"
               />
+              <span class="error-text" id="p-zipError"></span>
 
               <label>State *</label>
               <input
@@ -219,6 +231,7 @@
                 class="popup-input"
                 placeholder="Maharashtra"
               />
+              <span class="error-text" id="p-stateError"></span>
             </div>
 
             <button class="popup-save-btn" id="popupSaveBtn">Save</button>
@@ -235,8 +248,9 @@
           <div class="detailed-cart">
             <span class="your-cart">Your Cart</span>
             <span class="total-items">Total Items - 2</span>
+            <span class="total-items-mobile">2 Items</span>
           </div>
-
+          <hr class="total-items-mobile" />
           <!-- PRODUCT 1 -->
           <div class="product-row">
             <img src="../assets/cart/product1.svg" class="prod-img" />
@@ -321,16 +335,18 @@
               <span>Payable</span>
               <span id="payableAmount">0</span>
             </div>
-            <hr class="line" />
           </div>
-          <!-- Injected Saved Address (Billing View) -->
+          <hr />
+          <!-- Saved Address (Billing View) -->
           <div id="billing-saved-address-container"></div>
-
-          <button class="pay-btn">Pay</button>
           <div id="stockWarning" class="stock-warning hidden">
             <span>One item out of stock, remove it</span>
-            <span id="closeWarning" class="close-warning">✕</span>
+            <span id="closeWarning" class="close-warning"
+              ><img src="../assets/cart/X.svg" class="x-icon"
+            /></span>
           </div>
+
+          <button class="pay-btn">Pay</button>
         </div>
       </div>
     </div>
