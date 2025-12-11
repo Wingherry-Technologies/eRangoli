@@ -289,8 +289,52 @@
   transition: 0.2s;
 }
 
-/* Responsive */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Responsive Similar Finds */
+@media (min-width: 1025px) and (max-width: 1235px) {
+  .rv-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .rv-card {
+    padding: 10px;
+  }
+
+  .rv-img img {
+    height: 150px;
+  }
+
+  .rv-name {
+    font-size: 13px;
+  }
+
+  .rv-company,
+  .rv-state {
+    font-size: 11px;
+  }
+
+  .rv-price {
+    font-size: 13px;
+  }
+
+  .rv-tags {
+    font-size: 11px;
+  }
+
+  .rv-rating img {
+    width: 12px;
+    height: 12px;
+    transform: translateY(-1px);
+  }
+
+  .rv-rating {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+}
+
+@media (min-width: 595px) and (max-width: 1024px) {
   .similar-title {
     text-align: left;
     margin-left: 20px;
@@ -339,7 +383,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 595px) {
   .similar-finds-section {
     background: #efdfdf;
   }
@@ -397,17 +441,18 @@
   }
 }
 
+/* Responsive Recently Viewed */
 @media (min-width: 1024px) and (max-width: 1470px) {
   .similar-list {
     display: flex;
     flex-wrap: nowrap;
-    gap: 16px; /* Reduced gap */
-    justify-content: center; /* Center row */
+    gap: 16px;
+    justify-content: space-evenly;
   }
 
   .similar-card {
-    width: 130px; /* Reduced width */
-    flex: 0 0 130px; /* Prevent auto stretching */
+    width: 130px;
+    flex: 0 0 130px;
   }
 
   .similar-card img {
@@ -554,7 +599,7 @@
   }
 }
 
-@media (max-width: 595px) {
+@media (max-width: 595px) and (min-width: 320px) {
   .rv-row-1 {
     background: #efdfdf99;
     padding: 12px 0;
@@ -627,5 +672,110 @@
   .rv-row-1 .rv-price {
     font-size: 12px;
     margin-top: -10px;
+  }
+}
+
+@media (max-width: 595px) {
+  .rv-row-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .rv-row-2 .rv-card {
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Image */
+  .rv-row-2 .rv-img {
+    width: 100%;
+    height: 120px;
+  }
+
+  .rv-row-2 .rv-img img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  /* HIDE wishlist, rating bubble, share, left-only */
+  .rv-row-2 .rv-wishlist,
+  .rv-row-2 .rv-rating,
+  .rv-row-2 .rv-share,
+  .rv-row-2 .left {
+    display: none !important;
+  }
+
+  /* NAME */
+  .rv-row-2 .rv-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    line-height: 1.3;
+  }
+
+  /* Rating media (use this instead of bubble rating) */
+  .rv-row-2 .rv-rating-media {
+    display: flex !important;
+    gap: 4px;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .rv-row-2 .rv-rating-media img {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Line: company + state */
+  .rv-row-2 .rv-line {
+    margin-top: 4px;
+  }
+
+  .rv-row-2 .rv-company {
+    font-size: 12px;
+    color: #555;
+  }
+
+  .rv-row-2 .rv-state {
+    display: block;
+    font-size: 11px;
+    color: #777;
+  }
+
+  /* Only FREE Delivery */
+  .rv-row-2 .rv-tags {
+    margin-top: 6px;
+  }
+
+  .rv-row-2 .rv-tags .free {
+    color: #009605;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  /* PRICE */
+  .rv-row-2 .rv-bottom-row {
+    margin-top: 8px;
+  }
+
+  .rv-row-2 .rv-price {
+    font-size: 14px;
+    font-weight: 600;
+    gap: 6px;
+  }
+
+  .rv-row-2 .rv-price .old {
+    font-size: 11px;
+  }
+
+  .rv-row-2 .rv-price .off {
+    font-size: 11px;
+    color: #a10404;
   }
 }
