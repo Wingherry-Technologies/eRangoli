@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exact Filter Sidebar UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+    font-family: "Nunito Sans" ;
+  background: #f4f4f4;
+}
+
+/* ✅ LEFT ICON BAR */
+.left-icons {
+  position: fixed;
+  left: 1px;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10001;
+  height: 100vh;
+  width: max-content;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.left-icons button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #D9D9D9;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.left-icons button img{
+    width: 70%;
+    height: 70%;
+}
+/* ✅ OVERLAY */
+.aside-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+  z-index: 10000;
+}
+
+.aside-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ✅ SIDEBAR */
+.left-sidebar {
+  position: fixed;
+  left: -340px;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 6px 0 25px rgba(0,0,0,.25);
+  transition: .35s ease;
+  z-index: 10001;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.left-sidebar.active {
+  left: 0;
+}
+
+.sidebar-title {
+  margin: 14px 0 8px;
+  font-family: Nunito Sans;
+font-weight: 700;
+font-size: 18px;
+color: #3F3F3F;
+
+}
+
+.filter-item {
+  background: #F9F9F9;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #3F3F3F;
+  font-weight: 400;
+}
+
+.filter-item.active {
+  color: #c73737;
+  background-color: #EFDFDF;
+  font-weight: 600;
+}
+.filter-item img{
+    max-width: 20px;
+}
+/* .sub-options {
+  display: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+} */
+.sub-options input{
+    width: 16px;
+    background-color: #fff;
+}
+.sub-options label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 5px 0;
+  color: #3F3F3F;
+}
+.filter-item.active{
+  background:#EFDFDF;
+  color:#c73737;
+  font-weight:600;
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  accent-color:#e6e6e6;
+  border: 1px solid #3F3F3F;
+  padding: 5px;
+}
+.sub-options {
+  max-height: 0;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 5px;
+  transition: max-height 0.35s ease;
+}
+
+/* when open */
+.sub-options.open {
+  max-height: 500px; /* enough to show all items */
+}
+
+/* rotate icon smoothly */
+.filter-item img {
+  transition: transform 0.3s ease;
+}
+.filter-item img.rotate {
+  transform: rotate(180deg);
+}
+
+/* ✅ PRODUCTS */
+.products {
+  padding: 40px 80px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 220px;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.clear-all {
+  text-align: right;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+}
+.sidebar-close{
+  position:absolute;
+  top:10px;
+  right:20px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:none;
+  color:#fff;
+  background-color: transparent;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.sidebar-close img{
+  max-width: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✅ LEFT ICONS -->
+<div class="left-icons">
+  <button id="openFilter"><img src="../assets/productcatalog/filtering.svg" alt=""></button>
+  <button id="openSort"><img src="../assets/productcatalog/sorting.svg" alt=""></button>
+</div>
+
+<div class="aside-overlay" id="overlay"></div>
+
+<!-- ✅ SIDEBAR -->
+<aside class="left-sidebar" id="sidebar">
+<button class="sidebar-close" onclick="closeSidebar()"><img src="../assets/productcatalog/X.svg" alt=""></button>
+
+  <div class="sidebar-title">Filters</div>
+
+  <!-- ✅ PRICE -->
+  <div class="filter-item" onclick="toggleSub(this,'priceLabel')">
+    <span id="priceLabel">Price Range</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Under ₹500</span> <input type="radio" name="price" value="0-500"></label>
+    <label><span>₹500 – ₹1,000</span> <input type="radio" name="price" value="500-1000"></label>
+    <label><span>₹1,000 – ₹2,500</span> <input type="radio" name="price" value="1000-2500"></label>
+    <label><span>₹2,500 – ₹5,000</span> <input type="radio" name="price" value="2500-5000"></label>
+    <label><span>Above ₹5,000</span> <input type="radio" name="price" value="5000-999999"></label>
+  </div>
+
+  <!-- ✅ STATE -->
+  <div class="filter-item" onclick="toggleSub(this,'stateLabel')">
+    <span id="stateLabel">By State</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Karnataka</span> <input type="checkbox" class="state"></label>
+    <label><span>Telangana</span> <input type="checkbox" class="state"></label>
+  </div>
+
+  <!-- ✅ MATERIAL -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Material</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Wood</span> <input type="checkbox" class="material"></label>
+    <label><span>Metal</span> <input type="checkbox" class="material"></label>
+    <label><span>Clay</span> <input type="checkbox" class="material"></label>
+  </div>
+
+  <!-- ✅ BRAND -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Brand</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Sanskriti</span> <input type="checkbox" class="brand"></label>
+    <label><span>CraftVilla</span> <input type="checkbox" class="brand"></label>
+  </div>
+
+  <!-- ✅ SIZE -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Size</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Small</span> <input type="checkbox" class="size"></label>
+    <label><span>Large</span> <input type="checkbox" class="size"></label>
+  </div>
+<!-- ✅ SORT -->
+<div class="sidebar-title">Sort by</div>
+
+<!-- ✅ PRICE RANGE SORT -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Price Range</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>Low to High <input type="radio" name="sortPrice" value="price_asc"></label>
+  <label>High to Low <input type="radio" name="sortPrice" value="price_desc"></label>
+</div>
+
+<!-- ✅ DELIVERY DATE SORT (UPDATED AS YOU ASKED) -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Delivery Date</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>Within 3 Days <input type="radio" name="sortDelivery" value="delivery_3"></label>
+  <label>Within 5 Days <input type="radio" name="sortDelivery" value="delivery_5"></label>
+  <label>Within 7 Days <input type="radio" name="sortDelivery" value="delivery_7"></label>
+</div>
+
+<!-- ✅ RATINGS SORT -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Ratings</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>High to Low <input type="radio" name="sortRating" value="rating_desc"></label>
+  <label>Low to High <input type="radio" name="sortRating" value="rating_asc"></label>
+</div>
+
+<!-- ✅ DISCOUNT SORT (UPDATED FROM SALES/OFFER) -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Discount</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>10% & Above <input type="radio" name="sortDiscount" value="discount_10"></label>
+  <label>25% & Above <input type="radio" name="sortDiscount" value="discount_25"></label>
+  <label>50% & Above <input type="radio" name="sortDiscount" value="discount_50"></label>
+</div>
+
+<!-- ✅ RECENTLY ADDED (CHECKBOX ONLY) -->
+<div class="filter-item">
+  <label style="width:100%;display:flex;justify-content:space-between;">
+    Recently Added
+    <input type="checkbox" id="recentCheck">
+  </label>
+</div>
+
+
+<div class="clear-all" onclick="clearAll()" style="
+  position: sticky;
+  bottom: 15px;
+  background:#fff;
+  color: #3F3F3F;
+  padding:10px;
+  margin-top:20px;
+  text-align:right;
+  border-top:1px solid #ddd;
+  font-weight:600;
+  font-size: 16px;">
+  Clear all
+</div>
+</aside>
+
+<!-- ✅ PRODUCTS -->
+<div class="products">
+<!-- ✅ CARD 1 -->
+<div class="rv-card"
+  data-price="5200"
+  data-state="Tamil Nadu"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Large">
+  <div class="rv-img">
+    <img src="../assets/master/Rectangle 363.svg" alt="" />
+    <div class="rv-wishlist"><img src="../assets/master/Heart2.svg" alt="Wishlist" /></div>
+    <div class="rv-rating">4.8 <span><img src="../assets/master/star.svg" /></span> <span>(1.5k)</span></div>
+  </div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line">
+    <span class="rv-company">by Sanskriti Collection</span>
+    <span class="rv-state">Tamil Nadu</span>
+  </div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+  <div class="rv-bottom-row">
+    <p class="rv-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+    <div class="rv-share"><img src="../assets/master/shareimage.png" /></div>
+  </div>
+</div>
+
+<!-- ✅ CARD 2 -->
+<div class="rv-card"
+  data-price="2674"
+  data-state="Andhra Pradesh"
+  data-material="Wood"
+  data-brand="Sanskriti"
+  data-size="Large">
+  <div class="rv-img">
+    <img src="../assets/master/Rectangle 364.svg" />
+    <div class="rv-wishlist"><img src="../assets/master/Heart2.svg" /></div>
+    <div class="rv-rating">4.8 <span><img src="../assets/master/star.svg" /></span> <span>(1.5k)</span></div>
+  </div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Sanskriti Collection</span><span class="rv-state">Andhra Pradesh</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹2,674 <span class="old">₹5,674</span><span class="off">(25%OFF)</span></p><div class="rv-share"><img src="../assets/master/shareimage.png" /></div></div>
+</div>
+
+<!-- ✅ CARD 3 -->
+<div class="rv-card"
+  data-price="1800"
+  data-state="Karnataka"
+  data-material="Metal"
+  data-brand="CraftVilla"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 365.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by CraftVilla</span><span class="rv-state">Karnataka</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹1,800</p></div>
+</div>
+
+<!-- ✅ CARD 4 -->
+<div class="rv-card"
+  data-price="3400"
+  data-state="Rajasthan"
+  data-material="Wood"
+  data-brand="Heritage"
+  data-size="Large">
+  <div class="rv-img"><img src="../assets/master/Rectangle 366.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Heritage</span><span class="rv-state">Rajasthan</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹3,400</p></div>
+</div>
+
+<!-- ✅ CARD 5 -->
+<div class="rv-card"
+  data-price="950"
+  data-state="Kerala"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 367.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">Local Artisan</span><span class="rv-state">Kerala</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹950</p></div>
+</div>
+
+<!-- ✅ CARD 6 -->
+<div class="rv-card"
+  data-price="4100"
+  data-state="Gujarat"
+  data-material="Metal"
+  data-brand="CraftVilla"
+  data-size="Large">
+  <div class="rv-img"><img src="../assets/master/Rectangle 368.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by CraftVilla</span><span class="rv-state">Gujarat</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹4,100</p></div>
+</div>
+
+<!-- ✅ CARD 7 -->
+<div class="rv-card"
+  data-price="2250"
+  data-state="Maharashtra"
+  data-material="Wood"
+  data-brand="Sanskriti"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 369.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Sanskriti</span><span class="rv-state">Maharashtra</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹2,250</p></div>
+</div>
+
+<!-- ✅ CARD 8 -->
+<div class="rv-card"
+  data-price="1500"
+  data-state="Telangana"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 370.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">Local Maker</span><span class="rv-state">Telangana</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹1,500</p></div>
+</div>
+
+<!-- ✅ CARD 9 -->
+<div class="rv-card"
+  data-price="6000"
+  data-state="Delhi"
+  data-material="Metal"
+  data-brand="PremiumArt"
+  data-size="Large"
+  data-rating="4.8"
+data-discount="25"
+data-delivery="5"
+data-date="20241205"
+>
+  <div class="rv-img"><img src="../assets/master/Rectangle 363.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">PremiumArt</span><span class="rv-state">Delhi</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹6,000</p></div>
+</div>
+
+</div>
+<div id="noProductMsg" style="
+  display:none;
+  width:100%;
+  text-align:center;
+  padding:40px;
+  font-size:20px;
+  color:#777;">
+  No products found 😔
+</div>
+
+<script>
+/* ===============================
+   ✅ SIDEBAR OPEN / CLOSE
+================================ */
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("openFilter").onclick = () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+};
+document.getElementById("openSort").onclick = () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+};
+overlay.onclick = () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+};
+function closeSidebar() {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+/* ===============================
+   ✅ TOGGLE DROPDOWN
+================================ */
+function toggleSub(el) {
+  const next = el.nextElementSibling;
+  if (!next || !next.classList.contains("sub-options")) return;
+
+  next.classList.toggle("open");
+  const img = el.querySelector("img");
+  if (img) img.classList.toggle("rotate");
+}
+
+/* ===============================
+   ✅ GLOBALS
+================================ */
+const cards = document.querySelectorAll(".rv-card");
+const noProductMsg = document.getElementById("noProductMsg");
+
+/* ===============================
+   ✅ INPUT EVENTS
+================================ */
+document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("change", applyFilters);
+});
+
+/* ===============================
+   ✅ ACTIVE + COUNT HANDLER
+================================ */
+function updateHeaderCount(header, count, defaultText) {
+  const span = header.querySelector("span");
+  if (count > 0) {
+    span.textContent = `${defaultText} (${count})`;
+    header.classList.add("active");
+  } else {
+    span.textContent = defaultText;
+    header.classList.remove("active");
+  }
+}
+
+/* ===============================
+   ✅ MAIN FILTER + SORT ENGINE
+================================ */
+function applyFilters() {
+
+  const priceInput = document.querySelector('input[name="price"]:checked');
+
+  const states    = [...document.querySelectorAll(".state:checked")].map(i => i.parentElement.innerText.trim());
+  const materials = [...document.querySelectorAll(".material:checked")].map(i => i.parentElement.innerText.trim());
+  const brands    = [...document.querySelectorAll(".brand:checked")].map(i => i.parentElement.innerText.trim());
+  const sizes     = [...document.querySelectorAll(".size:checked")].map(i => i.parentElement.innerText.trim());
+
+  const sortInputs = document.querySelectorAll('input[name="sort"]:checked');
+  const recentChecked = document.getElementById("recentCheck").checked;
+
+  const [min, max] = priceInput ? priceInput.value.split("-").map(Number) : [0, 999999];
+
+  /* ===============================
+     ✅ FILTER COUNTS
+  =============================== */
+  updateHeaderCount(document.querySelector("#priceLabel").closest(".filter-item"), priceInput ? 1 : 0, "Price Range");
+  updateHeaderCount(document.querySelector("#stateLabel").closest(".filter-item"), states.length, "By State");
+  updateHeaderCount(document.querySelectorAll(".filter-item")[2], materials.length, "Material");
+  updateHeaderCount(document.querySelectorAll(".filter-item")[3], brands.length, "Brand");
+  updateHeaderCount(document.querySelectorAll(".filter-item")[4], sizes.length, "Size");
+
+  /* ===============================
+     ✅ SORT COUNTS (✅ FIXED – EACH ONE IS INDEPENDENT)
+  =============================== */
+  updateHeaderCount(document.querySelectorAll(".filter-item")[5],
+    document.querySelector('input[value="price_asc"]:checked') || document.querySelector('input[value="price_desc"]:checked') ? 1 : 0,
+    "Price Range"
+  );
+
+  updateHeaderCount(document.querySelectorAll(".filter-item")[6],
+    document.querySelector('input[value^="delivery"]:checked') ? 1 : 0,
+    "Delivery Date"
+  );
+
+  updateHeaderCount(document.querySelectorAll(".filter-item")[7],
+    document.querySelector('input[value^="rating"]:checked') ? 1 : 0,
+    "Ratings"
+  );
+
+  updateHeaderCount(document.querySelectorAll(".filter-item")[8],
+    document.querySelector('input[value^="discount"]:checked') ? 1 : 0,
+    "Discount"
+  );
+
+  if (recentChecked) {
+    document.querySelectorAll(".filter-item")[9].classList.add("active");
+  } else {
+    document.querySelectorAll(".filter-item")[9].classList.remove("active");
+  }
+
+  /* ===============================
+     ✅ APPLY FILTERS TO PRODUCTS
+  =============================== */
+  let visibleCards = [];
+
+  cards.forEach(card => {
+    const price = Number(card.dataset.price);
+    const state = card.dataset.state;
+    const material = card.dataset.material;
+    const brand = card.dataset.brand;
+    const size = card.dataset.size;
+
+    const match =
+      price >= min && price <= max &&
+      (states.length === 0 || states.includes(state)) &&
+      (materials.length === 0 || materials.includes(material)) &&
+      (brands.length === 0 || brands.includes(brand)) &&
+      (sizes.length === 0 || sizes.includes(size));
+
+    card.style.display = match ? "block" : "none";
+    if (match) visibleCards.push(card);
+  });
+
+  applySortLogic(visibleCards);
+
+  noProductMsg.style.display = visibleCards.length === 0 ? "block" : "none";
+}
+
+/* ===============================
+   ✅ SORT ENGINE (✅ FIXED)
+================================ */
+function applySortLogic(visibleCards) {
+
+  const activeSort = document.querySelector('input[name="sort"]:checked')?.value;
+  const recentChecked = document.getElementById("recentCheck").checked;
+
+  if (activeSort === "price_asc")
+    visibleCards.sort((a, b) => a.dataset.price - b.dataset.price);
+
+  if (activeSort === "price_desc")
+    visibleCards.sort((a, b) => b.dataset.price - a.dataset.price);
+
+  if (activeSort === "rating_desc")
+    visibleCards.sort((a, b) => b.dataset.rating - a.dataset.rating);
+
+  if (activeSort === "rating_asc")
+    visibleCards.sort((a, b) => a.dataset.rating - b.dataset.rating);
+
+  if (activeSort?.includes("delivery")) {
+    const days = Number(activeSort.split("_")[1]);
+    visibleCards = visibleCards.filter(c => c.dataset.delivery <= days);
+  }
+
+  if (activeSort?.includes("discount")) {
+    const disc = Number(activeSort.split("_")[1]);
+    visibleCards = visibleCards.filter(c => c.dataset.discount >= disc);
+  }
+
+  if (recentChecked) {
+    visibleCards.sort((a, b) => b.dataset.date - a.dataset.date);
+  }
+
+  document.querySelector(".products").append(...visibleCards);
+}
+
+/* ===============================
+   ✅ CLEAR ALL (✅ FULL RESET FIXED)
+================================ */
+function clearAll() {
+  document.querySelectorAll("input").forEach(i => (i.checked = false));
+  document.querySelectorAll(".filter-item").forEach(i => {
+    i.classList.remove("active");
+    const span = i.querySelector("span");
+    if (span) span.textContent = span.textContent.split("(")[0];
+  });
+
+  cards.forEach(card => (card.style.display = "block"));
+  noProductMsg.style.display = "none";
+}
+/* ✅ ALLOW RADIO TOGGLE (SELECT + DESELECT) */
+document.querySelectorAll('input[type="radio"]').forEach(radio => {
+  radio.addEventListener("click", function () {
+    if (this.wasChecked) {
+      this.checked = false;
+      this.wasChecked = false;
+      applyFilters();
+    } else {
+      document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => r.wasChecked = false);
+      this.wasChecked = true;
+    }
+  });
+});
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="../css/productcatalog.css">
+    <!-- <link rel="stylesheet" href="../css/similarFinds.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -32,9 +33,664 @@
     <section class="pdthead">
       <h1 class="pdtheading">Tribal Iron Craft ( Bastar Art)</h1>
     </section>
-    <section class="pdtdisplay">
+    
+<!-- ✅ LEFT ICONS -->
 
+
+<div class="aside-overlay" id="overlay"></div>
+
+<!-- ✅ SIDEBAR -->
+<aside class="left-sidebar" id="sidebar">
+<button class="sidebar-close" onclick="closeSidebar()"><img src="../assets/productcatalog/X.svg" alt=""></button>
+
+  <div class="sidebar-title">Filters</div>
+
+  <!-- ✅ PRICE -->
+  <div class="filter-item" onclick="toggleSub(this,'priceLabel')">
+    <span id="priceLabel">Price Range</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Under ₹500</span> <input type="radio" name="price" value="0-500"></label>
+    <label><span>₹500 – ₹1,000</span> <input type="radio" name="price" value="500-1000"></label>
+    <label><span>₹1,000 – ₹2,500</span> <input type="radio" name="price" value="1000-2500"></label>
+    <label><span>₹2,500 – ₹5,000</span> <input type="radio" name="price" value="2500-5000"></label>
+    <label><span>Above ₹5,000</span> <input type="radio" name="price" value="5000-999999"></label>
+  </div>
+
+  <!-- ✅ STATE -->
+  <div class="filter-item" onclick="toggleSub(this,'stateLabel')">
+    <span id="stateLabel">By State</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Karnataka</span> <input type="checkbox" class="state"></label>
+    <label><span>Telangana</span> <input type="checkbox" class="state"></label>
+  </div>
+
+  <!-- ✅ MATERIAL -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Material</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Wood</span> <input type="checkbox" class="material"></label>
+    <label><span>Metal</span> <input type="checkbox" class="material"></label>
+    <label><span>Clay</span> <input type="checkbox" class="material"></label>
+  </div>
+
+  <!-- ✅ BRAND -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Brand</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Sanskriti</span> <input type="checkbox" class="brand"></label>
+    <label><span>CraftVilla</span> <input type="checkbox" class="brand"></label>
+  </div>
+
+  <!-- ✅ SIZE -->
+  <div class="filter-item" onclick="toggleSub(this)">
+    <span>Size</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+  </div>
+  <div class="sub-options">
+    <label><span>Small</span> <input type="checkbox" class="size"></label>
+    <label><span>Large</span> <input type="checkbox" class="size"></label>
+  </div>
+<!-- ✅ SORT -->
+<div class="sidebar-title">Sort by</div>
+
+<!-- ✅ PRICE RANGE SORT -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Price Range</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>Low to High <input type="radio" name="sortPrice" value="price_asc"></label>
+  <label>High to Low <input type="radio" name="sortPrice" value="price_desc"></label>
+</div>
+
+<!-- ✅ DELIVERY DATE SORT (UPDATED AS YOU ASKED) -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Delivery Date</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>Within 3 Days <input type="radio" name="sortDelivery" value="delivery_3"></label>
+  <label>Within 5 Days <input type="radio" name="sortDelivery" value="delivery_5"></label>
+  <label>Within 7 Days <input type="radio" name="sortDelivery" value="delivery_7"></label>
+</div>
+
+<!-- ✅ RATINGS SORT -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Ratings</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>High to Low <input type="radio" name="sortRating" value="rating_desc"></label>
+  <label>Low to High <input type="radio" name="sortRating" value="rating_asc"></label>
+</div>
+
+<!-- ✅ DISCOUNT SORT (UPDATED FROM SALES/OFFER) -->
+<div class="filter-item" onclick="toggleSub(this)">
+  <span>Discount</span> <span><img src="../assets/productcatalog/dropdown.svg" alt=""></span>
+</div>
+<div class="sub-options">
+  <label>10% & Above <input type="radio" name="sortDiscount" value="discount_10"></label>
+  <label>25% & Above <input type="radio" name="sortDiscount" value="discount_25"></label>
+  <label>50% & Above <input type="radio" name="sortDiscount" value="discount_50"></label>
+</div>
+
+<!-- ✅ RECENTLY ADDED (CHECKBOX ONLY) -->
+<div class="filter-item">
+  <label style="width:100%;display:flex;justify-content:space-between;">
+    Recently Added
+    <input type="checkbox" id="recentCheck">
+  </label>
+</div>
+
+
+<div class="clear-all" onclick="clearAll()">
+  Clear all
+</div>
+</aside>
+<div class="pc-wapper">
+<div class="left-icons">
+  <button id="openFilter"><img src="../assets/productcatalog/filtering.svg" alt=""></button>
+  <button id="openSort"><img src="../assets/productcatalog/sorting.svg" alt=""></button>
+</div>
+<!-- ✅ PRODUCTS -->
+<div class="products rv-grid">
+<!-- ✅ CARD 1 -->
+<div class="rv-card"
+  data-price="5200"
+  data-state="Tamil Nadu"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Large">
+  <div class="rv-img">
+    <img src="../assets/master/Rectangle 363.svg" alt="" />
+    <div class="rv-wishlist"><img src="../assets/master/Heart2.svg" alt="Wishlist" /></div>
+    <div class="rv-rating">4.8 <span><img src="../assets/master/star.svg" /></span> <span>(1.5k)</span></div>
+  </div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line">
+    <span class="rv-company">by Sanskriti Collection</span>
+    <span class="rv-state">Tamil Nadu</span>
+  </div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+  <div class="rv-bottom-row">
+    <p class="rv-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+    <div class="rv-share"><img src="../assets/master/shareimage.png" /></div>
+  </div>
+</div>
+
+<!-- ✅ CARD 2 -->
+<div class="rv-card"
+  data-price="2674"
+  data-state="Andhra Pradesh"
+  data-material="Wood"
+  data-brand="Sanskriti"
+  data-size="Large">
+  <div class="rv-img">
+    <img src="../assets/master/Rectangle 364.svg" />
+    <div class="rv-wishlist"><img src="../assets/master/Heart2.svg" /></div>
+    <div class="rv-rating">4.8 <span><img src="../assets/master/star.svg" /></span> <span>(1.5k)</span></div>
+  </div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Sanskriti Collection</span><span class="rv-state">Andhra Pradesh</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹2,674 <span class="old">₹5,674</span><span class="off">(25%OFF)</span></p><div class="rv-share"><img src="../assets/master/shareimage.png" /></div></div>
+</div>
+
+<!-- ✅ CARD 3 -->
+<div class="rv-card"
+  data-price="1800"
+  data-state="Karnataka"
+  data-material="Metal"
+  data-brand="CraftVilla"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 365.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by CraftVilla</span><span class="rv-state">Karnataka</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹1,800</p></div>
+</div>
+
+<!-- ✅ CARD 4 -->
+<div class="rv-card"
+  data-price="3400"
+  data-state="Rajasthan"
+  data-material="Wood"
+  data-brand="Heritage"
+  data-size="Large">
+  <div class="rv-img"><img src="../assets/master/Rectangle 366.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Heritage</span><span class="rv-state">Rajasthan</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹3,400</p></div>
+</div>
+
+<!-- ✅ CARD 5 -->
+<div class="rv-card"
+  data-price="950"
+  data-state="Kerala"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 367.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">Local Artisan</span><span class="rv-state">Kerala</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹950</p></div>
+</div>
+
+<!-- ✅ CARD 6 -->
+<div class="rv-card"
+  data-price="4100"
+  data-state="Gujarat"
+  data-material="Metal"
+  data-brand="CraftVilla"
+  data-size="Large">
+  <div class="rv-img"><img src="../assets/master/Rectangle 368.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by CraftVilla</span><span class="rv-state">Gujarat</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹4,100</p></div>
+</div>
+
+<!-- ✅ CARD 7 -->
+<div class="rv-card"
+  data-price="2250"
+  data-state="Maharashtra"
+  data-material="Wood"
+  data-brand="Sanskriti"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 369.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">by Sanskriti</span><span class="rv-state">Maharashtra</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹2,250</p></div>
+</div>
+
+<!-- ✅ CARD 8 -->
+<div class="rv-card"
+  data-price="1500"
+  data-state="Telangana"
+  data-material="Clay"
+  data-brand="Local"
+  data-size="Small">
+  <div class="rv-img"><img src="../assets/master/Rectangle 370.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">Local Maker</span><span class="rv-state">Telangana</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹1,500</p></div>
+</div>
+
+<!-- ✅ CARD 9 -->
+<div class="rv-card"
+  data-price="6000"
+  data-state="Delhi"
+  data-material="Metal"
+  data-brand="PremiumArt"
+  data-size="Large"
+  data-rating="4.8"
+data-discount="25"
+data-delivery="5"
+data-date="20241205"
+>
+  <div class="rv-img"><img src="../assets/master/Rectangle 363.svg" /></div>
+  <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+  <div class="rv-line"><span class="rv-company">PremiumArt</span><span class="rv-state">Delhi</span></div>
+  <p class="rv-tags"><span class="free">FREE Delivery</span></p>
+  <div class="rv-bottom-row"><p class="rv-price">₹6,000</p></div>
+</div>
+
+</div>
+<div id="noProductMsg" style="
+  display:none;
+  width:100%;
+  text-align:center;
+  padding:40px;
+  font-size:20px;
+  color:#777;">
+  No products found 😔
+</div>
+</div>
+    <section class="similar-finds-section">
+      <h2 class="similar-title">Similar Finds</h2>
+
+      <div class="similar-list">
+        <div class="similar-card">
+          <img src="../assets/master/Ellipse 18.svg" alt="" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 1.png" alt="image" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 2.png" alt="" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 3.png" alt="image" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 4.png" alt="" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 5.png" alt="image" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+        <div class="similar-card">
+          <img src="../assets/master/image 6.png" alt="image" />
+          <h3>Product Name</h3>
+          <p class="brand">by Sanskriti Collection</p>
+          <p class="price">
+            ₹2,674 <span class="old-price">₹5,674</span>
+            <span class="offer">(25%OFF)</span>
+          </p>
+        </div>
+      </div>
+
+      <button class="load-more-btn">Load more</button>
     </section>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed-section">
+      <h2 class="rv-title">Recently Viewed</h2>
+
+      <div class="rv-grid">
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 363.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+          <div class="rv-rating-media">
+            4.8
+            <span><img src="../assets/master/star.svg" alt="Star" /></span>
+            <span>(1.5k)</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 364.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 365.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 366.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 367.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 368.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 369.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 370.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+
+          <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+
+          <div class="rv-line">
+            <span class="rv-company">by Sanskriti Collection</span>
+            <span class="rv-state">Andhra Pradesh</span>
+          </div>
+
+          <p class="rv-tags">
+            <span class="free">FREE Delivery</span>
+            <span class="left">1 left only</span>
+          </p>
+
+          <div class="rv-bottom-row">
+            <p class="rv-price">
+              ₹2,674 <span class="old">₹5,674</span>
+              <span class="off">(25%OFF)</span>
+            </p>
+
+            <div class="rv-share">
+              <img src="../assets/master/shareimage.png" alt="Share" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="../javascript/productcatalog.js"></script>
 </body>
 </html>
