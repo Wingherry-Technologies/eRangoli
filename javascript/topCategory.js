@@ -16,7 +16,7 @@
         if (window.matchMedia("(min-width:1441px) and (max-width:1599px)").matches) return 5;
         if (window.matchMedia("(min-width:1025px) and (max-width:1440px)").matches) return 4;
         if (window.matchMedia("(min-width:768px) and (max-width:1252px)").matches) return 3;
-        if (window.matchMedia("(min-width:425px) and (max-width:767px)").matches) return 2;
+        if (window.matchMedia("(min-width:380px) and (max-width:767px)").matches) return 2;
         return 1; // <425
       }
 

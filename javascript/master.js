@@ -11,11 +11,14 @@ hamburger?.addEventListener("click", () => {
   if (mobileMenu.classList.contains("menu-open")) {
     hamberMenuIcon.src = "../assets/master/X.svg";
     document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
     bar1.style.display="none"
+    window.scrollTo(0, 0);
   }
   else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector(".bottom-nav").style.display="flex"
+    document.querySelector("body").style.overflow="auto"
      bar1.style.display="block"
   }
 });
@@ -236,7 +239,8 @@ function handleScrollForMobile() {
     const desktopERan = document.getElementById("desktop-erangoli-logo");
     const mobileERan = document.getElementById("mobile-erangoli-logo");
     const maginfyingMobile = document.getElementById("maginfying-mobile");
-    const mobileSuggestion=document.getElementById("mobile-suggestions")
+    const mobileSuggestion=document.getElementById("mobile-suggestions");
+    const bannerContent=document.querySelector(".banner-main-content");
 
     // Only apply logic when screen width <= 595px
     if (window.innerWidth <= 595) {
@@ -259,6 +263,7 @@ function handleScrollForMobile() {
             maginfyingMobile.style.display = "none";
 
             mobileSuggestion.style.top='80px';
+            bannerContent.style.top='130px';  
 
         } else {
             bar.style.position = "relative";
@@ -275,6 +280,7 @@ function handleScrollForMobile() {
             maginfyingMobile.style.display = "block";
 
             mobileSuggestion.style.top='150px';
+            bannerContent.style.top='230px';
         }
 
     } else {

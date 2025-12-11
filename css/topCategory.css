@@ -49,6 +49,8 @@
   align-items: center;
   justify-content: center;
   z-index: 30;
+  position: relative;
+  bottom: 10px;
 }
 .top-nav-btn img {
   width: 36px;
@@ -189,18 +191,52 @@
     flex-basis: calc((100% / 3) - ((var(--card-gap) * 2) / 3));
   }
 }
+@media (max-width:595px) {
+  .top-card {
+    height: 160px;
+  }
+  .top-shop-now-btn{
+    font-size: 12px;
+  }
+  .top-nav-btn img{
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width:455px) {
+  .top-shop-now-btn{
+    padding: 8px 10px;
+    font-weight: 500;
+  }
+  .top-category-card{
+    height: 140px;
+  }
+  .top-category-label {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width:425px) {
+  .top-card{
+    height: 130px;
+  }
+}
 
 /* 2 cards (425 - 767) */
-@media (min-width: 600px) and (max-width: 767px) {
+@media (min-width: 380px) and (max-width: 767px) {
   .top-card {
     flex-basis: calc((100% / 2) - ((var(--card-gap) * 1) / 2));
   }
 }
 
 /* 1 card (below 425) */
-@media (max-width: 600px) {
+@media (max-width: 380px) {
   .top-card {
     flex-basis: calc(100% - var(--card-gap));
+  }
+  .top-card {
+    height: 180px;
   }
   .top-category-card {
     height: 220px;
@@ -213,6 +249,9 @@
     width: 28px;
     height: 28px;
   }
+  .top-carousel {
+    left: 12px;
+  }
 }
 
 /* small device tweaks */
@@ -220,12 +259,10 @@
   .top-category-card {
     height: 150px;
   }
+  
 }
 @media (max-width: 360px) {
-  .top-category-label {
-    font-size: 10px;
-    padding: 5px 10px;
-  }
+  
   .top-shop-now-btn {
     padding: 6px 15px;
     font-size: 12px;
@@ -1040,6 +1077,49 @@
     min-width: 230px;
   }
 
+}
+@media (max-width:565px) {
+      .product-card{
+        min-width: 200px;
+      }
+      .action2{
+        gap: 10px;
+      }
+      .icon-btn>img{
+        height: 15px;
+      }
+}
+@media (max-width:500px) {
+  .product-card{
+    min-width: 180px;
+    height: 260px;
+  }
+}
+@media (max-width:460px) {
+  .product-card{
+    min-width: 160px;
+    height: 260px;
+  }
+}
+@media (max-width:421px) {
+  .product-card{
+    min-width: 140px;
+    height: 200px;
+  }
+  .product-image{
+    padding: 0px;
+  }
+  .add-cart-btn{
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  .product-actions{
+    margin-top: 0px;
+  }
+  .product-info{
+    padding: 0 8px;
+    gap: 4px;
+  }
 }
 
 
