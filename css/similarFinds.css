@@ -54,13 +54,13 @@
 
 .similar-card h3 {
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   color: #3a3f45;
 }
 
 .brand {
-  font-size: 13px;
+  font-size: 12px;
   color: #716b6b;
   margin: 4px 0;
 }
@@ -205,7 +205,7 @@
 
 /* PRODUCT NAME */
 .rv-name {
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 12px;
   color: #3d3434;
   font-weight: 600;
@@ -220,7 +220,7 @@
   margin-top: 4px;
 }
 .rv-company {
-  font-size: 14px;
+  font-size: 13px;
   color: #716b6b;
   font-weight: 400;
   margin-right: 5px;
@@ -572,10 +572,6 @@
     display: block;
   }
 
-  .left {
-    display: none;
-  }
-
   .rv-bottom-row {
     margin-top: auto;
     display: flex;
@@ -613,7 +609,6 @@
     color: #a10404;
     margin-bottom: 10px;
     padding-left: 12px;
-    display: block;
   }
 
   .rv-row-1 .rv-scroll-row {
