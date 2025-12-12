@@ -796,13 +796,16 @@ nav{
 .nav-item {
     position: relative;
     padding: 10px 0;
-    font-size: 16px;
     color: white;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     font-family: Padauk;
+}
+.nav-item>span{
+    font-size: 16px;
     text-wrap: nowrap;
+
 }
 
 /* SUBMENU (Initially hidden) */
@@ -1032,7 +1035,7 @@ nav{
     .search-bar{
         width: 300px;
     }
-    .nav-item{
+    .nav-item>span{
         font-size: 14px;
     }
 }
@@ -1117,6 +1120,11 @@ nav{
     .search-bar{
         width: 230px;
     }
+}
+@media (max-width:700px) {
+    .nav-item>span{
+        font-size: 12px;
+    }   
 }
 @media (max-width:698px) {
     .dropdown{

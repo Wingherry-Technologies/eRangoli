@@ -312,6 +312,21 @@ body {
   background: gray;
   border-radius: 10px;
 }
+@media (max-width:900px) {
+  .custumerLoginForm{
+    padding: 0px 30px;
+  }
+  .custumerLoginSocialButtons{
+    padding: 0px 30px;
+  }
+  .custumerLoginDivider{
+    margin: 40px 30px 18px;
+    padding: 0 30px;
+  }
+  .custumerLoginCTA{
+    width: 100%;
+  }
+}
 
 
 @media (max-width: 595px) {
@@ -377,6 +392,7 @@ body {
     overflow: auto;
     box-shadow: 0 6px 22px rgba(0,0,0,0.18);
     position: relative;
+    background-color: white;
   }
 
   .custumerLoginForm,

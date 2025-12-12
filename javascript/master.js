@@ -23,6 +23,11 @@ hamburger?.addEventListener("click", () => {
   }
 });
 
+document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-main>li , mobile-dropdown-sub>ul>li, .mobile-dropdown-sub>.extra-nav").forEach(item => {
+    item.addEventListener("click", () => {
+        window.location.href = "../html/productcatalog.html";
+    });
+});
 // MOBILE DROPDOWN ACCORDION
 // ===============================
 // Level 1 Dropdown (Main Category)
@@ -105,7 +110,7 @@ function UpdateUI(){
     window.location.href="../html/mywishlist.html"
   })
   roundCart.addEventListener("click",()=>{
-    window.location.href="../html/mycart.html"
+    window.location.href="../html/cart.html"
   })
 
   numberRounds.forEach(numberRound => {
@@ -131,7 +136,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-my-cart").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/cart.html"
   })
 
   document.getElementById("mobile-order").addEventListener("click",()=>{
@@ -155,7 +160,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/privacyPolicy.html"
   })
 
   document.getElementById("bottom-nav-wishlist").addEventListener("click",()=>{
@@ -167,7 +172,7 @@ function UpdateUI(){
   })
 
   document.getElementById("bottom-nav-cart").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/cart.html.html"
   })
 
   logoutButton.style.display="flex";

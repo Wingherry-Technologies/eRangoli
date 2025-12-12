@@ -299,6 +299,14 @@ body {
   margin-top: 40px;
   margin-bottom: 26px;
 }
+@media (max-width:966px) {
+  .vendorLoginSubtitle{
+    padding: 0px 30px;
+  }
+  .vendorLoginForm{
+    padding: 0px 30px;
+  }
+}
 
 /* RESPONSIVE */
 @media (min-width: 595px) and (max-width: 745px) {
