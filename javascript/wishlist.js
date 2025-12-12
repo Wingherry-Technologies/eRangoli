@@ -1,37 +1,3 @@
-// Carousel Functionality
-
-let index = 0;
-const slide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(i) {
-    if (i >= images.length) index = 0;
-    if (i < 0) index = images.length - 1;
-
-    slide.style.transform = `translateX(${-index * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-}
-
-dots.forEach((dot, i) => {
-    dot.onclick = () => {
-        index = i;
-        showSlide(index);
-    };
-});
-
-// Auto slide every 3 seconds
-setInterval(() => {
-    index++;
-    showSlide(index);
-}, 3000);
-
-// Initial render
-showSlide(index);
-
-
 /* ================================
    GLOBALS (single source of truth)
    ================================ */
@@ -411,3 +377,31 @@ window.addEventListener("resize", handleLeftIconsPlacement);
 /* Run initial sync and render */
 syncSidebarHeight();
 applyFilters(); // initial render: applies no filters => shows all and prepares pagination
+
+
+
+function applyStockStatus() {
+    document.querySelectorAll(".pd-card").forEach(card => {
+        const stock = card.dataset.stock;
+        const cartBtn = card.querySelector(".pd-cart-btn");
+        const outBtn = card.querySelector(".pd-out-btn");
+        const notify = card.querySelector(".pd-notify");
+
+        if (stock === "out") {
+            card.classList.add("out-of-stock");
+
+            cartBtn.style.display = "none";
+            outBtn.style.display = "block";
+            notify.style.display = "block";
+        } else {
+            card.classList.remove("out-of-stock");
+
+            cartBtn.style.display = "block";
+            outBtn.style.display = "none";
+            notify.style.display = "none";
+        }
+    });
+}
+
+/* Run once after DOM loads */
+applyStockStatus();
