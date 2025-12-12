@@ -9,7 +9,7 @@
   <body>
     <div class="page-container">
       <!-- BACK TO SEARCH -->
-      <div class="back-row">
+      <div class="back-row" id="back-btn">
         <img src="../assets/cart/back.svg" class="back-icon" />
         <span class="search">Back to search</span>
         <span id="pageHeading">Delivery Details</span>
@@ -34,13 +34,13 @@
 
           <!-- DELIVERY FORM -->
           <div class="form-group">
-            <label>Your Name</label>
+            <label>Your Name *</label>
             <input type="text" id="name" placeholder="David John" />
             <span class="error-text" id="nameError"></span>
           </div>
 
           <div class="form-group">
-            <label>Email Address</label>
+            <label>Email Address *</label>
             <input
               type="email"
               id="email"
@@ -50,7 +50,7 @@
           </div>
 
           <div class="form-group">
-            <label>Mobile Number</label>
+            <label>Mobile Number *</label>
             <input type="text" id="phone" placeholder="95367 89905" />
             <span class="error-text" id="phoneError"></span>
           </div>
@@ -152,7 +152,7 @@
             </div>
 
             <div class="popup-form">
-              <label>Your Name</label>
+              <label>Your Name *</label>
               <input
                 type="text"
                 id="p-name"
@@ -161,7 +161,7 @@
               />
               <span class="error-text" id="p-nameError"></span>
 
-              <label>Email Address</label>
+              <label>Email Address *</label>
               <input
                 type="email"
                 id="p-email"
@@ -170,7 +170,7 @@
               />
               <span class="error-text" id="p-emailError"></span>
 
-              <label>Mobile Number</label>
+              <label>Mobile Number *</label>
               <input
                 type="text"
                 id="p-phone"

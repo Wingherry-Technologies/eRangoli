@@ -1,3 +1,7 @@
+document.getElementById("back-btn").addEventListener("click", () => {
+  window.location.href = "../html/productcatalog.html";
+});
+
 function showError(input, errorId, message) {
   const label = input.previousElementSibling;
   const errorSpan = document.getElementById(errorId);
