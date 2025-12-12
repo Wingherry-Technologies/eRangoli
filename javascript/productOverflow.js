@@ -22,9 +22,7 @@ productOverviewThumbnails.forEach((thumb, index) => {
 
 
 //    Product Details & Return Policy toggles
-
 const detailSections = document.querySelectorAll(".productOverviewDetailsSection");
-
 detailSections.forEach((section) => {
   const toggleIcon = section.querySelector(".sectionToggleIcon");
   if (!toggleIcon) return;
@@ -43,22 +41,155 @@ detailSections.forEach((section) => {
 
 
 //    Simple Read More toggle for review cards
-const reviewCards = document.querySelectorAll(".productOverviewReviewCard");
+(function () {
+  const MOBILE_MAX = 594; 
+  const LINES_COLLAPSED = 2; 
 
-reviewCards.forEach(card => {
-  const btn = card.querySelector(".reviewReadMoreBtn");
-  const text = card.querySelector(".productOverviewReviewText");
+  function isMobile() {
+    return window.innerWidth <= MOBILE_MAX;
+  }
 
-  if (!btn) return;
+  function getLineHeightPx(el) {
+    const cs = window.getComputedStyle(el);
+    const lh = parseFloat(cs.lineHeight);
+    if (!lh || Number.isNaN(lh)) {
+      const fs = parseFloat(cs.fontSize) || 14;
+      return fs * 1.2;
+    }
+    return lh;
+  }
 
-  btn.addEventListener("click", () => {
-    card.classList.toggle("expanded");
+  function setupCard(card, idx) {
+    if (!card) return;
+    const text = card.querySelector(".productOverviewReviewText");
+    let btn = card.querySelector(".reviewReadMoreBtn");
+    if (!text) return;
+    if (!btn) {
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "reviewReadMoreBtn";
+      btn.textContent = "Read more";
+      (card.querySelector(".reviewCardRight") || card).appendChild(btn);
+    }
 
-    btn.textContent = card.classList.contains("expanded")
-      ? "Hide"
-      : "Read more";
+    // ensure aria control
+    const contentId = text.id || `review-text-js-${idx}`;
+    text.id = contentId;
+    btn.setAttribute("aria-controls", contentId);
+
+    // function to evaluate if we should show the button
+    function evaluate() {
+      // if not mobile, hide button and reset any JS styles
+      if (!isMobile()) {
+        btn.style.display = "none";
+        text.style.maxHeight = "";
+        text.style.overflow = "";
+        card.classList.remove("expanded-mobile");
+        btn.textContent = "Read more";
+        btn.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      // measure by temporarily collapsing to X lines
+      const lineH = getLineHeightPx(text);
+      const collapsedPx = lineH * LINES_COLLAPSED;
+
+      // reset styles to get natural scrollHeight
+      text.style.maxHeight = "none";
+      text.style.overflow = "visible";
+
+      // single-word / empty check
+      const raw = (text.innerText || text.textContent || "").trim();
+      const words = raw.split(/\s+/).filter(Boolean);
+      if (words.length <= 1) {
+        btn.style.display = "none";
+        card.classList.remove("expanded-mobile");
+        return;
+      }
+
+      // Now apply collapsed style to test overflow
+      text.style.maxHeight = collapsedPx + "px";
+      text.style.overflow = "hidden";
+
+      const isOverflowing = text.scrollHeight > collapsedPx + 1;
+
+      if (!isOverflowing) {
+        // fits within collapsed height — hide button, ensure collapsed state
+        btn.style.display = "none";
+        card.classList.remove("expanded-mobile");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "Read more";
+      } else {
+        // content overflows — show button
+        btn.style.display = "inline-block";
+        const expanded = card.classList.contains("expanded-mobile");
+
+        if (expanded) {
+          text.style.maxHeight = "none";
+          text.style.overflow = "visible";
+          btn.textContent = "Hide";
+          btn.setAttribute("aria-expanded", "true");
+        } else {
+          text.style.maxHeight = collapsedPx + "px";
+          text.style.overflow = "hidden";
+          btn.textContent = "Read more";
+          btn.setAttribute("aria-expanded", "false");
+        }
+      }
+    } // end evaluate
+
+    // button click to toggle expand/collapse
+    if (!btn._jsBound) {
+      btn.addEventListener("click", function () {
+        card.classList.toggle("expanded-mobile");
+        // small timeout to allow layout to settle, then re-evaluate
+        setTimeout(evaluate, 60);
+      });
+      btn._jsBound = true;
+    }
+
+    // expose evaluate for global re-check
+    card._jsEvalReadMore = evaluate;
+
+    // initial evaluate (defer slightly so fonts & layout apply)
+    setTimeout(evaluate, 30);
+  } // end setupCard
+
+  function runAll() {
+    const cards = document.querySelectorAll(".productOverviewReviewCard");
+    cards.forEach((card, idx) => {
+      // set up if not yet set
+      if (!card._jsEvalReadMore) setupCard(card, idx);
+      // always re-evaluate (useful on resize)
+      if (card._jsEvalReadMore) card._jsEvalReadMore();
+    });
+  }
+
+  // Initial run after page load (small delay for layouts)
+  window.addEventListener("load", () => setTimeout(runAll, 50));
+
+  // Re-run on resize/orientation change (debounced)
+  let rTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(rTimer);
+    rTimer = setTimeout(runAll, 120);
   });
-});
+  window.addEventListener("orientationchange", () => {
+    clearTimeout(rTimer);
+    rTimer = setTimeout(runAll, 140);
+  });
+
+  // Observe dynamic changes inside the review list
+  const wrapper = document.querySelector(".productOverviewReviewListWrapper");
+  if (wrapper) {
+    const mo = new MutationObserver(() => {
+      clearTimeout(rTimer);
+      rTimer = setTimeout(runAll, 80);
+    });
+    mo.observe(wrapper, { childList: true, subtree: true, characterData: true });
+  }
+})();
+// HERE END THE RED MORE BUTTON FUNTION 
 
 
 //    Main Image Arrow Navigation
@@ -207,24 +338,77 @@ productOverviewPersonalizationText.addEventListener("input", function () {
   productOverviewCharCount.textContent = currentLength;
 });
 
+// back button function navigation
+document.querySelector(".productOverviewBackBtn").addEventListener("click", function(){
+        window.location.href="../html/productcatalog.html"
+});
+
+// Personalization Save button validation
+const saveBtn = document.querySelector(".personalSaveBtn");
+const personalizationInput = document.getElementById("productOverviewPersonalizationText");
+const personalizationError = document.getElementById("personalizationError");
+
+saveBtn.addEventListener("click", function () {
+  const text = personalizationInput.value.trim();
+
+  if (text === "") {
+    personalizationError.style.display = "inline";
+  } else {
+    personalizationError.style.display = "none";
+    alert("Saved!");
+  }
+});
+
+// Hide error when user starts typing
+personalizationInput.addEventListener("input", function () {
+  if (personalizationError.style.display === "inline") {
+    personalizationError.style.display = "none";
+  }
+});
+
 
 //    Buy now / Add to cart / Load more / View all placeholders
 
 document
   .querySelector(".productOverviewBuyNow")
   .addEventListener("click", function () {
+    window.location.href="../html/cart.html"
   });
 
-document
-  .querySelector(".productOverviewAddToCart")
-  .addEventListener("click", function () {
-    alert("Product added to cart!");
+// Add to card 
+const addToCartBtn = document.querySelector(".productOverviewAddToCart");
+addToCartBtn.addEventListener("click", function () {
+  // Hide the Add to Cart button
+  addToCartBtn.style.display = "none";
+  // Create Counter Box
+  const counter = document.createElement("div");
+  counter.className = "quantityCounterBox";
+  counter.innerHTML = `
+    <span class="quantityCounterBtn" id="qtyMinus">−</span>
+    <span class="quantityCounterValue" id="qtyValue">1</span>
+    <span class="quantityCounterBtn" id="qtyPlus">+</span>
+  `;
+  // Insert Counter in same place
+  addToCartBtn.parentElement.appendChild(counter);
+  let qty = 1;
+  document.getElementById("qtyPlus").addEventListener("click", function () {
+    qty++;
+    document.getElementById("qtyValue").textContent = qty;
   });
+  document.getElementById("qtyMinus").addEventListener("click", function () {
+    if (qty > 1) {
+      qty--;
+      document.getElementById("qtyValue").textContent = qty;
+    }
+  });
+});
+// Add to card end
+
 
 document
   .querySelector(".productOverviewLoadMoreBtn")
   .addEventListener("click", function () {
-    alert("Loading more products...");
+     window.location.href="../html/productcatalog.html"
   });
 
 const productOverviewViewAllBtns = document.querySelectorAll(
@@ -306,21 +490,36 @@ document.querySelectorAll(".productOverviewIcon")[1].addEventListener("click", f
 
 //    Review: View All / Hide toggle for review list wrapper
 
+// SIMPLE REVIEW VIEW-ALL LOGIC
+// Review: View All / Hide toggle for review list wrapper
 (function () {
-
   const wrapper = document.querySelector(".productOverviewReviewListWrapper");
-  const toggle = document.querySelector(".productOverviewReviewsSection .productOverflowViewAllReviewBtn");
+  const button = document.querySelector(".productOverflowViewAllReviewBtn");
 
-  if (!wrapper || !toggle) return;
+  if (!wrapper || !button) return;
 
-  toggle.textContent = wrapper.classList.contains("expanded") ? "Hide" : "View All";
+  // count total review cards
+  const count = wrapper.querySelectorAll(".productOverviewReviewCard").length;
 
-  toggle.addEventListener("click", function () {
-    const isExpanded = wrapper.classList.toggle("expanded");
-    toggle.textContent = isExpanded ? "Hide" : "View All";
-    if (!isExpanded) wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+  // hide button if 2 or fewer reviews
+  if (count <= 2) {
+    button.style.display = "none";
+    return;
+  }
+
+  // Toggle logic
+  button.addEventListener("click", () => {
+    wrapper.classList.toggle("expanded");
+
+    if (wrapper.classList.contains("expanded")) {
+      button.textContent = "Hide";
+    } else {
+      button.textContent = "View All";
+    }
   });
 })();
+
+
 
 //    Photo gallery modal: collect images, populate grid, show/hide
 var galleryModal = document.getElementById("photoGalleryModal");
@@ -411,3 +610,54 @@ if (!galleryModal || !galleryGrid) {
   });
 
 }
+
+
+
+// review image overlay function
+function updateReviewImageOverlay() {
+  const container = document.querySelector(".productOverviewReviewImages");
+  const viewAll = document.querySelector(".reviewImagesViewAll");
+  if (!container) return;
+
+  const items = [...container.querySelectorAll(".productOverviewReviewImage")];
+  const total = items.length;
+
+  // Determine limits based on screen size
+  let maxVisible = 4; // desktop default
+  const w = window.innerWidth;
+
+  if (w >= 1025) maxVisible = 4;   // desktop
+  else if (w >= 595) maxVisible = 3; // tablet
+  else maxVisible = 2;             // mobile
+
+  // Clear all old overlays
+  items.forEach(img => {
+    img.classList.remove("reviewImageMore");
+    img.querySelector(".reviewImageMoreOverlay")?.remove();
+  });
+
+  // Hide view all if total <= max
+  if (viewAll) viewAll.style.display = total <= maxVisible ? "none" : "";
+
+  // If more images than visible, show overlay on last visible
+  if (total > maxVisible) {
+    const lastVisible = items[maxVisible - 1];
+    const remaining = total - maxVisible;
+
+    lastVisible.classList.add("reviewImageMore");
+
+    const overlay = document.createElement("div");
+    overlay.className = "reviewImageMoreOverlay";
+    overlay.innerHTML = `<span>${remaining}+</span><span>Photos</span>`;
+
+    lastVisible.appendChild(overlay);
+  }
+}
+
+// Initial run
+updateReviewImageOverlay();
+
+// Re-run on resize
+window.addEventListener("resize", () => {
+  updateReviewImageOverlay();
+});

@@ -18,11 +18,11 @@ body {
 }
 
 .productOverviewInner {
-  padding: 0 80px;
+  padding: 0 30px;
 }
 
 .productOverviewInnerBottom {
-  padding: 0 80px 80px;
+  padding: 0 30px 80px;
 }
 
 .productOverviewBackBtn {
@@ -352,6 +352,39 @@ body {
   resize: none;
 }
 
+/* save error */
+#personalizationError{
+  display:none;
+   color:#d32f2f; 
+   font-size:13px;
+}
+
+
+.quantityCounterBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  width: 180px;
+  background: #8b0000;
+  color: white;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.quantityCounterBtn {
+  cursor: pointer;
+  font-size: 26px;
+  user-select: none;
+}
+
+.quantityCounterValue {
+  font-size: 20px;
+}
+
 .productOverviewCharCount {
   display: flex;
   justify-content: space-between;
@@ -612,6 +645,35 @@ body {
   color: #3f3f3f;
   line-height: 1.6;
 }
+
+/* REVIEW LIST SCROLLBAR  */
+.productOverviewReviewListWrapper.expanded {
+  overflow: auto;
+  scrollbar-width: thin;              
+}
+
+.productOverviewReviewListWrapper.expanded::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.productOverviewReviewListWrapper.expanded::-webkit-scrollbar-thumb {
+ 
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.productOverviewReviewListWrapper.expanded::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.productOverviewReviewListWrapper.expanded::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 
 .productOverviewFeatures {
   padding-left: 30px;
@@ -1021,7 +1083,7 @@ body {
 
   .productOverviewSimilarProducts {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto;
     gap: 15px;
     padding-bottom: 10px;
   }
@@ -1079,10 +1141,26 @@ body {
       hue-rotate(0deg) brightness(100%);
     /* This gives an Gay shade "3F3F3F" */
   }
+
+  .productOverviewReviewListWrapper{
+    max-height: 390px;
+  }
+  .productOverviewReviewCard:nth-child(n+3){
+    display: none;
+  }
+  
+/* when wrapper has .expanded, show all cards */
+.productOverviewReviewListWrapper.expanded .productOverviewReviewCard {
+  display: flex !important;
+}
+ 
+  
 }
 
 /* ===== MOBILE (≤595px) ===== */
 @media (max-width: 595px) {
+
+
   /* Two-tone background setup */
   .productOverviewContainer {
     background: #f4f2f2 !important;
@@ -1216,7 +1294,7 @@ body {
   /* Similar products carousel */
   .productOverviewSimilarProducts {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto ;
     gap: 12px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -1267,9 +1345,9 @@ body {
 
   /* Features inline */
   .productOverviewFeatures {
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap;
     padding: 15px 10px;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     -webkit-overflow-scrolling: touch;
     background: #ffffff !important;
   }
@@ -1308,15 +1386,24 @@ body {
     max-height: 100%;
   }
   .productOverviewReviewText {
-    max-height: 3.6em;
+    max-height: 2.9em;
     overflow: hidden;
     transition: 0.3s ease;
   }
+    .productOverviewReviewCard:nth-child(n+3){
+    display: none;
+  }
+  
+/* when wrapper has .expanded, show all cards */
+.productOverviewReviewListWrapper.expanded .productOverviewReviewCard {
+  display: flex !important;
+}
 
   /* expanded text */
   .productOverviewReviewCard.expanded .productOverviewReviewText {
     max-height: 500px;
   }
+
 
   /* show button only on mobile */
   .reviewReadMoreBtn {
@@ -1360,6 +1447,7 @@ body {
   }
   .productOverviewReviewCard {
     flex-direction: row;
+    
   }
   .reviewCardTop {
     flex-direction: column;
@@ -1411,6 +1499,7 @@ body {
   .productOverviewReviewImage {
     height: 90px;
   }
+  
 }
 
 /* TABLET → show first 3 images */
@@ -1440,3 +1529,19 @@ body {
     height: 120px;
   }
 }
+
+@media (min-width: 1025px) and (max-width:1220px) {
+  .productOverviewLeftSection,
+  .productOverviewRightSection{
+    max-width: 50% ;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width:1350px) {
+    .productOverviewTitle{
+    max-width: 60%;
+  }
+}
+
+

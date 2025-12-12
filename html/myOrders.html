@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders</title>
+    <link rel="stylesheet" href="../css/myOrders.css">
+  </head>
+  <body>
+         <div class="myOrdersBackButton">
+            <img src="../assets/myOrders/ArrowLeft.svg" alt="">
+        <span>Back to search</span>
+      </div>
+    
+    <div class="myOrdersContainer">
+ 
+
+      <div class="myOrdersHeaderSection">
+        <h1>My Orders</h1>
+      </div>
+
+      <div class="myOrdersContentSection">
+        <div class="myOrdersSearchContainer">
+          <div class="myOrdersSearchBox">
+            <img src="../assets/myOrders/SearchIcon.svg" alt="" />
+            <input type="text" placeholder="Search" id="myOrdersSearchInput" />
+          </div>
+
+          <div class="myOrdersFeature">
+            <div class="myOrdersFilter">
+              <img src="../assets/myOrders/Filter.svg" alt="" />
+            </div>
+            <div class="myOrdersShort">
+              <img src="../assets/myOrders/ShortIcon.svg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivered Order -->
+
+        <div class="myOrdersCard" id="myOrdersDeliveredCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersDelivered">
+              <img src="../assets/myOrders/DeleverdIcon.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3>Delivered</h3>
+              <p>on Fri, 5th dec</p>
+            </div>
+          </div>
+          <div class="myOrdersProductMain">
+            <div class="myOrdersProductDetails">
+              <img
+                src="../assets/myOrders/DeleveryImage.svg"
+                alt="Product"
+                class="myOrdersProductImage"
+              />
+              <div class="myOrdersProductInfo">
+                <div class="myOrdersProductTag">KFGBSH7TLL6</div>
+                <div class="myOrdersProductTitle">
+                  3D Wooden World Map -Glossy Finish
+                </div>
+                <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+                <div class="myOrdersProductPrice">₹ 1,110</div>
+              </div>
+            </div>
+
+            <div class="myOrdersActions">
+              <button class="myOrdersBtn" id="myOrdersReturnBtn">Return</button>
+              <div class="myOrdersActionInfo">
+                Return available till 12th Dec *
+              </div>
+            </div>
+
+            <div class="myOrdersRatingSection">
+              <div class="myOrdersStars" id="myOrdersStars1">
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+              </div>
+              <div class="myOrdersRatingText">
+                Rate & Review to gain special coupons
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In Transit Order -->
+        <div class="myOrdersCard" id="myOrdersTransitCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersTransit">
+              <img src="../assets/myOrders/Package.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3 class="myOrdersTransferTitle">In Transit</h3>
+              <p>Arriving by wed, 15th dec</p>
+            </div>
+          </div>
+
+          <div class="myOrdersProductDetails">
+            <img
+              src="../assets/myOrders/DeleveryImage.svg"
+              alt="Product"
+              class="myOrdersProductImage"
+            />
+            <div class="myOrdersProductInfo">
+              <div class="myOrdersProductTag">KFGBSH7TLL6</div>
+              <div class="myOrdersProductTitle">
+                3D Wooden World Map -Glossy Finish
+              </div>
+              <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+              <div class="myOrdersProductPrice">₹ 1,110</div>
+            </div>
+          </div>
+
+          <div class="myOrdersActions">
+            <button class="myOrdersBtn" id="myOrdersTrackBtn">
+              Track order
+            </button>
+            <div class="myOrdersActionInfo">Eligible to return*</div>
+          </div>
+        </div>
+
+        <!-- Refunded Order -->
+        <div class="myOrdersCard" id="myOrdersRefundedCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersRefunded">
+              <img src="../assets/myOrders/DeleverdIcon.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3>Refunded</h3>
+              <p>on thu, 10th dec</p>
+            </div>
+          </div>
+
+          <div class="myOrdersProductDetails">
+            <img
+              src="../assets/myOrders/DeleveryImage.svg"
+              alt="Product"
+              class="myOrdersProductImage"
+            />
+            <div class="myOrdersProductInfo">
+              <div class="myOrdersProductTitle">
+                3D Wooden World Map -Glossy Finish
+              </div>
+              <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+              <div class="myOrdersProductPrice">₹2,674</div>
+            </div>
+          </div>
+
+          <div class="myOrdersTransactionId">
+            Transaction ID : TXN-87891 04587 788
+          </div>
+
+          <div class="myOrdersRatingSection">
+            <div class="myOrdersStars" id="myOrdersStars2">
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+            </div>
+            <div class="myOrdersRatingText">
+              Rate & Review to gain special coupons
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/myOrders.js"></script>
+  </body>
+</html>

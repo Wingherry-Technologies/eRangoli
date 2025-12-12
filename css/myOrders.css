@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.myOrdersContainer {
+  max-width: 900px;
+  margin: 1rem auto;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.myOrdersBackButton {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  margin-left: 40px;
+  /* background-color: #fff; */
+}
+
+.myOrdersBackButton img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.myOrdersBackButton span {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.myOrdersHeaderSection {
+  background-image: url("../assets/myOrders/myOrderTitle.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 24px;
+  position: relative;
+  background-color: #cf515128;
+}
+
+.myOrdersHeaderSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.myOrdersHeaderSection h1 {
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3f3f3f;
+}
+
+.myOrdersContentSection {
+  background-color: #fafafa;
+  padding: 24px;
+}
+
+.myOrdersSearchContainer {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14rem;
+}
+
+.myOrdersFeature {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+.myOrdersFeature img {
+  width: 25px;
+  height: 25px;
+}
+.myOrdersSearchBox {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  padding: 5px 10px;
+  background-color: #fff;
+}
+
+.myOrdersSearchBox img {
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: #e91e63;
+  background-color: rgba(226, 117, 117, 0.084);
+}
+
+.myOrdersSearchBox input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 20px;
+  font-weight: 400;
+  color: #8e8989;
+}
+
+.myOrdersSearchBox input::placeholder {
+  color: #999;
+}
+
+.myOrdersCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.myOrdersProductMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.myOrdersStatus {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.myOrdersStatusIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.myOrdersStatusIcon.myOrdersDelivered {
+  background-color: #efdfdf;
+}
+
+.myOrdersStatusIcon.myOrdersTransit {
+  background-color: #e5f3e5;
+}
+
+.myOrdersStatusIcon.myOrdersRefunded {
+  background-color: #efdfdf;
+}
+
+.myOrdersStatusIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.myOrdersStatusInfo h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3f3f3f;
+  margin-bottom: 2px;
+}
+.myOrdersTransferTitle {
+  font-weight: 500;
+  color: #009605 !important;
+}
+
+.myOrdersStatusInfo p {
+  font-size: 13px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.myOrdersProductDetails {
+  background-color: #fafafa;
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.myOrdersProductImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.myOrdersProductInfo {
+  flex: 1;
+}
+
+.myOrdersProductTag {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.myOrdersProductTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.myOrdersProductSeller {
+  font-size: 12px;
+  color: #716b6b;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.myOrdersProductPrice {
+  font-size: 12px;
+  font-weight: 400;
+  color: #3f3f3f;
+}
+
+.myOrdersActions {
+  background-color: #fafafa;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.myOrdersBtn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #efdfdf;
+  color: #3f3f3f;
+  transition: all 0.2s;
+}
+
+.myOrdersBtn:hover {
+  background-color: #f5f5f5;
+}
+
+.myOrdersActionInfo {
+  font-size: 12px;
+  font-weight: 500;
+  color: #3f3f3f;
+}
+
+.myOrdersRatingSection {
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  padding: 10px;
+  gap: 5px;
+}
+
+.myOrdersStars {
+  display: flex;
+  gap: 7px;
+  margin-right: 12px;
+}
+
+.myOrdersStar {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #e0e0e0;
+}
+
+.myOrdersRatingText {
+  font-size: 12px;
+  font-weight: 400;
+  color: #716b6b;
+}
+
+.myOrdersTransactionId {
+  font-size: 12px;
+  color: #666;
+  margin-top: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding-top: 12px;
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .myOrdersContainer {
+    max-width: 100%;
+  }
+
+  .myOrdersHeaderSection h1 {
+    font-size: 28px;
+  }
+
+  .myOrdersContentSection {
+    padding: 16px;
+  }
+}
