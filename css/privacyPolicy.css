@@ -25,12 +25,20 @@ body {
   width: 22px;
 }
 
-.headerContainer{
+.back-icon-media,
+.back-row-media {
+  display: none;
+}
+
+.back-row-mob {
+  display: none;
+}
+
+.headerContainer {
   padding: 0 2rem;
 }
 
 .header-banner {
-
   height: 140px;
   background: url("../assets/cart/bg.svg") center/cover;
   position: relative;
@@ -112,22 +120,60 @@ body {
 
 /* Responsive */
 @media (min-width: 595px) and (max-width: 1024px) {
-  .headerContainer{
-    padding:  0 0;
-  }
-  .page-heading {
-    font-size: 22px;
+  /* FULL WIDTH BANNER */
+  .headerContainer {
+    padding: 0;
   }
 
+  .header-banner {
+    height: 120px;
+    width: 100%;
+  }
+
+  .overlay {
+    height: 120px;
+    width: 100%;
+  }
+
+  /* HIDE DESKTOP BACK ROW */
+  .back-row {
+    display: none;
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .back-row-media {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #3f3f3f;
+    cursor: pointer;
+  }
+
+  .back-row-media img {
+    width: 18px;
+  }
+
+  .page-heading {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* CONTENT SPACING */
   .policy-container {
     margin-top: 1.5rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    
+    padding: 16px 20px;
   }
-  .policy-top {
-    margin-top: 1rem;
-  }
+
   .section-title {
     font-size: 16px;
   }
@@ -136,11 +182,62 @@ body {
   .policy-text {
     font-size: 14px;
   }
+}
 
+@media (min-width: 320px) and (max-width: 595px) {
+  /* Full width banner */
+  .headerContainer {
+    padding: 0;
+  }
+
+  .back-row-mob {
+    display: flex;
+    height: 22px;
+    width: 22px;
+  }
+
+  .header-banner {
+    height: 100px;
+    width: 100%;
+  }
   .back-row {
     display: none;
   }
-  .page-wrapper {
+  .overlay {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Header layout: arrow + title in one row */
+  .header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-left: 16px;
+  }
+
+  /* Hide Back text */
+  .back-row-media .back {
+    display: none;
+  }
+
+  /* Arrow */
+  .back-row-media img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Title */
+  .page-heading {
+    font-size: 20px;
+    font-weight: 600;
     margin: 0;
+    line-height: 1.2;
+  }
+  .page-container {
+    margin-top: 1rem;
   }
 }
