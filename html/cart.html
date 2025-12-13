@@ -80,6 +80,7 @@
               id="landmark"
               placeholder="Near Appolo Hospital"
             />
+            <span class="error-text" id="landmarkError"></span>
           </div>
 
           <div class="inline-row">
@@ -204,7 +205,7 @@
                 class="popup-input"
                 placeholder="Near Appolo Hospital"
               />
-              <!-- No need error -->
+              <span class="error-text" id="p-landmarkError"></span>
 
               <label>City *</label>
               <input
@@ -252,7 +253,7 @@
           </div>
           <hr class="total-items-mobile" />
           <!-- PRODUCT 1 -->
-          <div class="product-row">
+          <div class="product-row" data-stock="3">
             <img src="../assets/cart/product1.svg" class="prod-img" />
 
             <div class="prod-info">
@@ -261,7 +262,9 @@
               <p class="color">Colour - Mahagony</p>
 
               <div class="price-qty-row">
-                <p class="price">Price - <span class="rupee">₹2,674</span></p>
+                <p class="price">
+                  Price - <span class="rupee" data-unit="274">₹274</span>
+                </p>
 
                 <div class="qty-box">
                   <button><img src="../assets/cart/minus.svg" /></button>
@@ -277,7 +280,7 @@
           <hr />
 
           <!-- PRODUCT 2 -->
-          <div class="product-row">
+          <div class="product-row" data-stock="0">
             <img src="../assets/cart/product2.svg" class="prod-img" />
 
             <div class="prod-info">
@@ -286,7 +289,9 @@
               <p class="color">Colour - Mahagony</p>
 
               <div class="price-qty-row">
-                <p class="price">Price - <span class="rupee">₹2,674</span></p>
+                <p class="price">
+                  Price - <span class="rupee" data-unit="2742">₹2742</span>
+                </p>
 
                 <div class="qty-box">
                   <button><img src="../assets/cart/minus.svg" /></button>
@@ -307,13 +312,13 @@
 
             <input type="text" value="FIRST 500" />
 
-            <button class="apply-btn">Apply</button>
+            <button class="apply-btn" id="applyCouponBtn">Apply</button>
           </div>
 
           <div class="billing-summary">
             <div class="line">
               <span>Subtotal</span>
-              <span id="subtotalAmount">2674</span>
+              <span id="subtotalAmount">₹0</span>
             </div>
 
             <div class="line">
@@ -328,12 +333,12 @@
 
             <div class="line">
               <span>GST</span>
-              <span id="gstAmount">234</span>
+              <span id="gstAmount">₹234</span>
             </div>
             <hr />
             <div class="line payable">
               <span>Payable</span>
-              <span id="payableAmount">0</span>
+              <span id="payableAmount">₹0</span>
             </div>
           </div>
           <hr />
@@ -346,7 +351,16 @@
             /></span>
           </div>
 
-          <button class="pay-btn">Pay</button>
+          <button class="pay-btn" id="pay-btn">Pay</button>
+
+          <div id="stockLimitWarning" class="stock-warning hidden">
+            <span class="warning-text"
+              >We have only N number of products available</span
+            >
+            <span id="closeStockLimitWarning" class="close-warning">
+              <img src="../assets/cart/X.svg" class="x-icon" />
+            </span>
+          </div>
         </div>
       </div>
     </div>

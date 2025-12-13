@@ -59,8 +59,8 @@ body {
   position: absolute;
   bottom: 200px;
   left: 20%;
-  background: #bca4a41a;
-  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.342);
+  backdrop-filter: blur(3px);
   padding: 30px;
   border-radius: 8px;
   text-align: center;
@@ -216,6 +216,10 @@ input:focus {
   height: 18px;
 }
 
+.total-items-mobile {
+  display: none;
+}
+
 /* Add New Address Button */
 .new-address-btn {
   width: 100%;
@@ -274,6 +278,10 @@ input:focus {
   font-size: 20px;
 }
 
+.billing-address-header {
+  display: none;
+}
+
 .detailed-cart {
   display: flex;
   justify-content: space-between;
@@ -283,10 +291,6 @@ input:focus {
 .total-items {
   font-size: 14px;
   color: #3f3f3f;
-}
-
-.total-items-mobile {
-  display: none;
 }
 
 .your-cart {
@@ -378,6 +382,7 @@ input:focus {
   background: none;
   padding: 0;
   cursor: pointer;
+  margin-top: 4px;
 }
 
 .qty-box img {
@@ -611,6 +616,38 @@ hr {
   flex-direction: column;
 }
 
+#StockLimitWarning {
+  width: 402px;
+  height: 56px;
+  background: #ffc2c2;
+  color: #ff0000;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 15px auto;
+  margin-bottom: 25px;
+}
+
+.billing-address-block {
+  position: relative;
+}
+
+.billing-delete-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.billing-delete-icon img {
+  width: 22px;
+  height: 22px;
+}
+
 @media (min-width: 595px) and (max-width: 1024px) {
   .banner-img {
     width: 100%;
@@ -687,10 +724,6 @@ hr {
 
   .delivery-card {
     background: #ffffff;
-  }
-
-  .total-items {
-    display: none;
   }
 
   .bill-header {
@@ -811,6 +844,32 @@ hr {
     font-weight: 600;
     font-size: 18px;
   }
+  .billing-address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3f3f3f;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+
+  .billing-address-heading {
+    font-size: 14px;
+    margin: 0;
+    color: #3f3f3f;
+    font-weight: 700;
+  }
+
+  .billing-change-btn {
+    font-size: 12px;
+    color: #3f3f3f;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .total-items-mobile {
+    display: none;
+  }
 }
 
 @media (max-width: 595px) {
@@ -922,6 +981,12 @@ hr {
     border-radius: 8px;
     font-weight: 500;
   }
+  .billing-change-btn {
+    font-size: 12px;
+    color: #3f3f3f;
+    font-weight: 400;
+    cursor: pointer;
+  }
 
   .saved-address {
     margin-top: 16px;
@@ -956,6 +1021,11 @@ hr {
   .popup-form label {
     font-size: 13px;
     margin-top: 12px;
+  }
+
+  .billing-address-header {
+    display: flex;
+    justify-content: space-between;
   }
 
   .popup-input {

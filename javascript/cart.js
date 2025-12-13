@@ -2,6 +2,59 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  updatePayButtonState();
+});
+
+document.addEventListener("change", (e) => {
+  if (e.target.matches("#address-list .use-detail input")) {
+    updatePayButtonState();
+  }
+});
+
+function updatePayButtonState() {
+  const payBtn = document.getElementById("pay-btn");
+  if (!payBtn) return;
+
+  const deliveryChecked = document.querySelector(
+    "#address-list .use-detail input:checked"
+  );
+  const billingChecked = document.getElementById("billingAddressCheck");
+
+  const anyChecked =
+    deliveryChecked || (billingChecked && billingChecked.checked);
+
+  if (anyChecked) {
+    payBtn.disabled = false;
+    payBtn.style.background = "#A10404";
+    payBtn.style.cursor = "pointer";
+  } else {
+    payBtn.disabled = true;
+    payBtn.style.background = "#716B6B";
+    payBtn.style.cursor = "not-allowed";
+  }
+}
+
+document.addEventListener("click", (e) => {
+  const payBtn = document.getElementById("pay-btn");
+  if (!payBtn) return;
+
+  if (e.target === payBtn) {
+    const deliveryChecked = document.querySelector(
+      "#address-list .use-detail input:checked"
+    );
+    const billingChecked = document.getElementById("billingAddressCheck");
+
+    if (!deliveryChecked && !(billingChecked && billingChecked.checked)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
+    window.location.href = "../html/paymentgateway.html";
+  }
+});
+
 function showError(input, errorId, message) {
   const label = input.previousElementSibling;
   const errorSpan = document.getElementById(errorId);
@@ -28,12 +81,17 @@ function clearError(input, errorId) {
   if (label) label.classList.remove("error");
 }
 
-function validateName() {
+function validateFullName() {
   const input = document.getElementById("name");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "nameError", "Please enter your name");
+    return false;
+  }
+
+  if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(value)) {
+    showError(input, "nameError", "Only alphabets allowed");
     return false;
   }
 
@@ -61,34 +119,19 @@ function validatePhone() {
 
 function validateZip() {
   const input = document.getElementById("zip");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "zipError", "Please enter zipcode");
+  if (!/^[1-9][0-9]{5}$/.test(value)) {
+    showError(input, "zipError", "Enter valid 6-digit pincode");
     return false;
   }
 
-  if (!/^\d{6}$/.test(value)) {
-    showError(input, "zipError", "Zipcode must be 6 digits");
+  if (/^(\d)\1+$/.test(value)) {
+    showError(input, "zipError", "Pincode cannot contain repeating digits");
     return false;
   }
 
   clearError(input, "zipError");
-  return true;
-}
-
-//ADDITIONAL VALIDATION FUNCTIONS
-
-function validateFullName() {
-  const input = document.getElementById("name");
-  const value = input.value.trim();
-
-  if (value === "") {
-    showError(input, "nameError", "Please enter your full name");
-    return false;
-  }
-
-  clearError(input, "nameError");
   return true;
 }
 
@@ -120,7 +163,37 @@ function validateHno() {
     return false;
   }
 
+  const hnoRegex = /^(?!\s)[A-Za-z0-9#@\-_=+&* ]+$/;
+  if (!hnoRegex.test(input.value)) {
+    showError(input, "hnoError", "Invalid format");
+    return false;
+  }
+
   clearError(input, "hnoError");
+  return true;
+}
+
+function validateLandmark() {
+  const input = document.getElementById("landmark");
+  const value = input.value;
+
+  if (value.trim() === "") {
+    clearError(input, "landmarkError");
+    return true;
+  }
+
+  if (/^\s/.test(value)) {
+    showError(input, "landmarkError", "Space not allowed at first");
+    return false;
+  }
+
+  const regex = /^[A-Za-z0-9.,#@&* ]+$/;
+  if (!regex.test(value)) {
+    showError(input, "landmarkError", "Invalid characters used");
+    return false;
+  }
+
+  clearError(input, "landmarkError");
   return true;
 }
 
@@ -130,6 +203,16 @@ function validateLane() {
 
   if (value === "") {
     showError(input, "laneError", "Please enter area / lane");
+    return false;
+  }
+
+  if (/^\s/.test(input.value)) {
+    showError(input, "laneError", "Space not allowed at first");
+    return false;
+  }
+
+  if (!/^[A-Za-z0-9 ]+$/.test(input.value)) {
+    showError(input, "laneError", "Invalid format");
     return false;
   }
 
@@ -146,6 +229,17 @@ function validateCity() {
     return false;
   }
 
+  if (/^\s/.test(input.value)) {
+    showError(input, "cityError", "City cannot start with space");
+    return false;
+  }
+
+  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+  if (!regex.test(input.value)) {
+    showError(input, "cityError", "Only alphabets allowed");
+    return false;
+  }
+
   clearError(input, "cityError");
   return true;
 }
@@ -159,22 +253,58 @@ function validateState() {
     return false;
   }
 
+  const regex = /^[A-Za-z ]+$/;
+  if (!regex.test(input.value)) {
+    showError(input, "stateError", "Only alphabets allowed");
+    return false;
+  }
+
   clearError(input, "stateError");
   return true;
 }
 
-//POPUP VALIDATION FUNCTIONS
+/* POPUP VALIDATION FUNCTIONS */
 
 function validatePopupName() {
   const input = document.getElementById("p-name");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "p-nameError", "Please enter your full name");
+  if (value.trim() === "") {
+    showError(input, "p-nameError", "Please enter your name");
+    return false;
+  }
+
+  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+  if (!regex.test(value)) {
+    showError(input, "p-nameError", "Only alphabets allowed");
     return false;
   }
 
   clearError(input, "p-nameError");
+  return true;
+}
+
+function validatePopupLandmark() {
+  const input = document.getElementById("p-landmark");
+  const value = input.value;
+
+  if (value.trim() === "") {
+    clearError(input, "p-landmarkError");
+    return true;
+  }
+
+  if (/^\s/.test(value)) {
+    showError(input, "p-landmarkError", "Space not allowed at first");
+    return false;
+  }
+
+  const regex = /^[A-Za-z0-9.,#@&* ]+$/;
+  if (!regex.test(value)) {
+    showError(input, "p-landmarkError", "Invalid characters used");
+    return false;
+  }
+
+  clearError(input, "p-landmarkError");
   return true;
 }
 
@@ -187,9 +317,9 @@ function validatePopupEmail() {
     return false;
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(value)) {
-    showError(input, "p-emailError", "Please enter a valid email address");
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(value)) {
+    showError(input, "p-emailError", "Enter valid email");
     return false;
   }
 
@@ -199,15 +329,10 @@ function validatePopupEmail() {
 
 function validatePopupPhone() {
   const input = document.getElementById("p-phone");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "p-phoneError", "Please enter mobile number");
-    return false;
-  }
-
-  if (!/^[6-9]\d{9}$/.test(value)) {
-    showError(input, "p-phoneError", "Enter valid 10-digit mobile number");
+  if (!/^[6-9][0-9]{9}$/.test(value)) {
+    showError(input, "p-phoneError", "Enter valid 10-digit number");
     return false;
   }
 
@@ -220,7 +345,13 @@ function validatePopupHno() {
   const value = input.value.trim();
 
   if (value === "") {
-    showError(input, "p-hnoError", "Please enter house number / society");
+    showError(input, "p-hnoError", "Enter house no / society");
+    return false;
+  }
+
+  const regex = /^(?!\s)[A-Za-z0-9#@\-_=+&* ]+$/;
+  if (!regex.test(input.value)) {
+    showError(input, "p-hnoError", "Invalid format");
     return false;
   }
 
@@ -230,10 +361,19 @@ function validatePopupHno() {
 
 function validatePopupLane() {
   const input = document.getElementById("p-lane");
-  const value = input.value.trim();
 
-  if (value === "") {
+  if (input.value.trim() === "") {
     showError(input, "p-laneError", "Please enter area / lane");
+    return false;
+  }
+
+  if (/^\s/.test(input.value)) {
+    showError(input, "p-laneError", "Space not allowed at first");
+    return false;
+  }
+
+  if (!/^[A-Za-z0-9 ]+$/.test(input.value)) {
+    showError(input, "p-laneError", "Invalid format");
     return false;
   }
 
@@ -243,10 +383,16 @@ function validatePopupLane() {
 
 function validatePopupCity() {
   const input = document.getElementById("p-city");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "p-cityError", "Please enter city");
+  if (value.trim() === "") {
+    showError(input, "p-cityError", "Enter city");
+    return false;
+  }
+
+  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+  if (!regex.test(value)) {
+    showError(input, "p-cityError", "Only alphabets allowed");
     return false;
   }
 
@@ -256,15 +402,15 @@ function validatePopupCity() {
 
 function validatePopupZip() {
   const input = document.getElementById("p-zip");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "p-zipError", "Please enter zipcode");
+  if (!/^[1-9][0-9]{5}$/.test(value)) {
+    showError(input, "p-zipError", "Enter valid 6-digit pincode");
     return false;
   }
 
-  if (!/^\d{6}$/.test(value)) {
-    showError(input, "p-zipError", "Zipcode must be 6 digits");
+  if (/^(\d)\1+$/.test(value)) {
+    showError(input, "p-zipError", "Pincode cannot have repeated digits");
     return false;
   }
 
@@ -281,11 +427,17 @@ function validatePopupState() {
     return false;
   }
 
+  const regex = /^[A-Za-z ]+$/;
+  if (!regex.test(input.value)) {
+    showError(input, "p-stateError", "Only alphabets allowed");
+    return false;
+  }
+
   clearError(input, "p-stateError");
   return true;
 }
 
-//BLUR EVENT LISTENERS
+/* BLUR EVENT LISTENERS */
 
 document.getElementById("name").addEventListener("blur", () => {
   validateFullName();
@@ -307,6 +459,10 @@ document.getElementById("lane").addEventListener("blur", () => {
   validateLane();
 });
 
+document.getElementById("landmark").addEventListener("blur", () => {
+  validateLandmark();
+});
+
 document.getElementById("city").addEventListener("blur", () => {
   validateCity();
 });
@@ -319,10 +475,14 @@ document.getElementById("state").addEventListener("blur", () => {
   validateState();
 });
 
-// POPUP BLUR EVENT LISTENERS
+/* POPUP BLUR EVENT LISTENERS */
 
 document.getElementById("p-name").addEventListener("blur", () => {
   validatePopupName();
+});
+
+document.getElementById("p-landmark").addEventListener("blur", () => {
+  validateLandmark();
 });
 
 document.getElementById("p-email").addEventListener("blur", () => {
@@ -353,7 +513,7 @@ document.getElementById("p-state").addEventListener("blur", () => {
   validatePopupState();
 });
 
-// INPUT EVENT VALIDATION
+/* INPUT EVENT VALIDATION */
 
 document.getElementById("name").addEventListener("input", function () {
   if (this.value.trim() !== "") {
@@ -403,7 +563,7 @@ document.getElementById("state").addEventListener("input", function () {
   }
 });
 
-//POPUP INPUT EVENT LISTENERS
+/* POPUP INPUT EVENT LISTENERS */
 
 document.getElementById("p-name").addEventListener("input", function () {
   if (this.value.trim() !== "") {
@@ -453,9 +613,16 @@ document.getElementById("p-state").addEventListener("input", function () {
   }
 });
 
+/* Single entry point for all Pay Button state handling */
+function refreshPayButtonState() {
+  updatePayButtonState();
+  updatePayButton();
+  handleBillingPayButton();
+  syncPayBtnForMobileTab();
+}
+
 /* SAVE DELIVERY FORM */
 document.getElementById("saveAddressBtn").addEventListener("click", () => {
-  // ------------------- VALIDATION BEFORE SAVE -------------------
   const isFullNameValid = validateFullName();
   const isEmailValid = validateEmail();
   const isPhoneValid = validatePhone();
@@ -464,6 +631,7 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
   const isCityValid = validateCity();
   const isZipValid = validateZip();
   const isStateValid = validateState();
+  const isLandmarkValid = validateLandmark();
 
   if (
     !isFullNameValid ||
@@ -471,13 +639,13 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
     !isPhoneValid ||
     !isHnoValid ||
     !isLaneValid ||
+    !isLandmarkValid ||
     !isCityValid ||
     !isZipValid ||
     !isStateValid
   ) {
-    return; // STOP — validation failed
+    return;
   }
-  // --------------------------------------------------------------
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -511,7 +679,7 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
       if (chk !== firstCheckbox) chk.checked = false;
     });
 
-  updatePayButton();
+  refreshPayButtonState();
 
   document.getElementById("saved-address-section").classList.remove("hidden");
 
@@ -523,6 +691,28 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
 
 /* OPEN INLINE POPUP */
 document.getElementById("openPopupBtn").addEventListener("click", () => {
+  const popupFields = [
+    "p-name",
+    "p-email",
+    "p-phone",
+    "p-hno",
+    "p-lane",
+    "p-landmark",
+    "p-city",
+    "p-zip",
+    "p-state",
+  ];
+
+  popupFields.forEach((id) => {
+    const field = document.getElementById(id);
+    if (field) field.value = "";
+
+    const error = document.getElementById(id + "Error");
+    if (error) error.textContent = "";
+
+    if (field) field.classList.remove("error");
+  });
+
   document.getElementById("inlinePopup").classList.remove("hidden");
 });
 
@@ -531,7 +721,7 @@ document.getElementById("closeInlinePopup").addEventListener("click", () => {
   document.getElementById("inlinePopup").classList.add("hidden");
 });
 
-/* POPUP SAVE BUTTON (NEW ADDRESS) */
+/* POPUP SAVE BUTTON */
 document.getElementById("popupSaveBtn").addEventListener("click", () => {
   const isPopupNameValid = validatePopupName();
   const isPopupEmailValid = validatePopupEmail();
@@ -541,9 +731,11 @@ document.getElementById("popupSaveBtn").addEventListener("click", () => {
   const isPopupCityValid = validatePopupCity();
   const isPopupZipValid = validatePopupZip();
   const isPopupStateValid = validatePopupState();
+  const isPopupLandmarkValid = validatePopupLandmark();
 
   if (
     !isPopupNameValid ||
+    !isPopupLandmarkValid ||
     !isPopupEmailValid ||
     !isPopupPhoneValid ||
     !isPopupHnoValid ||
@@ -565,7 +757,9 @@ document.getElementById("popupSaveBtn").addEventListener("click", () => {
   const zip = document.getElementById("p-zip").value;
   const state = document.getElementById("p-state").value;
 
-  const fullAddress = `${hno}, ${lane}, ${landmark}, ${city}, ${state}, ${zip}`;
+  const fullAddress = `${hno}, ${lane}${
+    landmark ? ", " + landmark : ""
+  }, ${city}, ${state}, ${zip}`;
 
   const template = document.getElementById("address-template");
   const newCard = template.cloneNode(true);
@@ -578,18 +772,90 @@ document.getElementById("popupSaveBtn").addEventListener("click", () => {
 
   document.getElementById("address-list").appendChild(newCard);
 
+  document
+    .querySelectorAll("#address-list .use-detail input")
+    .forEach((chk) => (chk.checked = false));
+
+  const newCheckbox = newCard.querySelector(".use-detail input");
+  if (newCheckbox) newCheckbox.checked = true;
+
+  refreshPayButtonState();
+
   document.getElementById("inlinePopup").classList.add("hidden");
 });
 
 /* DELETE ADDRESS */
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("address-delete-btn")) {
-    const wrapper = e.target.closest(".address-wrapper");
-    if (wrapper) wrapper.remove();
+    const card = e.target.closest(".address-wrapper");
+    if (card) card.remove();
+
+    setTimeout(() => {
+      const remaining = document.querySelectorAll(
+        "#address-list .address-wrapper"
+      );
+
+      if (remaining.length === 0) {
+        const deliveryCard = document.querySelector(".delivery-card");
+        const savedSection = document.getElementById("saved-address-section");
+        const billingCard = document.getElementById("billingCard");
+
+        if (deliveryCard) deliveryCard.classList.remove("hidden");
+        if (savedSection) savedSection.classList.add("hidden");
+
+        if (billingCard) {
+          billingCard.classList.remove("show");
+          billingCard.classList.remove("show-on-tablet");
+        }
+
+        document
+          .querySelectorAll(".form-group, .inline-row, .sub-heading")
+          .forEach((el) => el.classList.remove("hide"));
+
+        const saveBtn = document.getElementById("saveAddressBtn");
+        if (saveBtn) saveBtn.classList.remove("hide");
+
+        const fields = [
+          "name",
+          "email",
+          "phone",
+          "hno",
+          "lane",
+          "landmark",
+          "city",
+          "zip",
+          "state",
+        ];
+
+        fields.forEach((id) => {
+          const input = document.getElementById(id);
+          if (input) {
+            input.value = "";
+            input.classList.remove("error");
+          }
+
+          const err = document.getElementById(id + "Error");
+          if (err) err.textContent = "";
+        });
+
+        refreshPayButtonState();
+      } else {
+        const allChecks = [
+          ...document.querySelectorAll("#address-list .use-detail input"),
+        ];
+        const anyChecked = allChecks.some((chk) => chk.checked);
+
+        if (!anyChecked && allChecks.length > 0) {
+          allChecks[0].checked = true;
+        }
+
+        refreshPayButtonState();
+      }
+    }, 50);
   }
 });
 
-/*  ADDRESS CHECKBOX LOGIC */
+/* ADDRESS CHECKBOX LOGIC */
 
 function updatePayButton() {
   const allChecks = document.querySelectorAll(
@@ -667,35 +933,42 @@ function markOutOfStock(productRow) {
   qtyBox.style.pointerEvents = "none";
 }
 
-/*  CLOSE OUT OF STOCK POPUP */
+/* CLOSE OUT OF STOCK POPUP */
 document.getElementById("closeWarning").addEventListener("click", () => {
   document.getElementById("stockWarning").classList.add("hidden");
 });
 
-document.querySelectorAll(".delete-btn").forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    const productRows = document.querySelectorAll(".product-row");
-    const productRow = productRows[index];
+/* DELETE product-row */
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    const row = e.target.closest(".product-row");
+    if (!row) return;
 
-    const hr = productRow.nextElementSibling;
-    productRow.remove();
-
-    if (hr && hr.tagName === "HR") {
-      hr.remove();
-    }
+    const hr = row.nextElementSibling;
+    row.remove();
+    if (hr && hr.tagName === "HR") hr.remove();
 
     updateBillingTotals();
+    updateCartItemCount();
 
     setTimeout(() => {
-      if (!hasAvailableProduct()) {
-        document.getElementById("discountAmount").textContent = "₹0";
-        document.querySelector(".apply-btn").textContent = "Apply";
+      let needsWarning = false;
+      document.querySelectorAll(".product-row").forEach((r) => {
+        const s = Number.parseInt(r.dataset.stock);
+        const q =
+          Number.parseInt(r.querySelector(".qty-box span")?.textContent) || 0;
+        if (!Number.isNaN(s) && q > s) needsWarning = true;
+      });
+
+      const stockBox = document.getElementById("stockLimitWarning");
+      if (!needsWarning && stockBox) {
+        stockBox.classList.add("hidden");
       }
-    }, 50);
-  });
+    }, 120);
+  }
 });
 
-// UPDATE CONTINUE BUTTON VALIDATION
+/* CONTINUE BUTTON VALIDATION */
 
 document.getElementById("continueBtn").addEventListener("click", () => {
   const isFullNameValid = validateFullName();
@@ -755,16 +1028,22 @@ document.getElementById("continueBtn").addEventListener("click", () => {
     }, ${city}, ${state}, ${zip}`;
 
     document.getElementById("billing-saved-address-container").innerHTML = `
-      <h3 class="billing-address-heading">Delivery Address</h3>
+      <div class="billing-address-header">
+        <h3 class="billing-address-heading">Delivery Address</h3>
+        <span class="billing-change-btn">Change</span>
+      </div>
       <div class="billing-address-block">
         <p class="billing-text">${name}</p>
         <p class="billing-text">${fullAddress}</p>
         <p class="billing-text">${email}</p>
         <p class="billing-text">${phone}</p>
-        <label class="use-detail">
+        <label class="use-detail use-detail-row">
           <input type="checkbox" id="billingAddressCheck" checked />
           <span class="checkmark"></span>
           Use this delivery detail
+          <span class="billing-delete-icon">
+            <img src="../assets/cart/delete.svg" />
+          </span>
         </label>
       </div>
     `;
@@ -795,18 +1074,16 @@ document.getElementById("continueBtn").addEventListener("click", () => {
     }
 
     if (typeof updateBillingTotals === "function") updateBillingTotals();
-    if (typeof updatePayButton === "function") updatePayButton();
 
-    handleBillingPayButton();
+    refreshPayButtonState();
 
-    // ⭐ YOUR NEW REQUIRED LINE — change top heading
     updateTopLabel("billing");
   } catch (err) {
     console.error("Continue navigation error:", err);
   }
 });
 
-// ENABLE PAY BUTTON WHEN BILLING CHECKBOX IS CHECKED
+/* ENABLE PAY BUTTON WHEN BILLING CHECKBOX IS CHECKED */
 function handleBillingPayButton() {
   const chk = document.getElementById("billingAddressCheck");
   const payBtn = document.querySelector(".pay-btn");
@@ -846,7 +1123,7 @@ function hasAvailableProduct() {
   );
 }
 
-// DELIVERY VALIDATION
+/* DELIVERY VALIDATION */
 
 document.getElementById("name").addEventListener("input", function () {
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
@@ -886,7 +1163,7 @@ document.getElementById("zip").addEventListener("input", function () {
   }
 });
 
-// POPUP FIELD INPUT SANITIZATION
+/* POPUP FIELD INPUT SANITIZATION */
 
 document.getElementById("p-name").addEventListener("input", function () {
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
@@ -926,22 +1203,36 @@ document.getElementById("p-zip").addEventListener("input", function () {
   }
 });
 
-// BILLING QUANTITY LOGIC
+/* BILLING QUANTITY LOGIC */
 
 document.querySelectorAll(".product-row").forEach((row) => {
   const qtySpan = row.querySelector(".qty-box span");
   const priceBox = row.querySelector(".price .rupee");
 
-  const basePrice = Number.parseInt(
-    priceBox.textContent.replace("₹", "").replace(/,/g, "")
-  );
+  const basePrice = Number(priceBox.dataset.unit);
 
   const minusBtn = row.querySelector(".qty-box button:nth-child(1)");
   const plusBtn = row.querySelector(".qty-box button:nth-child(3)");
 
-  plusBtn.addEventListener("click", () => {
-    let qty = Number.parseInt(qtySpan.textContent);
-    if (qty >= 5) return;
+  const stock = Number.parseInt(row.dataset.stock);
+  const availableStock = Number.isNaN(stock) ? Number.POSITIVE_INFINITY : stock;
+
+  if (availableStock === 0) {
+    markOutOfStock(row);
+  }
+
+  plusBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    let qty = Number.parseInt(qtySpan.textContent) || 0;
+
+    if (qty >= availableStock) {
+      const stockBox = document.getElementById("stockLimitWarning");
+      const txt = stockBox.querySelector(".warning-text");
+      txt.textContent = `We have only ${availableStock} items available`;
+      stockBox.classList.remove("hidden");
+      return;
+    }
+
     qty++;
     qtySpan.textContent = qty;
 
@@ -950,8 +1241,10 @@ document.querySelectorAll(".product-row").forEach((row) => {
     updateBillingTotals();
   });
 
-  minusBtn.addEventListener("click", () => {
-    let qty = Number.parseInt(qtySpan.textContent);
+  minusBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    let qty = Number.parseInt(qtySpan.textContent) || 0;
+
     if (qty > 1) {
       qty--;
       qtySpan.textContent = qty;
@@ -963,7 +1256,9 @@ document.querySelectorAll(".product-row").forEach((row) => {
   });
 });
 
-// UPDATE BILLING TOTALS
+/* UPDATE BILLING TOTALS */
+
+let couponApplied = false;
 
 function updateBillingTotals() {
   let subtotal = 0;
@@ -973,9 +1268,10 @@ function updateBillingTotals() {
 
     if (row.classList.contains("out-of-stock")) return;
 
-    const priceText = row.querySelector(".rupee").textContent;
-    const price = Number.parseInt(priceText.replace("₹", "").replace(/,/g, ""));
-    subtotal += price;
+    const unitPrice = Number(row.querySelector(".rupee").dataset.unit);
+    const qty = Number(row.querySelector(".qty-box span").textContent);
+
+    subtotal += unitPrice * qty;
   });
 
   document.getElementById("subtotalAmount").textContent =
@@ -984,13 +1280,82 @@ function updateBillingTotals() {
   const gst = Math.round(subtotal * 0.1);
   document.getElementById("gstAmount").textContent = gst.toLocaleString();
 
-  const discountText = document.getElementById("discountAmount").textContent;
-  const discount = Number.parseInt(discountText.replace("₹", "").trim()) || 0;
+  let discount = 0;
+  const discountBox = document.getElementById("discountAmount");
+  const applyBtn = document.getElementById("applyCouponBtn");
 
-  const payable = subtotal + gst - discount;
+  if (subtotal < 500 && subtotal > 0) {
+    couponApplied = false;
+    discountBox.textContent = "₹0";
+
+    applyBtn.disabled = true;
+    applyBtn.style.opacity = "0.5";
+    applyBtn.style.pointerEvents = "none";
+    applyBtn.style.color = "#3f3f3f";
+    applyBtn.style.cursor = "not-allowed";
+    applyBtn.textContent = "Apply";
+  } else {
+    applyBtn.disabled = false;
+    applyBtn.style.opacity = "1";
+    applyBtn.style.pointerEvents = "auto";
+    applyBtn.style.color = "";
+    applyBtn.style.cursor = "pointer";
+
+    if (couponApplied) {
+      const discountText = discountBox.textContent;
+      discount = Number.parseInt(discountText.replace("₹", "")) || 0;
+      applyBtn.textContent = "Remove";
+    } else {
+      discount = 0;
+      discountBox.textContent = "₹0";
+      applyBtn.textContent = "Apply";
+    }
+  }
+
+  let deliveryCharge = 0;
+
+  if (subtotal > 0 && subtotal < 500) {
+    deliveryCharge = 49;
+    document.querySelector(".free").textContent =
+      "₹" + deliveryCharge.toLocaleString();
+    document.querySelector(".free").style.color = "#3f3f3f";
+  } else {
+    deliveryCharge = 0;
+    document.querySelector(".free").textContent = "Free delivery";
+    document.querySelector(".free").style.color = "#009605";
+  }
+
+  const payable = subtotal + gst - discount + deliveryCharge;
+
   document.getElementById("payableAmount").textContent =
     payable.toLocaleString();
 }
+
+/* APPLY / REMOVE COUPON BUTTON */
+document
+  .getElementById("applyCouponBtn")
+  .addEventListener("click", function () {
+    if (this.disabled) return;
+
+    const discountBox = document.getElementById("discountAmount");
+
+    if (couponApplied) {
+      couponApplied = false;
+      discountBox.textContent = "₹0";
+      this.textContent = "Apply";
+      updateBillingTotals();
+      return;
+    }
+
+    couponApplied = true;
+
+    const discountValue = 500;
+    discountBox.textContent = "₹" + discountValue;
+
+    this.textContent = "Remove";
+
+    updateBillingTotals();
+  });
 
 markOutOfStock(document.querySelectorAll(".product-row")[1]);
 
@@ -1001,3 +1366,226 @@ function updateTopLabel(section) {
   if (section === "delivery") label.textContent = "Delivery Details";
   if (section === "billing") label.textContent = "Billing Details";
 }
+
+/* AUTO UPDATE CART ITEM COUNT */
+
+function updateCartItemCount() {
+  const items = document.querySelectorAll(".product-row");
+  const count = items.length;
+
+  const totalItemsEl = document.querySelector(".total-items");
+  if (totalItemsEl) {
+    totalItemsEl.textContent = `Total Items - ${count}`;
+  }
+
+  const totalItemsMobileEl = document.querySelector(".total-items-mobile");
+  if (totalItemsMobileEl) {
+    totalItemsMobileEl.textContent = `${count} Items`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartItemCount();
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    const row = e.target.closest(".product-row");
+    if (row) row.remove();
+
+    updateCartItemCount();
+  }
+});
+
+/* CLOSE LIMIT WARNING */
+document
+  .getElementById("closeStockLimitWarning")
+  .addEventListener("click", () => {
+    document.getElementById("stockLimitWarning").classList.add("hidden");
+  });
+
+function checkOutOfStockRows() {
+  const rows = document.querySelectorAll(".product-row");
+  let hasOutOfStock = false;
+
+  rows.forEach((row) => {
+    const stock = Number.parseInt(row.dataset.stock);
+    if (stock === 0) {
+      hasOutOfStock = true;
+    }
+  });
+
+  const stockWarning = document.getElementById("stockWarning");
+
+  if (!hasOutOfStock && stockWarning) {
+    stockWarning.classList.add("hidden");
+  }
+}
+
+document.querySelectorAll(".delete-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    setTimeout(() => {
+      checkOutOfStockRows();
+    }, 120);
+  });
+});
+
+window.addEventListener("DOMContentLoaded", updateBillingTotals);
+window.addEventListener("DOMContentLoaded", syncPayBtnForMobileTab);
+
+function syncPayBtnForMobileTab() {
+  const payBtn = document.getElementById("pay-btn");
+  if (!payBtn) return;
+
+  const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
+  if (!isMobileOrTab) return;
+
+  const deliveryChecked = document.querySelector(
+    "#address-list .use-detail input:checked"
+  );
+
+  const billingChecked = document.getElementById("billingAddressCheck");
+
+  const enable =
+    !!deliveryChecked || (billingChecked && billingChecked.checked);
+
+  payBtn.disabled = !enable;
+  payBtn.style.background = enable ? "#A10404" : "#716B6B";
+  payBtn.style.cursor = enable ? "pointer" : "not-allowed";
+}
+
+document.addEventListener("change", (e) => {
+  if (
+    e.target.matches("#address-list .use-detail input") ||
+    e.target.id === "billingAddressCheck"
+  ) {
+    syncPayBtnForMobileTab();
+  }
+});
+
+/* BILLING CHANGE HANDLER */
+
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("billing-change-btn")) return;
+
+  const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
+  if (!isMobileOrTab) return;
+
+  const billingCard = document.getElementById("billingCard");
+  if (billingCard) {
+    billingCard.classList.remove("show", "show-on-tablet");
+    billingCard.classList.add("hidden");
+  }
+
+  const deliveryCard = document.querySelector(".delivery-card");
+  if (deliveryCard) {
+    deliveryCard.classList.remove("hidden");
+  }
+
+  const fields = [
+    "name",
+    "email",
+    "phone",
+    "hno",
+    "lane",
+    "landmark",
+    "city",
+    "zip",
+    "state",
+  ];
+
+  fields.forEach((id) => {
+    const input = document.getElementById(id);
+    if (input) {
+      input.value = "";
+      input.classList.remove("error");
+    }
+
+    const err = document.getElementById(id + "Error");
+    if (err) {
+      err.textContent = "";
+      err.style.display = "none";
+    }
+  });
+
+  document
+    .querySelectorAll(".form-group, .inline-row, .sub-heading")
+    .forEach((el) => el.classList.remove("hide"));
+
+  const saveBtn = document.getElementById("saveAddressBtn");
+  if (saveBtn) saveBtn.classList.remove("hide");
+
+  refreshPayButtonState();
+
+  if (typeof updateTopLabel === "function") {
+    updateTopLabel("delivery");
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* BILLING DELETE HANDLER */
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".billing-delete-icon")) return;
+
+  const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
+  if (!isMobileOrTab) return;
+
+  const billingContainer = document.getElementById(
+    "billing-saved-address-container"
+  );
+  if (billingContainer) billingContainer.innerHTML = "";
+
+  const billingCard = document.getElementById("billingCard");
+  if (billingCard) {
+    billingCard.classList.remove("show", "show-on-tablet");
+    billingCard.classList.add("hidden");
+  }
+
+  const deliveryCard = document.querySelector(".delivery-card");
+  if (deliveryCard) {
+    deliveryCard.classList.remove("hidden");
+  }
+
+  const fields = [
+    "name",
+    "email",
+    "phone",
+    "hno",
+    "lane",
+    "landmark",
+    "city",
+    "zip",
+    "state",
+  ];
+
+  fields.forEach((id) => {
+    const input = document.getElementById(id);
+    if (input) {
+      input.value = "";
+      input.classList.remove("error");
+    }
+
+    const err = document.getElementById(id + "Error");
+    if (err) {
+      err.textContent = "";
+      err.style.display = "none";
+    }
+  });
+
+  document
+    .querySelectorAll(".form-group, .inline-row, .sub-heading")
+    .forEach((el) => el.classList.remove("hide"));
+
+  const saveBtn = document.getElementById("saveAddressBtn");
+  if (saveBtn) saveBtn.classList.remove("hide");
+
+  refreshPayButtonState();
+
+  if (typeof updateTopLabel === "function") {
+    updateTopLabel("delivery");
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
