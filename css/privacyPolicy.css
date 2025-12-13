@@ -25,7 +25,12 @@ body {
   width: 22px;
 }
 
+.headerContainer{
+  padding: 0 2rem;
+}
+
 .header-banner {
+
   height: 140px;
   background: url("../assets/cart/bg.svg") center/cover;
   position: relative;
@@ -107,13 +112,18 @@ body {
 
 /* Responsive */
 @media (min-width: 595px) and (max-width: 1024px) {
+  .headerContainer{
+    padding:  0 0;
+  }
   .page-heading {
     font-size: 22px;
   }
 
   .policy-container {
+    margin-top: 1.5rem;
     padding-right: 2rem;
     padding-left: 2rem;
+    
   }
   .policy-top {
     margin-top: 1rem;
