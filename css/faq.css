@@ -21,6 +21,7 @@ body {
   padding: 18px 22px;
   font-weight: 400;
   color: #3f3f3f;
+  cursor: pointer;
 }
 
 .back-row-media,
@@ -280,15 +281,27 @@ body {
     display: none;
   }
 
-  .header-content {
+  .header {
     display: flex;
-    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
   }
+
   .back-row-mob {
     display: flex;
-    height: 22px;
-    width: 22px;
+    align-items: center;
   }
+
+  .back-row-mob img {
+    width: 20px;
+    height: auto;
+  }
+
+  .faq-header {
+    margin: 0;
+  }
+
   .overlay {
     padding-left: 15px;
   }
