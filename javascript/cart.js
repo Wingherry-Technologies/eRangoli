@@ -156,16 +156,34 @@ function validateEmail() {
 
 function validateHno() {
   const input = document.getElementById("hno");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "hnoError", "Please enter house number / society");
     return false;
   }
 
-  const hnoRegex = /^(?!\s)[A-Za-z0-9#@\-_=+&* ]+$/;
-  if (!hnoRegex.test(input.value)) {
-    showError(input, "hnoError", "Invalid format");
+  if (/^\s|\s$/.test(value)) {
+    showError(input, "hnoError", "Space not allowed at start or end");
+    return false;
+  }
+
+  const hnoRegex = /^[A-Za-z0-9#@_\-=+&*][A-Za-z0-9#@_\-=+&* ]*$/;
+  if (!hnoRegex.test(value)) {
+    showError(
+      input,
+      "hnoError",
+      "Allowed: letters, numbers, #, @, -, _, +, =, &, *"
+    );
+    return false;
+  }
+
+  if (!/[A-Za-z0-9]/.test(value)) {
+    showError(
+      input,
+      "hnoError",
+      "House number must contain letters or numbers"
+    );
     return false;
   }
 
@@ -199,20 +217,21 @@ function validateLandmark() {
 
 function validateLane() {
   const input = document.getElementById("lane");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "laneError", "Please enter area / lane");
     return false;
   }
 
-  if (/^\s/.test(input.value)) {
+  if (/^\s/.test(value)) {
     showError(input, "laneError", "Space not allowed at first");
     return false;
   }
 
-  if (!/^[A-Za-z0-9 ]+$/.test(input.value)) {
-    showError(input, "laneError", "Invalid format");
+  const laneRegex = /^[A-Za-z0-9][A-Za-z0-9 ]*$/;
+  if (!laneRegex.test(value)) {
+    showError(input, "laneError", "Only letters, numbers and spaces allowed");
     return false;
   }
 
@@ -222,20 +241,20 @@ function validateLane() {
 
 function validateCity() {
   const input = document.getElementById("city");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "cityError", "Please enter city");
     return false;
   }
 
-  if (/^\s/.test(input.value)) {
+  if (/^\s/.test(value)) {
     showError(input, "cityError", "City cannot start with space");
     return false;
   }
 
-  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
-  if (!regex.test(input.value)) {
+  const cityRegex = /^[A-Za-z][A-Za-z ]*$/;
+  if (!cityRegex.test(value)) {
     showError(input, "cityError", "Only alphabets allowed");
     return false;
   }
@@ -246,15 +265,20 @@ function validateCity() {
 
 function validateState() {
   const input = document.getElementById("state");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "stateError", "Please enter state");
     return false;
   }
 
-  const regex = /^[A-Za-z ]+$/;
-  if (!regex.test(input.value)) {
+  if (/^\s/.test(value)) {
+    showError(input, "stateError", "State cannot start with space");
+    return false;
+  }
+
+  const regex = /^[A-Za-z][A-Za-z ]*$/;
+  if (!regex.test(value)) {
     showError(input, "stateError", "Only alphabets allowed");
     return false;
   }
@@ -342,16 +366,37 @@ function validatePopupPhone() {
 
 function validatePopupHno() {
   const input = document.getElementById("p-hno");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
-    showError(input, "p-hnoError", "Enter house no / society");
+  if (value.trim() === "") {
+    showError(input, "p-hnoError", "Please enter house number / society");
     return false;
   }
 
-  const regex = /^(?!\s)[A-Za-z0-9#@\-_=+&* ]+$/;
-  if (!regex.test(input.value)) {
-    showError(input, "p-hnoError", "Invalid format");
+  // ❌ No space at start or end
+  if (/^\s|\s$/.test(value)) {
+    showError(input, "p-hnoError", "Space not allowed at start or end");
+    return false;
+  }
+
+  // ✔ Allowed characters only
+  const hnoRegex = /^[A-Za-z0-9#@_\-=+&*][A-Za-z0-9#@_\-=+&* ]*$/;
+  if (!hnoRegex.test(value)) {
+    showError(
+      input,
+      "p-hnoError",
+      "Allowed: letters, numbers, #, @, -, _, +, =, &, *"
+    );
+    return false;
+  }
+
+  // ❌ Must contain at least ONE letter or number
+  if (!/[A-Za-z0-9]/.test(value)) {
+    showError(
+      input,
+      "p-hnoError",
+      "House number must contain letters or numbers"
+    );
     return false;
   }
 
@@ -361,19 +406,21 @@ function validatePopupHno() {
 
 function validatePopupLane() {
   const input = document.getElementById("p-lane");
+  const value = input.value;
 
-  if (input.value.trim() === "") {
+  if (value.trim() === "") {
     showError(input, "p-laneError", "Please enter area / lane");
     return false;
   }
 
-  if (/^\s/.test(input.value)) {
+  if (/^\s/.test(value)) {
     showError(input, "p-laneError", "Space not allowed at first");
     return false;
   }
 
-  if (!/^[A-Za-z0-9 ]+$/.test(input.value)) {
-    showError(input, "p-laneError", "Invalid format");
+  const laneRegex = /^[A-Za-z0-9][A-Za-z0-9 ]*$/;
+  if (!laneRegex.test(value)) {
+    showError(input, "p-laneError", "Only letters, numbers and spaces allowed");
     return false;
   }
 
@@ -386,12 +433,17 @@ function validatePopupCity() {
   const value = input.value;
 
   if (value.trim() === "") {
-    showError(input, "p-cityError", "Enter city");
+    showError(input, "p-cityError", "Please enter city");
     return false;
   }
 
-  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
-  if (!regex.test(value)) {
+  if (/^\s/.test(value)) {
+    showError(input, "p-cityError", "City cannot start with space");
+    return false;
+  }
+
+  const cityRegex = /^[A-Za-z][A-Za-z ]*$/;
+  if (!cityRegex.test(value)) {
     showError(input, "p-cityError", "Only alphabets allowed");
     return false;
   }
@@ -420,15 +472,20 @@ function validatePopupZip() {
 
 function validatePopupState() {
   const input = document.getElementById("p-state");
-  const value = input.value.trim();
+  const value = input.value;
 
-  if (value === "") {
+  if (value.trim() === "") {
     showError(input, "p-stateError", "Please enter state");
     return false;
   }
 
-  const regex = /^[A-Za-z ]+$/;
-  if (!regex.test(input.value)) {
+  if (/^\s/.test(value)) {
+    showError(input, "p-stateError", "State cannot start with space");
+    return false;
+  }
+
+  const regex = /^[A-Za-z][A-Za-z ]*$/;
+  if (!regex.test(value)) {
     showError(input, "p-stateError", "Only alphabets allowed");
     return false;
   }
@@ -1126,6 +1183,7 @@ function hasAvailableProduct() {
 /* DELIVERY VALIDATION */
 
 document.getElementById("name").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
@@ -1141,18 +1199,27 @@ document.getElementById("phone").addEventListener("input", function () {
 });
 
 document.getElementById("hno").addEventListener("input", function () {
-  this.value = this.value.replace(/[^A-Za-z0-9 -]/g, "");
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9#@_\-=+&* ]/g, "");
+});
+
+document.getElementById("landmark").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9.,#@&$!* ]/g, "");
 });
 
 document.getElementById("lane").addEventListener("input", function () {
-  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9 ]/g, "");
 });
 
 document.getElementById("city").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
 document.getElementById("state").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
@@ -1166,6 +1233,7 @@ document.getElementById("zip").addEventListener("input", function () {
 /* POPUP FIELD INPUT SANITIZATION */
 
 document.getElementById("p-name").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
@@ -1181,18 +1249,27 @@ document.getElementById("p-phone").addEventListener("input", function () {
 });
 
 document.getElementById("p-hno").addEventListener("input", function () {
-  this.value = this.value.replace(/[^A-Za-z0-9 -]/g, "");
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9#@_\-=+&* ]/g, "");
+});
+
+document.getElementById("p-landmark").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9.,#@&$!* ]/g, "");
 });
 
 document.getElementById("p-lane").addEventListener("input", function () {
-  this.value = this.value.replace(/[^A-Za-z ]/g, "");
+  this.value = this.value.replace(/^\s+/, "");
+  this.value = this.value.replace(/[^A-Za-z0-9 ]/g, "");
 });
 
 document.getElementById("p-city").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
 document.getElementById("p-state").addEventListener("input", function () {
+  this.value = this.value.replace(/^\s+/, "");
   this.value = this.value.replace(/[^A-Za-z ]/g, "");
 });
 
@@ -1265,7 +1342,6 @@ function updateBillingTotals() {
 
   document.querySelectorAll(".product-row").forEach((row) => {
     if (!row.isConnected) return;
-
     if (row.classList.contains("out-of-stock")) return;
 
     const unitPrice = Number(row.querySelector(".rupee").dataset.unit);
@@ -1274,11 +1350,11 @@ function updateBillingTotals() {
     subtotal += unitPrice * qty;
   });
 
-  document.getElementById("subtotalAmount").textContent =
-    subtotal.toLocaleString();
+  document.getElementById("subtotalAmount").textContent = formatRupee(subtotal);
 
   const gst = Math.round(subtotal * 0.1);
-  document.getElementById("gstAmount").textContent = gst.toLocaleString();
+
+  document.getElementById("gstAmount").textContent = formatRupee(gst);
 
   let discount = 0;
   const discountBox = document.getElementById("discountAmount");
@@ -1286,7 +1362,7 @@ function updateBillingTotals() {
 
   if (subtotal < 500 && subtotal > 0) {
     couponApplied = false;
-    discountBox.textContent = "₹0";
+    discountBox.textContent = formatRupee(0);
 
     applyBtn.disabled = true;
     applyBtn.style.opacity = "0.5";
@@ -1303,11 +1379,11 @@ function updateBillingTotals() {
 
     if (couponApplied) {
       const discountText = discountBox.textContent;
-      discount = Number.parseInt(discountText.replace("₹", "")) || 0;
+      discount = Number(discountText.replace(/[₹,]/g, "")) || 0;
       applyBtn.textContent = "Remove";
     } else {
       discount = 0;
-      discountBox.textContent = "₹0";
+      discountBox.textContent = formatRupee(0);
       applyBtn.textContent = "Apply";
     }
   }
@@ -1316,8 +1392,7 @@ function updateBillingTotals() {
 
   if (subtotal > 0 && subtotal < 500) {
     deliveryCharge = 49;
-    document.querySelector(".free").textContent =
-      "₹" + deliveryCharge.toLocaleString();
+    document.querySelector(".free").textContent = formatRupee(deliveryCharge);
     document.querySelector(".free").style.color = "#3f3f3f";
   } else {
     deliveryCharge = 0;
@@ -1327,8 +1402,7 @@ function updateBillingTotals() {
 
   const payable = subtotal + gst - discount + deliveryCharge;
 
-  document.getElementById("payableAmount").textContent =
-    payable.toLocaleString();
+  document.getElementById("payableAmount").textContent = formatRupee(payable);
 }
 
 /* APPLY / REMOVE COUPON BUTTON */
@@ -1589,3 +1663,7 @@ document.addEventListener("click", (e) => {
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+function formatRupee(amount) {
+  return "₹" + Math.round(Number(amount)).toLocaleString("en-IN");
+}
