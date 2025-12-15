@@ -205,7 +205,7 @@ function validateLandmark() {
     return false;
   }
 
-  const regex = /^[A-Za-z0-9.,#@&* ]+$/;
+  const regex = /^[A-Za-z0-9.,#@&!$* ]+$/;
   if (!regex.test(value)) {
     showError(input, "landmarkError", "Invalid characters used");
     return false;
@@ -322,7 +322,7 @@ function validatePopupLandmark() {
     return false;
   }
 
-  const regex = /^[A-Za-z0-9.,#@&* ]+$/;
+  const regex = /^[A-Za-z0-9.,#@&!$*]+$/;
   if (!regex.test(value)) {
     showError(input, "p-landmarkError", "Invalid characters used");
     return false;
