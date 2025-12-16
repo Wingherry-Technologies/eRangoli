@@ -92,7 +92,8 @@ body {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  height: 130vh;
+  height: 135vh;
+  overflow-y: auto;
 }
 
 .section-heading {
@@ -667,6 +668,10 @@ hr {
     padding: 20px 25px;
     border-radius: 12px;
     background: #bca4a41a;
+  }
+
+  .delivery-card {
+    height: 150vh;
   }
 
   .offer-title {

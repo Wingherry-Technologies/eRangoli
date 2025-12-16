@@ -89,7 +89,7 @@ body {
 .language-switch {
   padding: 6px 10px;
   border: 1px solid #8e8989;
-  background: white;
+  background: #fff8f8;
   font-weight: 400;
   font-size: 14px;
   border-radius: 6px;
@@ -130,6 +130,9 @@ body {
     width: 100%;
   }
 
+  .language-switch {
+    background-color: #ffffff;
+  }
   .overlay {
     height: 120px;
     width: 100%;
@@ -172,6 +175,7 @@ body {
   .policy-container {
     margin-top: 1.5rem;
     padding: 16px 20px;
+    background-color: #ffffff;
   }
 
   .section-title {
@@ -188,6 +192,11 @@ body {
   /* Full width banner */
   .headerContainer {
     padding: 0;
+  }
+
+  .policy-container,
+  .language-switch {
+    background-color: #ffffff;
   }
 
   .back-row-mob {
