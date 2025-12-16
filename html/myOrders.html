@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Orders</title>
-    <link rel="stylesheet" href="../css/myOrders.css">
+    <link rel="stylesheet" href="../css/myOrders.css" />
   </head>
   <body>
-         <div class="myOrdersBackButton">
-            <img src="../assets/myOrders/ArrowLeft.svg" alt="">
-        <span>Back to search</span>
-      </div>
-    
-    <div class="myOrdersContainer">
- 
+    <div class="myOrdersBackButton">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div>
 
+    <div class="myOrdersContainer">
       <div class="myOrdersHeaderSection">
-        <h1>My Orders</h1>
+        <div class="myOrdersHeaderRow">
+          <h1>My Orders</h1>
+        <span class="myOrdersCount" id="myOrdersCount">0 Products</span>
+        </div>
       </div>
 
       <div class="myOrdersContentSection">
@@ -118,11 +119,9 @@
           <div class="myOrdersActions">
             <div class="myOrderBtnContainer">
               <button class="myOrdersBtn" id="myOrdersTrackBtn">
-              Track order
-            </button>
-            <button class="myOrdersBtn" id="myOrdersCancelBtn">
-              Cancel
-            </button>
+                Track order
+              </button>
+              <button class="myOrdersBtn" id="myOrdersCancelBtn">Cancel</button>
             </div>
             <div class="myOrdersActionInfo">Eligible to return*</div>
           </div>
@@ -174,6 +173,378 @@
         </div>
       </div>
     </div>
+
+    <!-- Track Order Modal -->
+    <div class="trackOverlay" id="trackOverlay">
+      <div class="trackModal">
+        <!-- Header -->
+        <div class="trackHeader">
+          <div>
+            <h3>Track Order</h3>
+            <p>Tracking no: MYSC1236414744</p>
+          </div>
+          <span class="trackClose" id="trackClose"
+            ><img src="../assets/myOrders/cross.svg" alt=""
+          /></span>
+        </div>
+
+        <!-- Timeline -->
+        <div class="trackBody">
+          <div class="trackLeft">
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/orederPlaced.svg" alt="" />
+              </div>
+              <span class="trackLabel">Order Placed</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/itemPacked.svg" alt="" />
+              </div>
+              <span class="trackLabel">Item Packed</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/TruckTrailer.svg" alt="" />
+              </div>
+              <span class="trackLabel">In Transit</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/Warehouse.svg" alt="" />
+              </div>
+              <span class="trackLabel">At warehouse</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/CheckCircle.svg" alt="" />
+              </div>
+              <span class="trackLabel">Out for delivery</span>
+            </div>
+          </div>
+
+          <div class="trackLine">
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="trackRight">
+            <div class="trackText">
+              <h4>We have received your order</h4>
+              <p>on Thu, 4 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Your package is packed and ready to ship</h4>
+              <p>on Sat, 6 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Item shipped to nearest delivery center</h4>
+              <p>on Sun, 7 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Expected at warehouse</h4>
+              <p>on Sun, 12 Dec</p>
+            </div>
+
+            <div class="trackText inactive">
+              <h4>Arriving today between 10am to 9pm</h4>
+              <p>on Sun, 14 Dec</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Return Order Modal -->
+    <div class="returnOverlay" id="returnOverlay">
+      <div class="returnModal">
+        <!-- Header -->
+        <div class="returnHeader">
+          <h3>Return my order</h3>
+          <span class="returnClose" id="returnClose"
+            ><img src="../assets/myOrders/cross.svg" alt=""
+          /></span>
+        </div>
+
+        <!-- Reason -->
+        <div class="returnSection">
+          <label class="returnTitle">Select reason for returning *</label>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+             <span class="customBox"></span>
+            <span>Item arrived damaged or broken</span>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <span>Item is different from what was shown</span>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <span>Wrong item received</span>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <span>Size/Dimensions do not match description</span>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <span>Received a defective product</span>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <span>Item has missing parts</span>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div class="returnSection" id="uploadSection">
+          <label class="returnTitle" id="uploadTitle">Upload Pictures *</label>
+
+          <div class="uploadRow">
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="">
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="returnSection">
+          <label class="returnTitle">Describe your issue *</label>
+          <textarea
+            id="issueText"
+            placeholder="Write here"
+            maxlength="250"
+          ></textarea>
+
+          <div class="charCount" id="charCount">0/250</div>
+        </div>
+
+        <div class="returnActionRow">
+          <button class="returnBtn" id="finalReturnBtn" disabled>Return</button>
+
+          <div class="returnErrorInline" id="returnError">
+            <span class="errorText"></span>
+            <span class="errorClose"
+              ><img src="../assets/myOrders/cross.svg" alt=""
+            /></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Confirm Return Modal -->
+<div class="confirmOverlay" id="confirmOverlay">
+  <div class="confirmModal">
+
+    <div class="confirmHeader">
+      <h3>Return my order</h3>
+      <span class="confirmClose" id="confirmClose">
+        <img src="../assets/myOrders/cross.svg" />
+      </span>
+    </div>
+
+    <p class="pickupNote">
+      Pickup Address will be same as delivery address
+    </p>
+
+    <label class="confirmLabel">Address</label>
+    <div class="addressBox">
+      <span>David John</span><br />
+      davidjohn23@gmail.com<br />
+      95367 89905<br />
+      <div class="address">
+        C-605, Eden Park, Mudhuban Colony,<br />
+      Parsi Road, Pune, Maharashtra – 234678
+      </div>
+    </div>
+
+    <label class="confirmLabel paymentModeTitle">Select Payment mode *</label>
+
+<div class="paymentRow">
+
+  <label class="paymentCheckbox">
+    <input type="checkbox" value="bank" />
+    <span class="customBox"></span>
+    <span class="checkboxText">Bank Transfer</span>
+  </label>
+
+  <label class="paymentCheckbox">
+    <input type="checkbox" value="upi" />
+    <span class="customBox"></span>
+    <span class="checkboxText">UPI</span>
+  </label>
+
+</div>
+
+
+
+    <div class="paymentBox" id="paymentBox">
+      <!-- JS se fill hoga -->
+    </div>
+
+    <button class="confirmBtn" id="confirmBtn" disabled>
+      Confirm
+    </button>
+
+  </div>
+</div>
+
+
+
+
+<!-- REVIEW MODAL -->
+<div class="reviewOverlay" id="reviewOverlay">
+  <div class="reviewModal">
+
+    <div class="reviewHeader">
+      <h3>Please rate your experience with us</h3>
+      <span class="reviewClose" id="reviewClose"><img src="../assets/myOrders/cross.svg" alt=""></span>
+    </div>
+
+    <!-- Stars -->
+    <div class="reviewStars" id="reviewStars">
+      <img src="../assets/myOrders/Star.svg" data-value="1" />
+      <img src="../assets/myOrders/Star.svg" data-value="2" />
+      <img src="../assets/myOrders/Star.svg" data-value="3" />
+      <img src="../assets/myOrders/Star.svg" data-value="4" />
+      <img src="../assets/myOrders/Star.svg" data-value="5" />
+    </div>
+
+    <!-- Review text -->
+    <label class="reviewLabel">Write a review</label>
+    <textarea
+      class="reviewTextarea"
+      placeholder="We are excited to know from you"
+    ></textarea>
+
+    <!-- Upload -->
+     <label class="reviewUploadTitle">Share your photos</label>
+<div class="uploadRow reviewUploadRow">
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+</div>
+
+
+    <button class="reviewPostBtn">Post</button>
+
+  </div>
+</div>
+
+
+
+<!-- SUCCESS POPUP -->
+<div class="successOverlay" id="successOverlay">
+  <div class="successModal">
+
+    <span class="successClose" id="successClose"><img src="../assets/myOrders/cross.svg" alt=""></span>
+
+    <h3>Return request submitted</h3>
+    <p class="successText">
+      Your refund of ₹1197 will be initiated after return pickup
+    </p>
+
+    <div class="successAnimation">
+      <img src="../assets/myOrders/success.svg" alt="success" />
+    </div>
+
+    <p class="thankText">Thank You for Shopping with us</p>
+
+  </div>
+</div>
+
+
 
     <script src="../javascript/myOrders.js"></script>
   </body>

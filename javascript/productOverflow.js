@@ -421,11 +421,51 @@ productOverviewViewAllBtns.forEach((btn) => {
 
 
 //    Share and wishlist icons behavior
-document
-  .querySelectorAll(".productOverviewIcon")[0]
-  .addEventListener("click", function () {
-    alert("Share this product");
-  });
+// Share popup logic
+const shareIcon = document.querySelectorAll(".productOverviewIcon")[0];
+const sharePopup = document.getElementById("productOverviewSharePopup");
+
+shareIcon.addEventListener("click", function (e) {
+  e.stopPropagation();
+  sharePopup.classList.toggle("show");
+});
+
+// Close popup when clicking outside
+document.addEventListener("click", function () {
+  sharePopup.classList.remove("show");
+});
+
+// Share actions
+sharePopup.addEventListener("click", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const type = e.target.closest(".shareItem")?.dataset.type;
+  if (!type) return;
+
+  const url = window.location.href;
+  const text = "Check out this product";
+
+  switch (type) {
+    case "copy":
+      navigator.clipboard.writeText(url);
+      alert("Link copied!");
+      break;
+
+    case "whatsapp":
+      window.open();
+      break;
+
+    case "telegram":
+      window.open();
+      break;
+
+    case "twitter":
+      window.open();
+      break;
+  }
+});
+
 
 document.querySelectorAll(".productOverviewIcon")[1].addEventListener("click", function () {
     const img = this.querySelector("img");
