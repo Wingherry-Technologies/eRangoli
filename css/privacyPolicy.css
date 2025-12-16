@@ -19,6 +19,7 @@ body {
   padding: 18px 22px;
   font-weight: 400;
   color: #3f3f3f;
+  cursor: pointer;
 }
 
 .back-icon {
