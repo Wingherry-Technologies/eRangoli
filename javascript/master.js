@@ -78,7 +78,6 @@ level2Dropdowns.forEach(subItem => {
 });
 
 var signup=true;
-console.log(signup)
 
 const userprofileIcon=document.getElementById("user-profile-icon");
 const signupWrapper=document.getElementById("signup-wrapper");
@@ -86,7 +85,9 @@ const signupWrapper=document.getElementById("signup-wrapper");
 const roundWishlist=document.getElementById("round-button-wishlist")
 const roundCart=document.getElementById("round-button-cart")
 const numberRounds=document.querySelectorAll(".number-of-round");
-const logoutDesktop=document.querySelector(".logout-option-desktop")
+const logoutDesktop=document.querySelector(".logout-option-desktop");
+const numberNoti=document.querySelector("#round-button-notification img");
+const notificationBox=document.querySelector(".notification-main-box");
 
 // Mobile View
 const welcomeName=document.getElementById("welcome-name");
@@ -98,6 +99,7 @@ const mobileDropdown2=document.querySelectorAll(".mobile-dropdown2")
 
 const bottomNav=document.querySelectorAll(".bottom-nav__item1")
 const logoutButton=document.querySelector(".logout-button")
+const mobileNotification=document.getElementById("bottom-nav-notification")
 
 const bottomNumbers=document.querySelectorAll(".bottom-bar-numbers")
 UpdateUI();
@@ -106,8 +108,36 @@ function UpdateUI(){
   if(signup){
   userprofileIcon.style.display="block"
   signupWrapper.style.display="none"
+  function toggleNotification(event) {
+    event.stopPropagation(); // VERY IMPORTANT
+    notificationBox.style.display =
+      notificationBox.style.display === "block" ? "none" : "block";
+      if(notificationBox.style.display==="block"){
+        document.querySelector("body").style.overflow="hidden"
+      }
+      else{
+        document.querySelector("body").style.overflow="auto"
+      }
+  }
+
+  // desktop click
+  numberNoti.addEventListener("click", toggleNotification);
+
+  // mobile click
+  mobileNotification.addEventListener("click", toggleNotification);
+
+  // click outside → hide
+  document.addEventListener("click", () => {
+    notificationBox.style.display = "none";
+  });
+
+  // prevent box clicks from closing itself
+  notificationBox.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
   roundWishlist.addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/wishlist.html"
   })
   roundCart.addEventListener("click",()=>{
     window.location.href="../html/cart.html"
@@ -132,7 +162,7 @@ function UpdateUI(){
   });
 
   document.getElementById("mobile-my-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/wishlist.html"
   })
 
   document.getElementById("mobile-my-cart").addEventListener("click",()=>{
@@ -152,7 +182,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-faqs").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/faq.html"
   })
 
   document.getElementById("mobile-customer-care").addEventListener("click",()=>{
@@ -164,15 +194,11 @@ function UpdateUI(){
   })
 
   document.getElementById("bottom-nav-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
-  })
-
-  document.getElementById("bottom-nav-notification").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/wishlist.html"
   })
 
   document.getElementById("bottom-nav-cart").addEventListener("click",()=>{
-    window.location.href="../html/cart.html.html"
+    window.location.href="../html/cart.html"
   })
 
   logoutButton.style.display="flex";
@@ -185,6 +211,7 @@ function UpdateUI(){
 
     
   })
+
   bottomNumbers.forEach(bottomNumber => {
     if(bottomNumber.innerText>0){
       bottomNumber.style.display="block"
@@ -195,6 +222,11 @@ function UpdateUI(){
 else{
     userprofileIcon.style.display="none"
     signupWrapper.style.display="block"
+    numberNoti.addEventListener("click", () => {
+      window.location.href="../html/login.html"
+      notificationBox.style.display="none";
+      document.querySelector("body").style.overflow="auto"
+    });
     roundWishlist.addEventListener("click",()=>{
       window.location.href="../html/login.html"
     })
@@ -246,6 +278,7 @@ function handleScrollForMobile() {
     const maginfyingMobile = document.getElementById("maginfying-mobile");
     const mobileSuggestion=document.getElementById("mobile-suggestions");
     const bannerContent=document.querySelector(".banner-main-content");
+    const notificationBox=document.querySelector(".notification-main-box");
 
     // Only apply logic when screen width <= 595px
     if (window.innerWidth <= 595) {
@@ -268,7 +301,9 @@ function handleScrollForMobile() {
             maginfyingMobile.style.display = "none";
 
             mobileSuggestion.style.top='80px';
-            bannerContent.style.top='130px';  
+            bannerContent.style.top='130px';
+            
+            notificationBox.style.top='130px';
 
         } else {
             bar.style.position = "relative";
@@ -286,6 +321,7 @@ function handleScrollForMobile() {
 
             mobileSuggestion.style.top='150px';
             bannerContent.style.top='230px';
+
         }
 
     } else {

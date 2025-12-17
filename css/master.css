@@ -766,6 +766,78 @@ nav{
     background-color: #A10404;
 }
 
+/* Notification-content */
+
+.notification-main-box{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    width: 600px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 10px;
+    display: none;
+    
+}
+@media (max-width:700px) {
+    .notification-main-box{
+        width: 90%;
+    }
+}
+@media (max-width:595px) {
+    .notification-main-box{
+        top: 160px;
+        width: 100%;
+        right: 0px;
+        border-radius: 0px;
+        height: calc(100vh - 225px);
+        max-height: none;
+    }
+}
+.notification-main-box>ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.notification-main-box .notification-content{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #EFDFDF;
+    cursor: pointer;
+}
+.notification-content div>img{
+    height: 80px;
+    border-radius: 5px;
+}
+.contents-noti{
+    display: flex;
+    flex-direction: column;
+}
+.contents-noti>span{
+    font-size: 11px;
+    color: #716B6B;
+    text-align: right;
+}
+.contents-noti>.noti-head{
+    font-size: 16px;
+    font-weight: 600;
+    color: #3F3F3F;
+    padding-bottom: 5px;
+}
+.contents-noti>.noti-content{
+    font-size: 14px;
+    font-weight: 600;
+    color: #716B6B;
+}
 
 
 /* Banner section Content */
