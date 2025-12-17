@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Profile - About You</title>
+    <link rel="stylesheet" href="../css/aboutYou.css" />
+  </head>
+  <body>
+    <div class="back-row" id="back-btn">
+      <img src="../assets/aboutYou/back.svg" class="back-icon" />
+      <span class="search">Back to search</span>
+    </div>
+    <div class="profile-wrapper">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <h3>My Profile</h3>
+
+        <div class="menu-item active" onclick="openProfilePopup()">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/user.svg" class="menu-icon-left" />
+          </span>
+
+          <span class="menu-text">About you</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/coin.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Payments</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/gift.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Gift Vouchers</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/setting.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Settings</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-panel">
+        <div class="about-container">
+          <div class="header-banner">
+            <div class="overlay">
+              <div class="header-content">
+                <h1>About You</h1>
+              </div>
+            </div>
+          </div>
+          <div class="member-since">Member since 1st Dec2025</div>
+          <div class="about-grid">
+            <!-- ABOUT YOU -->
+            <div class="about-you-block">
+              <div class="section-title">About you</div>
+
+              <div class="field">
+                <span class="label">
+                  Name
+                  <img
+                    class="edit-icon"
+                    src="../assets/aboutYou/edit.svg"
+                    onclick="openEditAbout()"
+                  />
+                </span>
+                <span class="value">David john</span>
+              </div>
+
+              <div class="field">
+                <span class="label"> Email address </span>
+                <span class="value">davidjohn23@gmail.com</span>
+              </div>
+
+              <div class="field">
+                <span class="label">Contact</span>
+                <span class="value">95367 89905</span>
+              </div>
+
+              <div class="edit-about-popup" id="editAboutPopup">
+                <div class="edit-header">
+                  <h4>Edit About you</h4>
+                  <span class="close-edit" onclick="closeEditAbout()"
+                    >&times;</span
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label>Name </label>
+                  <input type="text" id="name" placeholder="David John" />
+                  <span class="error-text" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="davidjohn23@gmail.com"
+                  />
+                  <span class="error-text" id="emailError"></span>
+                </div>
+
+                <button class="save-btn" onclick="handleAboutSave()">
+                  Save
+                </button>
+              </div>
+            </div>
+
+            <!-- SAVED ADDRESS -->
+            <div>
+              <div class="section-title">Saved Address</div>
+
+              <div class="address-block address-block-relative">
+                <div class="address-header">
+                  Address -1
+                  <div class="address-icons">
+                    <img src="../assets/aboutYou/delete.svg" />
+                    <img
+                      src="../assets/aboutYou/edit.svg"
+                      onclick="openEditAddress(this)"
+                    />
+                  </div>
+                </div>
+                <div class="address-text">
+                  C - 605 , Eden Park,Mudhuban colony, parsi road, Near Appolo
+                  Hospital, Pune, Maharashta, 234 678
+                </div>
+                <div class="edit-address-popup" id="editAddressPopup">
+                  <div class="edit-header">
+                    <h4>Edit Address</h4>
+                    <span class="close-edit" onclick="closeEditAddress(this)"
+                      >&times;</span
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label>House No/ Society *</label>
+                    <input
+                      type="text"
+                      id="hno1"
+                      placeholder="C - 605 , Eden Park"
+                    />
+                    <span class="error-text" id="hnoError1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Area / Lane *</label>
+                    <input
+                      type="text"
+                      id="lane1"
+                      placeholder="Mudhuban colony, parsi road"
+                    />
+                    <span class="error-text" id="laneError1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Landmark (Optional)</label>
+                    <input
+                      type="text"
+                      id="landmark1"
+                      placeholder="Near Appolo Hospital"
+                    />
+                    <span class="error-text" id="landmarkError1"></span>
+                  </div>
+
+                  <div class="two-col">
+                    <div class="form-group half">
+                      <label>City *</label>
+                      <input type="text" id="city1" placeholder="Pune" />
+                      <span class="error-text" id="cityError1"></span>
+                    </div>
+                    <div class="form-group half">
+                      <label>Zipcode *</label>
+                      <input type="text" id="zip1" placeholder="234 678" />
+                      <span class="error-text" id="zipError1"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>State *</label>
+                    <input type="text" id="state1" placeholder="Maharashtra" />
+                    <span class="error-text" id="stateError1"></span>
+                  </div>
+
+                  <button class="save-btn" onclick="handleAddressSave(1, this)">
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <div class="address-block address-block-relative">
+                <div class="address-header">
+                  Address -2
+                  <div class="address-icons">
+                    <img src="../assets/aboutYou/delete.svg" />
+                    <img
+                      src="../assets/aboutYou/edit.svg"
+                      onclick="openEditAddress(this)"
+                    />
+                  </div>
+                </div>
+                <div class="address-text">
+                  C - 605 , Eden Park,Mudhuban colony, parsi road, Near Appolo
+                  Hospital, Pune, Maharashta, 234 678
+                </div>
+
+                <div class="edit-address-popup" id="editAddressPopup">
+                  <div class="edit-header">
+                    <h4>Edit Address</h4>
+                    <span class="close-edit" onclick="closeEditAddress(this)"
+                      >&times;</span
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label>House No/ Society *</label>
+                    <input
+                      type="text"
+                      id="hno2"
+                      placeholder="C - 605 , Eden Park"
+                    />
+                    <span class="error-text" id="hnoError2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Area / Lane *</label>
+                    <input
+                      type="text"
+                      id="lane2"
+                      placeholder="Mudhuban colony, parsi road"
+                    />
+                    <span class="error-text" id="laneError2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Landmark (Optional)</label>
+                    <input
+                      type="text"
+                      id="landmark2"
+                      placeholder="Near Appolo Hospital"
+                    />
+                    <span class="error-text" id="landmarkError2"></span>
+                  </div>
+
+                  <div class="two-col">
+                    <div class="form-group half">
+                      <label>City *</label>
+                      <input type="text" id="city2" placeholder="Pune" />
+                      <span class="error-text" id="cityError2"></span>
+                    </div>
+                    <div class="form-group half">
+                      <label>Zipcode *</label>
+                      <input type="text" id="zip2" placeholder="234 678" />
+                      <span class="error-text" id="zipError2"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>State *</label>
+                    <input type="text" id="state2" placeholder="Maharashtra" />
+                    <span class="error-text" id="stateError2"></span>
+                  </div>
+
+                  <button class="save-btn" onclick="handleAddressSave(2, this)">
+                    Save
+                  </button>
+                </div>
+              </div>
+              <div id="deleteWarning" class="delete-warning hidden">
+                <span class="warning-icon"
+                  ><img src="../assets/aboutYou/warning.svg"
+                /></span>
+                <span
+                  >Cannot delete, at least one address needs to be there</span
+                >
+                <span id="closeWarning" class="close-warning"
+                  ><img src="../assets/cart/X.svg" class="x-icon"
+                /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCATION SETTINGS -->
+        <div class="location-container">
+          <div class="location-header">
+            Location Settings
+            <img
+              src="../assets/aboutYou/edit.svg"
+              onclick="openLocationPopup()"
+            />
+          </div>
+          <hr />
+          <div class="location-view" id="locationView">
+            <div class="location-grid">
+              <div class="location-field">
+                <label>State *</label>
+                <div class="location-value">Andhra Pradesh</div>
+              </div>
+
+              <div class="location-field">
+                <label>Language *</label>
+                <div class="location-value">Telugu</div>
+              </div>
+
+              <div class="location-field">
+                <label>City/Town/village *</label>
+                <div class="location-value">Tirupati</div>
+              </div>
+
+              <div class="location-field">
+                <label>Currency *</label>
+                <div class="location-value">Rupees</div>
+              </div>
+            </div>
+          </div>
+          <!-- LOCATION SETTINGS POPUP -->
+          <div class="location-popup" id="locationPopup">
+            <div class="location-popup-content">
+              <div class="edit-header">
+                <h4>Location Settings</h4>
+                <span class="close-edit" onclick="closeLocationPopup()"
+                  >&times;</span
+                >
+              </div>
+
+              <hr />
+
+              <div class="location-grid">
+                <div class="location-field">
+                  <label>State *</label>
+                  <select>
+                    <option>Andhra Pradesh</option>
+                    <option>Odisha</option>
+                  </select>
+                </div>
+
+                <div class="location-field">
+                  <label>Language *</label>
+                  <select>
+                    <option>Telugu</option>
+                    <option>Odia</option>
+                    <option>Hindi</option>
+                  </select>
+                </div>
+
+                <div class="location-field">
+                  <label>City/Town/village *</label>
+                  <select>
+                    <option>Tirupati</option>
+                    <option>Bangalore</option>
+                    <option>Hyderabad</option>
+                  </select>
+                </div>
+
+                <div class="location-field">
+                  <label>Currency *</label>
+                  <select>
+                    <option>Rupees</option>
+                    <option>Dollar</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- FOOTER -->
+              <div class="popup-footer">
+                <button
+                  type="button"
+                  class="save-btn"
+                  onclick="handleLocationSave()"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROFILE POPUP -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="popup-content">
+        <!-- Header -->
+        <div class="popup-header">
+          <h3>My Profile</h3>
+          <span class="popup-close" id="closePopup">&times;</span>
+        </div>
+
+        <!-- Menu -->
+        <div class="popup-menu">
+          <div class="popup-item active">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/user.svg" class="menu-icon-left" />
+            </span>
+            <span class="popup-text">About you</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/coin.svg" />
+            </span>
+            <span class="popup-text">Payments</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/gift.svg" />
+            </span>
+            <span class="popup-text">Gift Vouchers</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/setting.svg" />
+            </span>
+            <span class="popup-text">Settings</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/aboutYou.js"></script>
+  </body>
+</html>

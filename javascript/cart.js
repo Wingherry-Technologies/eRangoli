@@ -1173,10 +1173,6 @@ document.addEventListener("change", (e) => {
   }
 });
 
-/* MAKE COUPON READONLY & CHANGE APPLY TO APPLIED */
-const couponInput = document.querySelector(".coupon-box input");
-couponInput.readOnly = true;
-
 document.querySelector(".apply-btn").addEventListener("click", function () {
   this.textContent = "Applied";
   this.style.color = "#a10404";
@@ -1416,7 +1412,7 @@ function updateBillingTotals() {
   document.getElementById("payableAmount").textContent = formatRupee(payable);
 }
 
-/* APPLY / REMOVE COUPON BUTTON */
+/* APPLY / REMOVE COUPON BUTTON 
 document
   .getElementById("applyCouponBtn")
   .addEventListener("click", function () {
@@ -1440,9 +1436,41 @@ document
     this.textContent = "Remove";
 
     updateBillingTotals();
-  });
+  });*/
 
 markOutOfStock(document.querySelectorAll(".product-row")[1]);
+document.getElementById("applyCouponBtn").addEventListener("click", () => {
+  const inputEl = document.querySelector(".coupon-box input");
+  const coupon = inputEl.value.trim().toUpperCase();
+  const warning = document.getElementById("couponWarning");
+  const applyBtn = document.getElementById("applyCouponBtn");
+  const discountBox = document.getElementById("discountAmount");
+
+  warning.classList.add("hidden");
+
+  // REMOVE coupon
+  if (couponApplied) {
+    couponApplied = false;
+    discountBox.textContent = "₹0";
+    applyBtn.textContent = "Apply";
+    updateBillingTotals();
+    return;
+  }
+
+  // INVALID coupon
+  if (coupon !== "FIRST 500") {
+    warning.classList.remove("hidden");
+    applyBtn.textContent = "Apply";
+    couponApplied = false;
+    return;
+  }
+
+  // VALID coupon
+  couponApplied = true;
+  discountBox.textContent = "₹500";
+  applyBtn.textContent = "Remove";
+  updateBillingTotals();
+});
 
 function updateTopLabel(section) {
   const label = document.getElementById("pageHeadingMob");
@@ -1458,7 +1486,6 @@ function updateCartItemCount() {
   let totalQty = 0;
 
   document.querySelectorAll(".product-row").forEach((row) => {
-    // ❌ Skip out of stock products
     if (row.classList.contains("out-of-stock")) return;
 
     const qtySpan = row.querySelector(".qty-box span");
@@ -1678,3 +1705,9 @@ document.addEventListener("click", (e) => {
 function formatRupee(amount) {
   return "₹" + Math.round(Number(amount)).toLocaleString("en-IN");
 }
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest("#couponWarning .close-warning")) {
+    document.getElementById("couponWarning").classList.add("hidden");
+  }
+});
