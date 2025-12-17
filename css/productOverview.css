@@ -966,6 +966,34 @@ body {
   border-radius: 6px;
 }
 
+
+
+/* Share popup */
+.productOverviewSharePopup {
+  position: absolute;
+  top: 40px;
+  right: 100px;
+  background: #ffffff;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: none;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  border: 1px solid #D9D9D9;
+}
+
+.productOverviewSharePopup.show {
+  display: flex;
+}
+
+.productOverviewSharePopup .shareItem img {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
 /* responsive: on very small screens make it 2 columns */
 @media (max-width: 360px) {
   .photoGalleryGrid {

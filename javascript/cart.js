@@ -3,6 +3,15 @@ document.getElementById("back-btn").addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const backIcon = document.getElementById("backIcon");
+
+  backIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    window.location.href = "../html/productcatalog.html";
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   updatePayButtonState();
 });
 
@@ -1316,6 +1325,7 @@ document.querySelectorAll(".product-row").forEach((row) => {
     priceBox.textContent = "₹" + (basePrice * qty).toLocaleString();
 
     updateBillingTotals();
+    updateCartItemCount();
   });
 
   minusBtn.addEventListener("click", (e) => {
@@ -1329,6 +1339,7 @@ document.querySelectorAll(".product-row").forEach((row) => {
       priceBox.textContent = "₹" + (basePrice * qty).toLocaleString();
 
       updateBillingTotals();
+      updateCartItemCount();
     }
   });
 });
@@ -1434,7 +1445,7 @@ document
 markOutOfStock(document.querySelectorAll(".product-row")[1]);
 
 function updateTopLabel(section) {
-  const label = document.getElementById("pageHeading");
+  const label = document.getElementById("pageHeadingMob");
   if (!label) return;
 
   if (section === "delivery") label.textContent = "Delivery Details";
@@ -1444,31 +1455,31 @@ function updateTopLabel(section) {
 /* AUTO UPDATE CART ITEM COUNT */
 
 function updateCartItemCount() {
-  const items = document.querySelectorAll(".product-row");
-  const count = items.length;
+  let totalQty = 0;
+
+  document.querySelectorAll(".product-row").forEach((row) => {
+    // ❌ Skip out of stock products
+    if (row.classList.contains("out-of-stock")) return;
+
+    const qtySpan = row.querySelector(".qty-box span");
+    const qty = Number(qtySpan?.textContent) || 0;
+
+    totalQty += qty;
+  });
 
   const totalItemsEl = document.querySelector(".total-items");
   if (totalItemsEl) {
-    totalItemsEl.textContent = `Total Items - ${count}`;
+    totalItemsEl.textContent = `Total Items - ${totalQty}`;
   }
 
   const totalItemsMobileEl = document.querySelector(".total-items-mobile");
   if (totalItemsMobileEl) {
-    totalItemsMobileEl.textContent = `${count} Items`;
+    totalItemsMobileEl.textContent = `${totalQty} Items`;
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   updateCartItemCount();
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete-btn")) {
-    const row = e.target.closest(".product-row");
-    if (row) row.remove();
-
-    updateCartItemCount();
-  }
 });
 
 /* CLOSE LIMIT WARNING */

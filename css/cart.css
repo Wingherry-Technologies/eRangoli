@@ -467,6 +467,10 @@ hr {
   margin-top: 18px;
 }
 
+.back-row-mob {
+  display: none;
+}
+
 .inline-popup {
   background: #efdfdf;
   border-radius: 8px;
@@ -884,12 +888,14 @@ hr {
     min-height: 100vh;
     height: auto;
   }
-  #pageHeading {
-    display: block;
-  }
   .search {
     display: none;
   }
+
+  .back-row {
+    display: none;
+  }
+
   .billing-address-heading {
     font-size: 14px;
   }
@@ -912,6 +918,7 @@ hr {
 
   .back-icon {
     width: 20px;
+    margin-left: 5px;
   }
 
   .main-grid {
@@ -926,6 +933,16 @@ hr {
     padding: 0;
     border-radius: 0;
     height: auto;
+  }
+
+  .back-row-mob {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #3f3f3f;
+    font-weight: 400;
+    cursor: pointer;
+    height: 50px;
   }
 
   .banner-img {
