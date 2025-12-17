@@ -204,11 +204,14 @@ body{
   opacity: 1;
   pointer-events: auto;
 }
-.pc-wapper {
+.products-wrapper {
   display: flex;
   /* border: 1px solid black; */
   width: 100%;
   height: auto;
+  min-height: 60vh;
+  transition: min-height 0.25s ease;
+  min-height: 100px;
   position: relative;
 }
 /* ✅ SIDEBAR */
@@ -701,6 +704,43 @@ input[type="radio"] {
   }
 }
 
+.pd-page-btn.disabled,
+.pd-page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.pd-page-btn:focus {
+  outline: none;
+}
+#noProductMsg {
+  display: none; /* controlled by JS */
+  width: 100%;
+  min-height: 60vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #777;
+  text-align: center;
+}
+.products.no-results {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 60vh; */
+}
+
+.products.no-results.pd-grid {
+  grid-template-columns: none !important;
+}
+/* ✅ universal hidden state for filtering */
+.pd-card.is-hidden {
+  display: none !important;
+}
 
 /* ACTION AREA */
 .pd-action {
@@ -767,4 +807,48 @@ input[type="radio"] {
 /* Hide notify by default */
 .pd-notify {
     display: none;
+}
+
+
+.pd-share {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Popup container */
+.share-popup {
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  gap: 10px;
+  border: 1px solid #D9D9D9;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  z-index: 50;
+}
+
+/* Show popup */
+.share-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Icons */
+.share-popup img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.share-popup img:hover {
+  transform: scale(1.15);
 }

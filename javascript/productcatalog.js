@@ -56,7 +56,7 @@ const overlay = document.getElementById("overlay");
 function syncSidebarHeight() {
   const sidebarEl = document.querySelector(".left-sidebar");
   const icons = document.querySelector(".left-icons");
-  const wrapper = document.querySelector(".pc-wapper");
+  const wrapper = document.querySelector(".products-wrapper");
 
   if (!sidebarEl || !icons || !wrapper) return;
 
@@ -166,6 +166,40 @@ document.querySelectorAll("input").forEach(input => {
     applyFilters();
   });
 });
+function updatePaginationButtons() {
+    const prevBtn = document.getElementById("pd-prev");
+    const nextBtn = document.getElementById("pd-next");
+
+    const totalCards = filteredCards.length;
+    const totalPages = Math.ceil(totalCards / perPage);
+
+    // No pagination needed
+    if (totalCards <= perPage) {
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        prevBtn.classList.add("disabled");
+        nextBtn.classList.add("disabled");
+        return;
+    }
+
+    // First page
+    if (currentPage === 1) {
+        prevBtn.disabled = true;
+        prevBtn.classList.add("disabled");
+    } else {
+        prevBtn.disabled = false;
+        prevBtn.classList.remove("disabled");
+    }
+
+    // Last page
+    if (currentPage === totalPages) {
+        nextBtn.disabled = true;
+        nextBtn.classList.add("disabled");
+    } else {
+        nextBtn.disabled = false;
+        nextBtn.classList.remove("disabled");
+    }
+}
 
 /* ===============================
    MAIN FILTER + SORT ENGINE
@@ -268,46 +302,30 @@ function applyFilters() {
   }
   // else: keep original DOM order
 
-  // Hide all cards first (we'll show the final set later)
-  cards.forEach(c => c.style.display = "none");
+  // Hide all cards first
+cards.forEach(card => card.classList.add("is-hidden"));
 
-  // If no results, show message and hide pagination
-  if (visibleCards.length === 0) {
-    noProductMsg.style.display = "block";
-    if (paginationBar) paginationBar.style.display = "none";
-    // ensure no cards visible
-    return;
-  }
-
-  // show pagination, hide no product message
-  noProductMsg.style.display = "none";
-  if (paginationBar) paginationBar.style.display = "";
-
-  // Append visibleCards to container (keeps DOM nodes, not duplicated) and mark visible
-  // productsWrap.append(...visibleCards);
-  // visibleCards.forEach(c => c.style.display = "block");
-// Save filtered list globally for pagination
-// Save filtered result for pagination
+// Save filtered list
 filteredCards = visibleCards;
 
-// Show no product message
+/* 🚫 NO RESULTS */
 if (filteredCards.length === 0) {
-    noProductMsg.style.display = "block";
-    paginationBar.style.display = "none";
-    cards.forEach(c => c.style.display = "none");
-    return;
+  noProductMsg.style.display = "flex";
+  paginationBar.style.display = "none";
+  productsWrap.classList.add("no-results");
+  updateWrapperHeight();
+  return;
 }
 
+/* ✅ RESULTS FOUND */
+productsWrap.classList.remove("no-results");
 noProductMsg.style.display = "none";
 paginationBar.style.display = "";
 
-// Show first page of filtered results
-showPage(1);
+// Reset pagination
+currentPage = 1;
+showPage(1, false);
 
-
-  // Reset pagination to first page and render
-  // currentPage = 1;
-  // showPage(1);
 }
 
 /* ===============================
@@ -328,58 +346,118 @@ function clearAll() {
   });
 
   // Show all cards
-  cards.forEach(card => card.style.display = "block");
+  // cards.forEach(card => card.style.display = "block");
 
   // Show pagination and hide no-product message
-  if (paginationBar) paginationBar.style.display = "";
+  // if (paginationBar) paginationBar.style.display = "";
+  // noProductMsg.style.display = "none";
+// ✅ RESET FILTER SOURCE
+  // Reset all inputs
+  document.querySelectorAll("input").forEach(i => {
+    i.checked = false;
+    if (i.type === "radio" || i.type === "checkbox") {
+      i.dataset.wasChecked = "false";
+    }
+  });
+
+  // Reset filter headers
+  document.querySelectorAll(".filter-item").forEach(i => {
+    i.classList.remove("active");
+    const span = i.querySelector("span");
+    if (span) span.textContent = span.textContent.split("(")[0].trim();
+  });
+
+  // ✅ IMPORTANT: remove no-results state
+  productsWrap.classList.remove("no-results");
+
+  // Hide no-results message
   noProductMsg.style.display = "none";
 
-  // Reset pagination to first page
+  // Restore pagination
+  paginationBar.style.display = "";
+
+  // Reset filtered source
+  filteredCards = [...cards];
+
+  // Reset pagination
   currentPage = 1;
-  showPage(1);
+
+  // Show first page properly
+  showPage(1, false);
+
 }
 
-/* ===============================
-   PAGINATION: showPage
-   =============================== */
-function showPage(page) {
-    if (!filteredCards.length) return;
 
-    const totalVisible = filteredCards.length;
-    const totalPages = Math.ceil(totalVisible / perPage);
+function updateWrapperHeight() {
+  const wrapper = document.querySelector(".products-wrapper");
+  const grid = document.querySelector(".products.pd-grid");
 
-    // clamp page
-    if (page < 1) page = 1;
-    if (page > totalPages) page = totalPages;
-    currentPage = page;
+  if (!wrapper || !grid) return;
 
-    const start = (page - 1) * perPage;
-    const end = start + perPage;
+  // 🚫 When no results → do NOT measure cards
+  if (filteredCards.length === 0) {
+    wrapper.style.minHeight = "60vh";
+    return;
+  }
 
-    // Hide all cards
-    cards.forEach(c => c.style.display = "none");
+  // Measure grid height AS-IS (no card toggling)
+  const height = grid.scrollHeight;
+  wrapper.style.minHeight = `${height}px`;
+}
 
-    // Show only this page
-    filteredCards.forEach((c, idx) => {
-        if (idx >= start && idx < end) {
-            c.style.display = "block";
-        }
+
+
+function showPage(page, shouldScroll = true) {
+  if (!filteredCards.length) return;
+
+  const totalVisible = filteredCards.length;
+  const totalPages = Math.ceil(totalVisible / perPage);
+
+  page = Math.max(1, Math.min(page, totalPages));
+  currentPage = page;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  // Hide all cards
+cards.forEach(card => card.classList.add("is-hidden"));
+
+// Show only current page cards
+filteredCards.forEach((card, idx) => {
+  if (idx >= start && idx < end) {
+    card.classList.remove("is-hidden");
+  }
+});
+
+
+  pageCount.textContent = `${start + 1}–${Math.min(end, totalVisible)} of ${totalVisible}`;
+  updatePaginationButtons();
+  updateWrapperHeight();
+
+  if (shouldScroll) {
+    document.querySelector(".products").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
-
-    pageCount.textContent = `${start + 1}–${Math.min(end, totalVisible)} of ${totalVisible}`;
+  }
 }
-
+window.addEventListener("resize", () => {
+  updateWrapperHeight();
+});
 
 
 /* Prev / Next */
-document.getElementById("pd-prev").onclick = () => {
-    if (currentPage > 1) showPage(currentPage - 1);
-};
+document.getElementById("pd-prev").addEventListener("click", (e) => {
+  e.preventDefault();
+  if (currentPage > 1) showPage(currentPage - 1, true);
+});
 
-document.getElementById("pd-next").onclick = () => {
-    const totalPages = Math.ceil(filteredCards.length / perPage);
-    if (currentPage < totalPages) showPage(currentPage + 1);
-};
+document.getElementById("pd-next").addEventListener("click", (e) => {
+  e.preventDefault();
+  const totalPages = Math.ceil(filteredCards.length / perPage);
+  if (currentPage < totalPages) showPage(currentPage + 1, true);
+});
+
 
 
 /* ===============================
@@ -389,7 +467,7 @@ document.getElementById("pd-next").onclick = () => {
 function handleLeftIconsPlacement() {
   const leftIcons = document.querySelector(".left-icons");
   const heading = document.querySelector(".pdthead");
-  const wrapper = document.querySelector(".pc-wapper");
+  const wrapper = document.querySelector(".products-wrapper");
   if (!leftIcons || !heading || !wrapper) return;
 
   if (window.innerWidth <= 480) {
@@ -411,3 +489,59 @@ window.addEventListener("resize", handleLeftIconsPlacement);
 /* Run initial sync and render */
 syncSidebarHeight();
 applyFilters(); // initial render: applies no filters => shows all and prepares pagination
+
+
+// share
+document.addEventListener("click", function (e) {
+
+  // Close all popups
+  document.querySelectorAll(".share-popup").forEach(popup => {
+    popup.classList.remove("active");
+  });
+
+  // If share button clicked
+  if (e.target.classList.contains("share-btn")) {
+    e.stopPropagation();
+    const popup = e.target.nextElementSibling;
+    popup.classList.toggle("active");
+  }
+
+});
+
+// Share actions
+document.querySelectorAll(".share-option").forEach(icon => {
+  icon.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const type = this.dataset.type;
+    const card = this.closest(".pd-card");
+    const productName = card.querySelector(".pd-name").innerText;
+
+    const url = window.location.href + "#" + productName.replace(/\s+/g, "-");
+
+    if (type === "copy") {
+      navigator.clipboard.writeText(url);
+      alert("Link copied!");
+    }
+
+    if (type === "whatsapp") {
+      window.open(`https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`);
+    }
+
+    if (type === "telegram") {
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(productName)}`);
+    }
+
+    if (type === "twitter") {
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(productName)}&url=${encodeURIComponent(url)}`);
+    }
+  });
+});
+
+
+document.querySelectorAll(".wishlist-icon").forEach(icon => {
+  icon.addEventListener("click", function (e) {
+    e.stopPropagation(); // prevents card click issues
+    this.classList.toggle("active");
+  });
+});
