@@ -136,10 +136,10 @@ body {
   box-sizing: border-box;
 }
 
-.header-content {
+.header-content h1 {
   font-weight: 700;
   color: #3f3f3f;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .MP-header-banner {
@@ -891,9 +891,20 @@ body {
     width: 100%;
     min-width: 300px;
   }
-}
 
-@media (max-width: 595px) {
+  .MP-header-banner {
+    display: block;
+  }
+
+  .AY-header-banner {
+    display: none;
+  }
+
+  /* About active */
+  body.about-active .MP-header-banner {
+    display: none;
+  }
+
   .MP-header-banner .header {
     display: flex;
     align-items: center;
@@ -907,25 +918,7 @@ body {
     font-weight: 600;
     line-height: 1;
   }
-}
 
-@media (max-width: 595px) {
-  /* Default */
-  .MP-header-banner {
-    display: block;
-  }
-
-  .AY-header-banner {
-    display: none;
-  }
-
-  /* About active */
-  body.about-active .MP-header-banner {
-    display: none;
-  }
-}
-
-@media (max-width: 595px) {
   body.about-active .AY-header-banner {
     height: 110px;
     background: url("../assets/cart/bg.svg") center/cover;

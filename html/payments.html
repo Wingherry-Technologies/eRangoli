@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payments</title>
+    <link rel="stylesheet" href="../css/payments.css" />
+  </head>
+  <body>
+    <div class="back-row" id="back-btn">
+      <img src="../assets/payments/back.svg" class="back-icon" />
+      <span class="search">Back to search</span>
+    </div>
+    <div class="MP-header-banner">
+      <div class="MP-overlay">
+        <div class="header-content">
+          <div class="header">
+            <div class="back-row-mob" id="back-btn-mob">
+              <img src="../assets/payments/back.svg" />
+            </div>
+
+            <h1 class="MP-header">My Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-wrapper">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <h3>My Profile</h3>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/payments/user.svg" class="menu-icon-left" />
+          </span>
+
+          <span class="menu-text">About you</span>
+
+          <img src="../assets/payments/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item active" onclick="openProfilePopup()">
+          <span class="menu-icon-circle">
+            <img src="../assets/payments/coin.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Payments</span>
+
+          <img src="../assets/payments/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/payments/gift.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Gift Vouchers</span>
+
+          <img src="../assets/payments/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item">
+          <span class="menu-icon-circle">
+            <img src="../assets/payments/setting.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Settings</span>
+
+          <img src="../assets/payments/right.svg" class="menu-icon-right" />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-panel">
+        <div class="payment-container">
+          <div class="header-banner">
+            <div class="overlay">
+              <div class="header-content">
+                <h1>Payments</h1>
+              </div>
+            </div>
+          </div>
+          <div class="saved-details-wrapper">
+            <h2 class="saved-title">Saved Details</h2>
+
+            <p class="section-label">Debit Card</p>
+            <div class="card-box">
+              <p>David john</p>
+              <p>Bank of India</p>
+              <p>(IFSC: BKID0005719)</p>
+              <p>Saving Account</p>
+              <p>Account number - **** **** **** *823</p>
+            </div>
+
+            <p class="section-label">UPI</p>
+            <div class="upi-box">davidjoh@okhdfc</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROFILE POPUP -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="popup-content">
+        <!-- Header -->
+        <div class="popup-header">
+          <h3>My Profile</h3>
+          <span class="popup-close" id="closePopup">&times;</span>
+        </div>
+
+        <!-- Menu -->
+        <div class="popup-menu">
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/payments/user.svg" />
+            </span>
+            <span class="popup-text">About you</span>
+            <img
+              src="../assets/payments/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item active">
+            <span class="popup-icon">
+              <img src="../assets/payments/coin.svg" class="menu-icon-left" />
+            </span>
+            <span class="popup-text">Payments</span>
+            <img
+              src="../assets/payments/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/payments/gift.svg" />
+            </span>
+            <span class="popup-text">Gift Vouchers</span>
+            <img
+              src="../assets/payments/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/payments/setting.svg" />
+            </span>
+            <span class="popup-text">Settings</span>
+            <img
+              src="../assets/payments/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/payments.js"></script>
+  </body>
+</html>
