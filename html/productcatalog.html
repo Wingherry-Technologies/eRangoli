@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
-    <link rel="stylesheet" href="../css/productcatalog.css" />
-    <link rel="stylesheet" href="../css/similarFinds.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Banner Section -->
-    <section class="banner-section">
-      <div class="carousel-container">
-        <div class="carousel-slide">
-          <img src="../assets/master/Rectangle 3.svg" alt="Slide 1" />
-          <img
-            src="https://static.vecteezy.com/system/resources/thumbnails/054/517/039/small/community-market-showcasing-handmade-pottery-woven-baskets-and-locally-sourced-food-with-customers-photo.jpg"
-            alt="Slide 2"
-          />
-          <img
-            src="https://blog.pashmina.com/wp-content/uploads/2021/12/Blog-images-1080x700-3.jpg"
-            alt="Slide 3"
-          />
-          <img
-            src="https://t3.ftcdn.net/jpg/05/66/34/10/360_F_566341036_f2mCzWyHi9I4aMOSSiy1XUUhvEqdUKJ1.jpg"
-            alt="Slide 4"
-          />
-        </div>
-      </div>
 
-      <!-- Dots BELOW the image -->
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
-    <section class="pdthead">
-      <h1 class="pdtheading">Tribal Iron Craft ( Bastar Art)</h1>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+  <link rel="stylesheet" href="../css/productcatalog.css" />
+  <link rel="stylesheet" href="../css/similarFinds.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
 
-    
-
-    
-    <div class="products-wrapper">
-      <div class="left-icons">
-        <button id="openFilter">
-          <img src="../assets/productcatalog/filtering.svg" alt="" />
-        </button>
-        <button id="openSort">
-          <img src="../assets/productcatalog/sorting.svg" alt="" />
-        </button>
+<body>
+  <!-- Banner Section -->
+  <section class="banner-section">
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="../assets/master/Rectangle 3.svg" alt="Slide 1" />
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/054/517/039/small/community-market-showcasing-handmade-pottery-woven-baskets-and-locally-sourced-food-with-customers-photo.jpg"
+          alt="Slide 2" />
+        <img src="https://blog.pashmina.com/wp-content/uploads/2021/12/Blog-images-1080x700-3.jpg" alt="Slide 3" />
+        <img src="https://t3.ftcdn.net/jpg/05/66/34/10/360_F_566341036_f2mCzWyHi9I4aMOSSiy1XUUhvEqdUKJ1.jpg"
+          alt="Slide 4" />
       </div>
-      <!-- ✅ LEFT ICONS -->
+    </div>
+
+    <!-- Dots BELOW the image -->
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+  <section class="pdthead">
+    <h1 class="pdtheading">Tribal Iron Craft ( Bastar Art)</h1>
+  </section>
+
+
+
+
+  <div class="products-wrapper">
+    <div class="left-icons">
+      <button id="openFilter">
+        <img src="../assets/productcatalog/filtering.svg" alt="" />
+      </button>
+      <button id="openSort">
+        <img src="../assets/productcatalog/sorting.svg" alt="" />
+      </button>
+    </div>
+    <!-- ✅ LEFT ICONS -->
 
     <div class="aside-overlay" id="overlay"></div>
-      <!-- ✅ SIDEBAR -->
+    <!-- ✅ SIDEBAR -->
     <aside class="left-sidebar" id="sidebar">
       <button class="sidebar-close" onclick="closeSidebar()">
         <img src="../assets/productcatalog/X.svg" alt="" />
@@ -73,26 +66,16 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          ><span>Under ₹500</span>
-          <input type="radio" name="price" value="0-500"
-        /></label>
-        <label
-          ><span>₹500 – ₹1,000</span>
-          <input type="radio" name="price" value="500-1000"
-        /></label>
-        <label
-          ><span>₹1,000 – ₹2,500</span>
-          <input type="radio" name="price" value="1000-2500"
-        /></label>
-        <label
-          ><span>₹2,500 – ₹5,000</span>
-          <input type="radio" name="price" value="2500-5000"
-        /></label>
-        <label
-          ><span>Above ₹5,000</span>
-          <input type="radio" name="price" value="5000-999999"
-        /></label>
+        <label><span>Under ₹500</span>
+          <input type="radio" name="price" value="0-500" /></label>
+        <label><span>₹500 – ₹1,000</span>
+          <input type="radio" name="price" value="500-1000" /></label>
+        <label><span>₹1,000 – ₹2,500</span>
+          <input type="radio" name="price" value="1000-2500" /></label>
+        <label><span>₹2,500 – ₹5,000</span>
+          <input type="radio" name="price" value="2500-5000" /></label>
+        <label><span>Above ₹5,000</span>
+          <input type="radio" name="price" value="5000-999999" /></label>
       </div>
 
       <!-- ✅ STATE -->
@@ -101,12 +84,8 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          ><span>Karnataka</span> <input type="checkbox" class="state"
-        /></label>
-        <label
-          ><span>Telangana</span> <input type="checkbox" class="state"
-        /></label>
+        <label><span>Karnataka</span> <input type="checkbox" class="state" /></label>
+        <label><span>Telangana</span> <input type="checkbox" class="state" /></label>
       </div>
 
       <!-- ✅ MATERIAL -->
@@ -115,15 +94,9 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          ><span>Wood</span> <input type="checkbox" class="material"
-        /></label>
-        <label
-          ><span>Metal</span> <input type="checkbox" class="material"
-        /></label>
-        <label
-          ><span>Clay</span> <input type="checkbox" class="material"
-        /></label>
+        <label><span>Wood</span> <input type="checkbox" class="material" /></label>
+        <label><span>Metal</span> <input type="checkbox" class="material" /></label>
+        <label><span>Clay</span> <input type="checkbox" class="material" /></label>
       </div>
 
       <!-- ✅ BRAND -->
@@ -132,12 +105,8 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          ><span>Sanskriti</span> <input type="checkbox" class="brand"
-        /></label>
-        <label
-          ><span>CraftVilla</span> <input type="checkbox" class="brand"
-        /></label>
+        <label><span>Sanskriti</span> <input type="checkbox" class="brand" /></label>
+        <label><span>CraftVilla</span> <input type="checkbox" class="brand" /></label>
       </div>
 
       <!-- ✅ SIZE -->
@@ -158,12 +127,8 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          >Low to High <input type="radio" name="sortPrice" value="price_asc"
-        /></label>
-        <label
-          >High to Low <input type="radio" name="sortPrice" value="price_desc"
-        /></label>
+        <label>Low to High <input type="radio" name="sortPrice" value="price_asc" /></label>
+        <label>High to Low <input type="radio" name="sortPrice" value="price_desc" /></label>
       </div>
 
       <!-- ✅ DELIVERY DATE SORT (UPDATED AS YOU ASKED) -->
@@ -172,18 +137,12 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          >Within 3 Days
-          <input type="radio" name="sortDelivery" value="delivery_3"
-        /></label>
-        <label
-          >Within 5 Days
-          <input type="radio" name="sortDelivery" value="delivery_5"
-        /></label>
-        <label
-          >Within 7 Days
-          <input type="radio" name="sortDelivery" value="delivery_7"
-        /></label>
+        <label>Within 3 Days
+          <input type="radio" name="sortDelivery" value="delivery_3" /></label>
+        <label>Within 5 Days
+          <input type="radio" name="sortDelivery" value="delivery_5" /></label>
+        <label>Within 7 Days
+          <input type="radio" name="sortDelivery" value="delivery_7" /></label>
       </div>
 
       <!-- ✅ RATINGS SORT -->
@@ -192,13 +151,9 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          >High to Low
-          <input type="radio" name="sortRating" value="rating_desc"
-        /></label>
-        <label
-          >Low to High <input type="radio" name="sortRating" value="rating_asc"
-        /></label>
+        <label>High to Low
+          <input type="radio" name="sortRating" value="rating_desc" /></label>
+        <label>Low to High <input type="radio" name="sortRating" value="rating_asc" /></label>
       </div>
 
       <!-- ✅ DISCOUNT SORT (UPDATED FROM SALES/OFFER) -->
@@ -207,25 +162,17 @@
         <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
       </div>
       <div class="sub-options">
-        <label
-          >10% & Above
-          <input type="radio" name="sortDiscount" value="discount_10"
-        /></label>
-        <label
-          >25% & Above
-          <input type="radio" name="sortDiscount" value="discount_25"
-        /></label>
-        <label
-          >50% & Above
-          <input type="radio" name="sortDiscount" value="discount_50"
-        /></label>
+        <label>10% & Above
+          <input type="radio" name="sortDiscount" value="discount_10" /></label>
+        <label>25% & Above
+          <input type="radio" name="sortDiscount" value="discount_25" /></label>
+        <label>50% & Above
+          <input type="radio" name="sortDiscount" value="discount_50" /></label>
       </div>
 
       <!-- ✅ RECENTLY ADDED (CHECKBOX ONLY) -->
       <div class="filter-item">
-        <label
-          style="width: 100%; display: flex; justify-content: space-between"
-        >
+        <label style="width: 100%; display: flex; justify-content: space-between">
           Recently Added
           <input type="checkbox" id="recentCheck" />
         </label>
@@ -233,1170 +180,904 @@
 
       <div class="clear-all" onclick="clearAll()">Clear all</div>
     </aside>
-      <!-- ✅ PRODUCTS -->
+    <!-- ✅ PRODUCTS -->
     <div class="pd-display">
-       <div class="products pd-grid">
-
-<!-- CARD 1 -->
-<div class="pd-card"
-  data-price="5200"
-  data-state="Tamil Nadu"
-  data-material="Wood"
-  data-brand="Sanskriti Collection"
-  data-size="Large"
-  data-rating="4.8"
-  data-date="20240215"
-  data-delivery="3"
-  data-discount="25">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 363.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
-    <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 2 -->
-<div class="pd-card"
-  data-price="2674"
-  data-state="Assam"
-  data-material="Bamboo"
-  data-brand="EcoCrafts"
-  data-size="Medium"
-  data-rating="4.7"
-  data-date="20240210"
-  data-delivery="5"
-  data-discount="46">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 364.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
-    <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 3 -->
-<div class="pd-card"
-  data-price="1800"
-  data-state="Chhattisgarh"
-  data-material="Metal"
-  data-brand="Tribal Roots"
-  data-size="Small"
-  data-rating="4.8"
-  data-date="20240205"
-  data-delivery="4"
-  data-discount="44">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 365.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Metal Tribal Art Horse</h3>
-    <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 5 -->
-<div class="pd-card"
-  data-price="950"
-  data-state="Kerala"
-  data-material="Clay"
-  data-brand="Local Artisan"
-  data-size="Small"
-  data-rating="4.5"
-  data-date="20240120"
-  data-delivery="7"
-  data-discount="21">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 367.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.5 <span><img src="../assets/master/star.svg"></span> <span>(712)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Traditional Kerala Clay Pot</h3>
-    <div class="pd-line"><span>Local Artisan</span><span>Kerala</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹950 <span class="old">₹1,200</span><span class="off">(21%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 6 -->
-<div class="pd-card"
-  data-price="4100"
-  data-state="Gujarat"
-  data-material="Metal"
-  data-brand="Royal Metal Works"
-  data-size="Medium"
-  data-rating="4.9"
-  data-date="20240218"
-  data-delivery="3"
-  data-discount="34">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 368.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.9 <span><img src="../assets/master/star.svg"></span> <span>(2.4k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Metal Engraved Tea Kettle</h3>
-    <div class="pd-line"><span>Royal Metal Works</span><span>Gujarat</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">4 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹4,100 <span class="old">₹6,200</span><span class="off">(34%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 7 -->
-<div class="pd-card"
-  data-price="2250"
-  data-state="Maharashtra"
-  data-material="Wood"
-  data-brand="Sanskriti Arts"
-  data-size="Medium"
-  data-rating="4.7"
-  data-date="20240212"
-  data-delivery="5"
-  data-discount="27">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 369.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(1.1k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Handcrafted Wooden Bull</h3>
-    <div class="pd-line"><span>Sanskriti Arts</span><span>Maharashtra</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹2,250 <span class="old">₹3,100</span><span class="off">(27%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 8 -->
-<div class="pd-card"
-  data-price="1500"
-  data-state="Telangana"
-  data-material="Clay"
-  data-brand="Local Maker"
-  data-size="Small"
-  data-rating="4.6"
-  data-date="20240125"
-  data-delivery="6"
-  data-discount="28">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 370.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(529)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Clay Decorative Vase Set</h3>
-    <div class="pd-line"><span>Local Maker</span><span>Telangana</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹1,500 <span class="old">₹2,100</span><span class="off">(28%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 1 -->
-<div class="pd-card"
-  data-price="5200"
-  data-state="Tamil Nadu"
-  data-material="Wood"
-  data-brand="Sanskriti Collection"
-  data-size="Large"
-  data-rating="4.8"
-  data-date="20240215"
-  data-delivery="3"
-  data-discount="25">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 363.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
-    <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 2 -->
-<div class="pd-card"
-  data-price="2674"
-  data-state="Assam"
-  data-material="Bamboo"
-  data-brand="EcoCrafts"
-  data-size="Medium"
-  data-rating="4.7"
-  data-date="20240210"
-  data-delivery="5"
-  data-discount="46">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 364.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
-    <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 3 -->
-<div class="pd-card"
-  data-price="1800"
-  data-state="Chhattisgarh"
-  data-material="Metal"
-  data-brand="Tribal Roots"
-  data-size="Small"
-  data-rating="4.8"
-  data-date="20240205"
-  data-delivery="4"
-  data-discount="44">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 365.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Metal Tribal Art Horse</h3>
-    <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 1 -->
-<div class="pd-card"
-  data-price="5200"
-  data-state="Tamil Nadu"
-  data-material="Wood"
-  data-brand="Sanskriti Collection"
-  data-size="Large"
-  data-rating="4.8"
-  data-date="20240215"
-  data-delivery="3"
-  data-discount="25">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 363.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
-    <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 2 -->
-<div class="pd-card"
-  data-price="2674"
-  data-state="Assam"
-  data-material="Bamboo"
-  data-brand="EcoCrafts"
-  data-size="Medium"
-  data-rating="4.7"
-  data-date="20240210"
-  data-delivery="5"
-  data-discount="46">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 364.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
-    <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 3 -->
-<div class="pd-card"
-  data-price="1800"
-  data-state="Chhattisgarh"
-  data-material="Metal"
-  data-brand="Tribal Roots"
-  data-size="Small"
-  data-rating="4.8"
-  data-date="20240205"
-  data-delivery="4"
-  data-discount="44">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 365.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Metal Tribal Art Horse</h3>
-    <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 1 -->
-<div class="pd-card"
-  data-price="5200"
-  data-state="Tamil Nadu"
-  data-material="Wood"
-  data-brand="Sanskriti Collection"
-  data-size="Large"
-  data-rating="4.8"
-  data-date="20240215"
-  data-delivery="3"
-  data-discount="25">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 363.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
-    <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 2 -->
-<div class="pd-card"
-  data-price="2674"
-  data-state="Assam"
-  data-material="Bamboo"
-  data-brand="EcoCrafts"
-  data-size="Medium"
-  data-rating="4.7"
-  data-date="20240210"
-  data-delivery="5"
-  data-discount="46">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 364.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
-    <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 3 -->
-<div class="pd-card"
-  data-price="1800"
-  data-state="Chhattisgarh"
-  data-material="Metal"
-  data-brand="Tribal Roots"
-  data-size="Small"
-  data-rating="4.8"
-  data-date="20240205"
-  data-delivery="4"
-  data-discount="44">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 365.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Metal Tribal Art Horse</h3>
-    <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-<!-- CARD 4 -->
-<div class="pd-card"
-  data-price="3400"
-  data-state="Rajasthan"
-  data-material="Wood"
-  data-brand="Heritage Art"
-  data-size="Medium"
-  data-rating="4.6"
-  data-date="20240129"
-  data-delivery="6"
-  data-discount="20">
-
-  <div class="pd-img">
-    <img src="../assets/master/Rectangle 366.svg">
-    <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
-    <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
-  </div>
-  <div class="pd-content">
-    <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
-    <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
-    <p class="pd-tags"><span class="free">FREE Delivery</span></p>
-    <div class="pd-bottom-row"><p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
-    <div class="pd-share">
-  <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-  <!-- SHARE POPUP -->
-  <div class="share-popup">
-    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
-    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
-    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
-    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
-  </div>
-</div>
-</div>
-  </div>
-</div>
-</div>
-
-<div
-        id="noProductMsg">
+      <div class="products pd-grid">
+
+        <!-- CARD 1 -->
+        <div class="pd-card" data-price="5200" data-state="Tamil Nadu" data-material="Wood"
+          data-brand="Sanskriti Collection" data-size="Large" data-rating="4.8" data-date="20240215" data-delivery="3"
+          data-discount="25">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 363.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="pd-card" data-price="2674" data-state="Assam" data-material="Bamboo" data-brand="EcoCrafts"
+          data-size="Medium" data-rating="4.7" data-date="20240210" data-delivery="5" data-discount="46">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 364.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
+            <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal" data-brand="Tribal Roots"
+          data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4" data-discount="44">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 365.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Metal Tribal Art Horse</h3>
+            <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="pd-card" data-price="950" data-state="Kerala" data-material="Clay" data-brand="Local Artisan"
+          data-size="Small" data-rating="4.5" data-date="20240120" data-delivery="7" data-discount="21">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 367.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.5 <span><img src="../assets/master/star.svg"></span> <span>(712)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Traditional Kerala Clay Pot</h3>
+            <div class="pd-line"><span>Local Artisan</span><span>Kerala</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹950 <span class="old">₹1,200</span><span class="off">(21%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="pd-card" data-price="4100" data-state="Gujarat" data-material="Metal" data-brand="Royal Metal Works"
+          data-size="Medium" data-rating="4.9" data-date="20240218" data-delivery="3" data-discount="34">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 368.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.9 <span><img src="../assets/master/star.svg"></span> <span>(2.4k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Metal Engraved Tea Kettle</h3>
+            <div class="pd-line"><span>Royal Metal Works</span><span>Gujarat</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">4 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹4,100 <span class="old">₹6,200</span><span class="off">(34%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="pd-card" data-price="2250" data-state="Maharashtra" data-material="Wood" data-brand="Sanskriti Arts"
+          data-size="Medium" data-rating="4.7" data-date="20240212" data-delivery="5" data-discount="27">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 369.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(1.1k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Handcrafted Wooden Bull</h3>
+            <div class="pd-line"><span>Sanskriti Arts</span><span>Maharashtra</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹2,250 <span class="old">₹3,100</span><span class="off">(27%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="pd-card" data-price="1500" data-state="Telangana" data-material="Clay" data-brand="Local Maker"
+          data-size="Small" data-rating="4.6" data-date="20240125" data-delivery="6" data-discount="28">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 370.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(529)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Clay Decorative Vase Set</h3>
+            <div class="pd-line"><span>Local Maker</span><span>Telangana</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹1,500 <span class="old">₹2,100</span><span class="off">(28%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 1 -->
+        <div class="pd-card" data-price="5200" data-state="Tamil Nadu" data-material="Wood"
+          data-brand="Sanskriti Collection" data-size="Large" data-rating="4.8" data-date="20240215" data-delivery="3"
+          data-discount="25">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 363.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="pd-card" data-price="2674" data-state="Assam" data-material="Bamboo" data-brand="EcoCrafts"
+          data-size="Medium" data-rating="4.7" data-date="20240210" data-delivery="5" data-discount="46">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 364.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
+            <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal" data-brand="Tribal Roots"
+          data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4" data-discount="44">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 365.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Metal Tribal Art Horse</h3>
+            <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 1 -->
+        <div class="pd-card" data-price="5200" data-state="Tamil Nadu" data-material="Wood"
+          data-brand="Sanskriti Collection" data-size="Large" data-rating="4.8" data-date="20240215" data-delivery="3"
+          data-discount="25">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 363.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="pd-card" data-price="2674" data-state="Assam" data-material="Bamboo" data-brand="EcoCrafts"
+          data-size="Medium" data-rating="4.7" data-date="20240210" data-delivery="5" data-discount="46">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 364.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
+            <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal" data-brand="Tribal Roots"
+          data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4" data-discount="44">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 365.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Metal Tribal Art Horse</h3>
+            <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 1 -->
+        <div class="pd-card" data-price="5200" data-state="Tamil Nadu" data-material="Wood"
+          data-brand="Sanskriti Collection" data-size="Large" data-rating="4.8" data-date="20240215" data-delivery="3"
+          data-discount="25">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 363.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.5k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="pd-line"><span>Sanskriti Collection</span><span>Tamil Nadu</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">1 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹5,200 <span class="old">₹7,000</span><span class="off">(25%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="pd-card" data-price="2674" data-state="Assam" data-material="Bamboo" data-brand="EcoCrafts"
+          data-size="Medium" data-rating="4.7" data-date="20240210" data-delivery="5" data-discount="46">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 364.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span> <span>(980)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Handmade Bamboo Basket Set</h3>
+            <div class="pd-line"><span>EcoCrafts</span><span>Assam</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">3 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹2,674 <span class="old">₹4,999</span><span class="off">(46%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal" data-brand="Tribal Roots"
+          data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4" data-discount="44">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 365.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span> <span>(1.2k)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Metal Tribal Art Horse</h3>
+            <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="noProductMsg">
         No products found 😔
       </div>
 
-<!-- PAGINATION -->
-<div class="pd-pagination-bar">
-  <div class="pd-page-count">1–16 of 18</div>
+      <!-- PAGINATION -->
+      <div class="pd-pagination-bar">
+        <div class="pd-page-count">1–16 of 18</div>
 
-  <div class="pd-pagination-buttons">
-      <button class="pd-page-btn" id="pd-prev" type="button"><img src="../assets/productcatalog/CaretCircleLeft.svg"></button>
-      <button class="pd-page-btn" id="pd-next" type="button"><img src="../assets/productcatalog/CaretCircleRight.svg"></button>
+        <div class="pd-pagination-buttons">
+          <button class="pd-page-btn" id="pd-prev" type="button"><img
+              src="../assets/productcatalog/CaretCircleLeft.svg"></button>
+          <button class="pd-page-btn" id="pd-next" type="button"><img
+              src="../assets/productcatalog/CaretCircleRight.svg"></button>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
-    </div>
-      
-    </div>
 
-<section class="similar-finds-section">
-      <h2 class="similar-title">Similar Finds</h2>
+  <section class="similar-finds-section">
+    <h2 class="similar-title">Similar Finds</h2>
 
-      <div class="similar-list">
-        <div class="similar-card">
-          <img src="../assets/master/Ellipse 18.svg" alt="" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 1.png" alt="image" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 2.png" alt="" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 3.png" alt="image" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 4.png" alt="" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 5.png" alt="image" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
-        <div class="similar-card">
-          <img src="../assets/master/image 6.png" alt="image" />
-          <h3>Product Name</h3>
-          <p class="brand">by Sanskriti Collection</p>
-          <p class="price">
-            ₹2,674 <span class="old-price">₹5,674</span>
-            <span class="offer">(25%OFF)</span>
-          </p>
-        </div>
+    <div class="similar-list">
+      <div class="similar-card">
+        <img src="../assets/master/Ellipse 18.svg" alt="" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
       </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 1.png" alt="image" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 2.png" alt="" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 3.png" alt="image" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 4.png" alt="" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 5.png" alt="image" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+      <div class="similar-card">
+        <img src="../assets/master/image 6.png" alt="image" />
+        <h3>Product Name</h3>
+        <p class="brand">by Sanskriti Collection</p>
+        <p class="price">
+          ₹2,674 <span class="old-price">₹5,674</span>
+          <span class="offer">(25%OFF)</span>
+        </p>
+      </div>
+    </div>
 
-      <button class="load-more-btn">Load more</button>
-    </section>
+    <button class="load-more-btn">Load more</button>
+  </section>
 
-    <!-- Recently Viewed -->
-    <section class="recently-viewed-section">
-      <h2 class="rv-title">Recently Viewed</h2>
+  <!-- Recently Viewed -->
+  <section class="recently-viewed-section">
+    <h2 class="rv-title">Recently Viewed</h2>
 
-      <div class="rv-grid">
-        <div class="rv-row rv-row-1">
-          <div class="rv-title-mob">Recently Viewed</div>
-          <div class="rv-scroll-row">
-            <div class="rv-card">
-              <div class="rv-img">
-                <img src="../assets/master/Rectangle 363.svg" alt="" />
-                <div class="rv-wishlist">
-                  <img src="../assets/master/Heart2.svg" alt="Wishlist" />
-                </div>
-
-                <div class="rv-rating">
-                  4.8
-                  <span
-                    ><img src="../assets/master/star.svg" alt="Star"
-                  /></span>
-                  <span>(1.5k)</span>
-                </div>
-              </div>
-              <div class="rv-details">
-                <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
-                <div class="rv-rating-media">
-                  4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
-                </div>
-
-                <div class="rv-line">
-                  <span class="rv-company">by Sanskriti Collection</span>
-                  <span class="rv-state">Andhra Pradesh</span>
-                </div>
-
-                <p class="rv-tags">
-                  <span class="free">FREE Delivery</span>
-                  <span class="left">1 left only</span>
-                </p>
-
-                <div class="rv-bottom-row">
-                  <p class="rv-price">
-                    ₹2,674 <span class="old">₹5,674</span>
-                    <span class="off">(25%OFF)</span>
-                  </p>
-
-                  <div class="rv-share">
-                    <img src="../assets/master/shareimage.png" alt="Share" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="rv-card">
-              <div class="rv-img">
-                <img src="../assets/master/Rectangle 364.svg" alt="" />
-                <div class="rv-wishlist">
-                  <img src="../assets/master/Heart2.svg" alt="Wishlist" />
-                </div>
-
-                <div class="rv-rating">
-                  4.8
-                  <span
-                    ><img src="../assets/master/star.svg" alt="Star"
-                  /></span>
-                  <span>(1.5k)</span>
-                </div>
-              </div>
-              <div class="rv-details">
-                <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
-                <div class="rv-rating-media">
-                  4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
-                </div>
-
-                <div class="rv-line">
-                  <span class="rv-company">by Sanskriti Collection</span>
-                  <span class="rv-state">Andhra Pradesh</span>
-                </div>
-
-                <p class="rv-tags">
-                  <span class="free">FREE Delivery</span>
-                  <span class="left">1 left only</span>
-                </p>
-
-                <div class="rv-bottom-row">
-                  <p class="rv-price">
-                    ₹2,674 <span class="old">₹5,674</span>
-                    <span class="off">(25%OFF)</span>
-                  </p>
-
-                  <div class="rv-share">
-                    <img src="../assets/master/shareimage.png" alt="Share" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="rv-card">
-              <div class="rv-img">
-                <img src="../assets/master/Rectangle 365.svg" alt="" />
-                <div class="rv-wishlist">
-                  <img src="../assets/master/Heart2.svg" alt="Wishlist" />
-                </div>
-
-                <div class="rv-rating">
-                  4.8
-                  <span
-                    ><img src="../assets/master/star.svg" alt="Star"
-                  /></span>
-                  <span>(1.5k)</span>
-                </div>
-              </div>
-              <div class="rv-details">
-                <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
-                <div class="rv-rating-media">
-                  4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
-                </div>
-
-                <div class="rv-line">
-                  <span class="rv-company">by Sanskriti Collection</span>
-                  <span class="rv-state">Andhra Pradesh</span>
-                </div>
-
-                <p class="rv-tags">
-                  <span class="free">FREE Delivery</span>
-                  <span class="left">1 left only</span>
-                </p>
-
-                <div class="rv-bottom-row">
-                  <p class="rv-price">
-                    ₹2,674 <span class="old">₹5,674</span>
-                    <span class="off">(25%OFF)</span>
-                  </p>
-
-                  <div class="rv-share">
-                    <img src="../assets/master/shareimage.png" alt="Share" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="rv-card">
-              <div class="rv-img">
-                <img src="../assets/master/Rectangle 366.svg" alt="" />
-                <div class="rv-wishlist">
-                  <img src="../assets/master/Heart2.svg" alt="Wishlist" />
-                </div>
-
-                <div class="rv-rating">
-                  4.8
-                  <span
-                    ><img src="../assets/master/star.svg" alt="Star"
-                  /></span>
-                  <span>(1.5k)</span>
-                </div>
-              </div>
-              <div class="rv-details">
-                <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
-                <div class="rv-rating-media">
-                  4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
-                </div>
-
-                <div class="rv-line">
-                  <span class="rv-company">by Sanskriti Collection</span>
-                  <span class="rv-state">Andhra Pradesh</span>
-                </div>
-
-                <p class="rv-tags">
-                  <span class="free">FREE Delivery</span>
-                  <span class="left">1 left only</span>
-                </p>
-
-                <div class="rv-bottom-row">
-                  <p class="rv-price">
-                    ₹2,674 <span class="old">₹5,674</span>
-                    <span class="off">(25%OFF)</span>
-                  </p>
-
-                  <div class="rv-share">
-                    <img src="../assets/master/shareimage.png" alt="Share" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="rv-row rv-row-2">
+    <div class="rv-grid">
+      <div class="rv-row rv-row-1">
+        <div class="rv-title-mob">Recently Viewed</div>
+        <div class="rv-scroll-row">
           <div class="rv-card">
             <div class="rv-img">
-              <img src="../assets/master/Rectangle 367.svg" alt="" />
+              <img src="../assets/master/Rectangle 363.svg" alt="" />
               <div class="rv-wishlist">
-                <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+                <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
               </div>
 
               <div class="rv-rating">
@@ -1428,16 +1109,29 @@
                 </p>
 
                 <div class="rv-share">
-                  <img src="../assets/master/shareimage.png" alt="Share" />
+                  <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                  <!-- SHARE POPUP -->
+                  <div class="share-popup">
+                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
+                      title="Copy Link">
+                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                      title="WhatsApp">
+                    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                      title="Telegram">
+                    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                      title="Twitter">
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
           <div class="rv-card">
             <div class="rv-img">
-              <img src="../assets/master/Rectangle 368.svg" alt="" />
+              <img src="../assets/master/Rectangle 364.svg" alt="" />
               <div class="rv-wishlist">
-                <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+                <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
               </div>
 
               <div class="rv-rating">
@@ -1469,16 +1163,28 @@
                 </p>
 
                 <div class="rv-share">
-                  <img src="../assets/master/shareimage.png" alt="Share" />
+                  <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                  <!-- SHARE POPUP -->
+                  <div class="share-popup">
+                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
+                      title="Copy Link">
+                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                      title="WhatsApp">
+                    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                      title="Telegram">
+                    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                      title="Twitter">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="rv-card">
             <div class="rv-img">
-              <img src="../assets/master/Rectangle 369.svg" alt="" />
+              <img src="../assets/master/Rectangle 365.svg" alt="" />
               <div class="rv-wishlist">
-                <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+                <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
               </div>
 
               <div class="rv-rating">
@@ -1510,16 +1216,28 @@
                 </p>
 
                 <div class="rv-share">
-                  <img src="../assets/master/shareimage.png" alt="Share" />
+                  <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                  <!-- SHARE POPUP -->
+                  <div class="share-popup">
+                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
+                      title="Copy Link">
+                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                      title="WhatsApp">
+                    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                      title="Telegram">
+                    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                      title="Twitter">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="rv-card">
             <div class="rv-img">
-              <img src="../assets/master/Rectangle 370.svg" alt="" />
+              <img src="../assets/master/Rectangle 366.svg" alt="" />
               <div class="rv-wishlist">
-                <img src="../assets/master/Heart2.svg" alt="Wishlist" />
+                <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
               </div>
 
               <div class="rv-rating">
@@ -1551,14 +1269,238 @@
                 </p>
 
                 <div class="rv-share">
-                  <img src="../assets/master/shareimage.png" alt="Share" />
+                  <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                  <!-- SHARE POPUP -->
+                  <div class="share-popup">
+                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
+                      title="Copy Link">
+                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                      title="WhatsApp">
+                    <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                      title="Telegram">
+                    <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                      title="Twitter">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <script src="../javascript/productcatalog.js"></script>
-  </body>
+      <div class="rv-row rv-row-2">
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 367.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+          <div class="rv-details">
+            <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="rv-rating-media">
+              4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
+            </div>
+
+            <div class="rv-line">
+              <span class="rv-company">by Sanskriti Collection</span>
+              <span class="rv-state">Andhra Pradesh</span>
+            </div>
+
+            <p class="rv-tags">
+              <span class="free">FREE Delivery</span>
+              <span class="left">1 left only</span>
+            </p>
+
+            <div class="rv-bottom-row">
+              <p class="rv-price">
+                ₹2,674 <span class="old">₹5,674</span>
+                <span class="off">(25%OFF)</span>
+              </p>
+
+              <div class="rv-share">
+                <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 368.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+          <div class="rv-details">
+            <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="rv-rating-media">
+              4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
+            </div>
+
+            <div class="rv-line">
+              <span class="rv-company">by Sanskriti Collection</span>
+              <span class="rv-state">Andhra Pradesh</span>
+            </div>
+
+            <p class="rv-tags">
+              <span class="free">FREE Delivery</span>
+              <span class="left">1 left only</span>
+            </p>
+
+            <div class="rv-bottom-row">
+              <p class="rv-price">
+                ₹2,674 <span class="old">₹5,674</span>
+                <span class="off">(25%OFF)</span>
+              </p>
+
+              <div class="rv-share">
+                <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 369.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+          <div class="rv-details">
+            <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="rv-rating-media">
+              4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
+            </div>
+
+            <div class="rv-line">
+              <span class="rv-company">by Sanskriti Collection</span>
+              <span class="rv-state">Andhra Pradesh</span>
+            </div>
+
+            <p class="rv-tags">
+              <span class="free">FREE Delivery</span>
+              <span class="left">1 left only</span>
+            </p>
+
+            <div class="rv-bottom-row">
+              <p class="rv-price">
+                ₹2,674 <span class="old">₹5,674</span>
+                <span class="off">(25%OFF)</span>
+              </p>
+
+              <div class="rv-share">
+                <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-img">
+            <img src="../assets/master/Rectangle 370.svg" alt="" />
+            <div class="rv-wishlist">
+              <img src="../assets/master/Heart2.svg" class="wishlist-icon" alt="Wishlist" />
+            </div>
+
+            <div class="rv-rating">
+              4.8
+              <span><img src="../assets/master/star.svg" alt="Star" /></span>
+              <span>(1.5k)</span>
+            </div>
+          </div>
+          <div class="rv-details">
+            <h3 class="rv-name">3D Wooden World Map - Glossy Finish</h3>
+            <div class="rv-rating-media">
+              4.8 <img src="../assets/master/star.svg" alt="" /> (1.5k)
+            </div>
+
+            <div class="rv-line">
+              <span class="rv-company">by Sanskriti Collection</span>
+              <span class="rv-state">Andhra Pradesh</span>
+            </div>
+
+            <p class="rv-tags">
+              <span class="free">FREE Delivery</span>
+              <span class="left">1 left only</span>
+            </p>
+
+            <div class="rv-bottom-row">
+              <p class="rv-price">
+                ₹2,674 <span class="old">₹5,674</span>
+                <span class="off">(25%OFF)</span>
+              </p>
+
+              <div class="rv-share">
+                <img src="../assets/master/shareimage.png" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="../javascript/productcatalog.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coupons / Referrals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/coupons.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- BACK -->
+<a href="#" class="back-link">
+  <i class="fa-solid fa-arrow-left"></i> Back to search
+</a>
+
+<!-- ASIDE TOGGLE (TAB) -->
+<button class="aside-toggle">
+  <i class="fa-solid fa-sliders"></i>
+</button>
+
+<div class="coupon-page">
+
+  <!-- SIDEBAR -->
+  <aside class="coupon-sidebar">
+    <h3>Coupons / Referrals</h3>
+
+    <ul class="coupon-menu">
+      <li class="active"><img src="../assets/Coupons/Ticket.svg" alt=""> All <i class="fa-solid fa-chevron-right"></i></li>
+      <li><img src="../assets/Coupons/UserSwitch.svg" alt=""> Referral <i class="fa-solid fa-chevron-right"></i></li>
+      <li><img src="../assets/Coupons/SealPercent.svg" alt=""> Discounts <i class="fa-solid fa-chevron-right"></i></li>
+      <li><img src="../assets/Coupons/Bank.svg" alt=""> Bank Offers <i class="fa-solid fa-chevron-right"></i></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="coupon-content">
+
+    <div class="coupon-header">
+      <h2>Coupons / Referrals</h2>
+    </div>
+
+    <!-- REFERRAL BANNER -->
+    <div class="referral-card">
+                <img src="../assets/Coupons/ref.svg">
+
+      <div>
+        <p>
+          Refer your friends and get instant coupon for<br>
+          <strong>Flat ₹200 off</strong>
+        </p>
+        <span class="small-text">Use the code : DAVID200</span>
+      </div>
+    </div>
+
+    <!-- COUPONS -->
+    <div class="coupon-list">
+
+      <div class="coupon-item" data-type="discount">
+        <img src="../assets/Coupons/Rectangle1.png">
+        <div class="coupon-info">
+          <h4>Flat ₹1197 off</h4>
+          <p>On min purchase of ₹3995</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <div class="coupon-item" data-type="discount">
+        <img src="../assets/Coupons/Rectangle2.png">
+        <div class="coupon-info">
+          <h4>Flat ₹197 off</h4>
+          <p>On min purchase of ₹1999 (wooden toys)</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <div class="coupon-item" data-type="bank">
+        <img src="../assets/Coupons/Rectangle3.png">
+        <div class="coupon-info">
+          <h4>100% cashback</h4>
+          <p>Use HDFC bank credit card</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <div class="coupon-item" data-type="bank">
+        <img src="../assets/Coupons/Rectangle4.png">
+        <div class="coupon-info">
+          <h4>Get upto ₹75 cashback</h4>
+          <p>Valid till 31st Dec</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <div class="coupon-item" data-type="discount">
+        <img src="../assets/Coupons/Rectangle5.png">
+        <div class="coupon-info">
+          <h4>Flat ₹2500 off</h4>
+          <p>On min purchase of ₹7995 on handloom sarees</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <div class="coupon-item" data-type="discount">
+        <img src="../assets/Coupons/Rectangle6.png">
+        <div class="coupon-info">
+          <h4>Flat ₹500 off</h4>
+          <p>On min purchase of Andhra Pradesh state Collection</p>
+          <span>Code: GTH3ANDFE · Expiry: 31 Dec 2025</span>
+        </div>
+        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+      </div>
+
+      <p class="no-coupons">No coupons available</p>
+    </div>
+
+  </main>
+</div>
+
+<!-- REFERRAL POPUP -->
+<div class="referral-popup" id="referralPopup">
+  <div class="popup-box">
+    <button class="close-popup">&times;</button>
+    <h3>Invite & Earn</h3>
+    <p>Share this referral code</p>
+    <div class="ref-code">DAVID200</div>
+    <button class="copy-btn">Copy Code</button>
+  </div>
+</div>
+
+<script src="../javascript/coupons.js"></script>
+</body>
+</html>

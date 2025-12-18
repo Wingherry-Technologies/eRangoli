@@ -98,13 +98,13 @@ function updateHeaderCount(header, count, defaultText) {
 /* ===============================
    RADIO DESELECT (allow toggle)
    =============================== */
-document.querySelectorAll('input[type="radio"]').forEach(radio => {
+document.querySelectorAll('input[type="radio"]').forEach((radio) => {
   radio.addEventListener("click", function () {
     const name = this.name;
     // Toggle using dataset flag
     if (this.dataset.wasChecked === "true") {
       // deselect all radios in this group
-      document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+      document.querySelectorAll(`input[name="${name}"]`).forEach((r) => {
         r.checked = false;
         r.dataset.wasChecked = "false";
       });
@@ -114,7 +114,9 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
     }
 
     // mark this as checked and others as false
-    document.querySelectorAll(`input[name="${name}"]`).forEach(r => r.dataset.wasChecked = "false");
+    document
+      .querySelectorAll(`input[name="${name}"]`)
+      .forEach((r) => (r.dataset.wasChecked = "false"));
     this.dataset.wasChecked = "true";
 
     // apply filters for newly selected radio
@@ -125,7 +127,7 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
 /* ===============================
    INPUT CHANGE BINDING
    =============================== */
-document.querySelectorAll("input").forEach(input => {
+document.querySelectorAll("input").forEach((input) => {
   // For all inputs (checkboxes, radios), run filters when changed
   input.addEventListener("change", () => {
     // For radio groups we rely on radio click handler, but change is ok too
@@ -133,38 +135,38 @@ document.querySelectorAll("input").forEach(input => {
   });
 });
 function updatePaginationButtons() {
-    const prevBtn = document.getElementById("pd-prev");
-    const nextBtn = document.getElementById("pd-next");
+  const prevBtn = document.getElementById("pd-prev");
+  const nextBtn = document.getElementById("pd-next");
 
-    const totalCards = filteredCards.length;
-    const totalPages = Math.ceil(totalCards / perPage);
+  const totalCards = filteredCards.length;
+  const totalPages = Math.ceil(totalCards / perPage);
 
-    // No pagination needed
-    if (totalCards <= perPage) {
-        prevBtn.disabled = true;
-        nextBtn.disabled = true;
-        prevBtn.classList.add("disabled");
-        nextBtn.classList.add("disabled");
-        return;
-    }
+  // No pagination needed
+  if (totalCards <= perPage) {
+    prevBtn.disabled = true;
+    nextBtn.disabled = true;
+    prevBtn.classList.add("disabled");
+    nextBtn.classList.add("disabled");
+    return;
+  }
 
-    // First page
-    if (currentPage === 1) {
-        prevBtn.disabled = true;
-        prevBtn.classList.add("disabled");
-    } else {
-        prevBtn.disabled = false;
-        prevBtn.classList.remove("disabled");
-    }
+  // First page
+  if (currentPage === 1) {
+    prevBtn.disabled = true;
+    prevBtn.classList.add("disabled");
+  } else {
+    prevBtn.disabled = false;
+    prevBtn.classList.remove("disabled");
+  }
 
-    // Last page
-    if (currentPage === totalPages) {
-        nextBtn.disabled = true;
-        nextBtn.classList.add("disabled");
-    } else {
-        nextBtn.disabled = false;
-        nextBtn.classList.remove("disabled");
-    }
+  // Last page
+  if (currentPage === totalPages) {
+    nextBtn.disabled = true;
+    nextBtn.classList.add("disabled");
+  } else {
+    nextBtn.disabled = false;
+    nextBtn.classList.remove("disabled");
+  }
 }
 
 /* ===============================
@@ -173,35 +175,71 @@ function updatePaginationButtons() {
 function applyFilters() {
   // Read filter inputs
   const priceInput = document.querySelector('input[name="price"]:checked');
-  const states = [...document.querySelectorAll(".state:checked")].map(i => i.parentElement.innerText.trim());
-  const materials = [...document.querySelectorAll(".material:checked")].map(i => i.parentElement.innerText.trim());
-  const brands = [...document.querySelectorAll(".brand:checked")].map(i => i.parentElement.innerText.trim());
-  const sizes = [...document.querySelectorAll(".size:checked")].map(i => i.parentElement.innerText.trim());
-  const recentChecked = !!document.getElementById("recentCheck") && document.getElementById("recentCheck").checked;
+  const states = [...document.querySelectorAll(".state:checked")].map((i) =>
+    i.parentElement.innerText.trim()
+  );
+  const materials = [...document.querySelectorAll(".material:checked")].map(
+    (i) => i.parentElement.innerText.trim()
+  );
+  const brands = [...document.querySelectorAll(".brand:checked")].map((i) =>
+    i.parentElement.innerText.trim()
+  );
+  const sizes = [...document.querySelectorAll(".size:checked")].map((i) =>
+    i.parentElement.innerText.trim()
+  );
+  const recentChecked =
+    !!document.getElementById("recentCheck") &&
+    document.getElementById("recentCheck").checked;
 
   // parse price range
-  const [min, max] = priceInput ? priceInput.value.split("-").map(Number) : [0, 999999];
+  const [min, max] = priceInput
+    ? priceInput.value.split("-").map(Number)
+    : [0, 999999];
 
   // Update header counts
-  updateHeaderCount(document.querySelector("#priceLabel")?.closest(".filter-item"), priceInput ? 1 : 0, "Price Range");
-  updateHeaderCount(document.querySelector("#stateLabel")?.closest(".filter-item"), states.length, "By State");
-  updateHeaderCount(document.querySelectorAll(".filter-item")[2], materials.length, "Material");
-  updateHeaderCount(document.querySelectorAll(".filter-item")[3], brands.length, "Brand");
-  updateHeaderCount(document.querySelectorAll(".filter-item")[4], sizes.length, "Size");
+  updateHeaderCount(
+    document.querySelector("#priceLabel")?.closest(".filter-item"),
+    priceInput ? 1 : 0,
+    "Price Range"
+  );
+  updateHeaderCount(
+    document.querySelector("#stateLabel")?.closest(".filter-item"),
+    states.length,
+    "By State"
+  );
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[2],
+    materials.length,
+    "Material"
+  );
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[3],
+    brands.length,
+    "Brand"
+  );
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[4],
+    sizes.length,
+    "Size"
+  );
 
-  updateHeaderCount(document.querySelectorAll(".filter-item")[5],
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[5],
     document.querySelector('input[name="sortPrice"]:checked') ? 1 : 0,
     "Price Range"
   );
-  updateHeaderCount(document.querySelectorAll(".filter-item")[6],
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[6],
     document.querySelector('input[name="sortDelivery"]:checked') ? 1 : 0,
     "Delivery Date"
   );
-  updateHeaderCount(document.querySelectorAll(".filter-item")[7],
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[7],
     document.querySelector('input[name="sortRating"]:checked') ? 1 : 0,
     "Ratings"
   );
-  updateHeaderCount(document.querySelectorAll(".filter-item")[8],
+  updateHeaderCount(
+    document.querySelectorAll(".filter-item")[8],
     document.querySelector('input[name="sortDiscount"]:checked') ? 1 : 0,
     "Discount"
   );
@@ -210,7 +248,7 @@ function applyFilters() {
   if (recentHeader) recentHeader.classList.toggle("active", recentChecked);
 
   // Build visible list by applying filters to global cards
-  let visibleCards = cards.filter(card => {
+  let visibleCards = cards.filter((card) => {
     const price = Number(card.dataset.price || 0);
     const state = (card.dataset.state || "").trim();
     const material = (card.dataset.material || "").trim();
@@ -219,7 +257,8 @@ function applyFilters() {
 
     const priceMatch = price >= min && price <= max;
     const stateMatch = states.length === 0 || states.includes(state);
-    const materialMatch = materials.length === 0 || materials.includes(material);
+    const materialMatch =
+      materials.length === 0 || materials.includes(material);
     const brandMatch = brands.length === 0 || brands.includes(brand);
     const sizeMatch = sizes.length === 0 || sizes.includes(size);
 
@@ -227,71 +266,88 @@ function applyFilters() {
   });
 
   // Additional filter radios (delivery, discount)
-  const deliveryRadio = document.querySelector('input[name="sortDelivery"]:checked');
+  const deliveryRadio = document.querySelector(
+    'input[name="sortDelivery"]:checked'
+  );
   if (deliveryRadio) {
     const days = Number((deliveryRadio.value || "").split("_")[1] || 0);
-    visibleCards = visibleCards.filter(c => {
+    visibleCards = visibleCards.filter((c) => {
       const d = Number(c.dataset.delivery || 9999);
       return d <= days;
     });
   }
 
-  const discountRadio = document.querySelector('input[name="sortDiscount"]:checked');
+  const discountRadio = document.querySelector(
+    'input[name="sortDiscount"]:checked'
+  );
   if (discountRadio) {
     const minDisc = Number((discountRadio.value || "").split("_")[1] || 0);
-    visibleCards = visibleCards.filter(c => {
+    visibleCards = visibleCards.filter((c) => {
       const disc = Number(c.dataset.discount || 0);
       return disc >= minDisc;
     });
   }
 
   // Sorting priority: recentChecked > rating radio > price radio
-  const ratingRadio = document.querySelector('input[name="sortRating"]:checked');
-  const priceSortRadio = document.querySelector('input[name="sortPrice"]:checked');
+  const ratingRadio = document.querySelector(
+    'input[name="sortRating"]:checked'
+  );
+  const priceSortRadio = document.querySelector(
+    'input[name="sortPrice"]:checked'
+  );
 
   if (recentChecked) {
-    visibleCards.sort((a, b) => Number(b.dataset.date || 0) - Number(a.dataset.date || 0));
+    visibleCards.sort(
+      (a, b) => Number(b.dataset.date || 0) - Number(a.dataset.date || 0)
+    );
   } else if (ratingRadio) {
     const v = ratingRadio.value || "";
     if (v.includes("desc")) {
-      visibleCards.sort((a, b) => Number(b.dataset.rating || 0) - Number(a.dataset.rating || 0));
+      visibleCards.sort(
+        (a, b) => Number(b.dataset.rating || 0) - Number(a.dataset.rating || 0)
+      );
     } else {
-      visibleCards.sort((a, b) => Number(a.dataset.rating || 0) - Number(b.dataset.rating || 0));
+      visibleCards.sort(
+        (a, b) => Number(a.dataset.rating || 0) - Number(b.dataset.rating || 0)
+      );
     }
   } else if (priceSortRadio) {
     const v = priceSortRadio.value || "";
     if (v.includes("asc")) {
-      visibleCards.sort((a, b) => Number(a.dataset.price || 0) - Number(b.dataset.price || 0));
+      visibleCards.sort(
+        (a, b) => Number(a.dataset.price || 0) - Number(b.dataset.price || 0)
+      );
     } else {
-      visibleCards.sort((a, b) => Number(b.dataset.price || 0) - Number(a.dataset.price || 0));
+      visibleCards.sort(
+        (a, b) => Number(b.dataset.price || 0) - Number(a.dataset.price || 0)
+      );
     }
   }
   // else: keep original DOM order
 
   // Hide all cards first
-cards.forEach(card => card.classList.add("is-hidden"));
+  cards.forEach((card) => card.classList.add("is-hidden"));
 
-// Save filtered list
-filteredCards = visibleCards;
+  // Save filtered list
+  filteredCards = visibleCards;
 
-/* 🚫 NO RESULTS */
-if (filteredCards.length === 0) {
-  noProductMsg.style.display = "flex";
-  paginationBar.style.display = "none";
-  productsWrap.classList.add("no-results");
-  updateWrapperHeight();
-  return;
-}
+  /* 🚫 NO RESULTS */
+  if (filteredCards.length === 0) {
+    noProductMsg.style.display = "flex";
+    paginationBar.style.display = "none";
+    productsWrap.classList.add("no-results");
+    updateWrapperHeight();
+    return;
+  }
 
-/* ✅ RESULTS FOUND */
-productsWrap.classList.remove("no-results");
-noProductMsg.style.display = "none";
-paginationBar.style.display = "";
+  /* ✅ RESULTS FOUND */
+  productsWrap.classList.remove("no-results");
+  noProductMsg.style.display = "none";
+  paginationBar.style.display = "";
 
-// Reset pagination
-currentPage = 1;
-showPage(1, false);
-
+  // Reset pagination
+  currentPage = 1;
+  showPage(1, false);
 }
 
 /* ===============================
@@ -299,13 +355,14 @@ showPage(1, false);
    =============================== */
 function clearAll() {
   // Reset all inputs and dataset flags
-  document.querySelectorAll("input").forEach(i => {
+  document.querySelectorAll("input").forEach((i) => {
     i.checked = false;
-    if (i.type === "radio" || i.type === "checkbox") i.dataset.wasChecked = "false";
+    if (i.type === "radio" || i.type === "checkbox")
+      i.dataset.wasChecked = "false";
   });
 
   // Reset UI header counters
-  document.querySelectorAll(".filter-item").forEach(i => {
+  document.querySelectorAll(".filter-item").forEach((i) => {
     i.classList.remove("active");
     const span = i.querySelector("span");
     if (span) span.textContent = span.textContent.split("(")[0].trim();
@@ -317,9 +374,9 @@ function clearAll() {
   // Show pagination and hide no-product message
   // if (paginationBar) paginationBar.style.display = "";
   // noProductMsg.style.display = "none";
-// ✅ RESET FILTER SOURCE
+  // ✅ RESET FILTER SOURCE
   // Reset all inputs
-  document.querySelectorAll("input").forEach(i => {
+  document.querySelectorAll("input").forEach((i) => {
     i.checked = false;
     if (i.type === "radio" || i.type === "checkbox") {
       i.dataset.wasChecked = "false";
@@ -327,7 +384,7 @@ function clearAll() {
   });
 
   // Reset filter headers
-  document.querySelectorAll(".filter-item").forEach(i => {
+  document.querySelectorAll(".filter-item").forEach((i) => {
     i.classList.remove("active");
     const span = i.querySelector("span");
     if (span) span.textContent = span.textContent.split("(")[0].trim();
@@ -350,9 +407,7 @@ function clearAll() {
 
   // Show first page properly
   showPage(1, false);
-
 }
-
 
 function updateWrapperHeight() {
   const wrapper = document.querySelector(".products-wrapper");
@@ -371,8 +426,6 @@ function updateWrapperHeight() {
   wrapper.style.minHeight = `${height}px`;
 }
 
-
-
 function showPage(page, shouldScroll = true) {
   if (!filteredCards.length) return;
 
@@ -386,31 +439,32 @@ function showPage(page, shouldScroll = true) {
   const end = start + perPage;
 
   // Hide all cards
-cards.forEach(card => card.classList.add("is-hidden"));
+  cards.forEach((card) => card.classList.add("is-hidden"));
 
-// Show only current page cards
-filteredCards.forEach((card, idx) => {
-  if (idx >= start && idx < end) {
-    card.classList.remove("is-hidden");
-  }
-});
+  // Show only current page cards
+  filteredCards.forEach((card, idx) => {
+    if (idx >= start && idx < end) {
+      card.classList.remove("is-hidden");
+    }
+  });
 
-
-  pageCount.textContent = `${start + 1}–${Math.min(end, totalVisible)} of ${totalVisible}`;
+  pageCount.textContent = `${start + 1}–${Math.min(
+    end,
+    totalVisible
+  )} of ${totalVisible}`;
   updatePaginationButtons();
   updateWrapperHeight();
 
   if (shouldScroll) {
     document.querySelector(".products").scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   }
 }
 window.addEventListener("resize", () => {
   updateWrapperHeight();
 });
-
 
 /* Prev / Next */
 document.getElementById("pd-prev").addEventListener("click", (e) => {
@@ -423,8 +477,6 @@ document.getElementById("pd-next").addEventListener("click", (e) => {
   const totalPages = Math.ceil(filteredCards.length / perPage);
   if (currentPage < totalPages) showPage(currentPage + 1, true);
 });
-
-
 
 /* ===============================
    INITIALIZE
@@ -456,40 +508,36 @@ window.addEventListener("resize", handleLeftIconsPlacement);
 syncSidebarHeight();
 applyFilters(); // initial render: applies no filters => shows all and prepares pagination
 
-
-
 function applyStockStatus() {
-    document.querySelectorAll(".pd-card").forEach(card => {
-        const stock = card.dataset.stock;
-        const cartBtn = card.querySelector(".pd-cart-btn");
-        const outBtn = card.querySelector(".pd-out-btn");
-        const notify = card.querySelector(".pd-notify");
+  document.querySelectorAll(".pd-card").forEach((card) => {
+    const stock = card.dataset.stock;
+    const cartBtn = card.querySelector(".pd-cart-btn");
+    const outBtn = card.querySelector(".pd-out-btn");
+    const notify = card.querySelector(".pd-notify");
 
-        if (stock === "out") {
-            card.classList.add("out-of-stock");
+    if (stock === "out") {
+      card.classList.add("out-of-stock");
 
-            cartBtn.style.display = "none";
-            outBtn.style.display = "block";
-            notify.style.display = "block";
-        } else {
-            card.classList.remove("out-of-stock");
+      cartBtn.style.display = "none";
+      outBtn.style.display = "block";
+      notify.style.display = "block";
+    } else {
+      card.classList.remove("out-of-stock");
 
-            cartBtn.style.display = "block";
-            outBtn.style.display = "none";
-            notify.style.display = "none";
-        }
-    });
+      cartBtn.style.display = "block";
+      outBtn.style.display = "none";
+      notify.style.display = "none";
+    }
+  });
 }
 
 /* Run once after DOM loads */
 applyStockStatus();
 
-
 // share
 document.addEventListener("click", function (e) {
-
   // Close all popups
-  document.querySelectorAll(".share-popup").forEach(popup => {
+  document.querySelectorAll(".share-popup").forEach((popup) => {
     popup.classList.remove("active");
   });
 
@@ -499,17 +547,16 @@ document.addEventListener("click", function (e) {
     const popup = e.target.nextElementSibling;
     popup.classList.toggle("active");
   }
-
 });
 
 // Share actions
-document.querySelectorAll(".share-option").forEach(icon => {
+document.querySelectorAll(".share-option").forEach((icon) => {
   icon.addEventListener("click", function (e) {
     e.stopPropagation();
 
     const type = this.dataset.type;
-    const card = this.closest(".pd-card");
-    const productName = card.querySelector(".pd-name").innerText;
+    const card = this.closest(".pd-card , .rv-card");
+    const productName = card.querySelector(".pd-name , .rv-name").innerText;
 
     const url = window.location.href + "#" + productName.replace(/\s+/g, "-");
 
@@ -519,15 +566,32 @@ document.querySelectorAll(".share-option").forEach(icon => {
     }
 
     if (type === "whatsapp") {
-      window.open(`https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`);
+      window.open(
+        `https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`
+      );
     }
 
     if (type === "telegram") {
-      window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(productName)}`);
+      window.open(
+        `https://t.me/share/url?url=${encodeURIComponent(
+          url
+        )}&text=${encodeURIComponent(productName)}`
+      );
     }
 
     if (type === "twitter") {
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(productName)}&url=${encodeURIComponent(url)}`);
+      window.open(
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          productName
+        )}&url=${encodeURIComponent(url)}`
+      );
     }
+  });
+});
+
+document.querySelectorAll(".wishlist-icon").forEach((icon) => {
+  icon.addEventListener("click", function (e) {
+    e.stopPropagation(); // prevents card click issues
+    this.classList.toggle("active");
   });
 });
