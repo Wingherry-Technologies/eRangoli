@@ -2,6 +2,10 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
 });
 
+document.getElementById("back-btn-mob").addEventListener("click", () => {
+  window.location.href = "../html/productcatalog.html";
+});
+
 /* profile popup */
 const profilePopup = document.getElementById("profilePopup");
 const closeProfileBtn = document.getElementById("closePopup");
@@ -476,4 +480,52 @@ function openLocationPopup() {
 function closeLocationPopup() {
   document.getElementById("locationPopup").style.display = "none";
   document.getElementById("locationView").style.display = "block";
+}
+
+// About You menu click (mobile)
+const aboutMenuItem = document.querySelector(".menu-item.active");
+
+if (aboutMenuItem) {
+  aboutMenuItem.addEventListener("click", () => {
+    if (window.innerWidth <= 595) {
+      document.body.classList.add("about-active");
+      createAYHeader();
+    }
+  });
+}
+
+// Back button inside AY header (mobile)
+document.querySelectorAll(".AY-header-banner .back-row-mob").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (window.innerWidth <= 595) {
+      document.body.classList.remove("about-active");
+    }
+  });
+});
+
+function createAYHeader() {
+  if (document.querySelector(".AY-header-banner")) return;
+
+  const header = document.createElement("div");
+  header.className = "AY-header-banner";
+
+  header.innerHTML = `
+    <div class="AY-overlay">
+      <div class="header-content">
+        <div class="header">
+          <div class="back-row-mob ay-back-btn">
+            <img src="../assets/cart/back.svg" />
+          </div>
+          <h1 class="AY-header">About You</h1>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.prepend(header);
+
+  header.querySelector(".ay-back-btn").addEventListener("click", () => {
+    document.body.classList.remove("about-active");
+    header.remove();
+  });
 }
