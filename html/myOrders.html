@@ -7,19 +7,35 @@
     <link rel="stylesheet" href="../css/myOrders.css" />
   </head>
   <body>
-    <div class="myOrdersBackButton">
+    <!-- <div class="myOrdersBackButton">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div> -->
+
+
+          <div class="myOrdersHeaderSection ">
+        <div class="myOrdersBackButton myOrdersBackButtonMobile">
       <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
       <span>Back to search</span>
     </div>
+        <div class="myOrdersHeaderRow">
+          <h1>My Orders</h1>
+        <!-- <span class="myOrdersCount" id="myOrdersCount">0 Products</span> -->
+        </div>
+      </div>
 
     <div class="myOrdersContainer">
-      <div class="myOrdersHeaderSection">
+      <!-- <div class="myOrdersHeaderSection ">
+        <div class="myOrdersBackButton myOrdersBackButtonMobile">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div>
         <div class="myOrdersHeaderRow">
           <h1>My Orders</h1>
         <span class="myOrdersCount" id="myOrdersCount">0 Products</span>
         </div>
-      </div>
-
+      </div> -->
+      
       <div class="myOrdersContentSection">
         <div class="myOrdersSearchContainer">
           <div class="myOrdersSearchBox">
@@ -38,7 +54,7 @@
         </div>
 
         <!-- Delivered Order -->
-
+        
         <div class="myOrdersCard" id="myOrdersDeliveredCard">
           <div class="myOrdersStatus">
             <div class="myOrdersStatusIcon myOrdersDelivered">
@@ -121,7 +137,7 @@
               <button class="myOrdersBtn" id="myOrdersTrackBtn">
                 Track order
               </button>
-              <button class="myOrdersBtn" id="myOrdersCancelBtn">Cancel</button>
+              <button class="myOrdersBtn openCancelModal" id="myOrdersCancelBtn">Cancel</button>
             </div>
             <div class="myOrdersActionInfo">Eligible to return*</div>
           </div>
@@ -412,6 +428,8 @@
       </div>
     </div>
 
+    
+
     <label class="confirmLabel paymentModeTitle">Select Payment mode *</label>
 
 <div class="paymentRow">
@@ -433,7 +451,7 @@
 
 
     <div class="paymentBox" id="paymentBox">
-      <!-- JS se fill hoga -->
+      <!-- Daynamic -->
     </div>
 
     <button class="confirmBtn" id="confirmBtn" disabled>
@@ -517,7 +535,8 @@
 </div>
 
 
-    <button class="reviewPostBtn">Post</button>
+    <button class="reviewPostBtn" id="reviewPostBtn" disabled>Post</button>
+
 
   </div>
 </div>
@@ -536,13 +555,92 @@
     </p>
 
     <div class="successAnimation">
-      <img src="../assets/myOrders/success.svg" alt="success" />
+      <img src="../assets/myOrders/returnSuccessGif.gif" alt="success" />
     </div>
 
     <p class="thankText">Thank You for Shopping with us</p>
 
   </div>
 </div>
+
+
+<!--  CANCEL REASON MODAL  -->
+<div class="cancelOverlay" id="cancelOverlay">
+  <div class="cancelModal">
+
+    <div class="cancelHeader">
+      <h3>Please Select the reason for cancellation *</h3>
+      <span class="cancelClose" id="cancelClose">✕</span>
+    </div>
+
+    <div class="cancelBody">
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Ordered by mistake</span>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Changed my mind</span>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Delivery time is too long</span>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Incorrect product selected (size / color / variant)</span>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Address or contact details need to be changed</span>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <span>Placed duplicate order</span>
+      </label>
+
+    </div>
+
+    <button class="cancelBtn" id="cancelConfirmBtn" disabled>
+      Cancel
+    </button>
+
+  </div>
+</div>
+
+<!--  CANCEL SUCCESS MODAL  -->
+<div class="cancelSuccessOverlay" id="cancelSuccessOverlay">
+  <div class="cancelSuccessModal">
+
+    <span class="successClose" id="cancelSuccessClose">✕</span>
+
+    <h2>Your order has been cancelled</h2>
+    <p>Your refund will be processed within 7 business days</p>
+
+    <div class="successIcon">
+      <div class="greenCircle"><img src="../assets/myOrders/succuss.svg" alt=""></div>
+    </div>
+
+    <button class="continueShopping" id="continueShoppingBtn">
+      Continue Shopping
+    </button>
+
+  </div>
+</div>
+
+
 
 
 

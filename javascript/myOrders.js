@@ -31,24 +31,6 @@ searchInput.addEventListener("input", function () {
   });
 });
 
-// ORDER COUNT FUNCTION
-function updateOrderCount() {
-  const allOrders = document.querySelectorAll(".myOrdersCard");
-  const visibleOrders = [...allOrders].filter(
-    card => card.style.display !== "none"
-  );
-
-  const countEl = document.getElementById("myOrdersCount");
-  const count = visibleOrders.length;
-
-  if (countEl) {
-    countEl.innerText = `${count} Product${count !== 1 ? "s" : ""}`;
-  }
-}
-
-// initial load
-updateOrderCount();
-
 // RETURN POPUP OPEN / CLOSE 
 const returnBtn = document.getElementById("myOrdersReturnBtn");
 const returnOverlay = document.getElementById("returnOverlay");
@@ -291,32 +273,92 @@ confirmClose.addEventListener("click", () => {
 
 const reviewOverlay = document.getElementById("reviewOverlay");
 const reviewClose = document.getElementById("reviewClose");
+const reviewPostBtn = document.getElementById("reviewPostBtn");
+const reviewTextarea = document.querySelector(".reviewTextarea");
+const reviewStars = document.querySelectorAll("#reviewStars img");
+const reviewUploadInputs = document.querySelectorAll(
+  ".reviewUploadRow .uploadBox input[type='file']"
+);
 // stars section in order card
 const ratingSections = document.querySelectorAll(".myOrdersStars, .myOrdersRatingText");
+
+
+let hasStar = false;
+let hasText = false;
+let hasImage = false;
+
+
+function updatePostButton() {
+  if (hasStar || hasText || hasImage) {
+    reviewPostBtn.disabled = false;
+    reviewPostBtn.classList.add("active");
+  } else {
+    reviewPostBtn.disabled = true;
+    reviewPostBtn.classList.remove("active");
+  }
+}
+
+
+reviewStars.forEach((star, index) => {
+  star.addEventListener("click", () => {
+    hasStar = true;
+
+    reviewStars.forEach((s, i) => {
+      s.src =
+        i <= index
+          ? "../assets/myOrders/YellowStar.svg"
+          : "../assets/myOrders/Star.svg";
+    });
+
+    updatePostButton();
+  });
+});
+
+
+reviewTextarea.addEventListener("input", () => {
+  hasText = reviewTextarea.value.trim().length > 0;
+  updatePostButton();
+});
+
+reviewUploadInputs.forEach(input => {
+  input.addEventListener("change", () => {
+    hasImage = true;
+    updatePostButton();
+  });
+});
+
+
 
 // open review modal
 ratingSections.forEach(el => {
   el.addEventListener("click", () => {
     reviewOverlay.style.display = "flex";
+
+    // RESET STATE
+    hasStar = false;
+    hasText = false;
+    hasImage = false;
+
+    reviewTextarea.value = "";
+    reviewPostBtn.disabled = true;
+    reviewPostBtn.classList.remove("active");
+
+    reviewStars.forEach(star => {
+      star.src = "../assets/myOrders/Star.svg";
+    });
+
     initReviewUploadPreview();
   });
 });
+
 
 // close modal
 reviewClose.addEventListener("click", () => {
   reviewOverlay.style.display = "none";
 });
 
-// star rating interaction
-const reviewStars = document.querySelectorAll("#reviewStars img");
 
-reviewStars.forEach((star, index) => {
-  star.addEventListener("click", () => {
-    reviewStars.forEach((s, i) => {
-      s.classList.toggle("active", i <= index);
-    });
-  });
-});
+
 
 //  REVIEW MODAL – UPLOAD IMAGE PREVIEW (NO VALIDATION)
 
@@ -324,7 +366,7 @@ function initReviewUploadPreview() {
   const reviewUploadInputs = document.querySelectorAll(
     ".reviewUploadRow .uploadBox input[type='file']"
   );
-
+  
   reviewUploadInputs.forEach(input => {
     input.addEventListener("change", function () {
       const file = this.files[0];
@@ -353,4 +395,67 @@ function initReviewUploadPreview() {
       }
     });
   });
+}
+
+
+/* CANCEL MODAL LOGIC */
+
+const cancelOverlay = document.getElementById("cancelOverlay");
+const cancelSuccessOverlay = document.getElementById("cancelSuccessOverlay");
+
+const cancelConfirmBtn = document.getElementById("cancelConfirmBtn");
+const cancelClose = document.getElementById("cancelClose");
+const cancelSuccessClose = document.getElementById("cancelSuccessClose");
+const continueShoppingBtn = document.getElementById("continueShoppingBtn");
+
+const cancelCheckboxes = document.querySelectorAll(".cancelCheckbox input");
+
+/* OPEN CANCEL MODAL (example trigger) */
+document.querySelectorAll(".openCancelModal").forEach(btn => {
+  btn.addEventListener("click", () => {
+    console.log("yeds");
+    cancelOverlay.style.display = "flex";
+    resetCancelModal();
+  });
+});
+
+/* CLOSE CANCEL MODAL */
+cancelClose.addEventListener("click", () => {
+  cancelOverlay.style.display = "none";
+});
+
+/* ENABLE BUTTON IF AT LEAST ONE CHECKED */
+cancelCheckboxes.forEach(cb => {
+  cb.addEventListener("change", () => {
+    const checked = [...cancelCheckboxes].some(c => c.checked);
+    cancelConfirmBtn.disabled = !checked;
+    cancelConfirmBtn.classList.toggle("active", checked);
+  });
+});
+
+/* CONFIRM CANCEL */
+cancelConfirmBtn.addEventListener("click", () => {
+  if (cancelConfirmBtn.disabled) return;
+
+  cancelOverlay.style.display = "none";
+  cancelSuccessOverlay.style.display = "flex";
+});
+
+/* CLOSE SUCCESS */
+cancelSuccessClose.addEventListener("click", () => {
+  cancelSuccessOverlay.style.display = "none";
+});
+
+/* CONTINUE SHOPPING */
+continueShoppingBtn.addEventListener("click", () => {
+  cancelSuccessOverlay.style.display = "none";
+  // optional redirect
+  // window.location.href = "/";
+});
+
+/* RESET CANCEL MODAL */
+function resetCancelModal() {
+  cancelCheckboxes.forEach(cb => cb.checked = false);
+  cancelConfirmBtn.disabled = true;
+  cancelConfirmBtn.classList.remove("active");
 }
