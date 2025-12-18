@@ -1,29 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
 }
 
 .myOrdersContainer {
   max-width: 900px;
   margin: 1rem auto;
-  background-color: #fff;
+  background-color: transparent;
   min-height: 100vh;
 }
 
 .myOrdersBackButton {
   display: flex;
   align-items: center;
-  padding: 20px 24px;
   cursor: pointer;
-  margin-left: 40px;
+  margin-bottom: 2rem;
   /* background-color: #fff; */
 }
 
@@ -44,9 +39,9 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 40px 24px;
+  padding: 10px 40px;
   position: relative;
-  background-color: #cf515128;
+  background-color: #c062622a;
 }
 
 .myOrdersHeaderSection::before {
@@ -62,17 +57,14 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.myOrdersCount {
-  font-size: 16px;
-  font-weight: 400;
-  color: #3F3F3F;
-}
+
 
 .myOrdersHeaderSection h1 {
   position: relative;
   font-size: 32px;
   font-weight: 700;
   color: #3f3f3f;
+  margin-bottom: 2rem;
 }
 
 .myOrdersContentSection {
@@ -84,14 +76,18 @@ body {
   margin-bottom: 24px;
   display: flex;
   justify-content: space-between;
-  gap: 14rem;
+  gap: 1rem;
 }
 
 .myOrdersFeature {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
+    border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fafafa;
 }
 .myOrdersFeature img {
   width: 25px;
@@ -101,16 +97,16 @@ body {
   display: flex;
   flex: 1;
   align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 24px;
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
   padding: 5px 10px;
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 .myOrdersSearchBox img {
-  width: 30px;
-  height: 30px;
-  padding: 2px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
   border-radius: 50%;
   margin-right: 10px;
   color: #e91e63;
@@ -124,6 +120,7 @@ body {
   font-size: 20px;
   font-weight: 400;
   color: #8e8989;
+  background-color: #fafafa;
 }
 
 .myOrdersSearchBox input::placeholder {
@@ -135,6 +132,8 @@ body {
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 16px;
+    border: 1px solid #D9D9D9;
+  border-radius: 8px;
 }
 .myOrdersProductMain {
   display: flex;
@@ -268,8 +267,6 @@ body {
     gap: 20px;
 }
 
-
-
 .myOrdersActionInfo {
   font-size: 12px;
   font-weight: 500;
@@ -316,7 +313,6 @@ body {
   padding: 10px;
 }
 
-
 /* track order modal pop up */
 /* ===== Track Order Modal ===== */
 
@@ -329,7 +325,6 @@ body {
   align-items: center;
   z-index: 1000;
 }
-
 .trackModal {
   background: #fff;
   height: 100%;
@@ -456,12 +451,6 @@ body {
   color: #716B6B;
 }
 
-/* .trackText.inactive h4,
-.trackText.inactive p {
-  color: #aaa;
-} */
-
-
 /* return order pop up */
 .returnOverlay {
   position: fixed;
@@ -523,6 +512,7 @@ body {
     cursor: pointer;
   position: relative;
 }
+
 /* REAL checkbox – hidden but clickable */
 .returnCheckbox input[type="checkbox"] {
   position: absolute;
@@ -637,17 +627,7 @@ textarea {
   margin-top: 4px;
 }
 
-/* .returnBtn {
-  margin-top: 20px;
-  width: 100%;
-  background: #8c8c8c;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: not-allowed;
-} */
+
 
 /* Error styles */
 .errorTitle {
@@ -698,7 +678,6 @@ textarea {
   border-radius: 4px;
   font-size: 14px;
   cursor: not-allowed;
-  /* pointer-events: none; */
 }
 
 .returnBtn.active {
@@ -799,7 +778,7 @@ textarea {
   font-size: 14px;
   cursor: pointer;
 }
-/* ===== PAYMENT POPUP CHECKBOX (SAME AS RETURN) ===== */
+/* ===== PAYMENT POPUP CHECKBOX  ===== */
 
 .paymentCheckbox {
   display: flex;
@@ -810,7 +789,6 @@ textarea {
   font-size: 14px;
 }
 
-/* hidden but clickable input */
 .paymentCheckbox input[type="checkbox"] {
   position: absolute;
   opacity: 0;
@@ -830,15 +808,13 @@ textarea {
   flex-shrink: 0;
 }
 
-/* checked = ONLY tick image */
+/* checked  */
 .paymentCheckbox input[type="checkbox"]:checked + .customBox {
   background-image: url("../assets/myOrders/checkSign.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px 14px;
 }
-
-
 
 /* Payment box with right-aligned change account */
 .paymentBox {
@@ -851,7 +827,6 @@ textarea {
   min-height: 90px;
 }
 
-/* Change Account exactly like screenshot */
 .changeAccount {
   position: absolute;
   top: 12px;
@@ -876,8 +851,6 @@ textarea {
   cursor: pointer;
 }
 
-
-/* review modal */
 /* ===== REVIEW MODAL ===== */
 
 .reviewOverlay {
@@ -924,12 +897,11 @@ textarea {
 .reviewStars img {
   width: 22px;
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 1.4;
 }
 
 .reviewStars img.active {
   opacity: 1;
-  
 }
 
 .reviewLabel {
@@ -977,6 +949,18 @@ textarea {
   border-radius: 4px;
   cursor: pointer;
 }
+.reviewPostBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reviewPostBtn.active {
+  background: #b00000;
+  cursor: pointer;
+  opacity: 1;
+}
+
 
 .reviewUploadTitle {
   font-size: 18px;
@@ -992,10 +976,6 @@ textarea {
   cursor: pointer;
 }
 
-
-
-
-/* success pop up  */
 /* ===== SUCCESS POPUP ===== */
 
 .successOverlay {
@@ -1053,13 +1033,12 @@ textarea {
 
 /* thank you */
 .thankText {
-  margin-top: 5rem;
   font-weight: 400;
   font-size: 18px;
   color: #3F3F3F;
 }
 
-/* 🔥 animation */
+/* animation */
 @keyframes popScale {
   0% {
     transform: scale(0.4);
@@ -1075,59 +1054,455 @@ textarea {
 }
 
 
+/* ================= COMMON OVERLAY */
+.cancelOverlay,
+.cancelSuccessOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
 
+/* CANCEL MODAL */
+.cancelModal {
+  width: 500px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px 30px;
+}
+
+.cancelHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cancelHeader h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+.cancelClose {
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+
+.cancelBody {
+  margin-top: 16px;
+}
+
+/* checkbox layout */
+.cancelCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 2rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #3F3F3F;
+}
+
+/* hide real checkbox */
+.cancelCheckbox input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* custom box */
+.cancelCheckbox .customBox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #716B6B;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* checked state – SAME green tick image */
+.cancelCheckbox input:checked + .customBox {
+  background-image: url("../assets/myOrders/checkSign.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+/* cancel button */
+.cancelBtn {
+  margin-top: 24px;
+  width: 160px;
+  padding: 10px;
+  background: #716B6B;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.cancelBtn.active {
+  background: #A10404;
+  cursor: pointer;
+}
+
+/* CANCEL SUCCESS MODAL  */
+.cancelSuccessModal {
+  width: 500px;
+  height: 420px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  padding: 40px 24px;
+}
+
+.successClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #716B6B;
+}
+
+.cancelSuccessModal h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3F3F3F;
+  margin-top: 40px;
+}
+
+.cancelSuccessModal p {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #3F3F3F;
+}
+
+.successIcon {
+  margin: 50px 0;
+}
+
+
+
+.continueShopping {
+  background: none;
+  border: none;
+  color: #A10404;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
 
 @media (max-width: 768px) {
   .myOrdersContainer {
     max-width: 100%;
   }
 
+}
+
+@media (max-width: 1024px) {
+  /* .myOrdersContainer {
+    max-width: 100%;
+    margin: 0rem auto;
+  }
+  .myOrdersHeaderSection{
+    padding: 30px 24px;
+  }
+
   .myOrdersHeaderSection h1 {
     font-size: 28px;
+  }
+  .myOrdersHeaderRow{
+    padding-left: 2rem;
+  }
+
+  .myOrdersContentSection {
+    padding: 16px;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .myOrdersSearchContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 0;
+    padding-top: 10px;
+    margin-left: -1rem;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    justify-content: unset;
+    background-color: #ffffff;
+  }
+
+  .myOrdersSearchBox {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    flex: none;
+
+  }
+
+  .myOrdersSearchBox input {
+    display: none;
+  }
+
+  .myOrdersSearchBox img {
+    background-color: #D9D9D9;
+    padding: 7px;
+    margin-right: 0;
+    width: 35px;
+    height: 35px;
+  }
+
+  .myOrdersFeature {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .myOrdersFeature > div {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .myOrdersCard {
+    grid-column: 2;
+  }
+  .myOrdersBackButton{
+    display: none;
+  }
+  .myOrdersBackButtonMobile{
+    display: flex;
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 0;
+  } */
+
+
+
+   .myOrdersSearchContainer{
+    margin-bottom: 0;
+    display: none;
+   }
+
+     .myOrdersHeaderSection h1 {
+    font-size: 28px;
+    margin-left: 2rem;
+  }
+  .myOrdersBackButton{
+    padding-top: 10px;
+  }
+
+    .myOrdersContentSection {
+    padding: 30px;
+    padding-top: 10px
+  }
+  
+
+  /* track modal */
+
+  .trackModal{
+    overflow-y: auto;
+    width: auto;
+  }
+
+  /* return modal */
+  .returnOverlay{
+    overflow-y: scroll;
+  }
+  .returnModal{
+    margin-top: 10rem;
+    width: 500px;
+    padding-bottom: 5rem;
+  }
+
+
+  /* payment modal */
+  .confirmOverlay{
+    overflow-y: auto;
+  }
+  .confirmModal{
+    margin-top: 5rem;
+  }
+
+  /* succes modal */
+  .successOverlay{
+    overflow-y: auto;
+  }
+  .successModal{
+    margin-top: 5rem;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  .myOrdersHeaderSection h1 {
+    font-size: 24px;
+    margin-left: 1rem;
   }
 
   .myOrdersContentSection {
     padding: 16px;
   }
-  
+
+
+  /* return track modal pop up  */
+  .returnModal{
+    width: auto;
+  }
+
+  .uploadBox{
+    width: 50px;
+    height: 60px;
+  }
+
+  .confirmModal{
+    width: auto;
+  }
+
+  .succussModal{
+    width: 320px;
+  }
+  .thankText{
+    margin-top: 1rem;
+  }
+
+  /* review modal  */
+  .reviewModal{
+    width: 315px;
+  }
+
+  /* track modal */
+  .trackModal{
+    width: 320px;
+    padding: 20px 20px;
+  }
+  .trackBody{
+    margin-left: 0;
+    gap: 0;
+  }
+  .trackLeft{
+    margin-right: 10px;
+    gap: 25px;
+  }
+
+  /* cancel Modal */
+  .cancelModal,
+  .cancelSuccessModal{
+    width: 320px;
+  }
+
+  .myOrdersBtn{
+    padding: 5px 5px;
+    /* font-size: 10px; */
+  }
+
+  .myOrderBtnContainer{
+    gap: 5px;
+  }
+
 }
 
-@media (max-width: 768px) {
 
-  .myOrdersContentSection{
-    display: flex;
+@media (min-width:400px) and (max-width:768px){
+  /* .trackBody{
     flex-direction: column;
+    align-items: center;
+  }
+  .trackLeft, .trackRight{
+    margin: 0;
+  } */
 
+    .myOrderBtnContainer{
+    gap: 10px;
+  }
+    .myOrdersBtn{
+    padding: 8px 15px;
+    /* font-size: 10px; */
   }
 
-
-
-  .myOrdersSearchContainer {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 12px;
-    border-radius: unset;
+    /* return track modal pop up  */
+  .returnModal{
+    width: auto;
+  }
+/* confirm modal */
+  .confirmModal{
+    width: auto;
+  }
+/* success modal */
+  .successModal{
+    width: 400px;
   }
 
-  .myOrdersSearchBox{
-    border-radius: unset;
-    border: none;
-    background-color: unset;
+  /* review modal */
+  .reviewModal{
+    width: 400px;
   }
 
-  .myOrdersSearchBox img {
+  /* cancel modal */
+  .cancelModal,
+  .cancelSuccessModal{
+    width: 400px;
+  }
+
+}
+
+/* for title */
+@media (max-width:595px) {
+  
+  .myOrdersHeaderSection {
+    padding: 30px 25px;
+  }
+
+  /* Back + Title in one row */
+  .myOrdersHeaderSection {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    align-items: center;
+    /* gap: 12px; */
   }
-  .myOrdersSearchBox input{
+
+  .myOrdersBackButton{
+    margin-bottom: 10px;
+  }
+
+  /* Back button visible only on mobile */
+  .myOrdersBackButtonMobile {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hide back text, show only arrow */
+  .myOrdersBackButtonMobile span {
     display: none;
   }
 
-  .myOrdersFeature {
-    flex-direction: column;
-    gap: 16px;
+  .myOrdersBackButtonMobile img {
+    width: 22px;
+    height: 22px;
   }
-  
-}
 
+  /* Title styling like screenshot */
+  .myOrdersHeaderRow h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+}

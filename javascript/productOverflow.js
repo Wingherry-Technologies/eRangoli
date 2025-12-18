@@ -421,20 +421,20 @@ function showSuggestions(inputElement) {
 
 
 // Close suggestions when clicking outside
-// document.addEventListener("click", function (event) {
-//     const desktopInput = document.getElementById("desktop-search");
-//     const mobileInput = document.getElementById("mobile-search");
-//     const desktopBox = document.getElementById("desktop-suggestions");
-//     const mobileBox = document.getElementById("mobile-suggestions");
+document.addEventListener("click", function (event) {
+    const desktopInput = document.getElementById("desktop-search");
+    const mobileInput = document.getElementById("mobile-search");
+    const desktopBox = document.getElementById("desktop-suggestions");
+    const mobileBox = document.getElementById("mobile-suggestions");
 
-//     if (!desktopInput.contains(event.target) && !desktopBox.contains(event.target)) {
-//         desktopBox.style.display = "none";
-//     }
+    if (!desktopInput.contains(event.target) && !desktopBox.contains(event.target)) {
+        desktopBox.style.display = "none";
+    }
 
-//     if (!mobileInput.contains(event.target) && !mobileBox.contains(event.target)) {
-//         mobileBox.style.display = "none";
-//     }
-// });
+    if (!mobileInput.contains(event.target) && !mobileBox.contains(event.target)) {
+        mobileBox.style.display = "none";
+    }
+});
 
 
 
