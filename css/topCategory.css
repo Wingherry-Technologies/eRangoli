@@ -608,11 +608,13 @@
   background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #c8bdb6;
-  cursor: pointer;
   padding-bottom: 14px;
   transition: 0.25s ease;
   display: flex;
   flex-direction: column;
+}
+.product-card .product-name{
+  cursor: pointer;
 }
 .product-card:hover {
   transform: translateY(-4px);

@@ -336,7 +336,7 @@ function scrollProducts(direction) {
 updateProdSlider();
 
 // Navigations
-const categoryWiseNavigations=document.querySelectorAll(".banner-explore-btn,.top-shop-now-btn, .explore-now-btn, .product-card , .explore-btn, .crafted-explore-btn, .collection-explore-btn")
+const categoryWiseNavigations=document.querySelectorAll(".banner-explore-btn,.top-shop-now-btn, .explore-now-btn, .product-card .product-name , .explore-btn, .crafted-explore-btn, .collection-explore-btn")
 
 categoryWiseNavigations.forEach( categoryWiseNavigation => {
   categoryWiseNavigation.addEventListener("click",()=>{
