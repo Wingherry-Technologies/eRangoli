@@ -334,3 +334,16 @@ function scrollProducts(direction) {
 }
 
 updateProdSlider();
+
+// Navigations
+const categoryWiseNavigations=document.querySelectorAll(".banner-explore-btn,.top-shop-now-btn, .explore-now-btn, .product-card , .explore-btn, .crafted-explore-btn, .collection-explore-btn")
+
+categoryWiseNavigations.forEach( categoryWiseNavigation => {
+  categoryWiseNavigation.addEventListener("click",()=>{
+    window.location.href='../html/productcatalog.html'
+  })
+});
+
+document.getElementById("marketSellerBtn").addEventListener("click",()=>{
+  window.location.href='../html/vendorRegistration.html'
+})
