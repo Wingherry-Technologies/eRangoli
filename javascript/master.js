@@ -640,21 +640,31 @@ shareOptions.forEach(option => {
   });
 });
 
-const wishlistCountEl = document.getElementById("number-of-wishlist");
+const topWishlistCount = document.getElementById("number-of-wishlist");
+const bottomWishlistCount = document.querySelector(
+  "#bottom-nav-wishlist .bottom-bar-numbers"
+);
+
 
 function getWishlistCount() {
-  return parseInt(wishlistCountEl.innerText) || 0;
+  return parseInt(topWishlistCount.innerText) || 0;
 }
 
 function setWishlistCount(count) {
-  wishlistCountEl.innerText = count;
+  // Prevent negative
+  count = Math.max(0, count);
 
-  // Show / hide badge
-  wishlistCountEl.style.display = count > 0 ? "block" : "none";
+  // Top badge
+  topWishlistCount.innerText = count;
+  topWishlistCount.style.display = count > 0 ? "block" : "none";
+
+  // Bottom badge
+  bottomWishlistCount.innerText = count;
+  bottomWishlistCount.style.display = count > 0 ? "inline-block" : "none";
 }
 
 
-// ================= WISHLIST / LIKE TOGGLE =================
+
 // ================= WISHLIST / LIKE TOGGLE =================
 document.addEventListener("click", function (e) {
 
@@ -663,7 +673,6 @@ document.addEventListener("click", function (e) {
 
   e.stopPropagation();
 
-  // Not logged in → redirect
   if (!signup) {
     window.location.href = "../html/login.html";
     return;
@@ -679,7 +688,7 @@ document.addEventListener("click", function (e) {
     // UNLIKE
     likeIcon.src = normalImg;
     likeIcon.dataset.active = "false";
-    setWishlistCount(Math.max(0, count - 1));
+    setWishlistCount(count - 1);
   } else {
     // LIKE
     likeIcon.src = activeImg;
@@ -689,6 +698,7 @@ document.addEventListener("click", function (e) {
 });
 
 
+
 function resetWishlist() {
   document.querySelectorAll(".wishlist-icon").forEach(icon => {
     icon.src = "../assets/master/likeimage.png";
@@ -696,27 +706,70 @@ function resetWishlist() {
   });
 }
 
-// ================= ADD TO CART =================
-document.addEventListener("click", function (e) {
 
+
+// Notification
+const topNotificationCount = document.getElementById("number-of-notification"); // if you have a top one
+const bottomNotificationCount = document.querySelector(
+  "#bottom-nav-notification .bottom-bar-numbers"
+);
+
+function setCount(type, count) {
+  count = Math.max(0, count); // prevent negative
+
+  if (type === "cart") {
+    if (topCartCount) {
+      topCartCount.innerText = count;
+      topCartCount.style.display = count > 0 ? "block" : "none";
+    }
+    if (bottomCartCount) {
+      bottomCartCount.innerText = count;
+      bottomCartCount.style.display = count > 0 ? "inline-block" : "none";
+    }
+  }
+
+  if (type === "notification") {
+    if (topNotificationCount) {
+      topNotificationCount.innerText = count;
+      topNotificationCount.style.display = count > 0 ? "block" : "none";
+    }
+    if (bottomNotificationCount) {
+      bottomNotificationCount.innerText = count;
+      bottomNotificationCount.style.display = count > 0 ? "inline-block" : "none";
+    }
+  }
+}
+
+// ================= ADD TO CART =================
+// Cart
+const topCartCount = document.getElementById("number-of-cart");
+const bottomCartCount = document.querySelector(
+  "#bottom-nav-cart .bottom-bar-numbers"
+);
+
+
+document.addEventListener("click", function (e) {
   const cartBtn = e.target.closest(".add-cart-btn");
   if (!cartBtn) return;
 
   e.stopPropagation();
 
-  // Not logged in → redirect
   if (!signup) {
     window.location.href = "../html/login.html";
     return;
   }
 
-  // Already added → do nothing
   if (cartBtn.classList.contains("cart-added")) return;
 
   // Mark as added
   cartBtn.innerText = "Added";
   cartBtn.classList.add("cart-added");
+
+  // Increment cart count
+  const currentCount = parseInt(topCartCount.innerText) || 0;
+  setCount("cart", currentCount + 1);
 });
+
 
 function resetCartButtons() {
   document.querySelectorAll(".add-cart-btn").forEach(btn => {
