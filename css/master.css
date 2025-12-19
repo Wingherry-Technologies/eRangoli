@@ -1331,6 +1331,9 @@ nav{
 #mobile-erangoli-logo{
     display: none;
 }
+#desktop-erangoli-logo{
+    cursor: pointer;
+}
 
 @media (max-width: 595px) {
 
@@ -1351,9 +1354,7 @@ nav{
         display: none;
     }
 
-    /* #desktop-erangoli-logo{
-        display: none;
-    } */
+
    
     .mobile-search-bar-main{
         display: block;

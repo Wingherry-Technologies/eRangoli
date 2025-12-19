@@ -112,15 +112,39 @@ function UpdateUI(){
   signupWrapper.style.display="none"
   function toggleNotification(event) {
     event.stopPropagation(); // VERY IMPORTANT
-    notificationBox.style.display =
-      notificationBox.style.display === "block" ? "none" : "block";
-      if(notificationBox.style.display==="block"){
-        document.querySelector("body").style.overflow="hidden"
-      }
-      else{
-        document.querySelector("body").style.overflow="auto"
-      }
+
+    const isOpen = notificationBox.style.display === "block";
+
+    notificationBox.style.display = isOpen ? "none" : "block";
+
+    // Only disable scroll if notification is open AND sidebar is NOT open
+    if (!isOpen && !mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "hidden";
+    } else if (!mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "auto";
+    }
   }
+
+  // desktop click
+  numberNoti.addEventListener("click", toggleNotification);
+
+  // mobile click
+  mobileNotification.addEventListener("click", toggleNotification);
+
+  // click outside → hide notification
+  document.addEventListener("click", () => {
+    notificationBox.style.display = "none";
+
+    // Only allow scroll if sidebar is NOT open
+    if (!mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // prevent box clicks from closing itself
+  notificationBox.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
 
   // desktop click
   numberNoti.addEventListener("click", toggleNotification);
@@ -426,36 +450,36 @@ document.addEventListener("click", function (event) {
 
 // Carousel Functionality
 
-let index = 0;
-const slide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
-const dots = document.querySelectorAll('.dot');
+// let index = 0;
+// const slide = document.querySelector('.carousel-slide');
+// const images = document.querySelectorAll('.carousel-slide img');
+// const dots = document.querySelectorAll('.dot');
 
-function showSlide(i) {
-    if (i >= images.length) index = 0;
-    if (i < 0) index = images.length - 1;
+// function showSlide(i) {
+//     if (i >= images.length) index = 0;
+//     if (i < 0) index = images.length - 1;
 
-    slide.style.transform = `translateX(${-index * 100}%)`;
+//     slide.style.transform = `translateX(${-index * 100}%)`;
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-}
+//     dots.forEach(dot => dot.classList.remove('active'));
+//     dots[index].classList.add('active');
+// }
 
-dots.forEach((dot, i) => {
-    dot.onclick = () => {
-        index = i;
-        showSlide(index);
-    };
-});
+// dots.forEach((dot, i) => {
+//     dot.onclick = () => {
+//         index = i;
+//         showSlide(index);
+//     };
+// });
 
-// Auto slide every 3 seconds
-setInterval(() => {
-    index++;
-    showSlide(index);
-}, 3000);
+// // Auto slide every 3 seconds
+// setInterval(() => {
+//     index++;
+//     showSlide(index);
+// }, 3000);
 
-// Initial render
-showSlide(index);
+// // Initial render
+// showSlide(index);
 
 
 
