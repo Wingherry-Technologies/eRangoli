@@ -89,6 +89,8 @@ const logoutDesktop=document.querySelector(".logout-option-desktop");
 const numberNoti=document.querySelector("#round-button-notification img");
 const notificationBox=document.querySelector(".notification-main-box");
 
+
+
 // Mobile View
 const welcomeName=document.getElementById("welcome-name");
 const imageName=document.querySelector(".image-section .circle-image span")
@@ -266,7 +268,12 @@ else{
 
     bottomNumbers.forEach(bottomNumber => {
       bottomNumber.style.display="none"
-  });
+    });
+
+    resetWishlist();
+
+    resetCartButtons();
+      
   }
 }
 
@@ -548,12 +555,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const shareOptions = document.querySelectorAll(".share-option");
+const likeIcons = document.querySelectorAll(".like-icon");
+
 // ================= SHARE POPUP TOGGLE =================
 document.addEventListener("click", function (e) {
 
   const shareBtn = e.target.closest(".share-btn");
 
-  // If clicked outside any share button → close all
+  // Click outside → close all popups
   if (!shareBtn) {
     document.querySelectorAll(".share-popup").forEach(popup => {
       popup.classList.remove("active");
@@ -563,6 +573,12 @@ document.addEventListener("click", function (e) {
 
   e.stopPropagation();
 
+  // ❌ Not logged in → redirect
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
   const popup = shareBtn.nextElementSibling;
   const isOpen = popup.classList.contains("active");
 
@@ -571,17 +587,20 @@ document.addEventListener("click", function (e) {
     p.classList.remove("active");
   });
 
-  // Toggle ONLY if it was closed
+  // Toggle current
   if (!isOpen) {
     popup.classList.add("active");
   }
 });
 
-
-// ================= SHARE ACTIONS =================
-document.querySelectorAll(".share-option").forEach(option => {
+shareOptions.forEach(option => {
   option.addEventListener("click", function (e) {
     e.stopPropagation();
+
+    if (!signup) {
+      window.location.href = "../html/login.html";
+      return;
+    }
 
     const type = this.dataset.type;
     const card = this.closest(".product-card");
@@ -621,20 +640,96 @@ document.querySelectorAll(".share-option").forEach(option => {
   });
 });
 
+const wishlistCountEl = document.getElementById("number-of-wishlist");
 
-document.querySelectorAll(".wishlist-icon").forEach(icon => {
-  icon.addEventListener("click", function (e) {
-    e.stopPropagation();
+function getWishlistCount() {
+  return parseInt(wishlistCountEl.innerText) || 0;
+}
 
-    const normalImg = "../assets/master/likeimage.png";
-    const activeImg = "../assets/master/redHeart.png";
+function setWishlistCount(count) {
+  wishlistCountEl.innerText = count;
 
-    if (this.dataset.active === "true") {
-      this.src = normalImg;
-      this.dataset.active = "false";
-    } else {
-      this.src = activeImg;
-      this.dataset.active = "true";
-    }
-  });
+  // Show / hide badge
+  wishlistCountEl.style.display = count > 0 ? "block" : "none";
+}
+
+
+// ================= WISHLIST / LIKE TOGGLE =================
+// ================= WISHLIST / LIKE TOGGLE =================
+document.addEventListener("click", function (e) {
+
+  const likeIcon = e.target.closest(".wishlist-icon");
+  if (!likeIcon) return;
+
+  e.stopPropagation();
+
+  // Not logged in → redirect
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
+  const normalImg = "../assets/master/likeimage.png";
+  const activeImg = "../assets/master/redHeart.png";
+
+  const isActive = likeIcon.dataset.active === "true";
+  let count = getWishlistCount();
+
+  if (isActive) {
+    // UNLIKE
+    likeIcon.src = normalImg;
+    likeIcon.dataset.active = "false";
+    setWishlistCount(Math.max(0, count - 1));
+  } else {
+    // LIKE
+    likeIcon.src = activeImg;
+    likeIcon.dataset.active = "true";
+    setWishlistCount(count + 1);
+  }
 });
+
+
+function resetWishlist() {
+  document.querySelectorAll(".wishlist-icon").forEach(icon => {
+    icon.src = "../assets/master/likeimage.png";
+    icon.dataset.active = "false";
+  });
+}
+
+// ================= ADD TO CART =================
+document.addEventListener("click", function (e) {
+
+  const cartBtn = e.target.closest(".add-cart-btn");
+  if (!cartBtn) return;
+
+  e.stopPropagation();
+
+  // Not logged in → redirect
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
+  // Already added → do nothing
+  if (cartBtn.classList.contains("cart-added")) return;
+
+  // Mark as added
+  cartBtn.innerText = "Added";
+  cartBtn.classList.add("cart-added");
+});
+
+function resetCartButtons() {
+  document.querySelectorAll(".add-cart-btn").forEach(btn => {
+    btn.innerText = "Add To Cart";
+    btn.classList.remove("cart-added");
+  });
+}
+
+
+
+
+
+
+
+
+

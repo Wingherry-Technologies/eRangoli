@@ -617,6 +617,12 @@
 .product-card:hover {
   transform: translateY(-4px);
 }
+.add-cart-btn.cart-added {
+  background-color: #660505;   /* light green */
+  cursor: default;
+  color: #d9d9d9;
+}
+
 
 @media (min-width: 2020px) {
   .products-grid {
