@@ -122,7 +122,7 @@
   right: 12px;
   background: #fff;
   padding: 6px 14px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 13px;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -138,7 +138,7 @@
   color: #fff;
   border: none;
   padding: 10px 30px;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 700;
   font-size: 14px;
@@ -283,11 +283,13 @@
   width: 100%;
   height: 100px;
   margin: 0 auto;
-  padding: 0px 30px;
+  padding: 0px 40px;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 /* LEFT SIDE IMAGE */
@@ -308,7 +310,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 0 28px;
+  justify-content: space-between;
 }
 
 /* Discount block */
@@ -375,7 +377,7 @@
 
 .state-section {
   background-color: #9f040405;
-  padding: 0px 30px;
+  padding: 0px 50px;
   padding-top: 40px;
   border-radius: 12px;
 }
@@ -419,6 +421,7 @@
 .state-slides {
   display: flex;
   transition: transform 0.5s ease;
+  border-radius: 15px;
 }
 
 .state-slide {
@@ -435,6 +438,7 @@
   width: 100%;
   height: 380px;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 /* Right-side Content Box */
@@ -553,7 +557,7 @@
 
 .products-wrapper {
   overflow: hidden;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .nav-arrow {
@@ -748,7 +752,7 @@
 
 /* Traditional Marketplace Section */
 .traditional-wrapper {
-  padding: 0px 30px;
+  padding: 0px 50px;
   background-color: #9f040405;
   background-size: cover;
   background-repeat: no-repeat;
