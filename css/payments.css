@@ -128,10 +128,10 @@ body {
   box-sizing: border-box;
 }
 
-.header-content {
+.header-content h1 {
   font-weight: 700;
   color: #3f3f3f;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .MP-header-banner {
@@ -173,6 +173,7 @@ body {
 .saved-title {
   font-weight: 700;
   color: #3f3f3f;
+  font-size: 18px;
   margin-bottom: 16px;
 }
 
