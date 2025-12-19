@@ -129,6 +129,7 @@ function UpdateUI(){
   // click outside → hide
   document.addEventListener("click", () => {
     notificationBox.style.display = "none";
+    document.querySelector("body").style.overflow="auto"
   });
 
   // prevent box clicks from closing itself

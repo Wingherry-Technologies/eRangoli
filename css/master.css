@@ -793,6 +793,34 @@ nav{
     display: none;
     
 }
+/* ===== WebKit browsers (Chrome, Edge, Safari) ===== */
+.notification-main-box::-webkit-scrollbar {
+    width: 6px; /* reduced width */
+}
+
+.notification-main-box::-webkit-scrollbar-track {
+    background: transparent; /* or any color you want */
+}
+
+.notification-main-box::-webkit-scrollbar-thumb {
+    background-color: #999; /* scrollbar color */
+    border-radius: 10px;
+}
+
+.notification-main-box::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
+/* Remove scrollbar buttons (arrows) */
+.notification-main-box::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* ===== Firefox ===== */
+.notification-main-box {
+    scrollbar-width: thin;               /* thin scrollbar */
+    scrollbar-color: #999 transparent;   /* thumb color | track color */
+}
 @media (max-width:700px) {
     .notification-main-box{
         width: 90%;
