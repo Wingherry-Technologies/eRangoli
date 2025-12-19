@@ -541,31 +541,51 @@ window.addEventListener("resize", handleLeftIconsPlacement);
 syncSidebarHeight();
 applyFilters(); // initial render: applies no filters => shows all and prepares pagination
 
-// share
+// ================= SHARE =================
 document.addEventListener("click", function (e) {
-  // Close all popups
-  document.querySelectorAll(".share-popup").forEach((popup) => {
-    popup.classList.remove("active");
+
+  const shareBtn = e.target.closest(".share-btn");
+
+  // Click outside → close all
+  if (!shareBtn) {
+    document.querySelectorAll(".share-popup").forEach(popup => {
+      popup.classList.remove("active");
+    });
+    return;
+  }
+
+  e.stopPropagation();
+
+  const popup = shareBtn.nextElementSibling;
+  const isOpen = popup.classList.contains("active");
+
+  // Close all popups first
+  document.querySelectorAll(".share-popup").forEach(p => {
+    p.classList.remove("active");
   });
 
-  // If share button clicked
-  if (e.target.classList.contains("share-btn")) {
-    e.stopPropagation();
-    const popup = e.target.nextElementSibling;
-    popup.classList.toggle("active");
+  // Open only if it was closed
+  if (!isOpen) {
+    popup.classList.add("active");
   }
 });
 
-// Share actions
-document.querySelectorAll(".share-option").forEach((icon) => {
+
+// ================= SHARE ACTIONS =================
+document.querySelectorAll(".share-option").forEach(icon => {
   icon.addEventListener("click", function (e) {
     e.stopPropagation();
 
     const type = this.dataset.type;
     const card = this.closest(".pd-card, .rv-card");
-    const productName = card.querySelector(".pd-name , .rv-name").innerText;
+    const productName =
+      card.querySelector(".pd-name, .rv-name").innerText;
 
-    const url = window.location.href + "#" + productName.replace(/\s+/g, "-");
+    const url =
+      window.location.origin +
+      window.location.pathname +
+      "#" +
+      productName.replace(/\s+/g, "-");
 
     if (type === "copy") {
       navigator.clipboard.writeText(url);
@@ -574,27 +594,27 @@ document.querySelectorAll(".share-option").forEach((icon) => {
 
     if (type === "whatsapp") {
       window.open(
-        `https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`
+        `https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`,
+        "_blank"
       );
     }
 
     if (type === "telegram") {
       window.open(
-        `https://t.me/share/url?url=${encodeURIComponent(
-          url
-        )}&text=${encodeURIComponent(productName)}`
+        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(productName)}`,
+        "_blank"
       );
     }
 
     if (type === "twitter") {
       window.open(
-        `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          productName
-        )}&url=${encodeURIComponent(url)}`
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(productName)}&url=${encodeURIComponent(url)}`,
+        "_blank"
       );
     }
   });
 });
+
 
 document.querySelectorAll(".wishlist-icon").forEach((icon) => {
   icon.addEventListener("click", function (e) {

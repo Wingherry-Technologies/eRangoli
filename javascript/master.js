@@ -551,20 +551,32 @@ document.addEventListener('DOMContentLoaded', () => {
 // ================= SHARE POPUP TOGGLE =================
 document.addEventListener("click", function (e) {
 
-  // Close all open share popups
-  document.querySelectorAll(".share-popup").forEach(popup => {
-    popup.classList.remove("active");
-  });
-
-  // Detect share button click (button OR image)
   const shareBtn = e.target.closest(".share-btn");
-  if (!shareBtn) return;
+
+  // If clicked outside any share button → close all
+  if (!shareBtn) {
+    document.querySelectorAll(".share-popup").forEach(popup => {
+      popup.classList.remove("active");
+    });
+    return;
+  }
 
   e.stopPropagation();
 
   const popup = shareBtn.nextElementSibling;
-  popup.classList.toggle("active");
+  const isOpen = popup.classList.contains("active");
+
+  // Close all first
+  document.querySelectorAll(".share-popup").forEach(p => {
+    p.classList.remove("active");
+  });
+
+  // Toggle ONLY if it was closed
+  if (!isOpen) {
+    popup.classList.add("active");
+  }
 });
+
 
 // ================= SHARE ACTIONS =================
 document.querySelectorAll(".share-option").forEach(option => {
@@ -608,6 +620,7 @@ document.querySelectorAll(".share-option").forEach(option => {
     }
   });
 });
+
 
 document.querySelectorAll(".wishlist-icon").forEach(icon => {
   icon.addEventListener("click", function (e) {
