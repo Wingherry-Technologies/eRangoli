@@ -1376,7 +1376,55 @@ nav{
     }
 }
 
+.pd-share {
+  position: relative;
+  cursor: pointer;
+}
+/* Popup container */
+.share-popup {
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  gap: 10px;
+  border: 1px solid #D9D9D9;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  z-index: 50;
+}
 
+/* Show popup */
+.share-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Icons */
+.share-popup img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.share-popup img:hover {
+  transform: scale(1.15);
+}
+
+.wishlist-icon {
+    cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.wishlist-icon.active {
+  transform: scale(1.15);
+}
 
 
 

@@ -547,3 +547,80 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ================= SHARE POPUP TOGGLE =================
+document.addEventListener("click", function (e) {
+
+  // Close all open share popups
+  document.querySelectorAll(".share-popup").forEach(popup => {
+    popup.classList.remove("active");
+  });
+
+  // Detect share button click (button OR image)
+  const shareBtn = e.target.closest(".share-btn");
+  if (!shareBtn) return;
+
+  e.stopPropagation();
+
+  const popup = shareBtn.nextElementSibling;
+  popup.classList.toggle("active");
+});
+
+// ================= SHARE ACTIONS =================
+document.querySelectorAll(".share-option").forEach(option => {
+  option.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const type = this.dataset.type;
+    const card = this.closest(".product-card");
+    const productName = card.querySelector(".product-name").innerText;
+
+    const url =
+      window.location.origin +
+      window.location.pathname +
+      "#" +
+      productName.replace(/\s+/g, "-");
+
+    if (type === "copy") {
+      navigator.clipboard.writeText(url);
+      alert("Link copied!");
+    }
+
+    if (type === "whatsapp") {
+      window.open(
+        `https://wa.me/?text=${encodeURIComponent(productName + " " + url)}`,
+        "_blank"
+      );
+    }
+
+    if (type === "telegram") {
+      window.open(
+        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(productName)}`,
+        "_blank"
+      );
+    }
+
+    if (type === "twitter") {
+      window.open(
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(productName)}&url=${encodeURIComponent(url)}`,
+        "_blank"
+      );
+    }
+  });
+});
+
+document.querySelectorAll(".wishlist-icon").forEach(icon => {
+  icon.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const normalImg = "../assets/master/likeimage.png";
+    const activeImg = "../assets/master/redHeart.png";
+
+    if (this.dataset.active === "true") {
+      this.src = normalImg;
+      this.dataset.active = "false";
+    } else {
+      this.src = activeImg;
+      this.dataset.active = "true";
+    }
+  });
+});
