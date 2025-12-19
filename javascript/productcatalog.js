@@ -616,9 +616,19 @@ document.querySelectorAll(".share-option").forEach(icon => {
 });
 
 
-document.querySelectorAll(".wishlist-icon").forEach((icon) => {
+document.querySelectorAll(".wishlist-icon").forEach(icon => {
   icon.addEventListener("click", function (e) {
-    e.stopPropagation(); // prevents card click issues
-    this.classList.toggle("active");
+    e.stopPropagation();
+
+    const normalImg = "../assets/productcatalog/Heart.svg";
+    const activeImg = "../assets/productcatalog/redHeart.svg";
+
+    if (this.dataset.active === "true") {
+      this.src = normalImg;
+      this.dataset.active = "false";
+    } else {
+      this.src = activeImg;
+      this.dataset.active = "true";
+    }
   });
 });

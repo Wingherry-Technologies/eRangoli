@@ -833,11 +833,28 @@ input[type="radio"] {
 }
 
 /* OUT OF STOCK OVERLAY */
+/* OUT OF STOCK CARD */
 .pd-card.out-of-stock {
     position: relative;
     opacity: 0.6;
-    pointer-events: none;
+    pointer-events: none; /* block everything by default */
 }
+
+/* ENABLE specific actions */
+.pd-card.out-of-stock .pd-wishlist,
+.pd-card.out-of-stock .pd-share,
+.pd-card.out-of-stock .share-popup,
+.pd-card.out-of-stock .pd-notify {
+    pointer-events: auto;
+}
+
+/* Optional: visual clarity */
+.pd-card.out-of-stock .pd-wishlist,
+.pd-card.out-of-stock .pd-share {
+    opacity: 1;
+    cursor: pointer;
+}
+
 
 .pd-card.out-of-stock .pd-notify {
     position: absolute;
@@ -909,9 +926,8 @@ input[type="radio"] {
 
 .wishlist-icon {
     cursor: pointer;
-    transition: 0.25s ease;
+  transition: transform 0.2s ease;
 }
-
 .wishlist-icon.active {
-    filter: invert(27%) sepia(87%) saturate(7450%) hue-rotate(350deg) brightness(95%) contrast(110%);
+  transform: scale(1.15);
 }
