@@ -875,10 +875,9 @@ input[type="radio"] {
 }
 
 .wishlist-icon {
-  cursor: pointer;
-  transition: 0.25s ease;
+    cursor: pointer;
+  transition: transform 0.2s ease;
 }
-
 .wishlist-icon.active {
-  filter: invert(27%) sepia(87%) saturate(7450%) hue-rotate(350deg) brightness(95%) contrast(110%);
+  transform: scale(1.15);
 }

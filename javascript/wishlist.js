@@ -2,7 +2,7 @@
    GLOBALS (single source of truth)
    ================================ */
 const productsWrap = document.querySelector(".products");
-const cards = Array.from(document.querySelectorAll(".pd-card")); // <- single global list
+let cards = Array.from(document.querySelectorAll(".pd-card")); // <- single global list
 const noProductMsg = document.getElementById("noProductMsg");
 const paginationBar = document.querySelector(".pd-pagination-bar");
 const pageCount = document.querySelector(".pd-page-count");
@@ -508,6 +508,7 @@ window.addEventListener("resize", handleLeftIconsPlacement);
 syncSidebarHeight();
 applyFilters(); // initial render: applies no filters => shows all and prepares pagination
 
+/* ================= STOCK STATUS ================= */
 function applyStockStatus() {
   document.querySelectorAll(".pd-card").forEach((card) => {
     const stock = card.dataset.stock;
@@ -517,22 +518,30 @@ function applyStockStatus() {
 
     if (stock === "out") {
       card.classList.add("out-of-stock");
-
       cartBtn.style.display = "none";
       outBtn.style.display = "block";
       notify.style.display = "block";
     } else {
       card.classList.remove("out-of-stock");
-
       cartBtn.style.display = "block";
       outBtn.style.display = "none";
       notify.style.display = "none";
     }
   });
 }
-
-/* Run once after DOM loads */
 applyStockStatus();
+/* ================= NOTIFY ME ALERT ================= */
+document.addEventListener("click", function (e) {
+  const notifyBtn = e.target.closest(".pd-notify");
+  if (!notifyBtn) return;
+
+  e.stopPropagation();
+
+  const card = notifyBtn.closest(".pd-card");
+  const productName = card.querySelector(".pd-name").innerText;
+
+  alert(`You will be notified when "${productName}" is back in stock.`);
+});
 
 // ================= SHARE =================
 document.addEventListener("click", function (e) {
@@ -613,8 +622,8 @@ document.querySelectorAll(".wishlist-icon").forEach(icon => {
   icon.addEventListener("click", function (e) {
     e.stopPropagation();
 
-    const normalImg = "../assets/master/likeimage.png";
-    const activeImg = "../assets/master/redHeart.png";
+    const normalImg = "../assets/master/Heart2.svg";
+    const activeImg = "../assets/productcatalog/redHeart.svg";
 
     if (this.dataset.active === "true") {
       this.src = normalImg;
@@ -625,3 +634,47 @@ document.querySelectorAll(".wishlist-icon").forEach(icon => {
     }
   });
 });
+
+// ================= WISHLIST REMOVE (UNLIKE) =================
+// ================= WISHLIST REMOVE (UNLIKE) =================
+document.addEventListener("click", function (e) {
+
+  const wishlistIcon = e.target.closest(".pd-wishlist img");
+  if (!wishlistIcon) return;
+
+  e.stopPropagation();
+
+  const card = wishlistIcon.closest(".pd-card");
+
+  card.style.transition = "0.3s ease";
+  card.style.opacity = "0";
+  card.style.transform = "scale(0.95)";
+
+  setTimeout(() => {
+    /* 1️⃣ Remove from DOM */
+    card.remove();
+
+    /* 2️⃣ Update cards source */
+    cards = cards.filter(c => c !== card);
+
+    /* 3️⃣ Update filtered source */
+    filteredCards = filteredCards.filter(c => c !== card);
+
+    /* 4️⃣ Handle empty wishlist */
+    if (filteredCards.length === 0) {
+      document.querySelector(".pd-grid").innerHTML =
+        "<p style='text-align:center;width:100%;padding:40px; margin:10px auto;'>No items in wishlist ❤️</p>";
+      paginationBar.style.display = "none";
+      pageCount.textContent = "";
+      return;
+    }
+
+    /* 5️⃣ Fix pagination */
+    const totalPages = Math.ceil(filteredCards.length / perPage);
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    showPage(currentPage, false);
+  }, 300);
+});
+
+
