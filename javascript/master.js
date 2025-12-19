@@ -131,7 +131,6 @@ function UpdateUI(){
   // click outside → hide
   document.addEventListener("click", () => {
     notificationBox.style.display = "none";
-    document.querySelector("body").style.overflow="auto"
   });
 
   // prevent box clicks from closing itself
@@ -211,7 +210,8 @@ function UpdateUI(){
     document.querySelector(".bottom-nav").style.display="flex";
     signup=false
     UpdateUI()
-
+    document.querySelector(".mobile-search-bar-main").style.display='block';
+    document.querySelector("body").style.overflow="auto";
     
   })
 
