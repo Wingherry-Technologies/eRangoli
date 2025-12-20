@@ -73,10 +73,11 @@
 }
 
 .myOrdersSearchContainer {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  display: none;
 }
 
 .myOrdersFeature {
@@ -465,6 +466,8 @@
 .returnModal {
   background: #fff;
   width: 600px;
+  height: 600px;
+  overflow-y: scroll;
   border-radius: 8px;
   padding: 20px 24px;
 }
@@ -696,6 +699,11 @@ textarea {
   justify-content: center;
   align-items: center;
   z-index: 1100;
+}
+
+.confirmClose {
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .confirmModal {

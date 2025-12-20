@@ -62,6 +62,21 @@ const errorBox = document.getElementById("returnError");
 const reasonTitle = document.querySelector(".returnSection .returnTitle");
 const uploadTitle = document.getElementById("uploadTitle");
 const descTitle = issueText.previousElementSibling;
+let isSwitchingSection = false;
+
+const returnModal = document.querySelector("#returnOverlay .returnModal");
+returnModal.addEventListener("click", (e) => {
+  const clickedInsideUpload = e.target.closest(".uploadBox");
+
+  if (
+    uploadTouched &&
+    !isUploadValid() &&
+    !clickedInsideUpload
+  ) {
+    showError(uploadTitle, "Please upload at least 1 image");
+  }
+});
+
 
 let uploadedCount = 0;
 
@@ -73,6 +88,7 @@ function clearErrors() {
   );
 }
 
+
 function showError(titleEl, msg) {
   clearErrors();
   titleEl.classList.add("errorTitle");
@@ -81,6 +97,23 @@ function showError(titleEl, msg) {
   errorBox.style.display = "flex";
 }
 
+function validateReasonOnBlur() {
+  if (!isReasonValid()) {
+    showError(reasonTitle, "Please select the reason for return");
+  }
+}
+
+function validateUploadOnBlur() {
+  if (!isUploadValid()) {
+    showError(uploadTitle, "Please upload at least 1 image");
+  }
+}
+
+function validateTextOnBlur() {
+  if (!isTextValid()) {
+    showError(descTitle, "Please describe your issue (minimum 5 words)");
+  }
+}
 
 //  VALIDATION CHECKS 
 function isReasonValid() {
@@ -116,11 +149,15 @@ function updateButtonState() {
 function resetReturnForm() {
   uploadedCount = 0;
 
-  reasonCheckboxes.forEach((cb) => (cb.checked = false));
+  reasonCheckboxes.forEach(cb => cb.checked = false);
 
-document.querySelectorAll(".uploadBox img.previewImg").forEach((img) => img.remove());
+  document.querySelectorAll(".uploadBox img.previewImg").forEach(img => img.remove());
 
-  uploadInputs.forEach((input) => (input.value = ""));
+  uploadInputs.forEach(input => input.value = "");
+
+  document.querySelectorAll(".uploadPlaceholder").forEach(ph => {
+    ph.style.display = "flex";
+  });
 
   issueText.value = "";
   charCount.innerText = "0/250";
@@ -129,13 +166,16 @@ document.querySelectorAll(".uploadBox img.previewImg").forEach((img) => img.remo
   updateButtonState();
 }
 
+
 //  EVENTS 
 /* CHECKBOX */
-reasonCheckboxes.forEach((cb) => {
+reasonCheckboxes.forEach(cb => {
   cb.addEventListener("change", () => {
     clearErrors();
     updateButtonState();
   });
+
+  cb.addEventListener("blur", validateReasonOnBlur);
 });
 
 /* IMAGE UPLOAD */
@@ -157,8 +197,19 @@ this.parentElement.appendChild(img);
 this.parentElement.querySelector(".uploadPlaceholder").style.display = "none";
     clearErrors();
     updateButtonState(); 
+    uploadTouched = false;
   });
 });
+
+// uploadInputs.forEach(input => {
+//   input.addEventListener("blur", () => {
+//     if (!isUploadValid()) {
+//       showError(uploadTitle, "please upload at least 1 image");
+//     }
+//   });
+// });
+
+let uploadTouched = false;
 
 /* TEXTAREA + COUNTER */
 issueText.addEventListener("input", () => {
@@ -167,8 +218,15 @@ issueText.addEventListener("input", () => {
   updateButtonState();
 });
 
+issueText.addEventListener("blur", () => {
+  if (!isTextValid()) {
+    showError(descTitle, "Please describe your issue (minimum 5 words)");
+  }
+});
+
 //  SEQUENCE ERRORS 
 uploadInputs[0].addEventListener("focus", () => {
+  uploadTouched = true;
   if (!isReasonValid()) {
     showError(reasonTitle, "Please select the reason for return");
   }
@@ -194,9 +252,15 @@ returnBtnFinal.addEventListener("click", () => {
   if (returnBtnFinal.disabled) return;
 
   returnOverlay.style.display = "none";
+  resetConfirmModal();              // 👈 ADD
   confirmOverlay.style.display = "flex";
 });
 
+
+
+
+
+// confirm modal logic
 const confirmOverlay = document.getElementById("confirmOverlay");
 const confirmClose = document.getElementById("confirmClose");
 const paymentBox = document.getElementById("paymentBox");
@@ -204,39 +268,68 @@ const confirmBtn = document.getElementById("confirmBtn");
 const paymentOptions = document.querySelectorAll(".paymentCheckbox input");
 
 
+// RESET CONFIRM PAYMENT MODAL
+function resetConfirmModal() {
+  // uncheck payment checkboxes
+  paymentOptions.forEach(opt => opt.checked = false);
+
+  // reset payment box (same style, same position)
+  paymentBox.innerHTML = `<span class="changeAccount">Add Account</span>`;
+
+  // disable confirm button
+  confirmBtn.disabled = true;
+  confirmBtn.classList.remove("active");
+}
+
+
+
+// DEFAULT – even without checkbox
+paymentBox.innerHTML = `
+  <span class="changeAccount">Add Account</span>
+`;
+
+confirmBtn.disabled = true;
+confirmBtn.classList.remove("active");
+
 paymentOptions.forEach(option => {
   option.addEventListener("change", () => {
 
-    // allow only one checkbox at a time
+    // only one checkbox at a time
     paymentOptions.forEach(o => {
       if (o !== option) o.checked = false;
     });
 
-    if (option.checked) {
-      if (option.value === "bank") {
-        paymentBox.innerHTML = `
-          <span>David John</span><br>
-          Bank of India<br>
-          IFSC: BKID0005719<br>
-          Saving Account
-          <span class="changeAccount">Change Account</span>
-        `;
-      } else {
-        paymentBox.innerHTML = `
-          <span>UPI ID</span><br>
-          davidjohn@upi
-          <span class="changeAccount">Change Account</span>
-        `;
-      }
+    // BANK TRANSFER
+    if (option.checked && option.value === "bank") {
+      paymentBox.innerHTML = `
+        <span>David John</span><br>
+        Bank of India<br>
+        IFSC: BKID0005719<br>
+        Saving Account
+        <span class="changeAccount">Add Account</span>
+      `;
 
       confirmBtn.disabled = false;
       confirmBtn.classList.add("active");
+    }
 
-      document.querySelector(".changeAccount").onclick = () => {
-        alert("Change account clicked");
-      };
-    } else {
-      paymentBox.innerHTML = "";
+    // UPI
+    else if (option.checked && option.value === "upi") {
+      paymentBox.innerHTML = `
+        <span>UPI ID</span><br>
+        davidjohn@upi
+      `;
+
+      confirmBtn.disabled = false;
+      confirmBtn.classList.add("active");
+    }
+
+    // NONE SELECTED
+    else {
+      paymentBox.innerHTML = `
+        <span class="changeAccount">Add Account</span>
+      `;
+
       confirmBtn.disabled = true;
       confirmBtn.classList.remove("active");
     }
@@ -244,18 +337,23 @@ paymentOptions.forEach(option => {
 });
 
 
+
 const successOverlay = document.getElementById("successOverlay");
 const successClose = document.getElementById("successClose");
 
 confirmBtn.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
-
+  resetConfirmModal();   
   const img = document.querySelector(".successAnimation img");
   img.style.animation = "none";
   img.offsetHeight; 
   img.style.animation = "";
 
   successOverlay.style.display = "flex";
+
+   setTimeout(() => {
+    window.location.href = "../html/index.html";
+  }, 3000); // 3 seconds
 });
 
 /* close success popup */
@@ -266,7 +364,9 @@ successClose.addEventListener("click", () => {
 
 confirmClose.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
+  resetConfirmModal();   
 });
+
 
 
 //  REVIEW POPUP 
@@ -276,9 +376,44 @@ const reviewClose = document.getElementById("reviewClose");
 const reviewPostBtn = document.getElementById("reviewPostBtn");
 const reviewTextarea = document.querySelector(".reviewTextarea");
 const reviewStars = document.querySelectorAll("#reviewStars img");
+const cancelSuccessTitle = document.querySelector("#cancelSuccessOverlay h2");
+const cancelSuccessText = document.querySelector("#cancelSuccessOverlay p");
+
 const reviewUploadInputs = document.querySelectorAll(
   ".reviewUploadRow .uploadBox input[type='file']"
 );
+
+// RESET REVIEW MODAL
+function resetReviewModal() {
+  hasStar = false;
+  hasText = false;
+  hasImage = false;
+
+  // reset textarea
+  reviewTextarea.value = "";
+
+  // reset stars
+  reviewStars.forEach(star => {
+    star.src = "../assets/myOrders/Star.svg";
+  });
+
+  // reset upload previews
+  document
+    .querySelectorAll(".reviewUploadRow img.previewImg")
+    .forEach(img => img.remove());
+
+  // show upload placeholders again
+  document
+    .querySelectorAll(".reviewUploadRow .uploadPlaceholder")
+    .forEach(ph => ph.style.display = "flex");
+
+  // reset button
+  reviewPostBtn.disabled = true;
+  reviewPostBtn.classList.remove("active");
+}
+
+
+
 // stars section in order card
 const ratingSections = document.querySelectorAll(".myOrdersStars, .myOrdersRatingText");
 
@@ -334,20 +469,9 @@ ratingSections.forEach(el => {
   el.addEventListener("click", () => {
     reviewOverlay.style.display = "flex";
 
-    // RESET STATE
-    hasStar = false;
-    hasText = false;
-    hasImage = false;
+ resetReviewModal();
+initReviewUploadPreview();
 
-    reviewTextarea.value = "";
-    reviewPostBtn.disabled = true;
-    reviewPostBtn.classList.remove("active");
-
-    reviewStars.forEach(star => {
-      star.src = "../assets/myOrders/Star.svg";
-    });
-
-    initReviewUploadPreview();
   });
 });
 
@@ -355,7 +479,26 @@ ratingSections.forEach(el => {
 // close modal
 reviewClose.addEventListener("click", () => {
   reviewOverlay.style.display = "none";
+  resetReviewModal(); 
 });
+
+
+reviewPostBtn.addEventListener("click", () => {
+  if (reviewPostBtn.disabled) return;
+
+  // close review modal
+  reviewOverlay.style.display = "none";
+  resetReviewModal();
+
+  // ✨ UPDATE SUCCESS MODAL TEXT (REVIEW FLOW)
+  cancelSuccessTitle.innerText = "Thank you for your review!";
+  cancelSuccessText.innerText =
+    "Your feedback has been submitted successfully.";
+
+  // open existing cancel success modal
+  cancelSuccessOverlay.style.display = "flex";
+});
+
 
 
 
@@ -444,13 +587,18 @@ cancelConfirmBtn.addEventListener("click", () => {
 /* CLOSE SUCCESS */
 cancelSuccessClose.addEventListener("click", () => {
   cancelSuccessOverlay.style.display = "none";
+
+  // reset to cancel default text
+  cancelSuccessTitle.innerText = "Your order has been cancelled";
+  cancelSuccessText.innerText =
+    "Your refund will be processed within 7 business days";
 });
 
 /* CONTINUE SHOPPING */
 continueShoppingBtn.addEventListener("click", () => {
   cancelSuccessOverlay.style.display = "none";
   // optional redirect
-  // window.location.href = "/";
+  window.location.href = "../html/index.html";
 });
 
 /* RESET CANCEL MODAL */
