@@ -299,7 +299,7 @@ else{
     bottomNumbers.forEach(bottomNumber => {
       bottomNumber.style.display="none"
     });
-      
+  resetUserProductState();   
   }
 }
 
@@ -886,6 +886,12 @@ document.getElementById("pd-next").addEventListener("click", (e) => {
   if (currentPage < totalPages) showPage(currentPage + 1, true);
 });
 
+document.querySelectorAll(".pd-name")
+.forEach(pdName => {
+  pdName.addEventListener("click",()=>{
+    window.location.href='../html/productOverview.html'
+  })
+});
 /* ===============================
    INITIALIZE
    =============================== */
@@ -1018,6 +1024,24 @@ document.querySelectorAll(".wishlist-icon").forEach(icon => {
     }
   });
 });
+
+function resetUserProductState() {
+  // Reset wishlist icons
+  document.querySelectorAll(".wishlist-icon").forEach(icon => {
+    icon.src = "../assets/productcatalog/Heart.svg";
+    icon.dataset.active = "false";
+  });
+
+  // Reset wishlist count
+  const wishlistCountEl = document.getElementById("number-of-wishlist");
+  if (wishlistCountEl) wishlistCountEl.textContent = "0";
+
+  // Close all share popups
+  document.querySelectorAll(".share-popup").forEach(popup => {
+    popup.classList.remove("active");
+  });
+}
+
 
 // Signup overlay functions
 function closeSignupModal() {

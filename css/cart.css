@@ -16,6 +16,7 @@ body {
   width: 100%;
   margin: auto;
   padding: 20px 20px;
+  margin-top: 75px;
 }
 
 .back-row {
@@ -26,6 +27,10 @@ body {
   font-weight: 400;
   cursor: pointer;
   margin-bottom: 20px;
+  width: max-content;
+}
+.back-row>img{
+  height: 20px;
 }
 
 .back-icon .x-icon {
@@ -121,7 +126,7 @@ body {
   font-size: 14px;
 }
 
-input {
+.form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #dee1e6;
@@ -131,7 +136,7 @@ input {
   font-weight: 400;
 }
 
-input:focus {
+.form-group input:focus {
   outline: none;
   border: 1px solid #dee1e6;
 }
@@ -435,7 +440,7 @@ hr {
   margin: 15px 0;
 }
 
-.line {
+.billing-summary .line {
   display: flex;
   justify-content: space-between;
   margin: 8px 0;
@@ -570,7 +575,7 @@ hr {
 
 /* OUT OF STOCK POPUP  */
 .stock-warning {
-  width: 402px;
+  width: 100%;
   height: 56px;
   background: #ffc2c2;
   color: #ff0000;
@@ -943,6 +948,7 @@ hr {
     font-weight: 400;
     cursor: pointer;
     height: 50px;
+    padding-left: 10px;
   }
 
   .banner-img {
@@ -977,7 +983,7 @@ hr {
     margin-bottom: 4px;
   }
 
-  input {
+  .form-group input {
     padding: 12px;
     font-size: 14px;
     background: #f7f7f7;

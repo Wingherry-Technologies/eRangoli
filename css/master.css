@@ -1003,7 +1003,7 @@ nav{
     width: 100%;
     text-align: center;
 }
-.line{
+.banner-line .line{
     border: 1px solid white;
     width: 700px;
 }
@@ -1185,7 +1185,7 @@ nav{
         font-size: 24px;
         max-width: 400px;
     }
-    .line{
+    .banner-line .line{
         width: 500px;
     }
     .small-para{
@@ -1387,7 +1387,7 @@ nav{
         position: relative;
         width: 100%;
     }
-    .line{
+    .banner-line .line{
         width: 250px;
     }
 

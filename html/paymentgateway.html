@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Gateway</title>
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
     <link rel="stylesheet" href="../css/paymentgateway.css">
 </head>
 <body>
@@ -350,6 +351,47 @@
             </div>
         </div>
     </div>
+
+    <!-- Processing Modal -->
+     <div class="all-modal-main" id="processing-modal" style="display: none;">
+        <div class="processing-modal-content">
+            <h2>Processing Your Payment</h2>
+            <img src="../assets/paymentgateway/Rangoli (for Diwali).gif" alt="">
+            <div>
+                <p>This will take a few seconds</p>
+                <p>Please Wait</p>
+            </div>
+            <button>Cancel</button>
+        </div>
+     </div>
+
+     <!-- Success Modal Popup -->
+
+    <div class="success-modal-main" id="success-modal" style="display: none;" >
+        <div class="success-modal-content">
+            <h2>Payment is Success !</h2>
+            <img src="../assets/paymentgateway/success.gif" alt="">
+            <div class="order-placed">
+                <img src="../assets/paymentgateway/confetti.gif" alt="">
+                <span>You order has been Placed</span>
+            </div>
+        </div>
+     </div>
+
+          <!-- Failed Modal Popup -->
+
+    <div class="failed-modal-main" id="failed-modal" style="display: none;">
+        <div class="failed-modal-content">
+            <img src="../assets/paymentgateway/WarningCircle.svg" alt="">
+            <h2>Payment Failed !</h2>
+            <div class="order-failed">
+                <span>Hey, seems like there was some trouble. We are there with you.</span>
+                <span>You can try again </span>
+            </div>
+            <button id="try-again">Try Again</button>
+        </div>
+     </div>
+
     <script src="../javascript/paymentgateway.js"></script>
 </body>
 </html>

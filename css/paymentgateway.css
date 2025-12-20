@@ -423,3 +423,123 @@ nav>img{
     }
     
 }
+
+/* Processsing Modal */
+
+.all-modal-main{
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.processing-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.processing-modal-content>h2{
+    color: #3F3F3F;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.processing-modal-content>div{
+    color: #3F3F3F;
+    margin-top: 20px;
+
+}
+.processing-modal-content>div>p{
+    text-align: center;
+    font-size: 16px;
+}
+.processing-modal-content>button{
+    margin-top: 80px;
+    border: 1px solid #D9D9D9;
+    background-color: transparent;
+    color: #8E8989;
+    font-size: 18px;
+    padding: 10px 50px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.processing-modal-content>button:hover{
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+/* Success Modal */
+
+.success-modal-main,
+.failed-modal-main{
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../assets/paymentgateway/image\ 9.svg");
+}
+
+.success-modal-content,
+.failed-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-modal-content,
+.failed-modal-content{
+    height: 300px;
+}
+.success-modal-content>h2{
+    color: #009605;
+}
+
+.order-placed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    bottom: 100px;
+}
+.order-failed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.order-placed>span{
+    color: #3F3F3F;
+    font-size: 20px;
+    text-wrap: nowrap;
+    font-weight: 400;
+}
+.order-failed>span{
+    color: #3F3F3F;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+}
+.success-modal-content .order-placed>img,
+.failed-modal-content .order-failed>img{
+    height: 200px;
+    width: 200px;
+}
+.failed-modal-content>button{
+    margin-top: 40px;
+    background-color: #A10404;
+    color: white;
+    border: none;
+    padding: 8px 60px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
