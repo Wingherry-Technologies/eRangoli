@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
     <link rel="stylesheet" href="../css/wishlist.css">
     <link rel="stylesheet" href="../css/similarFinds.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -19,149 +20,10 @@
             <div class="backtext">Back to search</div>
         </div>
         <h1 class="pdtheading">WishList</h1>
-        <div class="pro">25 Products</div>
     </section>
 
     <div class="products-wrapper">
-        <div class="left-icons">
-            <button id="openFilter">
-                <img src="../assets/productcatalog/filtering.svg" alt="" />
-            </button>
-            <button id="openSort">
-                <img src="../assets/productcatalog/sorting.svg" alt="" />
-            </button>
-        </div>
-        <!-- ✅ LEFT ICONS -->
-
-        <div class="aside-overlay" id="overlay"></div>
-        <!-- ✅ SIDEBAR -->
-        <aside class="left-sidebar" id="sidebar">
-            <button class="sidebar-close" onclick="closeSidebar()">
-                <img src="../assets/productcatalog/X.svg" alt="" />
-            </button>
-
-            <div class="sidebar-title">Filters</div>
-
-            <!-- ✅ PRICE -->
-            <div class="filter-item" onclick="toggleSub(this,'priceLabel')">
-                <span id="priceLabel">Price Range</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label><span>Under ₹500</span>
-                    <input type="radio" name="price" value="0-500" /></label>
-                <label><span>₹500 – ₹1,000</span>
-                    <input type="radio" name="price" value="500-1000" /></label>
-                <label><span>₹1,000 – ₹2,500</span>
-                    <input type="radio" name="price" value="1000-2500" /></label>
-                <label><span>₹2,500 – ₹5,000</span>
-                    <input type="radio" name="price" value="2500-5000" /></label>
-                <label><span>Above ₹5,000</span>
-                    <input type="radio" name="price" value="5000-999999" /></label>
-            </div>
-
-            <!-- ✅ STATE -->
-            <div class="filter-item" onclick="toggleSub(this,'stateLabel')">
-                <span id="stateLabel">By State</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label><span>Karnataka</span> <input type="checkbox" class="state" /></label>
-                <label><span>Telangana</span> <input type="checkbox" class="state" /></label>
-            </div>
-
-            <!-- ✅ MATERIAL -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Material</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label><span>Wood</span> <input type="checkbox" class="material" /></label>
-                <label><span>Metal</span> <input type="checkbox" class="material" /></label>
-                <label><span>Clay</span> <input type="checkbox" class="material" /></label>
-            </div>
-
-            <!-- ✅ BRAND -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Brand</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label><span>Sanskriti</span> <input type="checkbox" class="brand" /></label>
-                <label><span>CraftVilla</span> <input type="checkbox" class="brand" /></label>
-            </div>
-
-            <!-- ✅ SIZE -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Size</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label><span>Small</span> <input type="checkbox" class="size" /></label>
-                <label><span>Large</span> <input type="checkbox" class="size" /></label>
-            </div>
-            <!-- ✅ SORT -->
-            <div class="sidebar-title">Sort by</div>
-
-            <!-- ✅ PRICE RANGE SORT -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Price Range</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label>Low to High <input type="radio" name="sortPrice" value="price_asc" /></label>
-                <label>High to Low <input type="radio" name="sortPrice" value="price_desc" /></label>
-            </div>
-
-            <!-- ✅ DELIVERY DATE SORT (UPDATED AS YOU ASKED) -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Delivery Date</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label>Within 3 Days
-                    <input type="radio" name="sortDelivery" value="delivery_3" /></label>
-                <label>Within 5 Days
-                    <input type="radio" name="sortDelivery" value="delivery_5" /></label>
-                <label>Within 7 Days
-                    <input type="radio" name="sortDelivery" value="delivery_7" /></label>
-            </div>
-
-            <!-- ✅ RATINGS SORT -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Ratings</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label>High to Low
-                    <input type="radio" name="sortRating" value="rating_desc" /></label>
-                <label>Low to High <input type="radio" name="sortRating" value="rating_asc" /></label>
-            </div>
-
-            <!-- ✅ DISCOUNT SORT (UPDATED FROM SALES/OFFER) -->
-            <div class="filter-item" onclick="toggleSub(this)">
-                <span>Discount</span>
-                <span><img src="../assets/productcatalog/dropdown.svg" alt="" /></span>
-            </div>
-            <div class="sub-options">
-                <label>10% & Above
-                    <input type="radio" name="sortDiscount" value="discount_10" /></label>
-                <label>25% & Above
-                    <input type="radio" name="sortDiscount" value="discount_25" /></label>
-                <label>50% & Above
-                    <input type="radio" name="sortDiscount" value="discount_50" /></label>
-            </div>
-
-            <!-- ✅ RECENTLY ADDED (CHECKBOX ONLY) -->
-            <div class="filter-item">
-                <label style="width: 100%; display: flex; justify-content: space-between">
-                    Recently Added
-                    <input type="checkbox" id="recentCheck" />
-                </label>
-            </div>
-
-            <div class="clear-all" onclick="clearAll()">Clear all</div>
-        </aside>
+        
         <!-- ✅ PRODUCTS -->
         <div class="pd-display">
             <div class="products pd-grid">
@@ -175,7 +37,8 @@
                         <img src="../assets/master/Rectangle 363.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.5k)</span></div>
+                            <span>(1.5k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
@@ -263,7 +126,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -390,7 +254,8 @@
                         <img src="../assets/master/Rectangle 368.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.9 <span><img src="../assets/master/star.svg"></span>
-                            <span>(2.4k)</span></div>
+                            <span>(2.4k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Engraved Tea Kettle</h3>
@@ -433,7 +298,8 @@
                         <img src="../assets/master/Rectangle 369.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.7 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.1k)</span></div>
+                            <span>(1.1k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Handcrafted Wooden Bull</h3>
@@ -516,7 +382,8 @@
                         <img src="../assets/master/Rectangle 363.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.5k)</span></div>
+                            <span>(1.5k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
@@ -602,7 +469,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -686,7 +554,8 @@
                         <img src="../assets/master/Rectangle 363.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.5k)</span></div>
+                            <span>(1.5k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
@@ -772,7 +641,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -856,7 +726,8 @@
                         <img src="../assets/master/Rectangle 363.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.5k)</span></div>
+                            <span>(1.5k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">3D Wooden World Map - Glossy Finish</h3>
@@ -942,7 +813,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -985,50 +857,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
-                    </div>
-                    <div class="pd-content">
-                        <h3 class="pd-name">Metal Tribal Art Horse</h3>
-                        <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
-                        <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span>
-                        </p>
-                        <div class="pd-bottom-row">
-                            <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span>
-                            </p>
+                            <span>(1.2k)</span>
                         </div>
-                        <div class="pd-action">
-                            <button class="pd-cart-btn">Add to Cart</button>
-                            <button class="pd-out-btn">Out of Stock</button>
-                            <div class="pd-notify">Notify Me</div>
-                            <div class="pd-share">
-                                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
-
-                                <!-- SHARE POPUP -->
-                                <div class="share-popup">
-                                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
-                                        title="Copy Link">
-                                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option"
-                                        data-type="whatsapp" title="WhatsApp">
-                                    <img src="../assets/productcatalog/telegram.svg" class="share-option"
-                                        data-type="telegram" title="Telegram">
-                                    <img src="../assets/productcatalog/twitter.svg" class="share-option"
-                                        data-type="twitter" title="Twitter">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- CARD 4 -->
-                <!-- CARD 3 -->
-                <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal"
-                    data-brand="Tribal Roots" data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4"
-                    data-discount="44" data-stock="out">
-
-                    <div class="pd-img">
-                        <img src="../assets/master/Rectangle 365.svg">
-                        <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
-                        <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -1071,7 +901,52 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
+                    </div>
+                    <div class="pd-content">
+                        <h3 class="pd-name">Metal Tribal Art Horse</h3>
+                        <div class="pd-line"><span>Tribal Roots</span><span>Chhattisgarh</span></div>
+                        <p class="pd-tags"><span class="free">FREE Delivery</span><span class="left">2 left only</span>
+                        </p>
+                        <div class="pd-bottom-row">
+                            <p class="pd-price">₹1,800 <span class="old">₹3,200</span><span class="off">(44%OFF)</span>
+                            </p>
+                        </div>
+                        <div class="pd-action">
+                            <button class="pd-cart-btn">Add to Cart</button>
+                            <button class="pd-out-btn">Out of Stock</button>
+                            <div class="pd-notify">Notify Me</div>
+                            <div class="pd-share">
+                                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                                <!-- SHARE POPUP -->
+                                <div class="share-popup">
+                                    <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy"
+                                        title="Copy Link">
+                                    <img src="../assets/productcatalog/whatsapp.svg" class="share-option"
+                                        data-type="whatsapp" title="WhatsApp">
+                                    <img src="../assets/productcatalog/telegram.svg" class="share-option"
+                                        data-type="telegram" title="Telegram">
+                                    <img src="../assets/productcatalog/twitter.svg" class="share-option"
+                                        data-type="twitter" title="Twitter">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 4 -->
+                <!-- CARD 3 -->
+                <div class="pd-card" data-price="1800" data-state="Chhattisgarh" data-material="Metal"
+                    data-brand="Tribal Roots" data-size="Small" data-rating="4.8" data-date="20240205" data-delivery="4"
+                    data-discount="44" data-stock="out">
+
+                    <div class="pd-img">
+                        <img src="../assets/master/Rectangle 365.svg">
+                        <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
+                        <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -1114,7 +989,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -1157,7 +1033,8 @@
                         <img src="../assets/master/Rectangle 365.svg">
                         <div class="pd-wishlist"><img src="../assets/productcatalog/redHeart.svg"></div>
                         <div class="pd-rating">4.8 <span><img src="../assets/master/star.svg"></span>
-                            <span>(1.2k)</span></div>
+                            <span>(1.2k)</span>
+                        </div>
                     </div>
                     <div class="pd-content">
                         <h3 class="pd-name">Metal Tribal Art Horse</h3>
@@ -1192,9 +1069,9 @@
                 </div>
             </div>
 
-            <div id="noProductMsg">
+            <!-- <div id="noProductMsg">
                 No products found 😔
-            </div>
+            </div> -->
             <!-- PAGINATION -->
             <div class="pd-pagination-bar">
                 <div class="pd-page-count">1–16 of 18</div>
