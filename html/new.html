@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders</title>
+    <link rel="stylesheet" href="../css/myOrders.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
+}
+
+.myOrdersContainer {
+  max-width: 900px;
+  margin: 1rem auto;
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+.myOrdersBackButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  /* background-color: #fff; */
+}
+
+.myOrdersBackButton img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.myOrdersBackButton span {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.myOrdersHeaderSection {
+  background-image: url("../assets/myOrders/myOrderTitle.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 10px 40px;
+  position: relative;
+  background-color: #c062622a;
+}
+
+.myOrdersHeaderSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.myOrdersHeaderRow{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.myOrdersHeaderSection h1 {
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3f3f3f;
+  margin-bottom: 2rem;
+}
+
+.myOrdersContentSection {
+  background-color: #fafafa;
+  padding: 24px;
+}
+
+.myOrdersSearchContainer {
+  /* margin-bottom: 24px; */
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  display: none;
+}
+
+.myOrdersFeature {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+    border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fafafa;
+}
+.myOrdersFeature img {
+  width: 25px;
+  height: 25px;
+}
+.myOrdersSearchBox {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #fafafa;
+}
+
+.myOrdersSearchBox img {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: #e91e63;
+  background-color: rgba(226, 117, 117, 0.084);
+}
+
+.myOrdersSearchBox input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 20px;
+  font-weight: 400;
+  color: #8e8989;
+  background-color: #fafafa;
+}
+
+.myOrdersSearchBox input::placeholder {
+  color: #999;
+}
+
+.myOrdersCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+    border: 1px solid #D9D9D9;
+  border-radius: 8px;
+}
+.myOrdersProductMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.myOrdersStatus {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.myOrdersStatusIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.myOrdersStatusIcon.myOrdersDelivered {
+  background-color: #efdfdf;
+}
+
+.myOrdersStatusIcon.myOrdersTransit {
+  background-color: #e5f3e5;
+}
+
+.myOrdersStatusIcon.myOrdersRefunded {
+  background-color: #efdfdf;
+}
+
+.myOrdersStatusIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.myOrdersStatusInfo h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3f3f3f;
+  margin-bottom: 2px;
+}
+.myOrdersTransferTitle {
+  font-weight: 500;
+  color: #009605 !important;
+}
+
+.myOrdersStatusInfo p {
+  font-size: 13px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.myOrdersProductDetails {
+  background-color: #fafafa;
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.myOrdersProductImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.myOrdersProductInfo {
+  flex: 1;
+}
+
+.myOrdersProductTag {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.myOrdersProductTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.myOrdersProductSeller {
+  font-size: 12px;
+  color: #716b6b;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.myOrdersProductPrice {
+  font-size: 12px;
+  font-weight: 400;
+  color: #3f3f3f;
+}
+
+.myOrdersActions {
+  background-color: #fafafa;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.myOrdersBtn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #efdfdf;
+  color: #3f3f3f;
+  transition: all 0.2s;
+}
+#myOrdersCancelBtn
+{
+  background-color: #ffffff;
+  color: #8E8989;
+}
+.myOrderBtnContainer{
+    display: flex;
+    gap: 20px;
+}
+
+.myOrdersActionInfo {
+  font-size: 12px;
+  font-weight: 500;
+  color: #3f3f3f;
+}
+
+.myOrdersRatingSection {
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  padding: 10px;
+  gap: 5px;
+}
+
+.myOrdersStars {
+  display: flex;
+  gap: 7px;
+  margin-right: 12px;
+}
+
+.myOrdersStar {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #e0e0e0;
+}
+
+.myOrdersRatingText {
+  font-size: 12px;
+  font-weight: 400;
+  color: #716b6b;
+}
+
+.myOrdersTransactionId {
+  font-size: 12px;
+  color: #666;
+  margin-top: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding-top: 12px;
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+/* track order modal pop up */
+/* ===== Track Order Modal ===== */
+
+.trackOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.trackModal {
+  background: #fff;
+  height: 100%;
+  width: 700px;
+  /* margin-top: 30px; */
+  border-radius: 10px;
+  padding: 30px 45px;
+  /* overflow-y: scroll; */
+}
+
+.trackHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.trackHeader h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.trackHeader p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #3F3F3F;
+}
+
+.trackClose {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.trackBody {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  gap: 10px;
+  
+}
+
+.trackLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: 3rem;
+}
+
+.trackStepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.trackLabel {
+  font-size: 12px;
+  color: #3f3f3f;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.trackIcon {
+  width: 50px;
+  height: 50px;
+  background: #EFDFDF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.trackIcon img{
+  width: 20px;
+  height: 20px;
+}
+
+.trackLine {
+  position: relative;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trackLine::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 6px;
+  background: #dcdcdc;
+}
+
+.trackLine .dot {
+  width: 15px;
+  height: 15px;
+  background: #cfcfcf;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.trackLine .dot.active {
+  background: #009605;
+}
+
+.trackRight {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.trackText h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3F3F3F;
+}
+
+.trackText p {
+  font-size: 12px;
+  color: #716B6B;
+}
+
+/* return order pop up */
+.returnOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.returnModal {
+  background: #fff;
+  width: 600px;
+  height: 600px;
+  overflow-y: scroll;
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.returnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 10px;
+}
+
+.returnHeader h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+.returnClose {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.returnSection {
+  margin-top: 18px;
+}
+
+.returnTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3F3F3F;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.returnCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #3F3F3F;
+  font-weight: 400;
+  line-height: 25px;
+    cursor: pointer;
+  position: relative;
+}
+
+/* REAL checkbox – hidden but clickable */
+.returnCheckbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* visible box */
+.returnCheckbox .customBox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9e9e9e; 
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Checked Image  */
+.returnCheckbox input[type="checkbox"]:checked + .customBox {
+  background-image: url("../assets/myOrders/checkSign.svg"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+/* text */
+.returnCheckbox .checkboxText {
+  font-size: 14px;
+}
+
+
+.uploadRow {
+  display: flex;
+  gap: 10px;
+}
+
+.uploadBox {
+  width: 120px;
+  height: 100px;
+  border: 1px solid #DEE1E6;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #777;
+  position: relative;
+  cursor: pointer;
+}
+.uploadPlaceholder {
+  position: absolute;
+  inset: 0;
+  z-index: 2;         
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  pointer-events: none;
+  background: #fff;
+}
+.uploadPlaceholder img.uploadIcon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+.uploadPlaceholder span {
+  font-size: 12px;
+  color: #777;
+}
+.uploadBox::before {
+  /* content: "⬆"; */
+  position: absolute;
+  font-size: 18px;
+  color: #999;
+}
+
+.uploadBox input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* Uploaded preview image ONLY */
+.uploadBox > img.previewImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 4px;
+}
+textarea {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #D6D6D6;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 13px;
+  resize: none;
+}
+
+.charCount {
+  text-align: right;
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+
+
+/* Error styles */
+.errorTitle {
+  color: red !important;
+}
+
+.returnErrorInline {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #ffd6d6;
+  color: #d60000;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  /* flex: 1; */
+  padding-right: 100px;
+  position: relative;
+}
+
+.returnErrorInline .errorClose {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.returnErrorInline .errorClose img {
+  width: 10px;
+  height: 10px;
+}
+
+.returnActionRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Return button alignment */
+.returnBtn {
+  width: 160px;
+  background: #8c8c8c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: not-allowed;
+}
+
+.returnBtn.active {
+  background: #b00000;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+
+/* payment pop up  */
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.confirmClose {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.confirmModal {
+  background: #fff;
+  width: 550px;
+  height: 600px;
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.confirmHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 10px;
+}
+
+.confirmHeader h3{
+  color: #3F3F3F;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.pickupNote {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  color: #3F3F3F;
+}
+
+.confirmLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3F3F3F;
+  display: block;
+}
+.paymentModeTitle{
+  margin-top: 50px;
+}
+
+.addressBox {
+  border: 1px solid #DEE1E6;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 13px;
+  margin-top: 15px;
+  height: 130px;
+  width: 300px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #716B6B;
+}
+
+.address{
+  margin-top: 1.5rem;
+}
+
+.paymentBox{
+  border: 1px solid #DEE1E6;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 13px;
+  margin-top: 15px;
+  height: 100px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #716B6B;
+}
+
+.paymentRow {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* ===== PAYMENT POPUP CHECKBOX  ===== */
+
+.paymentCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+}
+
+.paymentCheckbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* visible box */
+.paymentCheckbox .customBox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9e9e9e;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* checked  */
+.paymentCheckbox input[type="checkbox"]:checked + .customBox {
+  background-image: url("../assets/myOrders/checkSign.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+/* Payment box with right-aligned change account */
+.paymentBox {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  min-height: 90px;
+}
+
+.changeAccount {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: red;
+  font-size: 13px;
+  cursor: pointer;
+}
+.confirmBtn {
+  margin-top: 20px;
+  width: 160px;
+  background: #8c8c8c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
+.confirmBtn.active {
+  background: #b00000;
+  cursor: pointer;
+}
+
+
+/* Add Bank Account Popup (inside confirm modal) */
+
+
+/* ===== REVIEW MODAL ===== */
+
+.reviewOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1300;
+}
+
+.reviewModal {
+  background: #fff;
+  width: 520px;
+  height: 500px;
+  padding: 20px 24px;
+  border-radius: 8px;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewHeader h3 {
+  font-size: 22px;
+  color: #3F3F3F;
+  font-weight: 500;
+}
+
+.reviewClose {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.reviewStars {
+  display: flex;
+  gap: 6px;
+  margin: 5px 0 25px;
+}
+
+.reviewStars img {
+  width: 22px;
+  cursor: pointer;
+  opacity: 1.4;
+}
+
+.reviewStars img.active {
+  opacity: 1;
+}
+
+.reviewLabel {
+  font-size: 14px;
+  color: #3F3F3F;
+  font-weight: 500;
+  margin: 10px 0 6px;
+  display: block;
+}
+
+.reviewTextarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  resize: none;
+}
+
+.reviewUploadRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.reviewUploadBox {
+  width: 70px;
+  height: 10px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #777;
+}
+
+.reviewPostBtn {
+  margin-top: 30px;
+  background: #b00000;
+  color: #fff;
+  border: none;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.reviewPostBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reviewPostBtn.active {
+  background: #b00000;
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+.reviewUploadTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3F3F3F;
+  margin-top: 2rem;
+  display: block;
+}
+
+
+.myOrdersStars,
+.myOrdersRatingText{
+  cursor: pointer;
+}
+
+/* ===== SUCCESS POPUP ===== */
+
+.successOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+.successModal {
+  background: #fff;
+  width: 500px;
+  height: 600px;
+  padding: 30px 20px 40px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+/* close icon */
+.successClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* title */
+.successModal h3 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #3F3F3F;
+  margin-top: 4rem;
+  margin-bottom: 8px;
+}
+
+/* text */
+.successText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #3F3F3F;
+  margin-bottom: 30px;
+}
+
+/* animation container */
+.successAnimation img {
+  margin-top: 3rem;
+  width: 200px;
+  animation: popScale 0.8s ease forwards;
+}
+
+/* thank you */
+.thankText {
+  font-weight: 400;
+  font-size: 18px;
+  color: #3F3F3F;
+}
+
+/* animation */
+@keyframes popScale {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* ================= COMMON OVERLAY */
+.cancelOverlay,
+.cancelSuccessOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* CANCEL MODAL */
+.cancelModal {
+  width: 500px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px 30px;
+}
+
+.cancelHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cancelHeader h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+.cancelClose {
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+
+.cancelBody {
+  margin-top: 16px;
+}
+
+/* checkbox layout */
+.cancelCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 2rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #3F3F3F;
+}
+
+/* hide real checkbox */
+.cancelCheckbox input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* custom box */
+.cancelCheckbox .customBox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #716B6B;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* checked state – SAME green tick image */
+.cancelCheckbox input:checked + .customBox {
+  background-image: url("../assets/myOrders/checkSign.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+/* cancel button */
+.cancelBtn {
+  margin-top: 24px;
+  width: 160px;
+  padding: 10px;
+  background: #716B6B;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.cancelBtn.active {
+  background: #A10404;
+  cursor: pointer;
+}
+
+/* CANCEL SUCCESS MODAL  */
+.cancelSuccessModal {
+  width: 500px;
+  height: 420px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  padding: 40px 24px;
+}
+
+.successClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #716B6B;
+}
+
+.cancelSuccessModal h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3F3F3F;
+  margin-top: 40px;
+}
+
+.cancelSuccessModal p {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #3F3F3F;
+}
+
+.successIcon {
+  margin: 50px 0;
+}
+
+
+
+.continueShopping {
+  background: none;
+  border: none;
+  color: #A10404;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .myOrdersContainer {
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  /* .myOrdersContainer {
+    max-width: 100%;
+    margin: 0rem auto;
+  }
+  .myOrdersHeaderSection{
+    padding: 30px 24px;
+  }
+
+  .myOrdersHeaderSection h1 {
+    font-size: 28px;
+  }
+  .myOrdersHeaderRow{
+    padding-left: 2rem;
+  }
+
+  .myOrdersContentSection {
+    padding: 16px;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .myOrdersSearchContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 0;
+    padding-top: 10px;
+    margin-left: -1rem;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    justify-content: unset;
+    background-color: #ffffff;
+  }
+
+  .myOrdersSearchBox {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    flex: none;
+
+  }
+
+  .myOrdersSearchBox input {
+    display: none;
+  }
+
+  .myOrdersSearchBox img {
+    background-color: #D9D9D9;
+    padding: 7px;
+    margin-right: 0;
+    width: 35px;
+    height: 35px;
+  }
+
+  .myOrdersFeature {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .myOrdersFeature > div {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .myOrdersCard {
+    grid-column: 2;
+  }
+  .myOrdersBackButton{
+    display: none;
+  }
+  .myOrdersBackButtonMobile{
+    display: flex;
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 0;
+  } */
+
+
+
+   .myOrdersSearchContainer{
+    margin-bottom: 0;
+    display: none;
+   }
+
+     .myOrdersHeaderSection h1 {
+    font-size: 28px;
+    margin-left: 2rem;
+  }
+  .myOrdersBackButton{
+    padding-top: 10px;
+  }
+
+    .myOrdersContentSection {
+    padding: 30px;
+    padding-top: 10px
+  }
+  
+
+  /* track modal */
+
+  .trackModal{
+    overflow-y: auto;
+    width: auto;
+  }
+
+  /* return modal */
+  .returnOverlay{
+    overflow-y: scroll;
+  }
+  .returnModal{
+    margin-top: 10rem;
+    width: 500px;
+    padding-bottom: 5rem;
+  }
+
+
+  /* payment modal */
+  .confirmOverlay{
+    overflow-y: auto;
+  }
+  .confirmModal{
+    margin-top: 5rem;
+  }
+
+  /* succes modal */
+  .successOverlay{
+    overflow-y: auto;
+  }
+  .successModal{
+    margin-top: 5rem;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  .myOrdersHeaderSection h1 {
+    font-size: 24px;
+    margin-left: 1rem;
+  }
+
+  .myOrdersContentSection {
+    padding: 16px;
+  }
+
+
+  /* return track modal pop up  */
+  .returnModal{
+    width: auto;
+  }
+
+  .uploadBox{
+    width: 50px;
+    height: 60px;
+  }
+
+  .confirmModal{
+    width: auto;
+  }
+
+  .succussModal{
+    width: 320px;
+  }
+  .thankText{
+    margin-top: 1rem;
+  }
+
+  /* review modal  */
+  .reviewModal{
+    width: 315px;
+  }
+
+  /* track modal */
+  .trackModal{
+    width: 320px;
+    padding: 20px 20px;
+  }
+  .trackBody{
+    margin-left: 0;
+    gap: 0;
+  }
+  .trackLeft{
+    margin-right: 10px;
+    gap: 25px;
+  }
+
+  /* cancel Modal */
+  .cancelModal,
+  .cancelSuccessModal{
+    width: 320px;
+  }
+
+  .myOrdersBtn{
+    padding: 5px 5px;
+    /* font-size: 10px; */
+  }
+
+  .myOrderBtnContainer{
+    gap: 5px;
+  }
+
+}
+
+
+@media (min-width:400px) and (max-width:768px){
+  /* .trackBody{
+    flex-direction: column;
+    align-items: center;
+  }
+  .trackLeft, .trackRight{
+    margin: 0;
+  } */
+
+    .myOrderBtnContainer{
+    gap: 10px;
+  }
+    .myOrdersBtn{
+    padding: 8px 15px;
+    /* font-size: 10px; */
+  }
+
+    /* return track modal pop up  */
+  .returnModal{
+    width: auto;
+  }
+/* confirm modal */
+  .confirmModal{
+    width: auto;
+  }
+/* success modal */
+  .successModal{
+    width: 400px;
+  }
+
+  /* review modal */
+  .reviewModal{
+    width: 400px;
+  }
+
+  /* cancel modal */
+  .cancelModal,
+  .cancelSuccessModal{
+    width: 400px;
+  }
+
+}
+
+/* for title */
+@media (max-width:595px) {
+  
+  .myOrdersHeaderSection {
+    padding: 30px 25px;
+  }
+
+  /* Back + Title in one row */
+  .myOrdersHeaderSection {
+    display: flex;
+    align-items: center;
+    /* gap: 12px; */
+  }
+
+  .myOrdersBackButton{
+    margin-bottom: 10px;
+  }
+
+  /* Back button visible only on mobile */
+  .myOrdersBackButtonMobile {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hide back text, show only arrow */
+  .myOrdersBackButtonMobile span {
+    display: none;
+  }
+
+  .myOrdersBackButtonMobile img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Title styling like screenshot */
+  .myOrdersHeaderRow h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+
+/* ===== ADD BANK ACCOUNT – SCREENSHOT MATCH ===== */
+
+.bankForm {
+  border: 1px solid #DEE1E6;
+  border-radius: 6px;
+  padding: 14px;
+  margin-top: 14px;
+}
+
+.bankHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3F3F3F;
+  margin-bottom: 12px;
+}
+
+.bankClose {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.bankRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.bankRow.single {
+  align-items: flex-end;
+}
+
+.bankField {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bankField label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #3F3F3F;
+}
+
+.bankField input {
+  height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #D6D6D6;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.bankSaveBtn {
+  background: #A10404;
+  color: #fff;
+  border: none;
+  height: 36px;
+  padding: 0 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- <div class="myOrdersBackButton">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div> -->
+
+
+          <div class="myOrdersHeaderSection ">
+        <div class="myOrdersBackButton myOrdersBackButtonMobile">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div>
+        <div class="myOrdersHeaderRow">
+          <h1>My Orders</h1>
+        <!-- <span class="myOrdersCount" id="myOrdersCount">0 Products</span> -->
+        </div>
+      </div>
+
+    <div class="myOrdersContainer">
+      <!-- <div class="myOrdersHeaderSection ">
+        <div class="myOrdersBackButton myOrdersBackButtonMobile">
+      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
+      <span>Back to search</span>
+    </div>
+        <div class="myOrdersHeaderRow">
+          <h1>My Orders</h1>
+        <span class="myOrdersCount" id="myOrdersCount">0 Products</span>
+        </div>
+      </div> -->
+      
+      <div class="myOrdersContentSection">
+        <div class="myOrdersSearchContainer">
+          <div class="myOrdersSearchBox">
+            <img src="../assets/myOrders/SearchIcon.svg" alt="" />
+            <input type="text" placeholder="Search" id="myOrdersSearchInput" />
+          </div>
+
+          <div class="myOrdersFeature">
+            <div class="myOrdersFilter">
+              <img src="../assets/myOrders/Filter.svg" alt="" />
+            </div>
+            <div class="myOrdersShort">
+              <img src="../assets/myOrders/ShortIcon.svg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivered Order -->
+        
+        <div class="myOrdersCard" id="myOrdersDeliveredCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersDelivered">
+              <img src="../assets/myOrders/DeleverdIcon.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3>Delivered</h3>
+              <p>on Fri, 5th dec</p>
+            </div>
+          </div>
+          <div class="myOrdersProductMain">
+            <div class="myOrdersProductDetails">
+              <img
+                src="../assets/myOrders/DeleveryImage.svg"
+                alt="Product"
+                class="myOrdersProductImage"
+              />
+              <div class="myOrdersProductInfo">
+                <div class="myOrdersProductTag">KFGBSH7TLL6</div>
+                <div class="myOrdersProductTitle">
+                  3D Wooden World Map -Glossy Finish
+                </div>
+                <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+                <div class="myOrdersProductPrice">₹ 1,110</div>
+              </div>
+            </div>
+
+            <div class="myOrdersActions">
+              <button class="myOrdersBtn" id="myOrdersReturnBtn">Return</button>
+              <div class="myOrdersActionInfo">
+                Return available till 12th Dec *
+              </div>
+            </div>
+
+            <div class="myOrdersRatingSection">
+              <div class="myOrdersStars" id="myOrdersStars1">
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+                <img src="../assets/myOrders/Star.svg" alt="" />
+              </div>
+              <div class="myOrdersRatingText">
+                Rate & Review to gain special coupons
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In Transit Order -->
+        <div class="myOrdersCard" id="myOrdersTransitCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersTransit">
+              <img src="../assets/myOrders/Package.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3 class="myOrdersTransferTitle">In Transit</h3>
+              <p>Arriving by wed, 15th dec</p>
+            </div>
+          </div>
+
+          <div class="myOrdersProductDetails">
+            <img
+              src="../assets/myOrders/DeleveryImage.svg"
+              alt="Product"
+              class="myOrdersProductImage"
+            />
+            <div class="myOrdersProductInfo">
+              <div class="myOrdersProductTag">KFGBSH7TLL6</div>
+              <div class="myOrdersProductTitle">
+                3D Wooden World Map -Glossy Finish
+              </div>
+              <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+              <div class="myOrdersProductPrice">₹ 1,110</div>
+            </div>
+          </div>
+
+          <div class="myOrdersActions">
+            <div class="myOrderBtnContainer">
+              <button class="myOrdersBtn" id="myOrdersTrackBtn">
+                Track order
+              </button>
+              <button class="myOrdersBtn openCancelModal" id="myOrdersCancelBtn">Cancel</button>
+            </div>
+            <div class="myOrdersActionInfo">Eligible to return*</div>
+          </div>
+        </div>
+
+        <!-- Refunded Order -->
+        <div class="myOrdersCard" id="myOrdersRefundedCard">
+          <div class="myOrdersStatus">
+            <div class="myOrdersStatusIcon myOrdersRefunded">
+              <img src="../assets/myOrders/DeleverdIcon.svg" alt="" />
+            </div>
+            <div class="myOrdersStatusInfo">
+              <h3>Refunded</h3>
+              <p>on thu, 10th dec</p>
+            </div>
+          </div>
+
+          <div class="myOrdersProductDetails">
+            <img
+              src="../assets/myOrders/DeleveryImage.svg"
+              alt="Product"
+              class="myOrdersProductImage"
+            />
+            <div class="myOrdersProductInfo">
+              <div class="myOrdersProductTitle">
+                3D Wooden World Map -Glossy Finish
+              </div>
+              <div class="myOrdersProductSeller">by Sanskrit Creations</div>
+              <div class="myOrdersProductPrice">₹2,674</div>
+            </div>
+          </div>
+
+          <div class="myOrdersTransactionId">
+            Transaction ID : TXN-87891 04587 788
+          </div>
+
+          <div class="myOrdersRatingSection">
+            <div class="myOrdersStars" id="myOrdersStars2">
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+              <img src="../assets/myOrders/Star.svg" alt="" />
+            </div>
+            <div class="myOrdersRatingText">
+              Rate & Review to gain special coupons
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Track Order Modal -->
+    <div class="trackOverlay" id="trackOverlay">
+      <div class="trackModal">
+        <!-- Header -->
+        <div class="trackHeader">
+          <div>
+            <h3>Track Order</h3>
+            <p>Tracking no: MYSC1236414744</p>
+          </div>
+          <span class="trackClose" id="trackClose"
+            ><img src="../assets/myOrders/cross.svg" alt=""
+          /></span>
+        </div>
+
+        <!-- Timeline -->
+        <div class="trackBody">
+          <div class="trackLeft">
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/orederPlaced.svg" alt="" />
+              </div>
+              <span class="trackLabel">Order Placed</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/itemPacked.svg" alt="" />
+              </div>
+              <span class="trackLabel">Item Packed</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/TruckTrailer.svg" alt="" />
+              </div>
+              <span class="trackLabel">In Transit</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/Warehouse.svg" alt="" />
+              </div>
+              <span class="trackLabel">At warehouse</span>
+            </div>
+
+            <div class="trackStepLeft">
+              <div class="trackIcon">
+                <img src="../assets/myOrders/CheckCircle.svg" alt="" />
+              </div>
+              <span class="trackLabel">Out for delivery</span>
+            </div>
+          </div>
+
+          <div class="trackLine">
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="trackRight">
+            <div class="trackText">
+              <h4>We have received your order</h4>
+              <p>on Thu, 4 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Your package is packed and ready to ship</h4>
+              <p>on Sat, 6 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Item shipped to nearest delivery center</h4>
+              <p>on Sun, 7 Dec</p>
+            </div>
+
+            <div class="trackText">
+              <h4>Expected at warehouse</h4>
+              <p>on Sun, 12 Dec</p>
+            </div>
+
+            <div class="trackText inactive">
+              <h4>Arriving today between 10am to 9pm</h4>
+              <p>on Sun, 14 Dec</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Return Order Modal -->
+    <div class="returnOverlay" id="returnOverlay">
+      <div class="returnModal">
+        <!-- Header -->
+        <div class="returnHeader">
+          <h3>Return my order</h3>
+          <span class="returnClose" id="returnClose"
+            ><img src="../assets/myOrders/cross.svg" alt=""
+          /></span>
+        </div>
+
+        <!-- Reason -->
+        <div class="returnSection">
+          <label class="returnTitle">Select reason for returning *</label>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+             <span class="customBox"></span>
+            <label>Item arrived damaged or broken</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <label>Item is different from what was shown</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <label>Wrong item received</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <label>Size/Dimensions do not match description</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <label>Received a defective product</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" />
+            <span class="customBox"></span>
+            <label>Item has missing parts</label>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div class="returnSection" id="uploadSection">
+          <label class="returnTitle" id="uploadTitle">Upload Pictures *</label>
+
+          <div class="uploadRow">
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="">
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+            <div class="uploadBox">
+              <div class="uploadPlaceholder">
+                <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" alt="" />
+                <span>Upload</span>
+              </div>
+              <input type="file" accept="image/*" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="returnSection">
+          <label class="returnTitle">Describe your issue *</label>
+          <textarea
+            id="issueText"
+            placeholder="Write here"
+            maxlength="250"
+          ></textarea>
+
+          <div class="charCount" id="charCount">0/250</div>
+        </div>
+
+        <div class="returnActionRow">
+          <button class="returnBtn" id="finalReturnBtn" disabled>Return</button>
+
+          <div class="returnErrorInline" id="returnError">
+            <span class="errorText"></span>
+            <span class="errorClose"
+              ><img src="../assets/myOrders/cross.svg" alt=""
+            /></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Confirm Return Modal -->
+<div class="confirmOverlay" id="confirmOverlay">
+  <div class="confirmModal">
+
+    <div class="confirmHeader">
+      <h3>Return my order</h3>
+      <span class="confirmClose" id="confirmClose">
+        <img src="../assets/myOrders/cross.svg" />
+      </span>
+    </div>
+
+    <p class="pickupNote">
+      Pickup Address will be same as delivery address
+    </p>
+
+    <label class="confirmLabel">Address</label>
+    <div class="addressBox">
+      <span>David John</span><br />
+      davidjohn23@gmail.com<br />
+      95367 89905<br />
+      <div class="address">
+        C-605, Eden Park, Mudhuban Colony,<br />
+      Parsi Road, Pune, Maharashtra – 234678
+      </div>
+    </div>
+
+    
+
+    <label class="confirmLabel paymentModeTitle">Select Payment mode *</label>
+
+<div class="paymentRow">
+
+  <label class="paymentCheckbox">
+    <input type="checkbox" value="bank" />
+    <span class="customBox"></span>
+    <span class="checkboxText">Bank Transfer</span>
+  </label>
+
+  <label class="paymentCheckbox">
+    <input type="checkbox" value="upi" />
+    <span class="customBox"></span>
+    <span class="checkboxText">UPI</span>
+  </label>
+
+</div>
+
+
+
+    <div class="paymentBox" id="paymentBox">
+      <!-- Daynamic -->
+    </div>
+
+    <!-- ADD ACCOUNT FORM (SCREENSHOT STYLE) -->
+<div class="bankForm" id="bankForm" style="display:none">
+
+  <div class="bankHeader">
+    <span>Account Details</span>
+    <span class="bankClose" id="bankClose">✕</span>
+  </div>
+
+  <div class="bankRow">
+    <div class="bankField">
+      <label>Bank Name *</label>
+      <input type="text" id="bankName" value="Bank of India" />
+    </div>
+
+    <div class="bankField">
+      <label>Branch Name *</label>
+      <input type="text" id="branchName" value="Srikalahasthi Branch" />
+    </div>
+  </div>
+
+  <div class="bankRow">
+    <div class="bankField">
+      <label>Account holder Name *</label>
+      <input type="text" id="accountHolderName" value="Sanskriti Collection" />
+    </div>
+
+    <div class="bankField">
+      <label>Account Number *</label>
+      <input type="text" id="accountNumber" value="3456 6776 6788 6778" />
+    </div>
+  </div>
+
+  <div class="bankRow single">
+    <div class="bankField">
+      <label>IFSC Code *</label>
+      <input type="text" id="ifscCode" value="BKID0005719" />
+    </div>
+
+    <button class="bankSaveBtn" id="bankSaveBtn">Save</button>
+  </div>
+
+</div>
+
+
+    <button class="confirmBtn" id="confirmBtn" disabled>
+      Confirm
+    </button>
+
+  </div>
+</div>
+
+
+
+
+<!-- REVIEW MODAL -->
+<div class="reviewOverlay" id="reviewOverlay">
+  <div class="reviewModal">
+
+    <div class="reviewHeader">
+      <h3>Please rate your experience with us</h3>
+      <span class="reviewClose" id="reviewClose"><img src="../assets/myOrders/cross.svg" alt=""></span>
+    </div>
+
+    <!-- Stars -->
+    <div class="reviewStars" id="reviewStars">
+      <img src="../assets/myOrders/Star.svg" data-value="1" />
+      <img src="../assets/myOrders/Star.svg" data-value="2" />
+      <img src="../assets/myOrders/Star.svg" data-value="3" />
+      <img src="../assets/myOrders/Star.svg" data-value="4" />
+      <img src="../assets/myOrders/Star.svg" data-value="5" />
+    </div>
+
+    <!-- Review text -->
+    <label class="reviewLabel">Write a review</label>
+    <textarea
+      class="reviewTextarea"
+      placeholder="We are excited to know from you"
+    ></textarea>
+
+    <!-- Upload -->
+     <label class="reviewUploadTitle">Share your photos</label>
+<div class="uploadRow reviewUploadRow">
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+  <div class="uploadBox">
+    <div class="uploadPlaceholder">
+      <img src="../assets/myOrders/uploadIcon.svg" class="uploadIcon" />
+      <span>Upload</span>
+    </div>
+    <input type="file" accept="image/*" />
+  </div>
+
+</div>
+
+
+    <button class="reviewPostBtn" id="reviewPostBtn" disabled>Post</button>
+
+
+  </div>
+</div>
+
+
+
+<!-- SUCCESS POPUP -->
+<div class="successOverlay" id="successOverlay">
+  <div class="successModal">
+
+    <span class="successClose" id="successClose"><img src="../assets/myOrders/cross.svg" alt=""></span>
+
+    <h3>Return request submitted</h3>
+    <p class="successText">
+      Your refund of ₹1197 will be initiated after return pickup
+    </p>
+
+    <div class="successAnimation">
+      <img src="../assets/myOrders/returnSuccessGif.gif" alt="success" />
+    </div>
+
+    <p class="thankText">Thank You for Shopping with us</p>
+
+  </div>
+</div>
+
+
+<!--  CANCEL REASON MODAL  -->
+<div class="cancelOverlay" id="cancelOverlay">
+  <div class="cancelModal">
+
+    <div class="cancelHeader">
+      <h3>Please Select the reason for cancellation *</h3>
+      <span class="cancelClose" id="cancelClose">✕</span>
+    </div>
+
+    <div class="cancelBody">
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Ordered by mistake</label>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Changed my mind</label>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Delivery time is too long</label>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Incorrect product selected (size / color / variant)</label>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Address or contact details need to be changed</label>
+      </label>
+
+      <label class="cancelCheckbox">
+        <input type="checkbox" />
+        <span class="customBox"></span>
+        <label>Placed duplicate order</label>
+      </label>
+
+    </div>
+
+    <button class="cancelBtn" id="cancelConfirmBtn" disabled>
+      Cancel
+    </button>
+
+  </div>
+</div>
+
+<!--  CANCEL SUCCESS MODAL  -->
+<div class="cancelSuccessOverlay" id="cancelSuccessOverlay">
+  <div class="cancelSuccessModal">
+
+    <span class="successClose" id="cancelSuccessClose">✕</span>
+
+    <h2>Your order has been cancelled</h2>
+    <p>Your refund will be processed within 7 business days</p>
+
+    <div class="successIcon">
+      <div class="greenCircle"><img src="../assets/myOrders/succuss.svg" alt=""></div>
+    </div>
+
+    <button class="continueShopping" id="continueShoppingBtn">
+      Continue Shopping
+    </button>
+
+  </div>
+</div>
+
+
+
+
+<script>
+    //  TRACK ORDER POPUP
+const trackBtn = document.getElementById("myOrdersTrackBtn");
+const trackOverlay = document.getElementById("trackOverlay");
+const trackClose = document.getElementById("trackClose");
+
+if (trackBtn) {
+  trackBtn.addEventListener("click", () => {
+    trackOverlay.style.display = "flex";
+  });
+}
+
+trackClose.addEventListener("click", () => {
+  trackOverlay.style.display = "none";
+});
+
+trackOverlay.addEventListener("click", (e) => {
+  if (e.target === trackOverlay) {
+    trackOverlay.style.display = "none";
+  }
+});
+
+//  SEARCH 
+const searchInput = document.getElementById("myOrdersSearchInput");
+const orderCards = document.querySelectorAll(".myOrdersCard");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase();
+  orderCards.forEach((card) => {
+    const title = card.querySelector(".myOrdersProductTitle")?.innerText.toLowerCase();
+    card.style.display = title && title.includes(searchValue) ? "block" : "none";
+  });
+});
+
+// RETURN POPUP OPEN / CLOSE 
+const returnBtn = document.getElementById("myOrdersReturnBtn");
+const returnOverlay = document.getElementById("returnOverlay");
+const returnClose = document.getElementById("returnClose");
+
+returnBtn.addEventListener("click", () => {
+  returnOverlay.style.display = "flex";
+  resetReturnForm(); 
+});
+
+returnClose.addEventListener("click", () => {
+  returnOverlay.style.display = "none";
+});
+
+returnOverlay.addEventListener("click", (e) => {
+  if (e.target === returnOverlay) {
+    returnOverlay.style.display = "none";
+  }
+});
+
+//  RETURN FORM ELEMENTS
+const reasonCheckboxes = document.querySelectorAll(".returnCheckbox input");
+const uploadInputs = document.querySelectorAll(".uploadBox input");
+const issueText = document.getElementById("issueText");
+const charCount = document.getElementById("charCount");
+const returnBtnFinal = document.getElementById("finalReturnBtn");
+const errorBox = document.getElementById("returnError");
+
+const reasonTitle = document.querySelector(".returnSection .returnTitle");
+const uploadTitle = document.getElementById("uploadTitle");
+const descTitle = issueText.previousElementSibling;
+let isSwitchingSection = false;
+
+const returnModal = document.querySelector("#returnOverlay .returnModal");
+returnModal.addEventListener("click", (e) => {
+  const clickedInsideUpload = e.target.closest(".uploadBox");
+
+  if (
+    uploadTouched &&
+    !isUploadValid() &&
+    !clickedInsideUpload
+  ) {
+    showError(uploadTitle, "Please upload at least 1 image");
+  }
+});
+
+
+let uploadedCount = 0;
+
+//  HELPERS 
+function clearErrors() {
+  errorBox.style.display = "none";
+  [reasonTitle, uploadTitle, descTitle].forEach((el) =>
+    el.classList.remove("errorTitle")
+  );
+}
+
+
+function showError(titleEl, msg) {
+  clearErrors();
+  titleEl.classList.add("errorTitle");
+
+  errorBox.querySelector(".errorText").innerText = msg;
+  errorBox.style.display = "flex";
+}
+
+function validateReasonOnBlur() {
+  if (!isReasonValid()) {
+    showError(reasonTitle, "Please select the reason for return");
+  }
+}
+
+function validateUploadOnBlur() {
+  if (!isUploadValid()) {
+    showError(uploadTitle, "Please upload at least 1 image");
+  }
+}
+
+function validateTextOnBlur() {
+  if (!isTextValid()) {
+    showError(descTitle, "Please describe your issue (minimum 5 words)");
+  }
+}
+
+//  VALIDATION CHECKS 
+function isReasonValid() {
+  return [...reasonCheckboxes].some((cb) => cb.checked);
+}
+
+function isUploadValid() {
+  return document.querySelectorAll(".uploadBox img.previewImg").length >= 1;
+}
+
+function isTextValid() {
+  const text = issueText.value.replace(/\n/g, " ").trim();
+  if (!text) return false;
+
+  const words = text.split(" ").filter(word => word.length > 0);
+
+  return words.length >= 5 && text.length <= 250;
+}
+
+
+//  BUTTON STATE 
+function updateButtonState() {
+  if (isReasonValid() && isUploadValid() && isTextValid()) {
+    returnBtnFinal.classList.add("active");
+    returnBtnFinal.disabled = false;
+  } else {
+    returnBtnFinal.classList.remove("active");
+    returnBtnFinal.disabled = true;
+  }
+}
+
+//  RESET FORM 
+function resetReturnForm() {
+  uploadedCount = 0;
+
+  reasonCheckboxes.forEach(cb => cb.checked = false);
+
+  document.querySelectorAll(".uploadBox img.previewImg").forEach(img => img.remove());
+
+  uploadInputs.forEach(input => input.value = "");
+
+  document.querySelectorAll(".uploadPlaceholder").forEach(ph => {
+    ph.style.display = "flex";
+  });
+
+  issueText.value = "";
+  charCount.innerText = "0/250";
+
+  clearErrors();
+  updateButtonState();
+}
+
+
+//  EVENTS 
+/* CHECKBOX */
+reasonCheckboxes.forEach(cb => {
+  cb.addEventListener("change", () => {
+    clearErrors();
+    updateButtonState();
+  });
+
+  cb.addEventListener("blur", validateReasonOnBlur);
+});
+
+/* IMAGE UPLOAD */
+uploadInputs.forEach((input) => {
+  input.addEventListener("change", function () {
+    if (uploadedCount >= 5) return;
+
+    const file = this.files[0];
+    if (!file) return;
+
+    uploadedCount++;
+
+const img = document.createElement("img");
+img.src = URL.createObjectURL(file);
+img.classList.add("previewImg");   
+this.parentElement.appendChild(img);
+
+// hide placeholder
+this.parentElement.querySelector(".uploadPlaceholder").style.display = "none";
+    clearErrors();
+    updateButtonState(); 
+    uploadTouched = false;
+  });
+});
+
+// uploadInputs.forEach(input => {
+//   input.addEventListener("blur", () => {
+//     if (!isUploadValid()) {
+//       showError(uploadTitle, "please upload at least 1 image");
+//     }
+//   });
+// });
+
+let uploadTouched = false;
+
+/* TEXTAREA + COUNTER */
+issueText.addEventListener("input", () => {
+  charCount.innerText = `${issueText.value.length}/250`;
+  clearErrors();
+  updateButtonState();
+});
+
+issueText.addEventListener("blur", () => {
+  if (!isTextValid()) {
+    showError(descTitle, "Please describe your issue (minimum 5 words)");
+  }
+});
+
+//  SEQUENCE ERRORS 
+uploadInputs[0].addEventListener("focus", () => {
+  uploadTouched = true;
+  if (!isReasonValid()) {
+    showError(reasonTitle, "Please select the reason for return");
+  }
+});
+
+issueText.addEventListener("focus", () => {
+  if (!isReasonValid()) {
+    showError(reasonTitle, "Please select the reason for return");
+  } else if (!isUploadValid()) {
+    showError(uploadTitle, "Please upload at least 1 image");
+  }
+});
+
+
+// close error 
+const errorClose = document.querySelector(".errorClose");
+if (errorClose) {
+  errorClose.addEventListener("click", clearErrors);
+}
+
+//  SUBMIT 
+returnBtnFinal.addEventListener("click", () => {
+  if (returnBtnFinal.disabled) return;
+
+  returnOverlay.style.display = "none";
+  resetConfirmModal();              // 👈 ADD
+  confirmOverlay.style.display = "flex";
+});
+
+
+
+
+
+// confirm modal logic
+const confirmOverlay = document.getElementById("confirmOverlay");
+const confirmClose = document.getElementById("confirmClose");
+const paymentBox = document.getElementById("paymentBox");
+const confirmBtn = document.getElementById("confirmBtn");
+const paymentOptions = document.querySelectorAll(".paymentCheckbox input");
+
+
+// RESET CONFIRM PAYMENT MODAL
+function resetConfirmModal() {
+  // uncheck payment checkboxes
+  paymentOptions.forEach(opt => opt.checked = false);
+
+  // reset payment box (same style, same position)
+  paymentBox.innerHTML = `<span class="changeAccount">Add Account</span>`;
+
+  // disable confirm button
+  confirmBtn.disabled = true;
+  confirmBtn.classList.remove("active");
+}
+
+
+
+// DEFAULT – even without checkbox
+paymentBox.innerHTML = `
+  <span class="changeAccount">Add Account</span>
+`;
+
+confirmBtn.disabled = true;
+confirmBtn.classList.remove("active");
+
+paymentOptions.forEach(option => {
+  option.addEventListener("change", () => {
+
+    // only one checkbox at a time
+    paymentOptions.forEach(o => {
+      if (o !== option) o.checked = false;
+    });
+
+    // BANK TRANSFER
+    if (option.checked && option.value === "bank") {
+      paymentBox.innerHTML = `
+        <span>David John</span><br>
+        Bank of India<br>
+        IFSC: BKID0005719<br>
+        Saving Account
+        <span class="changeAccount">Add Account</span>
+      `;
+
+      confirmBtn.disabled = false;
+      confirmBtn.classList.add("active");
+    }
+
+    // UPI
+    else if (option.checked && option.value === "upi") {
+      paymentBox.innerHTML = `
+        <span>UPI ID</span><br>
+        davidjohn@upi
+      `;
+
+      confirmBtn.disabled = false;
+      confirmBtn.classList.add("active");
+    }
+
+    // NONE SELECTED
+    else {
+      paymentBox.innerHTML = `
+        <span class="changeAccount">Add Account</span>
+      `;
+
+      confirmBtn.disabled = true;
+      confirmBtn.classList.remove("active");
+    }
+  });
+});
+
+const bankForm = document.getElementById("bankForm");
+const bankSaveBtn = document.getElementById("bankSaveBtn");
+const bankClose = document.getElementById("bankClose");
+
+// OPEN ADD ACCOUNT (exactly like screenshot)
+paymentBox.addEventListener("click", (e) => {
+  if (e.target.classList.contains("changeAccount")) {
+    paymentBox.style.display = "none";
+    confirmBtn.style.display = "none";
+    bankForm.style.display = "block";
+  }
+});
+
+// CLOSE ICON
+bankClose.addEventListener("click", () => {
+  bankForm.style.display = "none";
+  paymentBox.style.display = "block";
+  confirmBtn.style.display = "block";
+});
+
+// SAVE ACCOUNT
+bankSaveBtn.addEventListener("click", () => {
+  bankForm.style.display = "none";
+  paymentBox.style.display = "block";
+  confirmBtn.style.display = "block";
+
+  paymentBox.innerHTML = `
+    <span>Sanskriti Collection</span><br>
+    Bank of India<br>
+    IFSC: BKID0005719<br>
+    Saving Account
+    <span class="changeAccount">Change</span>
+  `;
+
+  confirmBtn.disabled = false;
+  confirmBtn.classList.add("active");
+});
+
+
+
+
+
+
+const successOverlay = document.getElementById("successOverlay");
+const successClose = document.getElementById("successClose");
+
+confirmBtn.addEventListener("click", () => {
+  confirmOverlay.style.display = "none";
+  resetConfirmModal();   
+  const img = document.querySelector(".successAnimation img");
+  img.style.animation = "none";
+  img.offsetHeight; 
+  img.style.animation = "";
+
+  successOverlay.style.display = "flex";
+
+   setTimeout(() => {
+    window.location.href = "../html/index.html";
+  }, 3000); // 3 seconds
+});
+
+/* close success popup */
+successClose.addEventListener("click", () => {
+  successOverlay.style.display = "none";
+});
+
+
+confirmClose.addEventListener("click", () => {
+  confirmOverlay.style.display = "none";
+  resetConfirmModal();   
+});
+
+
+
+//  REVIEW POPUP 
+
+const reviewOverlay = document.getElementById("reviewOverlay");
+const reviewClose = document.getElementById("reviewClose");
+const reviewPostBtn = document.getElementById("reviewPostBtn");
+const reviewTextarea = document.querySelector(".reviewTextarea");
+const reviewStars = document.querySelectorAll("#reviewStars img");
+const cancelSuccessTitle = document.querySelector("#cancelSuccessOverlay h2");
+const cancelSuccessText = document.querySelector("#cancelSuccessOverlay p");
+
+const reviewUploadInputs = document.querySelectorAll(
+  ".reviewUploadRow .uploadBox input[type='file']"
+);
+
+// RESET REVIEW MODAL
+function resetReviewModal() {
+  hasStar = false;
+  hasText = false;
+  hasImage = false;
+
+  // reset textarea
+  reviewTextarea.value = "";
+
+  // reset stars
+  reviewStars.forEach(star => {
+    star.src = "../assets/myOrders/Star.svg";
+  });
+
+  // reset upload previews
+  document
+    .querySelectorAll(".reviewUploadRow img.previewImg")
+    .forEach(img => img.remove());
+
+  // show upload placeholders again
+  document
+    .querySelectorAll(".reviewUploadRow .uploadPlaceholder")
+    .forEach(ph => ph.style.display = "flex");
+
+  // reset button
+  reviewPostBtn.disabled = true;
+  reviewPostBtn.classList.remove("active");
+}
+
+
+
+// stars section in order card
+const ratingSections = document.querySelectorAll(".myOrdersStars, .myOrdersRatingText");
+
+
+let hasStar = false;
+let hasText = false;
+let hasImage = false;
+
+
+function updatePostButton() {
+  if (hasStar || hasText || hasImage) {
+    reviewPostBtn.disabled = false;
+    reviewPostBtn.classList.add("active");
+  } else {
+    reviewPostBtn.disabled = true;
+    reviewPostBtn.classList.remove("active");
+  }
+}
+
+
+reviewStars.forEach((star, index) => {
+  star.addEventListener("click", () => {
+    hasStar = true;
+
+    reviewStars.forEach((s, i) => {
+      s.src =
+        i <= index
+          ? "../assets/myOrders/YellowStar.svg"
+          : "../assets/myOrders/Star.svg";
+    });
+
+    updatePostButton();
+  });
+});
+
+
+reviewTextarea.addEventListener("input", () => {
+  hasText = reviewTextarea.value.trim().length > 0;
+  updatePostButton();
+});
+
+reviewUploadInputs.forEach(input => {
+  input.addEventListener("change", () => {
+    hasImage = true;
+    updatePostButton();
+  });
+});
+
+
+
+// open review modal
+ratingSections.forEach(el => {
+  el.addEventListener("click", () => {
+    reviewOverlay.style.display = "flex";
+
+ resetReviewModal();
+initReviewUploadPreview();
+
+  });
+});
+
+
+// close modal
+reviewClose.addEventListener("click", () => {
+  reviewOverlay.style.display = "none";
+  resetReviewModal(); 
+});
+
+
+reviewPostBtn.addEventListener("click", () => {
+  if (reviewPostBtn.disabled) return;
+
+  // close review modal
+  reviewOverlay.style.display = "none";
+  resetReviewModal();
+
+  // ✨ UPDATE SUCCESS MODAL TEXT (REVIEW FLOW)
+  cancelSuccessTitle.innerText = "Thank you for your review!";
+  cancelSuccessText.innerText =
+    "Your feedback has been submitted successfully.";
+
+  // open existing cancel success modal
+  cancelSuccessOverlay.style.display = "flex";
+});
+
+
+
+
+
+//  REVIEW MODAL – UPLOAD IMAGE PREVIEW (NO VALIDATION)
+
+function initReviewUploadPreview() {
+  const reviewUploadInputs = document.querySelectorAll(
+    ".reviewUploadRow .uploadBox input[type='file']"
+  );
+  
+  reviewUploadInputs.forEach(input => {
+    input.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const uploadBox = this.parentElement;
+
+      // remove old preview if exists
+      const oldPreview = uploadBox.querySelector("img.previewImg");
+      if (oldPreview) {
+        URL.revokeObjectURL(oldPreview.src);
+        oldPreview.remove();
+      }
+
+      // create new preview image
+      const img = document.createElement("img");
+      img.src = URL.createObjectURL(file);
+      img.className = "previewImg";
+
+      uploadBox.appendChild(img);
+
+      // hide upload placeholder
+      const placeholder = uploadBox.querySelector(".uploadPlaceholder");
+      if (placeholder) {
+        placeholder.style.display = "none";
+      }
+    });
+  });
+}
+
+
+/* CANCEL MODAL LOGIC */
+
+const cancelOverlay = document.getElementById("cancelOverlay");
+const cancelSuccessOverlay = document.getElementById("cancelSuccessOverlay");
+
+const cancelConfirmBtn = document.getElementById("cancelConfirmBtn");
+const cancelClose = document.getElementById("cancelClose");
+const cancelSuccessClose = document.getElementById("cancelSuccessClose");
+const continueShoppingBtn = document.getElementById("continueShoppingBtn");
+
+const cancelCheckboxes = document.querySelectorAll(".cancelCheckbox input");
+
+/* OPEN CANCEL MODAL (example trigger) */
+document.querySelectorAll(".openCancelModal").forEach(btn => {
+  btn.addEventListener("click", () => {
+    console.log("yeds");
+    cancelOverlay.style.display = "flex";
+    resetCancelModal();
+  });
+});
+
+/* CLOSE CANCEL MODAL */
+cancelClose.addEventListener("click", () => {
+  cancelOverlay.style.display = "none";
+});
+
+/* ENABLE BUTTON IF AT LEAST ONE CHECKED */
+cancelCheckboxes.forEach(cb => {
+  cb.addEventListener("change", () => {
+    const checked = [...cancelCheckboxes].some(c => c.checked);
+    cancelConfirmBtn.disabled = !checked;
+    cancelConfirmBtn.classList.toggle("active", checked);
+  });
+});
+
+/* CONFIRM CANCEL */
+cancelConfirmBtn.addEventListener("click", () => {
+  if (cancelConfirmBtn.disabled) return;
+
+  cancelOverlay.style.display = "none";
+  cancelSuccessOverlay.style.display = "flex";
+});
+
+/* CLOSE SUCCESS */
+cancelSuccessClose.addEventListener("click", () => {
+  cancelSuccessOverlay.style.display = "none";
+
+  // reset to cancel default text
+  cancelSuccessTitle.innerText = "Your order has been cancelled";
+  cancelSuccessText.innerText =
+    "Your refund will be processed within 7 business days";
+});
+
+/* CONTINUE SHOPPING */
+continueShoppingBtn.addEventListener("click", () => {
+  cancelSuccessOverlay.style.display = "none";
+  // optional redirect
+  window.location.href = "../html/index.html";
+});
+
+/* RESET CANCEL MODAL */
+function resetCancelModal() {
+  cancelCheckboxes.forEach(cb => cb.checked = false);
+  cancelConfirmBtn.disabled = true;
+  cancelConfirmBtn.classList.remove("active");
+}
+
+</script>
+    <script src="../javascript/myOrders.js"></script>
+  </body>
+</html>

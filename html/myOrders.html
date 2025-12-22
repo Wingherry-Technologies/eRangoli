@@ -454,6 +454,50 @@
       <!-- Daynamic -->
     </div>
 
+    <!-- ADD ACCOUNT FORM (SCREENSHOT STYLE) -->
+<div class="bankForm" id="bankForm" style="display:none">
+
+  <div class="bankHeader">
+    <span>Account Details</span>
+    <span class="bankClose" id="bankClose">✕</span>
+  </div>
+
+  <div class="bankRow">
+    <div class="bankField">
+      <label>Bank Name *</label>
+      <input type="text" id="bankName" value="Bank of India" />
+    </div>
+
+    <div class="bankField">
+      <label>Branch Name *</label>
+      <input type="text" id="branchName" value="Srikalahasthi Branch" />
+    </div>
+  </div>
+
+  <div class="bankRow">
+    <div class="bankField">
+      <label>Account holder Name *</label>
+      <input type="text" id="accountHolderName" value="Sanskriti Collection" />
+    </div>
+
+    <div class="bankField">
+      <label>Account Number *</label>
+      <input type="text" id="accountNumber" value="3456 6776 6788 6778" />
+    </div>
+  </div>
+
+  <div class="bankRow single">
+    <div class="bankField">
+      <label>IFSC Code *</label>
+      <input type="text" id="ifscCode" value="BKID0005719" />
+    </div>
+
+    <button class="bankSaveBtn" id="bankSaveBtn">Save</button>
+  </div>
+
+</div>
+
+
     <button class="confirmBtn" id="confirmBtn" disabled>
       Confirm
     </button>

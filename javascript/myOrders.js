@@ -336,6 +336,47 @@ paymentOptions.forEach(option => {
   });
 });
 
+const bankForm = document.getElementById("bankForm");
+const bankSaveBtn = document.getElementById("bankSaveBtn");
+const bankClose = document.getElementById("bankClose");
+
+// OPEN ADD ACCOUNT (exactly like screenshot)
+paymentBox.addEventListener("click", (e) => {
+  if (e.target.classList.contains("changeAccount")) {
+    paymentBox.style.display = "none";
+    confirmBtn.style.display = "none";
+    bankForm.style.display = "block";
+  }
+});
+
+// CLOSE ICON
+bankClose.addEventListener("click", () => {
+  bankForm.style.display = "none";
+  paymentBox.style.display = "block";
+  confirmBtn.style.display = "block";
+});
+
+// SAVE ACCOUNT
+bankSaveBtn.addEventListener("click", () => {
+  bankForm.style.display = "none";
+  paymentBox.style.display = "block";
+  confirmBtn.style.display = "block";
+
+  paymentBox.innerHTML = `
+    <span>Sanskriti Collection</span><br>
+    Bank of India<br>
+    IFSC: BKID0005719<br>
+    Saving Account
+    <span class="changeAccount">Change</span>
+  `;
+
+  confirmBtn.disabled = false;
+  confirmBtn.classList.add("active");
+});
+
+
+
+
 
 
 const successOverlay = document.getElementById("successOverlay");
