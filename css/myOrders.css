@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito Sans" ;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
 }
 
 .myOrdersContainer {
@@ -53,12 +53,11 @@
   right: 0;
   bottom: 0;
 }
-.myOrdersHeaderRow{
-    display: flex;
+.myOrdersHeaderRow {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 
 .myOrdersHeaderSection h1 {
   position: relative;
@@ -86,7 +85,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 40px;
-    border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 8px;
   padding: 10px;
   background-color: #fafafa;
@@ -99,7 +98,7 @@
   display: flex;
   flex: 1;
   align-items: center;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 8px;
   padding: 5px 10px;
   background-color: #fafafa;
@@ -134,7 +133,7 @@
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 16px;
-    border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 8px;
 }
 .myOrdersProductMain {
@@ -259,14 +258,13 @@
   color: #3f3f3f;
   transition: all 0.2s;
 }
-#myOrdersCancelBtn
-{
+#myOrdersCancelBtn {
   background-color: #ffffff;
-  color: #8E8989;
+  color: #8e8989;
 }
-.myOrderBtnContainer{
-    display: flex;
-    gap: 20px;
+.myOrderBtnContainer {
+  display: flex;
+  gap: 20px;
 }
 
 .myOrdersActionInfo {
@@ -321,7 +319,7 @@
 .trackOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -353,7 +351,7 @@
 .trackHeader p {
   font-size: 17px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .trackClose {
@@ -366,7 +364,6 @@
   margin-top: 2rem;
   margin-left: 1rem;
   gap: 10px;
-  
 }
 
 .trackLeft {
@@ -390,18 +387,17 @@
   text-align: center;
 }
 
-
 .trackIcon {
   width: 50px;
   height: 50px;
-  background: #EFDFDF;
+  background: #efdfdf;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
 }
-.trackIcon img{
+.trackIcon img {
   width: 20px;
   height: 20px;
 }
@@ -445,19 +441,19 @@
 .trackText h4 {
   font-size: 14px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .trackText p {
   font-size: 12px;
-  color: #716B6B;
+  color: #716b6b;
 }
 
 /* return order pop up */
 .returnOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -477,14 +473,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #d9d9d9;
   padding-bottom: 10px;
 }
 
 .returnHeader h3 {
   font-size: 20px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .returnClose {
@@ -499,7 +495,7 @@
 .returnTitle {
   font-size: 15px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 10px;
   display: block;
 }
@@ -510,10 +506,10 @@
   gap: 10px;
   margin-bottom: 8px;
   font-size: 13px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 400;
   line-height: 25px;
-    cursor: pointer;
+  cursor: pointer;
   position: relative;
 }
 
@@ -530,7 +526,7 @@
 .returnCheckbox .customBox {
   width: 20px;
   height: 20px;
-  border: 2px solid #9e9e9e; 
+  border: 2px solid #9e9e9e;
   border-radius: 4px;
   background-color: #fff;
   box-sizing: border-box;
@@ -538,7 +534,7 @@
 
 /* Checked Image  */
 .returnCheckbox input[type="checkbox"]:checked + .customBox {
-  background-image: url("../assets/myOrders/checkSign.svg"); 
+  background-image: url("../assets/myOrders/checkSign.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px 14px;
@@ -549,7 +545,6 @@
   font-size: 14px;
 }
 
-
 .uploadRow {
   display: flex;
   gap: 10px;
@@ -558,7 +553,7 @@
 .uploadBox {
   width: 120px;
   height: 100px;
-  border: 1px solid #DEE1E6;
+  border: 1px solid #dee1e6;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -571,7 +566,7 @@
 .uploadPlaceholder {
   position: absolute;
   inset: 0;
-  z-index: 2;         
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -617,7 +612,7 @@
 textarea {
   width: 100%;
   height: 60px;
-  border: 1px solid #D6D6D6;
+  border: 1px solid #d6d6d6;
   border-radius: 8px;
   padding: 8px;
   font-size: 13px;
@@ -630,8 +625,6 @@ textarea {
   color: #888;
   margin-top: 4px;
 }
-
-
 
 /* Error styles */
 .errorTitle {
@@ -690,12 +683,11 @@ textarea {
   pointer-events: auto;
 }
 
-
 /* payment pop up  */
 .confirmOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -719,12 +711,12 @@ textarea {
 .confirmHeader {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #d9d9d9;
   padding-bottom: 10px;
 }
 
-.confirmHeader h3{
-  color: #3F3F3F;
+.confirmHeader h3 {
+  color: #3f3f3f;
   font-size: 20px;
   font-weight: 500;
 }
@@ -734,21 +726,21 @@ textarea {
   font-weight: 600;
   margin-top: 14px;
   margin-bottom: 10px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .confirmLabel {
   font-size: 13px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
   display: block;
 }
-.paymentModeTitle{
+.paymentModeTitle {
   margin-top: 50px;
 }
 
 .addressBox {
-  border: 1px solid #DEE1E6;
+  border: 1px solid #dee1e6;
   border-radius: 4px;
   padding: 10px;
   font-size: 13px;
@@ -757,15 +749,15 @@ textarea {
   width: 300px;
   font-weight: 400;
   font-size: 13px;
-  color: #716B6B;
+  color: #716b6b;
 }
 
-.address{
+.address {
   margin-top: 1.5rem;
 }
 
-.paymentBox{
-  border: 1px solid #DEE1E6;
+.paymentBox {
+  border: 1px solid #dee1e6;
   border-radius: 4px;
   padding: 10px;
   font-size: 13px;
@@ -773,7 +765,7 @@ textarea {
   height: 100px;
   font-weight: 400;
   font-size: 13px;
-  color: #716B6B;
+  color: #716b6b;
   overflow-y: auto;
 }
 
@@ -862,16 +854,14 @@ textarea {
   cursor: pointer;
 }
 
-
 /* Add Bank Account Popup (inside confirm modal) */
-
 
 /* ===== REVIEW MODAL ===== */
 
 .reviewOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -894,7 +884,7 @@ textarea {
 
 .reviewHeader h3 {
   font-size: 22px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 500;
 }
 
@@ -921,7 +911,7 @@ textarea {
 
 .reviewLabel {
   font-size: 14px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 500;
   margin: 10px 0 6px;
   display: block;
@@ -976,18 +966,16 @@ textarea {
   opacity: 1;
 }
 
-
 .reviewUploadTitle {
   font-size: 18px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-top: 2rem;
   display: block;
 }
 
-
 .myOrdersStars,
-.myOrdersRatingText{
+.myOrdersRatingText {
   cursor: pointer;
 }
 
@@ -1026,7 +1014,7 @@ textarea {
 .successModal h3 {
   font-size: 25px;
   font-weight: 700;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-top: 4rem;
   margin-bottom: 8px;
 }
@@ -1035,7 +1023,7 @@ textarea {
 .successText {
   font-size: 18px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 30px;
 }
 
@@ -1050,7 +1038,7 @@ textarea {
 .thankText {
   font-weight: 400;
   font-size: 18px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 /* animation */
@@ -1068,13 +1056,12 @@ textarea {
   }
 }
 
-
 /* ================= COMMON OVERLAY */
 .cancelOverlay,
 .cancelSuccessOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -1099,13 +1086,12 @@ textarea {
 .cancelHeader h3 {
   font-size: 18px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .cancelClose {
   cursor: pointer;
   font-size: 20px;
-  
 }
 
 .cancelBody {
@@ -1120,7 +1106,7 @@ textarea {
   line-height: 2rem;
   margin-bottom: 12px;
   cursor: pointer;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 /* hide real checkbox */
@@ -1133,7 +1119,7 @@ textarea {
 .cancelCheckbox .customBox {
   width: 20px;
   height: 20px;
-  border: 2px solid #716B6B;
+  border: 2px solid #716b6b;
   border-radius: 4px;
   flex-shrink: 0;
 }
@@ -1151,15 +1137,15 @@ textarea {
   margin-top: 24px;
   width: 160px;
   padding: 10px;
-  background: #716B6B;
+  background: #716b6b;
   border: none;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: not-allowed;
 }
 
 .cancelBtn.active {
-  background: #A10404;
+  background: #a10404;
   cursor: pointer;
 }
 
@@ -1180,13 +1166,13 @@ textarea {
   right: 16px;
   cursor: pointer;
   font-size: 20px;
-  color: #716B6B;
+  color: #716b6b;
 }
 
 .cancelSuccessModal h2 {
   font-size: 20px;
   font-weight: 500;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-top: 40px;
 }
 
@@ -1194,19 +1180,17 @@ textarea {
   margin-top: 8px;
   font-weight: 400;
   font-size: 15px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .successIcon {
   margin: 50px 0;
 }
 
-
-
 .continueShopping {
   background: none;
   border: none;
-  color: #A10404;
+  color: #a10404;
   font-size: 15px;
   font-weight: 400;
   cursor: pointer;
@@ -1216,7 +1200,6 @@ textarea {
   .myOrdersContainer {
     max-width: 100%;
   }
-
 }
 
 @media (max-width: 1024px) {
@@ -1310,63 +1293,57 @@ textarea {
     padding-top: 0;
   } */
 
-
-
-   .myOrdersSearchContainer{
+  .myOrdersSearchContainer {
     margin-bottom: 0;
     display: none;
-   }
+  }
 
-     .myOrdersHeaderSection h1 {
+  .myOrdersHeaderSection h1 {
     font-size: 28px;
     margin-left: 2rem;
   }
-  .myOrdersBackButton{
+  .myOrdersBackButton {
     padding-top: 10px;
   }
 
-    .myOrdersContentSection {
+  .myOrdersContentSection {
     padding: 30px;
-    padding-top: 10px
+    padding-top: 10px;
   }
-  
 
   /* track modal */
 
-  .trackModal{
+  .trackModal {
     overflow-y: auto;
     width: auto;
   }
 
   /* return modal */
-  .returnOverlay{
+  .returnOverlay {
     overflow-y: scroll;
   }
-  .returnModal{
+  .returnModal {
     margin-top: 10rem;
     width: 500px;
     padding-bottom: 5rem;
   }
 
-
   /* payment modal */
-  .confirmOverlay{
+  .confirmOverlay {
     overflow-y: auto;
   }
-  .confirmModal{
+  .confirmModal {
     margin-top: 5rem;
   }
 
   /* succes modal */
-  .successOverlay{
+  .successOverlay {
     overflow-y: auto;
   }
-  .successModal{
+  .successModal {
     margin-top: 5rem;
   }
 }
-
-
 
 @media (max-width: 400px) {
   .myOrdersHeaderSection h1 {
@@ -1378,66 +1355,63 @@ textarea {
     padding: 16px;
   }
 
-
   /* return track modal pop up  */
-  .returnModal{
+  .returnModal {
     width: auto;
   }
 
-  .uploadBox{
+  .uploadBox {
     width: 50px;
     height: 60px;
   }
 
-  .confirmModal{
+  .confirmModal {
     width: auto;
   }
 
-  .succussModal{
+  .succussModal {
     width: 320px;
   }
-  .thankText{
+  .thankText {
     margin-top: 1rem;
   }
 
   /* review modal  */
-  .reviewModal{
+  .reviewModal {
     width: 315px;
   }
 
   /* track modal */
-  .trackModal{
+  .trackModal {
     width: 320px;
     padding: 20px 20px;
   }
-  .trackBody{
+  .trackBody {
     margin-left: 0;
     gap: 0;
   }
-  .trackLeft{
+  .trackLeft {
     margin-right: 10px;
     gap: 25px;
   }
 
   /* cancel Modal */
   .cancelModal,
-  .cancelSuccessModal{
+  .cancelSuccessModal {
     width: 320px;
   }
 
-  .myOrdersBtn{
+  .myOrdersBtn {
     padding: 5px 5px;
     /* font-size: 10px; */
   }
 
-  .myOrderBtnContainer{
+  .myOrderBtnContainer {
     gap: 5px;
   }
-
 }
 
-
-@media (min-width:400px) and (max-width:768px){
+@media (min-width: 400px) and (max-width: 768px) {
   /* .trackBody{
     flex-direction: column;
     align-items: center;
@@ -1446,43 +1420,41 @@ textarea {
     margin: 0;
   } */
 
-    .myOrderBtnContainer{
+  .myOrderBtnContainer {
     gap: 10px;
   }
-    .myOrdersBtn{
+  .myOrdersBtn {
     padding: 8px 15px;
     /* font-size: 10px; */
   }
 
-    /* return track modal pop up  */
-  .returnModal{
+  /* return track modal pop up  */
+  .returnModal {
     width: auto;
   }
-/* confirm modal */
-  .confirmModal{
+  /* confirm modal */
+  .confirmModal {
     width: auto;
   }
-/* success modal */
-  .successModal{
+  /* success modal */
+  .successModal {
     width: 400px;
   }
 
   /* review modal */
-  .reviewModal{
+  .reviewModal {
     width: 400px;
   }
 
   /* cancel modal */
   .cancelModal,
-  .cancelSuccessModal{
+  .cancelSuccessModal {
     width: 400px;
   }
-
 }
 
 /* for title */
-@media (max-width:595px) {
-  
+@media (max-width: 595px) {
   .myOrdersHeaderSection {
     padding: 30px 25px;
   }
@@ -1494,7 +1466,7 @@ textarea {
     /* gap: 12px; */
   }
 
-  .myOrdersBackButton{
+  .myOrdersBackButton {
     margin-bottom: 10px;
   }
 
@@ -1522,11 +1494,10 @@ textarea {
   }
 }
 
-
 /* ===== ADD BANK ACCOUNT – SCREENSHOT MATCH ===== */
 
 .bankForm {
-  border: 1px solid #DEE1E6;
+  border: 1px solid #dee1e6;
   border-radius: 6px;
   padding: 14px;
   margin-top: 14px;
@@ -1537,7 +1508,7 @@ textarea {
   justify-content: space-between;
   font-size: 14px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 12px;
 }
 
@@ -1566,19 +1537,19 @@ textarea {
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 6px;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .bankField input {
   height: 36px;
   padding: 6px 10px;
-  border: 1px solid #D6D6D6;
+  border: 1px solid #d6d6d6;
   border-radius: 4px;
   font-size: 13px;
 }
 
 .bankSaveBtn {
-  background: #A10404;
+  background: #a10404;
   color: #fff;
   border: none;
   height: 36px;
@@ -1597,9 +1568,28 @@ textarea {
   display: flex;
   flex-direction: column;
   font-size: 12px;
+  color: #3f3f3f;
+  font-weight: 400;
+  margin-top: 0.5rem;
 }
-.bankAccountItem{
+.bankAccountItem {
   display: inline-flex;
   width: 210px;
   margin-bottom: 1rem;
+}
+
+.bankAccountDetails strong {
+  font-weight: 500;
+  color: #3f3f3f;
+}
+
+.bankAccountDetails span {
+  color: #3f3f3f;
+  font-weight: 500;
+}
+
+.bankAccountHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

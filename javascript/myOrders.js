@@ -2,7 +2,7 @@
 // HAMBURGER OPEN/CLOSE
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
-var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 const bar1 = document.querySelector(".mobile-search-bar-main");
 
 hamburger?.addEventListener("click", () => {
@@ -10,332 +10,336 @@ hamburger?.addEventListener("click", () => {
   // Toggle hamburger icon
   if (mobileMenu.classList.contains("menu-open")) {
     hamberMenuIcon.src = "../assets/master/X.svg";
-    document.querySelector(".bottom-nav").style.display="none"
-    document.querySelector("body").style.overflow="hidden"
-    bar1.style.display="none"
+    document.querySelector(".bottom-nav").style.display = "none";
+    document.querySelector("body").style.overflow = "hidden";
+    bar1.style.display = "none";
     window.scrollTo(0, 0);
-  }
-  else {
+  } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector(".bottom-nav").style.display="flex"
-    document.querySelector("body").style.overflow="auto"
-     bar1.style.display="block"
+    document.querySelector(".bottom-nav").style.display = "flex";
+    document.querySelector("body").style.overflow = "auto";
+    bar1.style.display = "block";
   }
 });
 
-document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-main>li , mobile-dropdown-sub>ul>li, .mobile-dropdown-sub>.extra-nav").forEach(item => {
+document
+  .querySelectorAll(
+    ".nav-item>span, .dropdown>li>span, .submenu-dropdown-main>li , mobile-dropdown-sub>ul>li, .mobile-dropdown-sub>.extra-nav"
+  )
+  .forEach((item) => {
     item.addEventListener("click", () => {
-        window.location.href = "../html/productcatalog.html";
+      window.location.href = "../html/productcatalog.html";
     });
-});
+  });
 // MOBILE DROPDOWN ACCORDION
 // ===============================
 // Level 1 Dropdown (Main Category)
 // ===============================
 const level1Dropdowns = document.querySelectorAll(".mobile-dropdown");
 
-level1Dropdowns.forEach(item => {
-    const header = item.querySelector(".dropdown-header");
+level1Dropdowns.forEach((item) => {
+  const header = item.querySelector(".dropdown-header");
 
-    header.addEventListener("click", (e) => {
-        e.stopPropagation();
+  header.addEventListener("click", (e) => {
+    e.stopPropagation();
 
-        // Close other level 1 dropdowns
-        level1Dropdowns.forEach(other => {
-            if (other !== item) {
-                other.classList.remove("open");
-            }
-        });
-
-        item.classList.toggle("open");
+    // Close other level 1 dropdowns
+    level1Dropdowns.forEach((other) => {
+      if (other !== item) {
+        other.classList.remove("open");
+      }
     });
-});
 
+    item.classList.toggle("open");
+  });
+});
 
 // ===============================
 // Level 2 Dropdown (Inside Category)
 // ===============================
 const level2Dropdowns = document.querySelectorAll(".mobile-dropdown-sub");
 
-level2Dropdowns.forEach(subItem => {
-    const subHeader = subItem.querySelector("span");
+level2Dropdowns.forEach((subItem) => {
+  const subHeader = subItem.querySelector("span");
 
-    subHeader.addEventListener("click", (e) => {
-        e.stopPropagation();
+  subHeader.addEventListener("click", (e) => {
+    e.stopPropagation();
 
-        // Close other level 2 menus inside the same main category only
-        const parentSubmenu = subItem.closest(".mobile-submenu");
-        const siblings = parentSubmenu.querySelectorAll(".mobile-dropdown-sub");
+    // Close other level 2 menus inside the same main category only
+    const parentSubmenu = subItem.closest(".mobile-submenu");
+    const siblings = parentSubmenu.querySelectorAll(".mobile-dropdown-sub");
 
-        siblings.forEach(other => {
-            if (other !== subItem) {
-                other.classList.remove("open-sub");
-            }
-        });
-
-        subItem.classList.toggle("open-sub");
+    siblings.forEach((other) => {
+      if (other !== subItem) {
+        other.classList.remove("open-sub");
+      }
     });
+
+    subItem.classList.toggle("open-sub");
+  });
 });
 
-var signup=true;
+var signup = true;
 
-const userprofileIcon=document.getElementById("user-profile-icon");
-const signupWrapper=document.getElementById("signup-wrapper");
+const userprofileIcon = document.getElementById("user-profile-icon");
+const signupWrapper = document.getElementById("signup-wrapper");
 
-const roundWishlist=document.getElementById("round-button-wishlist")
-const roundCart=document.getElementById("round-button-cart")
-const numberRounds=document.querySelectorAll(".number-of-round");
-const logoutDesktop=document.querySelector(".logout-option-desktop");
-const numberNoti=document.querySelector("#round-button-notification img");
-const notificationBox=document.querySelector(".notification-main-box");
+const roundWishlist = document.getElementById("round-button-wishlist");
+const roundCart = document.getElementById("round-button-cart");
+const numberRounds = document.querySelectorAll(".number-of-round");
+const logoutDesktop = document.querySelector(".logout-option-desktop");
+const numberNoti = document.querySelector("#round-button-notification img");
+const notificationBox = document.querySelector(".notification-main-box");
 
 const addToCartBtn = document.querySelector(".productOverviewAddToCart");
 
 // Mobile View
-const welcomeName=document.getElementById("welcome-name");
-const imageName=document.querySelector(".image-section .circle-image span")
+const welcomeName = document.getElementById("welcome-name");
+const imageName = document.querySelector(".image-section .circle-image span");
 
-const mobileMenus=document.querySelectorAll(".mobile-nav-menu")
-const mobileDropdown=document.querySelectorAll(".mobile-dropdown1")
-const mobileDropdown2=document.querySelectorAll(".mobile-dropdown2")
+const mobileMenus = document.querySelectorAll(".mobile-nav-menu");
+const mobileDropdown = document.querySelectorAll(".mobile-dropdown1");
+const mobileDropdown2 = document.querySelectorAll(".mobile-dropdown2");
 
-const bottomNav=document.querySelectorAll(".bottom-nav__item1")
-const logoutButton=document.querySelector(".logout-button")
-const mobileNotification=document.getElementById("bottom-nav-notification")
+const bottomNav = document.querySelectorAll(".bottom-nav__item1");
+const logoutButton = document.querySelector(".logout-button");
+const mobileNotification = document.getElementById("bottom-nav-notification");
 
-const bottomNumbers=document.querySelectorAll(".bottom-bar-numbers")
+const bottomNumbers = document.querySelectorAll(".bottom-bar-numbers");
 UpdateUI();
 
-function UpdateUI(){
-  if(signup){
-  userprofileIcon.style.display="block"
-  signupWrapper.style.display="none"
-  function toggleNotification(event) {
-    event.stopPropagation(); // VERY IMPORTANT
-    notificationBox.style.display =
-      notificationBox.style.display === "block" ? "none" : "block";
-      if(notificationBox.style.display==="block"){
-        document.querySelector("body").style.overflow="hidden"
+function UpdateUI() {
+  if (signup) {
+    userprofileIcon.style.display = "block";
+    signupWrapper.style.display = "none";
+    function toggleNotification(event) {
+      event.stopPropagation(); // VERY IMPORTANT
+      notificationBox.style.display =
+        notificationBox.style.display === "block" ? "none" : "block";
+      if (notificationBox.style.display === "block") {
+        document.querySelector("body").style.overflow = "hidden";
+      } else {
+        document.querySelector("body").style.overflow = "auto";
       }
-      else{
-        document.querySelector("body").style.overflow="auto"
+    }
+
+    // desktop click
+    numberNoti.addEventListener("click", toggleNotification);
+
+    // mobile click
+    mobileNotification.addEventListener("click", toggleNotification);
+
+    // click outside → hide
+    document.addEventListener("click", () => {
+      notificationBox.style.display = "none";
+    });
+
+    // prevent box clicks from closing itself
+    notificationBox.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+
+    roundWishlist.addEventListener("click", () => {
+      window.location.href = "../html/wishlist.html";
+    });
+    roundCart.addEventListener("click", () => {
+      window.location.href = "../html/cart.html";
+    });
+
+    numberRounds.forEach((numberRound) => {
+      if (numberRound.innerText != 0) {
+        numberRound.style.display = "block";
       }
-  }
+    });
 
-  // desktop click
-  numberNoti.addEventListener("click", toggleNotification);
+    logoutDesktop.addEventListener("click", () => {
+      signup = false;
+      UpdateUI();
+      window.location.href = "../html/index.html";
+    });
 
-  // mobile click
-  mobileNotification.addEventListener("click", toggleNotification);
+    welcomeName.innerText = "John David";
+    imageName.innerText = "JD";
 
-  // click outside → hide
-  document.addEventListener("click", () => {
-    notificationBox.style.display = "none";
-  });
+    mobileMenus.forEach((accountMen) => {
+      accountMen.classList.remove("not-logged-in");
+    });
 
-  // prevent box clicks from closing itself
-  notificationBox.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+    document
+      .getElementById("mobile-my-wishlist")
+      .addEventListener("click", () => {
+        window.location.href = "../html/wishlist.html";
+      });
 
-  roundWishlist.addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
-  roundCart.addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
+    document.getElementById("mobile-my-cart").addEventListener("click", () => {
+      window.location.href = "../html/cart.html";
+    });
 
-  numberRounds.forEach(numberRound => {
-    if(numberRound.innerText!=0){
-      numberRound.style.display="block"
-    }
-  });
+    document.getElementById("mobile-order").addEventListener("click", () => {
+      window.location.href = "../html/myOrders.html";
+    });
 
-  logoutDesktop.addEventListener("click",()=>{
-    signup=false;
-    UpdateUI()
-    window.location.href='../html/index.html'
-  })
+    document
+      .getElementById("mobile-my-profile")
+      .addEventListener("click", () => {
+        window.location.href = "../html/aboutYou.html";
+      });
 
-  welcomeName.innerText="John David"
-  imageName.innerText="JD"
-  
-  mobileMenus.forEach(accountMen => {
-    accountMen.classList.remove("not-logged-in")
-  });
+    document.getElementById("mobile-referal").addEventListener("click", () => {
+      window.location.href = "../html/coupons.html";
+    });
 
-  document.getElementById("mobile-my-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
+    document.getElementById("mobile-faqs").addEventListener("click", () => {
+      window.location.href = "../html/faq.html";
+    });
 
-  document.getElementById("mobile-my-cart").addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
+    document
+      .getElementById("mobile-customer-care")
+      .addEventListener("click", () => {
+        window.location.href = "../html/mywishlist.html";
+      });
 
-  document.getElementById("mobile-order").addEventListener("click",()=>{
-    window.location.href="../html/myOrders.html"
-  })
+    document
+      .getElementById("mobile-privacy-policy")
+      .addEventListener("click", () => {
+        window.location.href = "../html/privacyPolicy.html";
+      });
 
-  document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/aboutYou.html"
-  })
+    document
+      .getElementById("bottom-nav-wishlist")
+      .addEventListener("click", () => {
+        window.location.href = "../html/wishlist.html";
+      });
 
-  document.getElementById("mobile-referal").addEventListener("click",()=>{
-    window.location.href="../html/coupons.html"
-  })
+    document.getElementById("bottom-nav-cart").addEventListener("click", () => {
+      window.location.href = "../html/cart.html";
+    });
 
-  document.getElementById("mobile-faqs").addEventListener("click",()=>{
-    window.location.href="../html/faq.html"
-  })
+    logoutButton.style.display = "flex";
+    logoutButton.addEventListener("click", () => {
+      mobileMenu.classList.remove("menu-open");
+      hamberMenuIcon.src = "../assets/master/List.svg";
+      document.querySelector(".bottom-nav").style.display = "flex";
+      signup = false;
+      UpdateUI();
+      window.location.href = "../html/index.html";
 
-  document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
-  })
+      document.querySelector(".mobile-search-bar-main").style.display = "block";
+      document.querySelector("body").style.overflow = "auto";
+    });
 
-  document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{
-    window.location.href="../html/privacyPolicy.html"
-  })
-
-  document.getElementById("bottom-nav-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
-
-  document.getElementById("bottom-nav-cart").addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
-
-  logoutButton.style.display="flex";
-  logoutButton.addEventListener("click",()=>{
-    mobileMenu.classList.remove("menu-open");
-    hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector(".bottom-nav").style.display="flex";
-    signup=false
-    UpdateUI()
-    window.location.href='../html/index.html'
-
-    document.querySelector(".mobile-search-bar-main").style.display='block';
-    document.querySelector("body").style.overflow="auto";
-    
-  })
-
-  bottomNumbers.forEach(bottomNumber => {
-    if(bottomNumber.innerText>0){
-      bottomNumber.style.display="block"
-    }
-  });
-
-  
-}
-else{
-    userprofileIcon.style.display="none"
-    signupWrapper.style.display="block"
+    bottomNumbers.forEach((bottomNumber) => {
+      if (bottomNumber.innerText > 0) {
+        bottomNumber.style.display = "block";
+      }
+    });
+  } else {
+    userprofileIcon.style.display = "none";
+    signupWrapper.style.display = "block";
     numberNoti.addEventListener("click", () => {
-      document.getElementById("signupModal").style.display="flex"
-      notificationBox.style.display="none";
-      document.querySelector("body").style.overflow="auto"
+      document.getElementById("signupModal").style.display = "flex";
+      notificationBox.style.display = "none";
+      document.querySelector("body").style.overflow = "auto";
     });
-    roundWishlist.addEventListener("click",()=>{
-      document.getElementById("signupModal").style.display="flex"
-    })
-    roundCart.addEventListener("click",()=>{
-      document.getElementById("signupModal").style.display="flex"
-    })
-    numberRounds.forEach(numberRound => {
-      numberRound.style.display="none"
+    roundWishlist.addEventListener("click", () => {
+      document.getElementById("signupModal").style.display = "flex";
     });
-    welcomeName.innerText="Sign Up"
-    welcomeName.addEventListener("click",()=>{
-      window.location.href="../html/whoareyou.html"
-    })
-    imageName.innerText="eR"
+    roundCart.addEventListener("click", () => {
+      document.getElementById("signupModal").style.display = "flex";
+    });
+    numberRounds.forEach((numberRound) => {
+      numberRound.style.display = "none";
+    });
+    welcomeName.innerText = "Sign Up";
+    welcomeName.addEventListener("click", () => {
+      window.location.href = "../html/whoareyou.html";
+    });
+    imageName.innerText = "eR";
 
-    mobileMenus.forEach(accountMen => {
+    mobileMenus.forEach((accountMen) => {
       accountMen.classList.add("not-logged-in");
 
-      mobileDropdown.forEach(mobileDrop =>{
-        mobileDrop.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
-      mobileDropdown2.forEach(mobileDrop2 =>{
-        mobileDrop2.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
-      bottomNav.forEach(bottomNa=>{
-        bottomNa.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
+      mobileDropdown.forEach((mobileDrop) => {
+        mobileDrop.addEventListener("click", () => {
+          document.getElementById("signupModal").style.display = "flex";
+        });
+      });
+      mobileDropdown2.forEach((mobileDrop2) => {
+        mobileDrop2.addEventListener("click", () => {
+          document.getElementById("signupModal").style.display = "flex";
+        });
+      });
+      bottomNav.forEach((bottomNa) => {
+        bottomNa.addEventListener("click", () => {
+          document.getElementById("signupModal").style.display = "flex";
+        });
+      });
     });
-    logoutButton.style.display="none";
+    logoutButton.style.display = "none";
 
-    bottomNumbers.forEach(bottomNumber => {
-      bottomNumber.style.display="none"
+    bottomNumbers.forEach((bottomNumber) => {
+      bottomNumber.style.display = "none";
     });
-
   }
 }
 
 function handleScrollForMobile() {
-    const bar = document.querySelector(".mobile-search-bar-main");
-    const contentbar = document.querySelector(".mobile-search-bar");
-    const desktopERan = document.getElementById("desktop-erangoli-logo");
-    const mobileERan = document.getElementById("mobile-erangoli-logo");
-    const maginfyingMobile = document.getElementById("maginfying-mobile");
-    const mobileSuggestion = document.getElementById("mobile-suggestions");
-    const notificationBox = document.querySelector(".notification-main-box");
+  const bar = document.querySelector(".mobile-search-bar-main");
+  const contentbar = document.querySelector(".mobile-search-bar");
+  const desktopERan = document.getElementById("desktop-erangoli-logo");
+  const mobileERan = document.getElementById("mobile-erangoli-logo");
+  const maginfyingMobile = document.getElementById("maginfying-mobile");
+  const mobileSuggestion = document.getElementById("mobile-suggestions");
+  const notificationBox = document.querySelector(".notification-main-box");
 
-    // ⛔ stop if core elements are missing
-    if (!bar || !contentbar) return;
+  // ⛔ stop if core elements are missing
+  if (!bar || !contentbar) return;
 
-    if (window.innerWidth <= 595) {
-        if (window.scrollY > 10) {
-            bar.style.position = "fixed";
-            bar.style.backgroundColor = "transparent";
-            bar.style.top = "-2px";
-            bar.style.left = "40px";
+  if (window.innerWidth <= 595) {
+    if (window.scrollY > 10) {
+      bar.style.position = "fixed";
+      bar.style.backgroundColor = "transparent";
+      bar.style.top = "-2px";
+      bar.style.left = "40px";
 
-            contentbar.style.border = "1px solid #D9D9D9";
-            contentbar.style.backgroundColor = "transparent";
-            contentbar.style.borderLeft = "0px";
-            contentbar.style.borderRadius = "0px 30px 30px 0px";
-            contentbar.style.zIndex = 999;
-            contentbar.style.padding = "8px 10px";
+      contentbar.style.border = "1px solid #D9D9D9";
+      contentbar.style.backgroundColor = "transparent";
+      contentbar.style.borderLeft = "0px";
+      contentbar.style.borderRadius = "0px 30px 30px 0px";
+      contentbar.style.zIndex = 999;
+      contentbar.style.padding = "8px 10px";
 
-            desktopERan && (desktopERan.style.display = "none");
-            mobileERan && (mobileERan.style.display = "inline-block");
-            maginfyingMobile && (maginfyingMobile.style.display = "none");
+      desktopERan && (desktopERan.style.display = "none");
+      mobileERan && (mobileERan.style.display = "inline-block");
+      maginfyingMobile && (maginfyingMobile.style.display = "none");
 
-            mobileSuggestion && (mobileSuggestion.style.top = "80px");
-            notificationBox && (notificationBox.style.top = "130px");
-
-        } else {
-            bar.style.position = "relative";
-            bar.style.backgroundColor = "#f7f7f7";
-            bar.style.top = "75px";
-            bar.style.left = "0px";
-
-            contentbar.style.border = "none";
-            contentbar.style.borderRadius = "30px";
-            contentbar.style.backgroundColor = "white";
-
-            desktopERan && (desktopERan.style.display = "flex");
-            mobileERan && (mobileERan.style.display = "none");
-            maginfyingMobile && (maginfyingMobile.style.display = "block");
-
-            mobileSuggestion && (mobileSuggestion.style.top = "150px");
-        }
+      mobileSuggestion && (mobileSuggestion.style.top = "80px");
+      notificationBox && (notificationBox.style.top = "130px");
     } else {
-        bar.style = "";
-        contentbar.style = "";
+      bar.style.position = "relative";
+      bar.style.backgroundColor = "#f7f7f7";
+      bar.style.top = "75px";
+      bar.style.left = "0px";
 
-        desktopERan && (desktopERan.style.display = "flex");
-        mobileERan && (mobileERan.style.display = "none");
-        maginfyingMobile && (maginfyingMobile.style.display = "block");
+      contentbar.style.border = "none";
+      contentbar.style.borderRadius = "30px";
+      contentbar.style.backgroundColor = "white";
+
+      desktopERan && (desktopERan.style.display = "flex");
+      mobileERan && (mobileERan.style.display = "none");
+      maginfyingMobile && (maginfyingMobile.style.display = "block");
+
+      mobileSuggestion && (mobileSuggestion.style.top = "150px");
     }
-}
+  } else {
+    bar.style = "";
+    contentbar.style = "";
 
+    desktopERan && (desktopERan.style.display = "flex");
+    mobileERan && (mobileERan.style.display = "none");
+    maginfyingMobile && (maginfyingMobile.style.display = "block");
+  }
+}
 
 // Run on scroll
 window.addEventListener("scroll", handleScrollForMobile);
@@ -345,8 +349,6 @@ window.addEventListener("resize", handleScrollForMobile);
 
 // Run once on initial load
 handleScrollForMobile();
-
-
 
 //  TRACK ORDER POPUP
 const trackBtn = document.getElementById("myOrdersTrackBtn");
@@ -369,26 +371,29 @@ trackOverlay.addEventListener("click", (e) => {
   }
 });
 
-//  SEARCH 
+//  SEARCH
 const searchInput = document.getElementById("myOrdersSearchInput");
 const orderCards = document.querySelectorAll(".myOrdersCard");
 
 searchInput.addEventListener("input", function () {
   const searchValue = this.value.toLowerCase();
   orderCards.forEach((card) => {
-    const title = card.querySelector(".myOrdersProductTitle")?.innerText.toLowerCase();
-    card.style.display = title && title.includes(searchValue) ? "block" : "none";
+    const title = card
+      .querySelector(".myOrdersProductTitle")
+      ?.innerText.toLowerCase();
+    card.style.display =
+      title && title.includes(searchValue) ? "block" : "none";
   });
 });
 
-// RETURN POPUP OPEN / CLOSE 
+// RETURN POPUP OPEN / CLOSE
 const returnBtn = document.getElementById("myOrdersReturnBtn");
 const returnOverlay = document.getElementById("returnOverlay");
 const returnClose = document.getElementById("returnClose");
 
 returnBtn.addEventListener("click", () => {
   returnOverlay.style.display = "flex";
-  resetReturnForm(); 
+  resetReturnForm();
 });
 
 returnClose.addEventListener("click", () => {
@@ -418,26 +423,20 @@ const returnModal = document.querySelector("#returnOverlay .returnModal");
 returnModal.addEventListener("click", (e) => {
   const clickedInsideUpload = e.target.closest(".uploadBox");
 
-  if (
-    uploadTouched &&
-    !isUploadValid() &&
-    !clickedInsideUpload
-  ) {
+  if (uploadTouched && !isUploadValid() && !clickedInsideUpload) {
     showError(uploadTitle, "Please upload at least 1 image");
   }
 });
 
-
 let uploadedCount = 0;
 
-//  HELPERS 
+//  HELPERS
 function clearErrors() {
   errorBox.style.display = "none";
   [reasonTitle, uploadTitle, descTitle].forEach((el) =>
     el.classList.remove("errorTitle")
   );
 }
-
 
 function showError(titleEl, msg) {
   clearErrors();
@@ -465,7 +464,7 @@ function validateTextOnBlur() {
   }
 }
 
-//  VALIDATION CHECKS 
+//  VALIDATION CHECKS
 function isReasonValid() {
   return [...reasonCheckboxes].some((cb) => cb.checked);
 }
@@ -478,13 +477,12 @@ function isTextValid() {
   const text = issueText.value.replace(/\n/g, " ").trim();
   if (!text) return false;
 
-  const words = text.split(" ").filter(word => word.length > 0);
+  const words = text.split(" ").filter((word) => word.length > 0);
 
   return words.length >= 5 && text.length <= 250;
 }
 
-
-//  BUTTON STATE 
+//  BUTTON STATE
 function updateButtonState() {
   if (isReasonValid() && isUploadValid() && isTextValid()) {
     returnBtnFinal.classList.add("active");
@@ -495,17 +493,19 @@ function updateButtonState() {
   }
 }
 
-//  RESET FORM 
+//  RESET FORM
 function resetReturnForm() {
   uploadedCount = 0;
 
-  reasonCheckboxes.forEach(cb => cb.checked = false);
+  reasonCheckboxes.forEach((cb) => (cb.checked = false));
 
-  document.querySelectorAll(".uploadBox img.previewImg").forEach(img => img.remove());
+  document
+    .querySelectorAll(".uploadBox img.previewImg")
+    .forEach((img) => img.remove());
 
-  uploadInputs.forEach(input => input.value = "");
+  uploadInputs.forEach((input) => (input.value = ""));
 
-  document.querySelectorAll(".uploadPlaceholder").forEach(ph => {
+  document.querySelectorAll(".uploadPlaceholder").forEach((ph) => {
     ph.style.display = "flex";
   });
 
@@ -516,10 +516,9 @@ function resetReturnForm() {
   updateButtonState();
 }
 
-
-//  EVENTS 
+//  EVENTS
 /* CHECKBOX */
-reasonCheckboxes.forEach(cb => {
+reasonCheckboxes.forEach((cb) => {
   cb.addEventListener("change", () => {
     clearErrors();
     updateButtonState();
@@ -538,15 +537,16 @@ uploadInputs.forEach((input) => {
 
     uploadedCount++;
 
-const img = document.createElement("img");
-img.src = URL.createObjectURL(file);
-img.classList.add("previewImg");   
-this.parentElement.appendChild(img);
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.classList.add("previewImg");
+    this.parentElement.appendChild(img);
 
-// hide placeholder
-this.parentElement.querySelector(".uploadPlaceholder").style.display = "none";
+    // hide placeholder
+    this.parentElement.querySelector(".uploadPlaceholder").style.display =
+      "none";
     clearErrors();
-    updateButtonState(); 
+    updateButtonState();
     uploadTouched = false;
   });
 });
@@ -574,7 +574,7 @@ issueText.addEventListener("blur", () => {
   }
 });
 
-//  SEQUENCE ERRORS 
+//  SEQUENCE ERRORS
 uploadInputs[0].addEventListener("focus", () => {
   uploadTouched = true;
   if (!isReasonValid()) {
@@ -590,25 +590,20 @@ issueText.addEventListener("focus", () => {
   }
 });
 
-
-// close error 
+// close error
 const errorClose = document.querySelector(".errorClose");
 if (errorClose) {
   errorClose.addEventListener("click", clearErrors);
 }
 
-//  SUBMIT 
+//  SUBMIT
 returnBtnFinal.addEventListener("click", () => {
   if (returnBtnFinal.disabled) return;
 
   returnOverlay.style.display = "none";
-  resetConfirmModal();              // 👈 ADD
+  resetConfirmModal(); // 👈 ADD
   confirmOverlay.style.display = "flex";
 });
-
-
-
-
 
 // confirm modal logic
 const confirmOverlay = document.getElementById("confirmOverlay");
@@ -619,16 +614,16 @@ const paymentOptions = document.querySelectorAll(".paymentCheckbox input");
 
 // RESET CONFIRM PAYMENT MODAL
 function resetConfirmModal() {
-  paymentOptions.forEach(opt => opt.checked = false);
+  paymentOptions.forEach((opt) => (opt.checked = false));
   paymentBox.innerHTML = "";
   confirmBtn.disabled = true;
   confirmBtn.classList.remove("active");
 }
 // NAYA CODE - Bank accounts ko preserve karta hai
-paymentOptions.forEach(option => {
+paymentOptions.forEach((option) => {
   option.addEventListener("change", () => {
     // Uncheck other options
-    paymentOptions.forEach(o => {
+    paymentOptions.forEach((o) => {
       if (o !== option) o.checked = false;
     });
 
@@ -645,13 +640,15 @@ paymentOptions.forEach(option => {
         `;
         confirmBtn.disabled = true;
         confirmBtn.classList.remove("active");
-        
-        document.getElementById("addAccountBtn").addEventListener("click", () => {
-          resetBankForm();
-          bankForm.style.display = "flex";
-          paymentBox.style.display = "none";
-          confirmBtn.style.display = "none";
-        });
+
+        document
+          .getElementById("addAccountBtn")
+          .addEventListener("click", () => {
+            resetBankForm();
+            bankForm.style.display = "flex";
+            paymentBox.style.display = "none";
+            confirmBtn.style.display = "none";
+          });
       }
     }
     // UPI
@@ -731,7 +728,7 @@ function renderBankAccounts() {
     confirmBtn.disabled = true;
     confirmBtn.classList.remove("active");
     confirmBtn.style.display = "block";
-    
+
     document.getElementById("addAccountBtn").addEventListener("click", () => {
       resetBankForm();
       bankForm.style.display = "flex";
@@ -741,19 +738,22 @@ function renderBankAccounts() {
     return;
   }
 
-  let html = '';
-  
+  let html = "";
+
   bankAccounts.forEach((account, index) => {
     html += `
       <div class="bankAccountItem">
         <label class="bankAccountCheckbox">
-          <input type="checkbox" name="selectedBank" value="${index}" />
-          <span class="customBox">Account ${index + 1}</span>
+          <div class="bankAccountHeader">
+  <input type="checkbox" name="selectedBank" value="${index}" />
+  <span class="customBox">Account ${index + 1}</span>
+</div>
+
           <div class="bankAccountDetails">
             <strong>${account.holder}</strong>
-            <span>${account.bank}, ${account.branch}</span>
+            <span>${account.bank}</span>
+            <span>(IFSC:${account.ifsc})</span>
             <span>A/C: ${account.acc}</span>
-            <span>IFSC: ${account.ifsc}</span>
           </div>
         </label>
       </div>
@@ -763,35 +763,39 @@ function renderBankAccounts() {
   html += `<span class="changeAccount" id="addAnotherAccountBtn">Add Another Account</span>`;
 
   paymentBox.innerHTML = html;
-  
+
   confirmBtn.style.display = "block";
   confirmBtn.disabled = true;
   confirmBtn.classList.remove("active");
 
   // Checkboxes ke event listeners
-  const bankCheckboxes = paymentBox.querySelectorAll('input[name="selectedBank"]');
-  bankCheckboxes.forEach(checkbox => {
+  const bankCheckboxes = paymentBox.querySelectorAll(
+    'input[name="selectedBank"]'
+  );
+  bankCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
-        bankCheckboxes.forEach(cb => {
+        bankCheckboxes.forEach((cb) => {
           if (cb !== checkbox) cb.checked = false;
         });
         confirmBtn.disabled = false;
         confirmBtn.classList.add("active");
       } else {
-        const anyChecked = [...bankCheckboxes].some(cb => cb.checked);
+        const anyChecked = [...bankCheckboxes].some((cb) => cb.checked);
         confirmBtn.disabled = !anyChecked;
         confirmBtn.classList.toggle("active", anyChecked);
       }
     });
   });
 
-  document.getElementById("addAnotherAccountBtn").addEventListener("click", () => {
-    resetBankForm();
-    bankForm.style.display = "flex";
-    paymentBox.style.display = "none";
-    confirmBtn.style.display = "none";
-  });
+  document
+    .getElementById("addAnotherAccountBtn")
+    .addEventListener("click", () => {
+      resetBankForm();
+      bankForm.style.display = "flex";
+      paymentBox.style.display = "none";
+      confirmBtn.style.display = "none";
+    });
 }
 // BANK FORM VALIDATION
 // BANK FORM VALIDATION
@@ -814,7 +818,7 @@ bankNameInput.addEventListener("input", (e) => {
   // Remove digits and special characters, keep only letters and spaces
   value = value.replace(/[^a-zA-Z\s]/g, "");
   e.target.value = value;
-  
+
   if (value.trim() === "") {
     showInputError("bankNameError", "Bank name is required");
   } else if (value.trim().length < 2) {
@@ -831,11 +835,14 @@ branchNameInput.addEventListener("input", (e) => {
   // Remove digits and special characters, keep only letters and spaces
   value = value.replace(/[^a-zA-Z\s]/g, "");
   e.target.value = value;
-  
+
   if (value.trim() === "") {
     showInputError("branchNameError", "Branch name is required");
   } else if (value.trim().length < 2) {
-    showInputError("branchNameError", "Branch name must be at least 2 characters");
+    showInputError(
+      "branchNameError",
+      "Branch name must be at least 2 characters"
+    );
   } else {
     clearInputError("branchNameError");
   }
@@ -848,11 +855,14 @@ accountHolderInput.addEventListener("input", (e) => {
   // Remove digits and special characters, keep only letters and spaces
   value = value.replace(/[^a-zA-Z\s]/g, "");
   e.target.value = value;
-  
+
   if (value.trim() === "") {
     showInputError("accountHolderNameError", "Account holder name is required");
   } else if (value.trim().length < 2) {
-    showInputError("accountHolderNameError", "Name must be at least 2 characters");
+    showInputError(
+      "accountHolderNameError",
+      "Name must be at least 2 characters"
+    );
   } else {
     clearInputError("accountHolderNameError");
   }
@@ -865,13 +875,19 @@ accountNumberInput.addEventListener("input", (e) => {
   // Remove everything except digits
   value = value.replace(/\D/g, "");
   e.target.value = value;
-  
+
   if (value === "") {
     showInputError("accountNumberError", "Account number is required");
   } else if (value.length < 9) {
-    showInputError("accountNumberError", "Account number must be at least 9 digits");
+    showInputError(
+      "accountNumberError",
+      "Account number must be at least 9 digits"
+    );
   } else if (value.length > 18) {
-    showInputError("accountNumberError", "Account number cannot exceed 18 digits");
+    showInputError(
+      "accountNumberError",
+      "Account number cannot exceed 18 digits"
+    );
   } else {
     clearInputError("accountNumberError");
   }
@@ -886,7 +902,7 @@ ifscCodeInput.addEventListener("input", (e) => {
   // Convert to uppercase
   value = value.toUpperCase();
   e.target.value = value;
-  
+
   if (value === "") {
     showInputError("ifscError", "IFSC code is required");
   } else if (value.length !== 11) {
@@ -906,9 +922,6 @@ function resetBankForm() {
   document.getElementById("ifscCode").value = "";
 }
 
-
-
-
 const successOverlay = document.getElementById("successOverlay");
 const successClose = document.getElementById("successClose");
 
@@ -916,10 +929,10 @@ confirmBtn.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
   resetConfirmModal();
   bankAccounts = [];
-  
+
   const img = document.querySelector(".successAnimation img");
   img.style.animation = "none";
-  img.offsetHeight; 
+  img.offsetHeight;
   img.style.animation = "";
 
   successOverlay.style.display = "flex";
@@ -934,15 +947,12 @@ successClose.addEventListener("click", () => {
   successOverlay.style.display = "none";
 });
 
-
 confirmClose.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
-  resetConfirmModal();   
+  resetConfirmModal();
 });
 
-
-
-//  REVIEW POPUP 
+//  REVIEW POPUP
 
 const reviewOverlay = document.getElementById("reviewOverlay");
 const reviewClose = document.getElementById("reviewClose");
@@ -966,35 +976,33 @@ function resetReviewModal() {
   reviewTextarea.value = "";
 
   // reset stars
-  reviewStars.forEach(star => {
+  reviewStars.forEach((star) => {
     star.src = "../assets/myOrders/Star.svg";
   });
 
   // reset upload previews
   document
     .querySelectorAll(".reviewUploadRow img.previewImg")
-    .forEach(img => img.remove());
+    .forEach((img) => img.remove());
 
   // show upload placeholders again
   document
     .querySelectorAll(".reviewUploadRow .uploadPlaceholder")
-    .forEach(ph => ph.style.display = "flex");
+    .forEach((ph) => (ph.style.display = "flex"));
 
   // reset button
   reviewPostBtn.disabled = true;
   reviewPostBtn.classList.remove("active");
 }
 
-
-
 // stars section in order card
-const ratingSections = document.querySelectorAll(".myOrdersStars, .myOrdersRatingText");
-
+const ratingSections = document.querySelectorAll(
+  ".myOrdersStars, .myOrdersRatingText"
+);
 
 let hasStar = false;
 let hasText = false;
 let hasImage = false;
-
 
 function updatePostButton() {
   if (hasStar || hasText || hasImage) {
@@ -1005,7 +1013,6 @@ function updatePostButton() {
     reviewPostBtn.classList.remove("active");
   }
 }
-
 
 reviewStars.forEach((star, index) => {
   star.addEventListener("click", () => {
@@ -1022,39 +1029,33 @@ reviewStars.forEach((star, index) => {
   });
 });
 
-
 reviewTextarea.addEventListener("input", () => {
   hasText = reviewTextarea.value.trim().length > 0;
   updatePostButton();
 });
 
-reviewUploadInputs.forEach(input => {
+reviewUploadInputs.forEach((input) => {
   input.addEventListener("change", () => {
     hasImage = true;
     updatePostButton();
   });
 });
 
-
-
 // open review modal
-ratingSections.forEach(el => {
+ratingSections.forEach((el) => {
   el.addEventListener("click", () => {
     reviewOverlay.style.display = "flex";
 
- resetReviewModal();
-initReviewUploadPreview();
-
+    resetReviewModal();
+    initReviewUploadPreview();
   });
 });
-
 
 // close modal
 reviewClose.addEventListener("click", () => {
   reviewOverlay.style.display = "none";
-  resetReviewModal(); 
+  resetReviewModal();
 });
-
 
 reviewPostBtn.addEventListener("click", () => {
   if (reviewPostBtn.disabled) return;
@@ -1072,18 +1073,14 @@ reviewPostBtn.addEventListener("click", () => {
   cancelSuccessOverlay.style.display = "flex";
 });
 
-
-
-
-
 //  REVIEW MODAL – UPLOAD IMAGE PREVIEW (NO VALIDATION)
 
 function initReviewUploadPreview() {
   const reviewUploadInputs = document.querySelectorAll(
     ".reviewUploadRow .uploadBox input[type='file']"
   );
-  
-  reviewUploadInputs.forEach(input => {
+
+  reviewUploadInputs.forEach((input) => {
     input.addEventListener("change", function () {
       const file = this.files[0];
       if (!file) return;
@@ -1113,7 +1110,6 @@ function initReviewUploadPreview() {
   });
 }
 
-
 /* CANCEL MODAL LOGIC */
 
 const cancelOverlay = document.getElementById("cancelOverlay");
@@ -1127,7 +1123,7 @@ const continueShoppingBtn = document.getElementById("continueShoppingBtn");
 const cancelCheckboxes = document.querySelectorAll(".cancelCheckbox input");
 
 /* OPEN CANCEL MODAL (example trigger) */
-document.querySelectorAll(".openCancelModal").forEach(btn => {
+document.querySelectorAll(".openCancelModal").forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log("yeds");
     cancelOverlay.style.display = "flex";
@@ -1141,9 +1137,9 @@ cancelClose.addEventListener("click", () => {
 });
 
 /* ENABLE BUTTON IF AT LEAST ONE CHECKED */
-cancelCheckboxes.forEach(cb => {
+cancelCheckboxes.forEach((cb) => {
   cb.addEventListener("change", () => {
-    const checked = [...cancelCheckboxes].some(c => c.checked);
+    const checked = [...cancelCheckboxes].some((c) => c.checked);
     cancelConfirmBtn.disabled = !checked;
     cancelConfirmBtn.classList.toggle("active", checked);
   });
@@ -1176,7 +1172,7 @@ continueShoppingBtn.addEventListener("click", () => {
 
 /* RESET CANCEL MODAL */
 function resetCancelModal() {
-  cancelCheckboxes.forEach(cb => cb.checked = false);
+  cancelCheckboxes.forEach((cb) => (cb.checked = false));
   cancelConfirmBtn.disabled = true;
   cancelConfirmBtn.classList.remove("active");
 }
