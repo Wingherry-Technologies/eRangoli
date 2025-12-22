@@ -978,39 +978,39 @@
           <label class="returnTitle">Select reason for returning *</label>
 
           <div class="returnCheckbox">
-            <input type="checkbox" />
+            <input type="checkbox" id="itemArrived" />
              <span class="customBox"></span>
-            <label>Item arrived damaged or broken</label>
+            <label for="itemArrived">Item arrived damaged or broken</label>
+          </div>
+
+          <div class="returnCheckbox">
+            <input type="checkbox" id="itemDifferent" />
+            <span class="customBox"></span>
+            <label for="itemDifferent">Item is different from what was shown</label>
           </div>
 
           <div class="returnCheckbox">
             <input type="checkbox" />
             <span class="customBox"></span>
-            <label>Item is different from what was shown</label>
+            <label for="itemArrived">Wrong item received</label>
           </div>
 
           <div class="returnCheckbox">
-            <input type="checkbox" />
+            <input type="checkbox" id="itemSize" />
             <span class="customBox"></span>
-            <label>Wrong item received</label>
+            <label for="itemSize">Size/Dimensions do not match description</label>
           </div>
 
           <div class="returnCheckbox">
-            <input type="checkbox" />
+            <input type="checkbox" id="itemDefected"/>
             <span class="customBox"></span>
-            <label>Size/Dimensions do not match description</label>
+            <label for="itemDefected">Received a defective product</label>
           </div>
 
           <div class="returnCheckbox">
-            <input type="checkbox" />
+            <input type="checkbox" id="itemMissingParts"/>
             <span class="customBox"></span>
-            <label>Received a defective product</label>
-          </div>
-
-          <div class="returnCheckbox">
-            <input type="checkbox" />
-            <span class="customBox"></span>
-            <label>Item has missing parts</label>
+            <label for="itemMissingParts">Item has missing parts</label>
           </div>
         </div>
 
@@ -1146,34 +1146,39 @@
   <div class="bankRow">
     <div class="bankField">
       <label>Bank Name *</label>
-      <input type="text" id="bankName" value="Bank of India" />
+      <input type="text" id="bankName" placeholder="Enter bank name" />
+      <span class="inputError" id="bankNameError"></span>
     </div>
 
     <div class="bankField">
       <label>Branch Name *</label>
-      <input type="text" id="branchName" value="Srikalahasthi Branch" />
+      <input type="text" id="branchName" placeholder="Enter bank name" />
+      <span class="inputError" id="branchNameError"></span>
     </div>
   </div>
 
   <div class="bankRow">
     <div class="bankField">
       <label>Account holder Name *</label>
-      <input type="text" id="accountHolderName" value="Sanskriti Collection" />
+      <input type="text" id="accountHolderName" placeholder="Enter account number" />
+      <span class="inputError" id="accountHolderNameError"></span>
     </div>
 
     <div class="bankField">
       <label>Account Number *</label>
-      <input type="text" id="accountNumber" value="3456 6776 6788 6778" />
+      <input type="text" id="accountNumber" placeholder="Enter Account Number" />
+      <span class="inputError" id="accountNumberError"></span>
     </div>
   </div>
 
   <div class="bankRow single">
     <div class="bankField">
       <label>IFSC Code *</label>
-      <input type="text" id="ifscCode" value="BKID0005719" />
+      <input type="text" id="ifscCode" placeholder="Enter IFSC code" />
+      <span class="inputError" id="ifscError"></span>
     </div>
 
-    <button class="bankSaveBtn" id="bankSaveBtn">Save</button>
+    <button class="bankSaveBtn" id="bankSaveBtn" type="button">Save</button>
   </div>
 
 </div>

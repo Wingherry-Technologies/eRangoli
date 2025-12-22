@@ -713,6 +713,7 @@ textarea {
   height: 600px;
   border-radius: 8px;
   padding: 20px 24px;
+  overflow-y: auto;
 }
 
 .confirmHeader {
@@ -773,6 +774,7 @@ textarea {
   font-weight: 400;
   font-size: 13px;
   color: #716B6B;
+  overflow-y: auto;
 }
 
 .paymentRow {
@@ -1584,4 +1586,20 @@ textarea {
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
+}
+.inputError {
+  display: none;
+  font-size: 12px;
+  color: red;
+  margin-top: 4px;
+}
+.bankAccountDetails {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.bankAccountItem{
+  display: inline-flex;
+  width: 210px;
+  margin-bottom: 1rem;
 }

@@ -617,75 +617,61 @@ const paymentBox = document.getElementById("paymentBox");
 const confirmBtn = document.getElementById("confirmBtn");
 const paymentOptions = document.querySelectorAll(".paymentCheckbox input");
 
-
 // RESET CONFIRM PAYMENT MODAL
 function resetConfirmModal() {
-  // uncheck payment checkboxes
   paymentOptions.forEach(opt => opt.checked = false);
-
-  // reset payment box (same style, same position)
-  paymentBox.innerHTML = `<span class="changeAccount">Add Account</span>`;
-
-  // disable confirm button
+  paymentBox.innerHTML = "";
   confirmBtn.disabled = true;
   confirmBtn.classList.remove("active");
 }
-
-
-
-// DEFAULT – even without checkbox
-paymentBox.innerHTML = `
-  <span class="changeAccount">Add Account</span>
-`;
-
-confirmBtn.disabled = true;
-confirmBtn.classList.remove("active");
-
+// NAYA CODE - Bank accounts ko preserve karta hai
 paymentOptions.forEach(option => {
   option.addEventListener("change", () => {
-
-    // only one checkbox at a time
+    // Uncheck other options
     paymentOptions.forEach(o => {
       if (o !== option) o.checked = false;
     });
 
     // BANK TRANSFER
     if (option.checked && option.value === "bank") {
-      paymentBox.innerHTML = `
-        <span>David John</span><br>
-        Bank of India<br>
-        IFSC: BKID0005719<br>
-        Saving Account
-        <span class="changeAccount">Add Account</span>
-      `;
-
-      confirmBtn.disabled = false;
-      confirmBtn.classList.add("active");
+      // Agar bank accounts already saved hain toh unhe show karo
+      if (bankAccounts.length > 0) {
+        renderBankAccounts();
+      } else {
+        // Nahi toh "No account" message show karo
+        paymentBox.innerHTML = `
+          <p>No bank account added</p>
+          <span class="changeAccount" id="addAccountBtn">Add Account</span>
+        `;
+        confirmBtn.disabled = true;
+        confirmBtn.classList.remove("active");
+        
+        document.getElementById("addAccountBtn").addEventListener("click", () => {
+          resetBankForm();
+          bankForm.style.display = "flex";
+          paymentBox.style.display = "none";
+          confirmBtn.style.display = "none";
+        });
+      }
     }
-
     // UPI
     else if (option.checked && option.value === "upi") {
       paymentBox.innerHTML = `
         <span>UPI ID</span><br>
         davidjohn@upi
       `;
-
       confirmBtn.disabled = false;
       confirmBtn.classList.add("active");
     }
-
     // NONE SELECTED
     else {
-      paymentBox.innerHTML = `
-        <span class="changeAccount">Add Account</span>
-      `;
-
+      paymentBox.innerHTML = "";
       confirmBtn.disabled = true;
       confirmBtn.classList.remove("active");
     }
   });
 });
-
+// BANK FORM ELEMENTS
 const bankForm = document.getElementById("bankForm");
 const bankSaveBtn = document.getElementById("bankSaveBtn");
 const bankClose = document.getElementById("bankClose");
@@ -706,25 +692,219 @@ bankClose.addEventListener("click", () => {
   confirmBtn.style.display = "block";
 });
 
-// SAVE ACCOUNT
+// Store bank accounts
+// Store bank accounts
+let bankAccounts = [];
+
 bankSaveBtn.addEventListener("click", () => {
+  const bank = document.getElementById("bankName").value.trim();
+  const branch = document.getElementById("branchName").value.trim();
+  const holder = document.getElementById("accountHolderName").value.trim();
+  const acc = document.getElementById("accountNumber").value.trim();
+  const ifsc = document.getElementById("ifscCode").value.trim();
+
+  if (!bank || !branch || !holder || !acc || !ifsc) {
+    alert("Please fill all bank details");
+    return;
+  }
+
+  // Add account to array
+  bankAccounts.push({ bank, branch, holder, acc, ifsc });
+
+  // Render all accounts
+  renderBankAccounts();
+
+  // close bank modal
   bankForm.style.display = "none";
   paymentBox.style.display = "block";
-  confirmBtn.style.display = "block";
 
-  paymentBox.innerHTML = `
-    <span>Sanskriti Collection</span><br>
-    Bank of India<br>
-    IFSC: BKID0005719<br>
-    Saving Account
-    <span class="changeAccount">Change</span>
-  `;
-
-  confirmBtn.disabled = false;
-  confirmBtn.classList.add("active");
+  // Reset form
+  resetBankForm();
 });
 
+function renderBankAccounts() {
+  if (bankAccounts.length === 0) {
+    paymentBox.innerHTML = `
+      <p>No bank account added</p>
+      <span class="changeAccount" id="addAccountBtn">Add Account</span>
+    `;
+    confirmBtn.disabled = true;
+    confirmBtn.classList.remove("active");
+    confirmBtn.style.display = "block";
+    
+    document.getElementById("addAccountBtn").addEventListener("click", () => {
+      resetBankForm();
+      bankForm.style.display = "flex";
+      paymentBox.style.display = "none";
+      confirmBtn.style.display = "none";
+    });
+    return;
+  }
 
+  let html = '';
+  
+  bankAccounts.forEach((account, index) => {
+    html += `
+      <div class="bankAccountItem">
+        <label class="bankAccountCheckbox">
+          <input type="checkbox" name="selectedBank" value="${index}" />
+          <span class="customBox">Account ${index + 1}</span>
+          <div class="bankAccountDetails">
+            <strong>${account.holder}</strong>
+            <span>${account.bank}, ${account.branch}</span>
+            <span>A/C: ${account.acc}</span>
+            <span>IFSC: ${account.ifsc}</span>
+          </div>
+        </label>
+      </div>
+    `;
+  });
+
+  html += `<span class="changeAccount" id="addAnotherAccountBtn">Add Another Account</span>`;
+
+  paymentBox.innerHTML = html;
+  
+  confirmBtn.style.display = "block";
+  confirmBtn.disabled = true;
+  confirmBtn.classList.remove("active");
+
+  // Checkboxes ke event listeners
+  const bankCheckboxes = paymentBox.querySelectorAll('input[name="selectedBank"]');
+  bankCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        bankCheckboxes.forEach(cb => {
+          if (cb !== checkbox) cb.checked = false;
+        });
+        confirmBtn.disabled = false;
+        confirmBtn.classList.add("active");
+      } else {
+        const anyChecked = [...bankCheckboxes].some(cb => cb.checked);
+        confirmBtn.disabled = !anyChecked;
+        confirmBtn.classList.toggle("active", anyChecked);
+      }
+    });
+  });
+
+  document.getElementById("addAnotherAccountBtn").addEventListener("click", () => {
+    resetBankForm();
+    bankForm.style.display = "flex";
+    paymentBox.style.display = "none";
+    confirmBtn.style.display = "none";
+  });
+}
+// BANK FORM VALIDATION
+// BANK FORM VALIDATION
+function showInputError(id, msg) {
+  const el = document.getElementById(id);
+  el.innerText = msg;
+  el.style.display = "block";
+}
+
+function clearInputError(id) {
+  const el = document.getElementById(id);
+  el.innerText = "";
+  el.style.display = "none";
+}
+
+// Bank Name Validation - only letters and spaces, no digits or special characters
+const bankNameInput = document.getElementById("bankName");
+bankNameInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  // Remove digits and special characters, keep only letters and spaces
+  value = value.replace(/[^a-zA-Z\s]/g, "");
+  e.target.value = value;
+  
+  if (value.trim() === "") {
+    showInputError("bankNameError", "Bank name is required");
+  } else if (value.trim().length < 2) {
+    showInputError("bankNameError", "Bank name must be at least 2 characters");
+  } else {
+    clearInputError("bankNameError");
+  }
+});
+
+// Branch Name Validation - only letters and spaces, no digits or special characters
+const branchNameInput = document.getElementById("branchName");
+branchNameInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  // Remove digits and special characters, keep only letters and spaces
+  value = value.replace(/[^a-zA-Z\s]/g, "");
+  e.target.value = value;
+  
+  if (value.trim() === "") {
+    showInputError("branchNameError", "Branch name is required");
+  } else if (value.trim().length < 2) {
+    showInputError("branchNameError", "Branch name must be at least 2 characters");
+  } else {
+    clearInputError("branchNameError");
+  }
+});
+
+// Account Holder Name Validation - only letters and spaces, no digits or special characters
+const accountHolderInput = document.getElementById("accountHolderName");
+accountHolderInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  // Remove digits and special characters, keep only letters and spaces
+  value = value.replace(/[^a-zA-Z\s]/g, "");
+  e.target.value = value;
+  
+  if (value.trim() === "") {
+    showInputError("accountHolderNameError", "Account holder name is required");
+  } else if (value.trim().length < 2) {
+    showInputError("accountHolderNameError", "Name must be at least 2 characters");
+  } else {
+    clearInputError("accountHolderNameError");
+  }
+});
+
+// Account Number Validation - only digits, 9-18 digits
+const accountNumberInput = document.getElementById("accountNumber");
+accountNumberInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  // Remove everything except digits
+  value = value.replace(/\D/g, "");
+  e.target.value = value;
+  
+  if (value === "") {
+    showInputError("accountNumberError", "Account number is required");
+  } else if (value.length < 9) {
+    showInputError("accountNumberError", "Account number must be at least 9 digits");
+  } else if (value.length > 18) {
+    showInputError("accountNumberError", "Account number cannot exceed 18 digits");
+  } else {
+    clearInputError("accountNumberError");
+  }
+});
+
+// IFSC Code Validation - uppercase letters and digits only, no special characters
+const ifscCodeInput = document.getElementById("ifscCode");
+ifscCodeInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  // Remove special characters and spaces, keep only letters and digits
+  value = value.replace(/[^a-zA-Z0-9]/g, "");
+  // Convert to uppercase
+  value = value.toUpperCase();
+  e.target.value = value;
+  
+  if (value === "") {
+    showInputError("ifscError", "IFSC code is required");
+  } else if (value.length !== 11) {
+    showInputError("ifscError", "IFSC code must be exactly 11 characters");
+  } else if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(value)) {
+    showInputError("ifscError", "Invalid IFSC format (e.g., SBIN0001234)");
+  } else {
+    clearInputError("ifscError");
+  }
+});
+
+function resetBankForm() {
+  document.getElementById("bankName").value = "";
+  document.getElementById("branchName").value = "";
+  document.getElementById("accountHolderName").value = "";
+  document.getElementById("accountNumber").value = "";
+  document.getElementById("ifscCode").value = "";
+}
 
 
 
@@ -734,7 +914,9 @@ const successClose = document.getElementById("successClose");
 
 confirmBtn.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
-  resetConfirmModal();   
+  resetConfirmModal();
+  bankAccounts = [];
+  
   const img = document.querySelector(".successAnimation img");
   img.style.animation = "none";
   img.offsetHeight; 
@@ -742,9 +924,9 @@ confirmBtn.addEventListener("click", () => {
 
   successOverlay.style.display = "flex";
 
-   setTimeout(() => {
+  setTimeout(() => {
     window.location.href = "../html/index.html";
-  }, 3000); // 3 seconds
+  }, 3000);
 });
 
 /* close success popup */
