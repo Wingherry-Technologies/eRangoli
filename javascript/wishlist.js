@@ -247,7 +247,12 @@ document.querySelectorAll(".wishlist-icon").forEach(icon => {
     }
   });
 });
-
+document.querySelectorAll(".pd-name")
+.forEach(pdName => {
+  pdName.addEventListener("click",()=>{
+    window.location.href='../html/productOverview.html'
+  })
+});
 // ================= WISHLIST REMOVE (UNLIKE) =================
 // ================= WISHLIST REMOVE (UNLIKE) =================
 // document.addEventListener("click", function (e) {
