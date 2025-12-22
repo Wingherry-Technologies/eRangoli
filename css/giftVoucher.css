@@ -720,6 +720,30 @@ body {
   .right-small {
     margin-bottom: 20px;
   }
+  .menu-item {
+    justify-content: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+  }
+
+  .menu-icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #efdfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-item.active {
+    background: #efdfdf;
+  }
+
+  .menu-item.active .menu-icon-circle {
+    background: #ffffff;
+  }
 }
 
 @media (max-width: 385px) and (min-width: 320px) {
