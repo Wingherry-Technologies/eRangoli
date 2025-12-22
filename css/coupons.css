@@ -14,6 +14,7 @@ body {
 .back-link {
   display: block;
   margin: 12px 20px;
+  margin-top: 20px;
   text-decoration: none;
   color: #555;
 }
@@ -70,6 +71,7 @@ body {
   border: 1px solid #D9D9D9;
   font-weight: 600;
 }
+
 
 .coupon-menu li:hover {
   background: #f6f6f6;
@@ -270,64 +272,240 @@ body {
 .referral-popup {
   position: fixed;
   inset: 0;
-  display: none;
+  display: flex;
   background: rgba(0,0,0,.4);
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 
 .popup-box {
   background: #fff;
   padding: 24px;
-  border-radius: 14px;
+  border-radius: 8px;
   text-align: center;
-  width: 320px;
+  max-width: 460px;
+  width: 95%;
   position: relative;
 }
 
 .close-popup {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 10px;
   border: none;
   background: none;
-  font-size: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #716B6B;
 }
-
+.ref-content-pop{
+  display: flex;
+}
 .ref-code {
-  background: #f3e6e6;
-  padding: 10px;
-  margin: 12px 0;
-  border-radius: 6px;
+  padding: 5px 15px;
+  border-radius: 6px 0px 0px 6px;
+}
+.sharebutton{
+    width: 100px;
+    background-color: #EFDFDF;
+    border: none;
+    color: #3F3F3F;
+    font-weight: 500;
+    cursor: pointer;
+      padding: 7px 15px;
+
+}
+.copy-btn {
+    color: #716B6B;
+  border: 1px solid #CBCBCB;
+  font-size: 14px;
+  cursor: pointer;
+}
+.referral-popup .headcontent{
+    text-align: left;
+    margin-bottom: 20px;
+}
+.headcontent h3{
+    color: #3F3F3F;
+    font-weight: 600;
+    font-size: 16px;
+}
+.headcontent p{
+    color: #716B6B;
+    font-weight: 500;
+    font-size: 14px;
+}
+.ref-pop-head{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.pd-share {
+  position: relative;
+  cursor: pointer;
 }
 
-.copy-btn {
-  background: #a12d2d;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
+/* Popup container */
+.share-popup {
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+  background: #fff;
+  padding: 8px 10px;
   border-radius: 6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  gap: 10px;
+  border: 1px solid #D9D9D9;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  z-index: 9999;
+}
+
+/* Show popup */
+.share-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+/* Icons */
+.share-popup img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.share-popup img:hover {
+  transform: scale(1.15);
+}
+
+
+/* OVERLAY */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: none;
+}
+
+/* SIDEBAR */
+.coupon-sidebar {
+  position: relative;
+}
+
+/* CLOSE BUTTON */
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Tablet only */
+@media (max-width: 1024px) {
+  .sidebar-close {
+    display: block;
+  }
 }
 
 /* TABLET */
+/* ==================================================
+   TABLET – ICON ONLY SIDEBAR (TEXT NODE SAFE FIX)
+   ================================================== */
 @media (max-width: 1024px) {
-  .aside-toggle {
-    display: block;
+
+  /* sidebar width */
+  .coupon-sidebar {
+    width: 64px;
+    padding: 12px 0;
+    overflow: hidden;
   }
 
-  .coupon-sidebar {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    height: 100%;
-    z-index: 999;
-    transition: .3s;
+  /* hide heading */
+  .coupon-sidebar h3 {
+    display: none !important;
   }
+
+  /* menu item center */
+  .coupon-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 0;
+  }
+
+  /* 🔥 THIS IS THE REAL FIX */
+  .coupon-menu li .cop-menu {
+    font-size: 0 !important;     /* kills text nodes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* icon only */
+  .coupon-menu li img {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  /* remove arrow */
+  .coupon-menu li > i {
+    display: none !important;
+  }
+
+  /* ================= OPEN STATE ================= */
 
   .coupon-sidebar.open {
-    left: 0;
+    width: 260px;
+    padding: 30px 20px;
+  }
+
+  .coupon-sidebar.open h3 {
+    display: block !important;
+  }
+
+  .coupon-sidebar.open .coupon-menu li {
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  .coupon-sidebar.open .cop-menu {
+    font-size: 16px !important;   /* restore text */
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .coupon-sidebar.open li > i {
+    display: inline-block !important;
+  }
+  .coupon-sidebar {
+    transition: width 0.3s ease, padding 0.3s ease;
+  }
+
+  .sidebar-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sidebar-overlay.show {
+    display: block;
+    opacity: 1;
   }
 }
+
+
 
 /* MOBILE */
 @media (max-width: 640px) {
@@ -412,4 +590,40 @@ body {
     font-size: 12px;
     line-height: 14px;
   }
+}
+/* =========================
+   POPUP ANIMATION
+   ========================= */
+.referral-popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.referral-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-box {
+  transform: scale(0.9);
+  transition: transform 0.25s ease;
+}
+
+.referral-popup.show .popup-box {
+  transform: scale(1);
+}
+/* =========================
+   COUPON FILTER ANIMATION
+   ========================= */
+.cop-bx {
+  transition: 
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cop-bx.hide {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 }

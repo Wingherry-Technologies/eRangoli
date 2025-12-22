@@ -27,6 +27,8 @@
 
         <!-- SIDEBAR -->
         <aside class="coupon-sidebar">
+            <button class="sidebar-close">&times;</button>
+
             <h3>Coupons / Referrals</h3>
 
             <ul class="coupon-menu">
@@ -38,6 +40,7 @@
                 </li>
             </ul>
         </aside>
+        <div class="sidebar-overlay"></div>
 
         <!-- CONTENT -->
         <main class="coupon-content">
@@ -149,10 +152,28 @@
     <div class="referral-popup" id="referralPopup">
         <div class="popup-box">
             <button class="close-popup">&times;</button>
-            <h3>Invite & Earn</h3>
-            <p>Share this referral code</p>
-            <div class="ref-code">DAVID200</div>
-            <button class="copy-btn">Copy Code</button>
+            <div class="headcontent">
+                <h3>Referral Code </h3>
+                <p>For instant discount Refer your friends and family</p>
+            </div>
+            <div class="ref-pop">
+                <div class="ref-pop-head">Your Referral Code</div>
+                <div class="ref-content-pop">
+                    <div class="ref-code copy-btn">DAVID200</div>
+                    <div class="pd-share">
+                        <button class="sharebutton share-btn">Share</button>
+
+                        <!-- SHARE POPUP -->
+                        <div class="share-popup">
+                            <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                            <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp" title="WhatsApp">
+                            <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram" title="Telegram">
+                            <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter" title="Twitter">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
