@@ -694,16 +694,14 @@ bankClose.addEventListener("click", () => {
 let bankAccounts = [];
 
 bankSaveBtn.addEventListener("click", () => {
+
+  if (!validateBankForm()) return;
   const bank = document.getElementById("bankName").value.trim();
   const branch = document.getElementById("branchName").value.trim();
   const holder = document.getElementById("accountHolderName").value.trim();
   const acc = document.getElementById("accountNumber").value.trim();
   const ifsc = document.getElementById("ifscCode").value.trim();
 
-  if (!bank || !branch || !holder || !acc || !ifsc) {
-    alert("Please fill all bank details");
-    return;
-  }
 
   // Add account to array
   bankAccounts.push({ bank, branch, holder, acc, ifsc });
@@ -743,7 +741,7 @@ function renderBankAccounts() {
   bankAccounts.forEach((account, index) => {
     html += `
       <div class="bankAccountItem">
-        <label class="bankAccountCheckbox">
+        <label class="bankAccountCheckbox ">
           <div class="bankAccountHeader">
   <input type="checkbox" name="selectedBank" value="${index}" />
   <span class="customBox">Account ${index + 1}</span>
@@ -797,7 +795,6 @@ function renderBankAccounts() {
       confirmBtn.style.display = "none";
     });
 }
-// BANK FORM VALIDATION
 // BANK FORM VALIDATION
 function showInputError(id, msg) {
   const el = document.getElementById(id);
@@ -913,6 +910,102 @@ ifscCodeInput.addEventListener("input", (e) => {
     clearInputError("ifscError");
   }
 });
+
+function validateBankForm() {
+  let isValid = true;
+
+  if (bankNameInput.value.trim() === "") {
+    showInputError("bankNameError", "Bank name is required");
+    isValid = false;
+  }
+
+  if (branchNameInput.value.trim() === "") {
+    showInputError("branchNameError", "Branch name is required");
+    isValid = false;
+  }
+
+  if (accountHolderInput.value.trim() === "") {
+    showInputError("accountHolderNameError", "Account holder name is required");
+    isValid = false;
+  }
+
+  if (accountNumberInput.value.trim() === "") {
+    showInputError("accountNumberError", "Account number is required");
+    isValid = false;
+  }
+
+  if (ifscCodeInput.value.trim() === "") {
+    showInputError("ifscError", "IFSC code is required");
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+
+function validateOnBlur(input, errorId, emptyMsg, minLen = 0, pattern = null, patternMsg = "") {
+  input.addEventListener("blur", () => {
+    const value = input.value.trim();
+
+    if (value === "") {
+      showInputError(errorId, emptyMsg);
+      return;
+    }
+
+    if (value.length < minLen) {
+      showInputError(errorId, `Must be at least ${minLen} characters`);
+      return;
+    }
+
+    if (pattern && !pattern.test(value)) {
+      showInputError(errorId, patternMsg);
+      return;
+    }
+
+    clearInputError(errorId);
+  });
+}
+
+validateOnBlur(
+  bankNameInput,
+  "bankNameError",
+  "Bank name is required",
+  2
+);
+
+validateOnBlur(
+  branchNameInput,
+  "branchNameError",
+  "Branch name is required",
+  2
+);
+
+validateOnBlur(
+  accountHolderInput,
+  "accountHolderNameError",
+  "Account holder name is required",
+  2
+);
+
+validateOnBlur(
+  accountNumberInput,
+  "accountNumberError",
+  "Account number is required",
+  9,
+  /^\d+$/,
+  "Account number must contain only digits"
+);
+
+validateOnBlur(
+  ifscCodeInput,
+  "ifscError",
+  "IFSC code is required",
+  11,
+  /^[A-Z]{4}0[A-Z0-9]{6}$/,
+  "Invalid IFSC format (e.g. SBIN0001234)"
+);
+
+
 
 function resetBankForm() {
   document.getElementById("bankName").value = "";
@@ -1069,8 +1162,10 @@ reviewPostBtn.addEventListener("click", () => {
   cancelSuccessText.innerText =
     "Your feedback has been submitted successfully.";
 
-  // open existing cancel success modal
   cancelSuccessOverlay.style.display = "flex";
+    setTimeout(() => {
+    window.location.href = "../html/index.html";
+  }, 3000);
 });
 
 //  REVIEW MODAL – UPLOAD IMAGE PREVIEW (NO VALIDATION)
@@ -1117,7 +1212,7 @@ const cancelSuccessOverlay = document.getElementById("cancelSuccessOverlay");
 
 const cancelConfirmBtn = document.getElementById("cancelConfirmBtn");
 const cancelClose = document.getElementById("cancelClose");
-const cancelSuccessClose = document.getElementById("cancelSuccessClose");
+// const cancelSuccessClose = document.getElementById("cancelSuccessClose");
 const continueShoppingBtn = document.getElementById("continueShoppingBtn");
 
 const cancelCheckboxes = document.querySelectorAll(".cancelCheckbox input");
@@ -1151,17 +1246,20 @@ cancelConfirmBtn.addEventListener("click", () => {
 
   cancelOverlay.style.display = "none";
   cancelSuccessOverlay.style.display = "flex";
+    setTimeout(() => {
+    window.location.href = "../html/index.html";
+  }, 3000);
 });
 
 /* CLOSE SUCCESS */
-cancelSuccessClose.addEventListener("click", () => {
-  cancelSuccessOverlay.style.display = "none";
+// cancelSuccessClose.addEventListener("click", () => {
+//   cancelSuccessOverlay.style.display = "none";
 
-  // reset to cancel default text
-  cancelSuccessTitle.innerText = "Your order has been cancelled";
-  cancelSuccessText.innerText =
-    "Your refund will be processed within 7 business days";
-});
+//   // reset to cancel default text
+//   cancelSuccessTitle.innerText = "Your order has been cancelled";
+//   cancelSuccessText.innerText =
+//     "Your refund will be processed within 7 business days";
+// });
 
 /* CONTINUE SHOPPING */
 continueShoppingBtn.addEventListener("click", () => {

@@ -990,9 +990,9 @@
           </div>
 
           <div class="returnCheckbox">
-            <input type="checkbox" />
+            <input type="checkbox"  id="itemWrong"/>
             <span class="customBox"></span>
-            <label for="itemArrived">Wrong item received</label>
+            <label for="itemWrong">Wrong item received</label>
           </div>
 
           <div class="returnCheckbox">
@@ -1306,39 +1306,39 @@
     <div class="cancelBody">
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="orderMistake" />
         <span class="customBox"></span>
-        <label>Ordered by mistake</label>
+        <label for="orderMistake">Ordered by mistake</label>
       </label>
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="changeMind" />
         <span class="customBox"></span>
-        <label>Changed my mind</label>
+        <label for="changeMind">Changed my mind</label>
       </label>
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="deliveryTooLong" />
         <span class="customBox"></span>
-        <label>Delivery time is too long</label>
+        <label for="deliveryTooLong">Delivery time is too long</label>
       </label>
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="itemWrong" />
         <span class="customBox"></span>
-        <label>Incorrect product selected (size / color / variant)</label>
+        <label for="itemWrong">Incorrect product selected (size / color / variant)</label>
       </label>
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="orderAddress" />
         <span class="customBox"></span>
-        <label>Address or contact details need to be changed</label>
+        <label for="orderAddress">Address or contact details need to be changed</label>
       </label>
 
       <label class="cancelCheckbox">
-        <input type="checkbox" />
+        <input type="checkbox" id="orderDuplicate" />
         <span class="customBox"></span>
-        <label>Placed duplicate order</label>
+        <label for="orderDuplicate">Placed duplicate order</label>
       </label>
 
     </div>
@@ -1353,8 +1353,6 @@
 <!--  CANCEL SUCCESS MODAL  -->
 <div class="cancelSuccessOverlay" id="cancelSuccessOverlay">
   <div class="cancelSuccessModal">
-
-    <span class="successClose" id="cancelSuccessClose">✕</span>
 
     <h2>Your order has been cancelled</h2>
     <p>Your refund will be processed within 7 business days</p>
