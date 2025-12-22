@@ -78,6 +78,7 @@ level2Dropdowns.forEach(subItem => {
 });
 
 var signup=true;
+console.log(signup)
 
 const userprofileIcon=document.getElementById("user-profile-icon");
 const signupWrapper=document.getElementById("signup-wrapper");
@@ -104,6 +105,8 @@ const logoutButton=document.querySelector(".logout-button")
 const mobileNotification=document.getElementById("bottom-nav-notification")
 
 const bottomNumbers=document.querySelectorAll(".bottom-bar-numbers")
+
+
 UpdateUI();
 
 function UpdateUI(){
@@ -125,25 +128,10 @@ function UpdateUI(){
   // desktop click
   numberNoti.addEventListener("click", toggleNotification);
 
-  // mobile click
-  mobileNotification.addEventListener("click", toggleNotification);
-
   // click outside → hide
   document.addEventListener("click", () => {
     notificationBox.style.display = "none";
   });
-
-  // prevent box clicks from closing itself
-  notificationBox.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-
-  roundWishlist.addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
-  roundCart.addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
 
   numberRounds.forEach(numberRound => {
     if(numberRound.innerText!=0){
@@ -151,10 +139,8 @@ function UpdateUI(){
     }
   });
 
-  logoutDesktop.addEventListener("click",()=>{
-    signup=false;
-    UpdateUI()
-  })
+  logoutDesktop.addEventListener("click", logoutUserDesktop);
+
 
   welcomeName.innerText="John David"
   imageName.innerText="JD"
@@ -162,26 +148,6 @@ function UpdateUI(){
   mobileMenus.forEach(accountMen => {
     accountMen.classList.remove("not-logged-in")
   });
-
-  document.getElementById("mobile-my-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
-
-  document.getElementById("mobile-my-cart").addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
-
-  document.getElementById("mobile-order").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
-  })
-
-  document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
-  })
-
-  document.getElementById("mobile-referal").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
-  })
 
   document.getElementById("mobile-faqs").addEventListener("click",()=>{
     window.location.href="../html/faq.html"
@@ -195,26 +161,8 @@ function UpdateUI(){
     window.location.href="../html/privacyPolicy.html"
   })
 
-  document.getElementById("bottom-nav-wishlist").addEventListener("click",()=>{
-    window.location.href="../html/wishlist.html"
-  })
+logoutButton.addEventListener("click", logoutUserMobile);
 
-  document.getElementById("bottom-nav-cart").addEventListener("click",()=>{
-    window.location.href="../html/cart.html"
-  })
-
-  logoutButton.style.display="flex";
-  logoutButton.addEventListener("click",()=>{
-    mobileMenu.classList.remove("menu-open");
-    hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector(".bottom-nav").style.display="flex";
-    signup=false
-    UpdateUI()
-
-    document.querySelector(".mobile-search-bar-main").style.display='block';
-    document.querySelector("body").style.overflow="auto";
-    
-  })
 
   bottomNumbers.forEach(bottomNumber => {
     if(bottomNumber.innerText>0){
@@ -232,39 +180,18 @@ else{
       notificationBox.style.display="none";
       document.querySelector("body").style.overflow="auto"
     });
-    roundWishlist.addEventListener("click",()=>{
-      document.getElementById("signupModal").style.display="flex"
-    })
-    roundCart.addEventListener("click",()=>{
-      document.getElementById("signupModal").style.display="flex"
-    })
     numberRounds.forEach(numberRound => {
       numberRound.style.display="none"
     });
     welcomeName.innerText="Sign Up"
     welcomeName.addEventListener("click",()=>{
-      window.location.href="../html/whoareyou.html"
+      document.getElementById("signupModal").style.display = "flex";
     })
     imageName.innerText="eR"
 
     mobileMenus.forEach(accountMen => {
       accountMen.classList.add("not-logged-in");
-
-      mobileDropdown.forEach(mobileDrop =>{
-        mobileDrop.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
-      mobileDropdown2.forEach(mobileDrop2 =>{
-        mobileDrop2.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
-      bottomNav.forEach(bottomNa=>{
-        bottomNa.addEventListener("click",()=>{
-          document.getElementById("signupModal").style.display="flex"
-        })
-      })
+      
     });
     logoutButton.style.display="none";
 
@@ -275,31 +202,108 @@ else{
   }
 }
 
-const cartCountEl = document.getElementById("number-of-cart");
-
-addToCartBtn.addEventListener("click", function () {
+roundWishlist.addEventListener("click", (e) => {
   if (!signup) {
+    e.preventDefault();
     document.getElementById("signupModal").style.display = "flex";
     return;
   }
+  window.location.href = "../html/wishlist.html";
+});
 
-  // Hide Add to Cart button
-  addToCartBtn.style.display = "none";
 
-  // Show "Added to Cart"
-  const counter = document.createElement("div");
-  counter.className = "quantityCounterBox";
-  counter.textContent = "Added to Cart";
-  addToCartBtn.parentElement.appendChild(counter);
+roundCart.addEventListener("click", (e) => {
+  if (!signup) {
+    e.preventDefault();
+    document.getElementById("signupModal").style.display = "flex";
+    return;
+  }
+  window.location.href = "../html/cart.html";
+});
 
-  // ✅ Increase cart count by 1
-  let count = parseInt(cartCountEl.textContent, 10) || 0;
-  cartCountEl.textContent = count + 1;
+document.querySelectorAll(".bottom-nav__item1").forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!signup) {
+      document.getElementById("signupModal").style.display = "flex";
+      return;
+    }
+
+    switch (item.id) {
+      case "bottom-nav-wishlist":
+        window.location.href = "../html/wishlist.html";
+        break;
+
+      case "bottom-nav-cart":
+        window.location.href = "../html/cart.html";
+        break;
+
+      case "bottom-nav-notification":
+        notificationBox.style.display =
+          notificationBox.style.display === "block" ? "none" : "block";
+        break;
+    }
+});
+
+});
+
+
+document.querySelectorAll(".mobile-dropdown1").forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!signup) {
+      // ❌ NOT logged in → open signup modal
+      document.getElementById("signupModal").style.display = "flex";
+      return;
+    }
+
+    // ✅ Logged in → navigate correctly
+    switch (item.id) {
+      case "mobile-my-wishlist":
+        window.location.href = "../html/wishlist.html";
+        break;
+
+      case "mobile-my-cart":
+        window.location.href = "../html/cart.html";
+        break;
+
+      case "mobile-order":
+        window.location.href = "../html/myOrders.html";
+        break;
+
+      case "mobile-my-profile":
+        window.location.href = "../html/aboutYou.html";
+        break;
+
+      case "mobile-referal":
+        window.location.href = "../html/coupons.html";
+        break;
+    }
+  });
 });
 
 
 
+function logoutUserMobile() {
+  signup = false;
+  mobileMenu.classList.remove("menu-open");
+  hamberMenuIcon.src = "../assets/master/List.svg";
+  document.querySelector(".bottom-nav").style.display = "flex";
+  document.querySelector(".mobile-search-bar-main").style.display = "block";
+  document.body.style.overflow = "auto";
+  addToCartBtn.textContent="Add to Cart"
+  UpdateUI();
+}
+function logoutUserDesktop() {
+  signup = false;
+  addToCartBtn.innerText="Add to Cart"
+  UpdateUI();
 
+}
 function handleScrollForMobile() {
     const bar = document.querySelector(".mobile-search-bar-main");
     const contentbar = document.querySelector(".mobile-search-bar");
@@ -325,13 +329,14 @@ function handleScrollForMobile() {
             contentbar.style.borderRadius = "0px 30px 30px 0px";
             contentbar.style.zIndex = 999;
             contentbar.style.padding = "8px 10px";
+            contentbar.style.marginLeft='10px'
 
             desktopERan && (desktopERan.style.display = "none");
             mobileERan && (mobileERan.style.display = "inline-block");
             maginfyingMobile && (maginfyingMobile.style.display = "none");
 
             mobileSuggestion && (mobileSuggestion.style.top = "80px");
-            notificationBox && (notificationBox.style.top = "130px");
+            notificationBox && (notificationBox.style.top = "75px");
 
         } else {
             bar.style.position = "relative";
@@ -342,6 +347,7 @@ function handleScrollForMobile() {
             contentbar.style.border = "none";
             contentbar.style.borderRadius = "30px";
             contentbar.style.backgroundColor = "white";
+            contentbar.style.marginLeft='0px'
 
             desktopERan && (desktopERan.style.display = "flex");
             mobileERan && (mobileERan.style.display = "none");
@@ -358,6 +364,124 @@ function handleScrollForMobile() {
         maginfyingMobile && (maginfyingMobile.style.display = "block");
     }
 }
+
+// Signup overlay functions
+function closeSignupModal() {
+  document.getElementById("signupModal").style.display = "none";
+}
+
+// ===== ELEMENTS =====
+const mobileInput = document.getElementById("overlay-mobile");
+const otpInput = document.getElementById("overlay-otp");
+const signupBtn = document.querySelector(".overlay-button-group button");
+
+const mobileError = document.getElementById("mobile-error");
+const otpError = document.getElementById("otp-error");
+
+const resendText = document.getElementById("resend-otp");
+const timerText = document.getElementById("otp-timer");
+
+// ===== CONSTANT OTP =====
+const VERIFIED_OTP = "123456";
+let timer = null;
+let timeLeft = 30;
+let timerRunning = false;
+
+// ===== TIMER =====
+function startTimer() {
+  if (timerRunning) return;
+
+  timerRunning = true;
+  timeLeft = 30;
+  resendText.classList.add("disabled");
+  timerText.textContent = `00:${timeLeft}s`;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    if (timeLeft > 9) {
+      timerText.textContent = `00:${timeLeft}`;
+    }
+    else{
+        timerText.textContent = `00:0${timeLeft}`;
+    }
+
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      timerRunning = false;
+      timerText.textContent = "";
+      resendText.classList.remove("disabled");
+    }
+  }, 1000);
+}
+
+// ===== MOBILE VALIDATION =====
+mobileInput.addEventListener("input", () => {
+  mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
+
+  if (mobileInput.value.length > 0 && !/^[6-9]/.test(mobileInput.value)) {
+    mobileError.textContent =
+      "Mobile number must start with 6, 7, 8, or 9";
+    mobileInput.value = "";
+    return;
+  }
+
+  if (mobileInput.value.length === 10) {
+    mobileError.textContent = "";
+    startTimer();
+  }
+});
+
+mobileInput.addEventListener("blur", () => {
+  if (mobileInput.value.length !== 10) {
+    mobileError.textContent = "Please enter a valid 10-digit mobile number";
+  }
+});
+
+// ===== OTP VALIDATION =====
+otpInput.addEventListener("input", () => {
+  otpInput.value = otpInput.value.replace(/\D/g, "").slice(0, 6);
+});
+
+otpInput.addEventListener("blur", () => {
+  if (otpInput.value.length !== 6) {
+    otpError.textContent = "Please enter a 6-digit OTP";
+  }
+});
+
+// ===== SIGNUP =====
+signupBtn.addEventListener("click", () => {
+  let valid = true;
+
+  if (mobileInput.value.length !== 10) {
+    mobileError.textContent = "Please enter a valid mobile number";
+    valid = false;
+  }
+
+  if (otpInput.value !== VERIFIED_OTP) {
+    otpError.textContent = "Invalid OTP";
+    valid = false;
+  }
+
+  if (valid) {
+    signup = true;
+    UpdateUI();
+    closeSignupModal();
+
+    if (redirectAfterSignup) {
+      redirectAfterSignup = false;
+      window.location.href = "../html/cart.html";
+    }
+  }
+});
+
+
+// ===== RESEND OTP =====
+resendText.addEventListener("click", () => {
+  if (timerRunning) return;
+  otpInput.value = "";
+  otpError.textContent = "";
+  startTimer();
+});
 
 
 // Run on scroll
@@ -1153,6 +1277,7 @@ const productOverviewIcon =
   document.querySelectorAll(".productOverviewIcon")[1];
 
 const wishlistCountEl = document.getElementById("number-of-wishlist");
+const mobileWishCount=document.querySelector("#bottom-nav-wishlist .bottom-bar-numbers")
 
 productOverviewIcon.addEventListener("click", function () {
   if (!signup) {
@@ -1164,6 +1289,7 @@ productOverviewIcon.addEventListener("click", function () {
 
   // Get current count safely
   let count = parseInt(wishlistCountEl.textContent, 10) || 0;
+  let mobCount=parseInt(mobileWishCount.textContent, 10) || 0;
 
   if (img.dataset.liked === "true") {
     // ❌ Remove from wishlist
@@ -1172,6 +1298,7 @@ productOverviewIcon.addEventListener("click", function () {
 
     // Decrement (not below 0)
     wishlistCountEl.textContent = Math.max(0, count - 1);
+    mobileWishCount.textContent = Math.max(0, mobCount -1 )
   } else {
     // ❤️ Add to wishlist
     img.src = "../assets/productOverview/RedHeart.svg";
@@ -1179,6 +1306,7 @@ productOverviewIcon.addEventListener("click", function () {
 
     // Increment
     wishlistCountEl.textContent = count + 1;
+    mobileWishCount.textContent=mobCount +1
   }
 });
 
@@ -1256,125 +1384,31 @@ function buyNow() {
   }
 }
 
+const cartCountEl = document.getElementById("number-of-cart");
+const cartCountMobile=document.querySelector("#bottom-nav-cart .bottom-bar-numbers");
 
+let countMobile=parseInt(cartCountMobile.innerText,10);
+  console.log(countMobile)
 
-
-// Signup overlay functions
-function closeSignupModal() {
-  document.getElementById("signupModal").style.display = "none";
-}
-
-// ===== ELEMENTS =====
-const mobileInput = document.getElementById("overlay-mobile");
-const otpInput = document.getElementById("overlay-otp");
-const signupBtn = document.querySelector(".overlay-button-group button");
-
-const mobileError = document.getElementById("mobile-error");
-const otpError = document.getElementById("otp-error");
-
-const resendText = document.getElementById("resend-otp");
-const timerText = document.getElementById("otp-timer");
-
-// ===== CONSTANT OTP =====
-const VERIFIED_OTP = "123456";
-let timer = null;
-let timeLeft = 30;
-let timerRunning = false;
-
-// ===== TIMER =====
-function startTimer() {
-  if (timerRunning) return;
-
-  timerRunning = true;
-  timeLeft = 30;
-  resendText.classList.add("disabled");
-  timerText.textContent = `00:${timeLeft}s`;
-
-  timer = setInterval(() => {
-    timeLeft--;
-    if (timeLeft > 9) {
-      timerText.textContent = `00:${timeLeft}`;
-    }
-    else{
-        timerText.textContent = `00:0${timeLeft}`;
-    }
-
-    if (timeLeft === 0) {
-      clearInterval(timer);
-      timerRunning = false;
-      timerText.textContent = "";
-      resendText.classList.remove("disabled");
-    }
-  }, 1000);
-}
-
-// ===== MOBILE VALIDATION =====
-mobileInput.addEventListener("input", () => {
-  mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
-
-  if (mobileInput.value.length > 0 && !/^[6-9]/.test(mobileInput.value)) {
-    mobileError.textContent =
-      "Mobile number must start with 6, 7, 8, or 9";
-    mobileInput.value = "";
+addToCartBtn.addEventListener("click", function () {
+  if (!signup) {
+    document.getElementById("signupModal").style.display = "flex";
     return;
   }
 
-  if (mobileInput.value.length === 10) {
-    mobileError.textContent = "";
-    startTimer();
-  }
-});
+  // Change button text
+  addToCartBtn.innerText = "Added to Cart";
+  
+  // Add a class for styling if needed
+  addToCartBtn.classList.add("quantityCounterBox");
 
-mobileInput.addEventListener("blur", () => {
-  if (mobileInput.value.length !== 10) {
-    mobileError.textContent = "Please enter a valid 10-digit mobile number";
-  }
-});
+  // ✅ Increase desktop cart count
+  let count = parseInt(cartCountEl.textContent || "0", 10);
+  cartCountEl.textContent = count + 1;
 
-// ===== OTP VALIDATION =====
-otpInput.addEventListener("input", () => {
-  otpInput.value = otpInput.value.replace(/\D/g, "").slice(0, 6);
-});
-
-otpInput.addEventListener("blur", () => {
-  if (otpInput.value.length !== 6) {
-    otpError.textContent = "Please enter a 6-digit OTP";
-  }
-});
-
-// ===== SIGNUP =====
-signupBtn.addEventListener("click", () => {
-  let valid = true;
-
-  if (mobileInput.value.length !== 10) {
-    mobileError.textContent = "Please enter a valid mobile number";
-    valid = false;
-  }
-
-  if (otpInput.value !== VERIFIED_OTP) {
-    otpError.textContent = "Invalid OTP";
-    valid = false;
-  }
-
-  if (valid) {
-    signup = true;
-    UpdateUI();
-    closeSignupModal();
-
-    if (redirectAfterSignup) {
-      redirectAfterSignup = false;
-      window.location.href = "../html/cart.html";
-    }
-  }
-});
-
-
-// ===== RESEND OTP =====
-resendText.addEventListener("click", () => {
-  if (timerRunning) return;
-  otpInput.value = "";
-  otpError.textContent = "";
-  startTimer();
+  // ✅ Increase mobile cart count
+  let countMobile = parseInt(cartCountMobile.textContent || "0", 10);
+  cartCountMobile.textContent = countMobile + 1;
 });
 
 

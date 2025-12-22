@@ -9,10 +9,12 @@
 
 body {
   color: #3f3f3f;
-  background-color: #f5f5f5;
+  
 }
 .faq-header-section {
+  margin-top: 75px;
   padding: 0 2rem;
+  background-color: #f5f5f5;
 }
 .back-row {
   display: flex;
@@ -270,9 +272,6 @@ body {
     padding: 0;
   }
 
-  .faq-list {
-    margin: 1rem !important;
-  }
 
   .faq-container {
     width: 100%;
@@ -301,8 +300,12 @@ body {
   .faq-header {
     margin: 0;
   }
+  .header-banner{
+    height: 100px;
+  }
 
   .overlay {
     padding-left: 15px;
+    height: 100px;
   }
 }

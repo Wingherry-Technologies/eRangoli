@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy</title>
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
     <link rel="stylesheet" href="../css/privacyPolicy.css" />
     <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/topCategory.css">
     <link rel="stylesheet" href="../css/meet-art-footer.css">
+    <link rel="stylesheet" href="../css/signupoverlay.css">
   </head>
   <body>
 
@@ -439,19 +442,6 @@
                       <img src="../assets/master/CaretDown.svg">
                     </div>
                   </li>
-
-                  <li class="mobile-dropdown1" id="mobile-faqs">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Question.svg" alt="">
-                        </div>
-                        <span>FAQ</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
                 </ul>
               </div>
             </div>
@@ -460,7 +450,7 @@
               <div class="sub-section">
                 <span>Support</span>
 
-                <ul class="mobile-nav-menu not-logged-in" id="support-menu">
+                <ul class="mobile-nav-menu1" id="support-menu">
 
                   <!-- ITEM -->
                   <li class="mobile-dropdown2" id="mobile-customer-care">
@@ -482,6 +472,18 @@
                           <img src="../assets/master/Info.svg" alt="">
                         </div>
                         <span>Privacy Policy</span>
+                      </div>
+                      <img src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <li class="mobile-dropdown3" id="mobile-faqs">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/Question.svg" alt="">
+                        </div>
+                        <span>FAQ</span>
                       </div>
                       <img src="../assets/master/CaretDown.svg">
                     </div>
@@ -542,19 +544,19 @@
                     </div>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <ul>
-                            <li>
+                            <li onclick="window.location.href='../html/myOrders.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Package.svg" alt="">
                               </div>
                               <span>My Orders</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/aboutYou.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/UserCircle.svg" alt="">
                               </div>
                               <span>My Profile</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/coupons.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/UserSwitch.svg" alt="">
                               </div>
@@ -566,13 +568,13 @@
                               </div>
                               <span>Help & Support</span>
                             </li>
-                            <li>
+                            <li onclick="window.loaction.href='../html/privacyPolicy.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Info.svg" alt="">
                               </div>
                               <span>Privacy Policy</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/faq.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Question.svg" alt="">
                               </div>
@@ -652,6 +654,42 @@
           </ul>
         </div>
     </nav>
+
+        <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/master/Vector.svg" alt="">
+        <span class="bottom-nav__label">Home</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-wishlist">
+        <img src="../assets/master/likednav.svg" alt="">
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Wishlist</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="">
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
+        <img src="../assets/master/ShoppingCart (1).svg" alt="">
+        <span class="bottom-bar-numbers">4</span>
+        <span class="bottom-nav__label">Cart</span>
+      </a>
+    </div>
+
+    <!-- Mobile Search Bar -->
+     <div class="mobile-search-bar-main">
+        <div class="mobile-search-bar">
+            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
+            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
+        </div>
+    </div>
+    <ul id="mobile-suggestions" class="suggestions-box"></ul>
+    
     <!-- Top Back Row -->
     <div class="privacyPolicy-main-content">
       <div class="headerContainer">
@@ -820,6 +858,76 @@
     
         </div>
     </footer>
+
+     <div class="signup-overlay-main-modal" id="signupModal">
+      <div class="signup-overlay-main-content">
+
+        <span class="close-modal" onclick="closeSignupModal()">
+          <img src="../assets/login/X.svg" alt="">
+        </span>
+
+        <div class="overlay-heading">
+          <span>Sign Up</span>
+        </div>
+        <div class="overlay-contents">
+          <div class="main-form-overlay">
+            <div class="overlay-form-group">
+              <label for="overlay-mobile">Mobile Number</label>
+              <input
+                type="tel"
+                id="overlay-mobile"
+                placeholder="9536789905"
+                autocomplete="off"
+                inputmode="numeric"
+              />
+              <div class="error-text" id="mobile-error"></div>
+            </div>
+
+            <div class="overlay-form-group">
+              <label for="overlay-otp">Enter OTP</label>
+              <input
+                type="tel"
+                id="overlay-otp"
+                placeholder="Enter the OTP"
+                inputmode="numeric"
+              />
+              
+
+              <div class="resend-wrapper">
+                <div class="error-text" id="otp-error"></div>
+                <div>
+                  <span id="resend-otp" class="resend disabled">Resend Code...</span>
+                  <span id="otp-timer" class="timer"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="overlay-button-group">
+              <button>Sign Up</button>
+            </div>
+          </div>
+          <div class="overlay-or-line">
+            <div class="overlay-line"></div>
+            <span>or</span>
+            <div class="overlay-line"></div>
+          </div>
+          <div class="signinusinggoogle">
+            <div class="signingoogle-overlay">
+              <img src="../assets/login/google.svg" alt="">
+              <span>Continue with Google</span>
+            </div>
+            <div class="signingoogle-overlay">
+              <img src="../assets/login/facebook.svg" alt="">
+              <span>Continue with Facebook</span>
+            </div>
+            <div class="signingoogle-overlay">
+              <img src="../assets/login/appleImage.svg" alt="">
+              <span>Continue with Apple</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../javascript/privacyPolicy.js"></script>
   </body>
 </html>
