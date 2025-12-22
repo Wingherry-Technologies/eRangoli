@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* =========================
+   REFERRAL CARD – DESKTOP
+   ========================= */
+.referral-card-ui {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #FFF;
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: 100%;
+  border: 1px solid #F0F0F0;
+}
+
+/* LEFT SECTION */
+.referral-image {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Title */
+.referral-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3F3F3F;
+}
+
+/* Image */
+.referral-image img {
+  width: 100%;
+  max-width: 260px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* RIGHT SECTION */
+.referral-content {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Code + Share row */
+.referral-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Referral code */
+.referral-code {
+  padding: 6px 16px;
+  border: 1px solid #CBCBCB;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #716B6B;
+  background: #FFF;
+}
+
+/* Share button */
+.sharebutton {
+  padding: 6px 18px;
+  background: #EFDFDF;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3F3F3F;
+  cursor: pointer;
+}
+
+/* Description text */
+.referral-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #716B6B;
+  line-height: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="referral-card-ui">
+            
+                <!-- LEFT IMAGE -->
+                <div class="referral-image">
+                    <h3 class="referral-title">Referral Code</h3>
+
+                    <img src="../assets/Coupons/refcodeimg.png" alt="Referral">
+                </div>
+            
+                <!-- RIGHT CONTENT -->
+                <div class="referral-content">
+            
+            
+                    <div class="referral-action-row">
+                        <div class="referral-code copy-btn">Referral 20</div>
+            
+                        <div class="pd-share">
+                            <button class="sharebutton share-btn">Share</button>
+            
+                            <!-- SHARE POPUP -->
+                            <div class="share-popup">
+                                <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy">
+                                <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp">
+                                <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram">
+                                <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <p class="referral-desc">
+                        For instant discount Refer your friends and family
+                    </p>
+            
+                </div>
+            
+            </div>
+</body>
+</html>

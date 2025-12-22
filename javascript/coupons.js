@@ -381,9 +381,10 @@ menuItems.forEach(item => {
   item.addEventListener("click", () => {
 
     /* Tablet → open sidebar only */
-    if (window.innerWidth <= 1024) {
-      openSidebar();
-    }
+    if (window.innerWidth <= 1024 && !sidebar.classList.contains("open")) {
+        openSidebar();   // ✅ open only, never close
+        }
+
 
     /* Active state */
     menuItems.forEach(li => li.classList.remove("active"));

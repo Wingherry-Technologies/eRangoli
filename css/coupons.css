@@ -286,7 +286,7 @@ body {
   transition: opacity 0.25s ease;
 }
 
-.popup-box {
+.referral-popup .popup-box {
   background: #fff;
   padding: 24px;
   border-radius: 8px;
@@ -333,6 +333,7 @@ body {
     text-align: left;
     margin-bottom: 20px;
 }
+
 .headcontent h3{
     color: #3F3F3F;
     font-weight: 600;
@@ -351,6 +352,110 @@ body {
   position: relative;
   cursor: pointer;
 }
+
+/* ref */
+
+/* =========================
+   REFERRAL CARD (LEFT–RIGHT)
+========================= */
+
+.re-referral-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px 20px;
+  border: 1px solid #EFEFEF;
+  width: 100%;
+}
+
+/* LEFT SECTION */
+.re-ref-left {
+  flex: 0 0 35%;
+}
+
+.re-ref-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3F3F3F;
+  margin-bottom: 0px;
+}
+
+.re-ref-left img {
+  width: 100%;
+  max-width: 120px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/* RIGHT SECTION */
+.re-ref-right {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ACTION ROW */
+.re-ref-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+/* CODE BOX */
+.re-ref-code {
+  padding: 6px 14px;
+  border: 1px solid #CBCBCB;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #716B6B;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* SHARE BUTTON */
+.re-share-btn {
+  padding: 7px 16px;
+  background: #EFDFDF;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3F3F3F;
+  cursor: pointer;
+}
+
+/* DESCRIPTION */
+.re-ref-desc {
+  font-size: 12px;
+  font-weight: 500;
+  color: #716B6B;
+}
+
+/* =========================
+   REFERRAL CARD VISIBILITY
+   ========================= */
+
+/* Hide by default (desktop & tablet) */
+.referral-card {
+  display: none;
+}
+
+/* Show only from 640px and below */
+@media (max-width: 640px) {
+  .referral-card {
+    display: block;
+  }
+}
+
+/* MOBILE */
+
+
 
 /* Popup container */
 .share-popup {
@@ -417,10 +522,11 @@ body {
 
 /* Tablet only */
 @media (max-width: 1024px) {
-  .sidebar-close {
+  .coupon-sidebar.open .sidebar-close {
     display: block;
   }
 }
+
 
 /* TABLET */
 /* ==================================================
@@ -517,6 +623,9 @@ body {
   .coupon-sidebar,
   .aside-toggle {
     display: none;
+  }
+  .referral-card-ui{
+    display: block;
   }
 }
 /* =========================
