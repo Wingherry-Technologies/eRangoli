@@ -608,15 +608,23 @@
   background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #c8bdb6;
-  cursor: pointer;
   padding-bottom: 14px;
   transition: 0.25s ease;
   display: flex;
   flex-direction: column;
 }
+.product-card .product-name{
+  cursor: pointer;
+}
 .product-card:hover {
   transform: translateY(-4px);
 }
+.add-cart-btn.cart-added {
+  background-color: #660505;   /* light green */
+  cursor: default;
+  color: #d9d9d9;
+}
+
 
 @media (min-width: 2020px) {
   .products-grid {

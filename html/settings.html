@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="../css/settings.css" />
+  </head>
+  <body>
+    <div class="back-row" id="back-btn">
+      <img src="../assets/settings/back.svg" class="back-icon" />
+      <span class="search">Back to search</span>
+    </div>
+    <div class="MP-header-banner">
+      <div class="MP-overlay">
+        <div class="header-content">
+          <div class="header">
+            <div class="back-row-mob" id="back-btn-mob">
+              <img src="../assets/settings/back.svg" />
+            </div>
+
+            <h1 class="MP-header">My Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-wrapper">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <h3>My Profile</h3>
+
+        <div class="menu-item" id="about-you">
+          <span class="menu-icon-circle">
+            <img src="../assets/settings/user.svg" class="menu-icon-left" />
+          </span>
+
+          <span class="menu-text">About you</span>
+
+          <img src="../assets/settings/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item" id="menu-item-payments">
+          <span class="menu-icon-circle">
+            <img src="../assets/settings/coin.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Payments</span>
+
+          <img src="../assets/settings/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item" id="gift-voucher">
+          <span class="menu-icon-circle">
+            <img src="../assets/settings/gift.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Gift Vouchers</span>
+
+          <img src="../assets/settings/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item active" onclick="openProfilePopup()">
+          <span class="menu-icon-circle">
+            <img src="../assets/settings/setting.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Settings</span>
+
+          <img src="../assets/settings/right.svg" class="menu-icon-right" />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-panel">
+        <div class="payment-container">
+          <div class="header-banner">
+            <div class="overlay">
+              <div class="header-content">
+                <h1>Settings</h1>
+              </div>
+            </div>
+          </div>
+          <div class="setting-wrapper">
+            <p class="setting-label">Manage Login Devices</p>
+            <hr />
+            <p class="setting-label">Logout All Devices</p>
+            <hr />
+            <p class="setting-label">Delete My Account</p>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROFILE POPUP -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="popup-content">
+        <!-- Header -->
+        <div class="popup-header">
+          <h3>My Profile</h3>
+          <span class="popup-close" id="closePopup">&times;</span>
+        </div>
+
+        <!-- Menu -->
+        <div class="popup-menu">
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/settings/user.svg" />
+            </span>
+            <span class="popup-text">About you</span>
+            <img
+              src="../assets/settings/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/settings/coin.svg" class="menu-icon-left" />
+            </span>
+            <span class="popup-text">Payments</span>
+            <img
+              src="../assets/settings/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/settings/gift.svg" />
+            </span>
+            <span class="popup-text">Gift Vouchers</span>
+            <img
+              src="../assets/settings/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item active">
+            <span class="popup-icon">
+              <img src="../assets/settings/setting.svg" />
+            </span>
+            <span class="popup-text">Settings</span>
+            <img
+              src="../assets/settings/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/settings.js"></script>
+  </body>
+</html>

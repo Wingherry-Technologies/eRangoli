@@ -77,7 +77,7 @@ level2Dropdowns.forEach(subItem => {
     });
 });
 
-var signup=false;
+var signup=true;
 
 const userprofileIcon=document.getElementById("user-profile-icon");
 const signupWrapper=document.getElementById("signup-wrapper");
@@ -211,6 +211,8 @@ function UpdateUI(){
     signup=false
     UpdateUI()
 
+    document.querySelector(".mobile-search-bar-main").style.display='block';
+    document.querySelector("body").style.overflow="auto";
     
   })
 

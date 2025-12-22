@@ -16,8 +16,8 @@
 
     <nav>
         <div class="logo-section">
-            <img id="desktop-erangoli-logo" src="../assets/master/eRangoli 2.svg" alt="" />
-            <img id="mobile-erangoli-logo" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
+            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
             <div class="search-bar">
                 <img src="../assets/master/MagnifyingGlass.svg" alt="" />
                 <input type="search" id="desktop-search" placeholder="Search" onkeyup="showSuggestions(this)">
@@ -442,18 +442,6 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown1" id="mobile-faqs">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Question.svg" alt="">
-                        </div>
-                        <span>FAQ</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
                 </ul>
               </div>
             </div>
@@ -462,10 +450,10 @@
               <div class="sub-section">
                 <span>Support</span>
 
-                <ul class="mobile-nav-menu not-logged-in" id="support-menu">
+                <ul class="mobile-nav-menu1" id="support-menu">
 
                   <!-- ITEM -->
-                  <li class="mobile-dropdown2" id="mobile-customer-care">
+                  <li class="mobile-dropdown3" id="mobile-customer-care">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -477,13 +465,25 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown2" id="mobile-privacy-policy">
+                  <li class="mobile-dropdown3" onclick="window.location.href='../html/privacyPolicy.html'" id="mobile-privacy-policy">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
                           <img src="../assets/master/Info.svg" alt="">
                         </div>
                         <span>Privacy Policy</span>
+                      </div>
+                      <img src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <li class="mobile-dropdown3" onclick="window.location.href='../html/faq.html'" id="mobile-faqs">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/master/Question.svg" alt="">
+                        </div>
+                        <span>FAQ</span>
                       </div>
                       <img src="../assets/master/CaretDown.svg">
                     </div>

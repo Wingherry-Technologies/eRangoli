@@ -128,10 +128,10 @@ body {
   box-sizing: border-box;
 }
 
-.header-content {
+.header-content h1 {
   font-weight: 700;
   color: #3f3f3f;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .MP-header-banner {
@@ -173,6 +173,7 @@ body {
 .saved-title {
   font-weight: 700;
   color: #3f3f3f;
+  font-size: 18px;
   margin-bottom: 16px;
 }
 
@@ -509,5 +510,29 @@ body {
   .payment-header-banner .back-row-mob img {
     width: 20px;
     height: auto;
+  }
+  .menu-item {
+    justify-content: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+  }
+
+  .menu-icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #efdfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-item.active {
+    background: #efdfdf;
+  }
+
+  .menu-item.active .menu-icon-circle {
+    background: #ffffff;
   }
 }

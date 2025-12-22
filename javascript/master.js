@@ -89,6 +89,8 @@ const logoutDesktop=document.querySelector(".logout-option-desktop");
 const numberNoti=document.querySelector("#round-button-notification img");
 const notificationBox=document.querySelector(".notification-main-box");
 
+
+
 // Mobile View
 const welcomeName=document.getElementById("welcome-name");
 const imageName=document.querySelector(".image-section .circle-image span")
@@ -110,15 +112,39 @@ function UpdateUI(){
   signupWrapper.style.display="none"
   function toggleNotification(event) {
     event.stopPropagation(); // VERY IMPORTANT
-    notificationBox.style.display =
-      notificationBox.style.display === "block" ? "none" : "block";
-      if(notificationBox.style.display==="block"){
-        document.querySelector("body").style.overflow="hidden"
-      }
-      else{
-        document.querySelector("body").style.overflow="auto"
-      }
+
+    const isOpen = notificationBox.style.display === "block";
+
+    notificationBox.style.display = isOpen ? "none" : "block";
+
+    // Only disable scroll if notification is open AND sidebar is NOT open
+    if (!isOpen && !mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "hidden";
+    } else if (!mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "auto";
+    }
   }
+
+  // desktop click
+  numberNoti.addEventListener("click", toggleNotification);
+
+  // mobile click
+  mobileNotification.addEventListener("click", toggleNotification);
+
+  // click outside → hide notification
+  document.addEventListener("click", () => {
+    notificationBox.style.display = "none";
+
+    // Only allow scroll if sidebar is NOT open
+    if (!mobileMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // prevent box clicks from closing itself
+  notificationBox.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
 
   // desktop click
   numberNoti.addEventListener("click", toggleNotification);
@@ -129,7 +155,6 @@ function UpdateUI(){
   // click outside → hide
   document.addEventListener("click", () => {
     notificationBox.style.display = "none";
-    document.querySelector("body").style.overflow="auto"
   });
 
   // prevent box clicks from closing itself
@@ -209,7 +234,8 @@ function UpdateUI(){
     document.querySelector(".bottom-nav").style.display="flex";
     signup=false
     UpdateUI()
-
+    document.querySelector(".mobile-search-bar-main").style.display='block';
+    document.querySelector("body").style.overflow="auto";
     
   })
 
@@ -266,7 +292,12 @@ else{
 
     bottomNumbers.forEach(bottomNumber => {
       bottomNumber.style.display="none"
-  });
+    });
+
+    resetWishlist();
+
+    resetCartButtons();
+      
   }
 }
 
@@ -419,36 +450,36 @@ document.addEventListener("click", function (event) {
 
 // Carousel Functionality
 
-let index = 0;
-const slide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
-const dots = document.querySelectorAll('.dot');
+// let index = 0;
+// const slide = document.querySelector('.carousel-slide');
+// const images = document.querySelectorAll('.carousel-slide img');
+// const dots = document.querySelectorAll('.dot');
 
-function showSlide(i) {
-    if (i >= images.length) index = 0;
-    if (i < 0) index = images.length - 1;
+// function showSlide(i) {
+//     if (i >= images.length) index = 0;
+//     if (i < 0) index = images.length - 1;
 
-    slide.style.transform = `translateX(${-index * 100}%)`;
+//     slide.style.transform = `translateX(${-index * 100}%)`;
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-}
+//     dots.forEach(dot => dot.classList.remove('active'));
+//     dots[index].classList.add('active');
+// }
 
-dots.forEach((dot, i) => {
-    dot.onclick = () => {
-        index = i;
-        showSlide(index);
-    };
-});
+// dots.forEach((dot, i) => {
+//     dot.onclick = () => {
+//         index = i;
+//         showSlide(index);
+//     };
+// });
 
-// Auto slide every 3 seconds
-setInterval(() => {
-    index++;
-    showSlide(index);
-}, 3000);
+// // Auto slide every 3 seconds
+// setInterval(() => {
+//     index++;
+//     showSlide(index);
+// }, 3000);
 
-// Initial render
-showSlide(index);
+// // Initial render
+// showSlide(index);
 
 
 
@@ -548,12 +579,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const shareOptions = document.querySelectorAll(".share-option");
+const likeIcons = document.querySelectorAll(".like-icon");
+
 // ================= SHARE POPUP TOGGLE =================
 document.addEventListener("click", function (e) {
 
   const shareBtn = e.target.closest(".share-btn");
 
-  // If clicked outside any share button → close all
+  // Click outside → close all popups
   if (!shareBtn) {
     document.querySelectorAll(".share-popup").forEach(popup => {
       popup.classList.remove("active");
@@ -563,6 +597,12 @@ document.addEventListener("click", function (e) {
 
   e.stopPropagation();
 
+  // ❌ Not logged in → redirect
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
   const popup = shareBtn.nextElementSibling;
   const isOpen = popup.classList.contains("active");
 
@@ -571,17 +611,20 @@ document.addEventListener("click", function (e) {
     p.classList.remove("active");
   });
 
-  // Toggle ONLY if it was closed
+  // Toggle current
   if (!isOpen) {
     popup.classList.add("active");
   }
 });
 
-
-// ================= SHARE ACTIONS =================
-document.querySelectorAll(".share-option").forEach(option => {
+shareOptions.forEach(option => {
   option.addEventListener("click", function (e) {
     e.stopPropagation();
+
+    if (!signup) {
+      window.location.href = "../html/login.html";
+      return;
+    }
 
     const type = this.dataset.type;
     const card = this.closest(".product-card");
@@ -621,20 +664,149 @@ document.querySelectorAll(".share-option").forEach(option => {
   });
 });
 
+const topWishlistCount = document.getElementById("number-of-wishlist");
+const bottomWishlistCount = document.querySelector(
+  "#bottom-nav-wishlist .bottom-bar-numbers"
+);
 
-document.querySelectorAll(".wishlist-icon").forEach(icon => {
-  icon.addEventListener("click", function (e) {
-    e.stopPropagation();
 
-    const normalImg = "../assets/master/likeimage.png";
-    const activeImg = "../assets/master/redHeart.png";
+function getWishlistCount() {
+  return parseInt(topWishlistCount.innerText) || 0;
+}
 
-    if (this.dataset.active === "true") {
-      this.src = normalImg;
-      this.dataset.active = "false";
-    } else {
-      this.src = activeImg;
-      this.dataset.active = "true";
-    }
-  });
+function setWishlistCount(count) {
+  // Prevent negative
+  count = Math.max(0, count);
+
+  // Top badge
+  topWishlistCount.innerText = count;
+  topWishlistCount.style.display = count > 0 ? "block" : "none";
+
+  // Bottom badge
+  bottomWishlistCount.innerText = count;
+  bottomWishlistCount.style.display = count > 0 ? "inline-block" : "none";
+}
+
+
+
+// ================= WISHLIST / LIKE TOGGLE =================
+document.addEventListener("click", function (e) {
+
+  const likeIcon = e.target.closest(".wishlist-icon");
+  if (!likeIcon) return;
+
+  e.stopPropagation();
+
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
+  const normalImg = "../assets/master/likeimage.png";
+  const activeImg = "../assets/master/redHeart.png";
+
+  const isActive = likeIcon.dataset.active === "true";
+  let count = getWishlistCount();
+
+  if (isActive) {
+    // UNLIKE
+    likeIcon.src = normalImg;
+    likeIcon.dataset.active = "false";
+    setWishlistCount(count - 1);
+  } else {
+    // LIKE
+    likeIcon.src = activeImg;
+    likeIcon.dataset.active = "true";
+    setWishlistCount(count + 1);
+  }
 });
+
+
+
+function resetWishlist() {
+  document.querySelectorAll(".wishlist-icon").forEach(icon => {
+    icon.src = "../assets/master/likeimage.png";
+    icon.dataset.active = "false";
+  });
+}
+
+
+
+// Notification
+const topNotificationCount = document.getElementById("number-of-notification"); // if you have a top one
+const bottomNotificationCount = document.querySelector(
+  "#bottom-nav-notification .bottom-bar-numbers"
+);
+
+function setCount(type, count) {
+  count = Math.max(0, count); // prevent negative
+
+  if (type === "cart") {
+    if (topCartCount) {
+      topCartCount.innerText = count;
+      topCartCount.style.display = count > 0 ? "block" : "none";
+    }
+    if (bottomCartCount) {
+      bottomCartCount.innerText = count;
+      bottomCartCount.style.display = count > 0 ? "inline-block" : "none";
+    }
+  }
+
+  if (type === "notification") {
+    if (topNotificationCount) {
+      topNotificationCount.innerText = count;
+      topNotificationCount.style.display = count > 0 ? "block" : "none";
+    }
+    if (bottomNotificationCount) {
+      bottomNotificationCount.innerText = count;
+      bottomNotificationCount.style.display = count > 0 ? "inline-block" : "none";
+    }
+  }
+}
+
+// ================= ADD TO CART =================
+// Cart
+const topCartCount = document.getElementById("number-of-cart");
+const bottomCartCount = document.querySelector(
+  "#bottom-nav-cart .bottom-bar-numbers"
+);
+
+
+document.addEventListener("click", function (e) {
+  const cartBtn = e.target.closest(".add-cart-btn");
+  if (!cartBtn) return;
+
+  e.stopPropagation();
+
+  if (!signup) {
+    window.location.href = "../html/login.html";
+    return;
+  }
+
+  if (cartBtn.classList.contains("cart-added")) return;
+
+  // Mark as added
+  cartBtn.innerText = "Added";
+  cartBtn.classList.add("cart-added");
+
+  // Increment cart count
+  const currentCount = parseInt(topCartCount.innerText) || 0;
+  setCount("cart", currentCount + 1);
+});
+
+
+function resetCartButtons() {
+  document.querySelectorAll(".add-cart-btn").forEach(btn => {
+    btn.innerText = "Add To Cart";
+    btn.classList.remove("cart-added");
+  });
+}
+
+
+
+
+
+
+
+
+

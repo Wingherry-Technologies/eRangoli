@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gift Vouchers</title>
+    <link rel="stylesheet" href="../css/giftVoucher.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="back-row" id="back-btn">
+      <img src="../assets/giftVoucher/back.svg" class="back-icon" />
+      <span class="search">Back to search</span>
+    </div>
+    <div class="MP-header-banner">
+      <div class="MP-overlay">
+        <div class="header-content">
+          <div class="header">
+            <div class="back-row-mob" id="back-btn-mob">
+              <img src="../assets/giftVoucher/back.svg" />
+            </div>
+
+            <h1 class="MP-header">My Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-wrapper">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <h3>My Profile</h3>
+
+        <div class="menu-item" id="about-you">
+          <span class="menu-icon-circle">
+            <img src="../assets/giftVoucher/user.svg" class="menu-icon-left" />
+          </span>
+
+          <span class="menu-text">About you</span>
+
+          <img src="../assets/giftVoucher/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item" id="menu-item-payments">
+          <span class="menu-icon-circle">
+            <img src="../assets/giftVoucher/coin.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Payments</span>
+
+          <img src="../assets/giftVoucher/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item active" onclick="openProfilePopup()">
+          <span class="menu-icon-circle">
+            <img src="../assets/giftVoucher/gift.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Gift Vouchers</span>
+
+          <img src="../assets/giftVoucher/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div class="menu-item" id="settings">
+          <span class="menu-icon-circle">
+            <img
+              src="../assets/giftVoucher/setting.svg"
+              class="menu-icon-left"
+            />
+          </span>
+          <span class="menu-text">Settings</span>
+
+          <img src="../assets/giftVoucher/right.svg" class="menu-icon-right" />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-panel">
+        <div class="payment-container">
+          <div class="header-banner">
+            <div class="overlay">
+              <div class="header-content">
+                <h1>Gift Vouchers</h1>
+              </div>
+            </div>
+          </div>
+          <div class="setting-wrapper">
+            <h2 class="voucher-title">Gift Card</h2>
+            <hr />
+            <div class="line-voucher">
+              <span class="left-big"
+                >Congratulations ! You have received a Gift Card</span
+              >
+              <span class="left-big-res">Congratulations ! </span>
+              <span class="right-small">23/11/2025</span>
+            </div>
+            <p class="left-rest-res">You have received a Gift Card</p>
+            <p class="code-label">Use Code: Giftpriya2000</p>
+
+            <p class="valid-label">Valid till 31st Dec</p>
+            <div class="gift-card-wrapper">
+              <div class="gift-card">
+                <!-- LEFT IMAGE -->
+                <div class="gift-image">
+                  <img src="../assets/giftVoucher/img.svg" alt="Gift Image" />
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="gift-content">
+                  <h1 class="gift-card-header">Gift Card</h1>
+
+                  <p class="message">
+                    Cheers to love, laughter, and another year together!<br />
+                    Happy Anniversary - enjoy this gift voucher and celebrate
+                    your day your way.
+                  </p>
+
+                  <div class="amount">₹2,000</div>
+
+                  <div class="from">From, Priya Mehra</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROFILE POPUP -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="popup-content">
+        <!-- Header -->
+        <div class="popup-header">
+          <h3>My Profile</h3>
+          <span class="popup-close" id="closePopup">&times;</span>
+        </div>
+
+        <!-- Menu -->
+        <div class="popup-menu">
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/giftVoucher/user.svg" />
+            </span>
+            <span class="popup-text">About you</span>
+            <img
+              src="../assets/giftVoucher/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img
+                src="../assets/giftVoucher/coin.svg"
+                class="menu-icon-left"
+              />
+            </span>
+            <span class="popup-text">Payments</span>
+            <img
+              src="../assets/giftVoucher/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item active">
+            <span class="popup-icon">
+              <img src="../assets/giftVoucher/gift.svg" />
+            </span>
+            <span class="popup-text">Gift Vouchers</span>
+            <img
+              src="../assets/giftVoucher/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/giftVoucher/setting.svg" />
+            </span>
+            <span class="popup-text">Settings</span>
+            <img
+              src="../assets/giftVoucher/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/giftVoucher.js"></script>
+  </body>
+</html>

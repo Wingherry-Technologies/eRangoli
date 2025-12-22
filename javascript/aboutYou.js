@@ -6,6 +6,18 @@ document.getElementById("back-btn-mob").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
 });
 
+document.getElementById("menu-item-payments").addEventListener("click", () => {
+  window.location.href = "../html/payments.html";
+});
+
+document.getElementById("gift-voucher").addEventListener("click", () => {
+  window.location.href = "../html/giftVoucher.html";
+});
+
+document.getElementById("settings").addEventListener("click", () => {
+  window.location.href = "../html/settings.html";
+});
+
 /* profile popup */
 const profilePopup = document.getElementById("profilePopup");
 const closeProfileBtn = document.getElementById("closePopup");

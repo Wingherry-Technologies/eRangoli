@@ -2,6 +2,22 @@ document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
 });
 
+document.getElementById("back-btn-mob").addEventListener("click", () => {
+  window.location.href = "../html/productcatalog.html";
+});
+
+document.getElementById("about-you").addEventListener("click", () => {
+  window.location.href = "../html/aboutYou.html";
+});
+
+document.getElementById("gift-voucher").addEventListener("click", () => {
+  window.location.href = "../html/giftVoucher.html";
+});
+
+document.getElementById("settings").addEventListener("click", () => {
+  window.location.href = "../html/settings.html";
+});
+
 const profilePopup = document.getElementById("profilePopup");
 const closeProfileBtn = document.getElementById("closePopup");
 function openProfilePopup() {

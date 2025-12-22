@@ -722,15 +722,14 @@ body {
 
 .productOverviewSimilarTitle {
   text-align: center;
-  font-size: 35px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  color: #3f3f3f;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 .productOverviewSimilarTitle::after {
   content: "";
-  width: 220px;
-  height: 3px;
+  width: 150px;
+  height: 2px;
   background-color: #a10404;
   display: block;
   margin: 1px auto 0;
@@ -803,10 +802,11 @@ body {
 
 .productOverviewLoadMoreBtn {
   color: #a10404;
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 400;
   cursor: pointer;
   text-decoration: none;
+  padding-bottom: 20px;
 }
 
 .productOverviewIcons {
