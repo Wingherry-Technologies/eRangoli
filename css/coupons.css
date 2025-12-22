@@ -13,10 +13,11 @@ body {
 
 .back-link {
   display: block;
-  margin: 12px 20px;
   margin-top: 20px;
   text-decoration: none;
   color: #555;
+  margin-top: 75px;
+  padding: 24px;
 }
 
 .aside-toggle {
@@ -34,7 +35,8 @@ body {
   gap: 20px;
   max-width:100%;
   margin: auto;
-  padding: 20px;
+  padding: 24px;
+  padding-top: 10px;
 }
 
 /* SIDEBAR */
@@ -147,6 +149,7 @@ body {
    .referral-card img{
     max-width: 250px;
     width: 100%;
+    content: url("../assets/Coupons/Frame\ 2055248338.svg");
 } 
 }
 @media (max-width:768px) {
@@ -177,10 +180,11 @@ body {
   }
 
   .referral-card img {
-    max-width: 70px;
-    height: 70px;
+    max-width: 100px;
+    height: 60px;
     border-radius: 8px;
     flex-shrink: 0;
+    object-fit: contain;
   }
 
   .referral-card p {
@@ -198,13 +202,14 @@ body {
 .referral-card p{
     color: #3F3F3F;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 10px;
 }
 .referral-card strong{
     font-weight: 700;
+    font-size: 12px;
 }
 .small-text {
-  font-size: 13px;
+  font-size: 11px;
   color: #3F3F3F;
 }
 

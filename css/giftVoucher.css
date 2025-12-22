@@ -7,11 +7,6 @@
   font-family: "Nunito Sans";
 }
 
-body {
-  background: #f5f5f5;
-  padding: 24px;
-}
-
 .MP-header-banner {
   display: none;
 }
@@ -25,7 +20,8 @@ body {
 .profile-wrapper {
   display: flex;
   gap: 24px;
-  margin: 0 auto;
+   background: #f5f5f5;
+   padding: 24px;
 }
 
 .back-row {
@@ -35,7 +31,9 @@ body {
   color: #3f3f3f;
   font-weight: 400;
   cursor: pointer;
-  margin-bottom: 20px;
+   background: #f5f5f5;
+   padding: 24px;
+   margin-top: 75px;
 }
 
 .back-row img {
@@ -152,6 +150,7 @@ body {
   align-items: center;
   padding-left: 24px;
   box-sizing: border-box;
+  margin-top: 75px;
 }
 
 .overlay {
@@ -525,10 +524,6 @@ body {
 }
 
 @media (max-width: 595px) {
-  body {
-    padding: 0;
-    background: #f7f7f7;
-  }
 
   .back-row {
     display: none;
@@ -563,6 +558,7 @@ body {
   body.payments-active .right-panel {
     display: block;
     padding: 1rem;
+    margin-top: 45px;
   }
 
   body.payments-active .header-banner {
@@ -574,6 +570,8 @@ body {
   }
 
   body.payments-active .payment-header-banner {
+    position: relative;
+    top: 75px;
     display: block;
     height: 110px;
     background: url("../assets/cart/bg.svg") center/cover;

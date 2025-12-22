@@ -302,6 +302,7 @@ function handleScrollForMobile() {
             contentbar.style.borderRadius = "0px 30px 30px 0px";
             contentbar.style.zIndex = 999;
             contentbar.style.padding = "8px 10px";
+            contentbar.style.marginLeft="10px";
 
             desktopERan && (desktopERan.style.display = "none");
             mobileERan && (mobileERan.style.display = "inline-block");
@@ -319,6 +320,7 @@ function handleScrollForMobile() {
             contentbar.style.border = "none";
             contentbar.style.borderRadius = "30px";
             contentbar.style.backgroundColor = "white";
+            contentbar.style.marginLeft="0px";
 
             desktopERan && (desktopERan.style.display = "flex");
             mobileERan && (mobileERan.style.display = "none");
