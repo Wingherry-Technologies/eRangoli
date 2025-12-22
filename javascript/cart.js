@@ -1854,6 +1854,15 @@ function updateCartItemCount() {
   if (totalItemsMobileEl) {
     totalItemsMobileEl.textContent = `${totalQty} Items`;
   }
+
+  const numberCart=document.getElementById("number-of-cart")
+  numberCart.textContent=`${totalQty}`
+  if (numberCart.textContent === "0"){
+    numberCart.style.display="none"
+  }
+  else{
+    numberCart.style.display="block"
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

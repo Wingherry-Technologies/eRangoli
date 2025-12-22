@@ -510,6 +510,11 @@ body {
     text-wrap: nowrap;
 }
 
+.pd-cart-btn.in-cart{
+  background: #a10404b0;
+  color: #c5c5c5;
+}
+
 /* OUT OF STOCK BUTTON */
 .pd-out-btn {
     background: #ccc;
