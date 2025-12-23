@@ -940,19 +940,34 @@ function clearAll() {
 function updateWrapperHeight() {
   const wrapper = document.querySelector(".pro-wrapper");
   const grid = document.querySelector(".products.pd-grid");
+  const leftIcons = document.querySelector(".left-icons");
 
   if (!wrapper || !grid) return;
 
-  // 🚫 When no results → do NOT measure cards
+  // 🚫 When no results
   if (filteredCards.length === 0) {
     wrapper.style.minHeight = "60vh";
+
+    if (leftIcons) {
+      leftIcons.style.minHeight = "60vh";
+      leftIcons.style.height = "60vh";
+    }
     return;
   }
 
-  // Measure grid height AS-IS (no card toggling)
+  // Measure grid height
   const height = grid.scrollHeight;
+
+  // Apply height to wrapper
   wrapper.style.minHeight = `${height}px`;
+
+  // 🔗 Sync left-icons height with wrapper
+  if (leftIcons) {
+    leftIcons.style.minHeight = "60vh";
+    leftIcons.style.height = `${height}px`;
+  }
 }
+
 
 function showPage(page, shouldScroll = true) {
   if (!filteredCards.length) return;

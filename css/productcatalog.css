@@ -98,7 +98,8 @@ body {
   flex-direction: column;
   gap: 15px;
   z-index: 200;
-  height: 100vh;
+  min-height: 60vh;
+  height: 100%;
   width: max-content;
   padding: 8px;
   border-radius: 8px;
@@ -166,7 +167,7 @@ body {
     align-items: center;
     justify-content: space-between;
     /* heading left, icons right */
-    max-height: 100px;
+    max-height: 90px;
     background-image: linear-gradient(rgba(239, 223, 223, 0.92),
         rgba(239, 223, 223, 0.92)),
       url(../assets/master/bgmproduct.png);
@@ -188,23 +189,36 @@ body {
   }
 
   /* ICONS go to RIGHT side */
+@media (max-width: 480px) {
+
   .left-icons.mobile-in-header {
     position: relative;
-    left: 0;
-    top: 0;
+    inset: auto;              /* removes left/top side-effects */
     transform: none;
+
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;      /* icons in a row */
+    align-items: center;
+
     gap: 10px;
-    background: transparent;
-    padding: 0;
+
+    padding: 0;               /* ❌ remove extra height */
     margin-left: 10px;
-    height: 50px;
+
+    background: transparent;  /* ❌ no background block */
+    border-radius: 0;
+
+    height: auto;             /* ✅ height = icon height */
+    max-height: unset;        /* ❌ remove 10vh */
+    width: fit-content;
+
+    z-index: 200;
   }
+}
 
   .left-icons.mobile-in-header button {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     background: #ffffff;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
@@ -237,7 +251,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
-  z-index: 10000;
+  /* z-index: 10000; */
 }
 
 .aside-overlay.active {
@@ -249,8 +263,8 @@ body {
   display: flex;
   /* border: 1px solid black; */
   width: 100%;
-  height: auto;
   min-height: 60vh;
+    height: auto;
   transition: min-height 0.25s ease;
   min-height: 100px;
   position: relative;
@@ -262,11 +276,11 @@ body {
   left: -320px;
   top: 0;
   width: 280px;
-  max-height: 100vh;
+  height: 100%;
   background: #fff;
   box-shadow: 6px 0 25px rgba(0, 0, 0, 0.25);
   transition: 0.35s ease;
-  z-index: 10002;
+  z-index: 201;
   padding: 16px;
   overflow-y: auto;
   border-radius: 8px;
@@ -310,6 +324,7 @@ body {
     height: 100vh;
     width: 100%;
     max-height: 100vh;
+    z-index: 9999;
   }
 
   .left-sidebar.active {
@@ -543,7 +558,8 @@ input[type="radio"] {
 }
 
 .pd-rating img {
-  width: 14px;
+  max-width: 14px;
+  width: 100%;
 }
 
 /* CONTENT */
@@ -595,7 +611,7 @@ input[type="radio"] {
 }
 
 .pd-price .old {
-  margin-left: 6px;
+  /* margin-left: 6px; */
   font-size: 14px;
   text-decoration: line-through;
   color: #716B6B;
@@ -666,10 +682,17 @@ input[type="radio"] {
     font-size: 11px;
   }
   .pd-price{
-    font-size: 13px;
+    font-size: 14px;
   }
   .pd-bottom-row {
     line-height: 10px;
+  }
+  .pd-bottom-row {
+    line-height: 14px;
+  }
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 10px !important;
   }
 }
 
@@ -702,7 +725,13 @@ input[type="radio"] {
     height: 160px !important;
     border-radius: 10px;
   }
-
+  .pd-rating{
+    font-size: 11px;
+  }
+  .pd-rating img{
+    max-width: 12px;
+    width: 100%;
+  }
   .pd-content {
     width: 55% !important;
   }
@@ -731,13 +760,7 @@ input[type="radio"] {
   .pd-price {
     font-size: 14px !important;
   }
-  .pd-bottom-row {
-    line-height: 14px;
-  }
-  .pd-price .old,
-  .pd-price .off {
-    font-size: 10px !important;
-  }
+  
 }
 
 @media (max-width: 595px) and (min-width: 426px) {
@@ -759,7 +782,13 @@ input[type="radio"] {
     width: 100% !important;
     height: 160px !important;
   }
-
+  .pd-rating{
+    font-size: 10px;
+  }
+  .pd-rating img{
+    max-width: 12px;
+    width: 100%;
+  }
   /* TEXT FIXES */
   .pd-name {
     font-size: 14px !important;
@@ -782,36 +811,249 @@ input[type="radio"] {
     font-size: 14px !important;
     margin-top: 5px;
   }
+  .pd-bottom-row {
+    line-height: 14px;
+  }
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 9px !important;
+  }
 }
 @media (max-width:480px) {
   .products.pd-grid {
     padding-top: 20px;
     gap: 8px;
+    padding: 0px 10px;
   }
   .pd-card{
     max-width: 400px;
     width: 100%;
   }
+  .pd-rating{
+    font-size: 10px;
+  }
+  .pd-rating img{
+    max-width: 10px;
+    width: 100%;
+  }
+  .pd-tags .free {
+  color: #009605;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pd-tags .left {
+  color: #FF0000;
+  font-size: 10px;
+  font-weight: 600;
+}
+  .pd-share img {
+  padding-top: 5px;
+  width: 14px;
+  cursor: pointer;
+}
+.pd-bottom-row {
+    line-height: 12px;
+  }
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 9px !important;
+  }
 }
 @media (max-width: 425px) {
+
   .products.pd-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0px;
+    padding-top: 16px;
   }
 
   .pd-card {
     flex-direction: column !important;
+    padding: 8px;
   }
 
   .pd-img {
-    height: 180px !important;
     width: 100% !important;
+    height: 150px !important;
+    border-radius: 10px;
   }
+   .pd-rating{
+    font-size: 10px;
+  }
+  .pd-rating img{
+    max-width: 10px;
+    width: 100%;
+  }
+  /* TEXT ADJUSTMENTS */
+  .pd-name {
+    font-size: 13px !important;
+    line-height: 14px !important;
+    margin-top: 2px;
+    padding-top: 4px;
+    margin-bottom: 2px;
+  }
+
+  .pd-line {
+    font-size: 10px !important;
+    line-height: 12px !important;
+    gap: 4px;
+  }
+
+  .pd-tags {
+    font-size: 10px !important;
+    margin-top: 4px;
+    line-height: 8px;
+  }
+.pd-tags .free {
+  color: #009605;
+  font-size: 9px;
+  font-weight: 600;
 }
 
+.pd-tags .left {
+  color: #FF0000;
+  font-size: 9px;
+  font-weight: 600;
+}
+  .pd-price {
+    font-size: 13px !important;
+    margin-top: 4px;
+  }
 
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 10px !important;
+  }
 
+  .pd-bottom-row {
+    line-height: 10px;
+  }
+}
+@media (max-width: 375px) {
 
+  .products.pd-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 4px;
+    padding-top: 16px;
+  }
+
+  .pd-card {
+    flex-direction: column !important;
+    padding: 6px;
+  }
+
+  .pd-img {
+    width: 100% !important;
+    height: 110px !important;
+    border-radius: 10px;
+  }
+
+  /* TEXT ADJUSTMENTS */
+  .pd-name {
+    font-size: 13px !important;
+    line-height: 14px !important;
+    margin-top: 3px;
+    margin-bottom: 0px;
+  }
+
+  .pd-line {
+    font-size: 9px !important;
+    line-height: 10px !important;
+    gap: 4px;
+  }
+
+  .pd-tags {
+    font-size: 8px !important;
+    margin-top: 4px;
+  }
+  .pd-tags .free {
+  color: #009605;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.pd-tags .left {
+  color: #FF0000;
+  font-size: 9px;
+  font-weight: 600;
+}
+  .pd-price {
+    font-size: 12px !important;
+    margin-top: 4px;
+  }
+
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 9px !important;
+  }
+
+  .pd-bottom-row {
+    line-height: 10px;
+  }
+}
+@media (max-width: 300px) {
+
+  .products.pd-grid {
+    grid-template-columns: 1fr!important;
+    gap: 4px;
+    padding-top: 16px;
+  }
+
+  .pd-card {
+    flex-direction: column !important;
+    padding: 6px;
+  }
+
+  .pd-img {
+    width: 100% !important;
+    height: 110px !important;
+    border-radius: 10px;
+  }
+
+  /* TEXT ADJUSTMENTS */
+  .pd-name {
+    font-size: 13px !important;
+    line-height: 14px !important;
+    margin-top: 3px;
+    margin-bottom: 0px;
+  }
+
+  .pd-line {
+    font-size: 8px !important;
+    line-height: 10px !important;
+    gap: 4px;
+  }
+
+  .pd-tags {
+    font-size: 8px !important;
+    margin-top: 4px;
+  }
+  .pd-tags .free {
+  color: #009605;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.pd-tags .left {
+  color: #FF0000;
+  font-size: 8px;
+  font-weight: 600;
+}
+  .pd-price {
+    font-size: 11px !important;
+    margin-top: 4px;
+  }
+
+  .pd-price .old,
+  .pd-price .off {
+    font-size: 8px !important;
+  }
+
+  .pd-bottom-row {
+    line-height: 10px;
+  }
+}
 .pd-page-btn.disabled,
 .pd-page-btn:disabled {
   opacity: 0.4;
