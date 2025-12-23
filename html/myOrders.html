@@ -1140,7 +1140,7 @@
 
   <div class="bankHeader">
     <span>Account Details</span>
-    <span class="bankClose" id="bankClose">✕</span>
+    <span class="bankClose" id="bankClose"><img src="../assets/myOrders/cross.svg" alt=""></span>
   </div>
 
   <div class="bankRow">
@@ -1180,6 +1180,33 @@
 
     <button class="bankSaveBtn" id="bankSaveBtn" type="button">Save</button>
   </div>
+
+
+
+</div>
+
+<!-- UPI FORM -->
+<div class="upiForm" id="upiForm" style="display:none">
+  
+  <div class="upiHeader">
+    <span>Add UPI ID</span>
+    <span class="upiClose" id="upiClose">✕</span>
+  </div>
+
+  <div class="upiField">
+    <label>UPI ID *</label>
+    <input 
+      type="text" 
+      id="upiIdInput" 
+      placeholder="example@paytm" 
+      maxlength="50"
+    />
+    <span class="inputError" id="upiIdError"></span>
+  </div>
+
+  <button class="upiSaveBtn" id="upiSaveBtn" type="button">
+    Save
+  </button>
 
 </div>
 

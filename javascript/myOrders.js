@@ -612,14 +612,17 @@ const paymentBox = document.getElementById("paymentBox");
 const confirmBtn = document.getElementById("confirmBtn");
 const paymentOptions = document.querySelectorAll(".paymentCheckbox input");
 
+
 // RESET CONFIRM PAYMENT MODAL
 function resetConfirmModal() {
   paymentOptions.forEach((opt) => (opt.checked = false));
   paymentBox.innerHTML = "";
+  bankForm.style.display = "none"; 
+  upiForm.style.display = "none"; // 
   confirmBtn.disabled = true;
   confirmBtn.classList.remove("active");
 }
-// NAYA CODE - Bank accounts ko preserve karta hai
+// payment mode selection
 paymentOptions.forEach((option) => {
   option.addEventListener("change", () => {
     // Uncheck other options
@@ -629,11 +632,12 @@ paymentOptions.forEach((option) => {
 
     // BANK TRANSFER
     if (option.checked && option.value === "bank") {
-      // Agar bank accounts already saved hain toh unhe show karo
+
+       upiForm.style.display = "none"; 
+      paymentBox.style.display = "block";
       if (bankAccounts.length > 0) {
         renderBankAccounts();
       } else {
-        // Nahi toh "No account" message show karo
         paymentBox.innerHTML = `
           <p>No bank account added</p>
           <span class="changeAccount" id="addAccountBtn">Add Account</span>
@@ -653,32 +657,64 @@ paymentOptions.forEach((option) => {
     }
     // UPI
     else if (option.checked && option.value === "upi") {
-      paymentBox.innerHTML = `
-        <span>UPI ID</span><br>
-        davidjohn@upi
-      `;
-      confirmBtn.disabled = false;
-      confirmBtn.classList.add("active");
+      bankForm.style.display = "none";
+      paymentBox.style.display = "block";
+      
+      if (upiAccounts.length > 0) {
+        renderUpiAccounts();
+      } else {
+        paymentBox.innerHTML = `
+          <p>No UPI ID added</p>
+          <span class="changeAccount" id="addUpiBtn">Add UPI</span>
+        `;
+
+        confirmBtn.disabled = true;
+        confirmBtn.classList.remove("active");
+
+        document.getElementById("addUpiBtn").addEventListener("click", () => {
+          resetUpiForm();
+          upiForm.style.display = "block";
+          paymentBox.style.display = "none";
+          confirmBtn.style.display = "none";
+        });
+      }
     }
+
     // NONE SELECTED
     else {
       paymentBox.innerHTML = "";
+      bankForm.style.display = "none"; //
+      upiForm.style.display = "none";
       confirmBtn.disabled = true;
       confirmBtn.classList.remove("active");
     }
   });
 });
+
+
 // BANK FORM ELEMENTS
 const bankForm = document.getElementById("bankForm");
 const bankSaveBtn = document.getElementById("bankSaveBtn");
 const bankClose = document.getElementById("bankClose");
 
-// OPEN ADD ACCOUNT (exactly like screenshot)
+// OPEN ADD ACCOUNT FORM
 paymentBox.addEventListener("click", (e) => {
   if (e.target.classList.contains("changeAccount")) {
+    const buttonId = e.target.id;
+    
     paymentBox.style.display = "none";
     confirmBtn.style.display = "none";
-    bankForm.style.display = "block";
+    
+    if (buttonId === "addAccountBtn" || buttonId === "addAnotherAccountBtn") {
+      resetBankForm();
+      bankForm.style.display = "block";
+      upiForm.style.display = "none";
+    } 
+    else if (buttonId === "addUpiBtn" || buttonId === "addAnotherUpiBtn") {
+      resetUpiForm();
+      upiForm.style.display = "block";
+      bankForm.style.display = "none";
+    }
   }
 });
 
@@ -689,10 +725,6 @@ bankClose.addEventListener("click", () => {
   confirmBtn.style.display = "block";
 });
 
-// Store bank accounts
-// Store bank accounts
-let bankAccounts = [];
-
 bankSaveBtn.addEventListener("click", () => {
 
   if (!validateBankForm()) return;
@@ -701,8 +733,6 @@ bankSaveBtn.addEventListener("click", () => {
   const holder = document.getElementById("accountHolderName").value.trim();
   const acc = document.getElementById("accountNumber").value.trim();
   const ifsc = document.getElementById("ifscCode").value.trim();
-
-
   // Add account to array
   bankAccounts.push({ bank, branch, holder, acc, ifsc });
 
@@ -721,7 +751,7 @@ function renderBankAccounts() {
   if (bankAccounts.length === 0) {
     paymentBox.innerHTML = `
       <p>No bank account added</p>
-      <span class="changeAccount" id="addAccountBtn">Add Account</span>
+      <span class="changeUPI" id="addAccountBtn">Add Account</span>
     `;
     confirmBtn.disabled = true;
     confirmBtn.classList.remove("active");
@@ -1015,6 +1045,173 @@ function resetBankForm() {
   document.getElementById("ifscCode").value = "";
 }
 
+
+
+let bankAccounts = [];
+let upiAccounts = []; 
+
+// ===== UPI FORM ELEMENTS =====
+const upiForm = document.getElementById("upiForm");
+const upiIdInput = document.getElementById("upiIdInput");
+const upiSaveBtn = document.getElementById("upiSaveBtn");
+const upiClose = document.getElementById("upiClose");
+
+// ===== UPI INPUT VALIDATION =====
+upiIdInput.addEventListener("input", (e) => {
+  let value = e.target.value;
+  value = value.replace(/\s/g, "");
+  e.target.value = value;
+
+  if (value === "") {
+    showInputError("upiIdError", "UPI ID is required");
+  } else if (!/^[\w.-]+@[\w.-]+$/.test(value)) {
+    showInputError("upiIdError", "Invalid UPI format (e.g., name@paytm)");
+  } else {
+    clearInputError("upiIdError");
+  }
+});
+
+upiIdInput.addEventListener("blur", () => {
+  const value = upiIdInput.value.trim();
+  if (value === "") {
+    showInputError("upiIdError", "UPI ID is required");
+  } else if (!/^[\w.-]+@[\w.-]+$/.test(value)) {
+    showInputError("upiIdError", "Invalid UPI format (e.g., name@paytm)");
+  }
+});
+
+// ===== UPI SAVE BUTTON =====
+upiSaveBtn.addEventListener("click", () => {
+  const upiId = upiIdInput.value.trim();
+  
+  if (!upiId) {
+    showInputError("upiIdError", "UPI ID is required");
+    return;
+  }
+  
+  if (!/^[\w.-]+@[\w.-]+$/.test(upiId)) {
+    showInputError("upiIdError", "Invalid UPI format (e.g., name@paytm)");
+    return;
+  }
+
+  if (upiAccounts.includes(upiId)) {
+    showInputError("upiIdError", "This UPI ID is already added");
+    return;
+  }
+
+  upiAccounts.push(upiId);
+  renderUpiAccounts();
+
+  upiForm.style.display = "none";
+  paymentBox.style.display = "block";
+  confirmBtn.style.display = "block";
+
+  resetUpiForm();
+});
+
+// ===== UPI CLOSE BUTTON =====
+upiClose.addEventListener("click", () => {
+  upiForm.style.display = "none";
+  
+  if (upiAccounts.length > 0) {
+    paymentBox.style.display = "block";
+    renderUpiAccounts();
+  } else {
+    paymentBox.innerHTML = `
+      <p>No UPI ID added</p>
+      <span class="changeAccount" id="addUpiBtn">Add UPI</span>
+    `;
+    
+    document.getElementById("addUpiBtn").addEventListener("click", () => {
+      resetUpiForm();
+      upiForm.style.display = "none";
+      paymentBox.style.display = "none";
+      confirmBtn.style.display = "none";
+    });
+  }
+  
+  confirmBtn.style.display = "block";
+  paymentBox.style.display = "block";
+  resetUpiForm();
+});
+
+// ===== RENDER UPI ACCOUNTS =====
+function renderUpiAccounts() {
+  if (upiAccounts.length === 0) {
+    paymentBox.innerHTML = `
+      <p>No UPI ID added</p>
+      <span class="changeAccount" id="addUpiBtn">Add UPI</span>
+    `;
+    
+    confirmBtn.disabled = true;
+    confirmBtn.classList.remove("active");
+    
+    document.getElementById("addUpiBtn").addEventListener("click", () => {
+      resetUpiForm();
+      upiForm.style.display = "block";
+      paymentBox.style.display = "none";
+      confirmBtn.style.display = "none";
+    });
+    return;
+  }
+
+  let html = "";
+
+  upiAccounts.forEach((upi, index) => {
+    html += `
+      <div class="upiAccountItem">
+        <label class="upiAccountCheckbox">
+        <div class="upiAccountHeader">
+          <input type="checkbox" name="selectedUpi" value="${index}" />
+          <span class="customBox"></span>
+          <span>UPI ${index + 1}</span>
+        </div>
+
+          <span class="upiAccountText">${upi}</span>
+        </label>
+      </div>
+    `;
+  });
+
+  html += `<span class="changeAccount" id="addAnotherUpiBtn">Add Another UPI</span>`;
+
+  paymentBox.innerHTML = html;
+
+  confirmBtn.disabled = true;
+  confirmBtn.classList.remove("active");
+
+  const upiCheckboxes = paymentBox.querySelectorAll('input[name="selectedUpi"]');
+  upiCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        upiCheckboxes.forEach((cb) => {
+          if (cb !== checkbox) cb.checked = false;
+        });
+        
+        confirmBtn.disabled = false;
+        confirmBtn.classList.add("active");
+      } else {
+        const anyChecked = [...upiCheckboxes].some((cb) => cb.checked);
+        confirmBtn.disabled = !anyChecked;
+        confirmBtn.classList.toggle("active", anyChecked);
+      }
+    });
+  });
+
+  document.getElementById("addAnotherUpiBtn").addEventListener("click", () => {
+    resetUpiForm();
+    upiForm.style.display = "block";
+    paymentBox.style.display = "none";
+    confirmBtn.style.display = "none";
+  });
+}
+
+// ===== RESET UPI FORM =====
+function resetUpiForm() {
+  upiIdInput.value = "";
+  clearInputError("upiIdError");
+}
+
 const successOverlay = document.getElementById("successOverlay");
 const successClose = document.getElementById("successClose");
 
@@ -1022,6 +1219,7 @@ confirmBtn.addEventListener("click", () => {
   confirmOverlay.style.display = "none";
   resetConfirmModal();
   bankAccounts = [];
+  upiAccounts = [];
 
   const img = document.querySelector(".successAnimation img");
   img.style.animation = "none";
