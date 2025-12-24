@@ -810,6 +810,10 @@ hr {
     background: #ffffff;
   }
 
+  .checkout-wrapper.delivery-active .billing-card {
+    display: none;
+  }
+
   .bill-header {
     display: none;
   }
@@ -986,6 +990,10 @@ hr {
     width: 100%;
     min-height: auto;
     height: auto;
+  }
+
+  #emptyCart:not(.hidden) + .checkout-wrapper {
+    display: none;
   }
 
   .back-row {

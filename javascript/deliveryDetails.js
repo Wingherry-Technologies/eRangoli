@@ -1033,16 +1033,6 @@ document.getElementById("p-state").addEventListener("input", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mainGrid = document.querySelector(".main-grid");
-  const deliveryCard = document.querySelector(".delivery-card");
-
-  if (deliveryCard && deliveryCard.classList.contains("hidden")) {
-    mainGrid.classList.add("center-layout");
-  }
-  checkEmptyCartState();
-});
-
 /* Single entry point for all Pay Button state handling */
 function refreshPayButtonState() {
   updatePayButtonState();
@@ -1117,6 +1107,21 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
     .querySelectorAll(".form-group, .inline-row, .sub-heading")
     .forEach((el) => el.classList.add("hide"));
   document.getElementById("saveAddressBtn").classList.add("hide");
+
+  if (window.innerWidth <= 595) {
+    const deliveryCard = document.querySelector(".delivery-card");
+    const billingCard = document.getElementById("billingCard");
+
+    if (deliveryCard) {
+      deliveryCard.classList.add("hidden");
+      deliveryCard.style.display = "none";
+    }
+
+    if (billingCard) {
+      billingCard.classList.add("show-on-tablet");
+      billingCard.style.display = "block";
+    }
+  }
 });
 
 /* OPEN INLINE POPUP */
@@ -1380,7 +1385,7 @@ document.addEventListener("click", (e) => {
 
     updateBillingTotals();
     updateCartItemCount();
-    checkEmptyCartState();
+    checkEmptyCartStateMobile();
 
     setTimeout(() => {
       let needsWarning = false;
@@ -1427,13 +1432,11 @@ document.getElementById("continueBtn").addEventListener("click", () => {
   try {
     const deliveryCard = document.querySelector(".delivery-card");
     const billingCard = document.getElementById("billingCard");
+    const proceedBtn = document.getElementById("proceedBtn");
+    const payBtn = document.getElementById("pay-btn");
 
-    // 🔥 TABLET + MOBILE (same behaviour)
     const isTabletOrMobile = window.innerWidth <= 1024;
-
-    /* ===============================
-       DELIVERY → BILLING SWITCH
-    =============================== */
+    const isMobile = window.innerWidth <= 595;
 
     // hide delivery details
     if (deliveryCard) {
@@ -1446,21 +1449,24 @@ document.getElementById("continueBtn").addEventListener("click", () => {
       billingCard.classList.add("show");
 
       if (isTabletOrMobile) {
-        // Tablet + Mobile: remove force hide
         billingCard.classList.remove("force-hide");
         billingCard.style.display = "block";
         billingCard.style.height = "";
         billingCard.style.margin = "";
         billingCard.style.padding = "";
       } else {
-        // Laptop / Desktop
         billingCard.classList.remove("hidden");
       }
     }
 
-    /* ===============================
-       COPY DELIVERY DATA → BILLING
-    =============================== */
+    if (isMobile) {
+      if (proceedBtn) {
+        proceedBtn.style.display = "none";
+      }
+      if (payBtn) {
+        payBtn.style.display = "block";
+      }
+    }
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -1496,10 +1502,6 @@ document.getElementById("continueBtn").addEventListener("click", () => {
         </label>
       </div>
     `;
-
-    /* ===============================
-       MOVE SAVED ADDRESS
-    =============================== */
 
     const savedAddress = document.getElementById("saved-address-section");
     const billingSavedContainer = document.getElementById(
@@ -1955,11 +1957,25 @@ document.addEventListener("click", (e) => {
   if (billingCard) {
     billingCard.classList.remove("show", "show-on-tablet");
     billingCard.classList.add("hidden");
+    billingCard.style.display = "none";
   }
 
   const deliveryCard = document.querySelector(".delivery-card");
   if (deliveryCard) {
     deliveryCard.classList.remove("hidden");
+    deliveryCard.style.display = "block";
+  }
+
+  const isMobile = window.innerWidth <= 595;
+  if (isMobile) {
+    const proceedBtn = document.getElementById("proceedBtn");
+    const payBtn = document.getElementById("pay-btn");
+    if (proceedBtn) {
+      proceedBtn.style.display = "block";
+    }
+    if (payBtn) {
+      payBtn.style.display = "none";
+    }
   }
 
   const fields = [
@@ -2021,11 +2037,25 @@ document.addEventListener("click", (e) => {
   if (billingCard) {
     billingCard.classList.remove("show", "show-on-tablet");
     billingCard.classList.add("hidden");
+    billingCard.style.display = "none";
   }
 
   const deliveryCard = document.querySelector(".delivery-card");
   if (deliveryCard) {
     deliveryCard.classList.remove("hidden");
+    deliveryCard.style.display = "block";
+  }
+
+  const isMobile = window.innerWidth <= 595;
+  if (isMobile) {
+    const proceedBtn = document.getElementById("proceedBtn");
+    const payBtn = document.getElementById("pay-btn");
+    if (proceedBtn) {
+      proceedBtn.style.display = "block";
+    }
+    if (payBtn) {
+      payBtn.style.display = "none";
+    }
   }
 
   const fields = [
@@ -2161,6 +2191,31 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
   const leftBanner = document.querySelector(".left-banner");
   const deliveryCard = document.querySelector(".delivery-card");
   const billingCard = document.getElementById("billingCard");
+  const emptyCart = document.getElementById("emptyCart");
+
+  if (width <= 595) {
+    // Hide empty cart if visible
+    if (emptyCart) {
+      emptyCart.classList.add("hidden");
+    }
+
+    // Show delivery card
+    if (deliveryCard) {
+      deliveryCard.classList.remove("hidden");
+      deliveryCard.style.display = "block";
+    }
+
+    // Hide billing card
+    if (billingCard) {
+      billingCard.classList.remove("show-on-tablet");
+      billingCard.style.display = "none";
+    }
+
+    // Keep banner visible
+    if (leftBanner) leftBanner.style.display = "block";
+
+    return;
+  }
 
   if (width > 1024) {
     if (mainGrid) {
@@ -2193,25 +2248,159 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
     // 🔥 show Delivery Details cleanly
     if (deliveryCard) {
       deliveryCard.style.display = "block";
-      deliveryCard.style.marginBottom = "0";
     }
   }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const deliveryCard = document.querySelector(".delivery-card");
+  const billingCard = document.getElementById("billingCard");
   const proceedBtn = document.getElementById("proceedBtn");
   const payBtn = document.getElementById("pay-btn");
+  const emptyCart = document.getElementById("emptyCart");
+  const productRows = document.querySelectorAll(".product-row");
 
-  // DEFAULT STATE
-  deliveryCard.style.display = "none";
-  payBtn.style.display = "none";
-  proceedBtn.style.display = "block";
+  if (window.innerWidth <= 595) {
+    // If cart has items, show billing card
+    if (productRows.length > 0) {
+      if (deliveryCard) {
+        deliveryCard.classList.add("hidden");
+        deliveryCard.style.display = "none";
+      }
+      if (billingCard) {
+        billingCard.classList.add("show-on-tablet");
+        billingCard.style.display = "block";
+      }
+      if (emptyCart) {
+        emptyCart.classList.add("hidden");
+      }
+    } else {
+      // Cart is empty, show empty cart screen
+      if (emptyCart) {
+        emptyCart.classList.remove("hidden");
+      }
+      if (deliveryCard) {
+        deliveryCard.classList.add("hidden");
+        deliveryCard.style.display = "none";
+      }
+      if (billingCard) {
+        billingCard.classList.remove("show-on-tablet");
+        billingCard.style.display = "none";
+      }
+    }
 
-  // PROCEED CLICK
-  proceedBtn.addEventListener("click", () => {
-    deliveryCard.style.display = "block"; // show delivery
-    proceedBtn.style.display = "none"; // hide proceed
-    payBtn.style.display = "block"; // show pay
-  });
+    // Initialize pay button state for mobile
+    refreshPayButtonState();
+    return;
+  }
+
+  // Existing tablet/desktop initialization (NO CHANGE)
+  if (deliveryCard && proceedBtn && payBtn) {
+    deliveryCard.style.display = "none";
+    payBtn.style.display = "none";
+    proceedBtn.style.display = "block";
+
+    proceedBtn.addEventListener("click", () => {
+      deliveryCard.style.display = "block";
+      proceedBtn.style.display = "none";
+      payBtn.style.display = "block";
+    });
+  }
+});
+
+function checkEmptyCartStateMobile() {
+  const productRows = document.querySelectorAll(".product-row");
+  const emptyCart = document.getElementById("emptyCart");
+  const checkoutWrapper = document.querySelector(".checkout-wrapper");
+  const leftBanner = document.querySelector(".left-banner");
+  const deliveryCard = document.querySelector(".delivery-card");
+  const billingCard = document.getElementById("billingCard");
+
+  const isMobile = window.innerWidth <= 595;
+  const isTablet = window.innerWidth > 595 && window.innerWidth <= 1024;
+  const isDesktop = window.innerWidth > 1024;
+
+  if (productRows.length === 0) {
+    emptyCart.classList.remove("hidden");
+
+    if (isMobile) {
+      if (deliveryCard) {
+        deliveryCard.classList.add("hidden");
+        deliveryCard.style.display = "none";
+      }
+      if (billingCard) {
+        billingCard.classList.remove("show-on-tablet");
+        billingCard.style.display = "none";
+      }
+      if (leftBanner) leftBanner.style.display = "none";
+      return;
+    }
+
+    // TABLET (NO CHANGE)
+    if (isTablet) {
+      checkoutWrapper.classList.add("hidden");
+      return;
+    }
+
+    // DESKTOP (NO CHANGE)
+    if (isDesktop) {
+      if (leftBanner) leftBanner.style.display = "none";
+      if (deliveryCard) deliveryCard.classList.add("hidden");
+      if (billingCard) billingCard.classList.add("hidden");
+
+      checkoutWrapper.style.minHeight = "auto";
+      checkoutWrapper.style.height = "auto";
+    }
+  } else {
+    emptyCart.classList.add("hidden");
+    checkoutWrapper.classList.remove("hidden");
+
+    if (leftBanner) leftBanner.style.display = "";
+    if (deliveryCard) deliveryCard.classList.remove("hidden");
+    if (billingCard) billingCard.classList.remove("hidden");
+
+    checkoutWrapper.style.minHeight = "100vh";
+    checkoutWrapper.style.height = "";
+  }
+}
+
+function showDeliveryDetails() {
+  const deliveryCard = document.querySelector(".delivery-card");
+  const billingCard = document.getElementById("billingCard");
+  const checkoutWrapper = document.querySelector(".checkout-wrapper");
+
+  if (!deliveryCard || !billingCard) return;
+
+  // Show delivery
+  deliveryCard.style.display = "block";
+
+  // Hide billing / your cart
+  billingCard.style.display = "none";
+
+  // Mobile + tablet cleanup
+  if (window.innerWidth <= 1024 && checkoutWrapper) {
+    checkoutWrapper.classList.add("hide-billing-flow");
+  }
+
+  document.body.classList.remove("payments-active");
+}
+
+document.addEventListener("click", (e) => {
+  const isMobileOrTablet = window.innerWidth <= 1024;
+
+  if (isMobileOrTablet && e.target.classList.contains("billing-change-btn")) {
+    showDeliveryDetails();
+  }
+});
+
+document.addEventListener("click", (e) => {
+  const isMobileOrTablet = window.innerWidth <= 1024;
+
+  if (
+    isMobileOrTablet &&
+    (e.target.classList.contains("billing-delete-icon") ||
+      e.target.closest(".billing-delete-icon"))
+  ) {
+    showDeliveryDetails();
+  }
 });
