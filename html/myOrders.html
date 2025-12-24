@@ -10,13 +10,7 @@
     <link rel="stylesheet" href="../css/meet-art-footer.css">
   </head>
   <body>
-    <!-- <div class="myOrdersBackButton">
-      <img src="../assets/myOrders/ArrowLeft.svg" alt="" />
-      <span>Back to search</span>
-    </div> -->
-
-        <!-- Navigation Bar -->
-
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
@@ -456,7 +450,7 @@
                 <ul class="mobile-nav-menu1" id="support-menu">
 
                   <!-- ITEM -->
-                  <li class="mobile-dropdown3" id="mobile-customer-care">
+                  <li class="mobile-dropdown2" id="mobile-customer-care">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -468,7 +462,7 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown3" onclick="window.location.href='../html/privacyPolicy.html'" id="mobile-privacy-policy">
+                  <li class="mobile-dropdown3" id="mobile-privacy-policy">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -480,7 +474,7 @@
                     </div>
                   </li>
 
-                  <li class="mobile-dropdown3" onclick="window.location.href='../html/faq.html'" id="mobile-faqs">
+                  <li class="mobile-dropdown3" id="mobile-faqs">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -513,17 +507,17 @@
         <div class="menu-section" >
 
             <div class="round-button" id="round-button-notification">
-                <span class="number-of-round" id="number-of-notification">2</span>
+                <span class="number-of-round" id="number-of-notification">3</span>
                 <img src="../assets/master/Bell.svg" alt="" />
             </div>
 
             <div class="round-button" id="round-button-wishlist">
-              <span class="number-of-round" id="number-of-wishlist">4</span>
+              <span class="number-of-round" id="number-of-wishlist">2</span>
                 <img src="../assets/master/Heart.svg" alt="" />
             </div>
 
             <div class="round-button" id="round-button-cart">
-              <span class="number-of-round" id="number-of-cart">1</span>
+              <span class="number-of-round" id="number-of-cart">4</span>
                 <img src="../assets/master/ShoppingCart.svg" alt="" />
             </div>
 
@@ -547,19 +541,19 @@
                     </div>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <ul>
-                            <li>
+                            <li onclick="window.location.href='../html/myOrders.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Package.svg" alt="">
                               </div>
                               <span>My Orders</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/aboutYou.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/UserCircle.svg" alt="">
                               </div>
                               <span>My Profile</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/coupons.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/UserSwitch.svg" alt="">
                               </div>
@@ -571,13 +565,13 @@
                               </div>
                               <span>Customer Care</span>
                             </li>
-                            <li>
+                            <li onclick="window.loaction.href='../html/privacyPolicy.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Info.svg" alt="">
                               </div>
                               <span>Privacy Policy</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/faq.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Question.svg" alt="">
                               </div>
@@ -658,7 +652,7 @@
         </div>
     </nav>
 
-        <!-- Mobile Bottom Navigation Bar -->
+    <!-- Mobile Bottom Navigation Bar -->
     <div class="bottom-nav" aria-label="Mobile navigation">
       <a href="index.html" class="bottom-nav__item">
         <img src="../assets/master/Vector.svg" alt="">
@@ -683,15 +677,6 @@
         <span class="bottom-nav__label">Cart</span>
       </a>
     </div>
-
-    <!-- Mobile Search Bar -->
-     <div class="mobile-search-bar-main">
-        <div class="mobile-search-bar">
-            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
-            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
-        </div>
-    </div>
-    <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
 
     <div class="myOrdersHeaderSection ">

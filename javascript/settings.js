@@ -283,7 +283,7 @@ document.getElementById("back-btn-mob").addEventListener("click", () => {
 });
 
 document.getElementById("about-you").addEventListener("click", () => {
-  window.location.href = "../html/aboutyouMobile.html";
+  window.location.href = "../html/aboutyou.html";
 });
 
 document.getElementById("menu-item-payments").addEventListener("click", () => {
