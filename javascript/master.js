@@ -196,15 +196,15 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-order").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/myOrders.html"
   })
 
   document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/abouYouMobile.html"
   })
 
   document.getElementById("mobile-referal").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/coupons.html"
   })
 
   document.getElementById("mobile-faqs").addEventListener("click",()=>{
@@ -212,7 +212,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/customercare.html"
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{

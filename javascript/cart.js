@@ -177,7 +177,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/aboutYou.html"
+    window.location.href="../html/abouYouMobile.html"
   })
 
   document.getElementById("mobile-referal").addEventListener("click",()=>{
@@ -188,8 +188,8 @@ function UpdateUI(){
     window.location.href="../html/faq.html"
   })
 
-  document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+document.getElementById("mobile-customer-care").addEventListener("click",()=>{
+    window.location.href="../html/customercare.html"
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{
@@ -1864,6 +1864,7 @@ function updateCartItemCount() {
     numberCart.style.display="block"
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   updateCartItemCount();

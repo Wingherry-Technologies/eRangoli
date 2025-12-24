@@ -3,7 +3,6 @@
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
-const bar1 = document.querySelector(".mobile-search-bar-main");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
@@ -12,14 +11,12 @@ hamburger?.addEventListener("click", () => {
     hamberMenuIcon.src = "../assets/master/X.svg";
     document.querySelector(".bottom-nav").style.display="none"
     document.querySelector("body").style.overflow="hidden"
-    bar1.style.display="none"
     window.scrollTo(0, 0);
   }
   else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector(".bottom-nav").style.display="flex"
     document.querySelector("body").style.overflow="auto"
-     bar1.style.display="block"
   }
 });
 
@@ -177,7 +174,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/aboutYou.html"
+    window.location.href="../html/abouYouMobile.html"
   })
 
   document.getElementById("mobile-referal").addEventListener("click",()=>{
@@ -189,7 +186,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/customercare.html"
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{
@@ -213,7 +210,6 @@ function UpdateUI(){
     UpdateUI()
     window.location.href='../html/index.html'
 
-    document.querySelector(".mobile-search-bar-main").style.display='block';
     document.querySelector("body").style.overflow="auto";
     
   })
@@ -277,76 +273,6 @@ else{
   }
 }
 
-function handleScrollForMobile() {
-    const bar = document.querySelector(".mobile-search-bar-main");
-    const contentbar = document.querySelector(".mobile-search-bar");
-    const desktopERan = document.getElementById("desktop-erangoli-logo");
-    const mobileERan = document.getElementById("mobile-erangoli-logo");
-    const maginfyingMobile = document.getElementById("maginfying-mobile");
-    const mobileSuggestion = document.getElementById("mobile-suggestions");
-    const notificationBox = document.querySelector(".notification-main-box");
-
-    // ⛔ stop if core elements are missing
-    if (!bar || !contentbar) return;
-
-    if (window.innerWidth <= 595) {
-        if (window.scrollY > 10) {
-            bar.style.position = "fixed";
-            bar.style.backgroundColor = "transparent";
-            bar.style.top = "-2px";
-            bar.style.left = "40px";
-
-            contentbar.style.border = "1px solid #D9D9D9";
-            contentbar.style.backgroundColor = "transparent";
-            contentbar.style.borderLeft = "0px";
-            contentbar.style.borderRadius = "0px 30px 30px 0px";
-            contentbar.style.zIndex = 999;
-            contentbar.style.padding = "8px 10px";
-            contentbar.style.marginLeft="10px";
-
-            desktopERan && (desktopERan.style.display = "none");
-            mobileERan && (mobileERan.style.display = "inline-block");
-            maginfyingMobile && (maginfyingMobile.style.display = "none");
-
-            mobileSuggestion && (mobileSuggestion.style.top = "80px");
-            notificationBox && (notificationBox.style.top = "130px");
-
-        } else {
-            bar.style.position = "relative";
-            bar.style.backgroundColor = "#f7f7f7";
-            bar.style.top = "75px";
-            bar.style.left = "0px";
-
-            contentbar.style.border = "none";
-            contentbar.style.borderRadius = "30px";
-            contentbar.style.backgroundColor = "white";
-            contentbar.style.marginLeft="0px";
-
-            desktopERan && (desktopERan.style.display = "flex");
-            mobileERan && (mobileERan.style.display = "none");
-            maginfyingMobile && (maginfyingMobile.style.display = "block");
-
-            mobileSuggestion && (mobileSuggestion.style.top = "150px");
-        }
-    } else {
-        bar.style = "";
-        contentbar.style = "";
-
-        desktopERan && (desktopERan.style.display = "flex");
-        mobileERan && (mobileERan.style.display = "none");
-        maginfyingMobile && (maginfyingMobile.style.display = "block");
-    }
-}
-
-
-// Run on scroll
-window.addEventListener("scroll", handleScrollForMobile);
-
-// Run when screen resizes (mobile ↔ desktop)
-window.addEventListener("resize", handleScrollForMobile);
-
-// Run once on initial load
-handleScrollForMobile();
 
 document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
@@ -356,12 +282,12 @@ document.getElementById("back-btn-mob").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
 });
 
-document.getElementById("menu-item-payments").addEventListener("click", () => {
-  window.location.href = "../html/payments.html";
+document.getElementById("about-you").addEventListener("click", () => {
+  window.location.href = "../html/aboutyouMobile.html";
 });
 
-document.getElementById("about-you").addEventListener("click", () => {
-  window.location.href = "../html/aboutYou.html";
+document.getElementById("menu-item-payments").addEventListener("click", () => {
+  window.location.href = "../html/payments.html";
 });
 
 document.getElementById("gift-voucher").addEventListener("click", () => {
@@ -383,12 +309,12 @@ const paymentsMenuItem = document.querySelector(".menu-item.active");
 
 if (paymentsMenuItem) {
   paymentsMenuItem.addEventListener("click", () => {
-    if (window.innerWidth <= 595) {
-      document.body.classList.add("payments-active");
-      createPaymentsHeader();
+    if (window.innerWidth <= 594) {
+      openPaymentsMobile();
     }
   });
 }
+
 
 // Create Payments Header (mobile)
 function createPaymentsHeader() {
@@ -401,7 +327,7 @@ function createPaymentsHeader() {
     <div class="P-overlay">
       <div class="header-content">
         <div class="header">
-          <div class="back-row-mob payment-back-btn">
+          <div class="payment-back-btn">
             <img src="../assets/cart/back.svg" />
           </div>
           <h1>Settings</h1>
@@ -414,6 +340,35 @@ function createPaymentsHeader() {
 
   header.querySelector(".payment-back-btn").addEventListener("click", () => {
     document.body.classList.remove("payments-active");
+
+    document.querySelector(".left-panel").style.display = "block";
+    document.querySelector(".right-panel").style.display = "none";
+    document.querySelector(".profile-wrapper").style.marginTop="0px"
+
     header.remove();
   });
+
 }
+function isMobileView() {
+  return window.innerWidth <= 594;
+}
+window.addEventListener("load", () => {
+  if (isMobileView()) {
+    document.body.classList.add("payments-active");
+    createPaymentsHeader()
+    document.querySelector(".left-panel").style.display="none"
+    document.querySelector(".right-panel").style.display="block "
+    document.querySelector(".profile-wrapper").style.marginTop="75px"
+  }
+});
+function openPaymentsMobile() {
+  document.body.classList.add("payments-active");
+
+  document.querySelector(".left-panel").style.display = "none";
+  document.querySelector(".right-panel").style.display = "block";
+  document.querySelector(".profile-wrapper").style.marginTop="75px"
+
+  createPaymentsHeader();
+}
+
+

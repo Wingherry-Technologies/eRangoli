@@ -3,7 +3,6 @@
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
-const bar1 = document.querySelector(".mobile-search-bar-main");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
@@ -12,22 +11,15 @@ hamburger?.addEventListener("click", () => {
     hamberMenuIcon.src = "../assets/master/X.svg";
     document.querySelector(".bottom-nav").style.display="none"
     document.querySelector("body").style.overflow="hidden"
-    bar1.style.display="none"
     window.scrollTo(0, 0);
   }
   else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector(".bottom-nav").style.display="flex"
     document.querySelector("body").style.overflow="auto"
-     bar1.style.display="block"
   }
 });
 
-document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-main>li , mobile-dropdown-sub>ul>li, .mobile-dropdown-sub>.extra-nav").forEach(item => {
-    item.addEventListener("click", () => {
-        window.location.href = "../html/productcatalog.html";
-    });
-});
 // MOBILE DROPDOWN ACCORDION
 // ===============================
 // Level 1 Dropdown (Main Category)
@@ -152,7 +144,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+    window.location.href="../html/customercare.html"
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{
@@ -293,7 +285,6 @@ function logoutUserMobile() {
   mobileMenu.classList.remove("menu-open");
   hamberMenuIcon.src = "../assets/master/List.svg";
   document.querySelector(".bottom-nav").style.display = "flex";
-  document.querySelector(".mobile-search-bar-main").style.display = "block";
   document.body.style.overflow = "auto";
 
   UpdateUI();
@@ -303,70 +294,6 @@ function logoutUserDesktop() {
   UpdateUI();
 }
 
-function handleScrollForMobile() {
-    const bar = document.querySelector(".mobile-search-bar-main");
-    const contentbar = document.querySelector(".mobile-search-bar");
-    const desktopERan = document.getElementById("desktop-erangoli-logo");
-    const mobileERan = document.getElementById("mobile-erangoli-logo");
-    const maginfyingMobile = document.getElementById("maginfying-mobile");
-    const mobileSuggestion = document.getElementById("mobile-suggestions");
-    const notificationBox = document.querySelector(".notification-main-box");
-    const overLay=document.querySelector(".headerContainer");
-
-    // ⛔ stop if core elements are missing
-    if (!bar || !contentbar) return;
-
-    if (window.innerWidth <= 595) {
-        if (window.scrollY > 10) {
-            bar.style.position = "fixed";
-            bar.style.backgroundColor = "transparent";
-            bar.style.top = "-2px";
-            bar.style.left = "50px";
-
-            contentbar.style.border = "1px solid #D9D9D9";
-            contentbar.style.backgroundColor = "transparent";
-            contentbar.style.borderLeft = "0px";
-            contentbar.style.borderRadius = "0px 30px 30px 0px";
-            contentbar.style.zIndex = 999;
-            contentbar.style.padding = "8px 10px";
-            contentbar.style.marginLeft='10px'
-
-            desktopERan && (desktopERan.style.display = "none");
-            mobileERan && (mobileERan.style.display = "inline-block");
-            maginfyingMobile && (maginfyingMobile.style.display = "none");
-
-            mobileSuggestion && (mobileSuggestion.style.top = "80px");
-            notificationBox && (notificationBox.style.top = "75px");
-
-            overLay.style.position="sticky";
-            overLay.style.top='75px';
-
-        } else {
-            bar.style.position = "relative";
-            bar.style.backgroundColor = "#f7f7f7";
-            bar.style.top = "75px";
-            bar.style.left = "0px";
-
-            contentbar.style.border = "none";
-            contentbar.style.borderRadius = "30px";
-            contentbar.style.backgroundColor = "white";
-            contentbar.style.marginLeft='0px'
-
-            desktopERan && (desktopERan.style.display = "flex");
-            mobileERan && (mobileERan.style.display = "none");
-            maginfyingMobile && (maginfyingMobile.style.display = "block");
-
-            mobileSuggestion && (mobileSuggestion.style.top = "150px");
-        }
-    } else {
-        bar.style = "";
-        contentbar.style = "";
-
-        desktopERan && (desktopERan.style.display = "flex");
-        mobileERan && (mobileERan.style.display = "none");
-        maginfyingMobile && (maginfyingMobile.style.display = "block");
-    }
-}
 
 // Signup overlay functions
 function closeSignupModal() {
@@ -485,16 +412,6 @@ resendText.addEventListener("click", () => {
   otpError.textContent = "";
   startTimer();
 });
-
-
-// Run on scroll
-window.addEventListener("scroll", handleScrollForMobile);
-
-// Run when screen resizes (mobile ↔ desktop)
-window.addEventListener("resize", handleScrollForMobile);
-
-// Run once on initial load
-handleScrollForMobile();
 
 document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
