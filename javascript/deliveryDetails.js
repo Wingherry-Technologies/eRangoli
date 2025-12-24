@@ -5,6 +5,8 @@ var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 const bar1 = document.querySelector(".mobile-search-bar-main");
 
+let isReturningToDelivery = false;
+
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
   // Toggle hamburger icon
@@ -31,6 +33,7 @@ document
       window.location.href = "../html/productcatalog.html";
     });
   });
+
 // MOBILE DROPDOWN ACCORDION
 // ===============================
 // Level 1 Dropdown (Main Category)
@@ -1108,7 +1111,7 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
     .forEach((el) => el.classList.add("hide"));
   document.getElementById("saveAddressBtn").classList.add("hide");
 
-  if (window.innerWidth <= 595) {
+  if (window.innerWidth <= 595 && !isReturningToDelivery) {
     const deliveryCard = document.querySelector(".delivery-card");
     const billingCard = document.getElementById("billingCard");
 
@@ -1430,6 +1433,8 @@ document.getElementById("continueBtn").addEventListener("click", () => {
   }
 
   try {
+    isReturningToDelivery = false;
+
     const deliveryCard = document.querySelector(".delivery-card");
     const billingCard = document.getElementById("billingCard");
     const proceedBtn = document.getElementById("proceedBtn");
@@ -1446,17 +1451,16 @@ document.getElementById("continueBtn").addEventListener("click", () => {
 
     // show Your Cart
     if (billingCard) {
+      billingCard.classList.remove("hidden");
       billingCard.classList.add("show");
 
-      if (isTabletOrMobile) {
-        billingCard.classList.remove("force-hide");
-        billingCard.style.display = "block";
-        billingCard.style.height = "";
-        billingCard.style.margin = "";
-        billingCard.style.padding = "";
-      } else {
-        billingCard.classList.remove("hidden");
-      }
+      // Add the show-on-tablet class that CSS expects
+      billingCard.classList.add("show-on-tablet");
+      billingCard.classList.remove("force-hide");
+      billingCard.style.display = "block";
+      billingCard.style.height = "";
+      billingCard.style.margin = "";
+      billingCard.style.padding = "";
     }
 
     if (isMobile) {
@@ -1953,6 +1957,8 @@ document.addEventListener("click", (e) => {
   const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
   if (!isMobileOrTab) return;
 
+  isReturningToDelivery = true;
+
   const billingCard = document.getElementById("billingCard");
   if (billingCard) {
     billingCard.classList.remove("show", "show-on-tablet");
@@ -2027,6 +2033,8 @@ document.addEventListener("click", (e) => {
 
   const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
   if (!isMobileOrTab) return;
+
+  isReturningToDelivery = true;
 
   const billingContainer = document.getElementById(
     "billing-saved-address-container"
@@ -2205,10 +2213,11 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
       deliveryCard.style.display = "block";
     }
 
-    // Hide billing card
-    if (billingCard) {
-      billingCard.classList.remove("show-on-tablet");
-      billingCard.style.display = "none";
+    if (!isReturningToDelivery) {
+      if (billingCard) {
+        billingCard.classList.remove("show-on-tablet");
+        billingCard.style.display = "none";
+      }
     }
 
     // Keep banner visible
@@ -2227,22 +2236,25 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
     if (leftBanner) leftBanner.style.display = "block";
     if (deliveryCard) deliveryCard.classList.remove("hidden");
 
-    // 🔁 RESET tablet force hide
-    if (billingCard) {
-      billingCard.classList.remove("force-hide");
-      billingCard.style.display = "";
-      billingCard.style.height = "";
-      billingCard.style.margin = "";
-      billingCard.style.padding = "";
-      billingCard.classList.remove("hidden");
+    if (!isReturningToDelivery) {
+      if (billingCard) {
+        billingCard.classList.remove("force-hide");
+        billingCard.style.display = "";
+        billingCard.style.height = "";
+        billingCard.style.margin = "";
+        billingCard.style.padding = "";
+        billingCard.classList.remove("hidden");
+      }
     }
   } else if (width > 595 && width <= 1024) {
-    if (billingCard) {
-      billingCard.classList.add("force-hide");
-      billingCard.style.display = "none";
-      billingCard.style.height = "0";
-      billingCard.style.margin = "0";
-      billingCard.style.padding = "0";
+    if (!isReturningToDelivery) {
+      if (billingCard) {
+        billingCard.classList.add("force-hide");
+        billingCard.style.display = "none";
+        billingCard.style.height = "0";
+        billingCard.style.margin = "0";
+        billingCard.style.padding = "0";
+      }
     }
 
     // 🔥 show Delivery Details cleanly
@@ -2374,12 +2386,13 @@ function showDeliveryDetails() {
   // Show delivery
   deliveryCard.style.display = "block";
 
-  // Hide billing / your cart
+  // Hide billing
+  billingCard.classList.remove("billing-active");
   billingCard.style.display = "none";
 
-  // Mobile + tablet cleanup
-  if (window.innerWidth <= 1024 && checkoutWrapper) {
-    checkoutWrapper.classList.add("hide-billing-flow");
+  // Tablet state
+  if (checkoutWrapper) {
+    checkoutWrapper.classList.add("delivery-active");
   }
 
   document.body.classList.remove("payments-active");

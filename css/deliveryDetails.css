@@ -296,6 +296,10 @@ body {
   border-radius: 8px;
 }
 
+.billing-card.billing-active {
+  display: block;
+}
+
 .bill-header h2 {
   color: #3f3f3f;
   font-weight: 700;
@@ -778,10 +782,6 @@ hr {
     margin-left: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-  }
-
-  .billing-card {
-    display: block !important;
   }
 
   .billing-card.show-on-tablet {
