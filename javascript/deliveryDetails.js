@@ -1407,24 +1407,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function removeOutOfStockProducts() {
-  const outOfStockRows = document.querySelectorAll(".out-of-stock");
-
-  outOfStockRows.forEach(row => {
-    row.style.display="none"
-  });
-
-  // Cleanup warnings
-  document.getElementById("stockWarning")?.classList.add("hidden");
-  document.getElementById("stockLimitWarning")?.classList.add("hidden");
-
-  // Recalculate everything
-  updateBillingTotals();
-  updateCartItemCount();
-  checkEmptyCartStateMobile();
-}
-
-
 /* CONTINUE BUTTON VALIDATION */
 
 document.getElementById("continueBtn").addEventListener("click", () => {
@@ -2211,8 +2193,6 @@ document.addEventListener("click", (e) => {
 });
 
 document.querySelector(".proceed-btn")?.addEventListener("click", () => {
-    removeOutOfStockProducts()
-
   const width = window.innerWidth;
 
   const mainGrid = document.querySelector(".main-grid");
