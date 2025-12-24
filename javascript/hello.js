@@ -4,8 +4,6 @@ const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 
-let isReturningToDelivery = false;
-
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
   // Toggle hamburger icon
@@ -30,7 +28,6 @@ document
       window.location.href = "../html/productcatalog.html";
     });
   });
-
 // MOBILE DROPDOWN ACCORDION
 // ===============================
 // Level 1 Dropdown (Main Category)
@@ -281,7 +278,6 @@ function UpdateUI() {
     });
   }
 }
-
 
 document.getElementById("back-btn").addEventListener("click", () => {
   window.location.href = "../html/productcatalog.html";
@@ -1039,7 +1035,7 @@ document.getElementById("saveAddressBtn").addEventListener("click", () => {
     .forEach((el) => el.classList.add("hide"));
   document.getElementById("saveAddressBtn").classList.add("hide");
 
-  if (window.innerWidth <= 595 && !isReturningToDelivery) {
+  if (window.innerWidth <= 595) {
     const deliveryCard = document.querySelector(".delivery-card");
     const billingCard = document.getElementById("billingCard");
 
@@ -1335,6 +1331,24 @@ document.addEventListener("click", (e) => {
   }
 });
 
+function removeOutOfStockProducts() {
+  const outOfStockRows = document.querySelectorAll(".out-of-stock");
+
+  outOfStockRows.forEach(row => {
+    row.style.display="none"
+  });
+
+  // Cleanup warnings
+  document.getElementById("stockWarning")?.classList.add("hidden");
+  document.getElementById("stockLimitWarning")?.classList.add("hidden");
+
+  // Recalculate everything
+  updateBillingTotals();
+  updateCartItemCount();
+  checkEmptyCartStateMobile();
+}
+
+
 /* CONTINUE BUTTON VALIDATION */
 
 document.getElementById("continueBtn").addEventListener("click", () => {
@@ -1361,8 +1375,6 @@ document.getElementById("continueBtn").addEventListener("click", () => {
   }
 
   try {
-    isReturningToDelivery = false;
-
     const deliveryCard = document.querySelector(".delivery-card");
     const billingCard = document.getElementById("billingCard");
     const proceedBtn = document.getElementById("proceedBtn");
@@ -1379,16 +1391,17 @@ document.getElementById("continueBtn").addEventListener("click", () => {
 
     // show Your Cart
     if (billingCard) {
-      billingCard.classList.remove("hidden");
       billingCard.classList.add("show");
 
-      // Add the show-on-tablet class that CSS expects
-      billingCard.classList.add("show-on-tablet");
-      billingCard.classList.remove("force-hide");
-      billingCard.style.display = "block";
-      billingCard.style.height = "";
-      billingCard.style.margin = "";
-      billingCard.style.padding = "";
+      if (isTabletOrMobile) {
+        billingCard.classList.remove("force-hide");
+        billingCard.style.display = "block";
+        billingCard.style.height = "";
+        billingCard.style.margin = "";
+        billingCard.style.padding = "";
+      } else {
+        billingCard.classList.remove("hidden");
+      }
     }
 
     if (isMobile) {
@@ -1805,14 +1818,6 @@ function updateCartItemCount() {
   } else {
     numberCart.style.display = "block";
   }
-
-  const bottomCart=document.querySelector("#bottom-nav-cart .bottom-bar-numbers")
-  bottomCart.textContent = `${totalQty}`;
-  if (bottomCart.textContent === "0") {
-    bottomCart.style.display = "none";
-  } else {
-    bottomCart.style.display = "block";
-  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1893,8 +1898,6 @@ document.addEventListener("click", (e) => {
   const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
   if (!isMobileOrTab) return;
 
-  isReturningToDelivery = true;
-
   const billingCard = document.getElementById("billingCard");
   if (billingCard) {
     billingCard.classList.remove("show", "show-on-tablet");
@@ -1969,8 +1972,6 @@ document.addEventListener("click", (e) => {
 
   const isMobileOrTab = window.matchMedia("(max-width: 1024px)").matches;
   if (!isMobileOrTab) return;
-
-  isReturningToDelivery = true;
 
   const billingContainer = document.getElementById(
     "billing-saved-address-container"
@@ -2128,25 +2129,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function removeOutOfStockProducts() {
-  const outOfStockRows = document.querySelectorAll(".out-of-stock");
-
-  outOfStockRows.forEach(row => {
-    row.style.display="none"
-  });
-
-  // Cleanup warnings
-  document.getElementById("stockWarning")?.classList.add("hidden");
-  document.getElementById("stockLimitWarning")?.classList.add("hidden");
-
-  // Recalculate everything
-  updateBillingTotals();
-  updateCartItemCount();
-  checkEmptyCartStateMobile();
-} 
-
 document.querySelector(".proceed-btn")?.addEventListener("click", () => {
-  removeOutOfStockProducts()
+    removeOutOfStockProducts()
+
   const width = window.innerWidth;
 
   const mainGrid = document.querySelector(".main-grid");
@@ -2167,11 +2152,10 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
       deliveryCard.style.display = "block";
     }
 
-    if (!isReturningToDelivery) {
-      if (billingCard) {
-        billingCard.classList.remove("show-on-tablet");
-        billingCard.style.display = "none";
-      }
+    // Hide billing card
+    if (billingCard) {
+      billingCard.classList.remove("show-on-tablet");
+      billingCard.style.display = "none";
     }
 
     // Keep banner visible
@@ -2190,25 +2174,22 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
     if (leftBanner) leftBanner.style.display = "block";
     if (deliveryCard) deliveryCard.classList.remove("hidden");
 
-    if (!isReturningToDelivery) {
-      if (billingCard) {
-        billingCard.classList.remove("force-hide");
-        billingCard.style.display = "";
-        billingCard.style.height = "";
-        billingCard.style.margin = "";
-        billingCard.style.padding = "";
-        billingCard.classList.remove("hidden");
-      }
+    // 🔁 RESET tablet force hide
+    if (billingCard) {
+      billingCard.classList.remove("force-hide");
+      billingCard.style.display = "";
+      billingCard.style.height = "";
+      billingCard.style.margin = "";
+      billingCard.style.padding = "";
+      billingCard.classList.remove("hidden");
     }
   } else if (width > 595 && width <= 1024) {
-    if (!isReturningToDelivery) {
-      if (billingCard) {
-        billingCard.classList.add("force-hide");
-        billingCard.style.display = "none";
-        billingCard.style.height = "0";
-        billingCard.style.margin = "0";
-        billingCard.style.padding = "0";
-      }
+    if (billingCard) {
+      billingCard.classList.add("force-hide");
+      billingCard.style.display = "none";
+      billingCard.style.height = "0";
+      billingCard.style.margin = "0";
+      billingCard.style.padding = "0";
     }
 
     // 🔥 show Delivery Details cleanly
@@ -2340,13 +2321,12 @@ function showDeliveryDetails() {
   // Show delivery
   deliveryCard.style.display = "block";
 
-  // Hide billing
-  billingCard.classList.remove("billing-active");
+  // Hide billing / your cart
   billingCard.style.display = "none";
 
-  // Tablet state
-  if (checkoutWrapper) {
-    checkoutWrapper.classList.add("delivery-active");
+  // Mobile + tablet cleanup
+  if (window.innerWidth <= 1024 && checkoutWrapper) {
+    checkoutWrapper.classList.add("hide-billing-flow");
   }
 
   document.body.classList.remove("payments-active");
