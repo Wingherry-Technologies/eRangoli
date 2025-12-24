@@ -174,7 +174,7 @@ function UpdateUI(){
   })
 
   document.getElementById("mobile-my-profile").addEventListener("click",()=>{
-    window.location.href="../html/aboutYou.html"
+    window.location.href="../html/abouYouMobile.html"
   })
 
   document.getElementById("mobile-referal").addEventListener("click",()=>{
