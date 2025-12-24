@@ -151,8 +151,8 @@ function UpdateUI(){
     window.location.href="../html/faq.html"
   })
 
-  document.getElementById("mobile-customer-care").addEventListener("click",()=>{
-    window.location.href="../html/mywishlist.html"
+document.getElementById("mobile-customer-care").addEventListener("click",()=>{
+    window.location.href="../html/customercare.html"
   })
 
   document.getElementById("mobile-privacy-policy").addEventListener("click",()=>{

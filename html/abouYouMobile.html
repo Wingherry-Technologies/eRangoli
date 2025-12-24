@@ -2,18 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frequently Asked Questions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Profile - About You</title>
     <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/faq.css" />
+    <link rel="stylesheet" href="../css/aboutYou.css" />
     <link rel="stylesheet" href="../css/master.css">
-    <link rel="stylesheet" href="../css/meet-art-footer.css">
     <link rel="stylesheet" href="../css/topCategory.css">
-    <link rel="stylesheet" href="../css/signupoverlay.css">
+    <link rel="stylesheet" href="../css/meet-art-footer.css">
   </head>
   <body>
-
-        <!-- Navigation Bar -->
+            <!-- Navigation Bar -->
 
     <nav>
         <div class="logo-section">
@@ -680,197 +678,129 @@
         <span class="bottom-nav__label">Cart</span>
       </a>
     </div>
-    
+
     <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
-    <div class="faq-header-section">
-      <div class="back-row" id="back-btn">
-        <img src="../assets/cart/back.svg" class="back-icon" />
-        <span>Back to search</span>
-      </div>
-      <!-- Header Section -->
-      <div class="header-banner">
-        <div class="overlay">
-          <div class="header-content">
-            <div class="back-row-media" id="back-btn-media">
+
+    <div class="back-row" id="back-btn">
+      <img src="../assets/aboutYou/back.svg" class="back-icon" />
+      <span class="search">Back to search</span>
+    </div>
+    <div class="MP-header-banner">
+      <div class="MP-overlay">
+        <div class="header-content">
+          <div class="header">
+            <div class="back-row-mob" id="back-btn-mob">
               <img src="../assets/cart/back.svg" />
-              <span class="back">Back</span>
             </div>
-            <div class="header">
-              <div class="back-row-mob" id="back-btn-mob">
-                <img src="../assets/cart/back.svg" />
-              </div>
 
-              <h1 class="faq-header">Frequently Asked Questions</h1>
-            </div>
+            <h1 class="MP-header">My Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pro-wrapper">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <h3>My Profile</h3>
+
+        <div class="menu-item active" onclick="window.location.href='../html/aboutYou.html'">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/user.svg" class="menu-icon-left" />
+          </span>
+
+          <span class="menu-text">About you</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div onclick="window.location.href='../html/payments.html'" class="menu-item" id="menu-item-payments">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/coin.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Payments</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div onclick="window.location.href='../html/giftVoucher.html'" class="menu-item" id="gift-voucher">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/gift.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Gift Vouchers</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+
+        <div onclick="window.location.href='../html/settings.html'" class="menu-item" id="settings">
+          <span class="menu-icon-circle">
+            <img src="../assets/aboutYou/setting.svg" class="menu-icon-left" />
+          </span>
+          <span class="menu-text">Settings</span>
+
+          <img src="../assets/aboutYou/right.svg" class="menu-icon-right" />
+        </div>
+      </div>
+    </div>
+    <!-- PROFILE POPUP -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="popup-content">
+        <!-- Header -->
+        <div class="popup-header">
+          <h3>My Profile</h3>
+          <span class="popup-close" id="closePopup">&times;</span>
+        </div>
+
+        <!-- Menu -->
+        <div class="popup-menu">
+          <div class="popup-item active">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/user.svg" class="menu-icon-left" />
+            </span>
+            <span class="popup-text">About you</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/coin.svg" />
+            </span>
+            <span class="popup-text">Payments</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/gift.svg" />
+            </span>
+            <span class="popup-text">Gift Vouchers</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
+          </div>
+
+          <div class="popup-item">
+            <span class="popup-icon">
+              <img src="../assets/aboutYou/setting.svg" />
+            </span>
+            <span class="popup-text">Settings</span>
+            <img
+              src="../assets/aboutYou/right.svg"
+              class="popupmenu-icon-right"
+            />
           </div>
         </div>
       </div>
     </div>
 
-    <div class="faq-wrapper">
-      <!-- FAQ List Section -->
-      <div class="faq-list">
-        <p class="faq-text">We are pleasure to answer your questions</p>
-        <div class="faq-item">
-          <button class="faq-question" data-question="0">
-            <span class="faq-question-text">1. What is erangoli?</span>
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="0">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium tempore vero aut cupiditate cumque sit expedita facere
-              ex! Eum quia non commodi quod id odio blanditiis cumque nam
-              tempore modi!
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="1">
-            <span class="faq-question-text">2. How do I place an order?</span>
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="1">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-              consequatur quos exercitationem odit qui voluptatibus cupiditate,
-              blanditiis architecto laboriosam, facere aliquid facilis dolore
-              incidunt accusamus? Doloribus dolorum dolorem, est laboriosam nisi
-              cum!
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="2">
-            <span class="faq-question-text"
-              >3. What payement methods do you accept?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="2">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              consequuntur, consequatur amet dolore dolores doloremque dolorem
-              quasi rerum? Facilis facere culpa animi voluptate dignissimos quos
-              maiores, numquam dicta. Nemo possimus fuga esse perferendis a
-              molestiae minus, reprehenderit repudiandae quae quos veritatis
-              harum alias quam, debitis ab facere autem consequuntur quaerat?
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="3">
-            <span class="faq-question-text"
-              >4. Can I return or exchange my order?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="3">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Exercitationem ea possimus dolore amet ipsum officia? Architecto
-              quas veniam repellat excepturi quibusdam praesentium explicabo qui
-              exercitationem!
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="4">
-            <span class="faq-question-text">5. How do I track my order?</span>
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="4">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores beatae obcaecati cumque repudiandae officia sunt
-              voluptas nostrum. Velit, eveniet reiciendis. Porro doloremque esse
-              modi aperiam aliquam nesciunt consequuntur tempora cumque.
-              Quisquam sint ullam impedit. Eveniet obcaecati voluptas pariatur
-              laudantium dolores, nemo et iste officia animi illum in, sed ullam
-              fugit!
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="5">
-            <span class="faq-question-text"
-              >6. Do you offer customer support?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="5">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              aspernatur, accusantium quae, illum sed delectus fugit aliquam ex
-              enim, animi debitis commodi non reiciendis atque beatae esse nobis
-              consequuntur reprehenderit. Voluptate libero minima id blanditiis
-              enim porro dolore illum ex?
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="6">
-            <span class="faq-question-text"
-              >7. Is my personal information safe?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="6">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              quibusdam ut iusto sunt voluptates at distinctio eveniet, sint
-              dicta placeat ratione, similique libero accusantium. Ullam
-              recusandae voluptatem aliquid incidunt eos.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="7">
-            <span class="faq-question-text"
-              >8. Do you ship internationally?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="7">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-              obcaecati similique rem id molestias quisquam enim dolorum
-              debitis. Similique nesciunt veniam nam eius rem aut sapiente quasi
-              explicabo ipsum, blanditiis, ratione aliquam impedit iste
-              aspernatur?
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" data-question="8">
-            <span class="faq-question-text"
-              >9. Do you ship internationally?</span
-            >
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer" data-answer="8">
-            <div class="faq-answer-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-              obcaecati similique rem id molestias quisquam enim dolorum
-              debitis. Similique nesciunt veniam nam eius rem aut sapiente quasi
-              explicabo ipsum, blanditiis, ratione aliquam impedit iste
-              aspernatur?
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
+        <!-- Footer -->
     <footer class="er-footer">
         <div class="er-container">
     
@@ -936,76 +866,5 @@
         </div>
     </footer>
 
-    <div class="signup-overlay-main-modal" id="signupModal">
-      <div class="signup-overlay-main-content">
-
-        <span class="close-modal" onclick="closeSignupModal()">
-          <img src="../assets/login/X.svg" alt="">
-        </span>
-
-        <div class="overlay-heading">
-          <span>Sign Up</span>
-        </div>
-        <div class="overlay-contents">
-          <div class="main-form-overlay">
-            <div class="overlay-form-group">
-              <label for="overlay-mobile">Mobile Number</label>
-              <input
-                type="tel"
-                id="overlay-mobile"
-                placeholder="9536789905"
-                autocomplete="off"
-                inputmode="numeric"
-              />
-              <div class="error-text" id="mobile-error"></div>
-            </div>
-
-            <div class="overlay-form-group">
-              <label for="overlay-otp">Enter OTP</label>
-              <input
-                type="tel"
-                id="overlay-otp"
-                placeholder="Enter the OTP"
-                inputmode="numeric"
-              />
-              
-
-              <div class="resend-wrapper">
-                <div class="error-text" id="otp-error"></div>
-                <div>
-                  <span id="resend-otp" class="resend disabled">Resend Code...</span>
-                  <span id="otp-timer" class="timer"></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="overlay-button-group">
-              <button>Sign Up</button>
-            </div>
-          </div>
-          <div class="overlay-or-line">
-            <div class="overlay-line"></div>
-            <span>or</span>
-            <div class="overlay-line"></div>
-          </div>
-          <div class="signinusinggoogle">
-            <div class="signingoogle-overlay">
-              <img src="../assets/login/google.svg" alt="">
-              <span>Continue with Google</span>
-            </div>
-            <div class="signingoogle-overlay">
-              <img src="../assets/login/facebook.svg" alt="">
-              <span>Continue with Facebook</span>
-            </div>
-            <div class="signingoogle-overlay">
-              <img src="../assets/login/appleImage.svg" alt="">
-              <span>Continue with Apple</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="../javascript/faq.js"></script>
   </body>
 </html>

@@ -559,11 +559,11 @@
                               </div>
                               <span>Coupons & Referals</span>
                             </li>
-                            <li>
+                            <li onclick="window.location.href='../html/customercare.html'">
                               <div class="profile-dropdown-image">
                                 <img src="../assets/master/Headset.svg" alt="">
                               </div>
-                              <span>Help & Support</span>
+                              <span>Customer Care</span>
                             </li>
                             <li onclick="window.loaction.href='../html/privacyPolicy.html'">
                               <div class="profile-dropdown-image">
@@ -678,13 +678,6 @@
       </a>
     </div>
 
-    <!-- Mobile Search Bar -->
-     <div class="mobile-search-bar-main">
-        <div class="mobile-search-bar">
-            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
-            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
-        </div>
-    </div>
     <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
     <div class="back-row" id="back-btn">
@@ -797,7 +790,7 @@
             />
           </div>
 
-          <div class="popup-item active">
+          <div class="popup-item active" onclick="createPaymentsHeader()">
             <span class="popup-icon">
               <img src="../assets/payments/coin.svg" class="menu-icon-left" />
             </span>

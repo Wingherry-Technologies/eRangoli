@@ -391,6 +391,10 @@
   .payment-header-banner {
     display: none;
   }
+  .payment-back-btn>img{
+    height: 20px;
+    margin-top: 5px;
+  }
 
   /* Active payments view */
   body.payments-active .left-panel {

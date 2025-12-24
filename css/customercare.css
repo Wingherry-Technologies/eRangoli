@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  color: #3f3f3f;
+  
+}
+.faq-header-section {
+  margin-top: 75px;
+  padding: 0 2rem;
+  background-color: #f5f5f5;
+}
+.back-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 22px;
+  font-weight: 400;
+  color: #3f3f3f;
+  cursor: pointer;
+}
+
+.back-row-media,
+.back-icon-media {
+  display: none;
+}
+
+.back-row-mob {
+  display: none;
+}
+
+.back-icon {
+  width: 22px;
+}
+
+.header-banner {
+  height: 140px;
+  background: url("../assets/cart/bg.svg") center/cover;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 75px;
+}
+/* Container */
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem;
+  background-color: #FFF8F8;
+  padding: 2rem;
+}
+.overlay {
+  width: 100%;
+  height: 140px;
+  background-color: rgba(255, 0, 0, 0.06);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  box-sizing: border-box;
+}
+.faq-wrapper .main-tags{
+    display: flex;
+    flex-direction: column;
+}
+.main-tags>span:first-child{
+    color: #3F3F3F;
+    font-size: 22px;
+    font-weight: 600;
+}
+.main-tags>span:last-child{
+  color:#716B6B ;
+}
+.email-details{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.email-details>span{
+  color: #3F3F3F;
+}
+.happy{
+  color: #716B6B;
+  font-size: 14px;
+  text-align: right;
+}
+@media (max-width:1024px){
+  #back-to-search{
+    display: none;
+  }
+  .back-row{
+    position: absolute;
+    margin-top: 40px;
+    z-index: 9;
+  }
+  .faq-header-section{
+    padding: 0rem;
+  }
+  .overlay{
+    padding-left: 60px;
+  }
+  .faq-wrapper{
+    margin: 0rem;
+    background-color: #f5f5f5;
+  }
+  .happy{
+    padding-top: 300px;
+    text-align: center;
+  }
+}
+@media (max-width:595px) {
+  .back-row{
+    position: absolute;
+    margin-top: 22px;
+    z-index: 9;
+  }
+  .main-tags>span:first-child{
+    font-size: 18px;
+  }
+  .main-tags>span:last-child{
+    font-size: 16px;
+  }
+  .email-details>span{
+    font-size: 16px;
+  }
+  .happy{
+    padding-top: 100px;
+    text-align: center;
+  }
+  .header-banner{
+    height: 100px;
+  }
+  .faq-header{
+    font-size: 24px;
+  }
+  .overlay{
+    height: 100px;
+  }
+}
