@@ -4,689 +4,747 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Products Cart</title>
-    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/cart.css" />
-    <link rel="stylesheet" href="../css/master.css">
-    <link rel="stylesheet" href="../css/topCategory.css">
-    <link rel="stylesheet" href="../css/meet-art-footer.css">
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/deliveryDetails.css" />
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/topCategory.css" />
+    <link rel="stylesheet" href="../css/meet-art-footer.css" />
   </head>
   <body>
-
-        <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
 
     <nav>
-        <div class="logo-section">
-            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
-            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
-            <div class="search-bar">
-                <img src="../assets/master/MagnifyingGlass.svg" alt="" />
-                <input type="search" id="desktop-search" placeholder="Search" onkeyup="showSuggestions(this)">
+      <div class="logo-section">
+        <img
+          id="desktop-erangoli-logo"
+          onclick="window.location.href='../html/index.html'"
+          src="../assets/master/eRangoli 2.svg"
+          alt=""
+        />
+        <img
+          id="mobile-erangoli-logo"
+          onclick="window.location.href='../html/index.html'"
+          src="../assets/master/eRangoli 2-1.svg"
+          alt=""
+          style="z-index: 99999 !important"
+        />
+        <div class="search-bar">
+          <img src="../assets/master/MagnifyingGlass.svg" alt="" />
+          <input
+            type="search"
+            id="desktop-search"
+            placeholder="Search"
+            onkeyup="showSuggestions(this)"
+          />
+        </div>
+        <ul id="desktop-suggestions" class="suggestions-box"></ul>
+      </div>
+
+      <!-- HAMBURGER (Mobile Only) -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <img src="../assets/master/List.svg" alt="" />
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <div class="welcome-main-section" id="welcome-section">
+          <div class="image-section">
+            <div class="circle-image">
+              <span>eR</span>
             </div>
-            <ul id="desktop-suggestions" class="suggestions-box"></ul>
-        </div>
-        
-
-        <!-- HAMBURGER (Mobile Only) -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <img src="../assets/master/List.svg" alt="">
+          </div>
+          <div class="welcome-text-section">
+            <span>Welcome !</span>
+            <a id="welcome-name">Sign Up</a>
+          </div>
         </div>
 
-        <!-- Mobile Menu -->
-          <div id="mobile-menu">
-            <div class="welcome-main-section" id="welcome-section">
-              <div class="image-section">
-                <div class="circle-image">
-                  <span>eR</span>
+        <div class="main-bottom-section">
+          <div class="sub-section">
+            <span>Categories</span>
+
+            <ul class="mobile-nav-menu1" id="account-menu">
+              <!-- ITEM -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Dress.svg" alt="" />
+                    </div>
+                    <span>Arts & Crafts</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
-              </div>
-              <div class="welcome-text-section">
-                <span>Welcome !</span>
-                <a id="welcome-name">Sign Up</a>
-              </div>
-            </div>
 
-            <div class="main-bottom-section">
-              <div class="sub-section">
-                <span>Categories</span>
-
-                <ul class="mobile-nav-menu1" id="account-menu">
-
-                  <!-- ITEM -->
-                <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Dress.svg" alt="">
-                        </div>
-                        <span>Arts & Crafts</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-
-                    <ul class="mobile-submenu">
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Traditional Paintings</span>
-                        <ul>
-                          <li>Cheriyal Painting</li>
-                          <li>Kalamkari Painting</li>
-                          <li>Odisha Pattachitra Painting</li>
-                          <li>Madhubani Painting</li>
-                          <li>Pichwai Painting</li>
-                          <li>Warli Painting</li>
-                          <li>Kalighat Painting</li>
-                          <li>Pata Art</li>
-                          <li>West Bengal Pattachitra</li>
-                          <li>Savara / Saura Painting</li>
-                          <li>Gond Art</li>
-                          <li>Miniature Painting</li>
-                          <li>Tanjore Painting</li>
-                          <li>Mata ni Pachedi Painting</li>
-                          <li>Yakshagana Painting</li>
-                          <li>Rogan Art</li>
-                          <li>Bhil Painting</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Wooden Crafts</span>
-                        <ul>
-                          <li>Kondapalli Toys</li>
-                          <li>Etikoppaka Toys</li>
-                          <li>Channapatna Toys</li>
-                          <li>Natungram Wooden Dolls</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Metal Crafts</span>
-                        <ul>
-                          <li>Bidri Ware</li>
-                          <li>Dhokra</li>
-                          <li>Brass Ware</li>
-                          <li>Bell Metal Crafts</li>
-                          <li>Bastar Iron Craft</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Others</span>
-                        <ul>
-                          <li>Paper Mache</li>
-                          <li>Leather Crafts</li>
-                          <li>Tribal Makes</li>
-                          <li>Handcrafted Bags</li>
-                        </ul>
-                      </li>
-
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span>Traditional Paintings</span>
+                    <ul>
+                      <li>Cheriyal Painting</li>
+                      <li>Kalamkari Painting</li>
+                      <li>Odisha Pattachitra Painting</li>
+                      <li>Madhubani Painting</li>
+                      <li>Pichwai Painting</li>
+                      <li>Warli Painting</li>
+                      <li>Kalighat Painting</li>
+                      <li>Pata Art</li>
+                      <li>West Bengal Pattachitra</li>
+                      <li>Savara / Saura Painting</li>
+                      <li>Gond Art</li>
+                      <li>Miniature Painting</li>
+                      <li>Tanjore Painting</li>
+                      <li>Mata ni Pachedi Painting</li>
+                      <li>Yakshagana Painting</li>
+                      <li>Rogan Art</li>
+                      <li>Bhil Painting</li>
                     </ul>
                   </li>
 
-                  <!-- JEWELLERY -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/necklace-fashion-svgrepo-com 1.svg" alt="">
-                        </div>
-                        <span>Jewellery</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-
-                    <ul class="mobile-submenu">
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Material-Based Jewellery</span>
-                        <ul>
-                          <li>Silver-Coated Jewellery (Rajasthani)</li>
-                          <li>Terracotta Jewellery</li>
-                          <li>Wooden Jewellery</li>
-                          <li>Conch Shell Jewellery</li>
-                          <li>Handmade Imitation Jewellery</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Cultural/Design Based</span>
-                        <ul>
-                          <li>Tribal Jewellery</li>
-                        </ul>
-                      </li>
-
+                  <li class="mobile-dropdown-sub">
+                    <span>Wooden Crafts</span>
+                    <ul>
+                      <li>Kondapalli Toys</li>
+                      <li>Etikoppaka Toys</li>
+                      <li>Channapatna Toys</li>
+                      <li>Natungram Wooden Dolls</li>
                     </ul>
                   </li>
 
-                  <!-- FOOTWEAR -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/womans-sandal-svgrepo-com 1.svg" alt="">
-                        </div>
-                        <span>Footwear</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-
-                    <ul class="mobile-submenu">
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Regional Footwear</span>
-                        <ul>
-                          <li>Jaipur Footwear</li>
-                          <li>Kolhapuri Chappal</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Handmade Work</span>
-                        <ul>
-                          <li>Hand-Embroidery Footwear</li>
-                        </ul>
-                      </li>
-
+                  <li class="mobile-dropdown-sub">
+                    <span>Metal Crafts</span>
+                    <ul>
+                      <li>Bidri Ware</li>
+                      <li>Dhokra</li>
+                      <li>Brass Ware</li>
+                      <li>Bell Metal Crafts</li>
+                      <li>Bastar Iron Craft</li>
                     </ul>
                   </li>
 
-                  <!-- HANDLOOMS -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/clean-cleaning-towels-svgrepo-com (1) 1.svg" alt="">
-                        </div>
-                        <span>Handlooms</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                  <li class="mobile-dropdown-sub">
+                    <span>Others</span>
+                    <ul>
+                      <li>Paper Mache</li>
+                      <li>Leather Crafts</li>
+                      <li>Tribal Makes</li>
+                      <li>Handcrafted Bags</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- JEWELLERY -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/master/necklace-fashion-svgrepo-com 1.svg"
+                        alt=""
+                      />
                     </div>
+                    <span>Jewellery</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
 
-                    <ul class="mobile-submenu">
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Sarees</span>
-                        <ul>
-                          <li>Banarasi</li>
-                          <li>Kanjivaram</li>
-                          <li>Chanderi</li>
-                          <li>Maheshwari</li>
-                          <li>Tussar</li>
-                          <li>Sambalpuri</li>
-                          <li>Kota Doria</li>
-                          <li>Paithani</li>
-                          <li>Ajrakh</li>
-                          <li>Bandhani</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Dresses & Materials</span>
-                        <ul>
-                          <li>Cotton</li>
-                          <li>Silk</li>
-                          <li>Handwoven</li>
-                          <li>Printed</li>
-                          <li>Embroidered</li>
-                          <li>Kurtis</li>
-                          <li>Ethnic Dresses</li>
-                          <li>Handloom Dresses</li>
-                        </ul>
-                      </li>
-
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span>Material-Based Jewellery</span>
+                    <ul>
+                      <li>Silver-Coated Jewellery (Rajasthani)</li>
+                      <li>Terracotta Jewellery</li>
+                      <li>Wooden Jewellery</li>
+                      <li>Conch Shell Jewellery</li>
+                      <li>Handmade Imitation Jewellery</li>
                     </ul>
                   </li>
 
-                  <!-- HERITAGE WRAPS -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/scarf-svgrepo-com 1.svg" alt="">
-                        </div>
-                        <span>Heritage Wraps</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span>Cultural/Design Based</span>
+                    <ul>
+                      <li>Tribal Jewellery</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
 
-                    <ul class="mobile-submenu">
-                      <li>Stoles</li>
-                      <li>Dupattas</li>
-                      <li>Shawls</li>
-                      <li>Mufflers</li>
+              <!-- FOOTWEAR -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/master/womans-sandal-svgrepo-com 1.svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Footwear</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span>Regional Footwear</span>
+                    <ul>
+                      <li>Jaipur Footwear</li>
+                      <li>Kolhapuri Chappal</li>
                     </ul>
                   </li>
 
-                  <!-- HOME FURNISHING -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Chair.svg" alt="">
-                        </div>
-                        <span>Home Furnishing</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                  <li class="mobile-dropdown-sub">
+                    <span>Handmade Work</span>
+                    <ul>
+                      <li>Hand-Embroidery Footwear</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- HANDLOOMS -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/master/clean-cleaning-towels-svgrepo-com (1) 1.svg"
+                        alt=""
+                      />
                     </div>
+                    <span>Handlooms</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
 
-                    <ul class="mobile-submenu">
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Bed & Linen</span>
-                        <ul>
-                          <li>Bedsheets</li>
-                          <li>Pillow Covers</li>
-                          <li>Towels</li>
-                          <li>Handkerchiefs</li>
-                        </ul>
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span>Living Room</span>
-                        <ul>
-                          <li>Curtains</li>
-                          <li>Cushion Covers</li>
-                          <li>Deewan Sets</li>
-                        </ul>
-                      </li>
-
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span>Sarees</span>
+                    <ul>
+                      <li>Banarasi</li>
+                      <li>Kanjivaram</li>
+                      <li>Chanderi</li>
+                      <li>Maheshwari</li>
+                      <li>Tussar</li>
+                      <li>Sambalpuri</li>
+                      <li>Kota Doria</li>
+                      <li>Paithani</li>
+                      <li>Ajrakh</li>
+                      <li>Bandhani</li>
                     </ul>
                   </li>
 
-                  <!-- SHOP BY STATES -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/HandsPraying.svg" alt="">
-                        </div>
-                        <span>Shop By States</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                  <li class="mobile-dropdown-sub">
+                    <span>Dresses & Materials</span>
+                    <ul>
+                      <li>Cotton</li>
+                      <li>Silk</li>
+                      <li>Handwoven</li>
+                      <li>Printed</li>
+                      <li>Embroidered</li>
+                      <li>Kurtis</li>
+                      <li>Ethnic Dresses</li>
+                      <li>Handloom Dresses</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- HERITAGE WRAPS -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/master/scarf-svgrepo-com 1.svg"
+                        alt=""
+                      />
                     </div>
+                    <span>Heritage Wraps</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
 
-                    <ul class="mobile-submenu">
+                <ul class="mobile-submenu">
+                  <li>Stoles</li>
+                  <li>Dupattas</li>
+                  <li>Shawls</li>
+                  <li>Mufflers</li>
+                </ul>
+              </li>
 
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Andra Pradesh</span>
-                        <!-- <ul>
+              <!-- HOME FURNISHING -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Chair.svg" alt="" />
+                    </div>
+                    <span>Home Furnishing</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span>Bed & Linen</span>
+                    <ul>
+                      <li>Bedsheets</li>
+                      <li>Pillow Covers</li>
+                      <li>Towels</li>
+                      <li>Handkerchiefs</li>
+                    </ul>
+                  </li>
+
+                  <li class="mobile-dropdown-sub">
+                    <span>Living Room</span>
+                    <ul>
+                      <li>Curtains</li>
+                      <li>Cushion Covers</li>
+                      <li>Deewan Sets</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- SHOP BY STATES -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/HandsPraying.svg" alt="" />
+                    </div>
+                    <span>Shop By States</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+
+                <ul class="mobile-submenu">
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Andra Pradesh</span>
+                    <!-- <ul>
                           <li>Bedsheets</li>
                           <li>Pillow Covers</li>
                           <li>Towels</li>
                           <li>Handkerchiefs</li>
                         </ul> -->
-                      </li>
+                  </li>
 
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Assam</span>
-                        <!-- <ul>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Assam</span>
+                    <!-- <ul>
                           <li>Curtains</li>
                           <li>Cushion Covers</li>
                           <li>Deewan Sets</li>
                         </ul> -->
-                      </li>
-
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Bihar</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Chhattisgarh</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Himachal Pradesh</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Jammu and Kashmir</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Jharkhand</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Karnataka</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Gujarat</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Maharastra</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Madhya Pradesh</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Odisha</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Rajasthan</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Tamil Nadu</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">Uttar Pradesh</span>
-                      </li>
-                      <li class="mobile-dropdown-sub">
-                        <span class="extra-nav">West Bengal</span>
-                      </li>
-
-                    </ul>
                   </li>
 
-
-                </ul>
-              </div>
-            </div>
-
-            <div class="main-bottom-section account-section">
-              <div class="sub-section">
-                <span>Account</span>
-
-                <ul class="mobile-nav-menu not-logged-in" id="account-menu">
-
-                  <!-- ITEM -->
-                  <li class="mobile-dropdown1" id="mobile-my-wishlist">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Heart1.svg" alt="">
-                        </div>
-                        <span>My Wishlist</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Bihar</span>
                   </li>
-
-                  <li class="mobile-dropdown1" id="mobile-my-cart">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/ShoppingCart1.svg" alt="">
-                        </div>
-                        <span>My Cart</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Chhattisgarh</span>
                   </li>
-
-                  <li class="mobile-dropdown1" id="mobile-order">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Package.svg" alt="">
-                        </div>
-                        <span>My Orders</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Himachal Pradesh</span>
                   </li>
-
-                  <li class="mobile-dropdown1" id="mobile-my-profile">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/UserCircle.svg" alt="">
-                        </div>
-                        <span>My Profile</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Jammu and Kashmir</span>
                   </li>
-
-                  <li class="mobile-dropdown1" id="mobile-referal">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/UserSwitch.svg" alt="">
-                        </div>
-                        <span>Coupons & Referals</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Jharkhand</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Karnataka</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Gujarat</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Maharastra</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Madhya Pradesh</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Odisha</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Rajasthan</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Tamil Nadu</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">Uttar Pradesh</span>
+                  </li>
+                  <li class="mobile-dropdown-sub">
+                    <span class="extra-nav">West Bengal</span>
                   </li>
                 </ul>
-              </div>
-            </div>
-
-            <div class="main-bottom-section support-section">
-              <div class="sub-section">
-                <span>Support</span>
-
-                <ul class="mobile-nav-menu1" id="support-menu">
-
-                  <!-- ITEM -->
-                  <li class="mobile-dropdown2" id="mobile-customer-care">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Headset.svg" alt="">
-                        </div>
-                        <span>Customer Care</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <li class="mobile-dropdown2" id="mobile-privacy-policy">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Info.svg" alt="">
-                        </div>
-                        <span>Privacy Policy</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <li class="mobile-dropdown3" id="mobile-faqs">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/master/Question.svg" alt="">
-                        </div>
-                        <span>FAQ</span>
-                      </div>
-                      <img src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-            </div>
-
-            <div class="mobile-logout-section">
-              <div class="mobile-logout-sub">
-                <div class="version">
-                  <span>eRangoli Version 1.0.0</span>
-                </div>
-                <div class="logout-button">
-                  <img src="../assets/master/SignOut.svg" alt="">
-                  <span>Logout</span>
-                </div>
-              </div>
-            </div>
-          </div>  
-
-        <!-- MENU -->
-        <div class="menu-section" >
-
-            <div class="round-button" id="round-button-notification">
-                <span class="number-of-round" id="number-of-notification">2</span>
-                <img src="../assets/master/Bell.svg" alt="" />
-            </div>
-
-            <div class="round-button" id="round-button-wishlist">
-              <span class="number-of-round" id="number-of-wishlist">4</span>
-                <img src="../assets/master/Heart.svg" alt="" />
-            </div>
-
-            <div class="round-button" id="round-button-cart">
-              <span class="number-of-round" id="number-of-cart">1</span>
-                <img src="../assets/master/ShoppingCart.svg" alt="" />
-            </div>
-
-            <div class="signup-wrapper" id="signup-wrapper">
-                <div class="signup-button" id="signup-button">
-                    <span>Sign Up</span>
-                </div>
-
-                <ul class="signup-dropdown">
-                    <li onclick="window.location.href='../html/login.html'">Customer</li>
-                    <li onclick="window.location.href='../html/vendorlogin.html'">Vendor</li>
-                </ul>
-            </div>
-
-            <div class="user-profile-icon" id="user-profile-icon" style="display: none;">
-                    <div class="img-name">
-                      <div class="circle-image">
-                        <span>JD</span>
-                      </div>
-                      <span id="user-name">John David</span>
-                    </div>
-                    <div class="profile-dropdown" id="profile-dropdown">
-                        <ul>
-                            <li onclick="window.location.href='../html/myOrders.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/Package.svg" alt="">
-                              </div>
-                              <span>My Orders</span>
-                            </li>
-                            <li onclick="window.location.href='../html/aboutYou.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/UserCircle.svg" alt="">
-                              </div>
-                              <span>My Profile</span>
-                            </li>
-                            <li onclick="window.location.href='../html/coupons.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/UserSwitch.svg" alt="">
-                              </div>
-                              <span>Coupons & Referals</span>
-                            </li>
-                            <li onclick="window.location.href='../html/customercare.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/Headset.svg" alt="">
-                              </div>
-                              <span>Customer Care</span>
-                            </li>
-                            <li onclick="window.loaction.href='../html/privacyPolicy.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/Info.svg" alt="">
-                              </div>
-                              <span>Privacy Policy</span>
-                            </li>
-                            <li onclick="window.location.href='../html/faq.html'">
-                              <div class="profile-dropdown-image">
-                                <img src="../assets/master/Question.svg" alt="">
-                              </div>
-                              <span>FAQ</span>
-                            </li>
-                        </ul>
-                        <div class="logout-option-desktop">
-                          <img src="../assets/master/SignOut1.svg" alt="">
-                          <span>Logout</span>
-                        </div>
-                    </div>
-            </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="notification-main-box">
-          <ul>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
+        <div class="main-bottom-section account-section">
+          <div class="sub-section">
+            <span>Account</span>
+
+            <ul class="mobile-nav-menu not-logged-in" id="account-menu">
+              <!-- ITEM -->
+              <li class="mobile-dropdown1" id="mobile-my-wishlist">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Heart1.svg" alt="" />
+                    </div>
+                    <span>My Wishlist</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown1" id="mobile-my-cart">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/ShoppingCart1.svg" alt="" />
+                    </div>
+                    <span>My Cart</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown1" id="mobile-order">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Package.svg" alt="" />
+                    </div>
+                    <span>My Orders</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown1" id="mobile-my-profile">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/UserCircle.svg" alt="" />
+                    </div>
+                    <span>My Profile</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown1" id="mobile-referal">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/UserSwitch.svg" alt="" />
+                    </div>
+                    <span>Coupons & Referals</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main-bottom-section support-section">
+          <div class="sub-section">
+            <span>Support</span>
+
+            <ul class="mobile-nav-menu1" id="support-menu">
+              <!-- ITEM -->
+              <li class="mobile-dropdown2" id="mobile-customer-care">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Headset.svg" alt="" />
+                    </div>
+                    <span>Customer Care</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown2" id="mobile-privacy-policy">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Info.svg" alt="" />
+                    </div>
+                    <span>Privacy Policy</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <li class="mobile-dropdown3" id="mobile-faqs">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/master/Question.svg" alt="" />
+                    </div>
+                    <span>FAQ</span>
+                  </div>
+                  <img src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mobile-logout-section">
+          <div class="mobile-logout-sub">
+            <div class="version">
+              <span>eRangoli Version 1.0.0</span>
+            </div>
+            <div class="logout-button">
+              <img src="../assets/master/SignOut.svg" alt="" />
+              <span>Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENU -->
+      <div class="menu-section">
+        <div class="round-button" id="round-button-notification">
+          <span class="number-of-round" id="number-of-notification">2</span>
+          <img src="../assets/master/Bell.svg" alt="" />
+        </div>
+
+        <div class="round-button" id="round-button-wishlist">
+          <span class="number-of-round" id="number-of-wishlist">4</span>
+          <img src="../assets/master/Heart.svg" alt="" />
+        </div>
+
+        <div class="round-button" id="round-button-cart">
+          <span class="number-of-round" id="number-of-cart">1</span>
+          <img src="../assets/master/ShoppingCart.svg" alt="" />
+        </div>
+
+        <div class="signup-wrapper" id="signup-wrapper">
+          <div class="signup-button" id="signup-button">
+            <span>Sign Up</span>
+          </div>
+
+          <ul class="signup-dropdown">
+            <li onclick="window.location.href='../html/login.html'">
+              Customer
             </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
+            <li onclick="window.location.href='../html/vendorlogin.html'">
+              Vendor
             </li>
           </ul>
         </div>
+
+        <div
+          class="user-profile-icon"
+          id="user-profile-icon"
+          style="display: none"
+        >
+          <div class="img-name">
+            <div class="circle-image">
+              <span>JD</span>
+            </div>
+            <span id="user-name">John David</span>
+          </div>
+          <div class="profile-dropdown" id="profile-dropdown">
+            <ul>
+              <li onclick="window.location.href='../html/myOrders.html'">
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/Package.svg" alt="" />
+                </div>
+                <span>My Orders</span>
+              </li>
+              <li onclick="window.location.href='../html/aboutYou.html'">
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/UserCircle.svg" alt="" />
+                </div>
+                <span>My Profile</span>
+              </li>
+              <li onclick="window.location.href='../html/coupons.html'">
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/UserSwitch.svg" alt="" />
+                </div>
+                <span>Coupons & Referals</span>
+              </li>
+              <li>
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/Headset.svg" alt="" />
+                </div>
+                <span>Help & Support</span>
+              </li>
+              <li onclick="window.loaction.href='../html/privacyPolicy.html'">
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/Info.svg" alt="" />
+                </div>
+                <span>Privacy Policy</span>
+              </li>
+              <li onclick="window.location.href='../html/faq.html'">
+                <div class="profile-dropdown-image">
+                  <img src="../assets/master/Question.svg" alt="" />
+                </div>
+                <span>FAQ</span>
+              </li>
+            </ul>
+            <div class="logout-option-desktop">
+              <img src="../assets/master/SignOut1.svg" alt="" />
+              <span>Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notification-main-box">
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-        <!-- Mobile Bottom Navigation Bar -->
+    <!-- Mobile Bottom Navigation Bar -->
     <div class="bottom-nav" aria-label="Mobile navigation">
       <a href="index.html" class="bottom-nav__item">
-        <img src="../assets/master/Vector.svg" alt="">
+        <img src="../assets/master/Vector.svg" alt="" />
         <span class="bottom-nav__label">Home</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-wishlist">
-        <img src="../assets/master/likednav.svg" alt="">
+        <img src="../assets/master/likednav.svg" alt="" />
         <span class="bottom-bar-numbers">2</span>
         <span class="bottom-nav__label">Wishlist</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
-        <img src="../assets/master/notificationnav.svg" alt="">
+        <img src="../assets/master/notificationnav.svg" alt="" />
         <span class="bottom-bar-numbers">3</span>
         <span class="bottom-nav__label">Notifications</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
-        <img src="../assets/master/ShoppingCart (1).svg" alt="">
+        <img src="../assets/master/ShoppingCart (1).svg" alt="" />
         <span class="bottom-bar-numbers">4</span>
         <span class="bottom-nav__label">Cart</span>
       </a>
     </div>
 
     <!-- Mobile Search Bar -->
-     <div class="mobile-search-bar-main">
-        <div class="mobile-search-bar">
-            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
-            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
-        </div>
+    <div class="mobile-search-bar-main">
+      <div class="mobile-search-bar">
+        <img
+          id="maginfying-mobile"
+          src="../assets/master/MagnifyingGlassMob.svg"
+          alt=""
+        />
+        <input
+          type="search"
+          id="mobile-search"
+          placeholder="Search"
+          onkeyup="showSuggestions(this)"
+        />
+      </div>
     </div>
     <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
@@ -703,436 +761,456 @@
         <span class="mob-heading" id="pageHeadingMob">Delivery Details</span>
       </div>
 
-      <div class="main-grid">
-        <!-- LEFT BANNER -->
-        <div class="left-banner">
-          <img src="../assets/cart/banner.svg" class="banner-img" />
-          <div class="offer-box">
-            <h1 class="offer-title">50%</h1>
-            <h2 class="offer-sub">OFF on<br />furniture</h2>
-            <p class="offer-small">
-              Handcrafted Finds to Elevate Every Corner.
-            </p>
-          </div>
-        </div>
+      <div class="empty-cart hidden" id="emptyCart">
+        <img src="../assets/cart/empty-cart.svg" alt="Empty Cart" />
 
-        <!-- DELIVERY DETAILS -->
-        <div class="delivery-card">
-          <h2 class="section-heading">Delivery Details</h2>
+        <h2>Your cart has room to grow</h2>
 
-          <!-- DELIVERY FORM -->
-          <div class="form-group">
-            <label>Your Name *</label>
-            <input type="text" id="name" placeholder="David John" />
-            <span class="error-text" id="nameError"></span>
-          </div>
-
-          <div class="form-group">
-            <label>Email Address *</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="davidjohn23@gmail.com"
-            />
-            <span class="error-text" id="emailError"></span>
-          </div>
-
-          <div class="form-group">
-            <label>Mobile Number *</label>
-            <input type="text" id="phone" placeholder="95367 89905" />
-            <span class="error-text" id="phoneError"></span>
-          </div>
-
-          <h3 class="sub-heading">Address</h3>
-
-          <div class="form-group">
-            <label>House No/ Society *</label>
-            <input type="text" id="hno" placeholder="C - 605 , Eden Park" />
-            <span class="error-text" id="hnoError"></span>
-          </div>
-
-          <div class="form-group">
-            <label>Area / Lane *</label>
-            <input
-              type="text"
-              id="lane"
-              placeholder="Mudhuban colony, parsi road"
-            />
-            <span class="error-text" id="laneError"></span>
-          </div>
-
-          <div class="form-group">
-            <label>Landmark (Optional)</label>
-            <input
-              type="text"
-              id="landmark"
-              placeholder="Near Appolo Hospital"
-            />
-            <span class="error-text" id="landmarkError"></span>
-          </div>
-
-          <div class="inline-row">
-            <div class="form-group half">
-              <label>City *</label>
-              <input type="text" id="city" placeholder="Pune" />
-              <span class="error-text" id="cityError"></span>
-            </div>
-
-            <div class="form-group half">
-              <label>Zipcode *</label>
-              <input type="text" id="zip" placeholder="234 678" />
-              <span class="error-text" id="zipError"></span>
+        <p>Fill it with handmade stories crafted with love.</p>
+      </div>
+      <div class="checkout-wrapper">
+        <div class="main-grid">
+          <!-- LEFT BANNER -->
+          <div class="left-banner">
+            <img src="../assets/cart/banner.svg" class="banner-img" />
+            <div class="offer-box">
+              <h1 class="offer-title">50%</h1>
+              <h2 class="offer-sub">OFF on<br />furniture</h2>
+              <p class="offer-small">
+                Handcrafted Finds to Elevate Every Corner.
+              </p>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>State *</label>
-            <input type="text" id="state" placeholder="Maharashtra" />
-            <span class="error-text" id="stateError"></span>
-          </div>
+          <!-- DELIVERY DETAILS -->
+          <div class="delivery-card">
+            <h2 class="section-heading">Delivery Details</h2>
 
-          <button class="save-btn" id="saveAddressBtn">Save</button>
-          <button class="continue-btn" id="continueBtn">Continue</button>
-
-          <!-- SAVED ADDRESS SECTION -->
-          <div id="saved-address-section" class="saved-address hidden">
-            <h3 class="saved-address-heading">Address</h3>
-
-            <!-- ADDRESS TEMPLATE (HIDDEN) -->
-            <div id="address-template" class="address-wrapper hidden">
-              <!-- WHITE BOX -->
-              <div class="address-card">
-                <p class="add-name"></p>
-                <p class="add-email"></p>
-                <p class="add-phone"></p>
-                <p class="add-full"></p>
-              </div>
-
-              <!-- FOOTER BELOW WHITE BOX -->
-              <div class="address-footer">
-                <label class="use-detail">
-                  <input type="checkbox" />
-                  <span class="checkmark"></span>
-                  Use these delivery detail
-                </label>
-
-                <img
-                  src="../assets/cart/delete.svg"
-                  class="address-delete-btn"
-                />
-              </div>
-            </div>
-
-            <!-- Address cards will be added here -->
-            <div id="address-list"></div>
-
-            <button class="new-address-btn" id="openPopupBtn">
-              Add a new Address
-            </button>
-          </div>
-
-          <!-- INLINE POPUP -->
-          <div id="inlinePopup" class="inline-popup hidden">
-            <div class="popup-header">
-              <h2 class="popup-heading">Add New Address</h2>
-              <span id="closeInlinePopup" class="popup-close"
-                ><img src="../assets/cart/X.svg" class="x-icon"
-              /></span>
-            </div>
-
-            <div class="popup-form">
+            <!-- DELIVERY FORM -->
+            <div class="form-group">
               <label>Your Name *</label>
-              <input
-                type="text"
-                id="p-name"
-                class="popup-input"
-                placeholder="David John"
-              />
-              <span class="error-text" id="p-nameError"></span>
+              <input type="text" id="name" placeholder="David John" />
+              <span class="error-text" id="nameError"></span>
+            </div>
 
+            <div class="form-group">
               <label>Email Address *</label>
               <input
                 type="email"
-                id="p-email"
-                class="popup-input"
+                id="email"
                 placeholder="davidjohn23@gmail.com"
               />
-              <span class="error-text" id="p-emailError"></span>
+              <span class="error-text" id="emailError"></span>
+            </div>
 
+            <div class="form-group">
               <label>Mobile Number *</label>
-              <input
-                type="text"
-                id="p-phone"
-                class="popup-input"
-                placeholder="95367 89905"
-              />
-              <span class="error-text" id="p-phoneError"></span>
+              <input type="text" id="phone" placeholder="95367 89905" />
+              <span class="error-text" id="phoneError"></span>
+            </div>
 
+            <h3 class="sub-heading">Address</h3>
+
+            <div class="form-group">
               <label>House No/ Society *</label>
-              <input
-                type="text"
-                id="p-hno"
-                class="popup-input"
-                placeholder="C - 605 , Eden Park"
-              />
-              <span class="error-text" id="p-hnoError"></span>
+              <input type="text" id="hno" placeholder="C - 605 , Eden Park" />
+              <span class="error-text" id="hnoError"></span>
+            </div>
 
+            <div class="form-group">
               <label>Area / Lane *</label>
               <input
                 type="text"
-                id="p-lane"
-                class="popup-input"
+                id="lane"
                 placeholder="Mudhuban colony, parsi road"
               />
-              <span class="error-text" id="p-laneError"></span>
+              <span class="error-text" id="laneError"></span>
+            </div>
 
+            <div class="form-group">
               <label>Landmark (Optional)</label>
               <input
                 type="text"
-                id="p-landmark"
-                class="popup-input"
+                id="landmark"
                 placeholder="Near Appolo Hospital"
               />
-              <span class="error-text" id="p-landmarkError"></span>
+              <span class="error-text" id="landmarkError"></span>
+            </div>
 
-              <label>City *</label>
-              <input
-                type="text"
-                id="p-city"
-                class="popup-input"
-                placeholder="Pune"
-              />
-              <span class="error-text" id="p-cityError"></span>
+            <div class="inline-row">
+              <div class="form-group half">
+                <label>City *</label>
+                <input type="text" id="city" placeholder="Pune" />
+                <span class="error-text" id="cityError"></span>
+              </div>
 
-              <label>Zipcode *</label>
-              <input
-                type="text"
-                id="p-zip"
-                class="popup-input"
-                placeholder="234 678"
-              />
-              <span class="error-text" id="p-zipError"></span>
+              <div class="form-group half">
+                <label>Zipcode *</label>
+                <input type="text" id="zip" placeholder="234 678" />
+                <span class="error-text" id="zipError"></span>
+              </div>
+            </div>
 
+            <div class="form-group">
               <label>State *</label>
-              <input
-                type="text"
-                id="p-state"
-                class="popup-input"
-                placeholder="Maharashtra"
-              />
-              <span class="error-text" id="p-stateError"></span>
+              <input type="text" id="state" placeholder="Maharashtra" />
+              <span class="error-text" id="stateError"></span>
             </div>
 
-            <button class="popup-save-btn" id="popupSaveBtn">Save</button>
-          </div>
-        </div>
+            <button class="save-btn" id="saveAddressBtn">Save</button>
+            <button class="continue-btn" id="continueBtn">Continue</button>
 
-        <!-- BILLING DETAILS -->
+            <!-- SAVED ADDRESS SECTION -->
+            <div id="saved-address-section" class="saved-address hidden">
+              <h3 class="saved-address-heading">Address</h3>
 
-        <div class="billing-card" id="billingCard">
-          <div class="bill-header">
-            <h2>Billing Details</h2>
-          </div>
+              <!-- ADDRESS TEMPLATE (HIDDEN) -->
+              <div id="address-template" class="address-wrapper hidden">
+                <!-- WHITE BOX -->
+                <div class="address-card">
+                  <p class="add-name"></p>
+                  <p class="add-email"></p>
+                  <p class="add-phone"></p>
+                  <p class="add-full"></p>
+                </div>
 
-          <div class="detailed-cart">
-            <span class="your-cart">Your Cart</span>
-            <span class="total-items">Total Items - 2</span>
-            <span class="total-items-mobile">2 Items</span>
-          </div>
-          <hr class="total-items-mobile" />
-          <!-- PRODUCT 1 -->
-          <div class="product-row" data-stock="3">
-            <img src="../assets/cart/product1.svg" class="prod-img" />
+                <!-- FOOTER BELOW WHITE BOX -->
+                <div class="address-footer">
+                  <label class="use-detail">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Use these delivery detail
+                  </label>
 
-            <div class="prod-info">
-              <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
-              <p class="company">by Sanskriti Collection</p>
-              <p class="color">Colour - Mahagony</p>
-
-              <div class="price-qty-row">
-                <p class="price">
-                  Price - <span class="rupee" data-unit="274">₹274</span>
-                </p>
-
-                <div class="qty-box">
-                  <button><img src="../assets/cart/minus.svg" /></button>
-                  <span>1</span>
-                  <button><img src="../assets/cart/plus.svg" /></button>
+                  <img
+                    src="../assets/cart/delete.svg"
+                    class="address-delete-btn"
+                  />
                 </div>
               </div>
+
+              <!-- Address cards will be added here -->
+              <div id="address-list"></div>
+
+              <button class="new-address-btn" id="openPopupBtn">
+                Add a new Address
+              </button>
             </div>
 
-            <img src="../assets/cart/delete.svg" class="delete-btn" />
+            <!-- INLINE POPUP -->
+            <div id="inlinePopup" class="inline-popup hidden">
+              <div class="popup-header">
+                <h2 class="popup-heading">Add New Address</h2>
+                <span id="closeInlinePopup" class="popup-close"
+                  ><img src="../assets/cart/X.svg" class="x-icon"
+                /></span>
+              </div>
+
+              <div class="popup-form">
+                <label>Your Name *</label>
+                <input
+                  type="text"
+                  id="p-name"
+                  class="popup-input"
+                  placeholder="David John"
+                />
+                <span class="error-text" id="p-nameError"></span>
+
+                <label>Email Address *</label>
+                <input
+                  type="email"
+                  id="p-email"
+                  class="popup-input"
+                  placeholder="davidjohn23@gmail.com"
+                />
+                <span class="error-text" id="p-emailError"></span>
+
+                <label>Mobile Number *</label>
+                <input
+                  type="text"
+                  id="p-phone"
+                  class="popup-input"
+                  placeholder="95367 89905"
+                />
+                <span class="error-text" id="p-phoneError"></span>
+
+                <label>House No/ Society *</label>
+                <input
+                  type="text"
+                  id="p-hno"
+                  class="popup-input"
+                  placeholder="C - 605 , Eden Park"
+                />
+                <span class="error-text" id="p-hnoError"></span>
+
+                <label>Area / Lane *</label>
+                <input
+                  type="text"
+                  id="p-lane"
+                  class="popup-input"
+                  placeholder="Mudhuban colony, parsi road"
+                />
+                <span class="error-text" id="p-laneError"></span>
+
+                <label>Landmark (Optional)</label>
+                <input
+                  type="text"
+                  id="p-landmark"
+                  class="popup-input"
+                  placeholder="Near Appolo Hospital"
+                />
+                <span class="error-text" id="p-landmarkError"></span>
+
+                <label>City *</label>
+                <input
+                  type="text"
+                  id="p-city"
+                  class="popup-input"
+                  placeholder="Pune"
+                />
+                <span class="error-text" id="p-cityError"></span>
+
+                <label>Zipcode *</label>
+                <input
+                  type="text"
+                  id="p-zip"
+                  class="popup-input"
+                  placeholder="234 678"
+                />
+                <span class="error-text" id="p-zipError"></span>
+
+                <label>State *</label>
+                <input
+                  type="text"
+                  id="p-state"
+                  class="popup-input"
+                  placeholder="Maharashtra"
+                />
+                <span class="error-text" id="p-stateError"></span>
+              </div>
+
+              <button class="popup-save-btn" id="popupSaveBtn">Save</button>
+            </div>
           </div>
 
-          <hr />
+          <!-- BILLING DETAILS -->
 
-          <!-- PRODUCT 2 -->
-          <div class="product-row" data-stock="0">
-            <img src="../assets/cart/product2.svg" class="prod-img" />
+          <div class="billing-card" id="billingCard">
+            <div class="bill-header">
+              <h2>Billing Details</h2>
+            </div>
 
-            <div class="prod-info">
-              <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
-              <p class="company">by Sanskriti Collection</p>
-              <p class="color">Colour - Mahagony</p>
+            <div class="detailed-cart">
+              <span class="your-cart">Your Cart</span>
+              <span class="total-items">Total Items - 2</span>
+              <span class="total-items-mobile">2 Items</span>
+            </div>
+            <hr class="total-items-mobile" />
+            <!-- PRODUCT 1 -->
+            <div class="product-row" data-stock="3">
+              <img src="../assets/cart/product1.svg" class="prod-img" />
 
-              <div class="price-qty-row">
-                <p class="price">
-                  Price - <span class="rupee" data-unit="2742">₹2742</span>
-                </p>
+              <div class="prod-info">
+                <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
+                <p class="company">by Sanskriti Collection</p>
+                <p class="color">Colour - Mahagony</p>
 
-                <div class="qty-box">
-                  <button><img src="../assets/cart/minus.svg" /></button>
-                  <span>1</span>
-                  <button><img src="../assets/cart/plus.svg" /></button>
+                <div class="price-qty-row">
+                  <p class="price">
+                    Price - <span class="rupee" data-unit="274">₹274</span>
+                  </p>
+
+                  <div class="qty-box">
+                    <button><img src="../assets/cart/minus.svg" /></button>
+                    <span>1</span>
+                    <button><img src="../assets/cart/plus.svg" /></button>
+                  </div>
                 </div>
               </div>
+
+              <img src="../assets/cart/delete.svg" class="delete-btn" />
             </div>
 
-            <img src="../assets/cart/delete.svg" class="delete-btn" />
-          </div>
+            <hr />
 
-          <hr />
+            <!-- PRODUCT 2 -->
+            <div class="product-row out-of-stock" data-stock="0">
+              <img src="../assets/cart/product2.svg" class="prod-img" />
 
-          <!-- COUPON -->
-          <div class="coupon-box">
-            <img src="../assets/cart/tag.svg" class="coupon-icon" />
+              <div class="prod-info">
+                <h3 class="prod-title">3D Wooden World Map - Glossy Finish</h3>
+                <p class="company">by Sanskriti Collection</p>
+                <p class="color">Colour - Mahagony</p>
 
-            <input type="text" value="FIRST 500" />
+                <div class="price-qty-row">
+                  <p class="price">
+                    Price - <span class="rupee" data-unit="2742">₹2742</span>
+                  </p>
 
-            <button class="apply-btn" id="applyCouponBtn">Apply</button>
-          </div>
+                  <div class="qty-box">
+                    <button><img src="../assets/cart/minus.svg" /></button>
+                    <span>1</span>
+                    <button><img src="../assets/cart/plus.svg" /></button>
+                  </div>
+                </div>
+              </div>
 
-          <div class="billing-summary">
-            <div class="line">
-              <span>Subtotal</span>
-              <span id="subtotalAmount">₹0</span>
+              <img src="../assets/cart/delete.svg" class="delete-btn" />
             </div>
 
-            <div class="line">
-              <span>Shipping</span>
-              <span class="free">Free delivery</span>
+            <hr />
+
+            <!-- COUPON -->
+            <div class="coupon-box">
+              <img src="../assets/cart/tag.svg" class="coupon-icon" />
+
+              <input type="text" value="FIRST 500" />
+
+              <button class="apply-btn" id="applyCouponBtn">Apply</button>
             </div>
 
-            <div class="line">
-              <span>Discount</span>
-              <span id="discountAmount">₹0</span>
-            </div>
+            <div class="billing-summary">
+              <div class="line">
+                <span>Subtotal</span>
+                <span id="subtotalAmount">₹0</span>
+              </div>
 
-            <div class="line">
-              <span>GST</span>
-              <span id="gstAmount">₹234</span>
+              <div class="line">
+                <span>Shipping</span>
+                <span class="free">Free delivery</span>
+              </div>
+
+              <div class="line">
+                <span>Discount</span>
+                <span id="discountAmount">₹0</span>
+              </div>
+
+              <div class="line">
+                <span>GST</span>
+                <span id="gstAmount">₹234</span>
+              </div>
+              <hr />
+              <div class="line payable">
+                <span>Payable</span>
+                <span id="payableAmount">₹0</span>
+              </div>
             </div>
             <hr />
-            <div class="line payable">
-              <span>Payable</span>
-              <span id="payableAmount">₹0</span>
+            <!-- Saved Address (Billing View) -->
+            <div id="billing-saved-address-container"></div>
+            <div id="stockWarning" class="stock-warning hidden">
+              <span class="warning-icon"
+                ><img src="../assets/cart/warning.svg"
+              /></span>
+              <span>One item out of stock, remove it</span>
+              <span id="closeWarning" class="close-warning"
+                ><img src="../assets/cart/X.svg" class="x-icon"
+              /></span>
             </div>
-          </div>
-          <hr />
-          <!-- Saved Address (Billing View) -->
-          <div id="billing-saved-address-container"></div>
-          <div id="stockWarning" class="stock-warning hidden">
-            <span class="warning-icon"
-              ><img src="../assets/cart/warning.svg"
-            /></span>
-            <span>One item out of stock, remove it</span>
-            <span id="closeWarning" class="close-warning"
-              ><img src="../assets/cart/X.svg" class="x-icon"
-            /></span>
-          </div>
-          <div id="couponWarning" class="stock-warning hidden">
-            <span class="warning-icon"
-              ><img src="../assets/cart/warning.svg"
-            /></span>
-            <span>Invalid coupon</span>
-            <span id="closeWarning" class="close-warning"
-              ><img src="../assets/cart/X.svg" class="x-icon"
-            /></span>
-          </div>
-          <div id="stockLimitWarning" class="stock-warning hidden">
-            <span class="warning-icon"
-              ><img src="../assets/cart/warning.svg"
-            /></span>
-            <span class="warning-text"
-              >We have only N number of products available</span
-            >
-            <span id="closeStockLimitWarning" class="close-warning">
-              <img src="../assets/cart/X.svg" class="x-icon" />
-            </span>
-          </div>
+            <div id="couponWarning" class="stock-warning hidden">
+              <span class="warning-icon"
+                ><img src="../assets/cart/warning.svg"
+              /></span>
+              <span>Invalid coupon</span>
+              <span id="closeWarning" class="close-warning"
+                ><img src="../assets/cart/X.svg" class="x-icon"
+              /></span>
+            </div>
+            <div id="stockLimitWarning" class="stock-warning hidden">
+              <span class="warning-icon"
+                ><img src="../assets/cart/warning.svg"
+              /></span>
+              <span class="warning-text"
+                >We have only N number of products available</span
+              >
+              <span id="closeStockLimitWarning" class="close-warning">
+                <img src="../assets/cart/X.svg" class="x-icon" />
+              </span>
+            </div>
 
-          <button class="pay-btn" id="pay-btn">Pay</button>
+            <button class="pay-btn" id="pay-btn">Pay</button>
+            <button class="proceed-btn" id="proceedBtn">Proceed</button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
     <footer class="er-footer">
-        <div class="er-container">
-    
-            <!-- Column 1 -->
-            <div class="er-col">
-                <h2 class="er-logo">eRANGOLI</h2>
-                <p class="er-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                    sodales massa a ultrices fringilla. Sed vehicula in lorem quis ultrices.
-                </p>
-    
-                <div class="er-contact-part">
-                    <div class="er-contact"> <img src="../assets/master/footeremail.svg" alt="">
-                        <div>Loremipsum@gmail.com</div>
-                    </div>
-                    <div class="er-contact"> <img src="../assets/master/footerPhone.svg" alt="">
-                        <div>+91 67895 76895</div>
-                    </div>
-                    <div class="er-contact"> <img src="../assets/master/footerweblink.svg" alt="">
-                        <div>Loremipsum.com</div>
-                    </div>
-                </div>
-    
-                <p class="er-copy">Loremipsum © 2025</p>
+      <div class="er-container">
+        <!-- Column 1 -->
+        <div class="er-col">
+          <h2 class="er-logo">eRANGOLI</h2>
+          <p class="er-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            sodales massa a ultrices fringilla. Sed vehicula in lorem quis
+            ultrices.
+          </p>
+
+          <div class="er-contact-part">
+            <div class="er-contact">
+              <img src="../assets/master/footeremail.svg" alt="" />
+              <div>Loremipsum@gmail.com</div>
             </div>
-    
-            <!-- Column 2 -->
-            <div class="er-col quick-link">
-                <h3 class="er-heading">Quick Links</h3>
-                <a href="#">Home</a>
-                <a href="#">New Arrivals</a>
-                <a href="#">Categories</a>
-                <a href="#">Offers</a>
-                <a href="#">Contact</a>
+            <div class="er-contact">
+              <img src="../assets/master/footerPhone.svg" alt="" />
+              <div>+91 67895 76895</div>
             </div>
-    
-            <!-- Column 3 -->
-            <div class="er-col payments">
-                <h3 class="er-heading">Payments</h3>
-                <a href="#">UPI</a>
-                <a href="#">Debit Card</a>
-                <a href="#">Credit Card</a>
-                <a href="#">COD</a>
-                <a href="#">Net Banking</a>
+            <div class="er-contact">
+              <img src="../assets/master/footerweblink.svg" alt="" />
+              <div>Loremipsum.com</div>
             </div>
-    
-            <!-- Column 4 -->
-            <div class="er-col">
-                <h3 class="er-heading">For all the latest trends across India</h3>
-                <p class="er-desc">Subscribe to our weekly newsletter customized to your needs</p>
-    
-                <div class="er-subscribe">
-                    <button>Subscribe</button>
-                </div>
-    
-                <div class="er-social">
-                    <a href="#"><img src="../assets/master/FacebookLogo.svg" alt=""></a>
-                    <a href="#"><img src="../assets/master/InstagramLogo.svg" alt=""></a>
-                    <a href="#"><img src="../assets/master/LinkedinLogo.svg" alt=""></a>
-                </div>
-            </div>
-    
+          </div>
+
+          <p class="er-copy">Loremipsum © 2025</p>
         </div>
+
+        <!-- Column 2 -->
+        <div class="er-col quick-link">
+          <h3 class="er-heading">Quick Links</h3>
+          <a href="#">Home</a>
+          <a href="#">New Arrivals</a>
+          <a href="#">Categories</a>
+          <a href="#">Offers</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="er-col payments">
+          <h3 class="er-heading">Payments</h3>
+          <a href="#">UPI</a>
+          <a href="#">Debit Card</a>
+          <a href="#">Credit Card</a>
+          <a href="#">COD</a>
+          <a href="#">Net Banking</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="er-col">
+          <h3 class="er-heading">For all the latest trends across India</h3>
+          <p class="er-desc">
+            Subscribe to our weekly newsletter customized to your needs
+          </p>
+
+          <div class="er-subscribe">
+            <button>Subscribe</button>
+          </div>
+
+          <div class="er-social">
+            <a href="#"
+              ><img src="../assets/master/FacebookLogo.svg" alt=""
+            /></a>
+            <a href="#"
+              ><img src="../assets/master/InstagramLogo.svg" alt=""
+            /></a>
+            <a href="#"
+              ><img src="../assets/master/LinkedinLogo.svg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <script src="../javascript/cart.js"></script>
+    <script src="../javascript/deliveryDetails.js"></script>
   </body>
 </html>
