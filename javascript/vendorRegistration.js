@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const businessMobileInput = document.getElementById("vendorBusinessMobile");
   const businessEmailInput = document.getElementById("vendorBusinessEmail");
   const businessGstInput = document.getElementById("vendorBusinessGST");
+  const businessLogoInput = document.getElementById("vendorBusinessLogo");
 
   // STEP 4 inputs
   const shippingHouseInput = document.getElementById("shippingHouse");
@@ -395,8 +396,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   idNumberInput.addEventListener("blur", validateIdNumber);
-  idFrontInput.addEventListener("change", validateIdUpload);
-  idBackInput.addEventListener("change", validateIdUpload);
+  idFrontInput.addEventListener("change", function () {
+  showFilePreview(this, ".uploadPreviewFront");
+  validateIdUpload();
+});
+  idBackInput.addEventListener("change", function () {
+  showFilePreview(this, ".uploadPreviewBack");
+  validateIdUpload();
+});
 
   // STEP 1 submit -> validation -> STEP 2
   step1Form.addEventListener("submit", function (e) {
@@ -598,6 +605,41 @@ document.addEventListener("DOMContentLoaded", function () {
     v = v.replace(/\s{2,}/g, " ");
     this.value = v;
   });
+
+  function showFilePreview(input, previewClass) {
+  const previewBox = input
+    .closest(".vendorRegistrationUploadBox")
+    .querySelector(previewClass);
+
+  const file = input.files[0];
+  if (!file) return;
+
+  // Clear old preview
+  previewBox.innerHTML = "";
+
+  // IMAGE FILE
+  if (file.type.startsWith("image/")) {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "8px";
+
+    previewBox.appendChild(img);
+  }
+
+  // PDF FILE
+  else if (file.type === "application/pdf") {
+    previewBox.innerHTML = `
+      <div class="pdfPreview">
+        <span>📄</span>
+        <p>${file.name}</p>
+      </div>
+    `;
+  }
+}
+
 
   // STEP 2 VALIDATION FUNCTIONS
 
@@ -986,6 +1028,33 @@ function validateBusinessGST() {
     return true;
   }
 }
+// preview logo
+function showLogoPreview(input) {
+  const previewBox = input
+    .closest(".vendorRegistrationUploadBox")
+    .querySelector(".uploadPreviewLogo");
+
+  const file = input.files[0];
+  if (!file) return;
+
+  // Only images allowed
+  if (!file.type.startsWith("image/")) return;
+
+  previewBox.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.src = URL.createObjectURL(file);
+  img.style.width = "100%";
+  img.style.height = "100%";
+  img.style.objectFit = "contain";
+  img.style.borderRadius = "8px";
+
+  previewBox.appendChild(img);
+}
+
+businessLogoInput.addEventListener("change", function () {
+  showLogoPreview(this);
+});
 
 
   // MAIN STEP 3 VALIDATION (for Continue button)
