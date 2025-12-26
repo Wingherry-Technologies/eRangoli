@@ -622,7 +622,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const img = document.createElement("img");
     img.src = URL.createObjectURL(file);
     img.style.width = "100%";
-    img.style.height = "100%";
+    img.style.height = "85%";
     img.style.objectFit = "cover";
     img.style.borderRadius = "8px";
 
