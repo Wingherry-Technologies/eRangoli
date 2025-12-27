@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventory Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/vendorInventoryManagement.css" />
+  </head>
+  <body>
+    <div class="inventory-wrapper">
+      <!-- Header -->
+      <div class="header-row">
+        <h1>Inventory Management</h1>
+        <button class="add-btn">+ Add New</button>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards-row">
+        <!-- Card 1 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <!-- SVG ICON -->
+            <img
+              src="../assets/inventoryManagement/CopySimple.svg"
+              alt="User Icon"
+            />
+            <span class="card-title">Product Categories</span>
+          </div>
+
+          <h2 class="card-value">13</h2>
+
+          <div class="positive-box">
+            <img
+              src="../assets/inventoryManagement/TrendUp.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+15.3% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Stack.svg"
+              alt="Stock Icon"
+            />
+            <span class="card-title">Total Stock</span>
+          </div>
+
+          <h2 class="card-value">7,603</h2>
+
+          <div class="positive-box">
+            <img
+              src="../assets/inventoryManagement/TrendUp.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+9.90% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Vector (1).svg"
+              alt="Sold Icon"
+            />
+            <span class="card-title">Products Sold</span>
+          </div>
+
+          <h2 class="card-value">267</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/inventoryManagement/TrendDown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-1.2% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Vector (2).svg"
+              alt="Seller Icon"
+            />
+            <span class="card-title">Best sellers</span>
+          </div>
+
+          <h2 class="card-value">23</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/inventoryManagement/TrendDown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-4.6% from last month</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-wrapper">
+        <!-- Heading -->
+        <h2 class="product-heading">Product List</h2>
+
+        <!-- Controls Row -->
+        <div class="product-controls">
+          <!-- Search -->
+          <div class="search-box">
+            <img
+              src="../assets/inventoryManagement/search.svg"
+              alt="search"
+              class="search-icon"
+            />
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name or category"
+            />
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-box">
+            <img src="../assets/inventoryManagement/sliders.svg" alt="filter" />
+            <img src="../assets/inventoryManagement/sliders-2.svg" alt="sort" />
+          </div>
+
+          <!-- Button -->
+          <button class="best-selling-btn">Best Selling</button>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product Name</th>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Size</th>
+              <th>Colour</th>
+              <th>Orders</th>
+              <th>In Stock</th>
+              <th>Total Stock</th>
+              <th>Price</th>
+              <th>Approval</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- ROW 1 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Painting Cart</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767890</div>
+                  </div>
+                </div>
+              </td>
+              <td>12/12/25</td>
+              <td>Yash Painting</td>
+              <td>S</td>
+              <td><div class="color-box" style="background: #c85454"></div></td>
+              <td>214</td>
+              <td>20</td>
+              <td><span class="stock-badge-suf">334</span></td>
+              <td class="price-cell">₹ 5,110</td>
+              <td class="approved">Approved</td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Madhubani Painting Art</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767891</div>
+                  </div>
+                </div>
+              </td>
+              <td>13/12/25</td>
+              <td>Madhubani Painting</td>
+              <td>M</td>
+              <td><div class="color-box" style="background: #21a593"></div></td>
+              <td>114</td>
+              <td>18</td>
+              <td>
+                <span class="stock-badge-suf" style="background: #fac097"
+                  >34</span
+                >
+              </td>
+              <td class="price-cell">₹ 4,800</td>
+              <td class="pending">Pending</td>
+            </tr>
+
+            <!-- ROW 3 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Traditional Art Frame</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767892</div>
+                  </div>
+                </div>
+              </td>
+              <td>14/12/25</td>
+              <td>Painting</td>
+              <td>L</td>
+              <td><div class="color-box" style="background: #78e618"></div></td>
+              <td>314</td>
+              <td>12</td>
+              <td>
+                <span class="stock-badge-suf" style="background: #ff4b4b"
+                  >2</span
+                >
+              </td>
+              <td class="price-cell">₹ 6,200</td>
+              <td class="rejected">Rejected</td>
+            </tr>
+
+            <!-- ROW 4 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handmade Wall Art</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767893</div>
+                  </div>
+                </div>
+              </td>
+              <td>15/12/25</td>
+              <td>Decor</td>
+              <td>S</td>
+              <td><div class="color-box" style="background: #ecc824"></div></td>
+              <td>98</td>
+              <td>25</td>
+              <td><span class="stock-badge-suf">120</span></td>
+              <td class="price-cell">₹ 3,900</td>
+              <td class="approved">Approved</td>
+            </tr>
+
+            <!-- ROW 5 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Ethnic Canvas Art</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767894</div>
+                  </div>
+                </div>
+              </td>
+              <td>16/12/25</td>
+              <td>Canvas</td>
+              <td>M</td>
+              <td><div class="color-box" style="background: #d44444"></div></td>
+              <td>165</td>
+              <td>30</td>
+              <td><span class="stock-badge-suf">210</span></td>
+              <td class="price-cell">₹ 5,700</td>
+              <td class="approved">Approved</td>
+            </tr>
+
+            <!-- ROW 6 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Classic Art Print</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767895</div>
+                  </div>
+                </div>
+              </td>
+              <td>17/12/25</td>
+              <td>Print</td>
+              <td>L</td>
+              <td><div class="color-box" style="background: #b55e7d"></div></td>
+              <td>245</td>
+              <td>10</td>
+              <td>
+                <span class="stock-badge-suf" style="background: #fac097"
+                  >45</span
+                >
+              </td>
+              <td class="price-cell">₹ 4,300</td>
+              <td class="pending">Pending</td>
+            </tr>
+
+            <!-- ROW 7 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Modern Wall Decor</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767896</div>
+                  </div>
+                </div>
+              </td>
+              <td>18/12/25</td>
+              <td>Decor</td>
+              <td>S</td>
+              <td><div class="color-box" style="background: #ce34b9"></div></td>
+              <td>76</td>
+              <td>40</td>
+              <td><span class="stock-badge-suf">160</span></td>
+              <td class="price-cell">₹ 3,500</td>
+              <td class="approved">Approved</td>
+            </tr>
+
+            <!-- ROW 8 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Heritage Painting</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767897</div>
+                  </div>
+                </div>
+              </td>
+              <td>19/12/25</td>
+              <td>Painting</td>
+              <td>M</td>
+              <td><div class="color-box" style="background: #f1efaf"></div></td>
+              <td>189</td>
+              <td>14</td>
+              <td>
+                <span class="stock-badge-suf" style="background: #ff4b4b"
+                  >6</span
+                >
+              </td>
+              <td class="price-cell">₹ 6,800</td>
+              <td class="rejected">Rejected</td>
+            </tr>
+
+            <!-- ROW 9 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Folk Art Frame</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767898</div>
+                  </div>
+                </div>
+              </td>
+              <td>20/12/25</td>
+              <td>Folk Art</td>
+              <td>L</td>
+              <td><div class="color-box" style="background: #21a593"></div></td>
+              <td>201</td>
+              <td>22</td>
+              <td><span class="stock-badge-suf">180</span></td>
+              <td class="price-cell">₹ 5,950</td>
+              <td class="approved">Approved</td>
+            </tr>
+
+            <!-- ROW 10 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Vintage Canvas</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767899</div>
+                  </div>
+                </div>
+              </td>
+              <td>21/12/25</td>
+              <td>Canvas</td>
+              <td>S</td>
+              <td><div class="color-box" style="background: #d44444"></div></td>
+              <td>67</td>
+              <td>35</td>
+              <td><span class="stock-badge-suf">90</span></td>
+              <td class="price-cell">₹ 4,100</td>
+              <td class="pending">Pending</td>
+            </tr>
+
+            <!-- ROW 11 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/edit.svg" /><span
+                        >Edit</span
+                      >
+                    </div>
+                    <div class="action-item">
+                      <img
+                        src="../assets/inventoryManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                    <div class="action-item">
+                      <img src="../assets/inventoryManagement/hold.svg" /><span
+                        >On hold</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/inventoryManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Exclusive Art Piece</span>
+                      <span class="sub-name">Vishu God</span>
+                    </div>
+                    <div class="product-sku">SKU: 64767900</div>
+                  </div>
+                </div>
+              </td>
+              <td>22/12/25</td>
+              <td>Exclusive</td>
+              <td>M</td>
+              <td><div class="color-box" style="background: #78e618"></div></td>
+              <td>412</td>
+              <td>8</td>
+              <td>
+                <span class="stock-badge-suf" style="background: #ff4b4b"
+                  >3</span
+                >
+              </td>
+              <td class="price-cell">₹ 9,999</td>
+              <td class="approved">Approved</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-data"></div>
+    </div>
+
+    <script src="../javascript/vendorInventoryManagement.js"></script>
+  </body>
+</html>
