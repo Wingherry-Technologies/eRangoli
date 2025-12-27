@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventory Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/inventoryManagement.css" />
+  </head>
+  <body>
+    <div class="inventory-wrapper">
+      <!-- Header -->
+      <div class="header-row">
+        <h1>Inventory Management</h1>
+        <button class="add-btn">+ Add New</button>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards-row">
+        <!-- Card 1 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <!-- SVG ICON -->
+            <img
+              src="../assets/inventoryManagement/CopySimple.svg"
+              alt="User Icon"
+            />
+            <span class="card-title">Product Categories</span>
+          </div>
+
+          <h2 class="card-value">13</h2>
+
+          <div class="positive-box">
+            <img
+              src="../assets/inventoryManagement/TrendUp.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+15.3% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Stack.svg"
+              alt="Stock Icon"
+            />
+            <span class="card-title">Total Stock</span>
+          </div>
+
+          <h2 class="card-value">7,603</h2>
+
+          <div class="positive-box">
+            <img
+              src="../assets/inventoryManagement/TrendUp.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+9.90% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Vector (1).svg"
+              alt="Sold Icon"
+            />
+            <span class="card-title">Products Sold</span>
+          </div>
+
+          <h2 class="card-value">267</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/inventoryManagement/TrendDown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-1.2% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/inventoryManagement/Vector (2).svg"
+              alt="Seller Icon"
+            />
+            <span class="card-title">Best sellers</span>
+          </div>
+
+          <h2 class="card-value">23</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/inventoryManagement/TrendDown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-4.6% from last month</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-wrapper">
+        <!-- Heading -->
+        <h2 class="product-heading">Product List</h2>
+
+        <!-- Controls Row -->
+        <div class="product-controls">
+          <!-- Search -->
+          <div class="search-box">
+            <img
+              src="../assets/inventoryManagement/search.svg"
+              alt="search"
+              class="search-icon"
+            />
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name or category"
+            />
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-box">
+            <img src="../assets/inventoryManagement/sliders.svg" alt="filter" />
+            <img src="../assets/inventoryManagement/sliders-2.svg" alt="sort" />
+          </div>
+
+          <!-- Button -->
+          <button class="best-selling-btn">Best Selling</button>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product Name</th>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Size</th>
+              <th>Colour</th>
+              <th>Orders</th>
+              <th>In Stock</th>
+              <th>Total Stock</th>
+              <th>Price</th>
+              <th>Approval</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- rows from JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="page-data"></div>
+    </div>
+
+    <script src="../javascript/inventoryManagement.js"></script>
+  </body>
+</html>
