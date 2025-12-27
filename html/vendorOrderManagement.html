@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/vendorOrderManagement.css" />
+  </head>
+  <body>
+    <div class="inventory-wrapper">
+      <!-- Header -->
+      <div class="header-row">
+        <h1>Order Management</h1>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards-row">
+        <!-- Card 1 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <!-- SVG ICON -->
+            <img
+              src="../assets/vendorOrderManagement/trackOrders.svg"
+              alt="User Icon"
+            />
+            <span class="card-title">Total Orders</span>
+          </div>
+
+          <h2 class="card-value">25,234</h2>
+          <div class="positive-box">
+            <img
+              src="../assets/vendorOrderManagement/trendup.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+15.3% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/vendorOrderManagement/packed.svg"
+              alt="Stock Icon"
+            />
+            <span class="card-title">Packed</span>
+          </div>
+
+          <h2 class="card-value">7,603</h2>
+
+          <div class="positive-box">
+            <img
+              src="../assets/vendorOrderManagement/trendup.svg"
+              alt="Up Icon"
+            />
+            <span class="positive-title">+9.90% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/vendorOrderManagement/shipped.svg"
+              alt="Sold Icon"
+            />
+            <span class="card-title">Products Sold</span>
+          </div>
+
+          <h2 class="card-value">3,267</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/vendorOrderManagement/trenddown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-1.2% from last month</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="inventory-card">
+          <div class="icon-box">
+            <img
+              src="../assets/vendorOrderManagement/delivered.svg"
+              alt="Seller Icon"
+            />
+            <span class="card-title">Delivered</span>
+          </div>
+
+          <h2 class="card-value">5,234</h2>
+          <div class="negative-box">
+            <img
+              src="../assets/vendorOrderManagement/trenddown.svg"
+              alt="Down Icon"
+            />
+            <span class="negative-title">-4.6% from last month</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-wrapper">
+        <!-- Heading -->
+        <h2 class="product-heading">Product List</h2>
+
+        <!-- Controls Row -->
+        <div class="product-controls">
+          <!-- Search -->
+          <div class="search-box">
+            <img
+              src="../assets/vendorOrderManagement/search.svg"
+              alt="search"
+              class="search-icon"
+            />
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name or category"
+            />
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-box">
+            <img
+              src="../assets/vendorOrderManagement/filter.svg"
+              alt="filter"
+            />
+            <img src="../assets/vendorOrderManagement/asc.svg" alt="sort" />
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product Name</th>
+              <th>SKU Number</th>
+              <th>Category</th>
+              <th>Qty</th>
+              <th>Status</th>
+              <th>Exp Pick up</th>
+              <th>Exp Delivery</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- ROW 1 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge delivered">Delivered</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 3 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 4 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+            <!-- ROW 5 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 6 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 7 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge delivered">Delivered</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+            <!-- ROW 8 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge return">Return</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 9 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge packed">Packed</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 10 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+
+            <!-- ROW 11 -->
+            <tr>
+              <td class="action-cell">
+                <div class="action-wrapper">
+                  <span class="three-dots">⋮</span>
+                  <div class="action-menu">
+                    <div class="action-item">
+                      <img
+                        src="../assets/vendorOrderManagement/delete.svg"
+                      /><span>Remove</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="product-info">
+                  <img src="../assets/vendorOrderManagement/img.svg" />
+                  <div>
+                    <div class="product-name">
+                      <span class="main-name">Handcrafted Wooden</span>
+                      <span class="sub-name">Beer Mug</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>#79967776</td>
+              <td>Yash Painting</td>
+              <td>2</td>
+              <td>
+                <span class="status-badge received">Received</span>
+              </td>
+
+              <td>15/12/2025</td>
+              <td>23/12/2025</td>
+              <td>
+                <img
+                  src="../assets/vendorOrderManagement/arrow.svg"
+                  alt="arrow"
+                  class="arrow-img"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="../javascript/vendorInventoryManagement.js"></script>
+  </body>
+</html>
