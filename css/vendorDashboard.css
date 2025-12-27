@@ -299,8 +299,8 @@ h1 {
   /* padding: 15px; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   max-height: 500px;
-  overflow-y: auto;
 }
+
 
 .table-header {
   display: flex;
@@ -338,7 +338,7 @@ tbody td {
   padding: 16px 12px;
   font-size: 13px;
   color: #333;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: none;
 }
 tbody {
   padding: 15px;
@@ -348,6 +348,66 @@ tbody tr:hover {
   background: #fafafa;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px; /* Adjust as needed */
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #dbe5e3;
+}
+
+thead th {
+  background-color: #dbe5e3;
+}
+thead th:last-child {
+  padding-left: 35px;
+}
+
+tbody td {
+  padding: 16px 12px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Remove hover effect if too strong */
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+tbody tr {
+  position: relative;
+}
+
+tbody tr::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 1px;
+  background: #e8e8e8;
+}
+
+tbody tr:last-child::after {
+  display: none;
+}
 .status-badge {
   display: inline-block;
   padding: 4px 12px;
@@ -390,7 +450,7 @@ tbody tr:hover {
   border-radius: 16px;
   /* padding: 15px; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: 500px;
 }
 
@@ -406,9 +466,26 @@ tbody tr:hover {
   padding: 12px;
   border-bottom: 1px solid #21a593;
   margin-bottom: 10px;
+   flex-shrink: 0;
 }
 .activitiesCardItems {
   padding: 0 10px;
+    overflow-y: auto;
+  flex: 1;
+    height: 430px;
+}
+
+.activitiesCardItems::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activitiesCardItems::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.activitiesCardItems::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
 }
 
 .activity-item:last-child {
