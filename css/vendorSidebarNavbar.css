@@ -1099,7 +1099,7 @@ nav{
 
 /* Sidebar Content */
 .sidebar-main-vendor{
-    position: absolute;
+    position: fixed;
     width: 300px;
     border-radius: 0px 10px 10px 0px;
     background-color: #B9E0DB;
@@ -1330,8 +1330,9 @@ nav{
   /* Deep red */
   color: white;
   padding: 50px 70px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   font-family: Nunito Sans, sans-serif;
+  margin-top: 20px;
 }
 
 /* Inner container */
@@ -1531,6 +1532,7 @@ nav{
     margin-left: 300px;
     padding: 15px;
     margin-top: 75px;
+    padding-bottom: 0px;
 }
 @media (max-width:1200px) and (min-width:1025px) {
     nav{
