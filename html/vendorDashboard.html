@@ -6,383 +6,1248 @@
     <title>Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link rel="stylesheet" href="../css/vendorDashboard.css" />
+    <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
   </head>
   <body>
-    <div class="dashboard">
-      <h1>Dashboard</h1>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-top">
-            <div class="stat-icon teal">
-              <img src="../assets/vendorDashboard/CurrencyInr.svg" alt="" />
+        <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-section">
+            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/vendorDashboard.html'" src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/vendorDashboard.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
+            <div class="search-bar">
+                <img src="../assets/vendorSidebar/MagnifyingGlass.svg" alt="" />
+                <input type="search" id="desktop-search" placeholder="Search">
             </div>
-            <div class="stat-label">Total Earning</div>
-          </div>
-          <!-- <div class="stat-content"> -->
-          <!-- <div class="stat-label">Total Earning</div> -->
-          <div class="stat-value">₹ 25,110</div>
-          <div class="stat-change positive">
-            <span class="trend-icon">
-              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
-            </span>
-            +15.3% from last month
-          </div>
-          <!-- </div> -->
+            <ul id="desktop-suggestions" class="suggestions-box"></ul>
         </div>
 
-        <div class="stat-card">
-          <div class="stat-top">
-            <div class="stat-icon blue">
-              <img src="../assets/vendorDashboard/ClipboardText.svg" alt="" />
-            </div>
-            <div class="stat-label">Total Orders</div>
-          </div>
-          <!-- <div class="stat-content"> -->
-          <!-- <div class="stat-label">Total Orders</div> -->
-          <div class="stat-value">100</div>
-          <div class="stat-change positive">
-            <span class="trend-icon">
-              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
-            </span>
-            +9.80% from last month
-          </div>
-          <!-- </div> -->
+        <!-- HAMBURGER (Mobile Only) -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <img src="../assets/master/List.svg" alt="">
         </div>
 
-        <div class="stat-card">
-          <div class="stat-top">
-            <div class="stat-icon cyan">
-              <img src="../assets/vendorDashboard/TruckTrailer.svg" alt="" />
+        <!-- Mobile Menu -->
+          <div id="mobile-menu">
+            <div class="welcome-main-section" id="welcome-section">
+              <div class="image-section">
+                <div class="circle-image">
+                  <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+                </div>
+              </div>
+              <div class="welcome-text-section">
+                <span>Welcome !</span>
+                <a id="welcome-name">Sanskriti Collection</a>
+              </div>
             </div>
-            <div class="stat-label">In transit Products</div>
-          </div>
-          <!-- <div class="stat-content"> -->
-          <!-- <div class="stat-label">In transit Products</div> -->
-          <div class="stat-value">167</div>
-          <div class="stat-change negative">
-            <span class="trend-icon">
-              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
-            </span>
-            -1.2% from last month
-          </div>
-          <!-- </div> -->
+
+            <div class="main-bottom-section">
+              <div class="sub-section">
+                <ul class="mobile-nav-menu1" id="account-menu">
+
+                  <!-- DASHBOARD -->
+                <li class="mobile-dropdown">
+                    <div class="dropdown-header dropdown-header-active">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                        </div>
+                        <span>Dashboard</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- PRODUCT MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Package.svg" alt="">
+                        </div>
+                        <span>Product Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- ORDER MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                        </div>
+                        <span>Order Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- RETURN MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                        </div>
+                        <span>Return Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- SALES -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                        </div>
+                        <span>Sales</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- CUSTOMER MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                        </div>
+                        <span>Customer Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- PROFILE -->
+                   <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+                        </div>
+                        <span>My Profile</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+
+                </ul>
+              </div>
+            </div>
+
+            <div class="mobile-logout-section">
+              <div class="mobile-logout-sub">
+                <div class="version">
+                  <span>eRangoli Version 1.0.0</span>
+                </div>
+                <div class="logout-button">
+                  <img src="../assets/master/SignOut.svg" alt="">
+                  <span>Logout</span>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+        <!-- MENU -->
+        <div class="menu-section" >
+
+            <div class="round-button" id="round-button-notification">
+                <span class="number-of-round" id="number-of-notification">3</span>
+                <img src="../assets/master/Bell.svg" alt="" />
+            </div>
+
+            <div class="round-button" id="round-button-order">
+              <span class="number-of-round" id="number-of-order">4</span>
+              <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+            </div>
+
+            <div class="user-profile-icon" id="user-profile-icon">
+                    <div class="img-name">
+                      <div class="circle-image">
+                        <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+                      </div>
+                      <span id="user-name">Sanskriti Collection</span>
+                    </div>
+            </div>
         </div>
+    </nav>
 
-        <div class="stat-card">
-          <div class="stat-top">
-            <div class="stat-icon green">
-              <img src="../assets/vendorDashboard/Users.svg" alt="" />
+    <!-- Notification-popup -->
+
+    <div class="notification-main-box" id="notification-main-box">
+          <div class="notification-main-box-content">
+            <div class="notification-main-head-box">
+              <span>Notifications</span>
+              <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
             </div>
-            <div class="stat-label">Total Customer</div>
-          </div>
-          <!-- <div class="stat-content"> -->
-
-          <div class="stat-value">234</div>
-          <div class="stat-change negative">
-            <span class="trend-icon">
-              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
-            </span>
-            -4.6% from last month
-          </div>
-          <!-- </div> -->
-        </div>
-      </div>
-
-      <div class="chart-section">
-        <div class="chart-card">
-          <div class="chart-header">
-            <div>
-              <div class="chart-title">Order Trend</div>
-              <div class="chart-subtitle">Erning Report Lorem Ipsum</div>
-            </div>
-            <select class="chart-select">
-              <option>7dec - 13dec</option>
-            </select>
-          </div>
-
-          <div class="bar-chart-container">
-            <div class="chart-legend-vertical">
-              <div class="legend-item">
-                <div class="legend-color" style="background: #2e90fa"></div>
-                <div class="legend-label">
-                  <span class="legend-number">340</span>
-                  <span class="legend-text">Received</span>
+            <ul>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
                 </div>
-              </div>
-              <div class="legend-item">
-                <div class="legend-color" style="background: #12b76a"></div>
-                <div class="legend-label">
-                  <span class="legend-number">230</span>
-                  <span class="legend-text">Delivered</span>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
                 </div>
-              </div>
-              <div class="legend-item">
-                <div class="legend-color" style="background: #ffa800"></div>
-                <div class="legend-label">
-                  <span class="legend-number">180</span>
-                  <span class="legend-text">Packed</span>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
                 </div>
-              </div>
-            </div>
-
-            <div class="bar-chart-wrapper">
-              <canvas id="barChart"></canvas>
-            </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+                </div>
+              </li>
+            </ul>
           </div>
-        </div>
-
-        <div class="chart-card">
-          <div class="revenue-header">
-            <div>
-              <div class="revenue-total">102.5M</div>
-              <div class="revenue-label">Total Revenue</div>
-            </div>
-            <div class="revenue-controls">
-              <div class="revenue-legend">
-                <div class="legend-item">
-                  <div
-                    class="legend-colorRevenue"
-                    style="background: #3e00c2"
-                  ></div>
-                  <span class="legend-textRevenue">Earned</span>
-                </div>
-                <div class="legend-item">
-                  <div
-                    class="legend-colorRevenue"
-                    style="background: #b55e7d"
-                  ></div>
-                  <span class="legend-textRevenue">Refund</span>
-                </div>
-              </div>
-              <select class="chart-select">
-                <option>6 months</option>
-              </select>
-            </div>
-          </div>
-          <div class="line-chart-container">
-            <canvas id="lineChart"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="table-activities-section">
-        <div class="table-section">
-          <div class="table-header">
-            <div class="chart-title">Order Trend</div>
-            <select class="chart-select">
-              <option>7dec 2025</option>
-            </select>
-          </div>
-          <div class="table-wrapper">
-          <table class="table-products">
-            <thead>
-              <tr>
-                <th class="product-col">Product Name</th>
-                <th>SKU ID</th>
-                <th>Category</th>
-                <th>Stock</th>
-                <th>Pickup date</th>
-                <th>Payment</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>220</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-received">Received</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>120</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-received">Received</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>342</td>
-                <td>15/12/25</td>
-                <td class="payment-pending">Pending</td>
-                <td>
-                  <span class="status-badge status-delivered">Delivered</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>345</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-packed">Packed</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>564</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-pending">Pending</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>456</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-packed">Packed</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Madhubani Painting Art <br />Vinhu God</td>
-                <td>64767890</td>
-                <td>Painting</td>
-                <td>220</td>
-                <td>15/12/25</td>
-                <td class="payment-credited">Credited</td>
-                <td>
-                  <span class="status-badge status-received">Received</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-
-        <div class="activities-card">
-          <div class="chart-title">Recent activities</div>
-
-          <div class="activitiesCardItems">
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">
-                  Order #5689645 shipped successfully
-                </div>
-                <div class="activity-time">32m</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/Star (1).svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">
-                  New 5star review on "Madhubani Art"
-                </div>
-                <div class="activity-time">1h</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">3h</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">
-                  Order #6756700 shipped successfully
-                </div>
-                <div class="activity-time">22h</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">
-                  Order #4567900 shipped successfully
-                </div>
-                <div class="activity-time">22h</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">49h</div>
-              </div>
-            </div>
-
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">49h</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon">
-                <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">49h</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon green">
-                <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">49h</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon green">
-                <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Wooden truck is live for sale</div>
-                <div class="activity-time">49h</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <script src="../javascript/vendorDashboard"></script>
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+          <div class="notification-main-box-content">
+            <div class="notification-main-head-box">
+              <span>New Order</span>
+              <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+            </div>
+            <ul>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="notification-content">
+                <div>
+                  <img src="../assets/master/Rectangle 34627068.svg" alt="">
+                </div>
+                <div class="contents-noti">
+                  <span>13/12/25</span>
+                  <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                  <div class="noti-content">
+                    <div class="size-list-price">
+                      <span>Size: S</span>
+                      <span>Qty: 2</span>
+                    </div>
+                    <div class="order-list-price">
+                      <span>Price: ₹ 5400</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="vendorDashboard.html" class="bottom-nav__item">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+        <span class="bottom-nav__label">Dashboard</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Orders</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="">
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+      
+      <a href="../html/vendorProfile.html" class="bottom-nav__item1" id="bottom-nav-cart">
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+        <span class="bottom-nav__label">My Profile</span>
+      </a>
+    </div>
+
+    <!-- Mobile Search Bar -->
+     <div class="mobile-search-bar-main">
+        <div class="mobile-search-bar">
+            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
+            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
+        </div>
+    </div>
+    <ul id="mobile-suggestions" class="suggestions-box"></ul>
+
+    <!-- Sidebar -->
+     <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+        <article>
+            <div class="welcome-sidebar-main">
+                <div class="welcome-sidebar">
+                  <span>Welcome!</span>
+                  <span>Sanskriti Collection</span>
+                </div>
+                <div class="hamberger-sidebar"  id="sidebarToggle">
+                  <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
+                  <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
+                </div>
+            </div>
+            <ul>
+                <li class="sidebar-active">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                        <span>Dashboard</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/Package.svg" alt="">
+                        <span>Product Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                        <span>Order Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                        <span>Return Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                        <span>Sales</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                        <span>Customer Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+            </ul>
+        </article>
+     </section>
+
+    <div class="main-content-beyond">
+      <div class="dashboard">
+        <h1>Dashboard</h1>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon teal">
+                <img src="../assets/vendorDashboard/CurrencyInr.svg" alt="" />
+              </div>
+              <div class="stat-label">Total Earning</div>
+            </div>
+            <!-- <div class="stat-content"> -->
+            <!-- <div class="stat-label">Total Earning</div> -->
+            <div class="stat-value">₹ 25,110</div>
+            <div class="stat-change positive">
+              <span class="trend-icon">
+                <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+              </span>
+              +15.3% from last month
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon blue">
+                <img src="../assets/vendorDashboard/ClipboardText.svg" alt="" />
+              </div>
+              <div class="stat-label">Total Orders</div>
+            </div>
+            <!-- <div class="stat-content"> -->
+            <!-- <div class="stat-label">Total Orders</div> -->
+            <div class="stat-value">100</div>
+            <div class="stat-change positive">
+              <span class="trend-icon">
+                <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+              </span>
+              +9.80% from last month
+            </div>
+            <!-- </div> -->
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon cyan">
+                <img src="../assets/vendorDashboard/TruckTrailer.svg" alt="" />
+              </div>
+              <div class="stat-label">In transit Products</div>
+            </div>
+            <!-- <div class="stat-content"> -->
+            <!-- <div class="stat-label">In transit Products</div> -->
+            <div class="stat-value">167</div>
+            <div class="stat-change negative">
+              <span class="trend-icon">
+                <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+              </span>
+              -1.2% from last month
+            </div>
+            <!-- </div> -->
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon green">
+                <img src="../assets/vendorDashboard/Users.svg" alt="" />
+              </div>
+              <div class="stat-label">Total Customer</div>
+            </div>
+            <!-- <div class="stat-content"> -->
+
+            <div class="stat-value">234</div>
+            <div class="stat-change negative">
+              <span class="trend-icon">
+                <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+              </span>
+              -4.6% from last month
+            </div>
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="chart-section">
+          <div class="chart-card" id="Order-Trend-Chart">
+            <div class="chart-header">
+              <div class="chart-header-main">
+                <div class="order-trend-head-main">
+                  <div class="chart-title">Order Trend</div>
+                  <select class="chart-select">
+                    <option>7dec - 13dec</option>
+                  </select>
+                </div>
+                <div class="chart-subtitle">Erning Report Lorem Ipsum</div>
+              </div>
+              
+            </div>
+
+            <div class="bar-chart-container">
+              <div class="chart-legend-vertical">
+                <div class="legend-item">
+                  <div class="legend-color" style="background: #2e90fa"></div>
+                  <div class="legend-label">
+                    <span class="legend-number">340</span>
+                    <span class="legend-text">Received</span>
+                  </div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color" style="background: #12b76a"></div>
+                  <div class="legend-label">
+                    <span class="legend-number">230</span>
+                    <span class="legend-text">Delivered</span>
+                  </div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color" style="background: #ffa800"></div>
+                  <div class="legend-label">
+                    <span class="legend-number">180</span>
+                    <span class="legend-text">Packed</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bar-chart-wrapper">
+                <canvas id="barChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card" id="Total-Revenue-Chart">
+            <div class="revenue-header">
+              <div>
+                <div class="revenue-total">102.5M</div>
+                <div class="revenue-label">Total Revenue</div>
+              </div>
+              <div class="revenue-controls">
+                <div class="revenue-legend">
+                  <div class="legend-item-legends">
+                    <div
+                      class="legend-colorRevenue"
+                      style="background: #3e00c2"
+                    ></div>
+                    <span class="legend-textRevenue">Earned</span>
+                  </div>
+                  <div class="legend-item-legends">
+                    <div
+                      class="legend-colorRevenue"
+                      style="background: #b55e7d"
+                    ></div>
+                    <span class="legend-textRevenue">Refund</span>
+                  </div>
+                </div>
+                
+                <select class="chart-select">
+                  <option>6 months</option>
+                </select>
+                
+              </div>
+            </div>
+            <div class="mobile-legend-item">
+              <div class="legend-item-mobile">
+                <div class="legend-colorRevenue" style="background: #3e00c2"></div>
+                <span class="legend-textRevenue">Earned</span>
+              </div>
+              <div class="legend-item-mobile">
+                <div class="legend-colorRevenue" style="background: #b55e7d"></div>
+                <span class="legend-textRevenue">Refund</span>
+              </div>
+            </div>
+            <div class="line-chart-container">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-activities-section">
+          <div class="table-section">
+            <div class="table-header">
+              <div class="chart-title">Recent Orders</div>
+              <select class="chart-select">
+                <option>7dec 2025</option>
+              </select>
+            </div>
+            <div class="table-wrapper">
+            <table class="table-products">
+              <thead>
+                <tr>
+                  <th class="product-col">Product Name</th>
+                  <th>SKU ID</th>
+                  <th>Category</th>
+                  <th>Stock</th>
+                  <th>Pickup date</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>220</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-received">Received</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>120</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-received">Received</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>342</td>
+                  <td>15/12/25</td>
+                  <td class="payment-pending">Pending</td>
+                  <td>
+                    <span class="status-badge status-delivered">Delivered</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>345</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-packed">Packed</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>564</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-pending">Pending</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>456</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-packed">Packed</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Madhubani Painting Art <br />Vinhu God</td>
+                  <td>64767890</td>
+                  <td>Painting</td>
+                  <td>220</td>
+                  <td>15/12/25</td>
+                  <td class="payment-credited">Credited</td>
+                  <td>
+                    <span class="status-badge status-received">Received</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="activities-card">
+            <div class="chart-title">Recent activities</div>
+
+            <div class="activitiesCardItems">
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">
+                    Order #5689645 shipped successfully
+                  </div>
+                  <div class="activity-time">32m</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/Star (1).svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">
+                    New 5star review on "Madhubani Art"
+                  </div>
+                  <div class="activity-time">1h</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">3h</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">
+                    Order #6756700 shipped successfully
+                  </div>
+                  <div class="activity-time">22h</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">
+                    Order #4567900 shipped successfully
+                  </div>
+                  <div class="activity-time">22h</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">49h</div>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">49h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">49h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon green">
+                  <img src="../assets/vendorDashboard/Storefront.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">49h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon green">
+                  <img src="../assets/vendorDashboard/recenttruck.svg" alt="" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-text">Wooden truck is live for sale</div>
+                  <div class="activity-time">49h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile view Table Section -->
+
+          <div class="order-trend-main-mobile">
+            <div class="order-trend-head">
+              <span>Recent Orders</span>
+            </div>
+            <div class="faq">
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="delivery-order-trend">Delivered</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="pending-order-trend">Pending</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="packed-order-trend">Packed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="pending-order-trend">Pending</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Madhubani Painting Art Vishu God</span>
+                  <img src="../assets/vendorDashboard/CaretCircleDown.svg" alt="">
+                </button>
+                <div class="faq-answer">
+                  <div class="all-answers">
+                    <div>
+                      <span>SKU</span>
+                      <span>64767890</span>
+                    </div>
+                    <div>
+                      <span>Category</span>
+                      <span>Madhubani Painting</span>
+                    </div>
+                    <div>
+                      <span>Stock</span>
+                      <span>1</span>
+                    </div>
+                    <div>
+                      <span>Pickup date</span>
+                      <span>15/12/25</span>
+                    </div>
+                    <div>
+                      <span>Payment</span>
+                      <span class="credited-order-trend">Credited</span>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <span class="received-order-trend">Received</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> 
+      <!-- Footer -->
+    <footer class="er-footer">
+        <div class="er-container">
+    
+            <!-- Column 1 -->
+            <div class="er-col">
+                <h2 class="er-logo">eRANGOLI</h2>
+                <p class="er-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                    sodales massa a ultrices fringilla. Sed vehicula in lorem quis ultrices.
+                </p>
+    
+                <div class="er-contact-part">
+                    <div class="er-contact"> <img src="../assets/master/footeremail.svg" alt="">
+                        <div>Loremipsum@gmail.com</div>
+                    </div>
+                    <div class="er-contact"> <img src="../assets/master/footerPhone.svg" alt="">
+                        <div>+91 67895 76895</div>
+                    </div>
+                    <div class="er-contact"> <img src="../assets/master/footerweblink.svg" alt="">
+                        <div>Loremipsum.com</div>
+                    </div>
+                </div>
+    
+                <p class="er-copy">Loremipsum © 2025</p>
+            </div>
+    
+            <!-- Column 2 -->
+            <div class="er-col quick-link">
+                <h3 class="er-heading">Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Categories</a>
+                <a href="#">Offers</a>
+                <a href="#">Contact</a>
+            </div>
+    
+            <!-- Column 3 -->
+            <div class="er-col payments">
+                <h3 class="er-heading">Payments</h3>
+                <a href="#">UPI</a>
+                <a href="#">Debit Card</a>
+                <a href="#">Credit Card</a>
+                <a href="#">COD</a>
+                <a href="#">Net Banking</a>
+            </div>
+    
+            <!-- Column 4 -->
+            <div class="er-col">
+                <h3 class="er-heading">For all the latest trends across India</h3>
+                <p class="er-desc">Subscribe to our weekly newsletter customized to your needs</p>
+    
+                <div class="er-subscribe">
+                    <button>Subscribe</button>
+                </div>
+    
+                <div class="er-social">
+                    <a href="#"><img src="../assets/master/FacebookLogo.svg" alt=""></a>
+                    <a href="#"><img src="../assets/master/InstagramLogo.svg" alt=""></a>
+                    <a href="#"><img src="../assets/master/LinkedinLogo.svg" alt=""></a>
+                </div>
+            </div>
+    
+        </div>
+    </footer>
+
+    <script src="../javascript/vendorDashboard.js"></script>
+    <script src="../javascript/vendorSidebarnavbar.js"></script>
   </body>
 </html>
