@@ -1480,6 +1480,23 @@ nav{
     gap: 10px;
   }
 }
+@media (max-width:808px) and (min-width:596px) {
+    .er-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .er-col h2{
+        font-size: 24px;
+    }
+    .er-desc{
+        font-size: 14px;
+    }
+    .er-col h3{
+        font-size: 16px;
+    }
+    .er-col a{
+        font-size: 14px;
+    }
+}
 
 /* Mobile */
 @media (max-width: 595px) {
