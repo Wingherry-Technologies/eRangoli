@@ -1103,7 +1103,7 @@ nav{
     width: 300px;
     border-radius: 0px 10px 10px 0px;
     background-color: #B9E0DB;
-    height: 100vh;
+    height: 90vh;
     overflow-y: auto;
     transition: width 0.35s ease, transform 0.35s ease;
 }
