@@ -1,7 +1,33 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+var mobileBack=document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display="none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+    mobileBack.style.display="flex"
+  }
+});
 const totalStocks=document.querySelectorAll(".total-stock");
 
 totalStocks.forEach(totalStock => {
-  const countofStock=totalStock.innerHTML;
+  const countofStock = parseInt(totalStock.innerHTML, 10);
+
   if(countofStock>99){
     totalStock.style.backgroundColor="#C9E1C7"
     totalStock.style.color="#3F3F3F"
@@ -36,13 +62,9 @@ document.addEventListener("click", function (e) {
 
 // Filter option Logic
 
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".main-content-flows-main") &&
-      !e.target.closest("#filter-bar-main-box") &&
-      !e.target.closest("#sort-by-main-box")) {
-    closeAll();
-  }
-});
+/***********************
+  GLOBAL REFERENCES
+************************/
 
 const filterBtn = document.getElementById("filter-bar-main-box");
 const sortBtn = document.getElementById("sort-by-main-box");
@@ -53,9 +75,28 @@ const colourBox = document.getElementById("colour-box");
 const sizeBox = document.getElementById("size-box");
 const sortBox = document.getElementById("sort-box");
 
+const rows = Array.from(document.querySelectorAll(".table-products tbody tr"));
+const faqContainer = document.querySelector(".faq");
+const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+
+/***********************
+  CLICK OUTSIDE CLOSE
+************************/
+
+document.addEventListener("click", (e) => {
+  if (
+    !e.target.closest(".main-content-flows-main") &&
+    !e.target.closest("#filter-bar-main-box") &&
+    !e.target.closest("#sort-by-main-box")
+  ) {
+    closeAll();
+  }
+});
+
 function closeAll() {
-  document.querySelectorAll(".main-content-flows-main")
-    .forEach(box => box.classList.remove("active-main-content-flows"));
+  document
+    .querySelectorAll(".main-content-flows-main")
+    .forEach((box) => box.classList.remove("active-main-content-flows"));
 }
 
 function closeSubFilters() {
@@ -64,134 +105,206 @@ function closeSubFilters() {
   sizeBox.classList.remove("active-main-content-flows");
 }
 
-// Filter icon
+/***********************
+  FILTER / SORT BUTTONS
+************************/
+
 filterBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   closeAll();
   filterMain.classList.add("active-main-content-flows");
 });
 
-// Sort icon
 sortBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   closeAll();
   sortBox.classList.add("active-main-content-flows");
 });
 
-// Filter menu options
-document.querySelectorAll("#filter-main li").forEach(item => {
+/***********************
+  FILTER MENU OPTIONS
+************************/
+
+document.querySelectorAll("#filter-main li").forEach((item) => {
   item.addEventListener("click", (e) => {
     e.stopPropagation();
+
+    // remove active class from all
+    document.querySelectorAll("#filter-main li")
+      .forEach(li => li.classList.remove("active-filter"));
+
+    // add active class to clicked one
+    item.classList.add("active-filter");
+
+    // close other sub filters
     closeSubFilters();
 
-    if (item.textContent.includes("Status")) statusBox.classList.add("active-main-content-flows");
-    if (item.textContent.includes("Colour")) colourBox.classList.add("active-main-content-flows");
-    if (item.textContent.includes("Size")) sizeBox.classList.add("active-main-content-flows");
+    const text = item.textContent.toLowerCase();
+    if (text.includes("status")) statusBox.classList.add("active-main-content-flows");
+    if (text.includes("colour")) colourBox.classList.add("active-main-content-flows");
+    if (text.includes("size")) sizeBox.classList.add("active-main-content-flows");
   });
 });
 
-const rows = document.querySelectorAll(".table-products tbody tr");
 
-document.querySelectorAll("#status-box input").forEach(cb => {
-  cb.addEventListener("change", filterTable);
-});
+/***********************
+  FILTER CHECKBOX LOGIC
+************************/
 
-document.querySelectorAll("#colour-box input").forEach(cb => {
-  cb.addEventListener("change", filterTable);
-});
-
-document.querySelectorAll("#size-box input").forEach(cb => {
-  cb.addEventListener("change", filterTable);
-});
+document.querySelectorAll("#status-box input, #size-box input, #colour-box input")
+  .forEach((cb) => cb.addEventListener("change", filterTable));
 
 function filterTable() {
   const selectedStatus = [...document.querySelectorAll("#status-box input:checked")]
-    .map(cb => cb.nextElementSibling.textContent.trim().toLowerCase());
+    .map((cb) => cb.dataset.status);
 
   const selectedSizes = [...document.querySelectorAll("#size-box input:checked")]
-    .map(cb => cb.nextElementSibling.textContent.trim());
+    .map((cb) => cb.dataset.size);
 
   const selectedColours = [...document.querySelectorAll("#colour-box input:checked")]
-  .map(cb => cb.nextElementSibling.querySelector("span:last-child").textContent.trim().toLowerCase());
-  console.log(selectedColours)
+    .map((cb) => cb.dataset.colour);
 
+  rows.forEach((row) => {
+    const match =
+      (!selectedStatus.length || selectedStatus.includes(row.dataset.status)) &&
+      (!selectedSizes.length || selectedSizes.includes(row.dataset.size)) &&
+      (!selectedColours.length || selectedColours.includes(row.dataset.colour));
 
-  rows.forEach(row => {
-    const status = row.querySelector("td:last-child span").textContent.toLowerCase();
-    const size = row.children[4].textContent.trim();
-
-    // Assuming your color is stored in td[5] as a span with id/color
-    const colour = row.children[5].querySelector("span").id.toLowerCase(); // or .textContent
-
-    const statusMatch = !selectedStatus.length || selectedStatus.includes(status);
-    const sizeMatch = !selectedSizes.length || selectedSizes.includes(size);
-    const colourMatch = !selectedColours.length || selectedColours.includes(colour);
-
-    row.style.display = statusMatch && sizeMatch && colourMatch ? "" : "none";
+    row.style.display = match ? "" : "none";
   });
 
+  syncFaqWithTable();
 }
-// Select all filter options inside main filter
-const filterOptions = document.querySelectorAll("#filter-main li");
 
-filterOptions.forEach(option => {
-  option.addEventListener("click", (e) => {
-    // Remove active class from all options
-    filterOptions.forEach(opt => opt.classList.remove("active-filter"));
+/***********************
+  SORT LOGIC
+************************/
 
-    // Add active class to clicked option
-    option.classList.add("active-filter");
-
-    // Your existing logic: open sub filter boxes
-    closeSubFilters(); // hide all sub-filters first
-
-    const text = option.textContent.trim().toLowerCase();
-    if (text === "status") statusBox.classList.add("active-main-content-flows");
-    if (text === "colour") colourBox.classList.add("active-main-content-flows");
-    if (text === "size") sizeBox.classList.add("active-main-content-flows");
-  });
+document.querySelectorAll("#sort-box input").forEach((rb) => {
+  rb.addEventListener("change", () => sortTable(rb.id));
 });
 
-document.querySelectorAll("#sort-box input").forEach(rb => {
-  rb.addEventListener("change", () => {
-    sortTable(rb.id);
-  });
-});
-
-function sortTable(sortId) {
+function sortTable(type) {
   const tbody = document.querySelector(".table-products tbody");
-  const rowsArray = Array.from(tbody.querySelectorAll("tr"));
 
-  rowsArray.sort((a, b) => {
-    let aVal, bVal;
-
-    switch(sortId) {
+  rows.sort((a, b) => {
+    switch (type) {
       case "price-low-high":
-        aVal = parseFloat(a.children[9].textContent.replace(/[₹,]/g, ""));
-        bVal = parseFloat(b.children[9].textContent.replace(/[₹,]/g, ""));
-        return aVal - bVal;
-
+        return getPrice(a) - getPrice(b);
       case "price-high-low":
-        aVal = parseFloat(a.children[9].textContent.replace(/[₹,]/g, ""));
-        bVal = parseFloat(b.children[9].textContent.replace(/[₹,]/g, ""));
-        return bVal - aVal;
-
+        return getPrice(b) - getPrice(a);
       case "stock-low-high":
-        aVal = parseInt(a.children[8].textContent);
-        bVal = parseInt(b.children[8].textContent);
-        return aVal - bVal;
-
+        return getStock(a) - getStock(b);
       case "stock-high-low":
-        aVal = parseInt(a.children[8].textContent);
-        bVal = parseInt(b.children[8].textContent);
-        return bVal - aVal;
+        return getStock(b) - getStock(a);
+      default:
+        return 0;
     }
   });
 
-  // Remove old rows and append sorted rows
   tbody.innerHTML = "";
-  rowsArray.forEach(row => tbody.appendChild(row));
+  rows.forEach((row) => tbody.appendChild(row));
+
+  syncFaqSort();
 }
+
+function getPrice(row) {
+  const priceCell = row.querySelector(".price"); // Add class="price" to the td
+  return parseFloat(priceCell.textContent.replace(/[₹,]/g, ""));
+}
+
+function getStock(row) {
+  const stockCell = row.querySelector(".stock"); // Add class="stock" to the td
+  return parseInt(stockCell.textContent);
+}
+
+
+/***********************
+  FAQ SYNC LOGIC
+************************/
+
+function syncFaqWithTable() {
+  const visibleSKUs = rows
+    .filter((row) => row.style.display !== "none")
+    .map((row) => row.dataset.sku);
+
+  faqItems.forEach((item) => {
+    item.style.display = visibleSKUs.includes(item.dataset.sku) ? "" : "none";
+  });
+}
+
+function syncFaqSort() {
+  faqContainer.innerHTML = "";
+
+  rows.forEach((row) => {
+    const faq = faqItems.find((item) => item.dataset.sku === row.dataset.sku);
+    if (faq && row.style.display !== "none") {
+      faqContainer.appendChild(faq);
+    }
+  });
+}
+
+
+
+
+document.getElementById("best-selling-products-btn").addEventListener("click",()=>{
+  document.querySelector(".bestseller-main-modal").style.display='flex';
+})
+
+document.getElementById("close-bestseller-modal").addEventListener("click",()=>{
+  document.querySelector(".bestseller-main-modal").style.display='none'
+})
+
+const faqItems1 = document.querySelectorAll(".faq-item");
+
+faqItems1.forEach(item => {
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+    // Close all other items
+    faqItems1.forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Toggle current item
+    item.classList.toggle("active");
+  });
+});
+
+  // Select all three-dots buttons
+const threeDotsButtons = document.querySelectorAll('.mobile-three-dots');
+
+threeDotsButtons.forEach(threeDotbutton => {
+  threeDotbutton.addEventListener('click', () => {
+    // Correctly get the sibling div
+    const showBox = threeDotbutton.nextElementSibling;
+    if (!showBox) return; // safety check
+
+    // Find the parent .faq-item
+    const faqItem = threeDotbutton.closest('.faq-item');
+
+    // Get status element safely
+    const statusElement = faqItem.querySelector(
+      '.faq-answer .all-answers .payment-credited, ' +
+      '.faq-answer .all-answers .payment-pending, ' +
+      '.faq-answer .all-answers .payment-rejected'
+    );
+    const statusText = statusElement ? statusElement.textContent.trim() : '';
+
+    // Toggle the show-threedots-box
+    showBox.classList.toggle('active-threedots');
+
+    // Find the "Request to Remove" div safely
+    const requestToRemoveDiv = Array.from(showBox.children).find(div => div.textContent.includes('Request to Remove'));
+    if (requestToRemoveDiv) {
+      requestToRemoveDiv.style.display = (statusText === 'Approved') ? 'flex' : 'none';
+    }
+  });
+});
+
+
 
 
 
