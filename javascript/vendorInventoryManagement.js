@@ -165,15 +165,16 @@ function filterTable() {
     .map((cb) => cb.dataset.colour);
 
   rows.forEach((row) => {
-    const match =
-      (!selectedStatus.length || selectedStatus.includes(row.dataset.status)) &&
-      (!selectedSizes.length || selectedSizes.includes(row.dataset.size)) &&
-      (!selectedColours.length || selectedColours.includes(row.dataset.colour));
+  const match =
+    (!selectedStatus.length || selectedStatus.includes(row.dataset.status)) &&
+    (!selectedSizes.length || selectedSizes.includes(row.dataset.size)) &&
+    (!selectedColours.length || selectedColours.includes(row.dataset.colour));
 
-    row.style.display = match ? "" : "none";
-  });
+  row.style.display = match ? "" : "none";
+});
 
-  syncFaqWithTable();
+updateEmptyStates();
+
 }
 
 /***********************
@@ -225,25 +226,76 @@ function getStock(row) {
 
 function syncFaqWithTable() {
   const visibleSKUs = rows
-    .filter((row) => row.style.display !== "none")
-    .map((row) => row.dataset.sku);
+    .filter(row => row.style.display !== "none")
+    .map(row => row.dataset.sku);
 
-  faqItems.forEach((item) => {
-    item.style.display = visibleSKUs.includes(item.dataset.sku) ? "" : "none";
+  let visibleCount = 0;
+
+  faqItems.forEach(item => {
+    if (visibleSKUs.includes(item.dataset.sku)) {
+      item.style.display = "";
+      visibleCount++;
+    } else {
+      item.style.display = "none";
+    }
   });
+
+  // Show / hide "No rows present"
+  const noResults = document.getElementById("faq-no-results");
+  if (noResults) {
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+  }
 }
+
 
 function syncFaqSort() {
   faqContainer.innerHTML = "";
 
-  rows.forEach((row) => {
-    const faq = faqItems.find((item) => item.dataset.sku === row.dataset.sku);
+  let visibleCount = 0;
+
+  rows.forEach(row => {
+    const faq = faqItems.find(item => item.dataset.sku === row.dataset.sku);
     if (faq && row.style.display !== "none") {
       faqContainer.appendChild(faq);
+      visibleCount++;
     }
   });
+
+  const noResults = document.getElementById("faq-no-results");
+  if (noResults) {
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+    faqContainer.appendChild(noResults);
+  }
 }
 
+function updateEmptyStates() {
+  const visibleRows = rows.filter(row => row.style.display !== "none");
+
+  /* ===== TABLE EMPTY STATE ===== */
+  const tableNoResults = document.getElementById("table-no-results");
+  if (tableNoResults) {
+    tableNoResults.style.display = visibleRows.length === 0 ? "" : "none";
+  }
+
+  /* ===== FAQ SYNC ===== */
+  const visibleSKUs = visibleRows.map(row => row.dataset.sku);
+  let faqVisibleCount = 0;
+
+  faqItems.forEach(item => {
+    if (visibleSKUs.includes(item.dataset.sku)) {
+      item.style.display = "";
+      faqVisibleCount++;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  /* ===== FAQ EMPTY STATE ===== */
+  const faqNoResults = document.getElementById("faq-no-results");
+  if (faqNoResults) {
+    faqNoResults.style.display = faqVisibleCount === 0 ? "block" : "none";
+  }
+}
 
 
 
@@ -303,6 +355,77 @@ threeDotsButtons.forEach(threeDotbutton => {
     }
   });
 });
+
+const searchInput = document.getElementById("search-bar-table");
+
+/* ================= TABLE SEARCH ================= */
+const tableRows = document.querySelectorAll(
+  ".table-products tbody tr:not(#no-results)"
+);
+const noResultsRow = document.getElementById("no-results");
+
+/* ================= FAQ SEARCH ================= */
+const faqItems3 = document.querySelectorAll(".faq-item");
+const noFaqResults = document.getElementById("faq-no-results");
+
+searchInput.addEventListener("keyup", function () {
+  const searchValue = this.value.toLowerCase().trim();
+
+  let tableVisibleCount = 0;
+  let faqVisibleCount = 0;
+
+  /* -------- TABLE FILTER -------- */
+  tableRows.forEach(row => {
+    const productName = row
+      .querySelector(".product-col-rows span")
+      .innerText.toLowerCase();
+
+    const category = row.children[3].innerText.toLowerCase();
+
+    if (
+      productName.includes(searchValue) ||
+      category.includes(searchValue)
+    ) {
+      row.style.display = "";
+      tableVisibleCount++;
+    } else {
+      row.style.display = "none";
+    }
+  });
+
+  noResultsRow.style.display =
+    tableVisibleCount === 0 ? "" : "none";
+
+  /* -------- FAQ FILTER -------- */
+  faqItems3.forEach(item => {
+    const productName = item
+      .querySelector(".main-faq-question span")
+      .innerText.toLowerCase();
+
+    const categoryRow = Array.from(
+      item.querySelectorAll(".all-answers div")
+    ).find(div => div.children[0].innerText.trim() === "Category");
+
+    const category = categoryRow
+      ? categoryRow.children[1].innerText.toLowerCase()
+      : "";
+
+    if (
+      productName.includes(searchValue) ||
+      category.includes(searchValue)
+    ) {
+      item.style.display = "";
+      faqVisibleCount++;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  noFaqResults.style.display =
+    faqVisibleCount === 0 ? "block" : "none";
+});
+
+
 
 
 

@@ -567,7 +567,7 @@
           <div class="table-main-search">
             <div class="table-search-bar">
               <img src="../assets/inventoryManagement/search.svg" alt="">
-              <input type="text" placeholder="Search by Product Name, Category">
+              <input type="text" id="search-bar-table" placeholder="Search by Product Name, Category">
             </div>
             <div class="filter-bar-wrapper">
               <div class="filter-bar">
@@ -733,219 +733,221 @@
           
           <div class="table-wrapper">
             <table class="table-products">
-  <thead>
-    <tr>
-      <th></th>
-      <th class="product-col">Product Name</th>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Size</th>
-      <th>Colour</th>
-      <th>Orders</th>
-      <th>In Stock</th>
-      <th>Total Stock</th>
-      <th>Price</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="product-col">Product Name</th>
+                  <th>Date</th>
+                  <th>Category</th>
+                  <th>Size</th>
+                  <th>Colour</th>
+                  <th>Orders</th>
+                  <th>In Stock</th>
+                  <th>Total Stock</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
 
-    <!-- Marron | Approved -->
-    <tr data-sku="64767890" data-status="approved" data-size="s" data-colour="marron">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767890</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="marron"></span></td>
-      <td>214</td>
-      <td class="stock">20</td>
-      <td class="total-stock-main"><span class="total-stock">334</span></td>
-      <td class="price">₹511</td>
-      <td><span class="payment-credited">Approved</span></td>
-    </tr>
+                <!-- Marron | Approved -->
+                <tr data-sku="64767890" data-status="approved" data-size="s" data-colour="marron">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Request to Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767890</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="marron"></span></td>
+                  <td>214</td>
+                  <td class="stock">20</td>
+                  <td class="total-stock-main"><span class="total-stock">334</span></td>
+                  <td class="price">₹511</td>
+                  <td><span class="payment-credited">Approved</span></td>
+                </tr>
 
-    <!-- Yellow | Pending -->
-    <tr data-sku="64767891" data-status="pending" data-size="s" data-colour="yellow">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767891</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="yellow"></span></td>
-      <td>214</td>
-      <td class="stock">20</td>
-      <td class="total-stock-main"><span class="total-stock">52</span></td>
-      <td class="price">₹5,110</td>
-      <td><span class="payment-pending">Pending</span></td>
-    </tr>
+                <!-- Yellow | Pending -->
+                <tr data-sku="64767891" data-status="pending" data-size="s" data-colour="yellow">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767891</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="yellow"></span></td>
+                  <td>214</td>
+                  <td class="stock">20</td>
+                  <td class="total-stock-main"><span class="total-stock">52</span></td>
+                  <td class="price">₹5,110</td>
+                  <td><span class="payment-pending">Pending</span></td>
+                </tr>
 
-    <!-- Green | Rejected -->
-    <tr data-sku="64767892" data-status="rejected" data-size="s" data-colour="green">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767892</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="green"></span></td>
-      <td>214</td>
-      <td class="stock">10</td>
-      <td class="total-stock-main"><span class="total-stock">334</span></td>
-      <td class="price">₹5,110</td>
-      <td><span class="payment-rejected">Rejected</span></td>
-    </tr>
+                <!-- Green | Rejected -->
+                <tr data-sku="64767892" data-status="rejected" data-size="s" data-colour="green">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767892</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="green"></span></td>
+                  <td>214</td>
+                  <td class="stock">10</td>
+                  <td class="total-stock-main"><span class="total-stock">334</span></td>
+                  <td class="price">₹5,110</td>
+                  <td><span class="payment-rejected">Rejected</span></td>
+                </tr>
 
-    <!-- Purple | Approved -->
-    <tr data-sku="64767893" data-status="approved" data-size="s" data-colour="purple">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767893</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="purple"></span></td>
-      <td>214</td>
-      <td class="stock">20</td>
-      <td class="total-stock-main"><span class="total-stock">10</span></td>
-      <td class="price">₹5,110</td>
-      <td><span class="payment-credited">Approved</span></td>
-    </tr>
+                <!-- Purple | Approved -->
+                <tr data-sku="64767893" data-status="approved" data-size="s" data-colour="purple">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Request to Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767893</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="purple"></span></td>
+                  <td>214</td>
+                  <td class="stock">20</td>
+                  <td class="total-stock-main"><span class="total-stock">10</span></td>
+                  <td class="price">₹5,110</td>
+                  <td><span class="payment-credited">Approved</span></td>
+                </tr>
 
-    <!-- Cyan | Approved -->
-    <tr data-sku="64767894" data-status="approved" data-size="s" data-colour="cyan">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767894</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="cyan"></span></td>
-      <td>214</td>
-      <td class="stock">20</td>
-      <td class="total-stock-main"><span class="total-stock">334</span></td>
-      <td class="price">₹5,110</td>
-      <td><span class="payment-credited">Approved</span></td>
-    </tr>
+                <!-- Cyan | Approved -->
+                <tr data-sku="64767894" data-status="approved" data-size="s" data-colour="cyan">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Request to Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767894</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="cyan"></span></td>
+                  <td>214</td>
+                  <td class="stock">20</td>
+                  <td class="total-stock-main"><span class="total-stock">334</span></td>
+                  <td class="price">₹5,110</td>
+                  <td><span class="payment-credited">Approved</span></td>
+                </tr>
 
-    <!-- Creame | Approved -->
-    <tr data-sku="64767895" data-status="approved" data-size="s" data-colour="creame">
-      <td class="previewing">
-        <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
-        <div class="all-preview">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </td>
-      <td class="product-col-rows">
-        <img src="../assets/inventoryManagement/img.svg">
-        <div>
-          <span>Madhubani Painting Art <br>Vinhu God</span>
-          <span>SKU: 64767895</span>
-        </div>
-      </td>
-      <td>12/12/25</td>
-      <td>Madhubani Painting</td>
-      <td>S</td>
-      <td><span class="creame"></span></td>
-      <td>214</td>
-      <td class="stock">20</td>
-      <td class="total-stock-main"><span class="total-stock">33</span></td>
-      <td class="price">₹5,110</td>
-      <td><span class="payment-credited">Approved</span></td>
-    </tr>
+                <!-- Creame | Approved -->
+                <tr data-sku="64767895" data-status="approved" data-size="s" data-colour="creame">
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/AppWindow.svg">
+                        <span>Preview</span>
+                      </div>
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Request to Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art <br>Vinhu God</span>
+                      <span>SKU: 64767895</span>
+                    </div>
+                  </td>
+                  <td>12/12/25</td>
+                  <td>Madhubani Painting</td>
+                  <td>S</td>
+                  <td><span class="creame"></span></td>
+                  <td>214</td>
+                  <td class="stock">20</td>
+                  <td class="total-stock-main"><span class="total-stock">33</span></td>
+                  <td class="price">₹5,110</td>
+                  <td><span class="payment-credited">Approved</span></td>
+                </tr>
 
-  </tbody>
-</table>
+                <tr id="no-results" style="display: none;">
+                  <td colspan="11" style="text-align: center; padding: 20px; font-weight: 600;">
+                    No rows present
+                  </td>
+                </tr>
 
-
-
-
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -957,227 +959,232 @@
           </div>
           <div class="faq">
 
-  <!-- Marron | Approved -->
-  <div class="faq-item" data-sku="64767890">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767890</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="marron"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>20</span></div>
-        <div><span>Total Stock</span><span class="total-stock">334</span></div>
-        <div><span>Price</span><span>₹511</span></div>
-        <div><span>Status</span><span class="payment-credited">Approved</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Marron | Approved -->
+            <div class="faq-item" data-sku="64767890">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767890</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="marron"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹511</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Yellow | Pending -->
-  <div class="faq-item" data-sku="64767891">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767891</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="yellow"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>20</span></div>
-        <div><span>Total Stock</span><span class="total-stock">52</span></div>
-        <div><span>Price</span><span>₹5,110</span></div>
-        <div><span>Status</span><span class="payment-pending">Pending</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Yellow | Pending -->
+            <div class="faq-item" data-sku="64767891">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767891</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="yellow"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">52</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-pending">Pending</span></div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Green | Rejected -->
-  <div class="faq-item" data-sku="64767892">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767892</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="green"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>10</span></div>
-        <div><span>Total Stock</span><span class="total-stock">334</span></div>
-        <div><span>Price</span><span>₹5,110</span></div>
-        <div><span>Status</span><span class="payment-rejected">Rejected</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Green | Rejected -->
+            <div class="faq-item" data-sku="64767892">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767892</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="green"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>10</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-rejected">Rejected</span></div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Purple | Approved -->
-  <div class="faq-item" data-sku="64767893">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767893</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="purple"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>20</span></div>
-        <div><span>Total Stock</span><span class="total-stock">10</span></div>
-        <div><span>Price</span><span>₹5,110</span></div>
-        <div><span>Status</span><span class="payment-credited">Approved</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Purple | Approved -->
+            <div class="faq-item" data-sku="64767893">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767893</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="purple"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">10</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Cyan | Approved -->
-  <div class="faq-item" data-sku="64767894">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767894</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="cyan"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>20</span></div>
-        <div><span>Total Stock</span><span class="total-stock">334</span></div>
-        <div><span>Price</span><span>₹5,110</span></div>
-        <div><span>Status</span><span class="payment-credited">Approved</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Cyan | Approved -->
+            <div class="faq-item" data-sku="64767894">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767894</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="cyan"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Creame | Approved -->
-  <div class="faq-item" data-sku="64767895">
-    <button class="faq-question">
-      <div class="main-faq-question">
-        <img src="../assets/inventoryManagement/img.svg">
-        <span>Madhubani Painting Art Vinhu God</span>
-      </div>
-      <img src="../assets/vendorDashboard/CaretCircleDown.svg">
-    </button>
-    <div class="faq-answer">
-      <div class="main-threedots-mobile">
-        <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
-        <div class="show-threedots-box">
-          <div>
-            <img src="../assets/inventoryManagement/AppWindow.svg">
-            <span>Preview</span>
-          </div>
-          <div>
-            <img src="../assets/inventoryManagement/delete.svg">
-            <span>Request to Remove</span>
-          </div>
-        </div>
-      </div>
-      <div class="all-answers">
-        <div><span>SKU</span><span>64767895</span></div>
-        <div><span>Category</span><span>Madhubani Painting</span></div>
-        <div><span>Size</span><span>S</span></div>
-        <div><span>Colour</span><span class="creame"></span></div>
-        <div><span>Date</span><span>12/12/25</span></div>
-        <div><span>Orders</span><span>214</span></div>
-        <div><span>In Stock</span><span>20</span></div>
-        <div><span>Total Stock</span><span class="total-stock">33</span></div>
-        <div><span>Price</span><span>₹5,110</span></div>
-        <div><span>Status</span><span class="payment-credited">Approved</span></div>
-      </div>
-    </div>
-  </div>
+            <!-- Creame | Approved -->
+            <div class="faq-item" data-sku="64767895">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767895</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="creame"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">33</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
 
-</div>
+            <!-- No rows present -->
+             <div id="faq-no-results" style="display:none; text-align:center; padding:20px; font-weight:600;">
+                No rows present
+              </div>
+
+          </div>
 
 
 
