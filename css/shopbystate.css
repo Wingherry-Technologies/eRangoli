@@ -67,7 +67,7 @@ body {
 /* pdthead */
 .pdthead {
   position: relative;
-  top: -37px;
+  /* top: -37px; */
   height: 100px;
   background-image: linear-gradient(rgba(239, 223, 223, 0.92),
       rgba(239, 223, 223, 0.92)),
@@ -98,7 +98,8 @@ body {
   flex-direction: column;
   gap: 15px;
   z-index: 200;
-  min-height: 60vh;
+  /* min-height: 60vh;
+  max-height: max-content; */
   height: 100%;
   width: max-content;
   padding: 8px;
@@ -190,8 +191,7 @@ body {
 
   /* ICONS go to RIGHT side */
 @media (max-width: 480px) {
-
-  .left-icons,
+    .left-icons,
   .left-icons.mobile-in-header {
     height: auto !important;
     min-height: unset !important;
@@ -265,6 +265,7 @@ body {
   transition: min-height 0.25s ease;
   min-height: 100px;
   position: relative;
+  padding-top: 20px;
 }
 
 /* ✅ SIDEBAR */
@@ -1146,222 +1147,298 @@ input[type="radio"] {
   transform: scale(1.15);
 }
 
-/* sub categories slider */
-/* allow carousel to expand on very wide screens */
-.top-carousel {
-  flex: 1 1 auto;
+/* =====================================================
+   SUB CATEGORY SLIDER — FINAL & CLEAN
+===================================================== */
+:root {
+  --sbs-gap: 16px;
+  --sbs-active-red: #a10404;
+}
+
+/* ---------- CONTAINER ---------- */
+.sbs-carousel-container {
+  width: 100%;
+  padding-top: 30px;
+  border-top: 1px solid #A10404;
+
+}
+
+.sbs-sliderheading {
+    padding-left: 20px;
+    padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ---------- ROW ---------- */
+.sbs-main-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- NAV BUTTONS ---------- */
+.sbs-nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+
+}
+
+.sbs-nav-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+.sbs-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+    background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+/* ---------- VIEWPORT ---------- */
+.sbs-carousel {
+  flex: 1;
   overflow: hidden;
-  position: relative;
   width: 100%;
 }
 
-/* wrapper: no horizontal padding to avoid side sliver */
-.top-cards-wrapper {
+/* ---------- TRACK ---------- */
+.sbs-cards-wrapper {
   display: flex;
-  align-items: stretch;
-  gap: var(--card-gap);
-  transition: transform 0.42s cubic-bezier(0.22, 0.9, 0.32, 1);
+  gap: var(--sbs-gap);
+  padding: 10px 0;
+  transition: transform 0.4s ease;
   will-change: transform;
-  padding: 12px 0 30px; /* bottom padding for overlapping button */
-  padding-top: 0px;
+
 }
 
-.top-card {
-  position: relative;
-  border-radius: 10px;
-  background-image: url("../assets/master/Group 5[1].png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding: 12px;
-  min-width: 0;
-  box-sizing: border-box;
+/* ---------- CARD ---------- */
+.sbs-card {
   flex: 0 0 auto;
+  width: 100%;
+  max-width: 240px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 8px;
+
+  cursor: pointer;
+  transition: background 0.25s ease;
+
 }
 
-.top-category-card {
+/* ---------- IMAGE ---------- */
+.sbs-image-box {
   width: 100%;
+  height: 140px;
   border-radius: 8px;
   overflow: hidden;
-  position: relative;
-  height: 180px;
-  display: block;
+    z-index: 2002;
+
 }
 
-.top-category-card img {
+.sbs-image-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
 }
 
-.top-category-label {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #fff;
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  z-index: 4;
-}
-
-.top-shop-now-btn {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 10px 30px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 700;
+/* ---------- LABEL ---------- */
+.sbs-label {
   font-size: 14px;
-  white-space: nowrap;
-  transition: background 0.2s;
-  box-shadow: 0 2px 6px rgba(161, 4, 4, 0.15);
-  z-index: 6;
-}
-.top-shop-now-btn:hover {
-  background: var(--accent-dark);
+  font-weight: 600;
+  color: #333;
+  position: static;
 }
 
-/* ---------------------
-       Responsive flex-basis:
-       We set exact flex-basis per number of cards to avoid partial cards
-       Formula used: flex-basis: calc((100% / N) - ((gap * (N - 1)) / N))
-       --------------------- */
+/* ---------- ACTIVE ---------- */
+.sbs-sub-card.active {
+  background: var(--sbs-active-red);
+}
 
-/* 7 cards (>=1920) */
+.sbs-sub-card.active .sbs-label {
+  color: #fff;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* Large desktop */
 @media (min-width: 1920px) {
-  .top-card {
-    flex-basis: calc((100% / 7) - ((var(--card-gap) * 6) / 7));
+  .sbs-card {
+    flex-basis: calc((100% / 7) - ((var(--sbs-gap) * 6) / 7));
   }
 }
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .sbs-card {
+    flex-basis: calc((100% / 5) - ((var(--sbs-gap) * 4) / 5));
+  }
+}
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .sbs-card {
+    flex-basis: calc((100% / 4) - ((var(--sbs-gap) * 3) / 4));
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sbs-card {
+    flex-basis: calc((100% / 3) - ((var(--sbs-gap) * 2) / 3));
+  }
+}
+@media (max-width: 767px) {
+  .sbs-card {
+    flex-basis: calc((100% / 2) - var(--sbs-gap));
+  }
 
-/* 6 cards (1600 - 1919) */
-@media (min-width: 1600px) and (max-width: 1919px) {
-  .top-card {
-    flex-basis: calc((100% / 6) - ((var(--card-gap) * 5) / 6));
+  .sbs-image-box {
+    height: 60px;
   }
-}
 
-/* 5 cards (1441 - 1599) */
-@media (min-width: 1441px) and (max-width: 1599px) {
-  .top-card {
-    flex-basis: calc((100% / 5) - ((var(--card-gap) * 4) / 5));
-  }
+.sbs-nav-btn img {
+  width: 22px;
+  height: 22px;
 }
-
-/* 4 cards (1025 - 1440) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .top-card {
-    flex-basis: calc((100% / 4) - ((var(--card-gap) * 3) / 4));
-  }
 }
-
-/* 3 cards (768 - 1252) */
-@media (min-width: 768px) and (max-width: 1252px) {
-  .top-card {
-    flex-basis: calc((100% / 3) - ((var(--card-gap) * 2) / 3));
-  }
-}
-@media (max-width:595px) {
-  .top-card {
-    height: 160px;
-  }
-  .top-shop-now-btn{
-    font-size: 12px;
-  }
-  .top-nav-btn img{
-    width: 20px;
-    height: 20px;
-  }
-}
-@media (max-width:455px) {
-  .top-shop-now-btn{
-    padding: 8px 10px;
-    font-weight: 500;
-  }
-  .top-category-card{
-    height: 140px;
-  }
-  .top-category-label {
-    font-size: 10px;
-    padding: 5px 10px;
-  }
-}
-
-@media (max-width:425px) {
-  .top-card{
-    height: 130px;
-  }
-}
-
-/* 2 cards (425 - 767) */
-@media (min-width: 380px) and (max-width: 767px) {
-  .top-card {
-    flex-basis: calc((100% / 2) - ((var(--card-gap) * 1) / 2));
-  }
-}
-
-/* 1 card (below 425) */
-@media (max-width: 380px) {
-  .top-card {
-    flex-basis: calc(100% - var(--card-gap));
-  }
-  .top-card {
-    height: 180px;
-  }
-  .top-category-card {
-    height: 220px;
-  }
-  .top-shop-now-btn {
-    padding: 8px 20px;
-    bottom: -8px;
-  }
-  .top-nav-btn img {
-    width: 28px;
-    height: 28px;
-  }
-  .top-carousel {
-    left: 12px;
-  }
-}
-
-/* small device tweaks */
-@media (max-width: 405px) {
-  .top-category-card {
-    height: 150px;
-  }
-  
-}
-@media (max-width: 360px) {
-  
-  .top-shop-now-btn {
-    padding: 6px 15px;
-    font-size: 12px;
-  }
-}
-
-.top-cards-wrapper:empty {
-  min-height: 240px;
-}
-
-.sub-category-card {
+@media (max-width:480px) {
+    .sbs-nav-btn {
+  background: transparent;
+  border: none;
   cursor: pointer;
+  padding: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.sbs-card {
+    height: max-content;
+}
+.sbs-nav-btn img {
+  width: 22px;
+  height: 22px;
+}
+}
+@media (max-width:405px) {
+    .sbs-image-box{
+        height: 70px;
+    }
+    .sbs-label{
+        font-size: 12px;
+    }
+}
+@media (max-width:360px) {
+    .sbs-card{
+        height: 120px;
+    }
 }
 
-.sub-category-card.active {
-  outline: 2px solid #a10404;
-  border-radius: 10px;
+
+/* ---------- EMPTY ---------- */
+.sbs-cards-wrapper:empty {
+  min-height: 200px;
 }
+
+
+
+.main-categories {
+  display: flex;
+  gap: 14px;
+  padding: 25px 20px ;
+  flex-wrap: wrap;   
+  background-color: white;           /* ✅ wrap on small screens */
+}
+
+/* BASE BUTTON */
+.main-btn {
+  padding: 10px 22px;
+  border-radius: 4px;
+  border: none;
+  background: #F6F6F6;
+  color: #444;
+  border: 1px solid rgba(220, 220, 220, 0.534);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;          /* ✅ prevent text break */
+}
+
+/* 🔴 ACTIVE STATE — EXACT LIKE SCREENSHOT */
+.main-btn.active {
+  background: #a10404;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* hover only for inactive */
+.main-btn:not(.active):hover {
+  background: #e6e6e6;
+}
+
+/* ===============================
+   TABLET (≤ 1024px)
+================================ */
+@media (max-width: 1024px) {
+  .main-btn {
+    padding: 9px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ===============================
+   MOBILE (≤ 767px)
+================================ */
+@media (max-width: 767px) {
+  .main-categories {
+    gap: 10px;
+  }
+
+  .main-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+}
+
+/* ===============================
+   SMALL MOBILE (≤ 480px)
+================================ */
+@media (max-width: 480px) {
+  .main-categories {
+    gap: 8px;
+  }
+
+  .main-btn {
+    padding: 7px 14px;
+    font-size: 14px;
+  }
+}
+
+/* ===============================
+   VERY SMALL (≤ 360px)
+================================ */
+@media (max-width: 360px) {
+  .main-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+

@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products Catalog</title>
+  <title>Shop By State</title>
   <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
   <link rel="stylesheet" href="../css/master.css">
-  <link rel="stylesheet" href="../css/productcatalog.css" />
+  <link rel="stylesheet" href="../css/shopbystate.css" />
   <link rel="stylesheet" href="../css/similarFinds.css" />
   <link rel="stylesheet" href="../css/topCategory.css">
   <link rel="stylesheet" href="../css/meet-art-footer.css">
@@ -698,23 +698,75 @@
     <div class="carousel-container">
       <div class="carousel-slide">
         <img src="../assets/master/Rectangle 3.svg" alt="Slide 1" />
-        <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/054/517/039/small/community-market-showcasing-handmade-pottery-woven-baskets-and-locally-sourced-food-with-customers-photo.jpg"
-          alt="Slide 2" />
-        <img src="https://blog.pashmina.com/wp-content/uploads/2021/12/Blog-images-1080x700-3.jpg" alt="Slide 3" />
-        <img src="https://t3.ftcdn.net/jpg/05/66/34/10/360_F_566341036_f2mCzWyHi9I4aMOSSiy1XUUhvEqdUKJ1.jpg"
-          alt="Slide 4" />
       </div>
     </div>
 
-    <!-- Dots BELOW the image -->
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+    
   </section>
+  <!-- main categories -->
+  <div class="main-categories">
+  <button class="main-btn active" data-category="saree">Sarees</button>
+  <button class="main-btn" data-category="dress">Dress Materials</button>
+  <button class="main-btn" data-category="art">Art</button>
+  <button class="main-btn" data-category="craft">Craft</button>
+</div>
+
+<!-- Top Categories Section -->
+      <section class="sbs-carousel-container">
+  <div class="sbs-sliderheading">Explore the traditional craft</div>
+
+  <div class="sbs-main-row">
+    <button id="sbs-prevBtn" class="sbs-nav-btn" aria-label="Previous" disabled>
+      <img src="../assets/master/CaretCircleLeft.svg" alt="Prev">
+    </button>
+
+    <div class="sbs-carousel" id="sbs-carousel" role="region" aria-label="Sub category carousel">
+      <div class="sbs-cards-wrapper" id="sbs-cardsWrapper">
+
+        <div class="sbs-card sbs-sub-card active">
+          <div class="sbs-image-box">
+            <img src="../assets/shopbystate/img1.png" alt="">
+          </div>
+          <div class="sbs-label">Tribal Iron Craft</div>
+        </div>
+
+        <div class="sbs-card">
+          <div class="sbs-image-box">
+            <img src="../assets/shopbystate/img2.png" alt="">
+          </div>
+          <div class="sbs-label">Kitchen ware</div>
+        </div>
+
+        <div class="sbs-card">
+          <div class="sbs-image-box">
+            <img src="../assets/shopbystate/img3.png" alt="">
+          </div>
+          <div class="sbs-label">Home decor</div>
+        </div>
+
+        <div class="sbs-card">
+          <div class="sbs-image-box">
+            <img src="../assets/shopbystate/img4.png" alt="">
+          </div>
+          <div class="sbs-label">Wall Art</div>
+        </div>
+
+        <div class="sbs-card">
+          <div class="sbs-image-box">
+            <img src="../assets/shopbystate/img5.png" alt="">
+          </div>
+          <div class="sbs-label">Pottery</div>
+        </div>
+
+      </div>
+    </div>
+
+    <button id="sbs-nextBtn" class="sbs-nav-btn" aria-label="Next">
+      <img src="../assets/master/CaretCircleRight.svg" alt="Next">
+    </button>
+  </div>
+</section>
+
 
   <section class="pdthead">
     <h1 class="pdtheading">Tribal Iron Craft ( Bastar Art)</h1>
@@ -1360,6 +1412,134 @@
           </div>
         </div>
 
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20" data-category="saree" data-subcategory="silk">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20" data-category="saree" data-subcategory="silk">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20" data-category="saree" data-subcategory="silk">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
+          data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20" data-category="saree" data-subcategory="silk">
+
+          <div class="pd-img">
+            <img src="../assets/master/Rectangle 366.svg">
+            <div class="pd-wishlist"><img src="../assets/productcatalog/Heart.svg" class="wishlist-icon"></div>
+            <div class="pd-rating">4.6 <span><img src="../assets/master/star.svg"></span> <span>(864)</span></div>
+          </div>
+          <div class="pd-content">
+            <h3 class="pd-name">Rajasthani Wooden Elephant</h3>
+            <div class="pd-line"><span>Heritage Art</span><span>Rajasthan</span></div>
+            <p class="pd-tags"><span class="free">FREE Delivery</span></p>
+            <div class="pd-bottom-row">
+              <p class="pd-price">₹3,400 <span class="old">₹4,299</span><span class="off">(20%OFF)</span></p>
+              <div class="pd-share">
+                <img src="../assets/productcatalog/Share.svg" class="share-btn" alt="Share">
+
+                <!-- SHARE POPUP -->
+                <div class="share-popup">
+                  <img src="../assets/productcatalog/link.svg" class="share-option" data-type="copy" title="Copy Link">
+                  <img src="../assets/productcatalog/whatsapp.svg" class="share-option" data-type="whatsapp"
+                    title="WhatsApp">
+                  <img src="../assets/productcatalog/telegram.svg" class="share-option" data-type="telegram"
+                    title="Telegram">
+                  <img src="../assets/productcatalog/twitter.svg" class="share-option" data-type="twitter"
+                    title="Twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- CARD 4 -->
         <div class="pd-card" data-price="3400" data-state="Rajasthan" data-material="Wood" data-brand="Heritage Art"
           data-size="Medium" data-rating="4.6" data-date="20240129" data-delivery="6" data-discount="20" data-category="saree" data-subcategory="silk">
@@ -2317,7 +2497,7 @@
         </div>
       </div>
     </div>
-  <script src="../javascript/productcatalog.js"></script>
+  <script src="../javascript/shopbystate.js"></script>
 </body>
 
 </html>

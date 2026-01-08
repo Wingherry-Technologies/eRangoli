@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/vendorOrderManagement.css" />
   </head>
   <body>
+
     <div class="inventory-wrapper">
       <!-- Header -->
       <div class="header-row">
@@ -152,7 +153,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody id="productTableBody">
+          <tbody id="productTableBody" class="productTableBody">
             <!-- ROW 1 -->
             <tr>
               <td class="action-cell">
@@ -606,8 +607,522 @@
           </tbody>
         </table>
       </div>
+      <div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3>Delete Order?</h3>
+    <p>Are you sure you want to remove this order?</p>
+    <div class="confirm-actions">
+      <button id="cancelDelete">Cancel</button>
+      <button id="confirmDelete">Delete</button>
+    </div>
+  </div>
+</div>
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-received">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <!-- PROGRESS BAR -->
+        <div class="order-progress">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <span class="status-pill received">Received</span>
+      <button class="close-order">&times;</button>
     </div>
 
-    <script src="../javascript/vendorInventoryManagement.js"></script>
+    <!-- BODY -->
+    <div class="order-body">
+
+      <!-- PRODUCT DETAILS -->
+      <div class="card">
+        <h4>Product Details</h4>
+
+        <div class="product-row">
+          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
+
+          <div class="product-info">
+            <small>#79967776</small>
+            <strong>Handcrafted Wooden Beer Mug</strong>
+
+            <div class="meta">
+              <span>Qty : 2</span>
+              <span>Size : L</span>
+              <span>Finish : Glossy</span>
+              <span>Colour : Brown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+
+      <!-- EXPECTED DATE -->
+      <div class="card">
+        <h4>Expected Date</h4>
+
+        <div class="date-grid">
+          <div>
+            <label>Packaging</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Delivery</label>
+            <p>20/02/25 - 23/02/25</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMER DETAILS -->
+      <div class="card">
+        <h4>Customer Details</h4>
+        <p>Name<br><strong>Pawan Singh</strong></p>
+        <p>Customer ID<br>23453689</p>
+      </div>
+
+      <!-- UPDATE STATUS -->
+      <div class="card full">
+        <h4>Update Order status</h4>
+
+        <div class="status-grid">
+          <div>
+            <label>Packed on</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Delivered on</label>
+            <span>–</span>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="markPacked">
+          Mark as Packed
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-packed">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <!-- PROGRESS BAR -->
+        <div class="order-progress">
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <span class="status-pill packed">Packed</span>
+      <button class="close-order">&times;</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="order-body">
+
+      <!-- PRODUCT DETAILS -->
+      <div class="card">
+        <h4>Product Details</h4>
+
+        <div class="product-row">
+          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
+
+          <div class="product-info">
+            <small>#79967776</small>
+            <strong>Handcrafted Wooden Beer Mug</strong>
+
+            <div class="meta">
+              <span>Qty : 2</span>
+              <span>Size : L</span>
+              <span>Finish : Glossy</span>
+              <span>Colour : Brown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+
+      <!-- EXPECTED DATE -->
+      <div class="card">
+        <h4>Expected Date</h4>
+
+        <div class="date-grid">
+          <div>
+            <label>Packaging</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Delivery</label>
+            <p>20/02/25 - 23/02/25</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMER DETAILS -->
+      <div class="card">
+        <h4>Customer Details</h4>
+        <p>Name<br><strong>Pawan Singh</strong></p>
+        <p>Customer ID<br>23453689</p>
+      </div>
+
+      <!-- UPDATE STATUS -->
+      <div class="card full">
+        <h4>Update Order status</h4>
+
+        <div class="status-grid">
+          <div>
+            <label>Packed on</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Delivered on</label>
+            <span>–</span>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="markTransit">
+          Mark as Picked
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-transit">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <!-- PROGRESS BAR -->
+        <div class="order-progress">
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <span class="status-pill transit">In transit</span>
+      <button class="close-order">&times;</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="order-body">
+
+      <!-- PRODUCT DETAILS -->
+      <div class="card">
+        <h4>Product Details</h4>
+
+        <div class="product-row">
+          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
+
+          <div class="product-info">
+            <small>#79967776</small>
+            <strong>Handcrafted Wooden Beer Mug</strong>
+
+            <div class="meta">
+              <span>Qty : 2</span>
+              <span>Size : L</span>
+              <span>Finish : Glossy</span>
+              <span>Colour : Brown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+
+      <!-- EXPECTED DATE -->
+      <div class="card">
+        <h4>Expected Date</h4>
+
+        <div class="date-grid">
+          <div>
+            <label>Packaging</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Delivery</label>
+            <p>20/02/25 - 23/02/25</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMER DETAILS -->
+      <div class="card">
+        <h4>Customer Details</h4>
+        <p>Name<br><strong>Pawan Singh</strong></p>
+        <p>Customer ID<br>23453689</p>
+      </div>
+
+      <!-- UPDATE STATUS -->
+      <div class="card full">
+        <h4>Update Order status</h4>
+
+        <div class="status-grid">
+          <div>
+            <label>Packed on</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Delivered on</label>
+            <span>–</span>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="markDelivered">
+          Mark as Delivered
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-delivered">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <!-- PROGRESS BAR -->
+        <div class="order-progress">
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+          <span class="dot active"></span>
+        </div>
+      </div>
+
+      <span class="status-pill delivered">Delivered</span>
+      <button class="close-order">&times;</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="order-body">
+
+      <!-- PRODUCT DETAILS -->
+      <div class="card">
+        <h4>Product Details</h4>
+
+        <div class="product-row">
+          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
+
+          <div class="product-info">
+            <small>#79967776</small>
+            <strong>Handcrafted Wooden Beer Mug</strong>
+
+            <div class="meta">
+              <span>Qty : 2</span>
+              <span>Size : L</span>
+              <span>Finish : Glossy</span>
+              <span>Colour : Brown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+
+      <!-- EXPECTED DATE -->
+      <div class="card">
+        <h4>Expected Date</h4>
+
+        <div class="date-grid">
+          <div>
+            <label>Packaging</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <p>15/02/25 - 17/02/25</p>
+          </div>
+          <div>
+            <label>Delivery</label>
+            <p>20/02/25 - 23/02/25</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMER DETAILS -->
+      <div class="card">
+        <h4>Customer Details</h4>
+        <p>Name<br><strong>Pawan Singh</strong></p>
+        <p>Customer ID<br>23453689</p>
+      </div>
+
+      <!-- UPDATE STATUS -->
+      <div class="card full">
+        <h4>Update Order status</h4>
+
+        <div class="status-grid">
+          <div>
+            <label>Packed on</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Pick Up</label>
+            <input type="date" />
+          </div>
+          <div>
+            <label>Delivered on</label>
+            <span>–</span>
+          </div>
+        </div>
+
+        <div class="card full">
+          <h4>Reviews</h4>
+          <div class="review-box">
+            <strong>⭐ 4.5</strong>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Curabitur sodales risus a dui luctus fringilla.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-return">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <h3>Return Details <span class="order-date">17/12/25</span></h3>
+        <span class="status-pill return">Return</span>
+
+      </div>
+
+      <span class="status-pill received">Received</span>
+      <button class="close-order">&times;</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="order-body">
+    
+      <!-- PRODUCT -->
+      <div class="card">
+        <h4>Product Details</h4>
+        <!-- same product block -->
+      </div>
+    
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+    
+      <!-- RETURN ORDER DETAILS -->
+      <div class="card">
+        <h4>Return Order Details</h4>
+        <p><strong>Accepted:</strong> Yes</p>
+        <p><strong>Reason:</strong><br>Damaged Item</p>
+        <p><strong>Return ID:</strong> 72775854</p>
+      </div>
+    
+      <!-- DELIVERY PARTNER UPDATE -->
+      <div class="card">
+        <h4>Update by Delivery Partner</h4>
+        <p>Pickup on: 14/12/25</p>
+        <p>Quality Check: Approved</p>
+        <p>Exp Return Delivery: 24/12/25</p>
+      </div>
+    
+      <!-- REFUND -->
+      <div class="card full">
+        <h4>Return Processed</h4>
+        <p>Bank Transfer</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>356789234567884</small>
+      </div>
+    
+    </div>
+
+  </div>
+</div>
+
+
+    </div>
+    <script src="../javascript/vendorOrderManagement.js"></script>
   </body>
 </html>

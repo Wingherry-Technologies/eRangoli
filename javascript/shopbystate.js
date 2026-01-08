@@ -495,36 +495,36 @@ handleScrollForMobile();
 
 // Carousel Functionality
 
-let index = 0;
-const slide = document.querySelector(".carousel-slide");
-const images = document.querySelectorAll(".carousel-slide img");
-const dots = document.querySelectorAll(".dot");
+// let index = 0;
+// const slide = document.querySelector(".carousel-slide");
+// const images = document.querySelectorAll(".carousel-slide img");
+// const dots = document.querySelectorAll(".dot");
 
-function showSlide(i) {
-  if (i >= images.length) index = 0;
-  if (i < 0) index = images.length - 1;
+// function showSlide(i) {
+//   if (i >= images.length) index = 0;
+//   if (i < 0) index = images.length - 1;
 
-  slide.style.transform = `translateX(${-index * 100}%)`;
+//   slide.style.transform = `translateX(${-index * 100}%)`;
 
-  dots.forEach((dot) => dot.classList.remove("active"));
-  dots[index].classList.add("active");
-}
+//   dots.forEach((dot) => dot.classList.remove("active"));
+//   dots[index].classList.add("active");
+// }
 
-dots.forEach((dot, i) => {
-  dot.onclick = () => {
-    index = i;
-    showSlide(index);
-  };
-});
+// dots.forEach((dot, i) => {
+//   dot.onclick = () => {
+//     index = i;
+//     showSlide(index);
+//   };
+// });
 
-// Auto slide every 3 seconds
-setInterval(() => {
-  index++;
-  showSlide(index);
-}, 3000);
+// // Auto slide every 3 seconds
+// setInterval(() => {
+//   index++;
+//   showSlide(index);
+// }, 3000);
 
-// Initial render
-showSlide(index);
+// // Initial render
+// showSlide(index);
 
 /* ================================
    GLOBALS (single source of truth)
@@ -936,6 +936,7 @@ function clearAll() {
   // Show first page properly
   showPage(1, false);
 }
+const SIDEBAR_MIN_HEIGHT = window.innerHeight * 0.6; // 60vh
 
 function updateWrapperHeight() {
   const wrapper = document.querySelector(".pro-wrapper");
@@ -1174,6 +1175,376 @@ function resetUserProductState() {
   // Close all share popups
   document.querySelectorAll(".share-popup").forEach(popup => {
     popup.classList.remove("active");
+  });
+}
+
+const subCategories = {
+  saree: [
+    { id: "silk", name: "Silk Sarees", img: "../assets/saree/silk.jpg" },
+    { id: "cotton", name: "Cotton Sarees", img: "../assets/saree/cotton.jpg" },
+    { id: "banarasi", name: "Banarasi Sarees", img: "../assets/saree/banarasi.jpg" }
+  ],
+
+  dress: [
+    { id: "churidar", name: "Churidar Materials", img: "../assets/dress/churidar.jpg" },
+    { id: "anarkali", name: "Anarkali Sets", img: "../assets/dress/anarkali.jpg" }
+  ],
+
+  art: [
+    { id: "madhubani", name: "Madhubani Art", img: "../assets/art/madhubani.jpg" },
+    { id: "warli", name: "Warli Art", img: "../assets/art/warli.jpg" }
+  ],
+
+  craft: [
+    { id: "kondapalli", name: "Kondapalli Toys", img: "../assets/craft/kondapalli.jpg" },
+    { id: "tribal-iron", name: "Tribal Iron Craft", img: "../assets/craft/tribal-iron.jpg" },
+    { id: "bidri", name: "Bidri Craft", img: "../assets/craft/bidri.jpg" },
+    { id: "leather", name: "Leather Craft", img: "../assets/craft/leather.jpg" },
+    { id: "brass", name: "Brass Craft", img: "../assets/craft/brass.jpg" }
+  ]
+};
+
+// const mainBtns = document.querySelectorAll(".main-btn");
+// const slider = document.getElementById("subCategorySlider");
+const heading = document.querySelector(".pdtheading");
+const products = document.querySelectorAll(".pd-card");
+
+const mainBtns = document.querySelectorAll(".main-btn");
+
+mainBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // 🔒 REMOVE ACTIVE FROM ALL
+    mainBtns.forEach(b => b.classList.remove("active"));
+
+    // ✅ SET ACTIVE ONLY FOR CLICKED
+    btn.classList.add("active");
+
+    const category = btn.dataset.category;
+
+    // Load sub-categories
+    loadSubCategoryCarousel(category);
+
+    // Auto-select first sub-category (after render)
+    requestAnimationFrame(() => {
+      const firstSub = document.querySelector(".sbs-sub-card");
+      if (firstSub) firstSub.click();
+    });
+  });
+});
+
+
+// function loadSubCategories(category) {
+//   slider.innerHTML = "";
+
+//   subCategories[category].forEach((sub, index) => {
+//     const button = document.createElement("button");
+//     button.className = "sub-btn";
+//     if (index === 0) button.classList.add("active");
+
+//     button.dataset.subcategory = sub.id;
+//     button.textContent = sub.name;
+
+//     button.addEventListener("click", () => {
+//       handleSubCategoryClick(category, sub.id, sub.name, button);
+//     });
+
+//     slider.appendChild(button);
+//   });
+
+//   // Auto-load first sub-category
+//   const first = subCategories[category][0];
+//   handleSubCategoryClick(category, first.id, first.name);
+// }
+// function handleSubCategoryClick(category, subId, title, activeBtn) {
+
+//   // Active slider button
+//   document.querySelectorAll(".sub-btn").forEach(b => b.classList.remove("active"));
+//   activeBtn?.classList.add("active");
+
+//   // Update heading
+//   heading.textContent = title;
+
+//   // Filter products
+//   let count = 0;
+
+//   products.forEach(card => {
+//     if (
+//       card.dataset.category === category &&
+//       card.dataset.subcategory === subId
+//     ) {
+//       card.style.display = "block";
+//       count++;
+//     } else {
+//       card.style.display = "none";
+//     }
+//   });
+
+//   document.getElementById("noProductMsg").style.display =
+//     count === 0 ? "block" : "none";
+// }
+
+
+
+const SUB_CATEGORY_DATA = {
+  saree: [
+    { id: "silk", name: "Silk Sarees", img: "../assets/shopbystate/img1.png" },
+    { id: "cotton", name: "Cotton Sarees", img: "../assets/shopbystate/img2.png" },
+    { id: "banarasi", name: "Banarasi Sarees", img: "../assets/shopbystate/img3.png" }
+  ],
+
+  dress: [
+    { id: "churidar", name: "Churidar Materials", img: "../assets/shopbystate/img3.png" },
+    { id: "anarkali", name: "Anarkali Sets", img: "../assets/shopbystate/img1.png" },
+    { id: "lehenga", name: "Lehenga Sets", img: "../assets/shopbystate/img2.png" }
+  ],
+
+  art: [
+    { id: "madhubani", name: "Madhubani Art", img: "../assets/shopbystate/img1.png" },
+    { id: "warli", name: "Warli Art", img: "../assets/shopbystate/img2.png" },
+    { id: "pattachitra", name: "Pattachitra Art", img: "../assets/shopbystate/img3.png" }
+  ],
+
+  craft: [
+    { id: "kondapalli", name: "Kondapalli Toys", img: "../assets/shopbystate/img5.png" },
+    { id: "tribal-iron", name: "Tribal Iron Craft", img: "../assets/shopbystate/img4.png" },
+    { id: "bidri", name: "Bidri Craft", img: "../assets/shopbystate/img3.png" },
+    { id: "leather", name: "Leather Craft", img: "../assets/shopbystate/img2.png" },
+    { id: "brass", name: "Brass Craft", img: "../assets/shopbystate/img5.png" }
+  ]
+};
+
+
+
+// sub categories slider
+(function () {
+  const wrapper = document.getElementById("sbs-cardsWrapper");
+  const carousel = document.getElementById("sbs-carousel");
+  const prevBtn = document.getElementById("sbs-prevBtn");
+  const nextBtn = document.getElementById("sbs-nextBtn");
+
+  let cards = [];
+  let currentIndex = 0;
+  let cardsPerView = 1;
+  let cardFullWidth = 0;
+
+  /* ------------------ BREAKPOINTS ------------------ */
+  function getCardsPerView() {
+    if (window.innerWidth >= 1920) return 7;
+    if (window.innerWidth >= 1440) return 5;
+    if (window.innerWidth >= 1025) return 4;
+    if (window.innerWidth >= 768) return 3;
+    if (window.innerWidth >= 300) return 2;
+    return 1;
+  }
+
+  /* ------------------ MEASURE ------------------ */
+  function measure() {
+    cards = [...wrapper.children];
+    if (!cards.length) return;
+
+    const gap = parseFloat(getComputedStyle(wrapper).gap || 0);
+    cardFullWidth = cards[0].offsetWidth + gap;
+    cardsPerView = getCardsPerView();
+  }
+
+  /* ------------------ ACTIVE CARD ------------------ */
+  function setActiveCard(index) {
+    cards.forEach(c => c.classList.remove("active"));
+    cards[index]?.classList.add("active");
+
+    if (cardsPerView <= 2) {
+      currentIndex = Math.max(index - 1, 0);
+    } else {
+      currentIndex = Math.min(index, cards.length - cardsPerView);
+    }
+
+    update();
+  }
+
+  /* ------------------ UPDATE POSITION ------------------ */
+  function update() {
+    measure();
+    if (!cards.length) return;
+
+    const maxIndex = Math.max(cards.length - cardsPerView, 0);
+    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+
+    let translateX = -(currentIndex * cardFullWidth);
+
+    // center on mobile
+    if (cardsPerView <= 2) {
+      const extra = carousel.clientWidth - cardsPerView * cardFullWidth;
+      translateX += extra / 2;
+    }
+
+    wrapper.style.transform = `translateX(${translateX}px)`;
+
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  }
+
+  /* ------------------ BUTTONS ------------------ */
+  nextBtn.onclick = () => {
+    currentIndex++;
+    update();
+  };
+
+  prevBtn.onclick = () => {
+    currentIndex--;
+    update();
+  };
+
+  /* ------------------ CARD CLICK (ONCE) ------------------ */
+  function attachCardClicks() {
+    cards.forEach((card, index) => {
+      card.onclick = () => setActiveCard(index);
+    });
+  }
+
+  /* ------------------ TOUCH SWIPE ------------------ */
+  let startX = 0;
+  let deltaX = 0;
+
+  carousel.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchmove", e => {
+    deltaX = e.touches[0].clientX - startX;
+  });
+
+  carousel.addEventListener("touchend", () => {
+    if (deltaX < -50) currentIndex++;
+    if (deltaX > 50) currentIndex--;
+    update();
+    deltaX = 0;
+  });
+
+  /* ------------------ OBSERVE CARD CHANGES ------------------ */
+  const observer = new MutationObserver(() => {
+    measure();
+    attachCardClicks();
+    update();
+  });
+
+  observer.observe(wrapper, { childList: true });
+
+  /* ------------------ INIT ------------------ */
+  window.addEventListener("resize", update);
+  window.addEventListener("load", () => {
+    measure();
+    attachCardClicks();
+    update();
+  });
+})();
+
+
+    function loadSubCategoryCarousel(category) {
+  const wrapper = document.getElementById("sbs-cardsWrapper");
+  wrapper.innerHTML = ""; // clear existing cards
+
+ SUB_CATEGORY_DATA[category].forEach(sub => {
+  const card = document.createElement("div");
+  card.className = "sbs-card sbs-sub-card";
+  card.dataset.subcategory = sub.id;
+
+  card.innerHTML = `
+  <div class="sbs-image-box">
+    <img src="${sub.img}" alt="${sub.name}">
+  </div>
+  <div class="sbs-label">${sub.name}</div>
+`;
+
+
+  card.addEventListener("click", () => {
+    setActiveSubCategory(card);
+    updateHeading(sub.name);
+    filterProducts(category, sub.id);
+  });
+
+  wrapper.appendChild(card);
+});
+
+
+  // IMPORTANT: refresh carousel layout
+  requestAnimationFrame(() => {
+    window.dispatchEvent(new Event("resize"));
+  });
+}
+
+function setActiveSubCategory(activeCard) {
+  document
+    .querySelectorAll(".sbs-sub-card")
+    .forEach(c => c.classList.remove("active"));
+
+  activeCard.classList.add("active");
+}
+function updateHeading(text) {
+  document.querySelector(".pdtheading").textContent = text;
+}
+function filterProducts(category, subcategory) {
+  // Build filtered list
+  filteredCards = cards.filter(card =>
+    card.dataset.category === category &&
+    card.dataset.subcategory === subcategory
+  );
+
+  // Hide all cards first
+  cards.forEach(card => card.classList.add("is-hidden"));
+
+  // 🚫 No products
+  if (filteredCards.length === 0) {
+    noProductMsg.style.display = "block";
+    paginationBar.style.display = "none";
+    pageCount.textContent = "0–0 of 0";
+    return;
+  }
+
+  // ✅ Products found
+  noProductMsg.style.display = "none";
+  paginationBar.style.display = "";
+
+  // Reset pagination
+  currentPage = 1;
+
+  // Render first page
+  showPage(1, false);
+}
+
+// document.querySelector('[data-category="craft"]').addEventListener("click", () => {
+//   loadSubCategoryCarousel("craft");
+
+//   // auto select first sub-category
+//   setTimeout(() => {
+//     const first = document.querySelector(".sub-category-card");
+//     if (first) first.click();
+//   }, 50);
+// });
+document.addEventListener("DOMContentLoaded", () => {
+  initDefaultCategory();
+});
+function initDefaultCategory() {
+  // 1️⃣ Get first main category button
+  const firstMainBtn = document.querySelector(".main-btn");
+  if (!firstMainBtn) return;
+
+  // Activate UI
+  mainBtns.forEach(b => b.classList.remove("active"));
+  firstMainBtn.classList.add("active");
+
+  // 2️⃣ Get category key
+  const category = firstMainBtn.dataset.category;
+
+  // 3️⃣ Load sub-category slider
+  loadSubCategoryCarousel(category);
+
+  // 4️⃣ Auto select first sub-category AFTER render
+  requestAnimationFrame(() => {
+    const firstSub = document.querySelector(".sbs-sub-card");
+    if (firstSub) {
+      firstSub.click(); // 🔥 triggers product filter + pagination
+    }
   });
 }
 
