@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ===== Wrapper ===== */
+.business-wrapper {
+  padding: 16px;
+  max-width: 100%;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Business Card ===== */
+.business-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+/* ===== Layout ===== */
+.business-main {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ===== Logo ===== */
+.business-logo img {
+  max-width: 260px;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #ffc928;
+  padding: 12px;
+}
+
+/* ===== Info Grid ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 32px;
+}
+
+/* ===== Info Item ===== */
+.info-item label {
+  font-size: 12px;
+  color: #777;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  margin: 0;
+}
+
+/* Address full width */
+.info-item.address {
+  grid-column: span 2;
+}
+
+/* ===== Bank Header ===== */
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 8px;
+}
+
+.add-new {
+  font-size: 13px;
+  color: #1aa7a1;
+  text-decoration: none;
+}
+
+/* ===== Bank Card ===== */
+.bank-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+}
+
+.bank-card p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #333;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .business-main {
+    flex-direction: row;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .business-main {
+    flex-direction: column;
+  }
+
+  .business-logo img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .info-item.address {
+    grid-column: span 1;
+  }
+
+  .bank-header {
+    flex-direction: row;
+  }
+}

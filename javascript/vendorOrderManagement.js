@@ -181,3 +181,54 @@ document.querySelectorAll(".close-order").forEach(btn => {
     btn.closest(".order-modal").style.display = "none";
   });
 });
+/* =====================================================
+   PAGINATION LOGIC
+===================================================== */
+const rowsPerPage = 8;
+let currentPage = 1;
+
+const tableBody = document.getElementById("productTableBody");
+const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+const totalRows = rows.length;
+const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+const paginationInfo = document.getElementById("paginationInfo");
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+
+/* ---------- RENDER PAGE ---------- */
+function renderTable() {
+  rows.forEach((row, index) => {
+    row.style.display = "none";
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    if (index >= start && index < end) {
+      row.style.display = "";
+    }
+  });
+
+  paginationInfo.textContent = `${currentPage} / ${totalPages}`;
+
+  prevBtn.disabled = currentPage === 1;
+  nextBtn.disabled = currentPage === totalPages;
+}
+
+/* ---------- EVENTS ---------- */
+prevBtn.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderTable();
+  }
+});
+
+nextBtn.addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderTable();
+  }
+});
+
+/* ---------- INIT ---------- */
+renderTable();

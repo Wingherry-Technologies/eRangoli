@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ===== Wrapper ===== */
+.personal-details-wrapper {
+  padding: 16px;
+  max-width: 100%;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== Title ===== */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Card ===== */
+.personal-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+/* ===== Grid ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 32px;
+}
+
+/* ===== Items ===== */
+.detail-item label {
+  font-size: 12px;
+  color: #777;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.detail-item p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  margin: 0;
+}
+
+/* Address spans full row on desktop */
+.detail-item.address {
+  grid-column: span 2;
+}
+
+/* ===== Identity Proof Section ===== */
+.identity-proof {
+  margin-top: 24px;
+}
+
+.identity-proof label {
+  font-size: 12px;
+  color: #777;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.id-images {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.id-images img {
+  width: 260px;
+  height: 200px;
+  object-fit: cover;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-item.address {
+    grid-column: span 2;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .detail-item.address {
+    grid-column: span 1;
+  }
+
+  .id-images {
+    flex-direction: column;
+  }
+
+  .id-images img {
+    width: 100%;
+  }
+}

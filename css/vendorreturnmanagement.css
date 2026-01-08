@@ -173,75 +173,69 @@ body {
   border-radius: 16px;
   margin-top: 1rem;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* ===== TABLE BASE ===== */
-/* Force table to calculate naturally */
+/* ================= TABLE BASE ================= */
 .product-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  table-layout: auto; /* IMPORTANT */
+  border-collapse: collapse;
 }
 
-/* Sticky header */
+/* ================= HEADER ================= */
+.product-table thead {
+  display: table;
+  width: 100%;
+}
+
 .product-table thead th {
   position: sticky;
   top: 0;
   background-color: #dbe5e4;
-  z-index: 5;
+  z-index: 10;
   padding: 14px;
+  text-align: left;
+  color: #4a774b;
   font-weight: 600;
   font-size: 14px;
-  text-align: left;
 }
 
-/* Scroll body */
+/* ================= BODY ================= */
 .product-table tbody {
   display: block;
   max-height: 420px;
   overflow-y: auto;
 }
 
-/* Keep alignment */
-.product-table thead,
 .product-table tbody tr {
   display: table;
   width: 100%;
-  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
 }
 
-/* Shrink first & last column automatically */
-.product-table th:first-child,
-.product-table td:first-child,
-.product-table th:last-child,
-.product-table td:last-child {
-  white-space: nowrap;
-  width: 1%;           /* shrink-to-fit trick */
-}
-
-/* Cells */
 .product-table td {
   padding: 14px;
   font-size: 14px;
   vertical-align: middle;
 }
 
-/* ===== ROWS & CELLS ===== */
-.product-table tbody tr {
-  border-bottom: 1px solid #eee;
-}
-/* ===== SCROLLBAR ===== */
+/* ================= SCROLLBAR ================= */
 .product-table tbody::-webkit-scrollbar {
   width: 6px;
 }
 
-.product-table tbody::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 4px;
+.product-table tbody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin: 6px 0;
 }
 
-/* ===== PRODUCT CELL ===== */
+.product-table tbody::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+
+/* Product cell */
 .product-info {
   display: flex;
   align-items: center;
@@ -251,7 +245,7 @@ body {
 .product-info img {
   width: 44px;
   height: 44px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .product-name {
@@ -261,8 +255,6 @@ body {
 
 .sub-name {
   display: block;
-  font-size: 12px;
-  color: #777;
 }
 
 /* Colour box */
@@ -482,11 +474,11 @@ body {
   font-size: 13px;
   color: #fff;
 }
-.status-pill.received { background: #5da960; }
-.status-pill.packed { background: #2f80ed; }
-.status-pill.transit { background: #9b51e0; }
-.status-pill.delivered { background: #f2994a; }
-.status-pill.return { background: #eb5757; }
+.status-badge.received { background:#5DA960; }
+.status-badge.refunded { background:#9B51E0; }
+.status-badge.rejected { background:#EB5757; }
+.status-badge.pending { background:#F2994A; }
+
 
 /* PROGRESS */
 .order-progress {
@@ -595,40 +587,29 @@ body {
   cursor: pointer;
 }
 
-/* ================= PAGINATION ================= */
-.table-pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-top: 1px solid #d9d9d9;
+/* .inventory-card.active {
+  border: 2px solid #21A593;
+  background: #F4FBFA;
+} */
+
+.section-title {
+  margin: 24px 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
 }
 
-.pagination-info {
-  font-size: 13px;
-  color: #6b6b6b;
-}
-
-.pagination-controls {
+.modal-actions {
   display: flex;
+  justify-content: flex-end;
   gap: 12px;
+  margin-top: 20px;
 }
 
-.pagination-controls button {
-  border: none;
+.secondary-btn {
   background: transparent;
-  cursor: pointer;
-  padding: 4px;
+  border: 1px solid #21A593;
+  color: #21A593;
+  padding: 10px 18px;
+  border-radius: 6px;
 }
-
-.pagination-controls button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.pagination-controls img {
-  width: 22px;
-  height: 22px;
-}
-
-

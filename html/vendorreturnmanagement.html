@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Return Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/vendorreturnmanagement.css" />
+  </head>
+  <body>
+
+    <div class="inventory-wrapper">
+      <!-- Header -->
+      <!-- <div class="header-row">
+        <h1>Order Management</h1>
+      </div> -->
+
+      <!-- Cards -->
+    <!-- ================= RETURN MANAGEMENT ================= -->
+     <h3 class="product-heading">Return Management</h3>
+
+<div class="cards-row">
+
+  <!-- Total Return -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/return.svg" alt="Return">
+      <span class="card-title">Total Return</span>
+    </div>
+    <h2 class="card-value">5,234</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+15.3% from last month</span>
+    </div>
+  </div>
+
+  <!-- Accepted Return -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/accepted.svg" alt="Accepted">
+      <span class="card-title">Accepted Return</span>
+    </div>
+    <h2 class="card-value">2,603</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+9.30% from last month</span>
+    </div>
+  </div>
+
+  <!-- Rejected Return -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/rejected.svg" alt="Rejected">
+      <span class="card-title">Rejected Return</span>
+    </div>
+    <h2 class="card-value">3,267</h2>
+    <div class="negative-box">
+      <img src="../assets/vendorOrderManagement/trenddown.svg" alt="Down">
+      <span class="negative-title">-1.2% from last month</span>
+    </div>
+  </div>
+
+  <!-- Pending Return -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/pending.svg" alt="Pending">
+      <span class="card-title">Pending Return</span>
+    </div>
+    <h2 class="card-value">25</h2>
+    <div class="negative-box">
+      <img src="../assets/vendorOrderManagement/trenddown.svg" alt="Down">
+      <span class="negative-title">-4.46% from last month</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= REFUND MANAGEMENT ================= -->
+<h3 class="product-heading">Refund Management</h3>
+
+<div class="cards-row">
+
+  <!-- Total Refunded -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/refund.svg" alt="Refund">
+      <span class="card-title">Total Refunded</span>
+    </div>
+    <h2 class="card-value">₹ 2,150</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+15.3% from last month</span>
+    </div>
+  </div>
+
+  <!-- Weekly Refunded -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/refund.svg" alt="Refund">
+      <span class="card-title">Weekly Refunded</span>
+    </div>
+    <h2 class="card-value">₹ 2,150</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+15.3% from last month</span>
+    </div>
+  </div>
+
+  <!-- Monthly Refunded -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/refund.svg" alt="Refund">
+      <span class="card-title">Monthly Refunded</span>
+    </div>
+    <h2 class="card-value">₹ 2,150</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+15.3% from last month</span>
+    </div>
+  </div>
+
+  <!-- Yearly Refunded -->
+  <div class="inventory-card">
+    <div class="icon-box">
+      <img src="../assets/vendorOrderManagement/refund.svg" alt="Refund">
+      <span class="card-title">Yearly Refunded</span>
+    </div>
+    <h2 class="card-value">₹ 2,150</h2>
+    <div class="positive-box">
+      <img src="../assets/vendorOrderManagement/trendup.svg" alt="Up">
+      <span class="positive-title">+15.3% from last month</span>
+    </div>
+  </div>
+
+</div>
+
+
+      <div class="product-list-wrapper">
+        <!-- Heading -->
+        <h2 class="product-heading">Product List</h2>
+
+        <!-- Controls Row -->
+        <div class="product-controls">
+          <!-- Search -->
+          <div class="search-box">
+            <img
+              src="../assets/vendorOrderManagement/search.svg"
+              alt="search"
+              class="search-icon"
+            />
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name or category"
+            />
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-box">
+            <img
+              src="../assets/vendorOrderManagement/filter.svg"
+              alt="filter"
+            />
+            <img src="../assets/vendorOrderManagement/asc.svg" alt="sort" />
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product Name</th>
+                <th>Return ID</th>
+                <th>Price</th>
+                <th>Reason</th>
+                <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody" class="productTableBody">
+
+  <!-- ROW 1 -->
+  <tr>
+    <td class="action-cell">
+      <div class="action-wrapper">
+        <span class="three-dots">⋮</span>
+        <div class="action-menu">
+          <div class="action-item">
+            <img src="../assets/vendorOrderManagement/delete.svg" />
+            <span>Remove</span>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div class="product-info">
+        <img src="../assets/vendorOrderManagement/img.svg" />
+        <div class="product-name">
+          <span class="main-name">Handcrafted Wooden</span>
+          <span class="sub-name">Beer Mug</span>
+        </div>
+      </div>
+    </td>
+
+    <td>#79967776</td>
+    <td>₹ 2,150</td>
+    <td>Damaged Item</td>
+    <td><span class="status-badge received">Received</span></td>
+
+    <td>
+      <img src="../assets/vendorOrderManagement/arrow.svg" alt="arrow" class="arrow-img" />
+    </td>
+  </tr>
+
+  <!-- ROW 2 -->
+  <tr>
+    <td class="action-cell">
+      <div class="action-wrapper">
+        <span class="three-dots">⋮</span>
+        <div class="action-menu">
+          <div class="action-item">
+            <img src="../assets/vendorOrderManagement/delete.svg" />
+            <span>Remove</span>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div class="product-info">
+        <img src="../assets/vendorOrderManagement/img.svg" />
+        <div class="product-name">
+          <span class="main-name">Handcrafted Wooden</span>
+          <span class="sub-name">Beer Mug</span>
+        </div>
+      </div>
+    </td>
+
+    <td>#79967777</td>
+    <td>₹ 2,150</td>
+    <td>Broken Handle</td>
+    <td><span class="status-badge refunded">Refunded</span></td>
+
+    <td>
+      <img src="../assets/vendorOrderManagement/arrow.svg" alt="arrow" class="arrow-img" />
+    </td>
+  </tr>
+
+  <!-- ROW 3 -->
+  <tr>
+    <td class="action-cell">
+      <div class="action-wrapper">
+        <span class="three-dots">⋮</span>
+        <div class="action-menu">
+          <div class="action-item">
+            <img src="../assets/vendorOrderManagement/delete.svg" />
+            <span>Remove</span>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div class="product-info">
+        <img src="../assets/vendorOrderManagement/img.svg" />
+        <div class="product-name">
+          <span class="main-name">Handcrafted Wooden</span>
+          <span class="sub-name">Beer Mug</span>
+        </div>
+      </div>
+    </td>
+
+    <td>#79967778</td>
+    <td>₹ 2,150</td>
+    <td>Wrong Item</td>
+    <td><span class="status-badge rejected">Rejected</span></td>
+
+    <td>
+      <img src="../assets/vendorOrderManagement/arrow.svg" alt="arrow" class="arrow-img" />
+    </td>
+  </tr>
+
+  <!-- ROW 4 -->
+  <tr>
+    <td class="action-cell">
+      <div class="action-wrapper">
+        <span class="three-dots">⋮</span>
+        <div class="action-menu">
+          <div class="action-item">
+            <img src="../assets/vendorOrderManagement/delete.svg" />
+            <span>Remove</span>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div class="product-info">
+        <img src="../assets/vendorOrderManagement/img.svg" />
+        <div class="product-name">
+          <span class="main-name">Handcrafted Wooden</span>
+          <span class="sub-name">Beer Mug</span>
+        </div>
+      </div>
+    </td>
+
+    <td>#79967779</td>
+    <td>₹ 2,150</td>
+    <td>Color Mismatch</td>
+    <td><span class="status-badge pending">Pending</span></td>
+
+    <td>
+      <img src="../assets/vendorOrderManagement/arrow.svg" alt="arrow" class="arrow-img" />
+    </td>
+  </tr>
+
+</tbody>
+
+        </table>
+      </div>
+      <div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3>Delete Order?</h3>
+    <p>Are you sure you want to remove this order?</p>
+    <div class="confirm-actions">
+      <button id="cancelDelete">Cancel</button>
+      <button id="confirmDelete">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAILS MODAL -->
+<div class="order-modal" id="modal-return">
+  <div class="order-container">
+
+    <!-- HEADER -->
+    <div class="order-header">
+      <div>
+        <h3>Order Details <span class="order-date">14/12/25</span></h3>
+
+        <h3>Return Details <span class="order-date">17/12/25</span></h3>
+        <span class="status-pill return">Return</span>
+
+      </div>
+
+      <span class="status-pill received">Received</span>
+      <button class="close-order">&times;</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="order-body">
+    
+      <!-- PRODUCT -->
+      <div class="card">
+        <h4>Product Details</h4>
+        <!-- same product block -->
+      </div>
+    
+      <!-- PAYMENT -->
+      <div class="card">
+        <h4>Payment</h4>
+        <p>Paid by Paypal</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>124547586970889</small>
+      </div>
+    
+      <!-- RETURN ORDER DETAILS -->
+      <div class="card">
+        <h4>Return Order Details</h4>
+        <p><strong>Accepted:</strong> Yes</p>
+        <p><strong>Reason:</strong><br>Damaged Item</p>
+        <p><strong>Return ID:</strong> 72775854</p>
+      </div>
+    
+      <!-- DELIVERY PARTNER UPDATE -->
+      <div class="card">
+        <h4>Update by Delivery Partner</h4>
+        <p>Pickup on: 14/12/25</p>
+        <p>Quality Check: Approved</p>
+        <p>Exp Return Delivery: 24/12/25</p>
+      </div>
+    
+      <!-- REFUND -->
+      <div class="card full">
+        <h4>Return Processed</h4>
+        <p>Bank Transfer</p>
+        <h3>₹ 5,110</h3>
+        <small>Transaction ID<br>356789234567884</small>
+      </div>
+    
+    </div>
+<div class="modal-actions">
+  <button class="primary-btn" id="approveRefund">Proceed Refund</button>
+  <button class="secondary-btn" id="rejectRefund">Decline</button>
+</div>
+
+  </div>
+</div>
+
+
+    </div>
+    <script src="../javascript/vendorreturnmangement.js"></script>
+  </body>
+</html>

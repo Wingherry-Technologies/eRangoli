@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ===== Wrapper ===== */
+.settings-wrapper {
+  padding: 16px;
+  max-width: 100%;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== Title ===== */
+.settings-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Card ===== */
+.settings-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ===== Items ===== */
+.settings-item {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+/* Delete account (same look, optional danger color) */
+.settings-item.danger {
+  color: #d93025;
+}
+
+/* ===== Hover (optional, subtle) ===== */
+.settings-item:hover {
+  background: #fafafa;
+}
+
+/* ===== Mobile safe spacing ===== */
+@media (max-width: 600px) {
+  .settings-item {
+    padding: 14px 16px;
+  }
+}
