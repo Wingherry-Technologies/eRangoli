@@ -949,18 +949,6 @@ tbody tr td>.creame{
   .dashboard-main-heading{
     display: none !important;
   }
-  .mobile-back-button{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    height: 70px;
-    background-color: white;
-    width: max-content;
-    position: fixed;
-    top: 5px;
-    z-index: 9999;
-  }
   .mobile-add-new{
     display: block;
     background-color: #83D4C9;

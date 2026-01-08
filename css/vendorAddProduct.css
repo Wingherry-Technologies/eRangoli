@@ -23,6 +23,11 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  position: sticky;
+  top: 75px;
+  z-index: 999;
+  background-color: white;
+  padding: 10px 0px;
 }
 
 .header-left {
@@ -65,7 +70,7 @@ body {
 }
 
 .section {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .section-header {
@@ -207,13 +212,15 @@ body {
 
 .upload-area {
   border-radius: 8px;
-  padding: 120px;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.3s, background-color 0.3s;
   position: relative;
   overflow: hidden;
   background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .upload-area img {
@@ -259,7 +266,7 @@ body {
 
 .upload-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 200px);
   gap: 16px;
   margin-top: 10px;
 }
@@ -316,8 +323,7 @@ body {
 }
 
 .product-details-layout {
-  display: grid;
-  grid-template-columns: 450px 1fr;
+  display: flex;
   gap: 24px;
 }
 
@@ -325,11 +331,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 420px;
 }
 
 .main-upload {
   /* aspect-ratio: 1; */
   height: 350px;
+  
 }
 
 .variant-container {
@@ -437,10 +445,6 @@ body {
   gap: 12px;
 }
 
-.address-checkbox {
-  margin-top: 4px;
-}
-
 .address-content {
   flex: 1;
 }
@@ -518,18 +522,13 @@ input[type="file"] {
   position: relative;
 }
 
-.address-checkbox {
-  margin-right: 8px;
-}
 
 .use-address {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  gap: 10px;
   font-size: 14px;
   color: #666;
-}
-#addressErrorContainer {
-  margin-top: 8px;
 }
 
 .error-text {
@@ -568,13 +567,30 @@ input[type="file"] {
   margin-top: 20px;
 }
 
-
-
+@media (max-width:1430px) and (min-width:1024px) {
+  .left-column{
+    width: 40%;
+  }
+  .upload-grid{
+    grid-template-columns: repeat(2, 1fr) ;
+  }
+  .right-column{
+    width: 59%;
+  }
+  .product-details-layout .form-grid{
+    grid-template-columns: repeat(2, 49%);
+  }
+}
 
 
 @media (max-width: 1024px) {
   .product-details-layout {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .left-column{
+    width: 100%;
   }
 
   .form-grid {
@@ -611,6 +627,9 @@ input[type="file"] {
   /* full-width fields tablet pe bhi full rahein */
   .address-form-body .form-group.full-width {
     grid-column: 1 / -1;
+  }
+  .product-details-layout .form-grid{
+    grid-template-columns: repeat(2,49%);
   }
 
 }
@@ -696,9 +715,9 @@ input[type="file"] {
   /* Header spacing */
   .header {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: flex-end;
+    justify-content: end;
     gap: 12px;
-    margin-bottom: 30px;
   }
 
   .save-preview-btn {
@@ -716,6 +735,7 @@ input[type="file"] {
   }
   .header-left{
     margin: auto 0;
+    display: none;
   }
   .save-preview-btn{
     padding: 8px 16px;
@@ -758,3 +778,4 @@ input[type="file"] {
   }
 
 }
+

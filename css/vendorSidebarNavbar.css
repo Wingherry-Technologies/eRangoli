@@ -1460,6 +1460,9 @@ nav{
   justify-content: flex-end;
 }
 
+.mobile-back-button{
+    display: none;
+}
 /* ---------- RESPONSIVE ---------- */
 
 /* Tablets */
@@ -1540,6 +1543,18 @@ nav{
   }
   .heading-line-customer{
         width: 170px;
+  }
+.mobile-back-button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 70px;
+    background-color: white;
+    width: max-content;
+    position: fixed;
+    top: 5px;
+    z-index: 9999;
   }
 }
 
