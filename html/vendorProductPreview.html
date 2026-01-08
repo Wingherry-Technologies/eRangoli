@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Preview</title>
+    <link rel="stylesheet" href="../css/vendorAddProduct.css">
+    <link rel="stylesheet" href="../css/vendorProductPreview.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="preview-header">
+            <div class="header-left">
+                <img src="../assets/vendorAddProduct/ArrowLeft.svg" alt="Back" onclick="window.history.back()">
+                <span class="back-text">Back to editing</span>
+            </div>
+            <div class="header-right">
+                <button class="edit-btn">Edit</button>
+                <button class="approval-btn">Send for Approval</button>
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="preview-section">
+            <h2 class="preview-section-title">Product Details</h2>
+            
+            <div class="product-preview-layout">
+                <!-- Left Column: Images -->
+                <div class="preview-left-column">
+                                        <div class="product-category">
+                        <span>Category : Footwear | Mojadi</span>
+                        <span class="product-tag">Tags: Rajasthan</span>
+                    </div>
+                    <div class="main-product-image">
+                        <img src="../assets/vendorProductPreview/main-product.svg" alt="Product">
+                    </div>
+                    
+                    <div class="thumbnail-grid">
+                        <div class="thumbnail-item active">
+                            <img src="../assets/vendorProductPreview/Rectangle 34627061.svg" alt="Thumbnail 1">
+                        </div>
+                        <div class="thumbnail-item">
+                            <img src="../assets/vendorProductPreview/Rectangle 34627062.svg" alt="Thumbnail 2">
+                        </div>
+                        <div class="thumbnail-item">
+                            <img src="../assets/vendorProductPreview/Rectangle 34627063.svg" alt="Thumbnail 3">
+                        </div>
+                        <div class="thumbnail-item">
+                            <img src="../assets/vendorProductPreview/Rectangle 34627064.svg" alt="Thumbnail 4">
+                        </div>
+                        <div class="thumbnail-item">
+                            <img src="../assets/vendorProductPreview/Rectangle 34627065.svg" alt="Thumbnail 5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Product Info -->
+                <div class="preview-right-column">
+                    <!-- <div class="product-category">
+                        <span>Category : Footwear | Mojadi</span>
+                        <span class="product-tag">Tags: Rajasthan</span>
+                    </div> -->
+
+                    <h1 class="product-title">Handmade Embroidery Mojadi</h1>
+                    <p class="product-brand">by Sanskriti Collection</p>
+
+                    <div class="product-price">₹1,299</div>
+
+                    <p class="product-description">
+                        Mojadi features intricate hand embroidery inspired by traditional Indian designs. Made with premium materials and a comfortable fit, it's perfect for weddings, festive occasions, and ethnic wear—adding timeless elegance to every step.
+                    </p>
+
+                    <div class="product-details-info">
+                        <div class="details-heading-title toggle-header" data-target="details">
+                        <h3 class="details-heading">Product Details</h3>
+                        <span><img  class="toggle-icon" src="../assets/vendorProductPreview/Plus.svg" alt=""></span>
+                        </div>
+                        <ul class="details-list toggle-content" data-type="details">
+                            <li><span class="detail-label">Ornamentation</span> - Embroidered</li>
+                            <li><span class="detail-label">Material</span> - Canvas</li>
+                            <li><span class="detail-label">Heel Height</span> - 2inch (regular)</li>
+                            <li><span class="detail-label">Toe Shape</span> - Round Toe</li>
+                            <li><span class="detail-label">Occasion</span> - Party</li>
+                            <li><span class="detail-label">Care Info</span> - Wipe with dry cloth</li>
+                        </ul>
+                    </div>
+
+                    <div class="return-policies">
+                        <div class="details-heading-title toggle-header" data-target="policy">
+                        <h3 class="policies-heading">Return/Exchange Policies</h3>
+                        <span><img class="toggle-icon" src="../assets/vendorProductPreview/Plus.svg" alt=""></span>
+                        </div>
+                        <ol class="policy-text policy-list">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Products must be returned in original condition.</li>
+                        <li>Return request within 7 days of delivery.</li>
+                        <li>No return on discounted items.</li>
+                        <li>Exchange allowed only once per order.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Specifications Section -->
+        <div class="preview-section">
+            <h2 class="preview-section-title">Product Specifications</h2>
+            
+            <div class="variants-preview-grid">
+                <!-- Variant 1 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 1</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+
+                <!-- Variant 2 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 2</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+
+                <!-- Variant 3 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 3</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+
+                <!-- Variant 4 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 4</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+
+                <!-- Variant 5 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 5</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+
+                <!-- Variant 6 -->
+                <div class="variant-preview-card">
+                    <h4 class="variant-preview-title">Variant 6</h4>
+                    <div class="variant-images-grid">
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                        <div class="variant-img-placeholder"></div>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Size - </span>
+                        <span class="variant-info-value">3</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Colour - </span>
+                        <span class="color-swatch-display" ></span>
+                        <span class="variant-info-value">Maroon</span>
+                    </div>
+                    <div class="variant-info-row">
+                        <span class="variant-info-label">Quantity - </span>
+                        <span class="variant-info-value">120</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick up Address Section -->
+        <div class="preview-section">
+            <h2 class="preview-section-title">Pick up address</h2>
+            
+            <div class="address-preview-card">
+                <h4 class="address-preview-title">Address 1</h4>
+                <!-- <p class="address-preview-name">David john</p>
+                <p class="address-preview-email">davidjohn23@gmail.com</p>
+                <p class="address-preview-phone">95367 89905</p> -->
+                <p class="address-preview-details">
+                    C - 605 , Eden Park,Mudhuban colony, parsi road,<br>
+                    Near Appolo Hospital, Pune, Maharashtra, 234 678
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/vendorProductPreview.js"></script>
+</body>
+</html>
