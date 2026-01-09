@@ -1,7 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
 }
 /* ===== Wrapper ===== */
 .personal-details-wrapper {
@@ -13,8 +16,10 @@
 
 /* ===== Title ===== */
 .section-title {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #3f3f3f;
   margin-bottom: 12px;
 }
 
@@ -35,32 +40,33 @@
 
 /* ===== Items ===== */
 .detail-item label {
-  font-size: 12px;
-  color: #777;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3F3F3F;
   display: block;
   margin-bottom: 4px;
 }
 
 .detail-item p {
-  font-size: 14px;
-  font-weight: 500;
-  color: #222;
+  font-size: 18px;
+  font-weight: 400;
+  color: #3F3F3F;
   margin: 0;
 }
 
 /* Address spans full row on desktop */
-.detail-item.address {
+/* .detail-item.address {
   grid-column: span 2;
-}
+} */
 
 /* ===== Identity Proof Section ===== */
 .identity-proof {
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .identity-proof label {
-  font-size: 12px;
-  color: #777;
+  font-size: 13px;
+  color: #3F3F3F;
   display: block;
   margin-bottom: 8px;
 }

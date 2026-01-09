@@ -1,7 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
 }
 /* ===== Wrapper ===== */
 .settings-wrapper {
@@ -13,9 +16,10 @@
 
 /* ===== Title ===== */
 .settings-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #3f3f3f;
 }
 
 /* ===== Card ===== */
@@ -29,8 +33,9 @@
 /* ===== Items ===== */
 .settings-item {
   padding: 16px 20px;
-  font-size: 14px;
-  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
