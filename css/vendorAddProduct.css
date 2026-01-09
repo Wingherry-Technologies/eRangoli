@@ -286,6 +286,10 @@ body {
   overflow: hidden;
 }
 
+.upload-area.error {
+  border: 2px solid #e74c3c;
+}
+
 .upload-box:hover {
   border-color: #16a085;
 }
@@ -297,7 +301,7 @@ body {
 .upload-box-icon {
   width: 32px;
   height: 32px;
-  opacity: 0.4;
+  /* opacity: 0.4; */
   margin-bottom: 8px;
 }
 

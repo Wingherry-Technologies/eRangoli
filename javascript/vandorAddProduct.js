@@ -124,6 +124,7 @@ const categoryFields = {
       type: "text",
       placeholder: "₹7,299",
       col: 1,
+      required: true,
     },
     {
       name: "design",
@@ -207,6 +208,7 @@ const categoryFields = {
       type: "text",
       placeholder: "₹4,699",
       col: 1,
+      required: true,
     },
     {
       name: "occasion",
@@ -306,6 +308,7 @@ const categoryFields = {
       type: "text",
       placeholder: "₹ 1299",
       col: 1,
+      required: true,
     },
     {
       name: "frame",
@@ -403,6 +406,7 @@ const categoryFields = {
       type: "text",
       placeholder: "₹3,459",
       col: 1,
+      required: true,
     },
     {
       name: "occasion",
@@ -494,6 +498,7 @@ const categoryFields = {
       type: "text",
       placeholder: "₹3,459",
       col: 1,
+      required: true,
     },
     {
       name: "occasion",
@@ -683,6 +688,7 @@ function handleFileUpload(file, container, preview) {
   reader.onload = (e) => {
     preview.src = e.target.result;
     container.classList.add("has-image");
+    container.classList.remove("error");
   };
   reader.readAsDataURL(file);
 }
@@ -823,7 +829,7 @@ function createVariant(number) {
                               .map(
                                 (_, i) => `
                                 <div class="upload-box variant-upload" data-variant-upload="${i}">
-                                <img src="../assets/vendorAddProduct/UploadSimple.svg" alt="">
+                                <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="">
                                 <span class="upload-box-text">Upload</span>
                                 <img class="preview-image" alt="Preview">
                                 <input type="file" accept="image/*">
@@ -1146,9 +1152,19 @@ const savePreviewBtn = document.querySelector(".save-preview-btn");
 savePreviewBtn.addEventListener("click", () => {
   let isValid = true;
 
+  // Main image mandatory
+if (!validateMainImage()) {
+  isValid = false;
+}
+
     if (!validateImages()) {
     isValid = false;
   }
+
+  // Variant quantity validation
+if (!validateVariantQuantities()) {
+  isValid = false;
+}
   // Product details
   productMandatoryFields.forEach(obj => {
     const field = document.getElementById(obj.id);
@@ -1235,4 +1251,42 @@ function validateImages() {
     errorDiv.style.display = "none";
     return true;
   }
+}
+
+// 
+function validateVariantQuantities() {
+  let valid = true;
+
+  document.querySelectorAll(".quantity-input").forEach((input) => {
+    if (!input.value.trim()) {
+      showError(input, "Total quantity is required");
+      valid = false;
+    } else {
+      clearError(input);
+    }
+  });
+
+  return valid;
+}
+
+
+// validate main image 
+function validateMainImage() {
+  const errorDiv = document.getElementById("imageError");
+
+  if (!mainUpload.classList.contains("has-image")) {
+    errorDiv.innerText = "Product cover photo is required";
+    errorDiv.style.display = "block";
+
+    // 🔴 red border add
+    mainUpload.classList.add("error");
+
+    mainUpload.scrollIntoView({ behavior: "smooth", block: "center" });
+    return false;
+  }
+
+  // ✅ image present → remove red border
+  mainUpload.classList.remove("error");
+  errorDiv.style.display = "none";
+  return true;
 }
