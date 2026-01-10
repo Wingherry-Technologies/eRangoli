@@ -243,6 +243,7 @@ body {
 .productOverviewAddToCart.quantityCounterBox{
   background-color: #a1040485;
   padding: 12px 30px;
+  text-wrap: nowrap;
 }
 
 .productOverviewColorSection {
@@ -254,7 +255,7 @@ body {
   position: absolute;
   right: 0px;
   padding: 8px;
-  width: 250px;
+  max-width: 300px;
   display: none;
   flex-direction: column;
   gap: 10px;
@@ -320,7 +321,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .productOverviewColorOption.productOverviewActive img {
   border: 2px solid #8b0000;
@@ -365,6 +366,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.size-active-option{
+  padding: 10px 10px;
 }
 
 .sectionToggleIcon {
@@ -1361,7 +1366,6 @@ body {
 
   .productOverviewBuyNow,
   .productOverviewAddToCart {
-    flex: 1;
     padding: 10px 20px;
     font-size: 16px;
   }
