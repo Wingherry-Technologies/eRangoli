@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customer Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/vendorCustomerManagement.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="customer-dashboard-wrapper">
+      <!-- Header -->
+      <div class="customer-dashboard-header-row">
+        <h1>Customer Management</h1>
+        <button class="customer-dashboard-nav-btn" id="customer-dashboard-myCustomersBtn">
+          My Customers
+        </button>
+      </div>
+
+      <!-- Cards -->
+      <div class="customer-dashboard-cards-row">
+        <!-- Card 1 -->
+        <div class="customer-dashboard-card">
+          <div class="customer-dashboard-icon-box">
+             <div class="customer-dashboard-icon">
+                <img src="../assets/vendorCustomerManagement/totalcustomer.svg" alt="">
+            </div>
+            <span class="customer-dashboard-card-title">Total Customers</span>
+          </div>
+
+          <h2 class="customer-dashboard-card-value">5,034</h2>
+          <div class="customer-dashboard-positive-box">
+            <img src="../assets/vendorCustomerManagement/TrendUp (1).svg" alt="">
+            <span class="customer-dashboard-positive-title">+15.3% from last year</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="customer-dashboard-card">
+          <div class="customer-dashboard-icon-box">
+            <div class="customer-dashboard-icon">
+            <img src="../assets/vendorCustomerManagement/repeatCustomer.svg" alt="">
+            </div>
+            <span class="customer-dashboard-card-title">Repeat Customer</span>
+          </div>
+
+          <h2 class="customer-dashboard-card-value">3,511</h2>
+
+          <div class="customer-dashboard-positive-box">
+            <img src="../assets/vendorCustomerManagement/TrendUp (1).svg" alt="">
+            <span class="customer-dashboard-positive-title">+9.90% from last year</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="customer-dashboard-card">
+          <div class="customer-dashboard-icon-box">
+            <div class="customer-dashboard-icon">
+            <img src="../assets/vendorCustomerManagement/churnRate.svg" alt="">
+            </div>
+            <span class="customer-dashboard-card-title">Churn rate</span>
+          </div>
+
+          <h2 class="customer-dashboard-card-value">6%</h2>
+          <div class="customer-dashboard-negative-box">
+            <img src="../assets/vendorCustomerManagement/trendDown (2).svg" alt="">
+            <span class="customer-dashboard-negative-title">-1.2% from last year</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="customer-dashboard-card">
+          <div class="customer-dashboard-icon-box">
+            <div class="customer-dashboard-icon">
+            <img src="../assets/vendorCustomerManagement/retentationrate.svg" alt="">
+            </div>
+            <span class="customer-dashboard-card-title">Retention Rate</span>
+          </div>
+
+          <h2 class="customer-dashboard-card-value">52%</h2>
+          <div class="customer-dashboard-negative-box">
+            <img src="../assets/vendorCustomerManagement/trendDown (2).svg" alt="">
+            <span class="customer-dashboard-negative-title">-4.6% from last year</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Customers Chart -->
+      <div class="customer-dashboard-chart-wrapper">
+        <div class="customer-dashboard-chart-header">
+          <h2 class="customer-dashboard-chart-title">Active Customers</h2>
+          <select class="customer-dashboard-dropdown" id="customer-dashboard-yearlyDropdown">
+            <option value="yearly">Yearly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+        <div class="customer-dashboard-chart-container">
+          <canvas id="customer-dashboard-activeCustomersChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Market Penetration Heatmap -->
+      <div class="customer-dashboard-heatmap-wrapper">
+        <div class="customer-dashboard-heatmap-header">
+          <h2 class="customer-dashboard-heatmap-title">Market penetration rate in target regions</h2>
+          <div class="customer-dashboard-heatmap-controls">
+            <select class="customer-dashboard-dropdown" id="customer-dashboard-valuesDropdown">
+              <option value="values">Values</option>
+              <option value="percentage">Percentage</option>
+            </select>
+            <select class="customer-dashboard-dropdown" id="customer-dashboard-monthDropdown">
+              <option value="may2025">May 2025</option>
+              <option value="apr2025">Apr 2025</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="customer-dashboard-heatmap-container">
+          <table class="customer-dashboard-heatmap-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
+              </tr>
+            </thead>
+            <tbody id="customer-dashboard-heatmapBody">
+            </tbody>
+          </table>
+          <div class="customer-dashboard-heatmap-legend">
+            <div class="customer-dashboard-legend-scale"></div>
+            <div class="customer-dashboard-legend-labels">
+              <span>500</span>
+              <span>1000</span>
+              <span>2000</span>
+              <span>3000</span>
+              <span>4000</span>
+              <span>5000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/vendorCustomerManagement.js"></script>
+  </body>
+</html>
