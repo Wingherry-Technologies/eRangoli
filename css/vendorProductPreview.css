@@ -480,7 +480,7 @@
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1250px){
+@media (min-width: 1025px) and (max-width: 1608px){
         .variants-preview-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }  

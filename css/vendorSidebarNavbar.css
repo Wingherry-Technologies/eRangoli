@@ -388,6 +388,7 @@ nav{
     padding: 10px;
     color: black;
     font-weight: 500;
+    cursor: pointer;
 }
 
 /* Mobile Radio buttons */
@@ -1167,6 +1168,7 @@ nav{
     justify-content: space-between;
     padding:10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .image-head{
     display: flex;

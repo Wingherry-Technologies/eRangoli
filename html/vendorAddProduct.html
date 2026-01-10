@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <title>Vendor - Add New Product</title>
     <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
 <link rel="stylesheet" href="../css/vendorAddProduct.css">
 <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
   <nav>
     <div class="logo-section">
       <img id="desktop-erangoli-logo" onclick="window.location.href='../html/vendorDashboard.html'"
@@ -48,7 +48,7 @@
           <ul class="mobile-nav-menu1" id="account-menu">
 
             <!-- DASHBOARD -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorDashboard.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -61,7 +61,7 @@
             </li>
 
             <!-- PRODUCT MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorInventoryManagement.html'">
               <div class="dropdown-header dropdown-header-active">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -74,7 +74,7 @@
             </li>
 
             <!-- ORDER MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorOrderManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -87,7 +87,7 @@
             </li>
 
             <!-- RETURN MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorReturnManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -100,7 +100,7 @@
             </li>
 
             <!-- SALES -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorSales.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -113,7 +113,7 @@
             </li>
 
             <!-- CUSTOMER MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorCustomerManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -126,7 +126,7 @@
             </li>
 
             <!-- PROFILE -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorpersonaldetails.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -406,7 +406,7 @@
 
   <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
-    <!-- Sidebar -->
+  <!-- Sidebar -->
   <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
     <article>
       <div class="welcome-sidebar-main">
@@ -420,42 +420,42 @@
         </div>
       </div>
       <ul>
-        <li>
+        <li onclick="window.location.href='../html/vendorDashboard.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/GridFour.svg" alt="">
             <span>Dashboard</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li class="sidebar-active">
+        <li class="sidebar-active" onclick="window.location.href='../html/vendorInventoryManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/Package.svg" alt="">
             <span>Product Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorOrderManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
             <span>Order Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorReturnManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
             <span>Return Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorSales.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/Coins.svg" alt="">
             <span>Sales</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorCustomerManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
             <span>Customer Management</span>
@@ -688,8 +688,8 @@
             <div id="addressList">
                 <div class="address-card">
                     <div class="use-address">
-                    <input type="checkbox" class="address-checkbox">
-                     <span>Use this address details</span>   
+                    <input type="checkbox" id="use-address-checkbox" class="address-checkbox">
+                     <label for="use-address-checkbox">Use this address details</label>   
                     </div>
                     
                     <div class="address-content">

@@ -425,6 +425,14 @@ searchInput.addEventListener("keyup", function () {
     faqVisibleCount === 0 ? "block" : "none";
 });
 
+const addNewProductBtns=document.querySelectorAll(".dashboard-main-heading, .mobile-add-new")
+
+addNewProductBtns.forEach(addNewProductBtn => {
+  addNewProductBtn.addEventListener("click",()=>{
+    window.location.href="../html/vendorAddProduct.html";
+  });
+});
+
 
 
 

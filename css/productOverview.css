@@ -49,6 +49,9 @@ body {
   color: #000000;
   margin-bottom: 20px;
 }
+.productOverviewBreadcrumb>b{
+  font-weight: 700;
+}
 
 .productOverviewMainContent {
   display: flex;
@@ -244,6 +247,52 @@ body {
 
 .productOverviewColorSection {
   margin-bottom: 20px;
+  position: relative;
+}
+.size-chart-main-box{
+  background-color: #EFDFDF;
+  position: absolute;
+  right: 0px;
+  padding: 8px;
+  width: 250px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+.size-chart-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.size-chart-box>span{
+  color: #A10404;
+  font-size: 12px;
+}
+.size-chart-box>img{
+  height: 15px;
+  cursor: pointer;
+}
+.size-chart-main-box table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.size-chart-main-box table>thead{
+  background-color: #B55E7D;
+}
+.size-chart-main-box table>thead>tr>th{
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 5px;
+}
+.size-chart-main-box table>tbody>tr{
+  text-align: center;
+}
+.size-chart-main-box table>tbody>tr>td{
+  background-color: white;
+  color: #3F3F3F;
+  font-size: 12px;
+  padding: 5px;
 }
 
 .productOverviewSectionTitle {
@@ -255,7 +304,8 @@ body {
 
 .productOverviewColorOptions {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 15px;
   text-align: center;
 }
 .colorName {
@@ -269,10 +319,38 @@ body {
 .productOverviewColorOption img {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
 }
 .productOverviewColorOption.productOverviewActive img {
   border: 2px solid #8b0000;
   border-radius: 50%;
+  object-fit: cover;
+}
+.productOverviewSizeOptions{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+.productOverviewSizeOption{
+  padding: 10px 15px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+.main-size{
+  display: flex ;
+  align-items: center;
+  justify-content: space-between;
+}
+.size-chart{
+  font-size: 14px;
+  color: #A10404;
+  cursor: pointer;
+}
+.productOverviewSizeOptionActive{
+  border: 1px solid #A10404
 }
 
 .productOverviewDescription {
@@ -298,9 +376,9 @@ body {
 }
 
 .productOverviewDeliveryLabel {
-  font-size: 13px;
-  font-weight: 400;
-  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  color: #A10404;
   margin-bottom: 6px;
 }
 
@@ -399,6 +477,9 @@ body {
 .productOverviewDetailsSection {
   margin-top: 30px;
   padding-top: 20px;
+}
+.productOverviewDetailsSection1{
+  padding-bottom: 15px;
 }
 
 .productOverviewDetailsList {
