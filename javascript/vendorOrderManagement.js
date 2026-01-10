@@ -1,3 +1,6 @@
+
+
+
 /* ===============================
    GLOBAL STATE
 ================================ */
@@ -184,51 +187,67 @@ document.querySelectorAll(".close-order").forEach(btn => {
 /* =====================================================
    PAGINATION LOGIC
 ===================================================== */
-const rowsPerPage = 8;
-let currentPage = 1;
+// const rowsPerPage = 8;
+// let currentPage = 1;
 
-const tableBody = document.getElementById("productTableBody");
-const rows = Array.from(tableBody.querySelectorAll("tr"));
+// const tableBody = document.getElementById("productTableBody");
+// const rows = Array.from(tableBody.querySelectorAll("tr"));
 
-const totalRows = rows.length;
-const totalPages = Math.ceil(totalRows / rowsPerPage);
+// const totalRows = rows.length;
+// const totalPages = Math.ceil(totalRows / rowsPerPage);
 
-const paginationInfo = document.getElementById("paginationInfo");
-const prevBtn = document.getElementById("prevPage");
-const nextBtn = document.getElementById("nextPage");
+// const paginationInfo = document.getElementById("paginationInfo");
+// const prevBtn = document.getElementById("prevPage");
+// const nextBtn = document.getElementById("nextPage");
 
-/* ---------- RENDER PAGE ---------- */
-function renderTable() {
-  rows.forEach((row, index) => {
-    row.style.display = "none";
-    const start = (currentPage - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
+// /* ---------- RENDER PAGE ---------- */
+// function renderTable() {
+//   rows.forEach((row, index) => {
+//     row.style.display = "none";
+//     const start = (currentPage - 1) * rowsPerPage;
+//     const end = start + rowsPerPage;
 
-    if (index >= start && index < end) {
-      row.style.display = "";
-    }
+//     if (index >= start && index < end) {
+//       row.style.display = "";
+//     }
+//   });
+
+//   paginationInfo.textContent = `${currentPage} / ${totalPages}`;
+
+//   prevBtn.disabled = currentPage === 1;
+//   nextBtn.disabled = currentPage === totalPages;
+// }
+
+// /* ---------- EVENTS ---------- */
+// prevBtn.addEventListener("click", () => {
+//   if (currentPage > 1) {
+//     currentPage--;
+//     renderTable();
+//   }
+// });
+
+// nextBtn.addEventListener("click", () => {
+//   if (currentPage < totalPages) {
+//     currentPage++;
+//     renderTable();
+//   }
+// });
+
+// /* ---------- INIT ---------- */
+// renderTable();
+
+
+const searchInput = document.getElementById("orderSearchInput");
+const rows = document.querySelectorAll("#productTableBody tr");
+
+searchInput.addEventListener("keyup", () => {
+  const value = searchInput.value.toLowerCase();
+  let visible = 0;
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    const match = text.includes(value);
+    row.style.display = match ? "" : "none";
+    if (match) visible++;
   });
-
-  paginationInfo.textContent = `${currentPage} / ${totalPages}`;
-
-  prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = currentPage === totalPages;
-}
-
-/* ---------- EVENTS ---------- */
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderTable();
-  }
 });
-
-nextBtn.addEventListener("click", () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    renderTable();
-  }
-});
-
-/* ---------- INIT ---------- */
-renderTable();

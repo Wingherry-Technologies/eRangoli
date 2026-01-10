@@ -25,89 +25,86 @@
       </div>
 
       <!-- Cards -->
-      <div class="cards-row">
-        <!-- Card 1 -->
-        <div class="inventory-card">
-          <div class="icon-box">
-            <!-- SVG ICON -->
-            <img
-              src="../assets/vendorOrderManagement/trackOrders.svg"
-              alt="User Icon"
-            />
-            <span class="card-title">Total Orders</span>
-          </div>
+      <div class="stats-grid">
 
-          <h2 class="card-value">25,234</h2>
-          <div class="positive-box">
-            <img
-              src="../assets/vendorOrderManagement/trendup.svg"
-              alt="Up Icon"
-            />
-            <span class="positive-title">+15.3% from last month</span>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="inventory-card">
-          <div class="icon-box">
-            <img
-              src="../assets/vendorOrderManagement/packed.svg"
-              alt="Stock Icon"
-            />
-            <span class="card-title">Packed</span>
-          </div>
-
-          <h2 class="card-value">7,603</h2>
-
-          <div class="positive-box">
-            <img
-              src="../assets/vendorOrderManagement/trendup.svg"
-              alt="Up Icon"
-            />
-            <span class="positive-title">+9.90% from last month</span>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="inventory-card">
-          <div class="icon-box">
-            <img
-              src="../assets/vendorOrderManagement/shipped.svg"
-              alt="Sold Icon"
-            />
-            <span class="card-title">Products Sold</span>
-          </div>
-
-          <h2 class="card-value">3,267</h2>
-          <div class="negative-box">
-            <img
-              src="../assets/vendorOrderManagement/trenddown.svg"
-              alt="Down Icon"
-            />
-            <span class="negative-title">-1.2% from last month</span>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="inventory-card">
-          <div class="icon-box">
-            <img
-              src="../assets/vendorOrderManagement/delivered.svg"
-              alt="Seller Icon"
-            />
-            <span class="card-title">Delivered</span>
-          </div>
-
-          <h2 class="card-value">5,234</h2>
-          <div class="negative-box">
-            <img
-              src="../assets/vendorOrderManagement/trenddown.svg"
-              alt="Down Icon"
-            />
-            <span class="negative-title">-4.6% from last month</span>
-          </div>
-        </div>
+  <!-- Total Orders -->
+  <div class="stat-card">
+    <div class="stat-top">
+      <div class="stat-icon teal">
+        <img src="../assets/vendorOrderManagement/StackOverflowLogo.svg" alt="Total Orders" />
       </div>
+      <div class="stat-label">Total Orders</div>
+    </div>
+
+    <div class="stat-value">25,234</div>
+
+    <div class="stat-change positive">
+      <span class="trend-icon">
+        <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+      </span>
+      +15.3% from last month
+    </div>
+  </div>
+
+  <!-- Packed -->
+  <div class="stat-card">
+    <div class="stat-top">
+      <div class="stat-icon teal">
+        <img src="../assets/vendorOrderManagement/Package.svg" alt="Packed" />
+      </div>
+      <div class="stat-label">Packed</div>
+    </div>
+
+    <div class="stat-value">7,603</div>
+
+    <div class="stat-change positive">
+      <span class="trend-icon">
+        <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+      </span>
+      +9.90% from last month
+    </div>
+  </div>
+
+  <!-- Shipped -->
+  <div class="stat-card">
+    <div class="stat-top">
+      <div class="stat-icon cyan">
+        <img src="../assets/vendorOrderManagement/TruckTrailer.svg" alt="Shipped" />
+      </div>
+      <div class="stat-label">Shipped</div>
+    </div>
+
+    <div class="stat-value">3,267</div>
+
+    <div class="stat-change negative">
+      <span class="trend-icon">
+        <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+      </span>
+      -1.2% from last month
+    </div>
+  </div>
+
+  <!-- Delivered -->
+  <div class="stat-card">
+    <div class="stat-top">
+      <div class="stat-icon green">
+        <img src="../assets/vendorOrderManagement/CheckCircle.svg" alt="Delivered" />
+      </div>
+      <div class="stat-label">Delivered</div>
+    </div>
+
+    <div class="stat-value">5,234</div>
+
+    <div class="stat-change negative">
+      <span class="trend-icon">
+        <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+      </span>
+      -4.6% from last month
+    </div>
+  </div>
+
+</div>
+
       <div class="product-list-wrapper">
         <!-- Heading -->
         <h2 class="product-heading">Product List</h2>
@@ -606,26 +603,11 @@
             </tr>
           </tbody>
         </table>
-        <!-- PAGINATION -->
-<div class="table-pagination">
-  <!-- LEFT -->
-  <div class="pagination-info" id="paginationInfo">
-    1 / 1
-  </div>
-
-  <!-- RIGHT -->
-  <div class="pagination-controls">
-    <button id="prevPage" disabled>
-      <img src="../assets/productcatalog/CaretCircleLeft.svg" alt="Prev">
-    </button>
-
-    <button id="nextPage">
-      <img src="../assets/productcatalog/CaretCircleRight.svg" alt="Next">
-    </button>
-  </div>
-</div>
-
+       
       </div>
+
+
+      
       <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-box">
     <h3>Delete Order?</h3>
@@ -636,6 +618,9 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- ORDER DETAILS MODAL -->
 <div class="order-modal" id="modal-received">
   <div class="order-container">
@@ -1140,6 +1125,22 @@
   </div>
 </div>
 
+ <!-- PAGINATION -->
+<!-- <div class="table-pagination">
+  <div class="pagination-info" id="paginationInfo">
+    1 / 1
+  </div>
+
+  <div class="pagination-controls">
+    <button id="prevPage" disabled>
+      <img src="../assets/productcatalog/CaretCircleLeft.svg" alt="Prev">
+    </button>
+
+    <button id="nextPage">
+      <img src="../assets/productcatalog/CaretCircleRight.svg" alt="Next">
+    </button>
+  </div>
+</div> -->
 
     </div>
     <script src="../javascript/vendorOrderManagement.js"></script>
