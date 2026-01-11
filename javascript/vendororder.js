@@ -181,55 +181,63 @@ if (searchInput) {
 }
 
 /*************************************************
-  MOBILE FAQ ACCORDION
+  MOBILE FAQ ACCORDION (FIXED)
 *************************************************/
 document.querySelectorAll(".faq-item").forEach(item => {
   const btn = item.querySelector(".faq-question");
   if (!btn) return;
 
   btn.addEventListener("click", (e) => {
-  // block toggle if action clicked
-  if (
-    e.target.closest(".order-actions") ||
-    e.target.closest(".mobile-preview") ||
-    e.target.closest(".mobile-order-arrow")
-  ) {
-    e.preventDefault();
-    return;
-  }
 
-  document.querySelectorAll(".faq-item").forEach(i => {
-    if (i !== item) i.classList.remove("active");
+    // ❌ BLOCK FAQ TOGGLE IF ANY ACTION CLICKED
+    if (
+      e.target.closest(".order-actions") ||
+      e.target.closest(".mobile-preview") ||
+      e.target.closest(".three-dot") ||
+      e.target.closest(".mobile-order-arrow") ||
+      e.target.closest(".all-preview")
+    ) {
+      e.stopPropagation();
+      e.preventDefault();
+      return;
+    }
+
+    document.querySelectorAll(".faq-item").forEach(i => {
+      if (i !== item) i.classList.remove("active");
+    });
+
+    item.classList.toggle("active");
   });
-
-  item.classList.toggle("active");
 });
 
-
-});
 
 /*************************************************
-  3 DOT MENU (DESKTOP + MOBILE)
+  3 DOT MENU (DESKTOP + MOBILE FIX)
 *************************************************/
 document.addEventListener("click", function (e) {
   const threeDot = e.target.closest(".three-dot");
   if (!threeDot) return;
 
   e.stopPropagation();
+  e.preventDefault();
 
   const wrapper =
     threeDot.closest(".previewing") ||
     threeDot.closest(".mobile-preview");
 
-  const menu = wrapper?.querySelector(".all-preview");
+  if (!wrapper) return;
+
+  const menu = wrapper.querySelector(".all-preview");
   if (!menu) return;
 
+  // close others
   document.querySelectorAll(".all-preview").forEach(m => {
     if (m !== menu) m.classList.remove("active-preview");
   });
 
   menu.classList.toggle("active-preview");
 });
+
 
 // PREVENT FAQ TOGGLE WHEN CLICKING ACTIONS
 // document.addEventListener("click", function (e) {
@@ -314,7 +322,7 @@ function openModalByStatus(status) {
 }
 
 /*************************************************
-  OPEN MODAL (ARROW DESKTOP + MOBILE)
+  OPEN MODAL (DESKTOP + MOBILE FIXED)
 *************************************************/
 document.addEventListener("click", function (e) {
   const arrow =
@@ -323,19 +331,26 @@ document.addEventListener("click", function (e) {
 
   if (!arrow) return;
 
-  e.stopPropagation(); // SAFE here
+  e.stopPropagation();
+  e.preventDefault();
 
-  const row = getRowFromTarget(arrow);
+  const row =
+    arrow.closest("tr") ||
+    arrow.closest(".faq-item");
+
   if (!row) return;
 
   activeRow = row;
-  activeSKU = getSKUFromRow(row);
+  activeSKU = row.dataset.sku || row.innerText.match(/#(\d+)/)?.[1];
 
-  const status = getStatusFromRow(row);
-  if (!status) return;
+  const badge = row.querySelector(".status-badge");
+  if (!badge) return;
+
+  const status = badge.innerText.toLowerCase();
 
   openModalByStatus(status);
 });
+
 
 
 /*************************************************

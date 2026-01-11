@@ -580,7 +580,7 @@ tbody tr td>.creame{
   text-align: left;
 }
 .faq-question {
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .faq-question * {
@@ -1079,7 +1079,7 @@ tbody tr td>.creame{
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 20000;
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -1312,4 +1312,25 @@ tbody tr td>.creame{
 .faq .all-preview.active-preview {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 595px) {
+  .order-modal {
+    z-index: 99999 !important;
+  }
+
+  .bottom-nav {
+    z-index: 1 !important;
+  }
+}
+/* MOBILE ACTION PRIORITY FIX */
+.mobile-order-arrow,
+.mobile-preview,
+.three-dot {
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.faq-question {
+  pointer-events: auto;
 }
