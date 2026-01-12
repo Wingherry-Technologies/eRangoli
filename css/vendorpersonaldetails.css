@@ -8,7 +8,6 @@
 }
 /* ===== Wrapper ===== */
 .personal-details-wrapper {
-  padding: 16px;
   max-width: 100%;
   margin: auto;
   font-family: "Inter", sans-serif;
@@ -99,6 +98,9 @@
 
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
+  body{
+    background-color: white !important;
+  }
   .details-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -114,5 +116,10 @@
 
   .id-images img {
     width: 100%;
+  }
+}
+@media (max-width:595px) {
+  .section-title{
+    display: none;
   }
 }

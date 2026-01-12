@@ -296,7 +296,7 @@ nav{
     padding: 5px 10px;
 }
 .mobile-nav-menu1{
-    margin-top: 20px;
+    margin: 20px 0px;
     list-style: none;
     width: 100%;
     display: flex;
@@ -1327,7 +1327,8 @@ nav{
 .er-footer {
   font-family: Nunito Sans;
   bottom: 0;
-  width: 100%;
+  margin: 15px;
+  margin-left: 315px;
   background: #21A593;
   /* Deep red */
   color: white;
@@ -1513,7 +1514,7 @@ nav{
     grid-template-columns: 1fr;
     text-align: left;
   }
-  .quick-link , .payments{
+  .quick-link{
     display: none;
   }
   .er-col{
@@ -1583,11 +1584,17 @@ nav{
     .main-content-beyond{
         margin-left: 250px;
     }
+    .er-footer{
+        margin-left: 265px;
+    }
     
 }
 @media (max-width:1024px) and (min-width:596px) {
     .main-content-beyond{
         margin-left: 70px;
+    }
+    .er-footer{
+        margin-left: 85px;
     }
 }
 .mobile-legend-item{
@@ -1601,6 +1608,12 @@ nav{
 @media (max-width:595px) {
     .main-content-beyond{
         margin-left: 0px;
+    }
+    .er-footer{
+        margin-left: 0px;
+        margin: 0px;
+        margin-top: 15px;
+        margin-bottom: 50px;
     }
     .mobile-legend-item{
         display: flex;

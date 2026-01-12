@@ -93,3 +93,6 @@ new Chart(ctx, {
   }
 });
 
+document.querySelector("#sidebar-main-vendor ul>li:nth-child(5)").classList.add("sidebar-active");
+
+document.querySelector("#account-menu li:nth-child(5) .dropdown-header").classList.add("dropdown-header-active");

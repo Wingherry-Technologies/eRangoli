@@ -8,7 +8,6 @@
 }
 /* ===== Wrapper ===== */
 .business-wrapper {
-  padding: 16px;
   max-width: 100%;
   margin: auto;
   font-family: "Inter", sans-serif;
@@ -117,6 +116,9 @@
 
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
+  body{
+    background-color: white !important;
+  }
   .business-main {
     flex-direction: column;
   }
@@ -137,5 +139,29 @@
 
   .bank-header {
     flex-direction: row;
+  }
+  .section-title{
+    display: none;
+  }
+}
+@media (max-width:922px) {
+  .business-logo img{
+    width: 220px;
+    height: 220px;
+  }
+  .info-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width:710px) {
+  .business-logo img{
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width:640px) {
+  .business-logo img{
+    width: 180px;
+    height: 180px;
   }
 }
