@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor- Product Preview</title>
-    <link rel="stylesheet" href="../css/vendorAddProduct.css">
-    <link rel="stylesheet" href="../css/vendorProductPreview.css">
-    <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
-    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-</head>
-<body>
 
-     <!-- Navigation Bar -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor - Product Management</title>
+  <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <link rel="stylesheet" href="../css/vendorInventoryManagement.css" />
+  <link rel="stylesheet" href="../css/vendorSales.css">
+  <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
   <nav>
     <div class="logo-section">
       <img id="desktop-erangoli-logo" onclick="window.location.href='../html/vendorDashboard.html'"
@@ -49,7 +51,7 @@
           <ul class="mobile-nav-menu1" id="account-menu">
 
             <!-- DASHBOARD -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorDashboard.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -62,7 +64,7 @@
             </li>
 
             <!-- PRODUCT MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorInventoryManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -75,7 +77,7 @@
             </li>
 
             <!-- ORDER MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorOrderManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -88,7 +90,7 @@
             </li>
 
             <!-- RETURN MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorReturnManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -101,8 +103,8 @@
             </li>
 
             <!-- SALES -->
-            <li class="mobile-dropdown">
-              <div class="dropdown-header">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorSales.html'">
+              <div class="dropdown-header dropdown-header-active">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
                     <img src="../assets/vendorSidebar/Coins.svg" alt="">
@@ -114,7 +116,7 @@
             </li>
 
             <!-- CUSTOMER MANAGEMENT -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorCustomerManagement.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -127,7 +129,7 @@
             </li>
 
             <!-- PROFILE -->
-            <li class="mobile-dropdown">
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorpersonaldetails.html'">
               <div class="dropdown-header">
                 <div class="mobile-icon-main">
                   <div class="mobile-icon">
@@ -407,7 +409,7 @@
 
   <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
-    <!-- Sidebar -->
+  <!-- Sidebar -->
   <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
     <article>
       <div class="welcome-sidebar-main">
@@ -421,42 +423,42 @@
         </div>
       </div>
       <ul>
-        <li>
+        <li onclick="window.location.href='../html/vendorDashboard.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/GridFour.svg" alt="">
             <span>Dashboard</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li class="sidebar-active" onclick="window.location.href='../html/vendorInventoryManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/Package.svg" alt="">
             <span>Product Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorOrderManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
             <span>Order Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorReturnManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
             <span>Return Management</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorSales.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/Coins.svg" alt="">
             <span>Sales</span>
           </div>
           <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
         </li>
-        <li>
+        <li onclick="window.location.href='../html/vendorCustomerManagement.html'">
           <div class="image-head">
             <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
             <span>Customer Management</span>
@@ -468,287 +470,257 @@
   </section>
 
   <div class="main-content-beyond">
-    <div class="container">
+    <div class="dashboard">
       <div class="mobile-back-button">
-        <img onclick="window.location.href='../html/vendorAddProduct.html'" src="../assets/inventoryManagement/ArrowLeft.svg" alt="">
-        <span>Add New Product</span>
+        <img onclick="window.location.href='../html/vendorDashboard.html'" src="../assets/inventoryManagement/ArrowLeft.svg" alt="">
+        <span>Sales</span>
       </div>
-        <!-- Header Section -->
-        <div class="preview-header">
-            <div class="header-left">
-                <img src="../assets/vendorAddProduct/ArrowLeft.svg" alt="Back" onclick="window.history.back()">
-                <span class="back-text">Back to editing</span>
+      <div class="dashboard-main-heading">
+        <h1>Sales</h1>
+      </div>
+      <div class="mobile-add-new">
+        <span>+</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon teal">
+              <img src="../assets/vendorSales/Wallet.svg" alt="" />
             </div>
-            <div class="header-right">
-                <button class="edit-btn" onclick="window.location.href='../html/vendorAddProduct.html'">Edit</button>
-                <button class="approval-btn">Send for Approval</button>
-            </div>
+            <div class="stat-label">Balance Amount</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">Total Earning</div> -->
+          <div class="stat-value">₹ 3,25,110</div>
+          <div class="stat-change positive">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+            </span>
+            +15.3% from last month
+          </div>
         </div>
 
-        <!-- Product Details Section -->
-        <div class="preview-section">
-            <h2 class="preview-section-title">Product Details</h2>
-            
-            <div class="product-preview-layout">
-                <!-- Left Column: Images -->
-                <div class="preview-left-column">
-                                        <div class="product-category">
-                        <span>Category : Footwear | Mojadi</span>
-                        <span class="product-tag">Tags: Rajasthan</span>
-                    </div>
-                    <div class="main-product-image">
-                        <img src="../assets/vendorProductPreview/main-product.svg" alt="Product">
-                    </div>
-                    
-                    <div class="thumbnail-grid">
-                        <div class="thumbnail-item active">
-                            <img src="../assets/vendorProductPreview/Rectangle 34627061.svg" alt="Thumbnail 1">
-                        </div>
-                        <div class="thumbnail-item">
-                            <img src="../assets/vendorProductPreview/Rectangle 34627062.svg" alt="Thumbnail 2">
-                        </div>
-                        <div class="thumbnail-item">
-                            <img src="../assets/vendorProductPreview/Rectangle 34627063.svg" alt="Thumbnail 3">
-                        </div>
-                        <div class="thumbnail-item">
-                            <img src="../assets/vendorProductPreview/Rectangle 34627064.svg" alt="Thumbnail 4">
-                        </div>
-                        <div class="thumbnail-item">
-                            <img src="../assets/vendorProductPreview/Rectangle 34627065.svg" alt="Thumbnail 5">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Product Info -->
-                <div class="preview-right-column">
-                    <!-- <div class="product-category">
-                        <span>Category : Footwear | Mojadi</span>
-                        <span class="product-tag">Tags: Rajasthan</span>
-                    </div> -->
-
-                    <h1 class="product-title">Handmade Embroidery Mojadi</h1>
-                    <p class="product-brand">by Sanskriti Collection</p>
-
-                    <div class="product-price">₹1,299</div>
-
-                    <p class="product-description">
-                        Mojadi features intricate hand embroidery inspired by traditional Indian designs. Made with premium materials and a comfortable fit, it's perfect for weddings, festive occasions, and ethnic wear—adding timeless elegance to every step.
-                    </p>
-
-                    <div class="product-details-info">
-                        <div class="details-heading-title toggle-header" data-target="details">
-                        <h3 class="details-heading">Product Details</h3>
-                        <span><img  class="toggle-icon" src="../assets/vendorProductPreview/Plus.svg" alt=""></span>
-                        </div>
-                        <ul class="details-list toggle-content" data-type="details">
-                            <li><span class="detail-label">Ornamentation</span> - Embroidered</li>
-                            <li><span class="detail-label">Material</span> - Canvas</li>
-                            <li><span class="detail-label">Heel Height</span> - 2inch (regular)</li>
-                            <li><span class="detail-label">Toe Shape</span> - Round Toe</li>
-                            <li><span class="detail-label">Occasion</span> - Party</li>
-                            <li><span class="detail-label">Care Info</span> - Wipe with dry cloth</li>
-                        </ul>
-                    </div>
-
-                    <div class="return-policies">
-                        <div class="details-heading-title toggle-header" data-target="policy">
-                        <h3 class="policies-heading">Return/Exchange Policies</h3>
-                        <span><img class="toggle-icon" src="../assets/vendorProductPreview/Plus.svg" alt=""></span>
-                        </div>
-                        <ol class="policy-text policy-list">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Products must be returned in original condition.</li>
-                        <li>Return request within 7 days of delivery.</li>
-                        <li>No return on discounted items.</li>
-                        <li>Exchange allowed only once per order.</li>
-                        </ol>
-                    </div>
-                </div>
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon blue">
+              <img src="../assets/vendorSales/HandCoins.svg" alt="" />
             </div>
+            <div class="stat-label">Daily sales</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">Total Orders</div> -->
+          <div class="stat-value">₹ 325,11</div>
+          <div class="stat-change positive">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+            </span>
+            +9.80% from last month
+          </div>
+          <!-- </div> -->
         </div>
 
-        <!-- Product Specifications Section -->
-        <div class="preview-section">
-            <h2 class="preview-section-title">Product Specifications</h2>
-            
-            <div class="variants-preview-grid">
-                <!-- Variant 1 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 1</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
-                </div>
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon cyan">
+              <img src="../assets/vendorSales/ChartLine.svg" alt="" />
+            </div>
+            <div class="stat-label">Average Monthly</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">In transit Products</div> -->
+          <div class="stat-value">₹ 82,345</div>
+          <div class="stat-change negative">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+            </span>
+            -1.2% from last month
+          </div>
+          <!-- </div> -->
+        </div>
 
-                <!-- Variant 2 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 2</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
-                </div>
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon green">
+              <img src="../assets/vendorSales/Coins.svg" alt="" />
+            </div>
+            <div class="stat-label">Turnover</div>
+          </div>
+          <!-- <div class="stat-content"> -->
 
-                <!-- Variant 3 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 3</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
-                </div>
+          <div class="stat-value">₹ 6,34,657</div>
+          <div class="stat-change negative">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+            </span>
+            -4.6% from last month
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
 
-                <!-- Variant 4 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 4</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
+      <div class="top-contributer-section">
+        <div class="main-top-container">
+            <div class="top-contributer-header">
+                <span>Top Revenue Contributer Categories</span>
+                <span>+$33.3 compared to last month</span>
+            </div>
+            <div class="top-contributer-select">
+                <select name="" id="">
+                    <option value="">Yearly</option>
+                </select>
+                <select name="" id="">
+                    <option value="">2025</option>
+                </select>
+            </div>
+        </div>
+        <div class="line-bar-container-main">
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Saree</span>
+                    <span>1,234.56</span>
                 </div>
-
-                <!-- Variant 5 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 5</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
+                <div class="main-line">
+                    <div id="saree-line"></div>
                 </div>
-
-                <!-- Variant 6 -->
-                <div class="variant-preview-card">
-                    <h4 class="variant-preview-title">Variant 6</h4>
-                    <div class="variant-images-grid">
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                        <div class="variant-img-placeholder"></div>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Size - </span>
-                        <span class="variant-info-value">3</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Colour - </span>
-                        <span class="color-swatch-display" ></span>
-                        <span class="variant-info-value">Maroon</span>
-                    </div>
-                    <div class="variant-info-row">
-                        <span class="variant-info-label">Quantity - </span>
-                        <span class="variant-info-value">120</span>
-                    </div>
+            </div>
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Wooden Craft</span>
+                    <span>1,234.56</span>
+                </div>
+                <div class="main-line">
+                    <div id="woodencraft-line"></div>
+                </div>
+            </div>
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Bedsheet and Curtains</span>
+                    <span>1,234.56</span>
+                </div>
+                <div class="main-line">
+                    <div id="bedsheet-line"></div>
+                </div>
+            </div>
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Paintings</span>
+                    <span>1,234.56</span>
+                </div>
+                <div class="main-line">
+                    <div id="paintings-line"></div>
+                </div>
+            </div>
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Brass Handcraft</span>
+                    <span>1,234.56</span>
+                </div>
+                <div class="main-line">
+                    <div id="brass-line"></div>
+                </div>
+            </div>
+            <div class="line-bar-container">
+                <div class="line-bar-head">
+                    <span>Jewellery</span>
+                    <span>1,234.56</span>
+                </div>
+                <div class="main-line">
+                    <div id="jewellery-line"></div>
                 </div>
             </div>
         </div>
+      </div>
 
-        <!-- Pick up Address Section -->
-        <div class="preview-section">
-            <h2 class="preview-section-title">Pick up address</h2>
-            
-            <div class="address-preview-card">
-                <h4 class="address-preview-title">Address 1</h4>
-                <!-- <p class="address-preview-name">David john</p>
-                <p class="address-preview-email">davidjohn23@gmail.com</p>
-                <p class="address-preview-phone">95367 89905</p> -->
-                <p class="address-preview-details">
-                    C - 605 , Eden Park,Mudhuban colony, parsi road,<br>
-                    Near Appolo Hospital, Pune, Maharashtra, 234 678
-                </p>
+      <div class="businesschart-main">
+        <div class="main-top-container">
+            <div class="top-contributer-header">
+                <span>Business Chart (Revenue)</span>
+                <span></span>
+            </div>
+            <div class="top-contributer-select">
+                <select name="" id="">
+                    <option value="">Yearly</option>
+                </select>
+                <select name="" id="">
+                    <option value="">2025</option>
+                </select>
             </div>
         </div>
+        <div class="chart-wrapper">
+            <canvas id="lineChart"></canvas>
+        </div>
+      </div>
     </div>
+      <!-- Footer -->
+  <footer class="er-footer">
+    <div class="er-container">
+
+      <!-- Column 1 -->
+      <div class="er-col">
+        <h2 class="er-logo">eRANGOLI</h2>
+        <p class="er-desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          sodales massa a ultrices fringilla. Sed vehicula in lorem quis ultrices.
+        </p>
+
+        <div class="er-contact-part">
+          <div class="er-contact"> <img src="../assets/master/footeremail.svg" alt="">
+            <div>Loremipsum@gmail.com</div>
+          </div>
+          <div class="er-contact"> <img src="../assets/master/footerPhone.svg" alt="">
+            <div>+91 67895 76895</div>
+          </div>
+          <div class="er-contact"> <img src="../assets/master/footerweblink.svg" alt="">
+            <div>Loremipsum.com</div>
+          </div>
+        </div>
+
+        <p class="er-copy">Loremipsum © 2025</p>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="er-col quick-link">
+        <h3 class="er-heading">Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Categories</a>
+        <a href="#">Offers</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="er-col payments">
+        <h3 class="er-heading">Payments</h3>
+        <a href="#">UPI</a>
+        <a href="#">Debit Card</a>
+        <a href="#">Credit Card</a>
+        <a href="#">COD</a>
+        <a href="#">Net Banking</a>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="er-col">
+        <h3 class="er-heading">For all the latest trends across India</h3>
+        <p class="er-desc">Subscribe to our weekly newsletter customized to your needs</p>
+
+        <div class="er-subscribe">
+          <button>Subscribe</button>
+        </div>
+
+        <div class="er-social">
+          <a href="#"><img src="../assets/master/FacebookLogo.svg" alt=""></a>
+          <a href="#"><img src="../assets/master/InstagramLogo.svg" alt=""></a>
+          <a href="#"><img src="../assets/master/LinkedinLogo.svg" alt=""></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
   </div>
 
-    <script src="../javascript/vendorProductPreview.js"></script>
-    <script src="../javascript/vendorSidebarnavbar.js"></script>
+  <script src="../javascript/vendorSales.js"></script>
+  <script src="../javascript/vendorSidebarnavbar.js"></script>
 </body>
+
 </html>

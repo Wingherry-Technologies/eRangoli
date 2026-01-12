@@ -434,6 +434,12 @@ addNewProductBtns.forEach(addNewProductBtn => {
 });
 
 
+document.querySelector("#sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");
+
+document.querySelector("#account-menu li:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
+
+
+
 
 
 

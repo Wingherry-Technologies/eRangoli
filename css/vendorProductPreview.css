@@ -6,6 +6,9 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 15px;
+  position: sticky;
+  top: 75px;
+  background-color: white;
 }
 
 .preview-header .header-left {
@@ -412,7 +415,6 @@
   .header-right {
     /* width: 100%; */
     justify-content: flex-end;
-    flex-direction: column-reverse;
   }
 
   .edit-btn,
@@ -477,6 +479,9 @@
   }
   .edit-btn{
     width: unset;
+  }
+  .header-left{
+    display: none !important;
   }
 }
 

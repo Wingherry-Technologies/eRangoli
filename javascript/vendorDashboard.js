@@ -83,10 +83,38 @@ new Chart(barCtx, {
 });
 
 // Line Chart with Chart.js
-const lineCtx = document.getElementById("lineChart").getContext("2d");
+
+const canvas = document.getElementById("lineChart");
+const lineCtx = canvas.getContext("2d");
+
+// Purple gradient (Earned)
+const earnedGradient = lineCtx.createLinearGradient(0, 0, 0, canvas.height);
+earnedGradient.addColorStop(0, "rgba(99, 102, 241, 0.35)");
+earnedGradient.addColorStop(0.3, "rgba(99, 101, 241, 0)");
+
+// Red gradient (Refund)
+const refundGradient = lineCtx.createLinearGradient(0, 0, 0, canvas.height);
+refundGradient.addColorStop(0, "rgba(220, 38, 38, 0.35)");
+refundGradient.addColorStop(0.3, "rgba(220, 38, 38, 0.02)");
+
+const shadowPlugin = {
+  id: "shadow",
+  beforeDatasetsDraw(chart) {
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.shadowColor = "rgba(0,0,0,0.15)";
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 6;
+  },
+  afterDatasetsDraw(chart) {
+    chart.ctx.restore();
+  }
+};
+
 
 new Chart(lineCtx, {
   type: "line",
+  plugins: [shadowPlugin],
   data: {
     labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
     datasets: [
@@ -94,88 +122,64 @@ new Chart(lineCtx, {
         label: "Earned",
         data: [104, 30, 115, 60, 48, 110, 55],
         borderColor: "#3E00C2",
-        backgroundColor: "rgba(99, 102, 241, 0.1)",
-        tension: 0.4,
+        backgroundColor: earnedGradient,
+        tension: 0.45,
         borderWidth: 3,
         pointRadius: 0,
         pointHoverRadius: 6,
-        pointHoverBackgroundColor: "#6366f1",
-        fill: false,
-        shadowOffsetX: 0,
-        shadowOffsetY: 4,
-        shadowBlur: 10,
-        shadowColor: "rgba(99, 102, 241, 0.3)",
+        fill: true
       },
       {
         label: "Refund",
         data: [50, 12, 70, 32, 110, 20, 120],
         borderColor: "#922903",
-        backgroundColor: "rgba(220, 38, 38, 0.1)",
-        tension: 0.4,
+        backgroundColor: refundGradient,
+        tension: 0.45,
         borderWidth: 3,
         pointRadius: 0,
         pointHoverRadius: 6,
-        pointHoverBackgroundColor: "#B55E7D",
-        fill: false,
-      },
-    ],
+        fill: true
+      }
+    ]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
     interaction: {
       mode: "index",
-      intersect: false,
+      intersect: false
     },
     plugins: {
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       tooltip: {
-        enabled: true,
         callbacks: {
-          label: function (context) {
-            return context.dataset.label + ": " + context.parsed.y + "M";
-          },
-        },
-      },
+          label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}M`
+        }
+      }
     },
     scales: {
       x: {
-        grid: {
-          display: false,
-        },
-        ticks: {
-          font: {
-            size: 11,
-          },
-          color: "#999",
-        },
+        grid: { display: false },
+        ticks: { color: "#999", font: { size: 11 } }
       },
       y: {
         beginAtZero: true,
         max: 120,
         ticks: {
           stepSize: 50,
-          callback: function (value) {
-            if (value === 0) return "10M";
-            if (value === 50) return "50M";
-            if (value === 100) return "100M";
-            return "";
-          },
-          font: {
-            size: 11,
-          },
+          callback: v => (v ? `${v}M` : ""),
           color: "#999",
+          font: { size: 11 }
         },
         grid: {
           color: "#f0f0f0",
-          drawBorder: false,
-        },
-      },
-    },
-  },
+          drawBorder: false
+        }
+      }
+    }
+  }
 });
+
 
 const faqItems = document.querySelectorAll(".faq-item");
 
@@ -291,3 +295,7 @@ hamburger?.addEventListener("click", () => {
      bar1.style.display="block"
   }
 });
+
+document.querySelector("#sidebar-main-vendor ul>li:first-child").classList.add("sidebar-active");
+
+document.querySelector("#account-menu li:first-child .dropdown-header").classList.add("dropdown-header-active");

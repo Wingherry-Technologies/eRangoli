@@ -1551,12 +1551,13 @@ nav{
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    height: 70px;
+    height: 65px;
     background-color: white;
     width: max-content;
     position: fixed;
     top: 5px;
     z-index: 9999;
+    left: 30px;
   }
 }
 
