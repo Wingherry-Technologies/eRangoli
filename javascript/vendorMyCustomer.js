@@ -336,3 +336,28 @@ function applyDateFilter() {
     toDateInput.setAttribute("max", today);
   }
 })();
+
+const customerSearchInput = document.getElementById("my-customer-searchInput");
+customerSearchInput.addEventListener("input", function () {
+  const query = this.value.toLowerCase().trim();
+  filterCustomersBySearch(query);
+});
+function filterCustomersBySearch(query) {
+  const rows = document.querySelectorAll("#my-customer-tableBody tr");
+
+  rows.forEach(row => {
+    const name = row.querySelector(".my-customer-name")?.innerText.toLowerCase() || "";
+    const id = row.children[2]?.innerText.toLowerCase() || "";
+    const contact = row.children[3]?.innerText.toLowerCase() || "";
+
+    const match =
+      name.includes(query) ||
+      id.includes(query) ||
+      contact.includes(query);
+
+    row.style.display = match ? "" : "none";
+  });
+
+  // refresh mobile cards
+  renderMobileCustomers();
+}
