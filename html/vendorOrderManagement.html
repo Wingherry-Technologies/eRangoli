@@ -1059,7 +1059,7 @@
         
                       <div>
                         <label>Pick Up</label>
-                        <input type="date">
+                        <input type="date" disabled>
                       </div>
         
                     </div>
@@ -1205,12 +1205,12 @@
                     <div class="status-grid">
                       <div>
                         <label>Packed on</label>
-                        <input type="date" value="2025-12-14" />
+                        <input type="date" value="2025-12-14" readonly />
                       </div>
         
                       <div>
                         <label>Pick Up</label>
-                        <input type="date" />
+                        <input type="date" id="pickup-date" />
                       </div>
                     </div>
                   </div>
@@ -1259,7 +1259,7 @@
               </div>
         
               <!-- ACTION BUTTON -->
-              <button class="primary-btn">Mark as Packed</button>
+              <button class="primary-btn" id="mark-as-picked">Mark as Picked</button>
         
             </div>
           </div>

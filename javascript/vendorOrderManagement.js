@@ -167,18 +167,59 @@ document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
 // =========================
 // MARK AS PACKED BUTTON
 // =========================
+// =========================
+// MARK AS PACKED BUTTON WITH DATE VALIDATION
+// =========================
 document.getElementById("mark-as-packed").addEventListener("click", function () {
   if (!currentItem) return;
 
+  // find the date input inside the popup
+  const dateInput = document.querySelector("#received-popup input[type='date']");
+  
+  // if no date selected, alert or just return
+  if (!dateInput || !dateInput.value) {
+    alert("Please select the 'Packed on' date before marking as packed.");
+    return;
+  }
+
+  // find the status element in current item (table row or FAQ)
   const statusEl = currentItem.querySelector(".order-status, .received-orders");
   if (!statusEl) return;
 
+  // update status text and class
   statusEl.textContent = "Packed";
   statusEl.classList.remove("received-orders");
   statusEl.classList.add("packed-order");
 
+  // close popup
   closeAllPopups();
+
+  // clear the input for next time
+  dateInput.value = "";
 });
+
+// =========================
+// MARK AS PICKED BUTTON WITH DATE VALIDATION
+// =========================
+document.getElementById("mark-as-picked").addEventListener("click", function () {
+  // select the specific Pick Up input inside the popup
+  const pickUpInput = document.querySelector("#pickup-date");
+
+  if (!pickUpInput || pickUpInput.value.trim() === "") {
+    // do nothing if empty
+    alert("Please fill the Pick Up date before proceeding.");
+    return;
+  }
+
+  // if filled, close the popup
+  closeAllPopups();
+
+  // clear only this Pick Up input for next time
+  pickUpInput.value = "";
+});
+
+
+
 
 // =========================
 // CLOSE BUTTONS
