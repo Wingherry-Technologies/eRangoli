@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Allowed Characters
 
+let approved = true;
+
 function validateAllowedChars(el) {
   el.addEventListener("keypress", function (e) {
     if (!/^[A-Za-z0-9_-]+$/.test(e.key)) e.preventDefault();
@@ -140,8 +142,35 @@ loginForm.addEventListener("submit", function (e) {
 
   if (!found) return showLoginError("Incorrect Username or Password!");
 
-  showLoginSuccess();
+    if (approved === true) {
+      window.location.href = "../html/vendorDashboard.html";
+    } else {
+      showApprovalPendingMessage();
+    }
+
 });
+
+function showApprovalPendingMessage() {
+  const popup = document.getElementById("vendorLoginSuccessMsg");
+
+  popup.classList.add("vendorLoginErrorPopup");
+
+  popup.innerHTML = `
+    <p>
+      <strong>Your account has been created successfully!</strong><br><br>
+      You can login your account in 24 hours once verified and approved.<br>
+      Credentials will be sent to your registered number.
+    </p>
+    <span class="vendorLoginCloseSuccess" id="approvalClose">✕</span>
+  `;
+
+  popup.style.display = "block";
+
+  document.getElementById("approvalClose").addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+}
+
 
 // Popup Errors
 

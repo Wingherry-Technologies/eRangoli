@@ -10,9 +10,6 @@ body {
 }
 
 /*LAYOUT */
-.my-customer-wrapper {
-  padding: 24px 32px;
-}
 
 /* Header */
 .my-customer-header-row {
@@ -51,12 +48,21 @@ body {
   border-radius: 16px;
   padding: 10px 12px;
 }
+@media (max-width:1024px) {
+  .my-customer-search-box{
+    background-color: white;
+  }
+  .my-customer-filter-box{
+    background-color: white;
+  }
+}
 
 .my-customer-search-box input {
   border: none;
   outline: none;
   width: 100%;
   font-size: 14px;
+  background-color: transparent;
 }
 
 /* Filter Box */
@@ -396,6 +402,10 @@ body {
 
 
 @media (max-width: 595px) {
+
+  .my-customer-header-row h1{
+    display: none;
+  }
 
   .my-customer-table-wrapper {
     display: none;

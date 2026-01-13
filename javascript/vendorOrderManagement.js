@@ -523,6 +523,6 @@ threeDotsButtons.forEach(threeDotbutton => {
 
 
 
-document.querySelector("#sidebar-main-vendor ul>li:nth-child(3)").classList.add("sidebar-active");
+document.querySelector("#sidebar-main-vendor ul>li:nth-child(4)").classList.add("sidebar-active");
 
-document.querySelector("#account-menu li:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu li:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
