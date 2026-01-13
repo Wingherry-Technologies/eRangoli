@@ -24,42 +24,70 @@ hamburger?.addEventListener("click", () => {
   }
 });
 
-let rowToRemove = null;
+let itemToRemove = null;
 
-// Three Dots
+// ----------------------------
+// CLICK HANDLER
+// ----------------------------
 document.addEventListener("click", function (e) {
-  const isThreeDot = e.target.classList.contains("three-dot");
-  const isRemove =
-    e.target.closest(".all-preview div") &&
-    e.target.closest(".all-preview div").textContent.includes("Remove");
-
-  // Close all previews first
-  document.querySelectorAll(".all-preview").forEach(popup => {
-    popup.classList.remove("active-preview");
-  });
-
-  // Open popup when clicking three dots
-  if (isThreeDot) {
+  // --------------------------
+  // Table Three Dots
+  // --------------------------
+  if (e.target.classList.contains("three-dot")) {
     e.stopPropagation();
-    const previewBox = e.target
-      .closest(".previewing")
-      .querySelector(".all-preview");
+    const previewBox = e.target.closest(".previewing").querySelector(".all-preview");
+    // Close other table preview boxes
+    document.querySelectorAll(".all-preview").forEach(box => box.classList.remove("active-preview"));
     previewBox.classList.add("active-preview");
     return;
   }
 
-  // Show confirmation modal when clicking "Remove"
-  if (isRemove) {
-    rowToRemove = e.target.closest("tr");
-    document.getElementById("confirmModal").classList.add("active");
+  // --------------------------
+  // FAQ Three Dots
+  // --------------------------
+  if (e.target.classList.contains("mobile-three-dots")) {
+    e.stopPropagation();
+    const previewBox = e.target.closest(".main-threedots-mobile").querySelector(".show-threedots-box");
+    // Close other FAQ preview boxes
+    document.querySelectorAll(".show-threedots-box").forEach(box => box.classList.remove("active-preview"));
+    previewBox.classList.add("active-preview");
+    return;
+  }
+
+  // --------------------------
+  // Click Remove in Table
+  // --------------------------
+  const tableRemove = e.target.closest(".all-preview div");
+  if (tableRemove && tableRemove.textContent.includes("Remove")) {
+    itemToRemove = e.target.closest("tr"); // only table rows
+    if (itemToRemove) document.getElementById("confirmModal").classList.add("active");
+  }
+
+  // --------------------------
+  // Click Remove in FAQ
+  // --------------------------
+  const faqRemove = e.target.closest(".show-threedots-box div");
+  if (faqRemove && faqRemove.textContent.includes("Remove")) {
+    itemToRemove = e.target.closest(".faq-item"); // only faq items
+    if (itemToRemove) document.getElementById("confirmModal").classList.add("active");
+  }
+
+  // Close preview boxes if clicked outside
+  if (!e.target.closest(".all-preview") && !e.target.classList.contains("three-dot")) {
+    document.querySelectorAll(".all-preview").forEach(box => box.classList.remove("active-preview"));
+  }
+  if (!e.target.closest(".show-threedots-box") && !e.target.classList.contains("mobile-three-dots")) {
+    document.querySelectorAll(".show-threedots-box").forEach(box => box.classList.remove("active-preview"));
   }
 });
 
-// Confirm buttons
+// ----------------------------
+// CONFIRM MODAL BUTTONS
+// ----------------------------
 document.getElementById("confirmYes").addEventListener("click", function () {
-  if (rowToRemove) {
-    rowToRemove.remove();
-    rowToRemove = null;
+  if (itemToRemove) {
+    itemToRemove.remove();
+    itemToRemove = null;
   }
   closeModal();
 });
@@ -70,42 +98,387 @@ function closeModal() {
   document.getElementById("confirmModal").classList.remove("active");
 }
 
-// Order Status Popups
-const openPopups = document.querySelectorAll(".show-popup-btn");
-const popups = document.querySelectorAll(".modal-popup-main");
 
+// =========================
+// GLOBAL VARIABLES
+// =========================
+const popups = document.querySelectorAll(".modal-popup-main");
+let currentItem = null; // tracks current table row or FAQ item
+
+// =========================
+// CLOSE ALL POPUPS
+// =========================
 function closeAllPopups() {
   popups.forEach(popup => popup.classList.remove("active"));
+  currentItem = null;
 }
 
-openPopups.forEach(arrow => {
+// =========================
+// OPEN POPUP BY STATUS
+// =========================
+function openPopupByStatus(status) {
+  if (status.classList.contains("received-orders")) {
+    document.getElementById("received-popup").classList.add("active");
+  } 
+  else if (status.classList.contains("packed-order")) {
+    document.getElementById("packed-popup").classList.add("active");
+  } 
+  else if (status.classList.contains("delivered-order")) {
+    document.getElementById("delivered-popup").classList.add("active");
+  }
+}
+
+// =========================
+// TABLE ROW POPUP LOGIC
+// =========================
+document.querySelectorAll(".show-popup-btn").forEach(arrow => {
   arrow.addEventListener("click", () => {
     closeAllPopups();
 
-    // get the parent row
     const row = arrow.closest("tr");
+    if (!row) return;
 
-    // find the status inside that row
     const status = row.querySelector(".order-status");
-
     if (!status) return;
 
-    if (status.classList.contains("received-orders")) {
-      document.getElementById("received-popup").classList.add("active");
-    } 
-    else if (status.classList.contains("packed-order")) {
-      document.getElementById("packed-popup").classList.add("active");
-    } 
-    else if (status.classList.contains("delivered-order")) {
-      document.getElementById("delivered-popup").classList.add("active");
+    currentItem = row;
+    openPopupByStatus(status);
+  });
+});
+
+// =========================
+// FAQ MOBILE POPUP LOGIC
+// =========================
+document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
+  btn.addEventListener("click", function () {
+    closeAllPopups();
+
+    const faqAnswer = this.closest(".faq-answer");
+    if (!faqAnswer) return;
+
+    const status = faqAnswer.querySelector(".received-orders, .packed-order, .delivered-order");
+    if (!status) return;
+
+    currentItem = faqAnswer;
+    openPopupByStatus(status);
+  });
+});
+
+// =========================
+// MARK AS PACKED BUTTON
+// =========================
+document.getElementById("mark-as-packed").addEventListener("click", function () {
+  if (!currentItem) return;
+
+  const statusEl = currentItem.querySelector(".order-status, .received-orders");
+  if (!statusEl) return;
+
+  statusEl.textContent = "Packed";
+  statusEl.classList.remove("received-orders");
+  statusEl.classList.add("packed-order");
+
+  closeAllPopups();
+});
+
+// =========================
+// CLOSE BUTTONS
+// =========================
+document.querySelectorAll(".close-btn").forEach(btn => {
+  btn.addEventListener("click", closeAllPopups);
+});
+
+
+
+
+
+
+// Search Functionality
+// Unified Search (Table + FAQ)
+const searchInput = document.getElementById("search-bar-table");
+
+/* =========================
+   TABLE SEARCH
+========================= */
+const tableRows = document.querySelectorAll(".table-products tbody tr");
+
+/* =========================
+   FAQ SEARCH
+========================= */
+const faqItems = document.querySelectorAll(".faq-item");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase().trim();
+
+  /* ===== TABLE FILTER ===== */
+  tableRows.forEach(row => {
+    const productName =
+      row.querySelector(".product-col-rows span:first-child")
+        ?.innerText.toLowerCase() || "";
+
+    const category =
+      row.children[3]?.innerText.toLowerCase() || "";
+
+    const isMatch =
+      productName.includes(searchValue) ||
+      category.includes(searchValue);
+
+    row.style.display = isMatch ? "" : "none";
+  });
+
+  /* ===== FAQ FILTER ===== */
+  faqItems.forEach(item => {
+    const productName =
+      item.querySelector(".main-faq-question span")
+        ?.innerText.toLowerCase() || "";
+
+    const category =
+      item.querySelector(".all-answers div:nth-child(3) span:nth-child(2)")
+        ?.innerText.toLowerCase() || "";
+
+    const isMatch =
+      productName.includes(searchValue) ||
+      category.includes(searchValue);
+
+    item.style.display = isMatch ? "" : "none";
+  });
+});
+
+
+// Filter Accordion Logic
+
+// ----------------------------
+// TOGGLE FILTER BOXES
+// ----------------------------
+// ----------------------------
+// TOGGLE FILTER BOXES
+// ----------------------------
+const filterBar = document.getElementById("filter-bar-main-box");
+const filterMain = document.getElementById("filter-main");
+const statusBox = document.getElementById("status-box");
+const statusFilterBtn = filterMain.querySelector("ul li"); // "Status" button
+
+filterBar.addEventListener("click", () => {
+  filterMain.classList.toggle("active-main-content-flows");
+  statusBox.classList.remove("active-main-content-flows");
+});
+
+statusFilterBtn.addEventListener("click", () => {
+  statusBox.classList.toggle("active-main-content-flows");
+});
+
+// ----------------------------
+// TABLE AND FAQ FILTER
+// ----------------------------
+const tableRows1 = document.querySelectorAll(".table-products tbody tr");
+const faqItems2 = document.querySelectorAll(".faq .faq-item");
+const statusCheckboxes = document.querySelectorAll("#status-box input[type='checkbox']");
+const searchInput1 = document.getElementById("search-bar-table");
+
+// Helper function to get status text from a table row or faq item
+function getStatus(element) {
+  const statusSpan = element.querySelector(".order-status, .all-answers span.received-orders, .all-answers span.packed-order, .all-answers span.delivered-order");
+  return statusSpan?.innerText.toLowerCase() || "";
+}
+
+// Main filter function
+function filterContent() {
+  const selectedStatuses = Array.from(statusCheckboxes)
+    .filter(cb => cb.checked)
+    .map(cb => cb.dataset.status.toLowerCase());
+
+  const searchValue = searchInput1?.value.toLowerCase().trim() || "";
+
+  // --- TABLE FILTER ---
+  tableRows1.forEach(row => {
+    const status = row.querySelector(".order-status")?.innerText.toLowerCase() || "";
+    const productName = row.querySelector(".product-col-rows span:first-child")?.innerText.toLowerCase() || "";
+    const category = row.children[3]?.innerText.toLowerCase() || "";
+
+    const matchesSearch = productName.includes(searchValue) || category.includes(searchValue);
+    const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.includes(status);
+
+    row.style.display = matchesSearch && matchesStatus ? "" : "none";
+  });
+
+  // --- FAQ FILTER ---
+  faqItems2.forEach(item => {
+    const statusSpan = item.querySelector(".all-answers span.received-orders, .all-answers span.packed-order, .all-answers span.delivered-order");
+    const status = statusSpan?.innerText.toLowerCase() || "";
+
+    const questionText = item.querySelector(".main-faq-question span")?.innerText.toLowerCase() || "";
+    const matchesSearch = questionText.includes(searchValue);
+    const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.includes(status);
+
+    item.style.display = matchesSearch && matchesStatus ? "" : "none";
+  });
+}
+
+// ----------------------------
+// EVENT LISTENERS
+// ----------------------------
+statusCheckboxes.forEach(cb => cb.addEventListener("change", filterContent));
+if (searchInput1) searchInput1.addEventListener("input", filterContent);
+
+// ----------------------------
+// OPTIONAL: close filter on click outside
+// ----------------------------
+document.addEventListener("click", function(e) {
+  if (!filterMain.contains(e.target) && !filterBar.contains(e.target)) {
+    filterMain.classList.remove("active-main-content-flows");
+    statusBox.classList.remove("active-main-content-flows");
+  }
+});
+
+
+// Sort By
+// ----------------------------
+// TOGGLE SORT BOX
+// ----------------------------
+const sortByBox = document.getElementById("sort-by-main-box");
+const sortBox = document.getElementById("sort-box");
+
+sortByBox.addEventListener("click", () => {
+  sortBox.classList.toggle("active-main-content-flows");
+  // Close filter boxes if open
+  filterMain.classList.remove("active-main-content-flows");
+  statusBox.classList.remove("active-main-content-flows");
+});
+
+// ----------------------------
+// SORT FUNCTION
+// ----------------------------
+const sortRadios = document.querySelectorAll("#sort-box input[type='radio']");
+
+function sortContent() {
+  let threshold;
+  let greaterThan = false;
+
+  // Determine sorting condition
+  if (document.getElementById("quantity-lessthan-5").checked) threshold = 5;
+  else if (document.getElementById("quantity-lessthan-10").checked) threshold = 10;
+  else if (document.getElementById("quantity-lessthan-20").checked) threshold = 20;
+  else if (document.getElementById("quantity-greaterthan-20").checked) {
+    threshold = 20;
+    greaterThan = true;
+  } else {
+    // No sorting selected, reset order
+    return;
+  }
+
+  // --- TABLE SORT ---
+  const tableBody = document.querySelector(".table-products tbody");
+  const rowsArray = Array.from(tableBody.querySelectorAll("tr"));
+
+  const sortedRows = rowsArray
+    .filter(row => {
+      const qty = parseInt(row.children[4].innerText);
+      return greaterThan ? qty > threshold : qty < threshold;
+    })
+    .sort((a, b) => {
+      const qtyA = parseInt(a.children[4].innerText);
+      const qtyB = parseInt(b.children[4].innerText);
+      return qtyA - qtyB;
+    });
+
+  // Hide all rows first
+  rowsArray.forEach(row => row.style.display = "none");
+  // Append sorted rows
+  sortedRows.forEach(row => {
+    row.style.display = "";
+    tableBody.appendChild(row); // reorder in DOM
+  });
+
+  // --- FAQ SORT ---
+  const faqContainer = document.querySelector(".faq");
+  const faqArray = Array.from(faqContainer.querySelectorAll(".faq-item"));
+
+  const sortedFaqs = faqArray
+    .filter(item => {
+      const qty = parseInt(item.querySelector(".all-answers div:nth-child(4) span:last-child").innerText);
+      return greaterThan ? qty > threshold : qty < threshold;
+    })
+    .sort((a, b) => {
+      const qtyA = parseInt(a.querySelector(".all-answers div:nth-child(4) span:last-child").innerText);
+      const qtyB = parseInt(b.querySelector(".all-answers div:nth-child(4) span:last-child").innerText);
+      return qtyA - qtyB;
+    });
+
+  // Hide all FAQs first
+  faqArray.forEach(item => item.style.display = "none");
+  // Append sorted FAQs
+  sortedFaqs.forEach(item => {
+    item.style.display = "";
+    faqContainer.appendChild(item);
+  });
+}
+
+// ----------------------------
+// EVENT LISTENERS
+// ----------------------------
+sortRadios.forEach(radio => radio.addEventListener("change", sortContent));
+
+// Optional: close sort box when clicking outside
+document.addEventListener("click", function(e) {
+  if (!sortBox.contains(e.target) && !sortByBox.contains(e.target)) {
+    sortBox.classList.remove("active-main-content-flows");
+  }
+});
+
+
+
+
+
+
+const faqItems1 = document.querySelectorAll(".faq-item");
+
+faqItems1.forEach(item => {
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+    // Close all other items
+    faqItems1.forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Toggle current item
+    item.classList.toggle("active");
+  });
+});
+
+  // Select all three-dots buttons
+const threeDotsButtons = document.querySelectorAll('.mobile-three-dots');
+
+threeDotsButtons.forEach(threeDotbutton => {
+  threeDotbutton.addEventListener('click', () => {
+    // Correctly get the sibling div
+    const showBox = threeDotbutton.nextElementSibling;
+    if (!showBox) return; // safety check
+
+    // Find the parent .faq-item
+    const faqItem = threeDotbutton.closest('.faq-item');
+
+    // Get status element safely
+    const statusElement = faqItem.querySelector(
+      '.faq-answer .all-answers .payment-credited, ' +
+      '.faq-answer .all-answers .payment-pending, ' +
+      '.faq-answer .all-answers .payment-rejected'
+    );
+    const statusText = statusElement ? statusElement.textContent.trim() : '';
+
+    // Toggle the show-threedots-box
+    showBox.classList.toggle('active-threedots');
+
+    // Find the "Request to Remove" div safely
+    const requestToRemoveDiv = Array.from(showBox.children).find(div => div.textContent.includes('Request to Remove'));
+    if (requestToRemoveDiv) {
+      requestToRemoveDiv.style.display = (statusText === 'Approved') ? 'flex' : 'none';
     }
   });
 });
 
-// Close button
-document.querySelectorAll(".close-btn").forEach(btn => {
-  btn.addEventListener("click", closeAllPopups);
-});
+
 
 
 
