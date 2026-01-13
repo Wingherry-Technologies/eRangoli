@@ -1246,7 +1246,7 @@ nav{
     /* OVERLAY OPEN sidebar */
     .sidebar-main-vendor.open {
         width: 300px;
-        position: absolute;
+        position: fixed;
         top: 140px;
         left: 0;
         border-radius: 0;
@@ -1333,7 +1333,7 @@ nav{
   /* Deep red */
   color: white;
   padding: 50px 70px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
   font-family: Nunito Sans, sans-serif;
   margin-top: 20px;
 }
