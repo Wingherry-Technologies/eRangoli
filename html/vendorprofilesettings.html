@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../css/vendorprofilesettings.css">
     <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
     <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
 </head>
 <body>
       <!-- Navigation Bar -->
@@ -479,10 +484,72 @@
       <h2 class="settings-title">Settings</h2>
 
       <div class="settings-card">
-        <div class="settings-item">Manage login devices</div>
-        <div class="settings-item">Logout all Devices</div>
-        <div class="settings-item danger">Delete My Account</div>
+        <div class="ps-settings-item">Manage login devices</div>
+        <div class="ps-settings-item">Logout all Devices</div>
+        <div class="ps-settings-item danger">Delete My Account</div>
       </div>
+
+      <!-- OVERLAY -->
+<div class="ps-overlay" id="ps-overlay"></div>
+
+<!-- DEVICES MODAL -->
+<div class="ps-modal" id="ps-devicesModal">
+  <h3>Logged-in Devices</h3>
+
+  <div class="ps-device" data-ps-device>
+    <div>
+      <strong>Chrome · Windows</strong>
+      <p>Hyderabad · Active now</p>
+    </div>
+    <button class="ps-btn-outline ps-logout-device">Logout</button>
+  </div>
+
+  <div class="ps-device" data-ps-device>
+    <div>
+      <strong>Android · Mobile</strong>
+      <p>Bangalore · 2 days ago</p>
+    </div>
+    <button class="ps-btn-outline ps-logout-device">Logout</button>
+  </div>
+  <br>
+  <button class="ps-btn-primary ps-close">Close</button>
+</div>
+
+<!-- LOGOUT ALL -->
+<div class="ps-modal" id="ps-logoutAllModal">
+  <h3>Logout All Devices</h3>
+  <p>You will be logged out from all devices.</p>
+
+  <div class="ps-modal-actions">
+    <button class="ps-btn-outline ps-close">Cancel</button>
+    <button class="ps-btn-primary" id="ps-confirmLogoutAll">Logout All</button>
+  </div>
+</div>
+
+<!-- DELETE ACCOUNT -->
+<div class="ps-modal ps-danger" id="ps-deleteModal">
+  <h3>Delete Account</h3>
+  <p>This action is permanent.</p>
+
+  <div class="ps-password-field">
+    <input type="password" id="ps-deletePassword" placeholder="Enter password" />
+    <span class="ps-toggle-eye" id="ps-toggleEye">
+      <i class="fa-solid fa-eye"></i>
+    </span>
+  </div>
+
+  <small class="ps-error" id="ps-deleteError"></small>
+
+  <div class="ps-modal-actions">
+    <button class="ps-btn-outline ps-close">Cancel</button>
+    <button class="ps-btn-danger" id="ps-confirmDelete">Delete Account</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="ps-toast" id="ps-toast"></div>
+
+
     </div>
   </div>
   
