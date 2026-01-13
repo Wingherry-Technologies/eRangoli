@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vendor- Order Management</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/vendorOrderManagement.css" />
-    <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
-  </head>
-  <body>
-      <!-- Navigation Bar -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor - Order Management</title>
+  <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <link rel="stylesheet" href="../css/vendorOrderManagement.css" />
+  <link rel="stylesheet" href="../css/vendorSidebarNavbar.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
   <nav>
     <div class="logo-section">
       <img id="desktop-erangoli-logo" onclick="window.location.href='../html/vendorDashboard.html'"
@@ -141,7 +134,33 @@
                   <div class="mobile-icon">
                     <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
                   </div>
-                  <span>My Profile</span>
+                  <span>Personal Details</span>
+                </div>
+                <img class="arrow" src="../assets/master/CaretDown.svg">
+              </div>
+            </li>
+
+            <!-- Business Details -->
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorbusinessdetails.html'">
+              <div class="dropdown-header">
+                <div class="mobile-icon-main">
+                  <div class="mobile-icon">
+                    <img src="../assets/vendorSidebar/Suitcase.svg" alt="">
+                  </div>
+                  <span>Business Details</span>
+                </div>
+                <img class="arrow" src="../assets/master/CaretDown.svg">
+              </div>
+            </li>
+
+            <!-- Business Details -->
+            <li class="mobile-dropdown" onclick="window.location.href='../html/vendorprofilesettings.html'">
+              <div class="dropdown-header">
+                <div class="mobile-icon-main">
+                  <div class="mobile-icon">
+                    <img src="../assets/vendorSidebar/Gear.svg" alt="">
+                  </div>
+                  <span>Settings</span>
                 </div>
                 <img class="arrow" src="../assets/master/CaretDown.svg">
               </div>
@@ -476,1131 +495,941 @@
   </section>
 
   <div class="main-content-beyond">
-    <div class="inventory-wrapper">
-      <!-- Header -->
-      <div class="header-row">
+    <div class="dashboard">
+      <div class="mobile-back-button">
+        <img onclick="window.location.href='../html/vendorDashboard.html'" src="../assets/inventoryManagement/ArrowLeft.svg" alt="">
+        <span>Order Management</span>
+      </div>
+      <div class="dashboard-main-heading">
         <h1>Order Management</h1>
       </div>
 
-      <!-- Cards -->
       <div class="stats-grid">
-
-  <!-- Total Orders -->
-  <div class="stat-card">
-    <div class="stat-top">
-      <div class="stat-icon teal">
-        <img src="../assets/vendorOrderManagement/StackOverflowLogo.svg" alt="Total Orders" />
-      </div>
-      <div class="stat-label">Total Orders</div>
-    </div>
-
-    <div class="stat-value">25,234</div>
-
-    <div class="stat-change positive">
-      <span class="trend-icon">
-        <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
-      </span>
-      +15.3% from last month
-    </div>
-  </div>
-
-  <!-- Packed -->
-  <div class="stat-card">
-    <div class="stat-top">
-      <div class="stat-icon teal">
-        <img src="../assets/vendorOrderManagement/Package.svg" alt="Packed" />
-      </div>
-      <div class="stat-label">Packed</div>
-    </div>
-
-    <div class="stat-value">7,603</div>
-
-    <div class="stat-change positive">
-      <span class="trend-icon">
-        <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
-      </span>
-      +9.90% from last month
-    </div>
-  </div>
-
-  <!-- Shipped -->
-  <div class="stat-card">
-    <div class="stat-top">
-      <div class="stat-icon cyan">
-        <img src="../assets/vendorOrderManagement/TruckTrailer.svg" alt="Shipped" />
-      </div>
-      <div class="stat-label">Shipped</div>
-    </div>
-
-    <div class="stat-value">3,267</div>
-
-    <div class="stat-change negative">
-      <span class="trend-icon">
-        <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
-      </span>
-      -1.2% from last month
-    </div>
-  </div>
-
-  <!-- Delivered -->
-  <div class="stat-card">
-    <div class="stat-top">
-      <div class="stat-icon green">
-        <img src="../assets/vendorOrderManagement/CheckCircle.svg" alt="Delivered" />
-      </div>
-      <div class="stat-label">Delivered</div>
-    </div>
-
-    <div class="stat-value">5,234</div>
-
-    <div class="stat-change negative">
-      <span class="trend-icon">
-        <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
-      </span>
-      -4.6% from last month
-    </div>
-  </div>
-
-</div>
-
-      <div class="product-list-wrapper">
-        <!-- Heading -->
-        <h2 class="product-heading">Product List</h2>
-
-        <!-- Controls Row -->
-        <div class="product-controls">
-          <!-- Search -->
-          <div class="search-box">
-            <img
-              src="../assets/vendorOrderManagement/search.svg"
-              alt="search"
-              class="search-icon"
-            />
-            <input
-              type="text"
-              id="orderSearchInput"
-              placeholder="Search by name or category"
-            />
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon teal">
+              <img src="../assets/vendorOrderManagement/StackOverflowLogo.svg" alt="" />
+            </div>
+            <div class="stat-label">Total Orders</div>
           </div>
-
-          <!-- Filters -->
-          <div class="filter-box">
-            <img
-              src="../assets/vendorOrderManagement/filter.svg"
-              alt="filter"
-            />
-            <img src="../assets/vendorOrderManagement/asc.svg" alt="sort" />
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">Total Earning</div> -->
+          <div class="stat-value">25,234</div>
+          <div class="stat-change positive">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+            </span>
+            +15.3% from last month
           </div>
         </div>
+
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon blue">
+              <img src="../assets/vendorOrderManagement/Package.svg" alt="" />
+            </div>
+            <div class="stat-label">Packed</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">Total Orders</div> -->
+          <div class="stat-value">7,603</div>
+          <div class="stat-change positive">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendUp.svg" alt="" />
+            </span>
+            +9.80% from last month
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon cyan">
+              <img src="../assets/vendorOrderManagement/TruckTrailer.svg" alt="" />
+            </div>
+            <div class="stat-label">Shipped</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+          <!-- <div class="stat-label">In transit Products</div> -->
+          <div class="stat-value">3,267</div>
+          <div class="stat-change negative">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+            </span>
+            -1.2% from last month
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-top">
+            <div class="stat-icon green">
+              <img src="../assets/vendorOrderManagement/CheckCircle.svg" alt="" />
+            </div>
+            <div class="stat-label">Delivered</div>
+          </div>
+          <!-- <div class="stat-content"> -->
+
+          <div class="stat-value">5,234</div>
+          <div class="stat-change negative">
+            <span class="trend-icon">
+              <img src="../assets/vendorDashboard/TrendDown.svg" alt="" />
+            </span>
+            -4.6% from last month
+          </div>
+          <!-- </div> -->
+        </div>
       </div>
-      <div class="table-wrapper">
-        <table class="product-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Product Name</th>
-              <th>SKU Number</th>
-              <th>Category</th>
-              <th>Qty</th>
-              <th>Status</th>
-              <th>Exp Pick up</th>
-              <th>Exp Delivery</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="productTableBody" class="productTableBody">
-            <!-- ROW 1 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
 
-            <!-- ROW 2 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge delivered">Delivered</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+      <div class="table-activities-section">
+        <div class="table-main-heading">
+            <span>Order List</span>
+            
+            <span></span>
+          </div>
+          <div class="table-main-search">
+            <div class="table-search-bar">
+              <img src="../assets/inventoryManagement/search.svg" alt="">
+              <input type="text" id="search-bar-table" placeholder="Search by Product Name, Category">
+            </div>
+            <div class="filter-bar-wrapper">
+              <div class="filter-bar">
+                <img src="../assets/inventoryManagement/sliders.svg" alt="" id="filter-bar-main-box">
+                <img src="../assets/inventoryManagement/sliders-2.svg" alt="" id="sort-by-main-box">
+              </div>
 
-            <!-- ROW 3 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
+              <!-- Filter Option Main -->
+              <div class="main-content-flows-main" id="filter-main">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Filter</span>
                   </div>
+                  <ul>
+                    <li>Status</li>
+                    <li>Colour</li>
+                    <li>Size</li>
+                  </ul>
                 </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+              </div>
 
-            <!-- ROW 4 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
+              <!-- Status Box -->
+              <div class="main-content-flows-main" id="status-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Select Status</span>
                   </div>
+                  <ul>
+                    <li>
+                      <input type="checkbox" data-status="approved" id="approved">
+                      <label for="approved">Approved</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-status="rejected" id="rejected">
+                      <label for="rejected">Rejected</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-status="pending" id="pending">
+                      <label for="pending">Pending</label>
+                    </li>
+                  </ul>
                 </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
-            <!-- ROW 5 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+              </div>
 
-            <!-- ROW 6 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
+              <!-- Colour Box -->
+              <div class="main-content-flows-main" id="colour-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Select Colour</span>
                   </div>
+                  <ul>
+                    <li>
+                      <input type="checkbox" data-colour="marron" id="marron">
+                      <label for="marron">
+                        <span id="marron"></span>
+                        <span>Marron</span>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-colour="yellow" id="yellow-color">
+                      <label for="yellow-color">
+                        <span id="yellow"></span>
+                        <span>Yellow</span>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-colour="green" id="green-color">
+                      <label for="green-color">
+                        <span id="green"></span>
+                        <span>Green</span>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-colour="purple" id="purple-color">
+                      <label for="purple-color">
+                        <span id="purple"></span>
+                        <span>Purple</span>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-colour="cyan" id="cyan-color">
+                      <label for="cyan-color">
+                        <span id="cyan"></span>
+                        <span>Cyan</span>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-colour="creame" id="creame">
+                      <label for="creame">
+                        <span id="creame"></span>
+                        <span>Creame</span>
+                      </label>
+                    </li>
+                  </ul>
                 </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+              </div>
 
-            <!-- ROW 7 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
+              <!-- Size Box -->
+              <div class="main-content-flows-main" id="size-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Select Size</span>
                   </div>
+                  <ul>
+                    <li>
+                      <input type="checkbox" data-size="xs" id="size-xs">
+                      <label for="size-xs">XS</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-size="s" id="size-s">
+                      <label for="size-s">S</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-size="m" id="size-m">
+                      <label for="size-m">M</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-size="l" id="size-l">
+                      <label for="size-l">L</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-size="xl" id="size-xl">
+                      <label for="size-xl">XL</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-size="xxl" id="size-xxl">
+                      <label for="size-xxl">XXL</label>
+                    </li>
+                  </ul>
                 </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge delivered">Delivered</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
-            <!-- ROW 8 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge return">Return</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+              </div>
 
-            <!-- ROW 9 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
+              <!-- Sort Box -->
+              <div class="main-content-flows-main" id="sort-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Sort BY</span>
+                    
                   </div>
+                  <ul>
+                    <li>
+                      <input type="radio" name="sort" id="price-low-high">
+                      <label for="price-low-high">Price - low to high</label>
+                    </li>
+                    <li>
+                      <input type="radio" name="sort" id="price-high-low">
+                      <label for="price-high-low">Price - high to low</label>
+                    </li>
+                    <li>
+                      <input type="radio" name="sort" id="stock-low-high">
+                      <label for="stock-low-high">Stock - low to high</label>
+                    </li>
+                    <li>
+                      <input type="radio" name="sort" id="stock-high-low">
+                      <label for="stock-high-low">Stock - high to low</label>
+                    </li>
+                  </ul>
                 </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge packed">Packed</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+              </div>
+            </div>
 
-            <!-- ROW 10 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                />
-              </td>
-            </tr>
+          </div>
+        <div class="table-section">
+          
+          <div class="table-wrapper">
+            <table class="table-products">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="product-col">Product Name</th>
+                  <th>Order ID</th>
+                  <th>Category</th>
+                  <th>Qty</th>
+                  <th>Status</th>
+                  <th>Exp pick up</th>
+                  <th>Exp Delivery</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
 
-            <!-- ROW 11 -->
-            <tr>
-              <td class="action-cell">
-                <div class="action-wrapper">
-                  <span class="three-dots">⋮</span>
-                  <div class="action-menu">
-                    <div class="action-item">
-                      <img
-                        src="../assets/vendorOrderManagement/delete.svg"
-                      /><span>Remove</span>
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="product-info">
-                  <img src="../assets/vendorOrderManagement/img.svg" />
-                  <div>
-                    <div class="product-name">
-                      <span class="main-name">Handcrafted Wooden</span>
-                      <span class="sub-name">Beer Mug</span>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Madhubani Painting Art<br>Vinhu God</span>
+                      <span>SKU: 64767901</span>
                     </div>
-                  </div>
-                </div>
-              </td>
-              <td>#79967776</td>
-              <td>Yash Painting</td>
-              <td>2</td>
-              <td>
-                <span class="status-badge received">Received</span>
-              </td>
+                  </td>
+                  <td>ORD-1001</td>
+                  <td>Madhubani Painting</td>
+                  <td>20</td>
+                  <td> <span class="order-status received-orders">Received</span></td>
+                  <td>14/12/25</td>
+                  <td>18/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
 
-              <td>15/12/2025</td>
-              <td>23/12/2025</td>
-              <td>
-                <img
-                  src="../assets/vendorOrderManagement/arrow.svg"
-                  alt="arrow"
-                  class="arrow-img"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-       
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Warli Tribal Art</span>
+                      <span>SKU: 64767902</span>
+                    </div>
+                  </td>
+                  <td>ORD-1002</td>
+                  <td>Warli Painting</td>
+                  <td>12</td>
+                  <td><span class="order-status delivered-order">Delivered</span></td>
+                  <td>15/12/25</td>
+                  <td>21/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Pattachitra Canvas Art</span>
+                      <span>SKU: 64767903</span>
+                    </div>
+                  </td>
+                  <td>ORD-1003</td>
+                  <td>Pattachitra</td>
+                  <td>8</td>
+                  <td><span class="order-status packed-order">Packed</span></td>
+                  <td>15/12/25</td>
+                  <td>15/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Kalamkari Hand Art</span>
+                      <span>SKU: 64767904</span>
+                    </div>
+                  </td>
+                  <td>ORD-1004</td>
+                  <td>Kalamkari</td>
+                  <td>15</td>
+                  <td> <span class="order-status received-orders">Received</span></td>
+                  <td>16/12/25</td>
+                  <td>20/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Gond Folk Painting</span>
+                      <span>SKU: 64767905</span>
+                    </div>
+                  </td>
+                  <td>ORD-1005</td>
+                  <td>Gond Art</td>
+                  <td>6</td>
+                  <td><span class="order-status delivered-order">Delivered</span></td>
+                  <td>17/12/25</td>
+                  <td>22/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Miniature Rajasthani Art</span>
+                      <span>SKU: 64767906</span>
+                    </div>
+                  </td>
+                  <td>ORD-1006</td>
+                  <td>Miniature Art</td>
+                  <td>10</td>
+                  <td> <span class="order-status received-orders">Received</span></td>
+                  <td>18/12/25</td>
+                  <td>24/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Phad Scroll Painting</span>
+                      <span>SKU: 64767907</span>
+                    </div>
+                  </td>
+                  <td>ORD-1007</td>
+                  <td>Phad Painting</td>
+                  <td>5</td>
+                  <td><span class="order-status packed-order">Packed</span></td>
+                  <td>15/12/25</td>
+                  <td>15/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Kalighat Pat Art</span>
+                      <span>SKU: 64767908</span>
+                    </div>
+                  </td>
+                  <td>ORD-1008</td>
+                  <td>Kalighat Painting</td>
+                  <td>18</td>
+                  <td> <span class="order-status received-orders">Received</span></td>
+                  <td>19/12/25</td>
+                  <td>26/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Saura Tribal Art</span>
+                      <span>SKU: 64767909</span>
+                    </div>
+                  </td>
+                  <td>ORD-1009</td>
+                  <td>Saura Art</td>
+                  <td>9</td>
+                  <td><span class="order-status delivered-order">Delivered</span></td>
+                  <td>20/12/25</td>
+                  <td>27/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+                <tr>
+                  <td class="previewing">
+                    <img src="../assets/inventoryManagement/3dot.svg" class="three-dot">
+                    <div class="all-preview">
+                      <div>
+                        <img src="../assets/inventoryManagement/delete.svg">
+                        <span>Remove</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-col-rows">
+                    <img src="../assets/inventoryManagement/img.svg">
+                    <div>
+                      <span>Tanjore Gold Painting</span>
+                      <span>SKU: 64767910</span>
+                    </div>
+                  </td>
+                  <td>ORD-1010</td>
+                  <td>Tanjore Painting</td>
+                  <td>7</td>
+                  <td> <span class="order-status received-orders">Received</span></td>
+                  <td>21/12/25</td>
+                  <td>28/12/25</td>
+                  <td><img src="../assets/vendorOrderManagement/arrow.svg" class="show-popup-btn" alt=""></td>
+                </tr>
+
+              </tbody>
+
+
+
+            </table>
+          </div>
+        </div>
+
+        <div id="confirmModal" class="confirm-modal">
+          <div class="confirm-box">
+            <p>Are you sure you want to remove this item?</p>
+            <div class="confirm-actions">
+              <button id="confirmYes">Yes</button>
+              <button id="confirmNo">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Received Popup Sections --> 
+        <div id="received-popup" class="modal-popup-main">
+          <div class="modal-popup-content-main">
+            <button class="close-btn">×</button>
+            <h1>Received</h1>
+          </div>
+        </div>
+
+        <!-- Packed Popup Sections -->
+        <div id="packed-popup" class="modal-popup-main">
+          <div class="modal-popup-content-main">
+            <button class="close-btn">×</button>
+            <h1>Received</h1>
+          </div>
+        </div>
+
+        <!-- Delivered Popup Sections -->
+        <div id="delivered-popup" class="modal-popup-main">
+          <div class="modal-popup-content-main">
+            <button class="close-btn">×</button>
+            <h1>Received</h1>
+          </div>
+        </div>
+
+
+
+        <!-- Mobile view Table Section -->
+
+        <div class="order-trend-main-mobile">
+          <div class="order-trend-head">
+            <span>Recent Orders</span>
+          </div>
+          <div class="faq">
+
+            <!-- Marron | Approved -->
+            <div class="faq-item" data-sku="64767890">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767890</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="marron"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹511</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yellow | Pending -->
+            <div class="faq-item" data-sku="64767891">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767891</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="yellow"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">52</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-pending">Pending</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Green | Rejected -->
+            <div class="faq-item" data-sku="64767892">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767892</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="green"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>10</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-rejected">Rejected</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Purple | Approved -->
+            <div class="faq-item" data-sku="64767893">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767893</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="purple"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">10</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cyan | Approved -->
+            <div class="faq-item" data-sku="64767894">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767894</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="cyan"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">334</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creame | Approved -->
+            <div class="faq-item" data-sku="64767895">
+              <button class="faq-question">
+                <div class="main-faq-question">
+                  <img src="../assets/inventoryManagement/img.svg">
+                  <span>Madhubani Painting Art Vinhu God</span>
+                </div>
+                <img src="../assets/vendorDashboard/CaretCircleDown.svg">
+              </button>
+              <div class="faq-answer">
+                <div class="main-threedots-mobile">
+                  <img class="mobile-three-dots" src="../assets/inventoryManagement/3dot.svg" alt="">
+                  <div class="show-threedots-box">
+                    <div>
+                      <img src="../assets/inventoryManagement/AppWindow.svg">
+                      <span>Preview</span>
+                    </div>
+                    <div>
+                      <img src="../assets/inventoryManagement/delete.svg">
+                      <span>Request to Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-answers">
+                  <div><span>SKU</span><span>64767895</span></div>
+                  <div><span>Category</span><span>Madhubani Painting</span></div>
+                  <div><span>Size</span><span>S</span></div>
+                  <div><span>Colour</span><span class="creame"></span></div>
+                  <div><span>Date</span><span>12/12/25</span></div>
+                  <div><span>Orders</span><span>214</span></div>
+                  <div><span>In Stock</span><span>20</span></div>
+                  <div><span>Total Stock</span><span class="total-stock">33</span></div>
+                  <div><span>Price</span><span>₹5,110</span></div>
+                  <div><span>Status</span><span class="payment-credited">Approved</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- No rows present -->
+             <div id="faq-no-results" style="display:none; text-align:center; padding:20px; font-weight:600;">
+                No rows present
+              </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="bestseller-main-modal">
+        <div class="bestseller-main-content">
+          <div class="bestseller-heading">
+            <span>Best Selling Products</span>
+            <img id="close-bestseller-modal" src="../assets/inventoryManagement/X.svg" alt="">
+          </div>
+          <div class="bestseller-content">
+            <ul>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="bestseller-image">
+                  <img src="../assets/inventoryManagement/Rectangle 34627049 (1).svg" alt="">
+                </div>
+                <div class="bestseller-content-sub">
+                  <span class="bestseller-product-name">Madhubani Painting Art Vishu God</span>
+                  <div>
+                    <span class="sku-number">SKU: 64767890</span>
+                    <span class="products-solved">45,455 sold</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
 
       
-      <div class="confirm-overlay" id="confirmOverlay">
-  <div class="confirm-box">
-    <h3>Delete Order?</h3>
-    <p>Are you sure you want to remove this order?</p>
-    <div class="confirm-actions">
-      <button id="cancelDelete">Cancel</button>
-      <button id="confirmDelete">Delete</button>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ORDER DETAILS MODAL -->
-<div class="order-modal" id="modal-received">
-  <div class="order-container">
-
-    <!-- HEADER -->
-    <div class="order-header">
-      <div>
-        <h3>Order Details <span class="order-date">14/12/25</span></h3>
-
-        <!-- PROGRESS BAR -->
-        <div class="order-progress">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-
-      <span class="status-pill received">Received</span>
-      <button class="close-order">&times;</button>
-    </div>
-
-    <!-- BODY -->
-    <div class="order-body">
-
-      <!-- PRODUCT DETAILS -->
-      <div class="card">
-        <h4>Product Details</h4>
-
-        <div class="product-row">
-          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
-
-          <div class="product-info">
-            <small>#79967776</small>
-            <strong>Handcrafted Wooden Beer Mug</strong>
-
-            <div class="meta">
-              <span>Qty : 2</span>
-              <span>Size : L</span>
-              <span>Finish : Glossy</span>
-              <span>Colour : Brown</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAYMENT -->
-      <div class="card">
-        <h4>Payment</h4>
-        <p>Paid by Paypal</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>124547586970889</small>
-      </div>
-
-      <!-- EXPECTED DATE -->
-      <div class="card">
-        <h4>Expected Date</h4>
-
-        <div class="date-grid">
-          <div>
-            <label>Packaging</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Delivery</label>
-            <p>20/02/25 - 23/02/25</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CUSTOMER DETAILS -->
-      <div class="card">
-        <h4>Customer Details</h4>
-        <p>Name<br><strong>Pawan Singh</strong></p>
-        <p>Customer ID<br>23453689</p>
-      </div>
-
-      <!-- UPDATE STATUS -->
-      <div class="card full">
-        <h4>Update Order status</h4>
-
-        <div class="status-grid">
-          <div>
-            <label>Packed on</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Delivered on</label>
-            <span>–</span>
-          </div>
-        </div>
-
-        <button class="primary-btn" id="markPacked">
-          Mark as Packed
-        </button>
-      </div>
 
     </div>
   </div>
-</div>
-<!-- ORDER DETAILS MODAL -->
-<div class="order-modal" id="modal-packed">
-  <div class="order-container">
-
-    <!-- HEADER -->
-    <div class="order-header">
-      <div>
-        <h3>Order Details <span class="order-date">14/12/25</span></h3>
-
-        <!-- PROGRESS BAR -->
-        <div class="order-progress">
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-
-      <span class="status-pill packed">Packed</span>
-      <button class="close-order">&times;</button>
-    </div>
-
-    <!-- BODY -->
-    <div class="order-body">
-
-      <!-- PRODUCT DETAILS -->
-      <div class="card">
-        <h4>Product Details</h4>
-
-        <div class="product-row">
-          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
-
-          <div class="product-info">
-            <small>#79967776</small>
-            <strong>Handcrafted Wooden Beer Mug</strong>
-
-            <div class="meta">
-              <span>Qty : 2</span>
-              <span>Size : L</span>
-              <span>Finish : Glossy</span>
-              <span>Colour : Brown</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAYMENT -->
-      <div class="card">
-        <h4>Payment</h4>
-        <p>Paid by Paypal</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>124547586970889</small>
-      </div>
-
-      <!-- EXPECTED DATE -->
-      <div class="card">
-        <h4>Expected Date</h4>
-
-        <div class="date-grid">
-          <div>
-            <label>Packaging</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Delivery</label>
-            <p>20/02/25 - 23/02/25</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CUSTOMER DETAILS -->
-      <div class="card">
-        <h4>Customer Details</h4>
-        <p>Name<br><strong>Pawan Singh</strong></p>
-        <p>Customer ID<br>23453689</p>
-      </div>
-
-      <!-- UPDATE STATUS -->
-      <div class="card full">
-        <h4>Update Order status</h4>
-
-        <div class="status-grid">
-          <div>
-            <label>Packed on</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Delivered on</label>
-            <span>–</span>
-          </div>
-        </div>
-
-        <button class="primary-btn" id="markTransit">
-          Mark as Picked
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- ORDER DETAILS MODAL -->
-<div class="order-modal" id="modal-transit">
-  <div class="order-container">
-
-    <!-- HEADER -->
-    <div class="order-header">
-      <div>
-        <h3>Order Details <span class="order-date">14/12/25</span></h3>
-
-        <!-- PROGRESS BAR -->
-        <div class="order-progress">
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-
-      <span class="status-pill transit">In transit</span>
-      <button class="close-order">&times;</button>
-    </div>
-
-    <!-- BODY -->
-    <div class="order-body">
-
-      <!-- PRODUCT DETAILS -->
-      <div class="card">
-        <h4>Product Details</h4>
-
-        <div class="product-row">
-          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
-
-          <div class="product-info">
-            <small>#79967776</small>
-            <strong>Handcrafted Wooden Beer Mug</strong>
-
-            <div class="meta">
-              <span>Qty : 2</span>
-              <span>Size : L</span>
-              <span>Finish : Glossy</span>
-              <span>Colour : Brown</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAYMENT -->
-      <div class="card">
-        <h4>Payment</h4>
-        <p>Paid by Paypal</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>124547586970889</small>
-      </div>
-
-      <!-- EXPECTED DATE -->
-      <div class="card">
-        <h4>Expected Date</h4>
-
-        <div class="date-grid">
-          <div>
-            <label>Packaging</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Delivery</label>
-            <p>20/02/25 - 23/02/25</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CUSTOMER DETAILS -->
-      <div class="card">
-        <h4>Customer Details</h4>
-        <p>Name<br><strong>Pawan Singh</strong></p>
-        <p>Customer ID<br>23453689</p>
-      </div>
-
-      <!-- UPDATE STATUS -->
-      <div class="card full">
-        <h4>Update Order status</h4>
-
-        <div class="status-grid">
-          <div>
-            <label>Packed on</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Delivered on</label>
-            <span>–</span>
-          </div>
-        </div>
-
-        <button class="primary-btn" id="markDelivered">
-          Mark as Delivered
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- ORDER DETAILS MODAL -->
-<div class="order-modal" id="modal-delivered">
-  <div class="order-container">
-
-    <!-- HEADER -->
-    <div class="order-header">
-      <div>
-        <h3>Order Details <span class="order-date">14/12/25</span></h3>
-
-        <!-- PROGRESS BAR -->
-        <div class="order-progress">
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-          <span class="dot active"></span>
-        </div>
-      </div>
-
-      <span class="status-pill delivered">Delivered</span>
-      <button class="close-order">&times;</button>
-    </div>
-
-    <!-- BODY -->
-    <div class="order-body">
-
-      <!-- PRODUCT DETAILS -->
-      <div class="card">
-        <h4>Product Details</h4>
-
-        <div class="product-row">
-          <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
-
-          <div class="product-info">
-            <small>#79967776</small>
-            <strong>Handcrafted Wooden Beer Mug</strong>
-
-            <div class="meta">
-              <span>Qty : 2</span>
-              <span>Size : L</span>
-              <span>Finish : Glossy</span>
-              <span>Colour : Brown</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAYMENT -->
-      <div class="card">
-        <h4>Payment</h4>
-        <p>Paid by Paypal</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>124547586970889</small>
-      </div>
-
-      <!-- EXPECTED DATE -->
-      <div class="card">
-        <h4>Expected Date</h4>
-
-        <div class="date-grid">
-          <div>
-            <label>Packaging</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <p>15/02/25 - 17/02/25</p>
-          </div>
-          <div>
-            <label>Delivery</label>
-            <p>20/02/25 - 23/02/25</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CUSTOMER DETAILS -->
-      <div class="card">
-        <h4>Customer Details</h4>
-        <p>Name<br><strong>Pawan Singh</strong></p>
-        <p>Customer ID<br>23453689</p>
-      </div>
-
-      <!-- UPDATE STATUS -->
-      <div class="card full">
-        <h4>Update Order status</h4>
-
-        <div class="status-grid">
-          <div>
-            <label>Packed on</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Pick Up</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Delivered on</label>
-            <span>–</span>
-          </div>
-        </div>
-
-        <div class="card full">
-          <h4>Reviews</h4>
-          <div class="review-box">
-            <strong>⭐ 4.5</strong>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Curabitur sodales risus a dui luctus fringilla.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- ORDER DETAILS MODAL -->
-<div class="order-modal" id="modal-return">
-  <div class="order-container">
-
-    <!-- HEADER -->
-    <div class="order-header">
-      <div>
-        <h3>Order Details <span class="order-date">14/12/25</span></h3>
-
-        <h3>Return Details <span class="order-date">17/12/25</span></h3>
-        <span class="status-pill return">Return</span>
-
-      </div>
-
-      <span class="status-pill received">Received</span>
-      <button class="close-order">&times;</button>
-    </div>
-
-    <!-- BODY -->
-    <div class="order-body">
-    
-      <!-- PRODUCT -->
-      <div class="card">
-        <h4>Product Details</h4>
-        <!-- same product block -->
-      </div>
-    
-      <!-- PAYMENT -->
-      <div class="card">
-        <h4>Payment</h4>
-        <p>Paid by Paypal</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>124547586970889</small>
-      </div>
-    
-      <!-- RETURN ORDER DETAILS -->
-      <div class="card">
-        <h4>Return Order Details</h4>
-        <p><strong>Accepted:</strong> Yes</p>
-        <p><strong>Reason:</strong><br>Damaged Item</p>
-        <p><strong>Return ID:</strong> 72775854</p>
-      </div>
-    
-      <!-- DELIVERY PARTNER UPDATE -->
-      <div class="card">
-        <h4>Update by Delivery Partner</h4>
-        <p>Pickup on: 14/12/25</p>
-        <p>Quality Check: Approved</p>
-        <p>Exp Return Delivery: 24/12/25</p>
-      </div>
-    
-      <!-- REFUND -->
-      <div class="card full">
-        <h4>Return Processed</h4>
-        <p>Bank Transfer</p>
-        <h3>₹ 5,110</h3>
-        <small>Transaction ID<br>356789234567884</small>
-      </div>
-    
-    </div>
-
-  </div>
-</div>
-
- <!-- PAGINATION -->
-<!-- <div class="table-pagination">
-  <div class="pagination-info" id="paginationInfo">
-    1 / 1
-  </div>
-
-  <div class="pagination-controls">
-    <button id="prevPage" disabled>
-      <img src="../assets/productcatalog/CaretCircleLeft.svg" alt="Prev">
-    </button>
-
-    <button id="nextPage">
-      <img src="../assets/productcatalog/CaretCircleRight.svg" alt="Next">
-    </button>
-  </div>
-</div> -->
-
-    </div>
 
     <footer class="er-footer">
     <div class="er-container">
@@ -1609,18 +1438,18 @@
       <div class="er-col">
         <h2 class="er-logo">eRANGOLI</h2>
         <p class="er-desc">
-          Erangoli finds authentic crafts textiles and home decor made by real artisans.
+          Villa no :34, road no 10 (right side), Symphony park homes, Krishna Reddy pet, Beeramguda, Hyderabad, Telangana -502319.
         </p>
 
         <div class="er-contact-part">
           <div class="er-contact"> <img src="../assets/master/footeremail.svg" alt="">
-            <div>erangoli@gmail.com</div>
+            <div>bharat@erangoli.com</div>
           </div>
           <div class="er-contact"> <img src="../assets/master/footerPhone.svg" alt="">
-            <div>+91 67895 76895</div>
+            <div>+91 9987154369</div>
           </div>
           <div class="er-contact"> <img src="../assets/master/footerweblink.svg" alt="">
-            <div>erangoli.com</div>
+            <div>www.erangoli.com</div>
           </div>
         </div>
 
@@ -1630,21 +1459,21 @@
       <!-- Column 2 -->
       <div class="er-col quick-link">
         <h3 class="er-heading">Quick Links</h3>
-        <a href="#">Home</a>
-        <a href="#">New Arrivals</a>
-        <a href="#">Categories</a>
-        <a href="#">Offers</a>
-        <a href="#">Contact</a>
+        <a href="../html/vendorDashboard.html">Dashboard</a>
+        <a href="../html/vendorInventoryManagement.html">Product Management</a>
+        <a href="../html/vendorOrderManagement.html">Order Management</a>
+        <a href="../html/vendorreturnmanagement.html">Return Management</a>
+        <a href="../html/vendorSales.html">Sales</a>
+        <a href="../html/vendorCustomerManagement.html">Customer Management</a>
       </div>
 
       <!-- Column 3 -->
       <div class="er-col payments">
-        <h3 class="er-heading">Payments</h3>
-        <a href="#">UPI</a>
-        <a href="#">Debit Card</a>
-        <a href="#">Credit Card</a>
-        <a href="#">COD</a>
-        <a href="#">Net Banking</a>
+        <h3 class="er-heading">More Info</h3>
+        <a href="../html/vendorTermsandConditions.html">Terms and Conditions</a>
+        <a href="../html/vendorReturnPolicy.html">Return Policy</a>
+        <a href="../html/vendorPaymentPolicy.html">Payment Policy</a>
+        <a href="../html/vendorCancellationPolicy.html">Cancellation Policy</a>
       </div>
 
       <!-- Column 4 -->
@@ -1665,9 +1494,9 @@
 
     </div>
   </footer>
-  </div>
-    
-    <script src="../javascript/vendorOrderManagement.js"></script>
-    <script src="../javascript/vendorSidebarnavbar.js"></script>
-  </body>
+
+  <script src="../javascript/vendorOrderManagement.js"></script>
+  <script src="../javascript/vendorSidebarnavbar.js"></script>
+</body>
+
 </html>
