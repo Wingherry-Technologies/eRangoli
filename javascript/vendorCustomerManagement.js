@@ -1,13 +1,13 @@
-/* ===============================
+/* 
    NAVIGATION
-================================ */
+ */
 document.getElementById('customer-dashboard-myCustomersBtn').addEventListener('click', function() {
   window.location.href = '../html/vendorMyCustomer.html';
 });
 
-/* ===============================
+/* 
    ACTIVE CUSTOMERS CHART
-================================ */
+ */
 const ctx = document.getElementById('customer-dashboard-activeCustomersChart').getContext('2d');
 
 const activeCustomersChart = new Chart(ctx, {
@@ -50,13 +50,12 @@ plugins: {
       usePointStyle: true,
       pointStyle: 'circle',
 
-      // 🔥 IMPORTANT PART
       generateLabels: function(chart) {
         const datasets = chart.data.datasets;
         return datasets.map((dataset, i) => ({
           text: dataset.label,
-          fillStyle: dataset.borderColor,   // ✅ solid fill
-          strokeStyle: dataset.borderColor, // ✅ no hollow
+          fillStyle: dataset.borderColor,   
+          strokeStyle: dataset.borderColor, 
           lineWidth: 0,
           hidden: !chart.isDatasetVisible(i),
           index: i
@@ -66,7 +65,7 @@ plugins: {
       boxWidth: 8,
       boxHeight: 8,
       padding: 20,
-      color: '#666666',
+      color: '#3F3F3F',
       font: {
         size: 12,
         weight: '400',
@@ -90,13 +89,21 @@ scales: {
       borderDash: [4, 4],   
       color: '#dbe5e3'
     },
-    ticks: {
-      font: {
-        size: 12,
-        family: 'Nunito Sans'
-      },
-      color: '#666'
+ticks: {
+  font: function(context) {
+    const width = window.innerWidth;
+
+    if (width <= 767) {
+      return { size: 9, family: 'Nunito Sans' };     
+    } else if (width <= 1024) {
+      return { size: 11, family: 'Nunito Sans' };
+    } else {
+      return { size: 13, family: 'Nunito Sans' };
     }
+  },
+  color: '#3F3F3F'
+}
+
   },
   y: {
     border: {
@@ -110,7 +117,7 @@ scales: {
         size: 12,
         family: 'Nunito Sans'
       },
-      color: '#666'
+      color: '#3F3F3F'
     },
     grid: {
       display: true,
@@ -128,9 +135,9 @@ scales: {
   }
 });
 
-/* ===============================
+/* 
    HEATMAP DATA
-================================ */
+ */
 const heatmapData = {
   'MH': [3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500],
   'KA': [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
@@ -143,12 +150,14 @@ const heatmapData = {
   'HR': [3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500, 3500],
   'PB': [2324, 2324, 2324, 2324, 2324, 2324, 2324, 2324, 2324, 2324, 2324, 2324],
   'RJ': [5424, 5424, 5424, 5424, 5424, 5424, 5424, 5424, 5424, 5424, 5424, 5424],
-  'WB': [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500]
+  'WB': [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
+  'DL': [2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000],
+  'TN': [3000,3000,3000,3000,3000,3000,3000,3000,3000,3000,3000,3000]
 };
 
-/* ===============================
+/* 
    HEATMAP RENDERING
-================================ */
+ */
 function getHeatmapCellClass(value) {
   if (value <= 1500) return 'customer-dashboard-heatmap-cell-1';
   if (value <= 2000) return 'customer-dashboard-heatmap-cell-2';
@@ -163,31 +172,69 @@ function getHeatmapCellClass(value) {
   return 'customer-dashboard-heatmap-cell-11';
 }
 
-function renderHeatmap() {
-  const tbody = document.getElementById('customer-dashboard-heatmapBody');
-  tbody.innerHTML = '';
 
-  for (const [region, values] of Object.entries(heatmapData)) {
-    const row = document.createElement('tr');
-    
-    // Region name cell
-    const regionCell = document.createElement('td');
-    regionCell.textContent = region;
-    row.appendChild(regionCell);
 
-    // Value cells
-    values.forEach(value => {
-      const cell = document.createElement('td');
-      cell.textContent = value.toLocaleString();
-      cell.className = getHeatmapCellClass(value);
-      row.appendChild(cell);
-    });
 
-    tbody.appendChild(row);
+
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function formatValueForMobile(value) {
+  if (window.innerWidth <= 767) {
+    if (value >= 1000) {
+      const k = value / 1000;
+      return k % 1 === 0 ? k + 'K' : k.toFixed(1) + 'K';
+    }
   }
+  return value.toLocaleString();
 }
 
-/* ===============================
-   INIT
-================================ */
-renderHeatmap();
+function renderOptimizedHeatmap() {
+  const grid = document.getElementById('heatmapGrid');
+  const yLabels = document.getElementById('yLabels');
+  const xLabels = document.getElementById('xLabels');
+
+  grid.innerHTML = '';
+  yLabels.innerHTML = '';
+  xLabels.innerHTML = '';
+
+  const fragmentGrid = document.createDocumentFragment();
+  const fragmentY = document.createDocumentFragment();
+  const fragmentX = document.createDocumentFragment();
+
+  Object.keys(heatmapData).forEach(region => {
+    const d = document.createElement('div');
+    d.textContent = region;
+    fragmentY.appendChild(d);
+  });
+
+  Object.values(heatmapData).forEach(row => {
+    row.forEach(value => {
+      const cell = document.createElement('div');
+      cell.className = 'heatmap-cell';
+      cell.textContent = formatValueForMobile(value); 
+      fragmentGrid.appendChild(cell);
+    });
+  });
+
+  months.forEach(m => {
+    const s = document.createElement('span');
+    s.textContent = m;
+    fragmentX.appendChild(s);
+  });
+
+  yLabels.appendChild(fragmentY);
+  grid.appendChild(fragmentGrid);
+  xLabels.appendChild(fragmentX);
+}
+
+// Re-render on window resize to update format
+let resizeTimer;
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+    renderOptimizedHeatmap();
+  }, 250);
+});
+
+
+renderOptimizedHeatmap();
