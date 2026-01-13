@@ -131,7 +131,9 @@ function renderMobileCustomers() {
   const container = document.querySelector(".my-customer-mobile-table");
   if (!container) return;
 
-  const rows = document.querySelectorAll("#my-customer-tableBody tr");
+  const rows = Array.from(document.querySelectorAll("#my-customer-tableBody tr"))
+  .filter(row => row.style.display !== "none");
+
 
   container.innerHTML = "";
 
@@ -165,9 +167,17 @@ function renderMobileCustomers() {
         <div class="mobile-row"><span>Contact</span><span>${contact}</span></div>
         <div class="mobile-row"><span>Signed Up</span><span>${signup}</span></div>
         <div class="mobile-row"><span>Purchase time</span><span>${purchase}</span></div>
-        <div class="mobile-row"><span>Last Purchase</span><span>${last}</span></div>
+        <div class="mobile-row"><span>Last Purchase</span><span>${last} </span></div>
+        <div class="mobile-last-arrow"><img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg"  alt=""> </div>
       </div>
     `;
+const mobileArrow = div.querySelector(".mobile-last-arrow");
+    if (mobileArrow) {
+  mobileArrow.onclick = (e) => {
+    e.stopPropagation();
+    openCustomerDetailsPopup(row);
+  };
+}
 
     div.querySelector(".my-customer-mobile-header").onclick = () => {
       div.classList.toggle("active");
@@ -179,3 +189,150 @@ function renderMobileCustomers() {
 
 renderMobileCustomers();
 window.addEventListener("resize", renderMobileCustomers);
+
+
+const customerSortBtn = document.getElementById("sort-by-main-box");
+const customerSortBox = document.getElementById("customer-sort-box");
+
+customerSortBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+
+  customerFilterMain.classList.remove("active-main-content-flows");
+  customerDateBox.classList.remove("active-main-content-flows");
+
+
+  customerSortBox.classList.toggle("active-main-content-flows");
+});
+
+const customerRows = Array.from(document.querySelectorAll(".my-customer-table tbody tr"));
+
+document.querySelectorAll("#customer-sort-box input").forEach(rb => {
+  rb.addEventListener("change", () => {
+    sortCustomersByPurchase(rb.id);
+    customerSortBox.classList.remove("active-main-content-flows"); // auto close popup
+  });
+});
+
+function getPurchaseTime(row) {
+  const val = row.querySelector(".purchase-time").innerText.trim().toLowerCase();
+
+  if (val === "once") return 1;
+  if (val === "twice") return 2;
+
+  const num = parseInt(val);
+  return isNaN(num) ? 0 : num;
+}
+
+
+function sortCustomersByPurchase(type) {
+  const tbody = document.querySelector(".my-customer-table tbody");
+
+  let filteredRows = [...customerRows];
+
+  switch (type) {
+    case "purchase-once":
+      filteredRows = filteredRows.filter(r => getPurchaseTime(r) === 1);
+      break;
+
+    case "purchase-twice":
+      filteredRows = filteredRows.filter(r => getPurchaseTime(r) === 2);
+      break;
+
+    case "purchase-less-five":
+      filteredRows = filteredRows.filter(r => getPurchaseTime(r) < 5);
+      break;
+
+    case "purchase-more-five":
+      filteredRows = filteredRows.filter(r => getPurchaseTime(r) > 5);
+      break;
+  }
+
+  tbody.innerHTML = "";
+  filteredRows.forEach(r => tbody.appendChild(r));
+
+  renderMobileCustomers();
+}
+
+
+const customerFilterBtn = document.getElementById("customer-filter-btn");
+const customerFilterMain = document.getElementById("customer-filter-main");
+const customerDateBox = document.getElementById("customer-date-filter-box");
+
+if (customerFilterBtn) {
+customerFilterBtn.onclick = (e) => {
+  e.stopPropagation();
+
+
+  customerSortBox.classList.remove("active-main-content-flows");
+
+  customerFilterMain.classList.toggle("active-main-content-flows");
+
+  customerDateBox.classList.remove("active-main-content-flows");
+};
+
+}
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".main-content-flows-main") &&
+      !e.target.closest("#customer-filter-btn")) {
+    customerFilterMain.classList.remove("active-main-content-flows");
+    customerDateBox.classList.remove("active-main-content-flows");
+  }
+});
+let activeDateColumn = null;
+
+document.getElementById("filter-last-purchase").onclick = () => {
+  activeDateColumn = 6; // last purchase column
+  customerDateBox.classList.add("active-main-content-flows");
+};
+
+document.getElementById("filter-signed-up").onclick = () => {
+  activeDateColumn = 4; // signed up column
+  customerDateBox.classList.add("active-main-content-flows");
+};
+const fromDateInput = document.getElementById("filter-from-date");
+const toDateInput = document.getElementById("filter-to-date");
+
+toDateInput.addEventListener("change", () => {
+  if (!fromDateInput.value || !toDateInput.value) return;
+  applyDateFilter();
+});
+function applyDateFilter() {
+  const from = new Date(fromDateInput.value);
+  const to = new Date(toDateInput.value);
+
+  const tbody = document.getElementById("my-customer-tableBody");
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  rows.forEach(row => {
+    const dateText = row.children[activeDateColumn].innerText.trim();
+    const parts = dateText.split("/");
+    const rowDate = new Date(`20${parts[2]}-${parts[1]}-${parts[0]}`);
+
+    if (rowDate >= from && rowDate <= to) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+
+  customerDateBox.classList.remove("active-main-content-flows");
+  customerFilterMain.classList.remove("active-main-content-flows");
+
+  renderMobileCustomers();
+}
+(function setMaxDateForFilters() {
+  const fromDateInput = document.getElementById("filter-from-date");
+  const toDateInput = document.getElementById("filter-to-date");
+
+  const today = new Date().toISOString().split("T")[0];
+
+  if (fromDateInput) {
+    fromDateInput.setAttribute("max", today);
+  }
+
+  if (toDateInput) {
+    toDateInput.setAttribute("max", today);
+  }
+})();

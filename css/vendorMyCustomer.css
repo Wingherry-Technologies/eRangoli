@@ -61,6 +61,7 @@ body {
 
 /* Filter Box */
 .my-customer-filter-box {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -387,10 +388,14 @@ body {
   font-weight: 500;
   text-align: left;
 }
+.mobile-last-arrow{
+  text-align: right;
+  margin-top: -2rem;
+}
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 595px) {
 
   .my-customer-table-wrapper {
     display: none;
@@ -406,6 +411,7 @@ body {
   .my-customer-controls{
     width: 100%;
   }
+  
 }
 
 
@@ -701,4 +707,122 @@ body {
   .info-row {
     grid-template-columns: 1fr;
   }
+}
+
+.main-content-flows-main {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1000;
+}
+
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+
+.main-filter-box-content {
+  background-color: white;
+  padding: 10px;
+  color: #3F3F3F;
+  border-radius: 5px;
+  width: 220px;
+}
+
+.main-head-filters {
+  border-bottom: 1px solid #21A593;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.main-filter-box-content ul {
+  list-style: none;
+}
+
+.main-filter-box-content li {
+  padding: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.main-content-flows-main {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+
+.main-filter-box-content {
+  background: #fff;
+  border-radius: 8px;
+  width: 220px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.main-head-filters {
+  border-bottom: 1px solid #21a593;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.main-filter-box-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-filter-box-content li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.main-filter-box-content li:hover {
+  background: #21a593;
+  border-radius: 2px;
+
+}
+
+#customer-date-filter-box {
+  right: 240px;
+}
+
+.date-filter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width:595px) {  
+
+  #customer-date-filter-box {
+  right: 0px;
+}
+}
+
+
+.table-scroll-wrapper::-webkit-scrollbar:horizontal {
+  height: 6px;   /* thickness */
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-track:horizontal {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb:horizontal {
+  background: #6b6b6b;
+  border-radius: 10px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #4f4f4f;
 }

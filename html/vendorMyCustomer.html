@@ -32,9 +32,66 @@
 
           <!-- Filters -->
           <div class="my-customer-filter-box">
-            <img src="../assets/vendorCustomerManagement/Vector (1).svg" alt="">
-            <img src="../assets/vendorCustomerManagement/SortAscending.svg" alt="">
+            <img  id="customer-filter-btn" src="../assets/vendorCustomerManagement/Vector (1).svg" alt="">
+            <img  id="sort-by-main-box" src="../assets/vendorCustomerManagement/sort.svg" alt="">
+
+                      <div class="main-content-flows-main" id="customer-sort-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Sort By Purchase Time</span>
+    </div>
+
+    <ul>
+      <li>
+        <input type="radio" name="customer-sort" id="purchase-once">
+        <label for="purchase-once">Once</label>
+      </li>
+      <li>
+        <input type="radio" name="customer-sort" id="purchase-twice">
+        <label for="purchase-twice">Twice</label>
+      </li>
+      <li>
+        <input type="radio" name="customer-sort" id="purchase-less-five">
+        <label for="purchase-less-five">Less than five</label>
+      </li>
+      <li>
+        <input type="radio" name="customer-sort" id="purchase-more-five">
+        <label for="purchase-more-five">More than five</label>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="main-content-flows-main" id="customer-filter-main">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Filter</span>
+    </div>
+    <ul>
+      <li id="filter-last-purchase">Last Purchase</li>
+      <li id="filter-signed-up">Signed Up</li>
+    </ul>
+  </div>
+</div>
+<div class="main-content-flows-main" id="customer-date-filter-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Select Date Range</span>
+    </div>
+
+    <div class="date-filter-box">
+      <input type="date" id="filter-from-date">
+      <input type="date" id="filter-to-date" max="">
+    </div>
+  </div>
+</div>
+
           </div>
+
+
+
+
         </div>
       </div>
 
@@ -79,9 +136,9 @@
               </td>
               <td>2235367890</td>
               <td>66778 89904</td>
-              <td>12/12/25</td>
-              <td>Once</td>
-              <td>15/12/25</td>
+              <td>10/01/25</td>
+              <td class="purchase-time">Once</td>
+              <td>10/01/26</td>
               <td>
                  <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">  
                             
@@ -113,7 +170,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -145,7 +202,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Twice</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -177,7 +234,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -209,7 +266,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -241,7 +298,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -273,7 +330,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -305,7 +362,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -337,7 +394,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
@@ -369,7 +426,7 @@
               <td>2235367890</td>
               <td>66778 89904</td>
               <td>12/12/25</td>
-              <td>Once</td>
+              <td class="purchase-time">Once</td>
               <td>15/12/25</td>
               <td>
                 <img src="../assets/vendorCustomerManagement/ArrowCircleUpRight.svg" alt="">
