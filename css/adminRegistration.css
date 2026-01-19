@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  height: 100vh;
+}
+
+/*  MAIN LAYOUT  */
+
+.adminRegistration-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/*  LEFT PANEL  */
+
+.adminRegistration-left-panel {
+  width: 60%;
+  background: #d4e5f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminRegistration-logo-svg {
+  width: 220px;
+  height: auto;
+  margin-bottom: 48px;
+}
+
+.adminRegistration-brand-svg {
+  width: 260px;
+  height: auto;
+}
+
+/*  RIGHT PANEL  */
+
+.adminRegistration-right-panel {
+  width: 40%;
+  position: relative;
+  background: #ffffff;
+}
+
+/*  WAVES  */
+
+.adminRegistration-top-waves {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.adminRegistration-top-waves img {
+  position: absolute;
+  width: 100%;
+}
+
+.adminRegistration-top-waves img:nth-child(1) { top: 0; }
+.adminRegistration-top-waves img:nth-child(2) { top: 14px; }
+.adminRegistration-top-waves img:nth-child(3) { top: 28px; }
+.adminRegistration-top-waves img:nth-child(4) { top: 42px; }
+
+/*  FORM  */
+
+.adminRegistration-form-box {
+  max-width: 360px;
+  margin: 0 auto;
+  margin-top: 170px;
+}
+
+.adminRegistration-form-box h2 {
+  text-align: center;
+  color: #118FF6;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+/* Labels */
+
+.adminRegistration-form-box label {
+  font-size: 13px;
+  color: #3F3F3F;
+  font-weight: 600;
+}
+
+/* Inputs */
+
+.adminRegistration-form-box input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0 18px;
+  border: 1px solid #DEE1E6;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.adminRegistration-form-box input:focus {
+  outline: none;
+  border-color: #dee1e6;
+}
+
+.adminRegistration-form-box input::placeholder {
+  color: #8e8989;
+}
+
+/* Button */
+
+.adminRegistration-create-btn {
+  width: 100%;
+  background: #118FF6;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: "Inter";
+  margin-top: 10px;
+}
+
+.adminRegistration-create-btn:hover {
+  background: #0b7de0;
+}
+
+/*  UTILITIES  */
+
+.adminRegistration-hidden {
+  display: none;
+}
+
+.adminRegistration-error {
+  color: #e53935;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+  display: none;
+}
+
+
+.adminRegistration-success{
+  text-align:center;
+  margin-top:220px;
+}
+
+.adminRegistration-success-icon{
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#118FF6;
+  font-size:36px;
+  margin:0 auto 12px;
+  margin-top: 17rem;
+}
+
+.adminRegistration-success-icon img{
+    width: 120px;
+    height: 120px;
+}
+
+.adminRegistration-success p{
+  color:#118FF6;
+  font-size:16px;
+}
+
+
+/*  RESPONSIVE  */
+
+@media (max-width: 900px) {
+  .adminRegistration-left-panel {
+    display: none;
+  }
+
+  .adminRegistration-right-panel {
+    width: 100%;
+  }
+
+  .adminRegistration-form-box {
+    margin-top: 140px;
+    padding: 0 20px;
+  }
+}
