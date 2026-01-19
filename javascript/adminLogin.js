@@ -23,7 +23,6 @@ usernameInput.addEventListener("input", function () {
 const emailInput = document.getElementById("email");
 const emailError = document.getElementById("emailError");
 
-// Remove spaces while typing
 emailInput.addEventListener("input", function () {
   this.value = this.value.replace(/\s/g, "");
   validateEmail();
@@ -31,8 +30,6 @@ emailInput.addEventListener("input", function () {
 
 function validateEmail() {
   const email = emailInput.value;
-
-  // Proper email regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.(com|in)$/;
 
   if (email === "") {
