@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Return, Refund & Exchange Policy</title>
+    <link rel="stylesheet" href="../css/vendorexchangepolicy.css" />
+  </head>
+  <body>
+    <!-- Back -->
+
+    <div class="privacyPolicy-main-content">
+      <div class="headerContainer">
+        <div class="back-row" id="back-btn">
+          <img src="../assets/cart/back.svg" class="back-icon" />
+          <span>Back to search</span>
+        </div>
+
+        <!-- Header Banner -->
+        <div class="header-banner">
+          <div class="overlay">
+            <div class="header-content">
+              <div class="back-row-media" id="back-btn-media">
+                <img src="../assets/cart/back.svg" />
+                <span class="back">Back</span>
+              </div>
+
+              <div class="back-row-mob" id="back-btn-mob">
+                <img src="../assets/cart/back.svg" />
+              </div>
+
+              <section class="policy-header">
+                <h1>Return, Refund, and Exchange Policy</h1>
+                <div class="language-wrapper">
+                  <span class="globe" id="langToggle"
+                    ><img
+                      src="../assets/vendorPrivacypolicy/Globe.svg"
+                      class="globe-icon"
+                  /></span>
+
+                  <div class="language-dropdown" id="langDropdown">
+                    <p class="lang-title">Select Language</p>
+                    <hr />
+
+                    <label>
+                      <input type="radio" name="language" checked />
+                      English
+                    </label>
+
+                    <label>
+                      <input type="radio" name="language" />
+                      Hindi
+                    </label>
+
+                    <label>
+                      <input type="radio" name="language" />
+                      Telugu
+                    </label>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <section class="policy-content">
+        <p>
+          E-commerce laws in India are a mix of specific rules and existing laws
+          covering IT, consumer rights, taxes, and FDI, with key regulations
+          including the IT Act, 2000 (digital signatures, cyber security), the
+          Consumer Protection Act, 2019, and the Consumer Protection
+          (E-Commerce) Rules, 2020 (transparency, grievance redressal, no
+          pre-tick return, refund, and exchange policy boxes). Other crucial
+          laws are the GST Act, 2017 for taxation, the FDI policy (limiting
+          inventory models for FDI), and the Legal Metrology Act, 2009
+          (packaging/labelling). These frameworks aim to ensure fair practices,
+          data protection, and clear accountability for platforms and sellers.
+        </p>
+
+        <p>
+          Return: Specify the number of days from purchase or delivery (e.g.,
+          1–10 days) for initiating a return.
+        </p>
+        <p>
+          Customer eligibility: Within the given days, unused, original
+          packaging, tags attached.
+        </p>
+        <p>
+          Items must be unworn, unwashed, unused, with all original tags,
+          packaging, manuals, and accessories intact.
+        </p>
+        <p>
+          Require the original receipt, invoice, or order confirmation for
+          processing.
+        </p>
+        <p>
+          List exceptions like innerwear, customized products, perishable goods,
+          or software.
+        </p>
+        <p>
+          Refund/Exchange: Refunds go to the original payment method, store
+          credit, or bank transfer (NEFT).
+        </p>
+        <p>
+          Refund/Exchange in case of damage or color variation: Unboxing video
+          is mandatory.
+        </p>
+        <p>
+          Shipping & Fees: Specify who bears return shipping costs and any
+          deductions.
+        </p>
+      </section>
+
+      <!-- Legal Notes -->
+      <section class="legal-notes">
+        <h3>Legal and Policy Notes</h3>
+        <p>Policy can change without notice.</p>
+        <p>Governing law and dispute resolution.</p>
+        <p>
+          Compliance with consumer laws (like India’s Consumer Protection Act).
+        </p>
+      </section>
+    </div>
+  </body>
+  <script>
+    const toggle = document.getElementById("langToggle");
+    const dropdown = document.getElementById("langDropdown");
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // click outside close
+    document.addEventListener("click", () => {
+      dropdown.style.display = "none";
+    });
+  </script>
+</html>
