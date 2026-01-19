@@ -18,7 +18,7 @@ body {
   gap: 10px;
   padding: 18px 22px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   cursor: pointer;
 }
 
@@ -45,7 +45,7 @@ body {
   width: 100%;
   height: 140px;
   background: url("../assets/cart/bg.svg") center/cover;
-  background-color: #27A493;
+  background-color: #27a493;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -76,7 +76,7 @@ body {
 .vendorCancellation-policy-header h1 {
   font-size: 28px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -126,9 +126,12 @@ body {
 
 .vendorCancellation-lang-title {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 10px;
-  color: #444;
+  padding-bottom: 8px;
+  color: #000000;
+  border-bottom: 1px solid #b9e0db;
+  font-family: "Inter";
 }
 
 .vendorCancellation-language-dropdown label {
@@ -139,6 +142,8 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 8px;
+  font-weight: 400;
+  font-family: "inter";
 }
 
 .vendorCancellation-lang-text {
@@ -179,13 +184,14 @@ body {
   background: #2aa896;
 }
 
-.vendorCancellation-language-dropdown input[type="radio"]:checked + .vendorCancellation-lang-text {
+.vendorCancellation-language-dropdown
+  input[type="radio"]:checked
+  + .vendorCancellation-lang-text {
   background: #cfece7;
 }
 
 /* Tablet & Mobile */
 @media (max-width: 1024px) {
-
   .vendorCancellation-back-row {
     display: none;
   }
@@ -207,13 +213,12 @@ body {
   .vendorCancellation-headerContainer {
     padding: 0;
   }
-  .vendorCancellation-overlay{
+  .vendorCancellation-overlay {
     height: 100px;
   }
 }
 
 @media (max-width: 767px) {
-
   .vendorCancellation-policy-header h1 {
     font-size: 18px;
   }
