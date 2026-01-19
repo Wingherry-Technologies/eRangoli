@@ -247,21 +247,20 @@ body {
   .headerContainer {
     padding: 0;
   }
-  .policy-content{
-    margin: 0 1rem;
+  .policy-content {
+    margin: 1rem 1rem;
     padding: 5px 10px;
   }
-  .overlay{
+  .overlay {
     height: 100px;
     padding-left: 10px;
     padding-right: 10px;
   }
   .header-banner {
     height: 100px;
-  } 
+  }
 
-  .legal-notes
-  {
+  .legal-notes {
     margin: 1rem 1rem;
     padding: 5px 10px;
   }

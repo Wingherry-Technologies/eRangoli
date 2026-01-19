@@ -70,8 +70,8 @@ body {
   padding: 20px 24px;
 }
 
-.key-laws p{
-  color: #3F3F3F;
+.key-laws p {
+  color: #3f3f3f;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8rem;
@@ -91,15 +91,15 @@ body {
 .law-item h4 {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom:4px;
+  margin-bottom: 4px;
   color: #000000;
 }
 
 .law-item p {
   font-size: 14px;
   line-height: 1.6;
-  color: #3F3F3F;
-  margin-top: 0; 
+  color: #3f3f3f;
+  margin-top: 0;
   margin-bottom: 2rem;
 }
 
@@ -131,9 +131,9 @@ body {
 .cpo-item p {
   font-size: 14px;
   line-height: 1.6;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-top: 0;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 /* Legal notes */
 .last-notes {
@@ -144,7 +144,7 @@ body {
 
 .last-notes p {
   font-size: 14px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.6;
 }
 
@@ -302,28 +302,28 @@ body {
   .headerContainer {
     padding: 0;
   }
-  .overlay{
+  .overlay {
     height: 100px;
   }
-  .key-laws{
-    margin:  0 1rem;
-    padding: 5px 10px;
-  }
-  .cpo-laws{
+  .key-laws {
     margin: 1rem 1rem;
     padding: 5px 10px;
   }
-  .last-notes{
+  .cpo-laws {
+    margin: 1rem 1rem;
+    padding: 5px 10px;
+  }
+  .last-notes {
     margin: 1rem 1rem;
     padding: 10px;
-    }
+  }
 
-    .header-banner {
-      height: 100px;
-    }
-    .back-row-mob{
-      margin-bottom: 0px;
-    }
+  .header-banner {
+    height: 100px;
+  }
+  .back-row-mob {
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 767px) {
