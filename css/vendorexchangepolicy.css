@@ -56,13 +56,14 @@ body {
   display: flex;
   align-items: center;
   padding-left: 24px;
+   padding-right: 24px;
   box-sizing: border-box;
 }
 
 .policy-content {
   background: #fff8f8;
   margin: 0 2rem;
-  padding: 32px 24px;
+  padding: 20px 24px;
 }
 
 .policy-content p {
@@ -96,14 +97,49 @@ body {
   position: absolute;
   top: 36px;
   right: 0;
-  width: 180px;
+  width: 220px;
   background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  padding: 14px;
   display: none;
   z-index: 100;
 }
+
+.language-dropdown input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 2px solid #cfcfcf;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.language-dropdown input[type="radio"]:checked {
+  border-color: #2aa896;
+}
+
+.language-dropdown input[type="radio"]::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.language-dropdown input[type="radio"]:checked::after {
+  background: #2aa896;
+}
+
+
+
 
 .lang-title {
   font-size: 13px;
@@ -116,15 +152,33 @@ body {
 .language-dropdown label {
   display: flex;
   align-items: center;
+  gap: 8px;
   font-size: 14px;
-  padding: 6px 4px;
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 8px;
 }
+
+
+.lang-text {
+  padding: 10px 10px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.language-dropdown input[type="radio"]:checked + .lang-text {
+  background: #cfece7;
+}
+
+
 
 .language-dropdown input {
   margin-right: 8px;
 }
 
+.header-content {
+  width: 100%;
+}
 .policy-header {
   display: flex;
   align-items: center;
@@ -156,4 +210,69 @@ body {
 .globe-icon {
   width: 32px;
   cursor: pointer;
+}
+
+
+@media (max-width: 1024px) {
+
+  .back-row {
+    display: none;
+  }
+
+  /* tablet me bhi mobile layout use hoga */
+  .back-row-media {
+    display: none;
+  }
+
+  .back-row-mob {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .policy-header {
+    flex: 1;
+  }
+
+  .policy-header h1 {
+    font-size: 22px;
+  }
+
+  .headerContainer {
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .back-row {
+    display: none;
+  }
+
+  .back-row-media {
+    display: none;
+  }
+
+  .back-row-mob {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  .back-row-mob img {
+    width: 22px;
+  }
+
+  .policy-header h1 {
+    font-size: 18px;
+  }
+
 }
