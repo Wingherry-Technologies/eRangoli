@@ -70,10 +70,18 @@ body {
   padding: 20px 24px;
 }
 
+.key-laws p{
+  color: #3F3F3F;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.8rem;
+}
+
 .key-laws h2 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: #000000;
 }
 
 .law-item {
@@ -83,13 +91,16 @@ body {
 .law-item h4 {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom:4px;
+  color: #000000;
 }
 
 .law-item p {
   font-size: 14px;
   line-height: 1.6;
-  color: #555;
+  color: #3F3F3F;
+  margin-top: 0; 
+  margin-bottom: 2rem;
 }
 
 /**/
@@ -103,6 +114,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: #000000;
 }
 
 .cpo-item {
@@ -112,13 +124,16 @@ body {
 .cpo-item h4 {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  color: #000000;
 }
 
 .cpo-item p {
   font-size: 14px;
   line-height: 1.6;
-  color: #555;
+  color: #3F3F3F;
+  margin-top: 0;
+  margin-bottom: 2rem; 
 }
 /* Legal notes */
 .last-notes {
@@ -129,6 +144,8 @@ body {
 
 .last-notes p {
   font-size: 14px;
+  color: #3F3F3F;
+  line-height: 1.6;
 }
 
 .language-wrapper {
