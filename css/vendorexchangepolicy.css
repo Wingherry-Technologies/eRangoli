@@ -68,24 +68,27 @@ body {
 
 .policy-content p {
   font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  font-weight: 400;
+  color: #3f3f3f;
 }
 
 /* Legal notes */
 .legal-notes {
   background: #fff8f8;
   margin: 1rem 2rem;
-  padding: 24px;
+  padding: 1rem;
 }
 
 .legal-notes h3 {
+  font-weight: 700;
+  color: #000000;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
 .legal-notes p {
   font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
 }
 
 .language-wrapper {
@@ -99,7 +102,7 @@ body {
   right: 0;
   width: 220px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 4px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
   padding: 14px;
   display: none;
@@ -140,9 +143,12 @@ body {
 
 .lang-title {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
+  padding-bottom: 8px;
   margin-bottom: 10px;
-  color: #444;
+  color: #000000;
+  border-bottom: 1px solid #b9e0db;
+  font-family: "Inter";
 }
 
 /* Radio list */
@@ -153,12 +159,13 @@ body {
   font-size: 14px;
   padding: 5px 10px;
   cursor: pointer;
-  border-radius: 8px;
+  font-weight: 400;
+  font-family: "inter";
 }
 
 .lang-text {
   padding: 10px 10px;
-  border-radius: 6px;
+  border-radius: 4px;
   width: 100%;
 }
 
@@ -182,7 +189,7 @@ body {
 
 .policy-header h1 {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
   margin: 0;
 }
