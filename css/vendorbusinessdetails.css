@@ -95,6 +95,7 @@
   border-radius: 12px;
   padding: 16px;
   background: #fff;
+  position: relative;
 }
 
 .bank-card p {
@@ -102,6 +103,98 @@
   margin: 4px 0;
   color: #3f3f3f;
 }
+
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-new {
+  cursor: pointer;
+  color: blue;
+}
+
+.new-details-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 350px;
+  padding: 20px;
+  margin: 100px auto;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.popup-actions #submitBtn{
+  background-color: #1aa7a1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.popup-actions #closeBtn{
+  background-color: #ccc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.bank-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
 
 /* ================= TABLET ================= */
 @media (max-width: 1024px) {

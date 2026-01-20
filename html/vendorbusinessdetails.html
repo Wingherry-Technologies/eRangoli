@@ -527,19 +527,60 @@
       </div>
 
       <!-- ===== Business Bank Details ===== -->
-      <div class="bank-header">
+        <div class="bank-header">
         <h2 class="section-title">Business Bank Details</h2>
-        <!-- <a href="#" class="add-new">Add new</a> -->
+        <a href="#" class="add-new" id="addNewBtn">Add new</a>
       </div>
 
-      <div class="bank-card">
-        <p>Bank of India</p>
-        <p>Sanskriti Collection</p>
-        <p>Bank of India</p>
-        <p>Srikalahasthi Branch</p>
-        <p>(IFSC: BKID0005719)</p>
-        <p>Account number - **** **** **** *823</p>
+      <!-- Popup -->
+      <div class="new-details-popup" id="popup">
+        <div class="popup-content">
+          <h3 id="popupTitle">Add Bank Details</h3>
+
+          <div class="form-group">
+            <label>Bank Name</label>
+            <input type="text" id="bankName">
+          </div>
+
+          <div class="form-group">
+            <label>Account Holder</label>
+            <input type="text" id="accountHolder">
+          </div>
+
+          <div class="form-group">
+            <label>Branch Name</label>
+            <input type="text" id="branchName">
+          </div>
+
+          <div class="form-group">
+            <label>IFSC Code</label>
+            <input type="text" id="ifsc">
+          </div>
+
+          <div class="form-group">
+            <label>Account Number</label>
+            <input type="text" id="accountNumber">
+          </div>
+
+          <div class="form-group">
+            <label>UPI ID</label>
+            <input type="text" id="upiId">
+          </div>
+
+          <div class="popup-actions">
+            <button id="submitBtn">Submit</button>
+            <button id="updateBtn" style="display:none;">Update</button>
+            <button id="closeBtn">Cancel</button>
+          </div>
+
+          <p class="error" id="errorMsg"></p>
+        </div>
       </div>
+
+      <!-- Bank cards -->
+      <div id="bankCards"></div>
+
+
 
     </div>
   </div>
