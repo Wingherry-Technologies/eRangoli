@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Product Management</title>
+    <link rel="stylesheet" href="../css/adminProductManagement.css">
+</head>
+<body>
+    <div class="APMDashboardContainer">
+        <!-- Top Stats Cards Row -->
+        <div class="APMStatsRow">
+            <!-- Total Products Card -->
+            <div class="APMStatCard" id="APMTotalProductsWidget">
+                <div class="APMStatHeader">
+                    <div class="APMStatIcon">
+                       <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="APMStatLabel">Total Products</span>
+                </div>
+                <div class="APMStatValue">14,945</div>
+                <div class="APMStatFooter">
+                    <span class="APMStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="APMStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newly Added Card -->
+            <div class="APMStatCard" id="APMNewlyAddedWidget">
+                <div class="APMStatHeader">
+                    <div class="APMStatIcon">
+                        <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="APMStatLabel">Newly Added</span>
+                </div>
+                <div class="APMStatValue">9,945</div>
+                <div class="APMStatFooter">
+                    <span class="APMStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="APMStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Products Card -->
+            <div class="APMStatCard" id="APMTrendingProductsWidget">
+                <div class="APMStatHeader">
+                    <div class="APMStatIcon">
+                        <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="APMStatLabel">Trending Products</span>
+                </div>
+                <div class="APMStatValue">4,945</div>
+                <div class="APMStatFooter">
+                    <span class="APMStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="APMStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Least Purchased Card -->
+            <div class="APMStatCard" id="APMLeastPurchasedWidget">
+                <div class="APMStatHeader">
+                    <div class="APMStatIcon">
+                       <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="APMStatLabel">least purchased</span>
+                </div>
+                <div class="APMStatValue">945</div>
+                <div class="APMStatFooter">
+                    <span class="APMStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="APMStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar Section -->
+        <div class="APMSearchRow">
+            <div class="APMSearchWrapper">
+                <img src="../assets/adminProductManagement/search (2).svg" alt="">
+                <input type="text" class="APMSearchInput" placeholder="Search by product name, SKU ID, categories">
+            </div>
+            <div class="APMIconsGroup">
+                <div class="APMFilterDummy"><img src="../assets/adminProductManagement/Sliders.svg" alt=""></div>
+                <div class="APMSettingsDummy"><img src="../assets/adminProductManagement/SortAscending (1).svg" alt=""></div>
+            </div>
+        </div>
+
+        <!-- Product Table Section -->
+        <div class="APMTableCard">
+            <div class="APMTableHeader">
+                <h3 class="APMTableTitle">Product List</h3>
+                <a href="#" class="APMViewAllLink">View all</a>
+            </div>
+            <div class="APMTableWrapper">
+                <table class="APMProductTable">
+                    <thead class="APMTableHead">
+                        <tr class="APMTableHeadRow">
+                            <th class="APMTableHeaderCell">Product Name</th>
+                            <th class="APMTableHeaderCell">SKU ID</th>
+                            <th class="APMTableHeaderCell">Category</th>
+                            <th class="APMTableHeaderCell">Sub-category</th>
+                            <th class="APMTableHeaderCell">Quantity</th>
+                            <th class="APMTableHeaderCell">Size</th>
+                            <th class="APMTableHeaderCell">Colour</th>
+                            <th class="APMTableHeaderCell">Occasion</th>
+                            <th class="APMTableHeaderCell">S. Price</th>
+                            <th class="APMTableHeaderCell"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="APMTableBody">
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                        <tr class="APMTableRow">
+                            <td class="APMTableCell APMProductNameCell">
+                                <img src="../assets/adminProductManagement/Rectangle 34628176.svg" alt="" class="APMProductThumb">
+                                <span class="APMProductName">Handmade Embroidery...</span>
+                            </td>
+                            <td class="APMTableCell">#5738393009</td>
+                            <td class="APMTableCell">Footwear</td>
+                            <td class="APMTableCell">Saree</td>
+                            <td class="APMTableCell">1800</td>
+                            <td class="APMTableCell">S</td>
+                            <td class="APMTableCell">Beige</td>
+                            <td class="APMTableCell">Party</td>
+                            <td class="APMTableCell">₹ 1,299</td>
+                            <td class="APMTableCell">
+                                <button class="APMActionButton"><img src="../assets/adminProductManagement/ArrowCircleUpRight (1).svg" alt=""></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/adminProductManagement.js"></script>
+</body>
+</html>

@@ -70,6 +70,47 @@ const categoryFields = {
       col: 2,
     },
     {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+  options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
+
+    {
       name: "applicableReturn",
       label: "Applicable to Return",
       type: "select",
@@ -161,6 +202,46 @@ const categoryFields = {
       options: ["Wedding", "Party", "Casual"],
       col: 2,
     },
+
+    {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+    options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
     {
       name: "applicableReturn",
       label: "Applicable to Return",
@@ -245,6 +326,47 @@ const categoryFields = {
       options: ["Zari work", "Embroidery", "Plain"],
       col: 2,
     },
+
+      {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+    options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
+
     {
       name: "applicableReturn",
       label: "Applicable to Return",
@@ -351,6 +473,46 @@ const categoryFields = {
       required: true,
     },
     {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+    options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
+
+    {
       name: "applicableReturn",
       label: "Applicable to Return",
       type: "select",
@@ -443,6 +605,46 @@ const categoryFields = {
       options: ["Gottapatti", "Embroidery", "Plain"],
       col: 2,
     },
+    {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+   options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
+
     {
       name: "applicableReturn",
       label: "Applicable to Return",
@@ -563,6 +765,46 @@ const categoryFields = {
       options: ["Straight pants", "Palazzo", "Churidar"],
       col: 2,
     },
+    {
+  name: "colorsAvailable",
+  label: "Colours Available",
+  type: "select",
+    options: [
+  "Red",
+  "Blue", 
+  "Green", 
+  "Black",
+  "White", 
+  "Maroon"  
+],
+  col: 1,
+  required: true,
+},
+{
+  name: "size",
+  label: "Size",
+  type: "select",
+  options: ["S", "M", "L", "XL", "XXL"],
+  col: 2,
+  required: true,
+},
+{
+  name: "totalQuantity",
+  label: "Total Quantity",
+  type: "text",
+  placeholder: "120",
+  col: 1,
+  required: true,
+},
+{
+  name: "brand",
+  label: "Brand",
+  type: "text",
+  placeholder: "Handloom India",
+  col: 2,
+  required: true,
+},
+
     {
       name: "applicableReturn",
       label: "Applicable to Return",
@@ -753,6 +995,38 @@ categorySelect.addEventListener("change", (e) => {
 
       let input;
       if (field.type === "select") {
+
+        if (field.name === "colorsAvailable") {
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "color-selector";
+
+    const swatch = document.createElement("div");
+    swatch.className = "color-swatch";
+
+    input = document.createElement("select");
+    input.className = "form-select color-select";
+
+    const opt = document.createElement("option");
+    opt.value = "";
+    opt.textContent = "Select " + field.label;
+    input.appendChild(opt);
+
+    field.options.forEach((optVal) => {
+      const option = document.createElement("option");
+      option.value = optVal;
+      option.textContent = optVal;
+      input.appendChild(option);
+    });
+
+    wrapper.appendChild(swatch);
+    wrapper.appendChild(input);
+
+    formGroup.appendChild(label);
+    formGroup.appendChild(wrapper);
+    gridDiv.appendChild(formGroup);
+    return; // important
+  }
         input = document.createElement("select");
         input.className = "form-select";
         input.innerHTML =
@@ -774,6 +1048,18 @@ categorySelect.addEventListener("change", (e) => {
             e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
           });
         }
+
+        if (field.name === "totalQuantity") {
+  input.classList.add("quantity-input");
+}
+
+if (field.name === "brand") {
+  input.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+  });
+}
+
+        
       }
 
       formGroup.appendChild(label);
@@ -869,7 +1155,7 @@ function createVariant(number) {
 
                     <div class="form-group full-width">
                         <label class="form-label">Total Quantity</label>
-                        <input type="text" class="form-input quantity-input" placeholder="112">
+                        <input type="text" class="form-input " placeholder="112">
                     </div>
                 </div>
             `;
@@ -1014,14 +1300,25 @@ function showError(input, message) {
   error.innerText = message;
 
   input.classList.add("input-error");
-  input.parentElement.appendChild(error);
+
+  // ALWAYS attach error to form-group (not to color-selector)
+  const formGroup = input.closest(".form-group");
+  if (formGroup) {
+    formGroup.appendChild(error);
+  }
 }
+
 
 function clearError(input) {
   input.classList.remove("input-error");
-  const error = input.parentElement.querySelector(".error-text");
+
+  const formGroup = input.closest(".form-group");
+  if (!formGroup) return;
+
+  const error = formGroup.querySelector(".error-text");
   if (error) error.remove();
 }
+
 
 
 // pin code validation for address form 

@@ -79,13 +79,13 @@ body {
 .adminRegistration-form-box {
   max-width: 360px;
   margin: 0 auto;
-  margin-top: 170px;
+  margin-top: 135px;
 }
 
 .adminRegistration-form-box h2 {
   text-align: center;
   color: #118ff6;
-  margin-bottom: 32px;
+  margin-bottom: 25px;
   font-weight: 400;
 }
 
@@ -102,7 +102,7 @@ body {
 .adminRegistration-form-box input {
   width: 100%;
   padding: 10px 12px;
-  margin: 6px 0 18px;
+  margin: 2px 0 18px;
   border: 1px solid #dee1e6;
   border-radius: 6px;
   font-size: 13px;
@@ -190,6 +190,8 @@ body {
   .adminRegistration-right-panel {
     width: 100%;
     min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
   }
 
   /* BLUE TOP BOX */
@@ -220,7 +222,7 @@ body {
   }
 
   .adminRegistration-form-box {
-    margin-top: 80px;
+    margin-top: 35px;
     padding: 0 20px;
   }
 
@@ -237,5 +239,17 @@ body {
   /* BLUE TOP BOX */
   .adminRegistration-top-waves {
     height: 110px;
+  }
+}
+
+
+@media (min-width:1440px) {
+  .adminRegistration-form-box{
+    margin-top: 150px;
+  }
+}
+@media (min-width:1520px) {
+  .adminRegistration-form-box{
+    margin-top: 250px;
   }
 }
