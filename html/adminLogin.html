@@ -34,13 +34,15 @@
             placeholder="Rutuja"
             autocomplete="off"
           />
+          <div class="error" id="usernameError"></div>
 
           <label>Password</label>
-          <input type="password" placeholder="ty@jjfj67" />
+          <input type="password" id="password" placeholder="ty@jjfj67" />
+          <div class="error" id="passwordError"></div>
 
           <a href="#" class="forgot" id="forgotBtn">Forgot Password</a>
 
-          <button class="sign-up">Sign Up</button>
+          <button class="sign-up" id="signupBtn">Sign Up</button>
 
           <a href="../html/adminRegistration.html" class="register"
             >Register Here</a
@@ -64,7 +66,7 @@
           />
           <p class="error" id="emailError"></p>
 
-          <button class="request-link">Request reset link</button>
+          <button class="request-link" id="resetBtn">Request reset link</button>
 
           <p class="back" id="backToLogin">Back to login</p>
         </div>
