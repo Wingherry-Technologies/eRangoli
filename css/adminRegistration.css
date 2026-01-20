@@ -176,9 +176,6 @@ body {
   font-size: 16px;
 }
 
-/* ============================= */
-/* TABLET RESPONSIVE (1024px–595px) */
-/* ============================= */
 @media (max-width: 1024px) and (min-width: 320px) {
   .adminRegistration-wrapper {
     flex-direction: column;
@@ -203,7 +200,6 @@ body {
     overflow: hidden;
   }
 
-  /* ONLY 4 SVG CURVES */
   .adminRegistration-top-waves img {
     position: absolute;
     width: 100%;
@@ -223,13 +219,11 @@ body {
     top: 38px;
   }
 
-  /* FORM POSITION */
   .adminRegistration-form-box {
     margin-top: 80px;
     padding: 0 20px;
   }
 
-  /* SUCCESS SCREEN CENTER */
   .adminRegistration-success-icon {
     margin-top: 10rem;
   }
