@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link rel="stylesheet" href="../css/adminUserManagement.css" />
+  </head>
+  <body>
+    <div class="AUM-Container">
+      <div class="APMStatsRow">
+        <!-- Total Users Card -->
+        <div class="APMStatCard" id="APMTotalProductsWidget">
+          <div class="APMStatHeader">
+            <div>
+              <img
+                class="APMStatIcon"
+                src="../assets/adminUserManagement/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Total Users</span>
+          </div>
+          <div class="APMStatValue">14,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminUserManagement/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Customers Card -->
+        <div class="APMStatCard" id="APMNewlyAddedWidget">
+          <div class="APMStatHeader">
+            <div>
+              <img
+                class="APMStatIcon"
+                src="../assets/adminUserManagement/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Total Customers</span>
+          </div>
+          <div class="APMStatValue">9,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminUserManagement/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- total Vendors Card -->
+        <div class="APMStatCard" id="APMTrendingProductsWidget">
+          <div class="APMStatHeader">
+            <div>
+              <img
+                class="APMStatIcon"
+                src="../assets/adminUserManagement/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Total Vendors</span>
+          </div>
+          <div class="APMStatValue">4,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminUserManagement/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Inactive Card -->
+        <div class="APMStatCard" id="APMLeastPurchasedWidget">
+          <div class="APMStatHeader">
+            <div>
+              <img
+                class="APMStatIcon"
+                src="../assets/adminUserManagement/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Total Inactive</span>
+          </div>
+          <div class="APMStatValue">945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminUserManagement/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="AUMTopBar">
+        <!-- SEARCH -->
+        <div class="AUMSearchBox">
+          <img
+            src="../assets/adminUserManagement/search.svg"
+            class="AUMIcon"
+            alt="search"
+          />
+          <input
+            type="text"
+            placeholder="Search by user name, type, e-mail adress."
+          />
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="AUMActions">
+          <div class="AUMFilter">
+            <div class="AUMActionIcon">
+              <img
+                src="../assets/adminUserManagement/Sliders.svg"
+                alt="filter"
+              />
+            </div>
+
+            <div class="AUMActionIcon">
+              <img src="../assets/adminUserManagement/sort.svg" alt="sort" />
+            </div>
+          </div>
+
+          <button class="AUMCreateBtn">Create New User</button>
+        </div>
+      </div>
+      <div class="AUMTableCard">
+        <!-- HEADER -->
+        <div class="AUMTableHeader">
+          <h3>User Managment</h3>
+          <span class="AUMCount">34 / 564</span>
+        </div>
+
+        <!-- TABLE -->
+        <div class="AUMTableWrapper">
+          <table class="AUMTable">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Type</th>
+                <th>Created on</th>
+                <th>Last Active</th>
+                <th>Contact</th>
+                <th>Email Address</th>
+                <th>Status</th>
+                <th>Block</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Buyer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus verified">Verified</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Vendor</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus rejected">Rejected</span></td>
+                <td><span class="AUMToggle active"></span></td>
+              </tr>
+
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Developer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus verify">Verify</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Developer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus verify">Verify</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Developer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus sent"> Sent to verify</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Developer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus verify">Verify</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+              <tr>
+                <td class="AUMUserCell">
+                  <img src="../assets/adminUserManagement/img.svg" />
+                  Rutuja Yawale
+                </td>
+                <td>Developer</td>
+                <td>15/12/25</td>
+                <td>2 hrs ago</td>
+                <td>95473 78994</td>
+                <td>rutuja455566@gmail.com</td>
+                <td><span class="AUMStatus verify">Verify</span></td>
+                <td><span class="AUMToggle"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
