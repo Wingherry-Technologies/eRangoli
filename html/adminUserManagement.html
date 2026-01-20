@@ -8,119 +8,120 @@
   </head>
   <body>
     <div class="AUM-Container">
-      <div class="APMStatsRow">
+      <div class="AUMStatsRow">
         <!-- Total Users Card -->
-        <div class="APMStatCard" id="APMTotalProductsWidget">
-          <div class="APMStatHeader">
+        <div class="AUMStatCard" id="AUMTotalProductsWidget">
+          <div class="AUMStatHeader">
             <div>
               <img
-                class="APMStatIcon"
+                class="AUMStatIcon"
                 src="../assets/adminUserManagement/rupee.svg"
                 alt=""
               />
             </div>
-            <span class="APMStatLabel">Total Users</span>
+            <span class="AUMStatLabel">Total Users</span>
           </div>
-          <div class="APMStatValue">14,945</div>
-          <div class="APMStatFooter">
-            <span class="APMStatChange">
+          <div class="AUMStatValue">14,945</div>
+          <div class="AUMStatFooter">
+            <span class="AUMStatChange">
               <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
               +15.3%
             </span>
-            <div class="APMStatChart">
+            <div class="AUMStatChart">
               <img
                 src="../assets/adminUserManagement/Vector 11.svg"
                 alt="chart"
-                class="APMChartImage"
+                class="AUMChartImage"
               />
             </div>
           </div>
         </div>
 
         <!-- Total Customers Card -->
-        <div class="APMStatCard" id="APMNewlyAddedWidget">
-          <div class="APMStatHeader">
+        <div class="AUMStatCard" id="AUMNewlyAddedWidget">
+          <div class="AUMStatHeader">
             <div>
               <img
-                class="APMStatIcon"
+                class="AUMStatIcon"
                 src="../assets/adminUserManagement/rupee.svg"
                 alt=""
               />
             </div>
-            <span class="APMStatLabel">Total Customers</span>
+            <span class="AUMStatLabel">Total Customers</span>
           </div>
-          <div class="APMStatValue">9,945</div>
-          <div class="APMStatFooter">
-            <span class="APMStatChange">
+          <div class="AUMStatValue">9,945</div>
+          <div class="AUMStatFooter">
+            <span class="AUMStatChange">
               <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
               +15.3%
             </span>
-            <div class="APMStatChart">
+            <div class="AUMStatChart">
               <img
                 src="../assets/adminUserManagement/Vector 11.svg"
                 alt="chart"
-                class="APMChartImage"
+                class="AUMChartImage"
               />
             </div>
           </div>
         </div>
 
-        <!-- total Vendors Card -->
-        <div class="APMStatCard" id="APMTrendingProductsWidget">
-          <div class="APMStatHeader">
+        <!-- Total Vendors Card -->
+        <div class="AUMStatCard" id="AUMTrendingProductsWidget">
+          <div class="AUMStatHeader">
             <div>
               <img
-                class="APMStatIcon"
+                class="AUMStatIcon"
                 src="../assets/adminUserManagement/rupee.svg"
                 alt=""
               />
             </div>
-            <span class="APMStatLabel">Total Vendors</span>
+            <span class="AUMStatLabel">Total Vendors</span>
           </div>
-          <div class="APMStatValue">4,945</div>
-          <div class="APMStatFooter">
-            <span class="APMStatChange">
+          <div class="AUMStatValue">4,945</div>
+          <div class="AUMStatFooter">
+            <span class="AUMStatChange">
               <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
               +15.3%
             </span>
-            <div class="APMStatChart">
+            <div class="AUMStatChart">
               <img
                 src="../assets/adminUserManagement/Vector 11.svg"
                 alt="chart"
-                class="APMChartImage"
+                class="AUMChartImage"
               />
             </div>
           </div>
         </div>
 
         <!-- Total Inactive Card -->
-        <div class="APMStatCard" id="APMLeastPurchasedWidget">
-          <div class="APMStatHeader">
+        <div class="AUMStatCard" id="AUMLeastPurchasedWidget">
+          <div class="AUMStatHeader">
             <div>
               <img
-                class="APMStatIcon"
+                class="AUMStatIcon"
                 src="../assets/adminUserManagement/rupee.svg"
                 alt=""
               />
             </div>
-            <span class="APMStatLabel">Total Inactive</span>
+            <span class="AUMStatLabel">Total Inactive</span>
           </div>
-          <div class="APMStatValue">945</div>
-          <div class="APMStatFooter">
-            <span class="APMStatChange">
+          <div class="AUMStatValue">945</div>
+          <div class="AUMStatFooter">
+            <span class="AUMStatChange">
               <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
               +15.3%
             </span>
-            <div class="APMStatChart">
+            <div class="AUMStatChart">
               <img
                 src="../assets/adminUserManagement/Vector 11.svg"
                 alt="chart"
-                class="APMChartImage"
+                class="AUMChartImage"
               />
             </div>
           </div>
         </div>
       </div>
+
       <div class="AUMTopBar">
         <!-- SEARCH -->
         <div class="AUMSearchBox">
@@ -131,6 +132,7 @@
           />
           <input
             type="text"
+            id="AUMSearchInput"
             placeholder="Search by user name, type, e-mail adress."
           />
         </div>
@@ -142,11 +144,64 @@
               <img
                 src="../assets/adminUserManagement/Sliders.svg"
                 alt="filter"
+                id="filter-bar-main-box"
               />
             </div>
 
             <div class="AUMActionIcon">
               <img src="../assets/adminUserManagement/sort.svg" alt="sort" />
+            </div>
+          </div>
+          <!-- Filter Option Main -->
+          <div class="main-content-flows-main" id="filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="verified" id="verified" />
+                  <label for="verified">Verified</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="rejected" id="rejected" />
+                  <label for="rejected">Rejected</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="verify" id="verify" />
+                  <label for="verify">Verify</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="sent" id="sent-verify" />
+                  <label for="sent-verify">Sent to verify</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- SORT BOX -->
+          <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="name-asc">Name (A → Z)</li>
+                <li data-sort="name-desc">Name (Z → A)</li>
+                <li data-sort="date-new">Created (Newest)</li>
+                <li data-sort="date-old">Created (Oldest)</li>
+              </ul>
             </div>
           </div>
 
@@ -179,10 +234,10 @@
               <tr>
                 <td class="AUMUserCell">
                   <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
+                  Yash Jain
                 </td>
                 <td>Buyer</td>
-                <td>15/12/25</td>
+                <td>15/01/26</td>
                 <td>2 hrs ago</td>
                 <td>95473 78994</td>
                 <td>rutuja455566@gmail.com</td>
@@ -193,10 +248,10 @@
               <tr>
                 <td class="AUMUserCell">
                   <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
+                  Rutuja Reddy
                 </td>
                 <td>Vendor</td>
-                <td>15/12/25</td>
+                <td>17/01/26</td>
                 <td>2 hrs ago</td>
                 <td>95473 78994</td>
                 <td>rutuja455566@gmail.com</td>
@@ -269,10 +324,19 @@
                 <td><span class="AUMStatus verify">Verify</span></td>
                 <td><span class="AUMToggle"></span></td>
               </tr>
+              <tr class="AUMNoDataRow" style="display: none">
+                <td
+                  colspan="8"
+                  style="text-align: center; padding: 20px; color: #999"
+                >
+                  No matching users found
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
+    <script src="../javascript/adminUserManagement.js"></script>
   </body>
 </html>
