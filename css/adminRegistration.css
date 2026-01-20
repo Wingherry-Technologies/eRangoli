@@ -61,10 +61,18 @@ body {
   width: 100%;
 }
 
-.adminRegistration-top-waves img:nth-child(1) { top: 0; }
-.adminRegistration-top-waves img:nth-child(2) { top: 14px; }
-.adminRegistration-top-waves img:nth-child(3) { top: 28px; }
-.adminRegistration-top-waves img:nth-child(4) { top: 42px; }
+.adminRegistration-top-waves img:nth-child(1) {
+  top: 0;
+}
+.adminRegistration-top-waves img:nth-child(2) {
+  top: 14px;
+}
+.adminRegistration-top-waves img:nth-child(3) {
+  top: 28px;
+}
+.adminRegistration-top-waves img:nth-child(4) {
+  top: 42px;
+}
 
 /*  FORM  */
 
@@ -76,7 +84,7 @@ body {
 
 .adminRegistration-form-box h2 {
   text-align: center;
-  color: #118FF6;
+  color: #118ff6;
   margin-bottom: 32px;
   font-weight: 400;
 }
@@ -85,7 +93,7 @@ body {
 
 .adminRegistration-form-box label {
   font-size: 13px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 600;
 }
 
@@ -95,7 +103,7 @@ body {
   width: 100%;
   padding: 10px 12px;
   margin: 6px 0 18px;
-  border: 1px solid #DEE1E6;
+  border: 1px solid #dee1e6;
   border-radius: 6px;
   font-size: 13px;
 }
@@ -113,7 +121,7 @@ body {
 
 .adminRegistration-create-btn {
   width: 100%;
-  background: #118FF6;
+  background: #118ff6;
   border: none;
   color: #ffffff;
   padding: 12px;
@@ -143,47 +151,97 @@ body {
   display: none;
 }
 
-
-.adminRegistration-success{
-  text-align:center;
-  margin-top:220px;
+.adminRegistration-success {
+  text-align: center;
+  margin-top: 220px;
 }
 
-.adminRegistration-success-icon{
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#118FF6;
-  font-size:36px;
-  margin:0 auto 12px;
+.adminRegistration-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #118ff6;
+  font-size: 36px;
+  margin: 0 auto 12px;
   margin-top: 17rem;
 }
 
-.adminRegistration-success-icon img{
-    width: 120px;
-    height: 120px;
+.adminRegistration-success-icon img {
+  width: 120px;
+  height: 120px;
 }
 
-.adminRegistration-success p{
-  color:#118FF6;
-  font-size:16px;
+.adminRegistration-success p {
+  color: #118ff6;
+  font-size: 16px;
 }
 
+/* ============================= */
+/* TABLET RESPONSIVE (1024px–595px) */
+/* ============================= */
+@media (max-width: 1024px) and (min-width: 320px) {
+  .adminRegistration-wrapper {
+    flex-direction: column;
+  }
 
-/*  RESPONSIVE  */
-
-@media (max-width: 900px) {
+  /* LEFT PANEL HIDE */
   .adminRegistration-left-panel {
     display: none;
   }
 
+  /* RIGHT PANEL FULL WIDTH */
   .adminRegistration-right-panel {
     width: 100%;
+    min-height: 100vh;
   }
 
+  /* BLUE TOP BOX */
+  .adminRegistration-top-waves {
+    position: relative;
+    height: 160px;
+    background-color: #2b96ee;
+    overflow: hidden;
+  }
+
+  /* ONLY 4 SVG CURVES */
+  .adminRegistration-top-waves img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  .adminRegistration-top-waves img:nth-child(1) {
+    top: -5px;
+  }
+  .adminRegistration-top-waves img:nth-child(2) {
+    top: 10px;
+  }
+  .adminRegistration-top-waves img:nth-child(3) {
+    top: 25px;
+  }
+  .adminRegistration-top-waves img:nth-child(4) {
+    top: 38px;
+  }
+
+  /* FORM POSITION */
   .adminRegistration-form-box {
-    margin-top: 140px;
+    margin-top: 80px;
     padding: 0 20px;
+  }
+
+  /* SUCCESS SCREEN CENTER */
+  .adminRegistration-success-icon {
+    margin-top: 10rem;
+  }
+
+  .adminRegistration-create-btn {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 595px) and (min-width: 320px) {
+  /* BLUE TOP BOX */
+  .adminRegistration-top-waves {
+    height: 110px;
   }
 }

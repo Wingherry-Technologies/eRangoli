@@ -174,3 +174,56 @@ input::placeholder {
   margin-bottom: 12px;
   display: none;
 }
+
+@media (max-width: 1024px) and (min-width: 320px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    display: none;
+  }
+
+  .right-panel {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .top-waves {
+    position: relative;
+    height: 160px;
+    background-color: #2b96ee;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .top-waves img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  .top-waves img:nth-child(1) {
+    top: -5px;
+  }
+  .top-waves img:nth-child(2) {
+    top: 10px;
+  }
+  .top-waves img:nth-child(3) {
+    top: 25px;
+  }
+  .top-waves img:nth-child(4) {
+    top: 38px;
+  }
+
+  .form-box {
+    margin-top: 80px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 595px) and (min-width: 320px) {
+  .top-waves {
+    height: 110px;
+  }
+}
