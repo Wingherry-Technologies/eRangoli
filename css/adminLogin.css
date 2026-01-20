@@ -138,6 +138,8 @@ input::placeholder {
   color: #3f3f3f;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
 
 .hidden {
