@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Product Verification</title>
+    <link rel="stylesheet" href="../css/adminProductVerification.css" />
+  </head>
+  <body>
+    <div class="APVDashboardContainer">
+      <div class="APVStatsRow">
+        <!-- Total Users Card -->
+        <div class="APVStatCard" id="APVTotalProductsWidget">
+          <div class="APVStatHeader">
+            <div>
+              <img
+                class="APVStatIcon"
+                src="../assets/adminProductVerification/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APVStatLabel">Total Users</span>
+          </div>
+          <div class="APVStatValue">14,945</div>
+          <div class="APVStatFooter">
+            <span class="APVStatChange">
+              <img
+                src="../assets/adminProductVerification/TrendUp.svg"
+                alt=""
+              />
+              +15.3%
+            </span>
+            <div class="APVStatChart">
+              <img
+                src="../assets/adminProductVerification/Vector 11.svg"
+                alt="chart"
+                class="APVChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Customers Card -->
+        <div class="APVStatCard" id="APVNewlyAddedWidget">
+          <div class="APVStatHeader">
+            <div>
+              <img
+                class="APVStatIcon"
+                src="../assets/adminProductVerification/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APVStatLabel">Total Customers</span>
+          </div>
+          <div class="APVStatValue">9,945</div>
+          <div class="APVStatFooter">
+            <span class="APVStatChange">
+              <img
+                src="../assets/adminProductVerification/TrendUp.svg"
+                alt=""
+              />
+              +15.3%
+            </span>
+            <div class="APVStatChart">
+              <img
+                src="../assets/adminProductVerification/Vector 11.svg"
+                alt="chart"
+                class="APVChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Vendors Card -->
+        <div class="APVStatCard" id="APVTrendingProductsWidget">
+          <div class="APVStatHeader">
+            <div>
+              <img
+                class="APVStatIcon"
+                src="../assets/adminProductVerification/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APVStatLabel">Total Vendors</span>
+          </div>
+          <div class="APVStatValue">4,945</div>
+          <div class="APVStatFooter">
+            <span class="APVStatChange">
+              <img
+                src="../assets/adminProductVerification/TrendUp.svg"
+                alt=""
+              />
+              +15.3%
+            </span>
+            <div class="APVStatChart">
+              <img
+                src="../assets/adminProductVerification/Vector 11.svg"
+                alt="chart"
+                class="APVChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Inactive Card -->
+        <div class="APVStatCard" id="APVLeastPurchasedWidget">
+          <div class="APVStatHeader">
+            <div>
+              <img
+                class="APVStatIcon"
+                src="../assets/adminProductVerification/rupee.svg"
+                alt=""
+              />
+            </div>
+            <span class="APVStatLabel">Total Inactive</span>
+          </div>
+          <div class="APVStatValue">945</div>
+          <div class="APVStatFooter">
+            <span class="APVStatChange">
+              <img
+                src="../assets/adminProductVerification/TrendUp.svg"
+                alt=""
+              />
+              +15.3%
+            </span>
+            <div class="APVStatChart">
+              <img
+                src="../assets/adminProductVerification/Vector 11.svg"
+                alt="chart"
+                class="APVChartImage"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Search Bar Section -->
+      <div class="APVSearchRow">
+        <div class="APVSearchWrapper">
+          <img
+            src="../assets/adminProductVerification/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="APVSearchInput"
+            placeholder="Search by Product name, Request ID, Category."
+          />
+        </div>
+        <div class="APVIconsGroup">
+          <div class="APVFilterDummy">
+            <img src="../assets/adminProductVerification/Sliders.svg" alt="" />
+          </div>
+          <div class="APVSettingsDummy">
+            <img
+              src="../assets/adminProductVerification/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="pending" id="pending" />
+                  <label for="pending">Pending</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="verified" id="verified" />
+                  <label for="verified">Verified</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="qty-asc">Qty ↑</li>
+                <li data-sort="qty-desc">Qty ↓</li>
+                <li data-sort="price-asc">S. Price ↑</li>
+                <li data-sort="price-desc">S. Price ↓</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="APVTableCard">
+        <div class="APVTableHeader">
+          <h3 class="APVTableTitle">Product Verification</h3>
+          <a href="#" class="APVViewAllLink">View all</a>
+        </div>
+        <div class="APVTableWrapper">
+          <table class="APVProductTable">
+            <thead class="APVTableHead">
+              <tr class="APVTableHeadRow">
+                <th class="APVTableHeaderCell">Product Name</th>
+                <th class="APVTableHeaderCell">Request ID</th>
+                <th class="APVTableHeaderCell">Category</th>
+                <th class="APVTableHeaderCell">Qty</th>
+                <th class="APVTableHeaderCell">S. Price</th>
+                <th class="APVTableHeaderCell">State</th>
+                <th class="APVTableHeaderCell">Variants</th>
+                <th class="APVTableHeaderCell">Status</th>
+                <th class="APVTableHeaderCell">Admin</th>
+                <th class="APVTableHeaderCell"></th>
+              </tr>
+            </thead>
+            <tbody class="APVTableBody">
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1500</td>
+                <td class="APVTableCell">₹ 1,199</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell pending">Pending</span></td>
+                <td class="APVTableCell unverified">-</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APVTableRow">
+                <td class="APVTableCell APVProductNameCell">
+                  <img
+                    src="../assets/adminProductVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APVProductThumb"
+                  />
+                  <span class="APVProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APVTableCell">#5738393009</td>
+                <td class="APVTableCell">Footwear</td>
+                <td class="APVTableCell">1800</td>
+                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">RJ</td>
+                <td class="APVTableCell">6</td>
+                <td><span class="APVTableCell verified">Verified</span></td>
+                <td class="APVTableCell live">Live</td>
+                <td class="APVTableCell">
+                  <button class="APVActionButton">
+                    <img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/adminProductVerification.js"></script>
+  </body>
+</html>
