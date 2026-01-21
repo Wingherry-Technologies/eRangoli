@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Product Recently Added</title>
+    <link rel="stylesheet" href="../css/adminProductRecentlyAdded.css" />
+  </head>
+  <body>
+    <div class="APRADashboardContainer">
+      <!-- Search Bar Section -->
+      <div class="APRASearchRow">
+        <div class="APRASearchWrapper">
+          <img
+            src="../assets/adminProductRecentlyAdded/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="APRASearchInput"
+            placeholder="Search by Product name, Request ID, Category, Vendor name."
+          />
+        </div>
+        <div class="APRAIconsGroup">
+          <div class="APRAFilterDummy">
+            <img src="../assets/adminProductRecentlyAdded/Sliders.svg" alt="" />
+          </div>
+          <div class="APRASettingsDummy">
+            <img
+              src="../assets/adminProductRecentlyAdded/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="pending" id="pending" />
+                  <label for="pending">Pending</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="verified" id="verified" />
+                  <label for="verified">Verified</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="qty-asc">Qty ↑</li>
+                <li data-sort="qty-desc">Qty ↓</li>
+                <li data-sort="price-asc">S. Price ↑</li>
+                <li data-sort="price-desc">S. Price ↓</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="APRATableCard">
+        <div class="APRATableHeader">
+          <h3 class="APRATableTitle">Product Recently Added</h3>
+          <a href="#" class="APRAViewAllLink">View all</a>
+        </div>
+        <div class="APRATableWrapper">
+          <table class="APRAProductTable">
+            <thead class="APRATableHead">
+              <tr class="APRATableHeadRow">
+                <th class="APRATableHeaderCell">Product Name</th>
+                <th class="APRATableHeaderCell">Request ID</th>
+                <th class="APRATableHeaderCell">Category</th>
+                <th class="APRATableHeaderCell">Qty</th>
+                <th class="APRATableHeaderCell">S. Price</th>
+                <th class="APRATableHeaderCell">State</th>
+                <th class="APRATableHeaderCell">Variants</th>
+                <th class="APRATableHeaderCell">Vendor Name</th>
+                <th class="APRATableHeaderCell">Status</th>
+                <th class="APRATableHeaderCell"></th>
+              </tr>
+            </thead>
+            <tbody class="APRATableBody">
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Hindi Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1500</td>
+                <td class="APRATableCell">₹ 1,199</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell pending">Pending</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Handmade Embroidery...</span>
+                </td>
+                <td class="APRATableCell">#5738393009</td>
+                <td class="APRATableCell">Footwear</td>
+                <td class="APRATableCell">1800</td>
+                <td class="APRATableCell">₹ 1,299</td>
+                <td class="APRATableCell">RJ</td>
+                <td class="APRATableCell">6</td>
+                <td class="APRATableCell">Sanskriti Collection</td>
+                <td><span class="APRATableCell verified">Verified</span></td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminProductRecentlyAdded/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/adminProductRecentlyAdded.js"></script>
+  </body>
+</html>
