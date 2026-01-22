@@ -1,0 +1,405 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.BDContainer {
+  padding: 24px 32px;
+}
+
+/* Header */
+.BDHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.BDBackIcon {
+  width: 18px;
+  cursor: pointer;
+}
+
+.BDTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+/* Section title */
+.BDSectionTitle {
+  background: #e7f0f9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.BDCard {
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  gap: 28px;
+}
+
+/* Logo */
+.BDLogoBox {
+  min-width: 110px;
+  height: 110px;
+  border-radius: 6px;
+}
+
+.BDLogoBox img {
+  width: 70px;
+}
+
+/* Details */
+.BDDetails {
+  flex: 1;
+}
+
+.BDGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 22px;
+  column-gap: 40px;
+}
+
+.BDGrid label {
+  font-size: 14px;
+  color: #7b5dd6;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.BDGrid p {
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.6;
+}
+
+/* Section */
+.PDSection {
+  margin-top: 32px;
+}
+
+.PDSectionTitle {
+  background: #e7f0f9;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.PDCard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+/* Row */
+.PDRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  margin-bottom: 26px;
+}
+
+.PDRowAlignTop {
+  align-items: flex-start;
+}
+
+/* Labels & text */
+.PDCard label {
+  font-size: 14px;
+  color: #7b5dd6;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.PDCard p {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+/* Aadhaar images */
+.PDAadharImg {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin-top: 6px;
+}
+
+/* Stack (ID Proof + State etc.) */
+.PDStack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.FAAdminSection {
+  background-color: #f5f8fa;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+.FAAdminHeader {
+  background-color: #71c1fb;
+  color: #ffffff;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.approval-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  padding: 14px 20px;
+}
+
+.FAAdminContent {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.FAAdminLeft,
+.FAAdminRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.FAAdminLabel {
+  font-size: 13px;
+  color: #716b6b;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.FAAdminTextarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+.FAAdminTextareaWrapper {
+  position: relative;
+}
+
+.FAAdminInnerLabel {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 13px;
+  color: #3f3f3f;
+  font-weight: 700;
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+}
+
+.FAAdminTextarea {
+  padding-top: 35px;
+  padding-right: 40px;
+  color: #3f3f3f;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.FAAdminSendIcon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.FAAdminSendIcon:hover {
+  opacity: 1;
+}
+
+.FAAdminSelect {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.FAAdminButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 10px 10px 4px 10px;
+}
+
+.FAApproveButton,
+.FARejectButton,
+.FASentButton {
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.FASentButton,
+.FARejectButton {
+  background-color: #ffffff;
+  color: #0e8bf3;
+  border: 1px solid #0e8bf3;
+}
+
+.FAApproveButton {
+  background-color: #0e8bf3;
+  color: white;
+}
+
+.FAApproveButton:hover {
+  background-color: #0e8bf3;
+}
+
+/* APPROVE CONFIRMATION POPUP */
+.FAConfirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: #7e797999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.FAConfirmOverlay.active {
+  display: flex;
+}
+
+.FAConfirmModal {
+  background: #ffffff;
+  width: 520px;
+  padding: 28px 24px 24px;
+  border-radius: 14px;
+  position: relative;
+  text-align: center;
+}
+
+.FACloseBtn {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #6b6b6b;
+}
+
+.FAConfirmText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #3f3f3f;
+  margin-bottom: 28px;
+}
+
+.FAConfirmActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.FAYesBtn {
+  background-color: #0e8bf3;
+  color: #ffffff;
+  border: none;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.FANoBtn {
+  background-color: #ffffff;
+  color: #6828e7;
+  border: 1px solid #6828e7;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== APPROVE SUCCESS SCREEN ===== */
+.FASuccessScreen {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.FASuccessScreen.active {
+  display: flex;
+}
+
+.FASuccessContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.FASuccessIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.FASuccessText {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3f3f3f;
+}

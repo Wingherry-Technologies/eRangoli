@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Product Recently Added</title>
+    <link rel="stylesheet" href="../css/adminVendorVerification.css" />
+  </head>
+  <body>
+    <div class="APRADashboardContainer">
+      <!-- Search Bar Section -->
+      <div class="APRASearchRow">
+        <div class="APRASearchWrapper">
+          <img
+            src="../assets/adminVendorVerification/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="APRASearchInput"
+            placeholder="Search by Product name, Request ID, Category, Vendor name."
+          />
+        </div>
+        <div class="APRAIconsGroup">
+          <div class="APRAFilterDummy">
+            <img src="../assets/adminVendorVerification/Sliders.svg" alt="" />
+          </div>
+          <div class="APRASettingsDummy">
+            <img
+              src="../assets/adminVendorVerification/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="pending" id="pending" />
+                  <label for="pending">Pending</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="verified" id="verified" />
+                  <label for="verified">Verified</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="qty-asc">Qty ↑</li>
+                <li data-sort="qty-desc">Qty ↓</li>
+                <li data-sort="price-asc">S. Price ↑</li>
+                <li data-sort="price-desc">S. Price ↓</li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="APRATableCard">
+        <div class="APRATableHeader">
+          <h3 class="APRATableTitle">Product Recently Added</h3>
+          <a href="#" class="APRAViewAllLink">View all</a>
+        </div>
+        <div class="APRATableWrapper">
+          <table class="APRAProductTable">
+            <thead class="APRATableHead">
+              <tr class="APRATableHeadRow">
+                <th class="APRATableHeaderCell">Company Name</th>
+                <th class="APRATableHeaderCell">Email Address</th>
+                <th class="APRATableHeaderCell">Contact</th>
+                <th class="APRATableHeaderCell">State</th>
+                <th class="APRATableHeaderCell">ID Proof</th>
+                <th class="APRATableHeaderCell">ID Number</th>
+                <th class="APRATableHeaderCell">Status</th>
+                <th class="APRATableHeaderCell"></th>
+              </tr>
+            </thead>
+            <tbody class="APRATableBody">
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="APRATableRow">
+                <td class="APRATableCell APRAProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="APRAProductThumb"
+                  />
+                  <span class="APRAProductName">Sanskriti Collection</span>
+                </td>
+                <td class="APRATableCell">sanskriticollection@gmail.com</td>
+                <td class="APRATableCell">89878 64748</td>
+                <td class="APRATableCell">MH</td>
+                <td class="APRATableCell">Aadhar Card</td>
+                <td class="APRATableCell">2546 6778 7744 6778</td>
+                <td class="APRATableCell verified">Verified</td>
+                <td class="APRATableCell">
+                  <button class="APRAActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/adminVendorVerification.js"></script>
+  </body>
+</html>
