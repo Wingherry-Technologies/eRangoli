@@ -506,7 +506,7 @@ document.addEventListener("click", function (e) {
     // 🟡 Handle empty list
     if (filteredCards.length === 0) {
       productsWrap.innerHTML =
-        "<p style='text-align:center;padding:40px;'>No products found</p>";
+        window.location.href='../html/emptyWishlist.html'
       paginationBar.style.display = "none";
       pageCount.textContent = "";
       return;
