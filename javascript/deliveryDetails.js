@@ -2056,7 +2056,6 @@ document.addEventListener("click", (e) => {
 
 function checkEmptyCartState() {
   const productRows = document.querySelectorAll(".product-row");
-  const emptyCart = document.getElementById("emptyCart");
   const checkoutWrapper = document.querySelector(".checkout-wrapper");
   const leftBanner = document.querySelector(".left-banner");
   const deliveryCard = document.querySelector(".delivery-card");
@@ -2066,7 +2065,7 @@ function checkEmptyCartState() {
   const isLaptopOrDesktop = window.innerWidth > 1024;
 
   if (productRows.length === 0) {
-    emptyCart.classList.remove("hidden");
+    window.location.href='../html/emptyCart.html'
 
     // MOBILE / TABLET (NO CHANGE)
     if (isMobileOrTablet) {
@@ -2085,7 +2084,6 @@ function checkEmptyCartState() {
       checkoutWrapper.style.height = "auto";
     }
   } else {
-    emptyCart.classList.add("hidden");
     checkoutWrapper.classList.remove("hidden");
 
     if (leftBanner) leftBanner.style.display = "";
@@ -2108,12 +2106,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function checkEmptyCart() {
   const productRows = document.querySelectorAll(".product-row");
-  const billingCard = document.querySelector(".billing-card");
-  const emptyCart = document.querySelector(".empty-cart");
+
 
   if (productRows.length === 0) {
-    billingCard.style.display = "none";
-    emptyCart.classList.remove("hidden");
+    window.location.href='../html/emptyCart.html'
   }
 }
 
@@ -2153,13 +2149,8 @@ document.querySelector(".proceed-btn")?.addEventListener("click", () => {
   const leftBanner = document.querySelector(".left-banner");
   const deliveryCard = document.querySelector(".delivery-card");
   const billingCard = document.getElementById("billingCard");
-  const emptyCart = document.getElementById("emptyCart");
 
   if (width <= 595) {
-    // Hide empty cart if visible
-    if (emptyCart) {
-      emptyCart.classList.add("hidden");
-    }
 
     // Show delivery card
     if (deliveryCard) {
@@ -2223,7 +2214,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const billingCard = document.getElementById("billingCard");
   const proceedBtn = document.getElementById("proceedBtn");
   const payBtn = document.getElementById("pay-btn");
-  const emptyCart = document.getElementById("emptyCart");
   const productRows = document.querySelectorAll(".product-row");
 
   if (window.innerWidth <= 595) {
@@ -2237,14 +2227,8 @@ document.addEventListener("DOMContentLoaded", () => {
         billingCard.classList.add("show-on-tablet");
         billingCard.style.display = "block";
       }
-      if (emptyCart) {
-        emptyCart.classList.add("hidden");
-      }
     } else {
       // Cart is empty, show empty cart screen
-      if (emptyCart) {
-        emptyCart.classList.remove("hidden");
-      }
       if (deliveryCard) {
         deliveryCard.classList.add("hidden");
         deliveryCard.style.display = "none";
@@ -2276,7 +2260,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function checkEmptyCartStateMobile() {
   const productRows = document.querySelectorAll(".product-row");
-  const emptyCart = document.getElementById("emptyCart");
   const checkoutWrapper = document.querySelector(".checkout-wrapper");
   const leftBanner = document.querySelector(".left-banner");
   const deliveryCard = document.querySelector(".delivery-card");
@@ -2287,7 +2270,6 @@ function checkEmptyCartStateMobile() {
   const isDesktop = window.innerWidth > 1024;
 
   if (productRows.length === 0) {
-    emptyCart.classList.remove("hidden");
 
     if (isMobile) {
       if (deliveryCard) {
@@ -2318,7 +2300,6 @@ function checkEmptyCartStateMobile() {
       checkoutWrapper.style.height = "auto";
     }
   } else {
-    emptyCart.classList.add("hidden");
     checkoutWrapper.classList.remove("hidden");
 
     if (leftBanner) leftBanner.style.display = "";
