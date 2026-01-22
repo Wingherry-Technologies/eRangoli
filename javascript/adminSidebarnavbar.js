@@ -1,0 +1,86 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+var mobileBack=document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display="none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+    mobileBack.style.display="flex"
+  }
+});
+
+const toggleBtn = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar-main-vendor");
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    sidebar.classList.toggle("collapsed");
+  });
+
+document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-main>li , mobile-dropdown-sub>ul>li, .mobile-dropdown-sub>.extra-nav").forEach(item => {
+    item.addEventListener("click", () => {
+        window.location.href = "../html/productcatalog.html";
+    });
+});
+
+
+// Notification Click
+
+const notificationClicks=document.querySelectorAll("#round-button-notification, #bottom-nav-notification")
+
+notificationClicks.forEach(notificationClick => {
+    notificationClick.addEventListener("click",()=>{
+        document.getElementById("notification-main-box").style.display="block"
+        document.querySelector(".bottom-nav").style.display="none"
+    })
+});
+document.getElementById("notification-cross").addEventListener("click",()=>{
+    document.getElementById("notification-main-box").style.display='none'
+    if(window.innerWidth<595){
+        document.querySelector(".bottom-nav").style.display="flex"
+    }
+})
+
+// Order Click
+
+const orderClicks=document.querySelectorAll("#round-button-order, #bottom-nav-orders")
+
+orderClicks.forEach(orderClick => {
+    orderClick.addEventListener("click",()=>{
+        document.getElementById("order-main-box").style.display="block"
+        document.querySelector(".bottom-nav").style.display="none"
+    })
+});
+document.getElementById("order-cross").addEventListener("click",()=>{
+    document.getElementById("order-main-box").style.display='none'
+    if(window.innerWidth<595){
+        document.querySelector(".bottom-nav").style.display="flex"
+    }})
+
+
+
+
+// Profile Navigation
+
+const profileClicks=document.querySelectorAll("#user-profile-icon");
+
+profileClicks.forEach(profileClick => {
+    profileClick.addEventListener("click",()=>{
+        window.location.href="../html/vendorpersonaldetails.html"
+    })
+});
