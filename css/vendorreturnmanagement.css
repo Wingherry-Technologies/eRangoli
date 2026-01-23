@@ -539,7 +539,12 @@ tbody tr td > .creame {
   padding: 5px 12px;
   border-radius: 3px;
 }
-
+.order-status.packed {
+  background-color: #5da960;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
 /* Mobile Table */
 .order-trend-main-mobile {
   display: none;
@@ -1101,11 +1106,14 @@ tbody tr td > .creame {
   }
 }
 
+/* =========================
+   MODAL CONTAINER
+========================= */
 .modal-popup-content-main {
   position: relative;
   background: #ffffff;
   border-radius: 12px;
-  padding: 20px 22px 22px;
+  padding: 20px 22px;
   width: 920px;
   max-width: 95vw;
   max-height: 90vh;
@@ -1115,15 +1123,15 @@ tbody tr td > .creame {
 /* =========================
    CLOSE BUTTON
 ========================= */
-.modal-popup-content-main .close-btn {
+.close-btn {
   position: absolute;
   top: 14px;
   right: 16px;
   background: none;
   border: none;
   font-size: 22px;
-  color: #444;
   cursor: pointer;
+  color: #444;
 }
 
 /* =========================
@@ -1131,106 +1139,74 @@ tbody tr td > .creame {
 ========================= */
 .order-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   flex-direction: column;
+  gap: 8px;
+}
+
+.header-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .order-header h3 {
   font-size: 16px;
   font-weight: 600;
-  color: #222;
   margin: 0;
 }
-.border-sep {
-  border: 1px solid green;
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.order-header .order-date {
+
+.order-date {
   font-size: 12px;
   color: #888;
   margin-left: 6px;
 }
 
-/* =========================
-   PROGRESS BAR
-========================= */
+.border-sep {
+  width: 100%;
+  height: 1px;
+  background: #28c76f;
+}
+
 .order-statusbar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-}
-.order-progress {
-  margin-top: 12px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: 360px;
+  align-items: center;
 }
 
-.order-progress::before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #e6e6e6;
-}
-
-.order-progress .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #d6d6d6;
-  position: relative;
-  z-index: 1;
-}
-
-.order-progress .dot.active {
-  background: #28c76f;
+.order-statusbar small {
+  font-size: 13px;
+  color: #555;
 }
 
 /* =========================
    STATUS PILL
 ========================= */
+.status-pill {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #fff;
+}
+
 .status-pill.received {
   background: #28c76f;
-  color: #ffffff;
-  font-size: 13px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  height: fit-content;
 }
-
 .status-pill.rejected {
-  background: #b55e7d;
-  color: #ffffff;
-  font-size: 13px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  height: fit-content;
+  background: #e74c3c;
+}
+.status-pill.refunded {
+  background: #8e44ad;
 }
 
-.status-pill.refunded {
-  background: #825da9;
-  color: #ffffff;
-  font-size: 13px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  height: fit-content;
-}
 /* =========================
    BODY GRID
 ========================= */
 .order-body {
   margin-top: 18px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 65% 35%;
   gap: 16px;
-  align-items: stretch;
 }
 
 /* =========================
@@ -1244,7 +1220,7 @@ tbody tr td > .creame {
 }
 
 /* =========================
-   CARD GROUP (TITLE + CARD)
+   SECTION TITLE
 ========================= */
 .card-out {
   display: flex;
@@ -1252,27 +1228,24 @@ tbody tr td > .creame {
   gap: 8px;
 }
 
-/* Title above card (like image) */
-.card-out > h4 {
-  margin: 0;
+.card-out h4 {
   font-size: 13px;
   font-weight: 600;
   color: #333;
-  padding-left: 2px;
+  margin: 0;
 }
 
 /* =========================
    CARD
 ========================= */
 .card {
-  border: 1px solid #ededed;
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
   border-radius: 10px;
   padding: 14px;
-  background: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 110px;
+  gap: 10px;
 }
 
 /* =========================
@@ -1281,11 +1254,12 @@ tbody tr td > .creame {
 .product-row {
   display: flex;
   gap: 14px;
+  align-items: flex-start;
 }
 
 .product-row img {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -1297,9 +1271,8 @@ tbody tr td > .creame {
 
 .product-info strong {
   display: block;
-  margin: 4px 0 8px;
   font-size: 14px;
-  color: #222;
+  margin: 4px 0 8px;
 }
 
 .meta-row {
@@ -1307,31 +1280,49 @@ tbody tr td > .creame {
   gap: 18px;
   font-size: 13px;
   color: #555;
-  margin-bottom: 4px;
 }
 
 /* =========================
-   EXPECTED DATE
+   CUSTOMER PHOTOS
 ========================= */
-.date-grid {
+.photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 88px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* =========================
+   INFO GRID (Return / Delivery)
+========================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
-.date-grid label {
+.info-grid label {
   font-size: 12px;
   color: #777;
 }
 
-.date-grid p {
+.info-grid p {
   font-size: 13px;
   margin-top: 4px;
-  color: #333;
+}
+
+.info-grid .full-width {
+  grid-column: 1 / -1;
 }
 
 /* =========================
-   UPDATE STATUS
+   STATUS GRID
 ========================= */
 .status-grid {
   display: grid;
@@ -1344,43 +1335,19 @@ tbody tr td > .creame {
   color: #777;
 }
 
-.status-grid input {
+.status-grid input,
+.status-grid select {
   width: 100%;
+  margin-top: 4px;
   padding: 8px 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 13px;
-  margin-top: 4px;
-}
-
-/* Delivered-on card */
-.status-grid + .card {
-  margin-top: 12px;
 }
 
 /* =========================
-   BUTTON
+   PAYMENT
 ========================= */
-.primary-btn {
-  margin-top: 14px;
-  background: #16a085;
-  color: #ffffff;
-  border: none;
-  padding: 10px 16px;
-  font-size: 13px;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 160px;
-  align-self: flex-start;
-}
-
-/* =========================
-   RIGHT COLUMN
-========================= */
-.right-col .card {
-  min-height: 120px;
-}
-
 .paid-text {
   font-size: 12px;
   color: #16a085;
@@ -1388,8 +1355,7 @@ tbody tr td > .creame {
 
 .right-col h2 {
   font-size: 20px;
-  margin: 6px 0 10px;
-  color: #222;
+  margin: 4px 0;
 }
 
 .right-col small {
@@ -1399,18 +1365,70 @@ tbody tr td > .creame {
 
 .right-col p {
   font-size: 13px;
-  color: #333;
 }
 
 /* =========================
-   MOBILE
+   FOOTER BUTTONS
 ========================= */
-@media (max-width: 768px) {
+.modal-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.primary-btn {
+  background: #16a085;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
   .order-body {
     grid-template-columns: 1fr;
   }
+}
 
-  .order-progress {
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-row {
+    flex-direction: column;
+  }
+
+  .product-row img {
+    width: 100%;
+    height: 140px;
+  }
+
+  .info-grid,
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .modal-footer button {
     width: 100%;
   }
 }

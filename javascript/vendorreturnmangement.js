@@ -119,134 +119,188 @@ function closeModal() {
 // =========================
 // GLOBAL VARIABLES
 // =========================
+/*************************************************
+  GLOBAL STATE
+*************************************************/
 const popups = document.querySelectorAll(".modal-popup-main");
-let currentItem = null; // tracks current table row or FAQ item
+let currentItem = null; // active table row OR faq item
 
-// =========================
-// CLOSE ALL POPUPS
-// =========================
+/*************************************************
+  CLOSE ALL POPUPS
+*************************************************/
 function closeAllPopups() {
-  popups.forEach((popup) => popup.classList.remove("active"));
+  popups.forEach(popup => popup.classList.remove("active"));
   currentItem = null;
 }
 
-// =========================
-// OPEN POPUP BY STATUS
-// =========================
-function openPopupByStatus(status) {
-  if (status.classList.contains("received")) {
-    document.getElementById("received-popup").classList.add("active");
-  } else if (status.classList.contains("refunded")) {
-    document.getElementById("packed-popup").classList.add("active");
-  } else if (status.classList.contains("rejected")) {
-    document.getElementById("delivered-popup").classList.add("active");
+/*************************************************
+  OPEN POPUP BASED ON STATUS CLASS
+*************************************************/
+function openPopupByStatus(statusEl) {
+  if (!statusEl) return;
+
+  if (statusEl.classList.contains("received")) {
+    document.getElementById("received-popup")?.classList.add("active");
+  }
+
+  if (statusEl.classList.contains("rejected")) {
+    document.getElementById("rejected-popup")?.classList.add("active");
+  }
+
+  if (statusEl.classList.contains("refunded")) {
+    document.getElementById("refunded-popup")?.classList.add("active");
   }
 }
 
-// =========================
-// TABLE ROW POPUP LOGIC
-// =========================
-document.querySelectorAll(".show-popup-btn").forEach((arrow) => {
-  arrow.addEventListener("click", () => {
+/*************************************************
+  DESKTOP TABLE ROW POPUP
+*************************************************/
+document.querySelectorAll(".show-popup-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
     closeAllPopups();
 
-    const row = arrow.closest("tr");
+    const row = btn.closest("tr");
     if (!row) return;
 
-    const status = row.querySelector(".order-status");
-    if (!status) return;
+    const statusEl = row.querySelector(".received, .rejected, .refunded");
+    if (!statusEl) return;
 
     currentItem = row;
-    openPopupByStatus(status);
+    openPopupByStatus(statusEl);
   });
 });
 
-// =========================
-// FAQ MOBILE POPUP LOGIC
-// =========================
-document.querySelectorAll(".open-modal-popup-mobile").forEach((btn) => {
-  btn.addEventListener("click", function () {
+/*************************************************
+  MOBILE FAQ POPUP
+*************************************************/
+document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
+  btn.addEventListener("click", () => {
     closeAllPopups();
 
-    const faqAnswer = this.closest(".faq-answer");
-    if (!faqAnswer) return;
+    const faqItem = btn.closest(".faq-answer");
+    if (!faqItem) return;
 
-    const status = faqAnswer.querySelector(".received, .rejected, .refunded");
-    if (!status) return;
+    const statusEl = faqItem.querySelector(".received, .rejected, .refunded");
+    if (!statusEl) return;
 
-    currentItem = faqAnswer;
-    openPopupByStatus(status);
+    currentItem = faqItem;
+    openPopupByStatus(statusEl);
   });
 });
 
-// =========================
-// MARK AS PACKED BUTTON
-// =========================
-// =========================
-// MARK AS PACKED BUTTON WITH DATE VALIDATION
-// =========================
-document
-  .getElementById("mark-as-packed")
-  .addEventListener("click", function () {
+/*************************************************
+  RECEIVED → MARK AS PACKED
+*************************************************/
+const markAsPackedBtn = document.getElementById("mark-as-packed");
+if (markAsPackedBtn) {
+  markAsPackedBtn.addEventListener("click", () => {
     if (!currentItem) return;
 
-    // find the date input inside the popup
-    const dateInput = document.querySelector(
-      "#received-popup input[type='date']",
+    const packedDate = document.querySelector(
+      "#received-popup input[type='date']"
     );
 
-    // if no date selected, alert or just return
-    if (!dateInput || !dateInput.value) {
-      alert("Please select the 'Packed on' date before marking as packed.");
+    if (!packedDate || !packedDate.value) {
+      alert("Please select Packed date");
       return;
     }
 
-    // find the status element in current item (table row or FAQ)
     const statusEl = currentItem.querySelector(
-      ".order-status, .received-orders",
+      ".received, .order-status"
     );
+
     if (!statusEl) return;
 
-    // update status text and class
     statusEl.textContent = "Packed";
-    statusEl.classList.remove("received-orders");
-    statusEl.classList.add("packed-order");
+    statusEl.className = "order-status packed";
+
+    packedDate.value = "";
+    closeAllPopups();
+  });
+}
+/*************************************************
+  RECEIVED → REJECT ACTION
+*************************************************/
+const rejectFromReceivedBtn = document.getElementById("reject-from-received");
+
+if (rejectFromReceivedBtn) {
+  rejectFromReceivedBtn.addEventListener("click", () => {
+    if (!currentItem) return;
+
+    // update status in table or mobile faq
+    const statusEl = currentItem.querySelector(".order-status");
+    if (!statusEl) return;
+
+    statusEl.textContent = "Rejected";
+    statusEl.classList.remove("received", "refunded", "packed");
+    statusEl.classList.add("rejected");
+
+    // show confirmation
+    alert("Return has been rejected successfully.");
 
     // close popup
     closeAllPopups();
-
-    // clear the input for next time
-    dateInput.value = "";
   });
+}
 
-// =========================
-// MARK AS PICKED BUTTON WITH DATE VALIDATION
-// =========================
-document
-  .getElementById("mark-as-picked")
-  .addEventListener("click", function () {
-    // select the specific Pick Up input inside the popup
-    const pickUpInput = document.querySelector("#pickup-date");
+/*************************************************
+  REJECTED → CONFIRM REJECT
+*************************************************/
+const rejectBtn = document.getElementById("confirm-reject");
+if (rejectBtn) {
+  rejectBtn.addEventListener("click", () => {
+    if (!currentItem) return;
 
-    if (!pickUpInput || pickUpInput.value.trim() === "") {
-      // do nothing if empty
-      alert("Please fill the Pick Up date before proceeding.");
-      return;
-    }
+    const statusEl = currentItem.querySelector(
+      ".order-status, .received, .refunded"
+    );
 
-    // if filled, close the popup
+    if (!statusEl) return;
+
+    statusEl.textContent = "Rejected";
+    statusEl.className = "order-status rejected";
+
     closeAllPopups();
-
-    // clear only this Pick Up input for next time
-    pickUpInput.value = "";
   });
+}
 
-// =========================
-// CLOSE BUTTONS
-// =========================
-document.querySelectorAll(".close-btn").forEach((btn) => {
+/*************************************************
+  REFUNDED → CONFIRM REFUND
+*************************************************/
+const refundBtn = document.getElementById("confirm-refund");
+if (refundBtn) {
+  refundBtn.addEventListener("click", () => {
+    if (!currentItem) return;
+
+    const statusEl = currentItem.querySelector(
+      ".order-status, .received, .packed"
+    );
+
+    if (!statusEl) return;
+
+    statusEl.textContent = "Refunded";
+    statusEl.className = "order-status refunded";
+
+    closeAllPopups();
+  });
+}
+
+/*************************************************
+  CLOSE BUTTONS
+*************************************************/
+document.querySelectorAll(".close-btn").forEach(btn => {
   btn.addEventListener("click", closeAllPopups);
 });
+
+/*************************************************
+  CLICK OUTSIDE TO CLOSE (OPTIONAL)
+*************************************************/
+popups.forEach(popup => {
+  popup.addEventListener("click", e => {
+    if (e.target === popup) closeAllPopups();
+  });
+});
+
 
 // Search Functionality
 // Unified Search (Table + FAQ)

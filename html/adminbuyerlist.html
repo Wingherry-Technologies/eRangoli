@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Vendor Management</title>
+    <link rel="stylesheet" href="../css/adminvendorlist.css" />
+  </head>
+  <body>
+    <div class="APVDashboardContainer">
+      <div class="APVStatsRow">
+
+  <!-- Total Vendors -->
+  <div class="APVStatCard" id="APVTotalVendorsWidget">
+    <div class="APVStatHeader">
+      <div>
+        <img
+          class="APVStatIcon"
+          src="../assets/adminProductVerification/rupee.svg"
+          alt=""
+        />
+      </div>
+      <span class="APVStatLabel">Total Vendors</span>
+    </div>
+    <div class="APVStatValue">14,945</div>
+    <div class="APVStatFooter">
+      <span class="APVStatChange">
+        <img
+          src="../assets/adminProductVerification/TrendUp.svg"
+          alt=""
+        />
+        +15.3%
+      </span>
+      <div class="APVStatChart">
+        <img
+          src="../assets/adminProductVerification/Vector 11.svg"
+          alt="chart"
+          class="APVChartImage"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Repeat Vendors -->
+  <div class="APVStatCard" id="APVRepeatVendorsWidget">
+    <div class="APVStatHeader">
+      <div>
+        <img
+          class="APVStatIcon"
+          src="../assets/adminProductVerification/rupee.svg"
+          alt=""
+        />
+      </div>
+      <span class="APVStatLabel">Repeat Vendors</span>
+    </div>
+    <div class="APVStatValue">9,945</div>
+    <div class="APVStatFooter">
+      <span class="APVStatChange">
+        <img
+          src="../assets/adminProductVerification/TrendUp.svg"
+          alt=""
+        />
+        +15.3%
+      </span>
+      <div class="APVStatChart">
+        <img
+          src="../assets/adminProductVerification/Vector 11.svg"
+          alt="chart"
+          class="APVChartImage"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Churn Rate -->
+  <div class="APVStatCard" id="APVChurnRateWidget">
+    <div class="APVStatHeader">
+      <div>
+        <img
+          class="APVStatIcon"
+          src="../assets/adminProductVerification/rupee.svg"
+          alt=""
+        />
+      </div>
+      <span class="APVStatLabel">Churn Rate</span>
+    </div>
+    <div class="APVStatValue">2%</div>
+    <div class="APVStatFooter">
+      <span class="APVStatChange">
+        <img
+          src="../assets/adminProductVerification/TrendUp.svg"
+          alt=""
+        />
+        +15.3%
+      </span>
+      <div class="APVStatChart">
+        <img
+          src="../assets/adminProductVerification/Vector 11.svg"
+          alt="chart"
+          class="APVChartImage"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Retention Rate -->
+  <div class="APVStatCard" id="APVRetentionRateWidget">
+    <div class="APVStatHeader">
+      <div>
+        <img
+          class="APVStatIcon"
+          src="../assets/adminProductVerification/rupee.svg"
+          alt=""
+        />
+      </div>
+      <span class="APVStatLabel">Retention Rate</span>
+    </div>
+    <div class="APVStatValue">52%</div>
+    <div class="APVStatFooter">
+      <span class="APVStatChange">
+        <img
+          src="../assets/adminProductVerification/TrendUp.svg"
+          alt=""
+        />
+        +15.3%
+      </span>
+      <div class="APVStatChart">
+        <img
+          src="../assets/adminProductVerification/Vector 11.svg"
+          alt="chart"
+          class="APVChartImage"
+        />
+      </div>
+    </div>
+  </div>
+
+</div>
+
+      <!-- Search Bar Section -->
+      <div class="APVSearchRow">
+        <div class="APVSearchWrapper">
+          <img
+            src="../assets/adminProductVerification/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="APVSearchInput"
+            placeholder="Search by Company name, UID, Email, State, City."
+          />
+        </div>
+        <div class="APVIconsGroup">
+          <div class="APVFilterDummy">
+            <img src="../assets/adminProductVerification/Sliders.svg" alt="" />
+          </div>
+          <div class="APVSettingsDummy">
+            <img
+              src="../assets/adminProductVerification/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="filter-main">
+            <!-- <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div> -->
+          </div>
+          <!-- Status Box -->
+          <!-- <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="pending" id="pending" />
+                  <label for="pending">Pending</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="verified" id="verified" />
+                  <label for="verified">Verified</label>
+                </li>
+              </ul>
+            </div>
+          </div> -->
+          <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="company-asc">Company A → Z</li>
+                <li data-sort="company-desc">Company Z → A</li>
+                <li data-sort="state-asc">State A → Z</li>
+                <li data-sort="state-desc">State Z → A</li>
+                <li data-sort="city-asc">City A → Z</li>
+                <li data-sort="city-desc">City Z → A</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="APVTableCard">
+  <div class="APVTableHeader">
+    <h3 class="APVTableTitle">Vendor List</h3>
+    <a href="#" class="APVViewAllLink">View all</a>
+  </div>
+
+  <div class="APVTableWrapper">
+    <table class="APVProductTable">
+
+      <!-- TABLE HEAD -->
+      <thead class="APVTableHead">
+        <tr class="APVTableHeadRow">
+          <th class="APVTableHeaderCell">Company Name</th>
+          <th class="APVTableHeaderCell">UID number</th>
+          <th class="APVTableHeaderCell">Email address</th>
+          <th class="APVTableHeaderCell">Contact</th>
+          <th class="APVTableHeaderCell">Designation</th>
+          <th class="APVTableHeaderCell">State</th>
+          <th class="APVTableHeaderCell">City</th>
+          <th class="APVTableHeaderCell"></th>
+        </tr>
+      </thead>
+
+      <!-- TABLE BODY -->
+      <tbody class="APVTableBody">
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Sanskriti Collection</span>
+    </td>
+    <td class="APVTableCell">#67588699</td>
+    <td class="APVTableCell">sanskriticoll@gmail.com</td>
+    <td class="APVTableCell">89878 64748</td>
+    <td class="APVTableCell">Artisan</td>
+    <td class="APVTableCell">MH</td>
+    <td class="APVTableCell">Mumbai</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Kala Mandir Arts</span>
+    </td>
+    <td class="APVTableCell">#67588912</td>
+    <td class="APVTableCell">kalamandir@gmail.com</td>
+    <td class="APVTableCell">91234 77890</td>
+    <td class="APVTableCell">Craft Seller</td>
+    <td class="APVTableCell">KA</td>
+    <td class="APVTableCell">Bengaluru</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Heritage Looms</span>
+    </td>
+    <td class="APVTableCell">#67588345</td>
+    <td class="APVTableCell">heritagelooms@gmail.com</td>
+    <td class="APVTableCell">98765 43210</td>
+    <td class="APVTableCell">Weaver</td>
+    <td class="APVTableCell">TN</td>
+    <td class="APVTableCell">Madurai</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Desi Handcrafts</span>
+    </td>
+    <td class="APVTableCell">#67589901</td>
+    <td class="APVTableCell">desihand@gmail.com</td>
+    <td class="APVTableCell">90012 34987</td>
+    <td class="APVTableCell">Manufacturer</td>
+    <td class="APVTableCell">RJ</td>
+    <td class="APVTableCell">Jaipur</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Tribal Roots</span>
+    </td>
+    <td class="APVTableCell">#67587211</td>
+    <td class="APVTableCell">tribalroots@gmail.com</td>
+    <td class="APVTableCell">88990 22134</td>
+    <td class="APVTableCell">Designer</td>
+    <td class="APVTableCell">OR</td>
+    <td class="APVTableCell">Bhubaneswar</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Village Threads</span>
+    </td>
+    <td class="APVTableCell">#67586123</td>
+    <td class="APVTableCell">villagethreads@gmail.com</td>
+    <td class="APVTableCell">90123 55678</td>
+    <td class="APVTableCell">Textile Seller</td>
+    <td class="APVTableCell">GJ</td>
+    <td class="APVTableCell">Ahmedabad</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Crafty Hands</span>
+    </td>
+    <td class="APVTableCell">#67589876</td>
+    <td class="APVTableCell">craftyhands@gmail.com</td>
+    <td class="APVTableCell">93456 78901</td>
+    <td class="APVTableCell">Art Seller</td>
+    <td class="APVTableCell">DL</td>
+    <td class="APVTableCell">New Delhi</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+  <tr class="APVTableRow">
+    <td class="APVTableCell APVProductNameCell">
+      <img src="../assets/adminvendorlist/business.png" class="APVProductThumb" />
+      <span class="APVProductName">Ethnic Aura</span>
+    </td>
+    <td class="APVTableCell">#67583456</td>
+    <td class="APVTableCell">ethnicaura@gmail.com</td>
+    <td class="APVTableCell">95678 12345</td>
+    <td class="APVTableCell">Boutique Owner</td>
+    <td class="APVTableCell">WB</td>
+    <td class="APVTableCell">Kolkata</td>
+    <td class="APVTableCell"><button class="APVActionButton"><img src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+  </tr>
+
+</tbody>
+
+    </table>
+  </div>
+</div>
+
+    </div>
+
+    <script src="../javascript/adminvendorlist.js"></script>
+  </body>
+</html>
