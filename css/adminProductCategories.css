@@ -114,3 +114,116 @@ tbody td {
   width: 22px;
   height: 22px;
 }
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .table-wrapper {
+    width: 100%;
+    max-height: 420px;
+
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .table-wrapper table {
+    min-width: 900px;
+  }
+  .table-wrapper:hover {
+    overflow-x: auto;
+  }
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 595px) {
+  body {
+    background-color: #f5f5f5;
+  }
+
+  .table-wrapper {
+    overflow: visible;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  tbody td:first-child {
+    background: #e7f0f9;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3f3f3f;
+  }
+
+  tbody td {
+    padding: 10px;
+    font-size: 14px;
+    color: #565252;
+  }
+
+  tbody td:nth-child(5)::before {
+    content: "States - ";
+    font-weight: 600;
+    color: #333;
+  }
+
+  tbody td:nth-child(2)::before {
+    content: "Stock - ";
+    font-weight: 600;
+    color: #333;
+  }
+
+  tbody td:nth-child(3)::before {
+    content: "Sale - ";
+    font-weight: 600;
+    color: #333;
+  }
+
+  tbody td:nth-child(4)::before {
+    content: "Left - ";
+    font-weight: 600;
+    color: #333;
+  }
+
+  .view-all {
+    display: none;
+  }
+  .category-card {
+    background: none;
+    padding: 0;
+  }
+  .category-cell img {
+    display: none;
+  }
+}
