@@ -38,6 +38,42 @@ document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-
     });
 });
 
+// Sidebar Submenu
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll(".has-submenu");
+    const submenus = document.querySelectorAll(".submenu");
+
+    menuItems.forEach(menu => {
+      menu.addEventListener("click", () => {
+        const menuKey = menu.getAttribute("data-menu");
+        const submenu = document.querySelector(
+          `.submenu[data-submenu="${menuKey}"]`
+        );
+
+        const submenuIsOpen = submenu.classList.contains("active");
+
+        // Close all submenus first
+        submenus.forEach(sm => sm.classList.remove("active"));
+
+        // Remove active class from other menus only
+        menuItems.forEach(item => {
+          if (item !== menu) {
+            item.classList.remove("sidebar-active");
+          }
+        });
+
+        // Always keep sidebar-active on clicked menu
+        menu.classList.add("sidebar-active");
+
+        // Toggle only its submenu
+        if (!submenuIsOpen) {
+          submenu.classList.add("active");
+        }
+      });
+    });
+  });
+
+
 
 // Notification Click
 

@@ -13,8 +13,11 @@
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
             <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
             <div class="search-bar">
-                <img src="../assets/vendorSidebar/MagnifyingGlass.svg" alt="" />
-                <input type="search" id="desktop-search" placeholder="Search">
+                <div class="search-bar-icon">
+                  <img src="../assets/master/eRangoli 2-1.svg" alt="">
+                  <input type="search" id="desktop-search" placeholder="Search">
+                </div>
+                <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
             </div>
             <ul id="desktop-suggestions" class="suggestions-box"></ul>
         </div>
@@ -167,9 +170,12 @@
             <div class="user-profile-icon" id="user-profile-icon">
                     <div class="img-name">
                       <div class="circle-image">
-                        <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="">
                       </div>
-                      <span id="user-name">Sanskriti Collection</span>
+                      <div class="admin-name">
+                        <span id="user-name">Kristin Winget</span>
+                        <span id="role-name">Admin</span>
+                      </div>
                     </div>
             </div>
         </div>
@@ -315,7 +321,7 @@
         </li>
       </ul>
     </div>
-  </div>
+    </div>
 
   <!-- Order Popup -->
   <div class="notification-main-box" id="order-main-box">
@@ -462,14 +468,6 @@
       </a>
     </div>
 
-    <!-- Mobile Search Bar -->
-     <div class="mobile-search-bar-main">
-        <div class="mobile-search-bar">
-            <img id="maginfying-mobile" src="../assets/master/MagnifyingGlassMob.svg" alt="">
-            <input type="search" id="mobile-search" placeholder="Search" onkeyup="showSuggestions(this)">
-        </div>
-    </div>
-    <ul id="mobile-suggestions" class="suggestions-box"></ul>
 
     <!-- Sidebar -->
      <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
@@ -477,7 +475,7 @@
             <div class="welcome-sidebar-main">
                 <div class="welcome-sidebar">
                   <span>Welcome!</span>
-                  <span>Sanskriti Collection</span>
+                  <span>Administration</span>
                 </div>
                 <div class="hamberger-sidebar"  id="sidebarToggle">
                   <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
@@ -485,117 +483,72 @@
                 </div>
             </div>
             <ul>
-                <li class="sidebar-active">
+                <li>
                     <div class="image-head">
                         <img src="../assets/vendorSidebar/GridFour.svg" alt="">
                         <span>Dashboard</span>
                     </div>
                     <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
                 </li>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/Package.svg" alt="">
-                        <span>Product Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                <li class="has-submenu sidebar-active" data-menu="product">
+                  <div class="image-head">
+                    <img src="../assets/vendorSidebar/Package.svg" alt="">
+                    <span>Product Management</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
                 </li>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                        <span>Order Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                <ul class="submenu active" data-submenu="product">
+                  <li class="submenu-cative-highlight">Product List</li>
+                  <li>Product Categories</li>
+                  <li>Product Recently Added</li>
+                  <li>Product Verification</li>
+                </ul>
+                <li class="has-submenu" data-menu="vendor">
+                  <div class="image-head">
+                    <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                    <span>Vendor Management</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
                 </li>
-                <li>
+                <ul class="submenu" data-submenu="vendor">
+                  <li>Vendor List</li>
+                  <li>Vendor Recently Added</li>
+                  <li>Vendor Verification</li>
+                </ul>
+
+                <li>  
                     <div class="image-head">
                         <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        <span>Return Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                        <span>Sales</span>
+                        <span>Buyer Management</span>
                     </div>
                     <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
                 </li>
                 <li>
                     <div class="image-head">
                         <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        <span>Customer Management</span>
+                        <span>User Management</span>
                     </div>
                     <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
                 </li>
+                <li class="has-submenu" data-menu="sales">
+                  <div class="image-head">
+                    <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                    <span>Sales</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+                </li>
+                <ul class="submenu" data-submenu="sales">
+                  <li>Dashboard</li>
+                  <li>Purchase Order</li>
+                  <li>Return Orders</li>
+                  <li>Buyer Payment History</li>
+                  <li>Vendor Payment</li>
+                  <li>Sales Report</li>
+                  <li>Discounts / Coupons</li>
+                </ul> 
             </ul>
         </article>
      </section>
-
-    <!-- Footer -->
-    <footer class="er-footer">
-        <div class="er-container">
-    
-            <!-- Column 1 -->
-            <div class="er-col">
-                <h2 class="er-logo">eRANGOLI</h2>
-                <p class="er-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                    sodales massa a ultrices fringilla. Sed vehicula in lorem quis ultrices.
-                </p>
-    
-                <div class="er-contact-part">
-                    <div class="er-contact"> <img src="../assets/master/footeremail.svg" alt="">
-                        <div>Loremipsum@gmail.com</div>
-                    </div>
-                    <div class="er-contact"> <img src="../assets/master/footerPhone.svg" alt="">
-                        <div>+91 67895 76895</div>
-                    </div>
-                    <div class="er-contact"> <img src="../assets/master/footerweblink.svg" alt="">
-                        <div>Loremipsum.com</div>
-                    </div>
-                </div>
-    
-                <p class="er-copy">Loremipsum © 2025</p>
-            </div>
-    
-            <!-- Column 2 -->
-            <div class="er-col quick-link">
-                <h3 class="er-heading">Quick Links</h3>
-                <a href="#">Home</a>
-                <a href="#">New Arrivals</a>
-                <a href="#">Categories</a>
-                <a href="#">Offers</a>
-                <a href="#">Contact</a>
-            </div>
-            
-            <!-- Column 3 -->
-            <div class="er-col payments">
-                <h3 class="er-heading">Payments</h3>
-                <a href="#">UPI</a>
-                <a href="#">Debit Card</a>
-                <a href="#">Credit Card</a>
-                <a href="#">COD</a>
-                <a href="#">Net Banking</a>
-            </div>
-    
-            <!-- Column 4 -->
-            <div class="er-col">
-                <h3 class="er-heading">For all the latest trends across India</h3>
-                <p class="er-desc">Subscribe to our weekly newsletter customized to your needs</p>
-    
-                <div class="er-subscribe">
-                    <button>Subscribe</button>
-                </div>
-    
-                <div class="er-social">
-                    <a href="#"><img src="../assets/master/FacebookLogo.svg" alt=""></a>
-                    <a href="#"><img src="../assets/master/InstagramLogo.svg" alt=""></a>
-                    <a href="#"><img src="../assets/master/LinkedinLogo.svg" alt=""></a>
-                </div>
-            </div>
-    
-        </div>
-    </footer>
 
 
 <script src="../javascript/adminSidebarnavbar.js"></script>
