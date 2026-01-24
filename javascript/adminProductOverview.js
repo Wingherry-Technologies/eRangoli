@@ -253,9 +253,20 @@ if (APODeleteButton) {
 const APORemoveButton = document.querySelector(".APORemoveButton");
 if (APORemoveButton) {
   APORemoveButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to remove this product?")) {
-      alert("Product removed successfully!");
-      window.history.back();
-    }
+      APOremoveModal.classList.add("active");
   });
 }
+
+
+APOcloseRemoveModal.addEventListener("click", () => {
+  APOremoveModal.classList.remove("active");
+});
+
+APOremoveNo.addEventListener("click", () => {
+  APOremoveModal.classList.remove("active");
+});
+
+APOremoveYes.addEventListener("click", () => {
+  APOremoveModal.classList.remove("active");
+  window.location.href = "adminProductManagementProductCategories.html";
+});
