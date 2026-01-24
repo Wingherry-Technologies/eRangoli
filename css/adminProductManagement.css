@@ -258,7 +258,7 @@ body {
 }
 
 .APMTableWrapper {
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     max-height: 500px;
     padding-right: 10px;
@@ -365,6 +365,95 @@ body {
     background-color: #3B82F6;
 }
 
+/* status column */
+
+
+.APMStatus {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    min-width: 90px;
+}
+
+/* Live - Green */
+.APMStatus.live {
+    background-color: #009605;
+}
+
+/* Removed - Orange */
+.APMStatus.removed {
+    background-color: #CF6700;
+}
+
+/* Out of stock - Red */
+.APMStatus.out {
+    background-color: #FF0000;
+}
+/* Mobile status variants */
+.APMStatus.mobilelive {
+    color: #00B814;
+    padding: 0 0;
+    text-align: left;
+
+}
+.APMStatus.mobileremoved {
+    color: #FF7F2A;
+    text-align: left;
+    padding: 0 0;
+}
+.APMStatus.mobileout {
+    color: #FF3B3B;
+    text-align: left;
+    padding: 0 0;  
+
+}
+
+/* filter and sort */
+.filter-bar-wrapper { position: relative; }
+
+.main-content-flows-main {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 999;
+}
+
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+
+.main-filter-box-content {
+  background: #fff;
+  padding: 10px;
+  width: 200px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.main-head-filters {
+  border-bottom: 1px solid #989FFF;
+  margin-bottom: 8px;
+}
+
+.main-filter-box-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main-filter-box-content li {
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+}
+
+
+
 /* Responsive */
 @media (max-width: 1200px) {
     .APMStatsRow {
@@ -387,20 +476,137 @@ body {
         gap: 16px;
     }
     
-    .APMTableCard {
-        padding: 16px;
-    }
-    
-    .APMStatsRow {
-        grid-template-columns: 1fr;
-    }
-    
-    .APMSearchContainer {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .APMIconsGroup {
-        justify-content: flex-end;
-    }
+  .APMStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .APMStatCard {
+    padding: 10px;
+  }
+
+  .APMStatValue {
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  .APMStatLabel {
+    font-size: 12px;
+  }
+}
+
+
+/* Mobile layout hidden by default */
+.APMMobileList {
+  display: none;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+
+  .APMTableCard {
+    display: none;
+  }
+
+  .APMMobileList {
+    display: block;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .main-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .product-left img {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+  }
+
+  .faq-answer {
+    margin-top: 10px;
+    display: none;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .all-answers div {
+    display: flex;
+    font-size: 13px;
+    padding: 4px 0;
+  }
+
+  .mobile-view-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: #989FFF;
+    color: #fff;
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .show-threedots-box {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px;
+  }
+
+  .show-threedots-box.active-preview {
+    display: block;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .all-answers div {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 0;
+    gap: 5px;
+  }
+
+  .all-answers div span:first-child {
+    width: 30%;
+    font-weight: 500;
+  }
+
+  .mobiletitle{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+  .mobile-view-btn {
+    width: 100px;
+    margin-left: auto;
+    margin-top: 12px;
+    display: block;
+    border-radius: 8px;
+  }
 }

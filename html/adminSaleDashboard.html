@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sales Dashboard</title>
+    <link rel="stylesheet" href="../css/adminSaleDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="adminSalesDashboardContainer">
+        <!-- Top Stats Cards Row -->
+        <div class="adminSalesStatsRow">
+            <!-- Total Sales Card -->
+            <div class="adminSalesStatCard">
+                <div class="adminSalesStatHeader">
+                    <div class="adminSalesStatIcon">
+                       <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="adminSalesStatLabel">Total Sales</span>
+                </div>
+                <div class="adminSalesStatValue">₹ 26,14,945</div>
+                <div class="adminSalesStatFooter">
+                    <span class="adminSalesStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="adminSalesStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="adminSalesChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profit Card -->
+            <div class="adminSalesStatCard">
+                <div class="adminSalesStatHeader">
+                    <div class="adminSalesStatIcon">
+                        <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="adminSalesStatLabel">Profit</span>
+                </div>
+                <div class="adminSalesStatValue">₹ 6,14,945</div>
+                <div class="adminSalesStatFooter">
+                    <span class="adminSalesStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="adminSalesStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="adminSalesChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Average Monthly Card -->
+            <div class="adminSalesStatCard">
+                <div class="adminSalesStatHeader">
+                    <div class="adminSalesStatIcon">
+                        <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="adminSalesStatLabel">Average Monthly</span>
+                </div>
+                <div class="adminSalesStatValue">4,945</div>
+                <div class="adminSalesStatFooter">
+                    <span class="adminSalesStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="adminSalesStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="adminSalesChartImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Turn Over Card -->
+            <div class="adminSalesStatCard">
+                <div class="adminSalesStatHeader">
+                    <div class="adminSalesStatIcon">
+                       <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+                    </div>
+                    <span class="adminSalesStatLabel">Turn over</span>
+                </div>
+                <div class="adminSalesStatValue">945</div>
+                <div class="adminSalesStatFooter">
+                    <span class="adminSalesStatChange">
+                        <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+                        +15.3%
+                    </span>
+                    <div class="adminSalesStatChart">
+                        <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="adminSalesChartImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Row: Revenue Contributors and Payment Mode -->
+        <div class="adminSalesRow adminSalesRowTop">
+            <!-- Top Revenue Contributor Categories -->
+            <div class="adminSalesCard adminSalesCardLarge">
+                <div class="adminSalesCardHeader">
+                    <div>
+                        <h3 class="adminSalesCardTitle">Top Revenue Contributor Categories</h3>
+                        <p class="adminSalesSubtext">+$33.3 compared to last month</p>
+                    </div>
+                    <div class="adminSalesCardFilters">
+                        <select class="adminSalesSelect">
+                            <option>Yearly</option>
+                        </select>
+                        <select class="adminSalesSelect">
+                            <option>2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="adminSalesCardBody">
+                    <div class="adminSalesRevenueList">
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Sarees</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 70%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Wooden Craft</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 70%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Bedsheet and curtains</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 75%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Paintings</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 90%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Brass Handicraft</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 63%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                        <div class="adminSalesRevenueItem">
+                            <div class="adminSalesRevenueLabel">Jewelry</div>
+                            <div class="adminSalesRevenueBarContainer">
+                                <div class="adminSalesRevenueBar" style="width: 85%;"></div>
+                            </div>
+                            <div class="adminSalesRevenueValue">1,234.56</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Mode -->
+            <div class="adminSalesCard adminSalesCardSmall">
+                <div class="adminSalesCardHeader">
+                    <h3 class="adminSalesCardTitle">Payment Mode</h3>
+                </div>
+                <div class="adminSalesCardBody adminSalesCardBodyCenter">
+                    <canvas id="adminSalesPaymentModeChart"></canvas>
+                    <div class="adminSalesLegendGrid">
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #7C3AED;"></span>
+                            <span class="adminSalesLegendText">Credit/Debit 63%</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #F59E0B;"></span>
+                            <span class="adminSalesLegendText">Net Banking 15%</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #14B8A6;"></span>
+                            <span class="adminSalesLegendText">Google Pay 37%</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #6B7280;"></span>
+                            <span class="adminSalesLegendText">UPI BHIM 0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Row: Business Chart and State Wise Revenues -->
+        <div class="adminSalesRow adminSalesRowMiddle">
+            <!-- Business Chart (Revenue) -->
+            <div class="adminSalesCard adminSalesCardLarge">
+                <div class="adminSalesCardHeader">
+                    <h3 class="adminSalesCardTitle">Business Chart (Revenue)</h3>
+                    <div class="adminSalesCardFilters">
+                        <select class="adminSalesSelect">
+                            <option>Yearly</option>
+                        </select>
+                        <select class="adminSalesSelect">
+                            <option>2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="adminSalesCardBody">
+                    <canvas id="adminSalesBusinessChart"></canvas>
+                </div>
+            </div>
+
+            <!-- State Wise Revenues -->
+            <div class="adminSalesCard adminSalesCardSmall">
+                <div class="adminSalesCardHeader">
+                    <h3 class="adminSalesCardTitle">State wise Revenues</h3>
+                </div>
+                <div class="adminSalesCardBody adminSalesCardBodyCenter">
+                    <canvas id="adminSalesStateWiseChart"></canvas>
+                    <div class="adminSalesLegendRow">
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #7C3AED;"></span>
+                            <span class="adminSalesLegendText">MH</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #C084FC;"></span>
+                            <span class="adminSalesLegendText">GJ</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #BEF264;"></span>
+                            <span class="adminSalesLegendText">RJ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Target vs Reality and State Revenues -->
+        <div class="adminSalesRow adminSalesRowBottom">
+            <!-- Target vs Reality -->
+            <div class="adminSalesCard adminSalesCardLarge">
+                <div class="adminSalesCardHeader">
+                    <h3 class="adminSalesCardTitle">Target vs Reality</h3>
+                    <div class="adminSalesCardFilters">
+                        <select class="adminSalesSelect">
+                            <option>Yearly</option>
+                        </select>
+                        <select class="adminSalesSelect">
+                            <option>2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="adminSalesCardBody">
+                    <canvas id="adminSalesTargetChart"></canvas>
+                    <div class="adminSalesLegendRow" style="margin-top: 16px;">
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #FDE047;"></span>
+                            <span class="adminSalesLegendText">Target (₹15,00,000)</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #4ADE80;"></span>
+                            <span class="adminSalesLegendText">Reality (₹10,00,000)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State Revenues -->
+            <div class="adminSalesCard adminSalesCardSmall">
+                <div class="adminSalesCardHeader">
+                    <h3 class="adminSalesCardTitle">State Revenues</h3>
+                </div>
+                <div class="adminSalesCardBody">
+                    <canvas id="adminSalesStateRevenuesChart"></canvas>
+                    <div class="adminSalesLegendRow" style="margin-top: 16px;">
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #22C55E;"></span>
+                            <span class="adminSalesLegendText">Highest</span>
+                        </div>
+                        <div class="adminSalesLegendItem">
+                            <span class="adminSalesLegendDot" style="background-color: #EF4444;"></span>
+                            <span class="adminSalesLegendText">Lowest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/adminSaleDashboard.js"></script>
+</body>
+</html>

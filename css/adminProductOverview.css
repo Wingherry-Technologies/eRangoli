@@ -523,6 +523,9 @@ body {
   .APOAdminContent {
     grid-template-columns: 1fr;
   }
+  .APOAdminButtons{
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 595px) {
@@ -579,6 +582,11 @@ body {
 
   .APOAdminContent {
     grid-template-columns: 1fr;
+  }
+  .APODeleteButton,
+  .APORemoveButton {
+    padding: 10px 20px;
+    font-size: 10px;
   }
 }
 
