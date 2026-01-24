@@ -72,6 +72,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+.filter-bar-wrapper{
+  position: relative;
+  display: inline-flex;  
+  align-items: center;
+}
+
 
 .APRAFilterDummy,
 .APRASettingsDummy {
@@ -311,10 +317,16 @@ body {
 .main-content-flows-main {
   display: none;
   position: absolute;
-  top: 60px;
-  right: 270px;
   z-index: 1000;
 }
+
+#filter-main,
+#status-box,
+#sort-box {
+  top: 48px;
+  left: -160px;
+}
+
 .main-content-flows-main.active-main-content-flows {
   display: block;
 }
@@ -339,9 +351,9 @@ body {
   padding: 5px 10px;
 }
 
-#status-box {
+/* #status-box {
   right: 270px;
-}
+} */
 .main-head-filters {
   border-bottom: 1px solid #6828e7;
 }
