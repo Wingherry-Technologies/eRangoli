@@ -6,9 +6,6 @@
     box-sizing: border-box;
     font-family: "Nunito Sans" ;
 }
-body{
-    background-color: #ebeef4;
-}
 
 nav{
     width: calc(100% - 300px);
@@ -1123,6 +1120,7 @@ nav{
 /* Sidebar Content */
 .sidebar-main-vendor{
     position: fixed;
+    top: 0px;
     width: 300px;
     border-radius: 0px 10px 10px 0px;
     height: 100vh;
@@ -1229,7 +1227,7 @@ nav{
     margin-bottom: 10px;
     font-size: 14px;
 }
-.submenu .submenu-cative-highlight{
+.submenu .submenu-active-highlight{
     color: #0F8DF3;
     font-weight: 500;
 }
@@ -1248,6 +1246,7 @@ nav{
     nav{
         width: 100%;
         margin-left: 0px;
+        right: 0px;
     }
 
     /* Show hamburger */
@@ -1601,7 +1600,10 @@ nav{
     position: fixed;
     top: 5px;
     z-index: 9999;
-    left: 30px;
+    left: 10px;
+  }
+  .mobile-back-button>img{
+    height: 15px;
   }
 }
 
