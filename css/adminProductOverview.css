@@ -66,6 +66,17 @@ body {
   text-align: center;
   white-space: nowrap;
 }
+.APORemoveStatus{
+   background-color: #CF6700;
+  color: #ffffff;
+  padding: 6px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
 
 .APOMobileHeader{
   display: flex;

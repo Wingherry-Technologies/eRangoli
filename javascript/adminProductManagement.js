@@ -40,14 +40,28 @@ searchInput.addEventListener("input", function () {
 
 
 
-    // action button 
-    document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".APMActionButton");
-    if (!btn) return;
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".APMActionButton");
+  if (!btn) return;
 
-    // redirect to overview page
-    window.location.href = "../html/adminProductOverview.html";
-    });
+  // find the table row
+  const row = btn.closest(".APMTableRow");
+  if (!row) return;
+
+  // find the status span inside this row
+  const statusEl = row.querySelector(".APMStatus");
+  if (!statusEl) return;
+
+  const statusText = statusEl.textContent.trim().toLowerCase();
+
+  // routing logic
+  if (statusText === "live" || statusText === "out of stock") {
+    window.location.href = "../html/adminPMProductOverviewLive.html";
+  } else if (statusText === "removed") {
+    window.location.href = "../html/adminPMProductOverviewRemoved.html";
+  }
+});
+
 
 
     const filterBtn = document.getElementById("apm-filter-btn");
@@ -196,8 +210,5 @@ document.addEventListener("click", e=>{
      window.location.href = "../html/adminProductOverview.html";
   }
 });
-
-
-
 
 });
