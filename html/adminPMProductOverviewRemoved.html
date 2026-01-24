@@ -9,9 +9,13 @@
 <body>
     <div class="APOMainContentBeyond">
         <div class="APOContainer">
+            <div class="APOMobileHeader">   
             <div class="APOMobileBackButton">
                 <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
                 <span>Product Details</span>
+                
+            </div>
+            <div class="APOLiveStatus APORemoveStatus">Removed</div>
             </div>
 
             <!-- Product Details Section -->
@@ -22,6 +26,8 @@
                         <img src="../assets/adminProductOverview/PencilSimple (1).svg" alt="Edit">
                         <img src="../assets/adminProductOverview/Trash (1).svg" alt="Delete">
                     </div> -->
+
+                    
                 </div>
                 
                 <div class="APOProductPreviewLayout">
@@ -290,39 +296,77 @@
 
             <!-- For Administration Section -->
             <div class="APOAdminSection">
-                <div class="APOAdminHeader">For Administration</div>
-                <div class="APOAdminContent">
-                    <div class="APOAdminLeft">
-                    <div class="APOAdminTextareaWrapper">
+                <div class="APOAdminHeader"> Administration</div>
+<div class="APOAdminContent">
 
-                        <span class="APOAdminInnerLabel">Write a description</span>
+  <div class="APOAdminGrid">
 
-                        <textarea class="APOAdminTextarea">Product is out of stock.</textarea>
 
-                        <img
-                        src="../assets/adminProductOverview/PaperPlaneTilt.svg"
-                        class="APOAdminSendIcon"
-                        alt="send"
-                        />
 
-                    </div>
-                    </div>
+    <div class="APOAdminItem">
+      <span class="APOAdminLabelBlue">Vendor Selling Price</span>
+      <span class="APOAdminValue">₹1,299</span>
+    </div>
 
-                    <div class="APOAdminRight">
-                        <label class="APOAdminLabel">Select name (Verified by) *</label>
-                        <select class="APOAdminSelect">
-                            <option value="Rekha">Rekha</option>
-                        </select>
-                    </div>
-                </div>
+    <div class="APOAdminItem">
+      <span class="APOAdminLabelBlue">Company Percentage</span>
+      <span class="APOAdminValue">20%</span>
+    </div>
+
+    <div class="APOAdminItem right-col">
+      <span class="APOAdminLabelBlue">Approved By</span>
+      <span class="APOAdminValue">Rekha</span>
+    </div>
+
+    <div class="APOAdminItem">
+      <span class="APOAdminLabelBlue">Selling Price</span>
+      <span class="APOAdminValue">₹1,699</span>
+    </div>
+
+    <div class="APOAdminItem">
+      <span class="APOAdminLabelBlue">GST</span>
+      <span class="APOAdminValue">6%</span>
+    </div>
+
+    <div class="APOAdminItem right-col">
+      <span class="APOAdminLabelBlue ">Approval Date</span>
+      <span class="APOAdminValue">02/02/26</span>
+    </div>
+
+    <div class="APOAdminItem">
+      <span class="APOAdminLabelBlue">Margin</span>
+      <span class="APOAdminValue">₹399</span>
+    </div>
+
+  </div>
+
+</div>
+
                 <div class="APOAdminButtons">
+                    <button class="APORemoveButton">Make it Live</button>
                     <button class="APODeleteButton">Delete</button>
-                    <button class="APORemoveButton">Remove</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../javascript/adminProductOverview.js"></script>
+
+    <!-- REMOVE CONFIRMATION MODAL -->
+<div class="APOConfirmOverlay" id="APOremoveModal">
+  <div class="APOConfirmModal">
+    <button class="APOCloseBtn" id="APOcloseRemoveModal">×</button>
+
+    <p class="APOConfirmText" id="APOConfirmText"></p>
+
+
+    <div class="APOConfirmActions">
+      <button class="APOYesBtn" id="APOremoveYes">Yes</button>
+      <button class="APONoBtn" id="APOremoveNo">No</button>
+    </div>
+  </div>
+</div>
+
+
+    <script src="../javascript/adminPMProductOverviewReview.js"></script>
 </body>
 </html>

@@ -72,7 +72,7 @@ let currentAction = ""; // "remove" or "delete"
 // Remove button
 APORemoveButton?.addEventListener("click", () => {
   currentAction = "remove";
-  APOConfirmText.textContent = "Are you sure you want to remove this product?";
+  APOConfirmText.textContent = "Are you sure you want to make this product live?";
   APOremoveModal.classList.add("active");
 });
 

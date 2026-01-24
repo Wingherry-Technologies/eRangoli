@@ -493,6 +493,11 @@ body {
   gap: 14px;
   padding: 10px 10px 4px 10px;
 }
+@media (max-width:638px) {
+  .APPVOAdminButtons{
+    flex-direction: column;
+  }
+}
 
 .APPVOApproveButton,
 .APPVORejectButton,

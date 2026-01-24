@@ -148,6 +148,10 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.filter-bar-wrapper{
+  position: relative;
+}
+
 .APVFilterDummy,
 .APVSettingsDummy {
   width: 40px;
@@ -244,16 +248,12 @@ body {
   color: #3f3f3f;
 }
 
-.APVViewAllLink {
+.APVTotalLink {
   font-size: 14px;
   color: #6828e7;
   text-decoration: none;
   font-weight: 400;
   cursor: pointer;
-}
-
-.APVViewAllLink:hover {
-  text-decoration: none;
 }
 
 .APVTableWrapper {
@@ -382,51 +382,11 @@ body {
   background-color: #3b82f6;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .APVStatsRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .APVStatsRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 16px;
-  }
-
-  .APVDashboardContainer {
-    gap: 16px;
-  }
-
-  .APVTableCard {
-    padding: 16px;
-  }
-
-  .APVStatsRow {
-    grid-template-columns: 1fr;
-  }
-
-  .APVSearchContainer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .APVIconsGroup {
-    justify-content: flex-end;
-  }
-}
-
 .main-content-flows-main {
   display: none;
   position: absolute;
   top: 60px;
-  right: 270px;
+  right: 100px;
   z-index: 1000;
 }
 .main-content-flows-main.active-main-content-flows {
@@ -475,4 +435,220 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.APVMobileFAQ {
+  display: none;
+}
+
+.APVfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.APVfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.APVfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.APVfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.APVfaq-usertype.mojadi {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8989;
+  margin-left: -110px;
+}
+
+.APVStatus.verified-mob {
+  color: #009605;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.APVfaq-item.active {
+  border: 1px solid #0f8df340;
+  border-radius: 12px;
+  padding-bottom: 6px;
+}
+
+.APVfaq-item.active .APVfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.APVfaq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.APVfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.APVfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.APVfaq-row .APVStatus {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.APVfaq-row .APVToggle {
+  justify-self: start;
+}
+
+.APVfaq-row:has(.view) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.APVfaq-row .view {
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #989fff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .APVStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .APVStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .APVTableWrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 595px) {
+  body {
+    padding: 16px;
+  }
+
+  .APVDashboardContainer {
+    gap: 16px;
+  }
+
+  .APVTableCard {
+    padding: 16px;
+  }
+
+  .APVStatsRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .APVStatCard {
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+  }
+
+  .APVStatIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .APVStatValue {
+    font-size: 22px;
+    padding-left: 10px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+
+  .APVSearchContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .APVIconsGroup {
+    justify-content: flex-end;
+  }
+  .APVTableCard {
+    display: none;
+  }
+  .APVMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .APVfaq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .APVfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .APVfaq-item.active .APVfaq-answer {
+    max-height: 500px;
+  }
+
+  .APVfaq-row .APVStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .APVfaq-row .APVStatus.verified {
+    color: #009605;
+  }
+
+  .APVfaq-row .APVStatus.pending {
+    color: #74b0fa;
+  }
+
+  .APVfaq-row .APVStatus.unverified {
+    color: #989fff;
+  }
+
+  .APVfaq-row .APVStatus.live {
+    color: #de4949;
+  }
 }

@@ -208,9 +208,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".APRAActionButton");
-    if (!btn) return;
-    window.location.href = "../html/adminProductVerificationOverview.html";
+const btns = document.querySelectorAll(".APRAActionButton");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+
+    // Get the parent table row
+    const row = btn.closest(".APRATableRow");
+
+    // Get the status span (pending / sent)
+    const statusSpan = row.querySelector("span.pending, span.sent");
+
+    if (statusSpan.classList.contains("pending")) {
+      window.location.href = "../html/adminPMProductRecentAddedOverview.html";
+    } else if (statusSpan.classList.contains("sent")) {
+      window.location.href = "../html/adminPMVerificationOverview.html  ";
+    }
+
+    });
+});
+
+const viewBtns = document.querySelectorAll(".view");
+
+viewBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+
+    // Get the parent faq item
+    const faqItem = btn.closest(".APRAfaq-item");
+    if (!faqItem) return;
+
+    // Get the status span (pending / sent)
+    const statusSpan = faqItem.querySelector(".APRAStatus.pending, .APRAStatus.sent");
+    if (!statusSpan) return;
+
+    if (statusSpan.classList.contains("pending")) {
+      window.location.href = "../html/adminPMProductRecentAddedOverview.html";
+    } else if (statusSpan.classList.contains("sent")) {
+      window.location.href = "../html/adminPMVerificationOverview.html";
+    }
+
   });
 });
+
+});
+
+
