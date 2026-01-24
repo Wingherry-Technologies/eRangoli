@@ -222,11 +222,34 @@ btns.forEach((btn) => {
     if (statusSpan.classList.contains("pending")) {
       window.location.href = "../html/adminPMProductRecentAddedOverview.html";
     } else if (statusSpan.classList.contains("sent")) {
-      window.location.href = "../html/adminPMVerificationOverview.html";
+      window.location.href = "../html/adminPMVerificationOverview.html  ";
     }
 
     });
 });
+
+const viewBtns = document.querySelectorAll(".view");
+
+viewBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+
+    // Get the parent faq item
+    const faqItem = btn.closest(".APRAfaq-item");
+    if (!faqItem) return;
+
+    // Get the status span (pending / sent)
+    const statusSpan = faqItem.querySelector(".APRAStatus.pending, .APRAStatus.sent");
+    if (!statusSpan) return;
+
+    if (statusSpan.classList.contains("pending")) {
+      window.location.href = "../html/adminPMProductRecentAddedOverview.html";
+    } else if (statusSpan.classList.contains("sent")) {
+      window.location.href = "../html/adminPMVerificationOverview.html";
+    }
+
+  });
+});
+
 });
 
 

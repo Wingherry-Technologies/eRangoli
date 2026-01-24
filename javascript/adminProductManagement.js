@@ -205,10 +205,27 @@ document.addEventListener("click", function(e){
 });
 
 
-document.addEventListener("click", e=>{
-  if(e.target.textContent === "View"){
-     window.location.href = "../html/adminProductOverview.html";
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".mobile-view-btn");
+  if (!btn) return;
+
+  // find the faq item
+  const faqItem = btn.closest(".faq-item");
+  if (!faqItem) return;
+
+  // find the status inside this item
+  const statusEl = faqItem.querySelector(".APMStatus");
+  if (!statusEl) return;
+
+  const statusText = statusEl.textContent.trim().toLowerCase();
+
+  // routing logic
+  if (statusText === "live" || statusText === "out of stock") {
+    window.location.href = "../html/adminPMProductOverviewLive.html";
+  } else if (statusText === "removed") {
+    window.location.href = "../html/adminPMProductOverviewRemoved.html";
   }
 });
+
 
 });
