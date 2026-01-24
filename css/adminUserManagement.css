@@ -351,13 +351,12 @@ thead {
   border: 1px solid #6828e7;
 }
 
-.filter-bar-wrapper{
+.filter-bar-wrapper {
   position: relative;
   display: inline-flex;
 }
 .main-content-flows-main.active-main-content-flows {
   display: block;
-  
 }
 .main-filter-box-content {
   background-color: white;
@@ -387,7 +386,7 @@ thead {
 #sort-box,
 #status-box {
   top: 45px;
-  right:  0;
+  right: 0;
 }
 .main-head-filters {
   border-bottom: 1px solid #6828e7;
@@ -571,6 +570,10 @@ thead {
   }
 }
 @media (max-width: 595px) {
+  .AUMCreateBtn {
+    padding: 8px;
+  }
+
   .AUM-Container {
     margin: 0px;
   }
@@ -741,4 +744,3 @@ thead {
     color: #ecc824;
   }
 }
-
