@@ -77,7 +77,7 @@ level2Dropdowns.forEach(subItem => {
     });
 });
 
-var signup=true;
+var signup=false;
 
 const userprofileIcon=document.getElementById("user-profile-icon");
 const signupWrapper=document.getElementById("signup-wrapper");

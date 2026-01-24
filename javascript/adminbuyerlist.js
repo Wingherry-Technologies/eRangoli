@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   /* =========================
      ELEMENTS
   ========================= */
@@ -6,9 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector(".APMSearchInput");
   const tableBody = document.querySelector(".APMTableBody");
   const tableRows = [...document.querySelectorAll(".APMTableRow")];
-  const mobileItems = [
-    ...document.querySelectorAll(".APMMobileList .faq-item"),
-  ];
+  const mobileItems = [...document.querySelectorAll(".APMMobileList .faq-item")];
 
   /* =========================
      SEARCH (BUYER)
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const val = searchInput.value.toLowerCase().trim();
 
     // TABLE SEARCH
-    tableRows.forEach((row) => {
+    tableRows.forEach(row => {
       const name = row.children[0].innerText.toLowerCase();
       const uid = row.children[1].innerText.toLowerCase();
       const email = row.children[2].innerText.toLowerCase();
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // MOBILE SEARCH
-    mobileItems.forEach((item) => {
+    mobileItems.forEach(item => {
       const content = item.innerText.toLowerCase();
       item.style.display = content.includes(val) ? "" : "none";
     });
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     stateBox.classList.remove("active-main-content-flows");
   };
 
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", e => {
     if (!e.target.closest(".filter-bar-wrapper")) {
       filterMain.classList.remove("active-main-content-flows");
       sortBox.classList.remove("active-main-content-flows");
@@ -89,19 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
      FILTER (STATE + CITY)
   ========================= */
 
-  function applyVendorFilter() {
-    const states = [
-      ...document.querySelectorAll("#apm-state-box input:checked"),
-    ].map((cb) => cb.dataset.state);
+  function applyBuyerFilter() {
 
-    const cities = [
-      ...document.querySelectorAll("#apm-city-box input:checked"),
-    ].map((cb) => cb.dataset.city);
+    const states = [...document.querySelectorAll("#apm-state-box input:checked")]
+      .map(cb => cb.dataset.state);
+
+    const cities = [...document.querySelectorAll("#apm-city-box input:checked")]
+      .map(cb => cb.dataset.city);
 
     // TABLE FILTER
-    tableRows.forEach((row) => {
-      const state = row.children[5].innerText.trim(); // ✅ State
-      const city = row.children[6].innerText.trim(); // ✅ City
+    tableRows.forEach(row => {
+      const state = row.children[4].innerText.trim();
+      const city = row.children[5].innerText.trim();
 
       const show =
         (!states.length || states.includes(state)) &&
@@ -111,17 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // MOBILE FILTER
-    mobileItems.forEach((item) => {
-      const values = [
-        ...item.querySelectorAll(".all-answers span:last-child"),
-      ].map((s) => s.innerText);
-
-      const state = values[3]; // ✅ State
-      const city = values[4]; // ✅ City
+    mobileItems.forEach(item => {
+      const values = [...item.querySelectorAll(".all-answers span:last-child")]
+        .map(s => s.innerText);
 
       const show =
-        (!states.length || states.includes(state)) &&
-        (!cities.length || cities.includes(city));
+        (!states.length || states.includes(values[2])) &&
+        (!cities.length || cities.includes(values[3]));
 
       item.style.display = show ? "" : "none";
     });
@@ -129,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document
     .querySelectorAll("#apm-state-box input, #apm-city-box input")
-    .forEach((cb) => cb.addEventListener("change", applyVendorFilter));
+    .forEach(cb => cb.addEventListener("change", applyBuyerFilter));
 
   /* =========================
      SORT (BUYER)
@@ -137,40 +131,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sortRadios = document.querySelectorAll("#apm-sort-box input");
 
-  sortRadios.forEach((radio) => {
+  sortRadios.forEach(radio => {
     radio.addEventListener("change", () => {
+
       const type = radio.dataset.sort;
 
       // TABLE SORT
       const sortedRows = [...tableRows].sort((a, b) => {
-        // Company Name
+
+        // Name sort
         if (type === "nameAZ" || type === "nameZA") {
           const A = a.children[0].innerText;
           const B = b.children[0].innerText;
-          return type === "nameAZ" ? A.localeCompare(B) : B.localeCompare(A);
+          return type === "nameAZ"
+            ? A.localeCompare(B)
+            : B.localeCompare(A);
         }
 
-        // Vendor Name
-        if (type === "vendorAZ" || type === "vendorZA") {
-          const A = a.children[1].innerText;
-          const B = b.children[1].innerText;
-          return type === "vendorAZ" ? A.localeCompare(B) : B.localeCompare(A);
+        // UID sort
+        if (type === "uidASC" || type === "uidDESC") {
+          const A = parseInt(a.children[1].innerText.replace("#", ""));
+          const B = parseInt(b.children[1].innerText.replace("#", ""));
+          return type === "uidASC" ? A - B : B - A;
         }
       });
 
       tableBody.innerHTML = "";
-      sortedRows.forEach((r) => tableBody.appendChild(r));
+      sortedRows.forEach(r => tableBody.appendChild(r));
 
-      // MOBILE SORT (Company Name)
+      // MOBILE SORT (by name)
       const mobileContainer = document.querySelector(".APMMobileList");
       const sortedMobile = [...mobileItems].sort((a, b) => {
         const A = a.querySelector(".mobiletitle span").innerText;
         const B = b.querySelector(".mobiletitle span").innerText;
-        return type.includes("AZ") ? A.localeCompare(B) : B.localeCompare(A);
+        return type === "nameAZ"
+          ? A.localeCompare(B)
+          : B.localeCompare(A);
       });
 
       mobileContainer.innerHTML = "";
-      sortedMobile.forEach((i) => mobileContainer.appendChild(i));
+      sortedMobile.forEach(i => mobileContainer.appendChild(i));
     });
   });
 
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.closest(".APMActionButton") ||
       e.target.textContent === "View"
     ) {
-      window.location.href = "../html/adminvendorlistoverview.html";
+      window.location.href = "../html/adminbuyerlistoverview.html";
     }
   });
 
@@ -203,4 +203,5 @@ document.addEventListener("DOMContentLoaded", function () {
   ========================= */
 
   document.querySelector(".APMViewAllLink").innerText = tableRows.length;
+
 });
