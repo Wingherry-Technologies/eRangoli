@@ -268,5 +268,5 @@ APOremoveNo.addEventListener("click", () => {
 
 APOremoveYes.addEventListener("click", () => {
   APOremoveModal.classList.remove("active");
-  window.location.href = "adminProductManagementProductCategories.html";
+  window.location.href = "../html/adminPMProductList.html"; 
 });
