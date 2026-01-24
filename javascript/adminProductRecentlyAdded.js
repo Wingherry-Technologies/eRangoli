@@ -127,3 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
     sortBox.classList.remove("active-main-content-flows");
   });
 });
+
+document.querySelectorAll(".APRAfaq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".APRAfaq-item").classList.toggle("active");
+  });
+});

@@ -13,8 +13,6 @@ body {
 }
 
 .APVOMainContentBeyond {
-  padding: 20px;
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -50,7 +48,7 @@ body {
   justify-content: space-between;
 }
 
-.APVOLiveStatus {
+/* .APVOLiveStatus {
   background-color: #009605;
   color: #ffffff;
   padding: 6px 22px;
@@ -60,7 +58,7 @@ body {
   width: 100px;
   text-align: center;
   white-space: nowrap;
-}
+} */
 
 .APVOPreviewSection {
   margin-bottom: 40px;
@@ -83,15 +81,12 @@ body {
   margin: 0;
 }
 
-.APVOHeaderIcons {
+.APVOHeaderDate {
   display: flex;
   gap: 12px;
-}
-
-.APVOHeaderIcons img {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+  color: #3f3f3f;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .APVOProductPreviewLayout {
@@ -406,24 +401,20 @@ body {
 }
 
 .APVOAdminContent {
-  display: grid;
-  grid-template-columns: 1fr 300px;
   gap: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
-.APVOAdminLeft,
-.APVOAdminRight {
-  display: flex;
-  flex-direction: column;
+.APVOAdminSelect,
+.APVOAdminInput {
+  width: 180px;
 }
 
-.APVOAdminLabel {
-  font-size: 13px;
-  color: #716b6b;
-  margin-bottom: 8px;
-  font-weight: 400;
+.APVOApproveButton,
+.APVORejectButton,
+.APVOSentButton {
+  height: 44px;
 }
 
 .APVOAdminTextarea {
@@ -476,17 +467,6 @@ body {
   opacity: 1;
 }
 
-.APVOAdminSelect {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #d9d9d9;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 14px;
-  background-color: white;
-  cursor: pointer;
-}
-
 .APVOAdminButtons {
   display: flex;
   justify-content: flex-end;
@@ -494,11 +474,22 @@ body {
   padding: 10px 10px 4px 10px;
 }
 
+.APVOAdminFields {
+  display: flex;
+  gap: 24px;
+}
+
+.APVOInputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .APVOApproveButton,
 .APVORejectButton,
 .APVOSentButton {
   padding: 12px 40px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -507,25 +498,143 @@ body {
 }
 
 .APVOApproveButton,
-.APVORejectButton {
-  background-color: #716b6b;
-  color: white;
+.APVORejectButton,
+.APVOSentButton {
+  background-color: #ffffff;
+  color: #0f8df3;
+  border: 1px solid #0f8df3;
 }
 
 .APVODeleteButton:hover {
   background-color: #716b6b;
 }
 
-.APVOSentButton {
+.APVOSentButton:hover,
+.APVORejectButton:hover,
+.APVOApproveButton:hover {
   background-color: #0e8bf3;
-  color: white;
+  color: #ffffff;
 }
 
-.APVOSentButton:hover {
-  background-color: #0e8bf3;
+.APVOConfirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: #7e797999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-@media (max-width: 1024px) {
+.APVOConfirmOverlay.active {
+  display: flex;
+}
+
+.APVOConfirmModal {
+  background: #ffffff;
+  width: 520px;
+  padding: 28px 24px 24px;
+  border-radius: 14px;
+  position: relative;
+  text-align: center;
+}
+
+.APVOCloseBtn {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #6b6b6b;
+}
+
+.APVOConfirmText {
+  font-size: 17px;
+  font-weight: 400;
+  color: #3f3f3f;
+  margin-bottom: 28px;
+}
+
+.APVOConfirmActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.APVOYesBtn {
+  background-color: #0e8bf3;
+  color: #ffffff;
+  border: none;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.APVONoBtn {
+  background-color: #ffffff;
+  color: #6828e7;
+  border: 1px solid #6828e7;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.APVOSuccessScreen {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.APVOSuccessScreen.active {
+  display: flex;
+}
+
+.APVOSuccessContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.APVOSuccessIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.APVOSuccessText {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3f3f3f;
+}
+
+/* Responsive */
+
+@media (min-width: 1025px) and (max-width: 1608px) {
+  .APVOVariantsPreviewGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .APVOVariantImgPlaceholder {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
   .APVOProductPreviewLayout {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -546,6 +655,13 @@ body {
   .APVOAdminContent {
     grid-template-columns: 1fr;
   }
+  .APVOVariantsPreviewGrid {
+    background-color: #ffffff;
+  }
+  .APVOProductPreviewLayout {
+    background-color: #ffffff;
+    border: none;
+  }
 }
 
 @media (max-width: 595px) {
@@ -560,6 +676,8 @@ body {
 
   .APVOProductPreviewLayout {
     grid-template-columns: 1fr;
+    border: none;
+    background: none;
   }
 
   .APVOMainProductImage {
@@ -581,6 +699,7 @@ body {
 
   .APVOVariantsPreviewGrid {
     grid-template-columns: 1fr;
+    background-color: #ffffff;
   }
 
   .APVOVariantImagesGrid {
@@ -603,14 +722,71 @@ body {
   .APVOAdminContent {
     grid-template-columns: 1fr;
   }
-}
 
-@media (min-width: 1025px) and (max-width: 1608px) {
-  .APVOVariantsPreviewGrid {
-    grid-template-columns: 1fr 1fr 1fr;
+  .APVOAdminButtons {
+    justify-content: stretch;
   }
 
-  .APVOVariantImgPlaceholder {
+  .APVOAdminActionBtns {
+    flex-direction: column;
     width: 100%;
+    gap: 12px;
+  }
+
+  .APVOAdminActionBtns button {
+    width: 100%;
+    padding: 12px 0;
+    margin: 10px 0;
+  }
+
+  .APVOSentButton {
+    order: -1;
+  }
+
+  .APVOConfirmOverlay {
+    background: #595757d4;
+  }
+
+  .APVOCloseBtn {
+    display: none;
+  }
+
+  .APVOConfirmModal {
+    width: calc(100% - 40px);
+    max-width: 340px;
+    border-radius: 4px;
+    padding: 24px 16px 20px;
+  }
+
+  .APVOConfirmText {
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .APVOConfirmActions {
+    gap: 12px;
+  }
+
+  .APVOYesBtn,
+  .APVONoBtn {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .APVOProductCategory {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .APVOProductCategory span {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .APVOContainer {
+    padding: 15px;
+    background-color: #ffffff;
   }
 }
