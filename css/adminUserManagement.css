@@ -446,6 +446,13 @@ thead {
   margin-left: -36px;
 }
 
+.faq-usertype.vendor {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8989;
+  margin-left: -50px;
+}
+
 .AUMStatus.verified-mob {
   color: #009605;
   font-weight: 400;

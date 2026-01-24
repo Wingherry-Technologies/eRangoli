@@ -1,51 +1,108 @@
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("AUMSearchInput");
-  const tableBody = document.querySelector(".AUMTable tbody");
-  const rows = tableBody.querySelectorAll("tr:not(.AUMNoDataRow)");
-  const noDataRow = document.querySelector(".AUMNoDataRow");
-
-  searchInput.addEventListener("input", function () {
-    const value = this.value.toLowerCase().trim();
-    let visibleCount = 0;
-
-    rows.forEach((row) => {
-      const userName = row.children[0].innerText.toLowerCase();
-      const type = row.children[1].innerText.toLowerCase();
-      const email = row.children[5].innerText.toLowerCase();
-
-      if (
-        userName.includes(value) ||
-        type.includes(value) ||
-        email.includes(value)
-      ) {
-        row.style.display = "";
-        visibleCount++;
-      } else {
-        row.style.display = "none";
-      }
-    });
-
-    noDataRow.style.display = visibleCount === 0 ? "" : "none";
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  /* =========================
-     FILTER POPUP TOGGLE
-  ========================== */
 
   const filterBtn = document.getElementById("filter-bar-main-box");
   const filterMain = document.getElementById("filter-main");
   const statusBox = document.getElementById("status-box");
 
-  // Filter icon click
+  const sortBtn = document.querySelector('.AUMActionIcon img[src*="sort"]');
+  const sortBox = document.getElementById("sort-box");
+
+  const tableBody = document.querySelector(".AUMTable tbody");
+  const tableRows = Array.from(
+    document.querySelectorAll(".AUMTable tbody tr:not(.AUMNoDataRow)"),
+  );
+  const noDataRow = document.querySelector(".AUMNoDataRow");
+
+  const checkboxes = document.querySelectorAll(
+    '#status-box input[type="checkbox"]',
+  );
+
+  const faqContainer = document.querySelector(".AUMMobileFAQ");
+
+  function parseDDMMYY(dateStr) {
+    const [dd, mm, yy] = dateStr.split("/");
+    return new Date(`20${yy}-${mm}-${dd}`);
+  }
+
+  function applyTableFilter() {
+    const q = searchInput.value.toLowerCase().trim();
+    const selected = Array.from(checkboxes)
+      .filter((c) => c.checked)
+      .map((c) => c.dataset.status);
+
+    let count = 0;
+
+    tableRows.forEach((row) => {
+      const name = row.children[0].innerText.toLowerCase();
+      const type = row.children[1].innerText.toLowerCase();
+      const email = row.children[5].innerText.toLowerCase();
+
+      const statusEl = row.querySelector(".AUMStatus");
+      const status = statusEl ? statusEl.classList[1] : "";
+
+      const matchSearch =
+        name.includes(q) || type.includes(q) || email.includes(q);
+
+      const matchStatus = selected.length === 0 || selected.includes(status);
+
+      row.style.display = matchSearch && matchStatus ? "" : "none";
+      if (matchSearch && matchStatus) count++;
+    });
+
+    noDataRow.style.display = count === 0 ? "" : "none";
+  }
+
+  function applyMobileFilter() {
+    const q = searchInput.value.toLowerCase().trim();
+    const selected = Array.from(checkboxes)
+      .filter((c) => c.checked)
+      .map((c) => c.dataset.status);
+
+    let count = 0;
+
+    faqContainer.querySelectorAll(".faq-item").forEach((item) => {
+      const name = item.querySelector(".faq-username")?.innerText.toLowerCase();
+
+      const type = item.querySelector(".faq-usertype")?.innerText.toLowerCase();
+
+      const email = item
+        .querySelector(".faq-row:nth-child(5) span:last-child")
+        ?.innerText.toLowerCase();
+
+      const statusEl = item.querySelector(".AUMStatus");
+      const status = statusEl
+        ? statusEl.className.replace("AUMStatus", "").replace("-mob", "").trim()
+        : "";
+
+      const matchSearch =
+        name?.includes(q) || type?.includes(q) || email?.includes(q);
+
+      const matchStatus = selected.length === 0 || selected.includes(status);
+
+      item.style.display = matchSearch && matchStatus ? "" : "none";
+      if (matchSearch && matchStatus) count++;
+    });
+  }
+
+  function applyFilter() {
+    if (window.innerWidth <= 595) {
+      applyMobileFilter();
+    } else {
+      applyTableFilter();
+    }
+  }
+
+  searchInput.addEventListener("input", applyFilter);
+  checkboxes.forEach((c) => c.addEventListener("change", applyFilter));
+
   filterBtn.addEventListener("click", function (e) {
     e.stopPropagation();
     filterMain.classList.toggle("active-main-content-flows");
     statusBox.classList.remove("active-main-content-flows");
+    sortBox.classList.remove("active-main-content-flows");
   });
 
-  // Filter > Status click
   filterMain.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
       filterMain.classList.remove("active-main-content-flows");
@@ -53,141 +110,76 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Outside click → close all
-  document.addEventListener("click", function () {
+  sortBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    sortBox.classList.toggle("active-main-content-flows");
     filterMain.classList.remove("active-main-content-flows");
     statusBox.classList.remove("active-main-content-flows");
   });
 
-  filterMain.addEventListener("click", (e) => e.stopPropagation());
-  statusBox.addEventListener("click", (e) => e.stopPropagation());
-
-  /* =========================
-     STATUS FILTER LOGIC
-  ========================== */
-
-  const checkboxes = document.querySelectorAll(
-    '#status-box input[type="checkbox"]',
-  );
-  const rows = document.querySelectorAll(
-    ".AUMTable tbody tr:not(.AUMNoDataRow)",
-  );
-  const noDataRow = document.querySelector(".AUMNoDataRow");
-
-  function applyStatusFilter() {
-    const selectedStatuses = Array.from(checkboxes)
-      .filter((cb) => cb.checked)
-      .map((cb) => cb.dataset.status);
-
-    let visibleCount = 0;
-
-    rows.forEach((row) => {
-      const statusSpan = row.querySelector(".AUMStatus");
-      const rowStatus = statusSpan ? statusSpan.classList[1] : "";
-
-      if (
-        selectedStatuses.length === 0 ||
-        selectedStatuses.includes(rowStatus)
-      ) {
-        row.style.display = "";
-        visibleCount++;
-      } else {
-        row.style.display = "none";
-      }
-    });
-
-    if (noDataRow) {
-      noDataRow.style.display = visibleCount === 0 ? "" : "none";
-    }
-  }
-
-  // Checkbox change → filter apply
-  checkboxes.forEach((cb) => {
-    cb.addEventListener("change", applyStatusFilter);
-  });
-});
-
-function parseDDMMYY(dateStr) {
-  const [dd, mm, yy] = dateStr.split("/");
-  const fullYear = yy.length === 2 ? "20" + yy : yy;
-  return new Date(`${fullYear}-${mm}-${dd}`);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const sortBtn = document.querySelector('.AUMActionIcon img[src*="sort"]');
-  const sortBox = document.getElementById("sort-box");
-  const tableBody = document.querySelector(".AUMTable tbody");
-
-  /* =====================
-     SORT POPUP TOGGLE
-  ====================== */
-  sortBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    sortBox.classList.toggle("active-main-content-flows");
-  });
-
-  document.addEventListener("click", function () {
-    sortBox.classList.remove("active-main-content-flows");
-  });
-
-  sortBox.addEventListener("click", (e) => e.stopPropagation());
-
-  /* =====================
-     SORT LOGIC
-  ====================== */
   sortBox.querySelectorAll("li").forEach((item) => {
     item.addEventListener("click", function () {
       const type = this.dataset.sort;
-      const rows = Array.from(
-        tableBody.querySelectorAll("tr:not(.AUMNoDataRow)"),
-      );
 
-      let sortedRows;
+      if (window.innerWidth <= 595) {
+        const items = Array.from(faqContainer.querySelectorAll(".faq-item"));
 
-      switch (type) {
-        case "name-asc":
-          sortedRows = rows.sort((a, b) =>
-            a.children[0].innerText
-              .trim()
-              .localeCompare(b.children[0].innerText.trim()),
+        items.sort((a, b) => {
+          const na = a.querySelector(".faq-username").innerText.trim();
+          const nb = b.querySelector(".faq-username").innerText.trim();
+
+          const da = parseDDMMYY(
+            a.querySelector(".faq-row:nth-child(2) span:last-child").innerText,
           );
-          break;
-
-        case "name-desc":
-          sortedRows = rows.sort((a, b) =>
-            b.children[0].innerText
-              .trim()
-              .localeCompare(a.children[0].innerText.trim()),
+          const db = parseDDMMYY(
+            b.querySelector(".faq-row:nth-child(2) span:last-child").innerText,
           );
-          break;
 
-        case "date-new":
-          sortedRows = rows.sort(
-            (a, b) =>
-              parseDDMMYY(b.children[2].innerText.trim()) -
-              parseDDMMYY(a.children[2].innerText.trim()),
-          );
-          break;
+          if (type === "name-asc") return na.localeCompare(nb);
+          if (type === "name-desc") return nb.localeCompare(na);
+          if (type === "date-new") return db - da;
+          if (type === "date-old") return da - db;
+        });
 
-        case "date-old":
-          sortedRows = rows.sort(
-            (a, b) =>
-              parseDDMMYY(a.children[2].innerText.trim()) -
-              parseDDMMYY(b.children[2].innerText.trim()),
-          );
-          break;
+        items.forEach((i) => faqContainer.appendChild(i));
+      } else {
+        const rows = Array.from(
+          tableBody.querySelectorAll("tr:not(.AUMNoDataRow)"),
+        );
+
+        rows.sort((a, b) => {
+          const na = a.children[0].innerText.trim();
+          const nb = b.children[0].innerText.trim();
+
+          const da = parseDDMMYY(a.children[2].innerText.trim());
+          const db = parseDDMMYY(b.children[2].innerText.trim());
+
+          if (type === "name-asc") return na.localeCompare(nb);
+          if (type === "name-desc") return nb.localeCompare(na);
+          if (type === "date-new") return db - da;
+          if (type === "date-old") return da - db;
+        });
+
+        rows.forEach((r) => tableBody.appendChild(r));
       }
-
-      // Re-append sorted rows
-      sortedRows.forEach((row) => tableBody.appendChild(row));
 
       sortBox.classList.remove("active-main-content-flows");
     });
   });
-});
 
-document.querySelectorAll(".faq-question").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.closest(".faq-item").classList.toggle("active");
+  document.addEventListener("click", function () {
+    filterMain.classList.remove("active-main-content-flows");
+    statusBox.classList.remove("active-main-content-flows");
+    sortBox.classList.remove("active-main-content-flows");
+  });
+
+  filterMain.addEventListener("click", (e) => e.stopPropagation());
+  statusBox.addEventListener("click", (e) => e.stopPropagation());
+  sortBox.addEventListener("click", (e) => e.stopPropagation());
+
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.closest(".faq-item").classList.toggle("active");
+    });
   });
 });
