@@ -62,7 +62,7 @@ body {
     font-weight: 600;
     color: #3F3F3F;
     margin-bottom: 12px;
-    margin-left: 4rem;
+    margin-left: 45px;
 }
 
 .APMStatFooter {
@@ -457,7 +457,7 @@ body {
 /* Responsive */
 @media (max-width: 1200px) {
     .APMStatsRow {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

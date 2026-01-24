@@ -1,3 +1,11 @@
+// default login credentials (multiple users)
+const users = [
+  { username: "Rutuja", password: "ty@jjfj67" },
+  { username: "Admin", password: "admin@123" },
+  { username: "Amit", password: "amit@456" },
+  { username: "Sneha", password: "sneha@789" }
+];
+
 // login & reset box toggle
 const loginBox = document.getElementById("loginBox");
 const resetBox = document.getElementById("resetBox");
@@ -64,19 +72,40 @@ const signupBtn = document.getElementById("signupBtn");
 
 signupBtn.addEventListener("click", function (e) {
   e.preventDefault();
+
   let hasError = false;
+
   if (usernameInput.value.trim() === "") {
     usernameError.textContent = "Enter your name";
     usernameError.style.display = "block";
     hasError = true;
   }
+
   if (passwordInput.value.trim() === "") {
     passwordError.textContent = "Enter your password";
     passwordError.style.display = "block";
     hasError = true;
   }
+
   if (hasError) return;
+
+  // check if user exists
+  const userFound = users.find(
+    (user) =>
+      user.username === usernameInput.value &&
+      user.password === passwordInput.value
+  );
+
+  if (userFound) {
+    // ✅ success
+    window.location.href = "../html/admindashboard.html";
+  } else {
+    // ❌ invalid login
+    passwordError.textContent = "Username or password not found";
+    passwordError.style.display = "block";
+  }
 });
+
 
 // reset password click validation
 const resetBtn = document.getElementById("resetBtn");

@@ -202,39 +202,37 @@ nav{
 }
 
 /* collapsed submenu (hidden) */
-/* remove display:flex here — use block so height controls work reliably */
 .mobile-submenu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.25s ease, opacity 0.25s ease;
-  margin: 0;
-  list-style: none;
-  background-color: #F6F6F6;
-  opacity: 0;
-  pointer-events: none;      /* prevent focus/click when closed */
-}
-
-.mobile-submenu>li:hover{
-    background-color: #EFDFDF;
-}
-
-/* items inside submenu */
-.mobile-submenu > li {
-  padding: 5px 20px;
-  color: #3F3F3F;
-  font-weight: 400;
-  background-color: #f7f7f7;
-}
-
-/* opened state */
-
-.mobile-dropdown.open .mobile-submenu {
-  max-height: 600px; /* enough to show content, a large value works for animation */
-  opacity: 1;
-  pointer-events: auto;
+  transition: max-height 0.3s ease;
+  background: #f9f9f9;
   width: 100%;
-  border-radius: 4px;
 }
+
+.mobile-submenu li {
+  padding: 10px 16px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.mobile-dropdown.active-mobile-submenu .mobile-submenu {
+    margin-top: 10px;
+  max-height: 500px;
+  width: 100%;
+}
+
+.mobile-dropdown .arrow {
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active-mobile-submenu .arrow {
+  transform: rotate(180deg);
+}
+.submenu-active-page{
+    color: #0F8DF3;
+}
+
 
 
 
@@ -1289,6 +1287,9 @@ nav{
 
     /* Hide caret arrow */
     .sidebar-main-vendor.collapsed ul > li > img {
+        display: none;
+    }
+    .sidebar-main-vendor.collapsed .submenu{
         display: none;
     }
 

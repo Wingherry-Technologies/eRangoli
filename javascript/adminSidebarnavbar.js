@@ -73,6 +73,29 @@ document.querySelectorAll(".nav-item>span, .dropdown>li>span, .submenu-dropdown-
     });
   });
 
+  const dropdowns = document.querySelectorAll('.mobile-dropdown');
+
+  dropdowns.forEach(dropdown => {
+    const header = dropdown.querySelector('.dropdown-header');
+
+    header.addEventListener('click', () => {
+
+      // remove active classes from all dropdowns
+      dropdowns.forEach(item => {
+        item.classList.remove('active-mobile-submenu');
+        item.querySelector('.dropdown-header')
+            .classList.remove('dropdown-header-active');
+      });
+
+      // add active classes to clicked dropdown
+      dropdown.classList.add('active-mobile-submenu');
+      header.classList.add('dropdown-header-active');
+    });
+  });
+
+  document.querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
+  document.querySelector("#account-menu .mobile-dropdown:nth-child(2)").classList.add("active-mobile-submenu");
+
 
 
 // Notification Click
