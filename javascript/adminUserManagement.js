@@ -185,3 +185,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".faq-item").classList.toggle("active");
+  });
+});

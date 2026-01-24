@@ -13,6 +13,35 @@ body {
 .AUM-Container {
   margin: 20px;
 }
+
+.AUMTabHeader {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.AUMTabHeader h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.AUMMobHeader {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.AUMMobHeader h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
 /* Stats Cards Row */
 .AUMStatsRow {
   display: grid;
@@ -180,7 +209,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 12px;
-  border-bottom: 1px solid #6828e7; /* 1️⃣ */
+  border-bottom: 1px solid #6828e7;
 }
 
 .AUMTableHeader h3 {
@@ -317,9 +346,8 @@ thead {
 .main-content-flows-main {
   display: none;
   position: absolute;
-  top: 60px;
-  right: 270px;
   z-index: 1000;
+  border: 1px solid #6828e7;
 }
 .main-content-flows-main.active-main-content-flows {
   display: block;
@@ -331,13 +359,12 @@ thead {
   overflow-y: auto;
   color: #3f3f3f;
   border-radius: 5px;
-  z-index: 9999;
   width: 200px;
 }
 #filter-main li.active-filter {
-  background-color: #b9e0db; /* your highlight color */
-  color: #21a593; /* text color on highlight */
-  border-radius: 5px; /* optional rounded corners */
+  background-color: #b9e0db;
+  color: #21a593;
+  border-radius: 5px;
   cursor: pointer;
 }
 #filter-main li {
@@ -349,7 +376,7 @@ thead {
   right: 270px;
 }
 .main-head-filters {
-  border-bottom: 1px solid #21a593;
+  border-bottom: 1px solid #6828e7;
 }
 .main-filter-box-content > ul {
   padding-top: 10px;
@@ -363,20 +390,334 @@ thead {
   justify-content: flex-start;
   gap: 10px;
 }
-.main-filter-box-content > ul > li > label {
+
+.AUMTableWrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.AUMTableWrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.AUMTableWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.AUMMobileFAQ {
+  display: none;
+}
+.faq-title {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
-/* SORT POPUP FONT FIX */
-#sort-box,
-#sort-box * {
-  font-family: "Nunito Sans";
+.faq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
 }
 
-#sort-box li {
+.faq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.faq-username {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: #3f3f3f;
+}
+
+.faq-usertype.buyer {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8989;
+  margin-left: -57px;
+}
+
+.faq-usertype.developer {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8989;
+  margin-left: -36px;
+}
+
+.AUMStatus.verified-mob {
+  color: #009605;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.faq-item.active {
+  border: 1px solid #0f8df340;
+  border-radius: 12px;
+  padding-bottom: 6px;
+}
+
+.faq-item.active .faq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.faq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.faq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.faq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 500;
+  text-align: left;
+}
+
+.faq-row .AUMStatus {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.faq-row .AUMToggle {
+  justify-self: start;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .AUMTabHeader {
+    display: flex;
+  }
+
+  .AUMTopBar .AUMCreateBtn {
+    display: none;
+  }
+  .AUMStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .AUMTableWrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+  }
+
+  .AUMTable {
+    min-width: 900px;
+  }
+
+  .AUMFilter {
+    position: relative;
+  }
+
+  #filter-main {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    margin-top: 8px;
+    z-index: 1000;
+  }
+  #status-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    margin-top: 8px;
+    z-index: 999;
+  }
+  #sort-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    margin-top: 8px;
+    z-index: 1000;
+  }
+  .main-content-flows-main {
+    position: absolute;
+    right: auto;
+    top: 100%;
+    margin-top: 8px;
+  }
+}
+@media (max-width: 595px) {
+  .AUM-Container {
+    margin: 0px;
+  }
+
+  .AUMTabHeader {
+    display: none;
+    padding: 10px 12px;
+  }
+
+  .AUMTabHeader h2 {
+    font-size: 16px;
+  }
+
+  .AUMTabHeader .AUMCreateBtn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .AUMMobHeader {
+    display: flex;
+    background-color: #ffffff;
+    margin-top: 12px;
+  }
+
+  .AUMStatsSection {
+    padding-left: 20px;
+    background-color: #ffffff;
+  }
+
+  .AUMStatsRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 20px 20px 20px;
+    background-color: #ffffff;
+  }
+
+  .AUMStatCard {
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+    background-color: #ffffff;
+  }
+
+  .AUMStatHeader {
+    gap: 8px;
+  }
+
+  .AUMStatIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .AUMStatValue {
+    font-size: 22px;
+    padding-left: 10px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+
+  .AUMStatFooter {
+    justify-content: space-between;
+  }
+
+  .AUMStatChange {
+    font-size: 10px;
+  }
+
+  .AUMStatChart {
+    height: 28px;
+  }
+
+  .AUMStatlabel {
+    font-size: 10px;
+  }
+
+  .AUMTopBar {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 12px;
+  }
+
+  .AUMSearchBox {
+    flex: 1;
+    padding: 10px 12px;
+  }
+
+  .AUMSearchBox input {
+    font-size: 13px;
+  }
+
+  .AUMActions {
+    gap: 8px;
+  }
+
+  .AUMActions .AUMCreateBtn {
+    display: none;
+  }
+
+  .AUMFilter {
+    border-radius: 8px;
+  }
+
+  .AUMActionIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .AUMActionIcon img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .AUMTableCard {
+    display: none;
+  }
+
+  .AUMMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+    margin: 12px;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-row .AUMStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .faq-row .AUMStatus.verified-mob {
+    color: #009605;
+  }
+
+  .faq-row .AUMStatus.verify-mob {
+    color: #74b0fa;
+  }
+
+  .faq-row .AUMStatus.rejected-mob {
+    color: #ff0000;
+  }
+
+  .faq-row .AUMStatus.sent-mob {
+    color: #ecc824;
+  }
 }
