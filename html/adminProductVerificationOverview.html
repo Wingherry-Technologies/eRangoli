@@ -19,22 +19,15 @@
             <span>Product Details</span>
           </div>
 
-          <div class="APVOLiveStatus">Live</div>
+          <!-- <div class="APVOLiveStatus">Edit</div> -->
         </div>
 
         <!-- Product Details Section -->
         <div class="APVOPreviewSection">
           <div class="APVOSectionHeader">
             <h2 class="APVOPreviewSectionTitle">Product Details</h2>
-            <div class="APVOHeaderIcons">
-              <img
-                src="../assets/adminProductVerificationOverview/PencilSimple (1).svg"
-                alt="Edit"
-              />
-              <img
-                src="../assets/adminProductVerificationOverview/Trash (1).svg"
-                alt="Delete"
-              />
+            <div class="APVOHeaderDate">
+              <span>Date - 24/02/2026</span>
             </div>
           </div>
 
@@ -106,12 +99,12 @@
                   data-target="details"
                 >
                   <h3 class="APVODetailsHeading">Product Details</h3>
-                  <span
+                  <!-- <span
                     ><img
                       class="APVOToggleIcon"
                       src="../assets/adminProductVerificationOverview/Plus.svg"
                       alt=""
-                  /></span>
+                  /></span> -->
                 </div>
                 <ul
                   class="APVODetailsList APVOToggleContent"
@@ -145,12 +138,12 @@
                   data-target="policy"
                 >
                   <h3 class="APVOPoliciesHeading">Return/Exchange Policies</h3>
-                  <span
+                  <!-- <span
                     ><img
                       class="APVOToggleIcon"
                       src="../assets/adminProductVerificationOverview/Plus.svg"
                       alt=""
-                  /></span>
+                  /></span> -->
                 </div>
                 <ol class="APVOPolicyText APVOPolicyList">
                   <li>
@@ -170,16 +163,6 @@
         <div class="APVOPreviewSection">
           <div class="APVOSectionHeader">
             <h2 class="APVOPreviewSectionTitle">Product Specifications</h2>
-            <div class="APVOHeaderIcons">
-              <img
-                src="../assets/adminProductVerificationOverview/PencilSimple (1).svg"
-                alt="Edit"
-              />
-              <img
-                src="../assets/adminProductVerificationOverview/Trash (1).svg"
-                alt="Delete"
-              />
-            </div>
           </div>
 
           <div class="APVOVariantsPreviewGrid">
@@ -345,16 +328,6 @@
         <div class="APVOPreviewSection">
           <div class="APVOSectionHeader">
             <h2 class="APVOPreviewSectionTitle">Pick up address</h2>
-            <div class="APVOHeaderIcons">
-              <img
-                src="../assets/adminProductVerificationOverview/PencilSimple (1).svg"
-                alt="Edit"
-              />
-              <img
-                src="../assets/adminProductVerificationOverview/Trash (1).svg"
-                alt="Delete"
-              />
-            </div>
           </div>
 
           <div class="APVOAddressPreviewCard">
@@ -381,8 +354,7 @@
                 >
 
                 <textarea class="APVOAdminTextarea">
-All the product information and images are verified and are found to be as per the
-terms and conditions. The product will be live in next 24 hours</textarea
+Review and upload high quality images</textarea
                 >
 
                 <img
@@ -392,20 +364,74 @@ terms and conditions. The product will be live in next 24 hours</textarea
                 />
               </div>
             </div>
-
-            <div class="APVOAdminRight">
-              <label class="APVOAdminLabel">Select name (Verified by) *</label>
-              <select class="APVOAdminSelect">
-                <option value="Rekha">Rekha</option>
-              </select>
-            </div>
           </div>
           <div class="APVOAdminButtons">
-            <button class="APVOApproveButton">Approve</button>
-            <button class="APVORejectButton">Reject</button>
-            <button class="APVOSentButton">Sent to Verify</button>
+            <div class="APVOAdminActionBtns">
+              <button class="APVOApproveButton">Approve</button>
+              <button class="APVORejectButton">Reject</button>
+              <button class="APVOSentButton">Send to verify</button>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- APPROVE CONFIRMATION MODAL -->
+    <div class="APVOConfirmOverlay" id="APVOapproveModal">
+      <div class="APVOConfirmModal">
+        <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
+
+        <p class="APVOConfirmText">
+          Are you sure you want to send the product for verification ?
+        </p>
+
+        <div class="APVOConfirmActions">
+          <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
+          <button class="APVONoBtn" id="APVOapproveNo">No</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPROVE SUCCESS SCREEN -->
+    <div class="APVOSuccessScreen" id="APVOapproveSuccessScreen">
+      <div class="APVOSuccessContent">
+        <div>
+          <img
+            class="APVOSuccessIcon"
+            src="../assets/adminProductVerificationOverview/success.svg"
+            alt="Success"
+          />
+        </div>
+        <p class="APVOSuccessText">Product details sent for verification</p>
+      </div>
+    </div>
+
+    <!-- REJECT CONFIRMATION MODAL -->
+    <div class="APVOConfirmOverlay" id="APVOrejectModal">
+      <div class="APVOConfirmModal">
+        <button class="APVOCloseBtn" id="APVOcloseRejectModal">×</button>
+
+        <p class="APVOConfirmText">
+          Are you sure you want to reject the Product ?
+        </p>
+
+        <div class="APVOConfirmActions">
+          <button class="APVOYesBtn" id="APVOrejectYes">Yes</button>
+          <button class="APVONoBtn" id="APVOrejectNo">No</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REJECT SUCCESS SCREEN -->
+    <div class="APVOSuccessScreen" id="APVOrejectSuccessScreen">
+      <div class="APVOSuccessContent">
+        <div>
+          <img
+            class="APVOSuccessIcon"
+            src="../assets/adminProductVerificationOverview/reject.svg"
+            alt="Rejected"
+          />
+        </div>
+        <p class="APVOSuccessText">Product has been rejected</p>
       </div>
     </div>
 

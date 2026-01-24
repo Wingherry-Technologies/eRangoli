@@ -395,20 +395,23 @@ body {
 }
 /* Mobile status variants */
 .APMStatus.mobilelive {
-    color: #00B814;
+    color: #00B814 ;
     padding: 0 0;
     text-align: left;
+    background-color: unset !important;
 
 }
 .APMStatus.mobileremoved {
     color: #FF7F2A;
     text-align: left;
     padding: 0 0;
+    background-color: unset !important;
 }
 .APMStatus.mobileout {
     color: #FF3B3B;
     text-align: left;
-    padding: 0 0;  
+    padding: 0 0; 
+    background-color: unset !important;  
 
 }
 

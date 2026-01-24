@@ -160,6 +160,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 .AUMFilter {
@@ -349,8 +350,14 @@ thead {
   z-index: 1000;
   border: 1px solid #6828e7;
 }
+
+.filter-bar-wrapper{
+  position: relative;
+  display: inline-flex;
+}
 .main-content-flows-main.active-main-content-flows {
   display: block;
+  
 }
 .main-filter-box-content {
   background-color: white;
@@ -372,8 +379,15 @@ thead {
   padding: 5px 10px;
 }
 
-#status-box {
+/* #status-box {
   right: 270px;
+} */
+
+#filter-main,
+#sort-box,
+#status-box {
+  top: 45px;
+  right:  0;
 }
 .main-head-filters {
   border-bottom: 1px solid #6828e7;
@@ -444,6 +458,13 @@ thead {
   font-weight: 400;
   color: #8e8989;
   margin-left: -36px;
+}
+
+.faq-usertype.vendor {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8989;
+  margin-left: -50px;
 }
 
 .AUMStatus.verified-mob {
@@ -518,34 +539,34 @@ thead {
     position: relative;
   }
 
-  #filter-main {
+  /* #filter-main {
     position: absolute;
     top: 100%;
     left: 0;
     right: auto;
     margin-top: 8px;
     z-index: 1000;
-  }
-  #status-box {
+  } */
+  /* #status-box {
     position: absolute;
     top: 100%;
     left: 0;
     right: auto;
     margin-top: 8px;
     z-index: 999;
-  }
-  #sort-box {
+  } */
+  /* #sort-box {
     position: absolute;
     top: 100%;
     left: 0;
     right: auto;
     margin-top: 8px;
     z-index: 1000;
-  }
+  } */
   .main-content-flows-main {
-    position: absolute;
-    right: auto;
-    top: 100%;
+    /* position: absolute; */
+    /* right: auto;
+    top: 100%; */
     margin-top: 8px;
   }
 }
@@ -575,7 +596,6 @@ thead {
   }
 
   .AUMStatsSection {
-    padding-left: 20px;
     background-color: #ffffff;
   }
 
@@ -721,3 +741,4 @@ thead {
     color: #ecc824;
   }
 }
+

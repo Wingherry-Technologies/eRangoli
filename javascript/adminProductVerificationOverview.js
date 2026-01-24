@@ -241,23 +241,67 @@ function APVOSetupFiveItemToggle(type, listSelector) {
       : "../assets/vendorProductPreview/Plus.svg";
   });
 }
+/* ===== APPROVE CONFIRMATION POPUP ===== */
+/* ===== APPROVE CONFIRMATION POPUP ===== */
+const APVOapproveBtn = document.querySelector(".APVOSentButton");
+const APVOapproveModal = document.getElementById("APVOapproveModal");
+const APVOcloseApproveModal = document.getElementById("APVOcloseApproveModal");
+const APVOapproveYes = document.getElementById("APVOapproveYes");
+const APVOapproveNo = document.getElementById("APVOapproveNo");
 
-const APVODeleteButton = document.querySelector(".APVODeleteButton");
-if (APVODeleteButton) {
-  APVODeleteButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to delete this product?")) {
-      alert("Product deleted successfully!");
-      window.history.back();
-    }
+if (APVOapproveBtn) {
+  APVOapproveBtn.addEventListener("click", () => {
+    APVOapproveModal.classList.add("active");
   });
 }
 
-const APVORemoveButton = document.querySelector(".APVORemoveButton");
-if (APVORemoveButton) {
-  APVORemoveButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to remove this product?")) {
-      alert("Product removed successfully!");
-      window.history.back();
-    }
+APVOcloseApproveModal.addEventListener("click", () => {
+  APVOapproveModal.classList.remove("active");
+});
+
+APVOapproveNo.addEventListener("click", () => {
+  APVOapproveModal.classList.remove("active");
+});
+
+APVOapproveYes.addEventListener("click", () => {
+  // popup close
+  APVOapproveModal.classList.remove("active");
+
+  // 🔥 poora page hide
+  document.querySelector(".APVOMainContentBeyond").style.display = "none";
+
+  // ✅ success screen show
+  document.getElementById("APVOapproveSuccessScreen").classList.add("active");
+});
+
+/* ===== REJECT CONFIRMATION POPUP ===== */
+const APVOrejectBtn = document.querySelector(".APVORejectButton");
+const APVOrejectModal = document.getElementById("APVOrejectModal");
+const APVOcloseRejectModal = document.getElementById("APVOcloseRejectModal");
+const APVOrejectYes = document.getElementById("APVOrejectYes");
+const APVOrejectNo = document.getElementById("APVOrejectNo");
+
+if (APVOrejectBtn) {
+  APVOrejectBtn.addEventListener("click", () => {
+    APVOrejectModal.classList.add("active");
   });
 }
+
+APVOcloseRejectModal.addEventListener("click", () => {
+  APVOrejectModal.classList.remove("active");
+});
+
+APVOrejectNo.addEventListener("click", () => {
+  APVOrejectModal.classList.remove("active");
+});
+
+APVOrejectYes.addEventListener("click", () => {
+  // popup close
+  APVOrejectModal.classList.remove("active");
+
+  // main page hide
+  document.querySelector(".APVOMainContentBeyond").style.display = "none";
+
+  // reject success screen show
+  document.getElementById("APVOrejectSuccessScreen").classList.add("active");
+});
