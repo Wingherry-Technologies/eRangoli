@@ -148,6 +148,10 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.filter-bar-wrapper{
+  position: relative;
+}
+
 .APVFilterDummy,
 .APVSettingsDummy {
   width: 40px;
@@ -382,7 +386,7 @@ body {
   display: none;
   position: absolute;
   top: 60px;
-  right: 270px;
+  right: 100px;
   z-index: 1000;
 }
 .main-content-flows-main.active-main-content-flows {
