@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    padding: 20px;
     background: #f6f7fb;
     font-family: Arial, sans-serif;
 }
@@ -89,7 +88,7 @@ body {
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 49%);
     gap: 20px;
     margin-top: 20px;
 }
@@ -180,6 +179,7 @@ canvas {
 .order-chart {
     flex: 1;
     height: 260px;
+    width: 60%;
 }
 @media (max-width: 768px) {
     .order-body {
@@ -326,6 +326,16 @@ canvas#customerChart {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media (max-width:1178px) and (min-width:1090px) {
+  .chart-box{
+    width: 180px;
+  }
+}
+@media (max-width:1090px) and (min-width:1025px) {
+  .chart-box{
+    width: 160px;
+  }
 }
 
 

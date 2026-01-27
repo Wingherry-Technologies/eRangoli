@@ -1,6 +1,28 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+  }
+});
 const labels = {
     Daily: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-    Weekly: ['W1','W2','W3','W4'],
+    Weekly: ['Mon','Tue','Wed','Thu','Fri', 'Sat','Sun'],
     Monthly: ['Jan','Feb','Mar','Apr','May','Jun'],
     Annually: ['2020','2021','2022','2023','2024']
 };
@@ -24,7 +46,7 @@ const revenueChart = new Chart(
     data: {
       labels: labels.Weekly,
       datasets: [{
-        data: [3200, 4100, 3800, 4600, 4000, 3700, 4300],
+        data: [3000, 4100, 2800, 4000, 4500, 3700, 4300],
         borderColor: '#6c63ff',
         backgroundColor: 'rgba(108, 99, 255, 0.15)',
         fill: true,
@@ -79,17 +101,31 @@ const revenueChart = new Chart(
 
       scales: {
         x: {
-          grid: { display: false },
+          grid: {
+            display: false,
+            drawBorder: false   // ❌ remove x-axis line
+          },
+          border: {
+            display: false     // Chart.js v4+
+          },
           ticks: {
-            font: { size: 12 },
-            color: '#555'
+            color :"#999"   // optional: hide x-axis labels too
           }
         },
+
         y: {
+          min: 1000,
+          max: 5000,
+
           grid: {
-            color: 'rgba(108, 99, 255, 0.1)',
-            borderDash: [4, 4]
+            color: 'rgba(107, 99, 255, 0.25)',
+            borderDash: [4, 4],
+            drawBorder: false  // ❌ remove y-axis line
           },
+          border: {
+            display: false     // Chart.js v4+
+          },
+
           ticks: {
             stepSize: 1000,
             color: '#999',
@@ -676,3 +712,7 @@ document.querySelectorAll(".dash-dropdown-menu li").forEach(option => {
    DEFAULT LOAD (Weekly)
 ====================================================== */
 applyDashboardData("weekly");
+
+document.querySelector(".sidebar-main-vendor ul>li:nth-child(1)").classList.add("sidebar-active");
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(1) .dropdown-header").classList.add("dropdown-header-active");
