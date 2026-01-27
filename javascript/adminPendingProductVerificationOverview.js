@@ -1,6 +1,5 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Thumbnail image switch
   const thumbnails = document.querySelectorAll(".APPVOThumbnailItem");
   const mainImage = document.querySelector(".APPVOMainProductImage img");
 
@@ -8,108 +7,132 @@ document.addEventListener("DOMContentLoaded", () => {
     thumb.addEventListener("click", () => {
       thumbnails.forEach((t) => t.classList.remove("APPVOActive"));
       thumb.classList.add("APPVOActive");
-
-      const thumbImg = thumb.querySelector("img");
-      if (thumbImg && mainImage) {
-        mainImage.src = thumbImg.src;
-      }
+      const img = thumb.querySelector("img");
+      if (img && mainImage) mainImage.src = img.src;
     });
   });
-});
 
+  // Toggle setup for details and policy
+  setupToggle("details", ".APPVODetailsList");
+  setupToggle("policy", ".APPVOPolicyList");
 
-document.addEventListener("DOMContentLoaded", () => {
-  APPVOSetupFiveItemToggle("details", ".APPVODetailsList");
-  APPVOSetupFiveItemToggle("policy", ".APPVOPolicyList");
-});
+  function setupToggle(type, listSelector) {
+    const header = document.querySelector(
+      `.APPVOToggleHeader[data-target="${type}"]`,
+    );
+    const list = document.querySelector(listSelector);
+    const icon = header?.querySelector(".APPVOToggleIcon");
+    if (!header || !list || !icon) return;
 
-function APPVOSetupFiveItemToggle(type, listSelector) {
-  const header = document.querySelector(
-    `.APPVOToggleHeader[data-target="${type}"]`,
-  );
-  const list = document.querySelector(listSelector);
-  const icon = header?.querySelector(".APPVOToggleIcon");
+    const items = list.querySelectorAll("li");
+    const LIMIT = 5;
+    if (items.length <= LIMIT) {
+      icon.style.display = "none";
+      return;
+    }
 
-  if (!header || !list || !icon) return;
+    items.forEach((li, i) => {
+      if (i >= LIMIT) li.style.display = "none";
+    });
+    let expanded = false;
 
-  const items = list.querySelectorAll("li");
-  const LIMIT = 5;
-
-  if (items.length <= LIMIT) {
-    icon.style.display = "none";
-    return;
+    header.addEventListener("click", () => {
+      expanded = !expanded;
+      items.forEach((li, i) => {
+        if (i >= LIMIT) li.style.display = expanded ? "list-item" : "none";
+      });
+      icon.src = expanded
+        ? "../assets/vendorProductPreview/Minus.svg"
+        : "../assets/vendorProductPreview/Plus.svg";
+    });
   }
 
-  items.forEach((li, index) => {
-    if (index >= LIMIT) li.style.display = "none";
+  // Common approve modal elements
+  const approveModal = document.getElementById("APPVOapproveModal");
+  const approveClose = document.getElementById("APPVOcloseApproveModal");
+  const approveNo = document.getElementById("APPVOapproveNo");
+  const approveYes = document.getElementById("APPVOapproveYes");
+
+  // Success screens
+  const sentSuccess = document.getElementById("APPVOapproveSuccessScreen");
+  const approveSuccessLive = document.getElementById(
+    "APPVOapproveSuccessScreenLive",
+  );
+
+  // State to know which button opened modal
+  let currentAction = null;
+
+  // Sent to Verify button
+  document.querySelector(".APPVOSentButton")?.addEventListener("click", () => {
+    currentAction = "sent";
+    approveModal.style.display = "flex";
   });
 
-  let expanded = false;
-  icon.src = "../assets/vendorProductPreview/Plus.svg";
-
-  header.addEventListener("click", () => {
-    expanded = !expanded;
-
-    items.forEach((li, index) => {
-      if (index >= LIMIT) {
-        li.style.display = expanded ? "list-item" : "none";
-      }
+  // Approve button
+  document
+    .querySelector(".APPVOApproveButton")
+    ?.addEventListener("click", () => {
+      currentAction = "approve";
+      approveModal.style.display = "flex";
     });
 
-    icon.src = expanded
-      ? "../assets/vendorProductPreview/Minus.svg"
-      : "../assets/vendorProductPreview/Plus.svg";
+  // Close approve modal
+  approveClose?.addEventListener("click", () => {
+    approveModal.style.display = "none";
+    currentAction = null;
   });
-}
 
-const APPVODeleteButton = document.querySelector(".APPVODeleteButton");
-if (APPVODeleteButton) {
-  APPVODeleteButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to delete this product?")) {
-      alert("Product deleted successfully!");
-      window.history.back();
+  // No button in approve modal
+  approveNo?.addEventListener("click", () => {
+    approveModal.style.display = "none";
+    currentAction = null;
+  });
+
+  // Yes button in approve modal
+  approveYes?.addEventListener("click", () => {
+    approveModal.style.display = "none";
+    document.querySelector(".APPVOMainContentBeyond").style.display = "none";
+
+    if (currentAction === "sent") {
+      sentSuccess.style.display = "flex";
     }
-  });
-}
 
-const APPVORemoveButton = document.querySelector(".APPVORemoveButton");
-if (APPVORemoveButton) {
-  APPVORemoveButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to remove this product?")) {
-      alert("Product removed successfully!");
-      window.history.back();
+    if (currentAction === "approve") {
+      approveSuccessLive.style.display = "flex";
     }
+
+    currentAction = null;
   });
-}
 
-/* ===== APPROVE CONFIRMATION POPUP ===== */
-const APPVOapproveBtn = document.querySelector(".APPVOApproveButton");
-const APPVOapproveModal = document.getElementById("APPVOapproveModal");
-const APPVOcloseApproveModal = document.getElementById(
-  "APPVOcloseApproveModal",
-);
-const APPVOapproveYes = document.getElementById("APPVOapproveYes");
-const APPVOapproveNo = document.getElementById("APPVOapproveNo");
+  // Reject flow
+  const rejectBtn = document.querySelector(".APPVORejectButton");
+  const rejectModal = document.getElementById("APPVOrejectModal");
+  const rejectClose = document.getElementById("APPVOcloseRejectModal");
+  const rejectNo = document.getElementById("APPVOrejectNo");
+  const rejectYes = document.getElementById("APPVOrejectYes");
+  const rejectSuccess = document.getElementById("APPVOrejectSuccessScreen");
 
-APPVOapproveBtn.addEventListener("click", () => {
-  APPVOapproveModal.classList.add("active");
-});
+  rejectBtn?.addEventListener("click", () => {
+    rejectModal.style.display = "flex";
+  });
 
-APPVOcloseApproveModal.addEventListener("click", () => {
-  APPVOapproveModal.classList.remove("active");
-});
+  rejectClose?.addEventListener("click", () => {
+    rejectModal.style.display = "none";
+  });
 
-APPVOapproveNo.addEventListener("click", () => {
-  APPVOapproveModal.classList.remove("active");
-});
+  rejectNo?.addEventListener("click", () => {
+    rejectModal.style.display = "none";
+  });
 
-APPVOapproveYes.addEventListener("click", () => {
-  // popup close
-  APPVOapproveModal.classList.remove("active");
+  rejectYes?.addEventListener("click", () => {
+    rejectModal.style.display = "none";
+    document.querySelector(".APPVOMainContentBeyond").style.display = "none";
+    rejectSuccess.style.display = "flex";
+  });
 
-  // poora page hide
-  document.querySelector(".APPVOMainContentBeyond").style.display = "none";
-
-  // success screen show
-  document.getElementById("APPVOapproveSuccessScreen").classList.add("active");
+  // Overlay click close
+  window.addEventListener("click", (e) => {
+    if (e.target === approveModal) approveModal.style.display = "none";
+    if (e.target === rejectModal) rejectModal.style.display = "none";
+  });
 });

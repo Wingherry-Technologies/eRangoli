@@ -1,341 +1,365 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #E5E7EB;
-    padding: 24px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: #e5e7eb;
+  padding: 24px;
 }
 
 /* Main Dashboard Container */
 .adminSalesDashboardContainer {
-    /* max-width: 1400px; */
-    /* margin: 0 auto; */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  /* max-width: 1400px; */
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Stats Cards Row */
 .adminSalesStatsRow {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 4px;
 }
 
 .adminSalesStatCard {
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .adminSalesStatHeader {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .adminSalesStatIcon {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #1290F7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1290f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .adminSalesStatIcon img {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .adminSalesStatLabel {
-    font-size: 13px;
-    color: #636161;
-    font-weight: 400;
+  font-size: 13px;
+  color: #636161;
+  font-weight: 400;
 }
 
 .adminSalesStatValue {
-    font-size: 24px;
-    font-weight: 500;
-    color: #3F3F3F;
-    margin-bottom: 12px;
-    margin-left: 3rem;
+  font-size: 24px;
+  font-weight: 500;
+  color: #3f3f3f;
+  margin-bottom: 12px;
+  margin-left: 3rem;
 }
 
 .adminSalesStatFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .adminSalesStatChange {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    color: #8E8989;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #8e8989;
+  font-weight: 500;
 }
 
 .adminSalesStatChart {
-    flex: 1;
-    height: 40px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+  flex: 1;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .adminSalesChartImage {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Row Layouts */
 .adminSalesRow {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .adminSalesRowTop,
 .adminSalesRowMiddle,
 .adminSalesRowBottom {
-    grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.2fr 0.8fr;
 }
 
 /* Card Styles */
 .adminSalesCard {
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .adminSalesCardLarge {
-    min-height: 320px;
+  min-height: 320px;
 }
 
 .adminSalesCardSmall {
-    min-height: 320px;
+  min-height: 320px;
 }
 
 /* Card Header */
 .adminSalesCardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
 }
 
 .adminSalesCardTitle {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1F2937;
-    margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
 }
 
 .adminSalesCardFilters {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .adminSalesSelect {
-    padding: 6px 12px;
-    border: 1px solid #E5E7EB;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #4B5563;
-    background-color: #FFFFFF;
-    cursor: pointer;
-    border: none;
+  padding: 6px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4b5563;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
 }
 
 /* Card Body */
 .adminSalesCardBody {
-    position: relative;
+  position: relative;
 }
 
 .adminSalesCardBodyCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .adminSalesSubtext {
-    font-size: 13px;
-    color: #7B5DD6;
-    font-weight: 400;
+  font-size: 13px;
+  color: #7b5dd6;
+  font-weight: 400;
 }
 
 /* Revenue List */
 .adminSalesRevenueList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .adminSalesRevenueItem {
-    /* display: grid;
+  /* display: grid;
     grid-template-columns: 180px 1fr 80px; */
-    align-items: center;
-    /* gap: 16px; */
+  align-items: center;
+  /* gap: 16px; */
 }
-.adminSalesRevenueHeader{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 6px;
+.adminSalesRevenueHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .adminSalesRevenueLabel {
-    font-size: 14px;
-    color:#3F3F3F;
+  font-size: 14px;
+  color: #3f3f3f;
 }
 
 .adminSalesRevenueBarContainer {
-    height: 10px;
-    background-color: #F3F4F6;
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px solid #CBD5E1;
+  height: 10px;
+  background-color: #f3f4f6;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
 }
 
 .adminSalesRevenueBar {
-    height: 100%;
-    background: #989FFF;
-    border-radius: 5px;
+  height: 100%;
+  background: #989fff;
+  border-radius: 5px;
 }
 
 .adminSalesRevenueValue {
-    font-size: 14px;
-    color: #64748B;
-    text-align: right;
+  font-size: 14px;
+  color: #64748b;
+  text-align: right;
 }
 
 /* Canvas */
 canvas {
-    max-height: 220px;
+  max-height: 220px;
 }
 
 #adminSalesPaymentModeChart,
 #adminSalesStateWiseChart {
-    max-width: 220px;
-    max-height: 220px;
-    margin-bottom: 20px;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
 }
 
 /* Legends */
 .adminSalesLegendGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    width: 100%;
-    margin-left: 9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-left: 9rem;
 }
 
 .adminSalesLegendRow {
-    display: flex;
-    margin-left: 4rem;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  margin-left: 4rem;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .adminSalesLegendItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .adminSalesLegendDot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.adminSalesLegendDotRed{
-    background-color: #EF4444;
+.adminSalesLegendDotRed {
+  background-color: #ef4444;
 }
-.adminSalesLegendDotGreen{
-    background-color: #22C55E;
+.adminSalesLegendDotGreen {
+  background-color: #22c55e;
+}
+.adminSalesLegendDotYellow {
+  background-color: #fde047;
+}
 
+.adminSalesLegendDotBlue {
+  background-color: #3b82f6;
 }
-.adminSalesLegendDotYellow{
-    background-color: #FDE047;
-}
-
-.adminSalesLegendDotBlue{
-    background-color: #3B82F6;
-}
-.adminSalesLegendDotPurple{
-    background-color: #7C3AED;
+.adminSalesLegendDotPurple {
+  background-color: #7c3aed;
 }
 .adminSalesLegendText {
-    font-size: 13px;
-    color: #2D2D2D;
+  font-size: 13px;
+  color: #2d2d2d;
 }
 
-
 #adminSalesBusinessChart {
-height: 210px !important;
-
+  height: 210px !important;
 }
 
 /* Responsive */
 @media (max-width: 1200px) {
-    .adminSalesStatsRow {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 1024px) {
-    .adminSalesRow {
-        grid-template-columns: 1fr;
-    }
-    
-    .adminSalesStatsRow {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .adminSalesRow {
+    grid-template-columns: 1fr;
+  }
+
+  .adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-    body {
-        padding: 16px;
-    }
-    
-    .adminSalesDashboardContainer {
-        gap: 16px;
-    }
-    
-    .adminSalesCard {
-        padding: 16px;
-    }
-    
-    .adminSalesLegendGrid {
-        grid-template-columns: 1fr;
-    }
-    
-    .adminSalesStatsRow {
-        grid-template-columns: 1fr;
-    }
-    
-    .adminSalesRevenueItem {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-    
-    .adminSalesRevenueValue {
-        text-align: left;
-    }
+  body {
+    padding: 16px;
+  }
+
+  .adminSalesDashboardContainer {
+    gap: 16px;
+  }
+
+  .adminSalesCard {
+    padding: 16px;
+  }
+
+  .adminSalesLegendGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .adminSalesStatsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .adminSalesRevenueItem {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .adminSalesRevenueValue {
+    text-align: left;
+  }
+}
+
+.donutWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donutBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.donutWrapper canvas {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.donutWrapper canvas {
+  transform: translateY(9px);
 }

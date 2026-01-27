@@ -13,8 +13,6 @@ body {
 }
 
 .APPVOMainContentBeyond {
-  padding: 20px;
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -493,8 +491,8 @@ body {
   gap: 14px;
   padding: 10px 10px 4px 10px;
 }
-@media (max-width:638px) {
-  .APPVOAdminButtons{
+@media (max-width: 638px) {
+  .APPVOAdminButtons {
     flex-direction: column;
   }
 }
@@ -512,28 +510,31 @@ body {
 }
 
 .APPVOSentButton,
-.APPVORejectButton {
-  background-color: #716b6b;
-  color: white;
-}
-
+.APPVORejectButton,
 .APPVOApproveButton {
-  background-color: #0e8bf3;
-  color: white;
+  background-color: #ffffff;
+  color: #0f8df3;
+  border: 1px solid #0f8df3;
 }
 
-.APPVOApproveButton:hover {
+.APPVOApproveButton:hover,
+.APPVORejectButton:hover,
+.APPVOSentButton:hover {
   background-color: #0e8bf3;
+  color: #ffffff;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 595px) {
   .APPVOProductPreviewLayout {
     grid-template-columns: 1fr;
     gap: 30px;
+    background-color: #ffffff;
+    border: none;
   }
 
   .APPVOVariantsPreviewGrid {
     grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
   }
 
   .APPVOVariantImgPlaceholder {
@@ -547,11 +548,28 @@ body {
   .APPVOAdminContent {
     grid-template-columns: 1fr;
   }
+  .APPVOMainContentBeyond {
+    padding: 0px;
+  }
 }
 
 @media (max-width: 595px) {
+  .APPVOContainer {
+    padding: 15px;
+  }
   .APPVOMobileBackButton {
     font-size: 14px;
+  }
+
+  .APPVOConfirmModal {
+    width: calc(100% - 40px) !important;
+    max-width: 340px !important;
+    border-radius: 4px !important;
+    padding: 24px 16px 20px !important;
+  }
+
+  .APPVOConfirmOverlay {
+    background: #595757d4;
   }
 
   .APPVOMobileBackButton img {
@@ -561,6 +579,8 @@ body {
 
   .APPVOProductPreviewLayout {
     grid-template-columns: 1fr;
+    background: none;
+    border: none;
   }
 
   .APPVOMainProductImage {
@@ -582,11 +602,16 @@ body {
 
   .APPVOVariantsPreviewGrid {
     grid-template-columns: 1fr;
+    background: none;
   }
 
   .APPVOVariantImagesGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
+  }
+
+  .APPVOPendingStatus {
+    margin-bottom: 11px;
   }
 
   .APPVOPreviewSectionTitle {
@@ -604,6 +629,12 @@ body {
   .APPVOAdminContent {
     grid-template-columns: 1fr;
   }
+  .APPVOMainContentBeyond {
+    padding: 0;
+  }
+  .APPVOCloseBtn {
+    display: none;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1608px) {
@@ -620,7 +651,7 @@ body {
 .APPVOConfirmOverlay {
   position: fixed;
   inset: 0;
-  background: #7e797999; /* ✅ requested overlay color */
+  background: #7e797999;
   display: none;
   align-items: center;
   justify-content: center;
@@ -652,7 +683,7 @@ body {
 }
 
 .APPVOConfirmText {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   color: #3f3f3f;
   margin-bottom: 28px;
@@ -686,7 +717,7 @@ body {
   font-weight: 500;
 }
 
-/* ===== APPROVE SUCCESS SCREEN ===== */
+/*  APPROVE SUCCESS SCREEN  */
 .APPVOSuccessScreen {
   position: fixed;
   inset: 0;

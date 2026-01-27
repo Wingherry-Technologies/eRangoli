@@ -1,23 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // basic selectors
   const searchInput = document.querySelector(".APVSearchInput");
-
   const filterBtn = document.querySelector(".APVFilterDummy");
   const sortBtn = document.querySelector(".APVSettingsDummy");
 
+  // filter dropdowns
   const filterMain = document.getElementById("filter-main");
   const statusBox = document.getElementById("status-box");
   const sortBox = document.getElementById("sort-box");
 
+  // status checkboxes
   const statusCheckboxes = document.querySelectorAll(
     '#status-box input[type="checkbox"]',
   );
 
+  // table & mobile
   const tableBody = document.querySelector(".APVTableBody");
   const tableRows = Array.from(document.querySelectorAll(".APVTableRow"));
-
   const mobileFaqContainer = document.querySelector(".APVMobileFAQ");
   const noDataBox = document.querySelector(".APVNoData");
 
+  // desktop table filter
   function applyTable() {
     const q = searchInput.value.toLowerCase().trim();
     const activeStatuses = Array.from(statusCheckboxes)
@@ -28,18 +31,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tableRows.forEach((row) => {
       const name = row.children[0].innerText.toLowerCase();
+      const requestId = row.children[1].innerText.toLowerCase();
       const category = row.children[2].innerText.toLowerCase();
-      const vendor = row.children[7].innerText.toLowerCase();
 
-      const statusCell = row.querySelector(".APVTableCell");
-      const status = statusCell
-        ? [...statusCell.classList].find((c) =>
-            ["verified", "pending", "rejected", "sent"].includes(c),
-          )
+      const statusEl = row.querySelector(
+        ".APVTableCell.pending, .APVTableCell.verified",
+      );
+
+      const status = statusEl
+        ? statusEl.classList.contains("verified")
+          ? "verified"
+          : "pending"
         : "";
 
       const matchSearch =
-        name.includes(q) || category.includes(q) || vendor.includes(q);
+        name.includes(q) || requestId.includes(q) || category.includes(q);
 
       const matchStatus =
         activeStatuses.length === 0 || activeStatuses.includes(status);
@@ -55,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     noDataBox.style.display = visible === 0 ? "block" : "none";
   }
 
+  // mobile filter
   function applyMobile() {
     const q = searchInput.value.toLowerCase().trim();
     const activeStatuses = Array.from(statusCheckboxes)
@@ -67,22 +74,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const name = item
         .querySelector(".APVfaq-username")
         ?.innerText.toLowerCase();
+
       const category = item
         .querySelector(".APVfaq-usertype")
         ?.innerText.toLowerCase();
-      const vendor = item
-        .querySelector(".APVfaq-row:nth-child(7) span:last-child")
-        ?.innerText.toLowerCase();
 
-      const statusEl = item.querySelector(".APVStatus");
+      const statusEl = item.querySelector(
+        ".APVStatus.pending, .APVStatus.verified",
+      );
+
       const status = statusEl
-        ? [...statusEl.classList].find((c) =>
-            ["verified", "pending", "rejected", "sent"].includes(c),
-          )
+        ? statusEl.classList.contains("verified")
+          ? "verified"
+          : "pending"
         : "";
 
-      const matchSearch =
-        name?.includes(q) || category?.includes(q) || vendor?.includes(q);
+      const matchSearch = name?.includes(q) || category?.includes(q);
 
       const matchStatus =
         activeStatuses.length === 0 || activeStatuses.includes(status);
@@ -98,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     noDataBox.style.display = visible === 0 ? "block" : "none";
   }
 
+  // decide mode
   function applyAll() {
     if (window.innerWidth <= 595) {
       applyMobile();
@@ -106,9 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // search & status events
   searchInput.addEventListener("input", applyAll);
   statusCheckboxes.forEach((cb) => cb.addEventListener("change", applyAll));
 
+  // filter icon click
   filterBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     filterMain.classList.toggle("active-main-content-flows");
@@ -116,13 +126,22 @@ document.addEventListener("DOMContentLoaded", function () {
     sortBox.classList.remove("active-main-content-flows");
   });
 
+  // status click inside filter
   filterMain.addEventListener("click", (e) => {
-    if (e.target.tagName === "LI") {
-      filterMain.classList.remove("active-main-content-flows");
-      statusBox.classList.add("active-main-content-flows");
-    }
+    e.stopPropagation();
+    const li = e.target.closest("li");
+    if (!li) return;
+
+    filterMain.classList.remove("active-main-content-flows");
+    statusBox.classList.add("active-main-content-flows");
   });
 
+  // prevent status box close
+  statusBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // sort icon click
   sortBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     sortBox.classList.toggle("active-main-content-flows");
@@ -130,12 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
     statusBox.classList.remove("active-main-content-flows");
   });
 
+  // close on outside click
   document.addEventListener("click", () => {
     filterMain.classList.remove("active-main-content-flows");
     statusBox.classList.remove("active-main-content-flows");
     sortBox.classList.remove("active-main-content-flows");
   });
 
+  // sorting logic
   document.querySelectorAll("#sort-box li").forEach((item) => {
     item.addEventListener("click", () => {
       const type = item.dataset.sort;
@@ -192,26 +213,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // mobile accordion
   document.querySelectorAll(".APVfaq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
       btn.closest(".APVfaq-item").classList.toggle("active");
     });
   });
 
+  // navigation logic
   document.addEventListener("click", (e) => {
-    const viewBtn = e.target.closest(".view");
-    if (!viewBtn) return;
+    const btn = e.target.closest(".view, .APVActionButton");
+    if (!btn) return;
 
-    const container =
-      viewBtn.closest(".APVfaq-item") || viewBtn.closest(".APVTableRow");
+    const row = btn.closest(".APVTableRow");
+    const faq = btn.closest(".APVfaq-item");
 
-    const statusEl = container.querySelector(".APVStatus, .APVTableCell");
+    let statusEl;
+
+    if (row) {
+      statusEl = row.querySelector(
+        ".APVTableCell.pending, .APVTableCell.verified",
+      );
+    }
+
+    if (faq) {
+      statusEl = faq.querySelector(".APVStatus.pending, .APVStatus.verified");
+    }
+
+    if (!statusEl) return;
 
     if (statusEl.classList.contains("verified")) {
-      window.location.href = "../html/adminProductVerificationOverview.html";
+      window.location.href = "../html/adminPMProductOverviewLive.html";
     } else if (statusEl.classList.contains("pending")) {
-      window.location.href =
-        "../html/adminPendingProductVerificationOverview.html";
+      window.location.href = "../html/adminPMVerificationOverview.html";
     }
   });
 });
