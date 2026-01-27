@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Revenue Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/adminSalesReport.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- ================= TOTAL REVENUE ================= -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Total Revenue</h3>
+
+          <select class="month-dropdown">
+            <option>Jan</option>
+            <option>Feb</option>
+            <option selected>Sep</option>
+          </select>
+        </div>
+
+        <div class="donut-container">
+          <div class="donut-chart">
+            <span class="tag tag-78">78%</span>
+            <span class="tag tag-22">22%</span>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div><span class="dot blue"></span> Sales</div>
+          <div><span class="dot purple"></span> Profit</div>
+        </div>
+      </div>
+
+      <!-- ================= CATEGORY + COLLECTION ================= -->
+      <div class="card combined-card">
+        <!-- LEFT: CATEGORY PIE -->
+        <div class="category-section">
+          <h3>Revenue by Product categories</h3>
+
+          <div class="pie-wrapper">
+            <div class="pie-chart"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: REVENUE COLLECTION -->
+        <div class="collection-section">
+          <div class="card-header">
+            <h3>Revenue Collection</h3>
+
+            <select class="month-dropdown">
+              <option>Jan</option>
+              <option selected>Mar</option>
+              <option>Apr</option>
+            </select>
+          </div>
+
+          <div class="collection">
+            <div class="item">
+              <div class="item-head">
+                <span>Sarees</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress blue"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Wooden Craft</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress purple"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Bedsheet and curtains</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress green"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Paintings</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress sky"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Brass Handcraft</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress violet"></div>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <span>Bedsheet and curtains</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress green"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Paintings</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress sky"></div>
+            </div>
+
+            <div class="item">
+              <div class="item-head">
+                <span>Brass Handcraft</span>
+                <span>₹ 7614.9</span>
+              </div>
+              <div class="progress violet"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================= Revenue by state ================= -->
+    <div class="card revenue-state-card">
+      <div class="card-header">
+        <h3>Revenue by state</h3>
+        <select class="month-dropdown">
+          <option>Jan</option>
+          <option>Feb</option>
+          <option selected>Sep</option>
+        </select>
+      </div>
+
+      <div class="state-chart">
+        <!-- Y axis -->
+        <div class="y-axis">
+          <span>₹ 1.2M</span>
+          <span>₹ 1.0M</span>
+          <span>₹ 80,000</span>
+          <span>₹ 40,000</span>
+          <span>₹ 20,000</span>
+          <span>₹ 05,000</span>
+        </div>
+
+        <!-- Chart area -->
+        <div class="chart-wrapper">
+          <!-- <div class="grid-lines-area">
+            <div class="price-line" style="top: 0%"></div>
+            <div class="price-line" style="top: 20%"></div>
+            <div class="price-line" style="top: 40%"></div>
+            <div class="price-line" style="top: 60%"></div>
+            <div class="price-line" style="top: 80%"></div>
+          </div> -->
+
+          <!-- Bars area -->
+          <div class="bars-area">
+            <!-- bars -->
+            <div class="bar-group">
+              <div class="bar" style="height: 35%"></div>
+              <span>JH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 45%"></div>
+              <span>MH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 55%"></div>
+              <span>RJ</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 62%"></div>
+              <span>AP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 70%"></div>
+              <span>MP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 78%"></div>
+              <span>KA</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 85%"></div>
+              <span>KE</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 92%"></div>
+              <span>WB</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 96%"></div>
+              <span>OR</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 100%"></div>
+              <span>JH</span>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar" style="height: 92%"></div>
+              <span>MH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 85%"></div>
+              <span>RJ</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 78%"></div>
+              <span>AP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 70%"></div>
+              <span>MP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 62%"></div>
+              <span>KA</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 55%"></div>
+              <span>KE</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 48%"></div>
+              <span>WB</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 42%"></div>
+              <span>OR</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 35%"></div>
+              <span>JH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 45%"></div>
+              <span>MH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 55%"></div>
+              <span>RJ</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 62%"></div>
+              <span>AP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 70%"></div>
+              <span>MP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 78%"></div>
+              <span>KA</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 85%"></div>
+              <span>KE</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 92%"></div>
+              <span>WB</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 96%"></div>
+              <span>OR</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 100%"></div>
+              <span>JH</span>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar" style="height: 92%"></div>
+              <span>MH</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 85%"></div>
+              <span>RJ</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 78%"></div>
+              <span>AP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 70%"></div>
+              <span>MP</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar" style="height: 62%"></div>
+              <span>KA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sales Report -->
+    <div class="sales-report-wrapper">
+      <h2 class="sales-report-title">Sales Report</h2>
+      <div class="sales-report-divider"></div>
+
+      <div class="sales-report-table-wrapper">
+        <table class="sales-report-table">
+          <thead>
+            <tr>
+              <th>Vendor Name</th>
+              <th>Products sold</th>
+              <th>Total Sales</th>
+              <th>Profit</th>
+              <th>Return %</th>
+              <th>Repeat Customer %</th>
+              <th>Avg. Customer Satisfaction</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>4%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>26%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>4%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>26%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>4%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>26%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <td class="vendor-cell">
+                <img
+                  src="../assets/adminSalesReport/img.svg"
+                  class="vendor-logo"
+                  alt="Vendor Logo"
+                />
+                Sanskriti Collection
+              </td>
+              <td>567</td>
+              <td>₹ 76,149</td>
+              <td>₹ 26,149</td>
+              <td>2%</td>
+              <td>65%</td>
+              <td>4.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

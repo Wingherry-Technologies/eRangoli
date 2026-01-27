@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #ebeef3;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #3f3f3f;
+}
+
+.category-section h3 {
+  text-align: left;
+}
+
+.month-dropdown {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #8b8b8b;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ================= DONUT ================= */
+.donut-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.donut-chart {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: conic-gradient(from 170deg, #0068f7 0% 78%, #ae72a8 78% 100%);
+  position: relative;
+}
+
+.donut-chart::after {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.tag {
+  position: absolute;
+  font-size: 12px;
+  background: #eaeaea;
+  padding: 3px 7px;
+  border-radius: 12px;
+}
+
+.tag-78 {
+  top: 10px;
+  right: 30px;
+}
+
+.tag-22 {
+  bottom: 18px;
+  right: 15px;
+}
+
+.legend {
+  display: flex;
+  justify-content: flex-start;
+  gap: 22px;
+  font-size: 13px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.blue {
+  background: #0068f7;
+}
+.purple {
+  background: #ae72a8;
+}
+
+/* ================= COMBINED CARD ================= */
+.combined-card {
+  display: flex;
+  gap: 20px;
+}
+
+/* CATEGORY PIE */
+.category-section {
+  flex: 1;
+  text-align: center;
+}
+
+.pie-wrapper {
+  display: flex;
+  margin-top: 30px;
+}
+
+.pie-chart {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0068f7 0% 12%,
+    #ae72a8 12% 38%,
+    #c1cd54 38% 56%,
+    #318fd2 56% 73%,
+    #6b2bea 73% 86%,
+    #8faad0 86% 100%
+  );
+  position: relative;
+}
+
+.pie-chart::after {
+  content: "";
+  position: absolute;
+  inset: 85px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* REVENUE COLLECTION */
+.collection-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection {
+  margin-top: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 1px;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 10px;
+  background: #e9edf5;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.progress.blue::after {
+  width: 60%;
+  background: #0b5cff;
+}
+.progress.purple::after {
+  width: 55%;
+  background: #b07bb4;
+}
+.progress.green::after {
+  width: 65%;
+  background: #c5d75a;
+}
+.progress.sky::after {
+  width: 80%;
+  background: #3498db;
+}
+.progress.violet::after {
+  width: 45%;
+  background: #6f3de8;
+}
+
+/* Scrollbar */
+
+.collection::-webkit-scrollbar {
+  width: 6px;
+}
+
+.collection::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 10px;
+}
+
+.collection::-webkit-scrollbar-track {
+  background: #d9d9d9;
+}
+
+/* Revenue by state card */
+.revenue-state-card {
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
+
+/* Chart layout */
+.state-chart {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Y axis */
+.y-axis {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8b8b8b;
+  padding-bottom: 24px;
+}
+
+/* Bars area */
+.bars-area {
+  flex: 1;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  padding-left: 10px;
+  position: relative;
+  padding-bottom: 22px;
+}
+
+.bar-group span {
+  font-size: 11px;
+  color: #9a9a9a;
+  margin-top: 6px;
+}
+
+/* Bars */
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  z-index: 2;
+  height: 100%;
+}
+
+.bar {
+  width: 8px;
+  background: #7451b8;
+  border-radius: 8px;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  animation: barGrow 1s ease-out forwards;
+}
+
+/* X labels */
+.bar-group span {
+  font-size: 11px;
+  color: #9a9a9a;
+}
+
+.bars-area {
+  align-items: flex-end;
+  padding-bottom: 0px;
+}
+
+.bar-group span {
+  margin-top: 6px;
+}
+
+.state-chart {
+  position: relative;
+}
+
+/* Donut animation */
+.donut-chart {
+  animation: donutRotate 1.2s ease-out forwards;
+  transform: rotate(-90deg) scale(0.8);
+  opacity: 0;
+}
+
+@keyframes donutRotate {
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Percentage tags fade + slide */
+.tag {
+  opacity: 0;
+  animation: tagFade 0.6s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes tagFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.progress::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: progressGrow 1s ease-out forwards;
+}
+
+@keyframes progressGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Stagger effect */
+.item:nth-child(1) .progress::after {
+  animation-delay: 0.1s;
+}
+.item:nth-child(2) .progress::after {
+  animation-delay: 0.2s;
+}
+.item:nth-child(3) .progress::after {
+  animation-delay: 0.3s;
+}
+.item:nth-child(4) .progress::after {
+  animation-delay: 0.4s;
+}
+.item:nth-child(5) .progress::after {
+  animation-delay: 0.5s;
+}
+
+/* Pie chart animation */
+.pie-chart {
+  animation: piePop 0.9s ease-out forwards;
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+@keyframes piePop {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card {
+  animation: cardFadeUp 0.6s ease forwards;
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barGrow {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.bar-group:nth-child(1) .bar {
+  animation-delay: 0.1s;
+}
+.bar-group:nth-child(2) .bar {
+  animation-delay: 0.15s;
+}
+.bar-group:nth-child(3) .bar {
+  animation-delay: 0.2s;
+}
+.bar-group:nth-child(4) .bar {
+  animation-delay: 0.25s;
+}
+.bar-group:nth-child(5) .bar {
+  animation-delay: 0.3s;
+}
+.bar-group:nth-child(6) .bar {
+  animation-delay: 0.35s;
+}
+.bar-group:nth-child(7) .bar {
+  animation-delay: 0.4s;
+}
+.bar-group:nth-child(8) .bar {
+  animation-delay: 0.45s;
+}
+.bar-group:nth-child(9) .bar {
+  animation-delay: 0.5s;
+}
+.bar-group:nth-child(10) .bar {
+  animation-delay: 0.55s;
+}
+
+.sales-report-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sales-report-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 12px;
+  font-family: "inter";
+}
+
+.sales-report-divider {
+  border-bottom: 1px solid #6828e7;
+}
+
+.sales-report-table-wrapper {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.sales-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.sales-report-table thead th {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3f3f3f;
+  padding: 14px 12px;
+  border-bottom: 1px solid #d9d9d9;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.sales-report-table tbody td {
+  padding: 16px 12px;
+  font-size: 14px;
+  color: #3f3f3f;
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.vendor-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.vendor-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Scrollbar (optional but same feel) */
+.sales-report-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sales-report-table-wrapper::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 6px;
+}
+
+.sales-report-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
