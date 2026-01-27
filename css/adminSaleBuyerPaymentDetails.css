@@ -1,0 +1,505 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #e5e7eb;
+  padding: 24px;
+}
+
+/* Main Dashboard Container */
+.ABPDDashboardContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Search Row Layout */
+.ABPDSearchRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Search Input Container */
+.ABPDSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ABPDSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.ABPDSearchInput {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: none;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.ABPDSearchInput::placeholder {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* Filter container */
+.ABPDIconsGroup {
+  display: flex;
+  gap: 12px;
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.filter-bar-wrapper{
+  position: relative;
+  display: inline-flex;  
+  align-items: center;
+}
+
+
+.ABPDFilterDummy,
+.ABPDSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ABPDFilterDummy img,
+.ABPDSettingsDummy img {
+  color: #8e8989;
+  width: 23px;
+  height: 23px;
+}
+
+.ABPDSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ABPDSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+}
+
+.ABPDSearchInput {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ABPDSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.ABPDSearchInput:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+}
+
+.ABPDIconsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.ABPDFilterDummy,
+.ABPDSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ABPDFilterDummy:hover,
+.ABPDSettingsDummy:hover {
+  background-color: #f9fafb;
+}
+
+/* Product Table Section */
+.ABPDTableCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ABPDTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6828e7;
+}
+
+.ABPDTableTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.ABPDTotalLink {
+  font-size: 14px;
+  color: #6828e7;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.ABPDViewAllLink:hover {
+  text-decoration: none;
+}
+
+.ABPDTableWrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 10px;
+}
+
+.ABPDTableWrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  gap: 2rem;
+}
+
+.ABPDTableWrapper::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.ABPDTableWrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 4px;
+}
+
+.ABPDTableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.ABPDProductTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.ABPDTableHead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.ABPDTableHeadRow {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.ABPDTableHeaderCell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+  white-space: nowrap;
+}
+
+.ABPDTableBody {
+  background-color: #ffffff;
+}
+
+.ABPDTableRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.ABPDTableRow:hover {
+  background-color: #f9fafb;
+}
+
+.ABPDTableCell {
+  padding: 16px;
+  color: #3f3f3f;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ABPDTableCell.received {
+  color: #009605;
+  font-weight: 400;
+}
+
+.ABPDTableCell.refunded {
+  color: #ff0000;
+  font-weight: 400;
+}
+
+.ABPDProductNameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ABPDProductThumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.ABPDProductName {
+  font-weight: 400;
+  color: #1f2937;
+}
+
+.ABPDActionButton {
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: #60a5fa;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ABPDActionButton:hover {
+  background-color: #3b82f6;
+}
+
+.main-content-flows-main {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+#abpd-filter-main,
+#abpd-status-box,
+#abpd-sort-box {
+  top: 48px;
+  left: -160px;
+}
+
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+.main-filter-box-content {
+  background-color: white;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  color: #3f3f3f;
+  border-radius: 5px;
+  z-index: 9999;
+  width: 200px;
+}
+#abpd-filter-main li.active-filter {
+  background-color: #b9e0db;
+  color: #6828e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#abpd-filter-main li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.main-head-filters {
+  border-bottom: 1px solid #6828e7;
+}
+.main-filter-box-content > ul {
+  padding-top: 10px;
+  list-style: none;
+}
+.main-filter-box-content > ul > li {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.ABPDMobileFAQ {
+  display: none;
+}
+
+.ABPDfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ABPDfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.ABPDfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.ABPDfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.ABPDfaq-item.active {
+  border: 1px solid #0f8df340;
+  border-radius: 12px;
+  padding-bottom: 6px;
+}
+
+.ABPDfaq-item.active .ABPDfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.ABPDfaq-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.ABPDfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.ABPDfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ABPDfaq-row .ABPDStatus {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .ABPDTableWrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .ABPDProductTable {
+    min-width: 1100px;
+  }
+
+  .ABPDTableWrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  .ABPDTableWrapper::-webkit-scrollbar-track {
+    background: #f3f4f6;
+  }
+
+  .ABPDTableWrapper::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 595px) and (min-width: 320px) {
+  .ABPDTableCard {
+    padding: 10px;
+  }
+  
+  .ABPDTableWrapper {
+    display: none;
+  }
+  
+  .ABPDMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .ABPDfaq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .ABPDfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .ABPDfaq-item.active .ABPDfaq-answer {
+    max-height: 500px;
+  }
+
+  .ABPDfaq-row .ABPDStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .ABPDfaq-row .ABPDStatus.received {
+    color: #009605;
+  }
+
+  .ABPDfaq-row .ABPDStatus.refunded {
+    color: #ff0000;
+  }
+}

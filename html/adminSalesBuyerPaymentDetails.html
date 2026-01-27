@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buyer Payment Details</title>
+    <link rel="stylesheet" href="../css/adminSaleBuyerPaymentDetails.css" />
+  </head>
+  <body>
+    <div class="ABPDDashboardContainer">
+      <!-- Search Bar Section -->
+      <div class="ABPDSearchRow">
+        <div class="ABPDSearchWrapper">
+          <img
+            src="../assets/adminProductRecentlyAdded/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="ABPDSearchInput"
+            placeholder="Search by Product name, Transaction ID, Payment Mode."
+          />
+        </div>
+        <div class="ABPDIconsGroup filter-bar-wrapper">
+          <div class="ABPDFilterDummy">
+            <img src="../assets/adminProductRecentlyAdded/Sliders.svg" alt="" />
+          </div>
+          <div class="ABPDSettingsDummy">
+            <img
+              src="../assets/adminProductRecentlyAdded/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="abpd-filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="abpd-status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="received" id="received" />
+                  <label for="received">Received</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="refunded" id="refunded" />
+                  <label for="refunded">Refunded</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="main-content-flows-main" id="abpd-sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="vprice-asc">V. Price ↑</li>
+                <li data-sort="vprice-desc">V. Price ↓</li>
+                <li data-sort="sprice-asc">S. Price ↑</li>
+                <li data-sort="sprice-desc">S. Price ↓</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Table Section -->
+      <div class="ABPDTableCard">
+        <div class="ABPDTableHeader">
+          <h3 class="ABPDTableTitle">Buyer Payment Details</h3>
+          <a href="#" class="ABPDTotalLink">View all</a>
+        </div>
+        <div class="ABPDTableWrapper">
+          <table class="ABPDProductTable">
+            <thead class="ABPDTableHead">
+              <tr class="ABPDTableHeadRow">
+                <th class="ABPDTableHeaderCell">Product Name</th>
+                <th class="ABPDTableHeaderCell">Purchase Date</th>
+                <th class="ABPDTableHeaderCell">V. Price</th>
+                <th class="ABPDTableHeaderCell">S. Price</th>
+                <th class="ABPDTableHeaderCell">Status</th>
+                <th class="ABPDTableHeaderCell">Payment Mode</th>
+                <th class="ABPDTableHeaderCell">Payment Details</th>
+                <th class="ABPDTableHeaderCell">Transaction ID</th>
+              </tr>
+            </thead>
+            <tbody class="ABPDTableBody">
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell received">Received</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 100</td>
+                <td class="ABPDTableCell">₹ 6,100</td>
+                <td><span class="ABPDTableCell received">Received</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell received">Received</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell refunded">Refunded</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell received">Received</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell refunded">Refunded</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+              <tr class="ABPDTableRow">
+                <td class="ABPDTableCell ABPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="ABPDProductThumb"
+                  />
+                  <span class="ABPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="ABPDTableCell">07/01/26</td>
+                <td class="ABPDTableCell">₹ 6,149</td>
+                <td class="ABPDTableCell">₹ 6,500</td>
+                <td><span class="ABPDTableCell received">Received</span></td>
+                <td class="ABPDTableCell">Debit Card</td>
+                <td class="ABPDTableCell">xxxx xxxx  xxxx xx89</td>
+                <td class="ABPDTableCell">788990000048</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile FAQ Section -->
+        <div class="ABPDMobileFAQ">
+          <div class="ABPDfaq-item">
+            <button class="ABPDfaq-question">
+              <div class="ABPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="ABPDfaq-user-text">
+                  <span class="ABPDfaq-username">Madhubani Painting</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="ABPDfaq-answer">
+              <div class="ABPDfaq-row">
+                <span>Purchase Date</span><span>07/01/26</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>S. Price</span><span>₹ 6,500</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Status</span>
+                <span class="ABPDStatus received">Received</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Mode</span>
+                <span>Debit Card</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Details</span>
+                <span>xxxx xxxx  xxxx xx89</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ABPDfaq-item">
+            <button class="ABPDfaq-question">
+              <div class="ABPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="ABPDfaq-user-text">
+                  <span class="ABPDfaq-username">Madhubani Painting</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="ABPDfaq-answer">
+              <div class="ABPDfaq-row">
+                <span>Purchase Date</span><span>07/01/26</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>S. Price</span><span>₹ 6,500</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Status</span>
+                <span class="ABPDStatus received">Received</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Mode</span>
+                <span>Debit Card</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Details</span>
+                <span>xxxx xxxx  xxxx xx89</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ABPDfaq-item">
+            <button class="ABPDfaq-question">
+              <div class="ABPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="ABPDfaq-user-text">
+                  <span class="ABPDfaq-username">Madhubani Painting</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="ABPDfaq-answer">
+              <div class="ABPDfaq-row">
+                <span>Purchase Date</span><span>07/01/26</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>S. Price</span><span>₹ 6,500</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Status</span>
+                <span class="ABPDStatus refunded">Refunded</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Mode</span>
+                <span>Debit Card</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Details</span>
+                <span>xxxx xxxx  xxxx xx89</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ABPDfaq-item">
+            <button class="ABPDfaq-question">
+              <div class="ABPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="ABPDfaq-user-text">
+                  <span class="ABPDfaq-username">Madhubani Painting</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="ABPDfaq-answer">
+              <div class="ABPDfaq-row">
+                <span>Purchase Date</span><span>07/01/26</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>S. Price</span><span>₹ 6,500</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Status</span>
+                <span class="ABPDStatus received">Received</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Mode</span>
+                <span>Debit Card</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Payment Details</span>
+                <span>xxxx xxxx  xxxx xx89</span>
+              </div>
+              <div class="ABPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/adminSaleBuyerPaymentDetails.js"></script>
+  </body>
+</html>
