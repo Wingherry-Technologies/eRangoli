@@ -12,8 +12,8 @@ body {
 
 /* Main Dashboard Container */
 .adminSalesDashboardContainer {
-    max-width: 1400px;
-    margin: 0 auto;
+    /* max-width: 1400px; */
+    /* margin: 0 auto; */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -66,7 +66,7 @@ body {
     font-weight: 500;
     color: #3F3F3F;
     margin-bottom: 12px;
-    margin-left: 5rem;
+    margin-left: 3rem;
 }
 
 .adminSalesStatFooter {
@@ -82,7 +82,7 @@ body {
     align-items: center;
     gap: 4px;
     font-size: 12px;
-    color: #10B981;
+    color: #8E8989;
     font-weight: 500;
 }
 
@@ -117,7 +117,7 @@ body {
 .adminSalesCard {
     background-color: #FFFFFF;
     border-radius: 12px;
-    padding: 24px;
+    padding: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -134,7 +134,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 .adminSalesCardTitle {
@@ -157,6 +157,7 @@ body {
     color: #4B5563;
     background-color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 /* Card Body */
@@ -173,7 +174,7 @@ body {
 
 .adminSalesSubtext {
     font-size: 13px;
-    color: #7C3AED;
+    color: #7B5DD6;
     font-weight: 400;
 }
 
@@ -185,15 +186,20 @@ body {
 }
 
 .adminSalesRevenueItem {
-    display: grid;
-    grid-template-columns: 180px 1fr 80px;
+    /* display: grid;
+    grid-template-columns: 180px 1fr 80px; */
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
+}
+.adminSalesRevenueHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
 }
 
 .adminSalesRevenueLabel {
     font-size: 14px;
-    color: #4B5563;
+    color:#3F3F3F;
 }
 
 .adminSalesRevenueBarContainer {
@@ -201,17 +207,18 @@ body {
     background-color: #F3F4F6;
     border-radius: 5px;
     overflow: hidden;
+    border: 1px solid #CBD5E1;
 }
 
 .adminSalesRevenueBar {
     height: 100%;
-    background: linear-gradient(90deg, #A78BFA 0%, #8B5CF6 100%);
+    background: #989FFF;
     border-radius: 5px;
 }
 
 .adminSalesRevenueValue {
     font-size: 14px;
-    color: #6B7280;
+    color: #64748B;
     text-align: right;
 }
 
@@ -233,11 +240,12 @@ canvas {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     width: 100%;
+    margin-left: 9rem;
 }
 
 .adminSalesLegendRow {
     display: flex;
-    justify-content: center;
+    margin-left: 4rem;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -246,18 +254,42 @@ canvas {
     display: flex;
     align-items: center;
     gap: 8px;
+    
 }
 
 .adminSalesLegendDot {
-    width: 12px;
-    height: 12px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     display: inline-block;
 }
 
+.adminSalesLegendDotRed{
+    background-color: #EF4444;
+}
+.adminSalesLegendDotGreen{
+    background-color: #22C55E;
+
+}
+.adminSalesLegendDotYellow{
+    background-color: #FDE047;
+}
+
+.adminSalesLegendDotBlue{
+    background-color: #3B82F6;
+}
+.adminSalesLegendDotPurple{
+    background-color: #7C3AED;
+}
 .adminSalesLegendText {
     font-size: 13px;
-    color: #4B5563;
+    color: #2D2D2D;
+}
+
+
+#adminSalesBusinessChart {
+height: 210px !important;
+
 }
 
 /* Responsive */

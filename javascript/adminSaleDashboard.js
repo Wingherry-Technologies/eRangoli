@@ -31,15 +31,27 @@ const adminSalesBusinessChart = new Chart(adminSalesBusinessCtx, {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-            data: [10, 42, 32, 65, 28, 25, 22, 42, 15, 32, 28, 65],
-            borderColor: '#7C3AED',
-            backgroundColor: 'rgba(124, 58, 237, 0.2)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0
-        }]
+datasets: [{
+    data: [10, 42, 32, 65, 28, 25, 22, 42, 15, 32, 28, 65],
+    borderColor: '#532DDB',
+    borderWidth: 2.5,
+    fill: true,
+    tension: 0.4,
+    pointRadius: 0,
+
+    backgroundColor: (context) => {
+        const chart = context.chart;
+        const {ctx, chartArea} = chart;
+        if (!chartArea) return null;
+
+        const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+        gradient.addColorStop(0, 'rgba(124, 58, 237, 0.35)');
+        gradient.addColorStop(0.6, 'rgba(124, 58, 237, 0.15)');
+        gradient.addColorStop(1, 'rgba(124, 58, 237, 0.02)');
+        return gradient;
+    }
+}]
+
     },
     options: {
         responsive: true,
@@ -57,24 +69,41 @@ const adminSalesBusinessChart = new Chart(adminSalesBusinessCtx, {
                 grid: {
                     display: false
                 },
-                ticks: {
-                    font: {
-                        size: 12
-                    },
-                    color: '#6B7280'
-                }
-            },
-            y: {
-                grid: {
-                    color: '#F3F4F6'
+                              border: {
+                    display: false       
                 },
                 ticks: {
                     font: {
                         size: 12
                     },
-                    color: '#6B7280'
+                    color: '#3F3F3F'
+                }
+            },
+                y: {
+            min: 0,
+            max: 80,               
+
+            grid: {
+                display: false      
+            },
+                          border: {
+                    display: false       
+                },
+
+            ticks: {
+                stepSize: 20,       
+                padding: 10,       
+                font: {
+                    size: 12,
+                    weight: 500    
+                },
+                color: '#716B6B',
+                callback: function(value) {
+                    return value < 10 ? '0' + value : value; 
                 }
             }
+        }
+
         }
     }
 });
@@ -116,16 +145,41 @@ const adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
             {
                 label: 'Target',
                 data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-                backgroundColor: '#FDE047',
+                 backgroundColor: (context) => {
+    const chart = context.chart;
+    const { ctx, chartArea } = chart;
+    if (!chartArea) return null;
+
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+    gradient.addColorStop(0, '#FFEB11');
+    gradient.addColorStop(0.5, '#B6D339');
+    gradient.addColorStop(1, '#F3C57A');
+
+    return gradient;
+  },
                 borderRadius: 4,
-                barThickness: 10
+                barThickness: 8
             },
             {
                 label: 'Reality',
                 data: [85, 83, 84, 83, 84, 83, 83, 84, 84, 83, 83, 84],
-                backgroundColor: '#4ADE80',
+                backgroundColor: (context) => {
+    const chart = context.chart;
+    const { ctx, chartArea } = chart;
+
+    if (!chartArea) return null;
+
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+
+    gradient.addColorStop(0, '#57DA65');  
+    gradient.addColorStop(0.5, '#51CC5D'); 
+    gradient.addColorStop(1, '#46A46C');  
+
+    return gradient;
+},
+
                 borderRadius: 4,
-                barThickness: 10
+                barThickness: 8
             }
         ]
     },
@@ -145,6 +199,9 @@ const adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
                 grid: {
                     display: false
                 },
+                              border: {
+                    display: false       
+                },
                 ticks: {
                     font: {
                         size: 12
@@ -152,27 +209,35 @@ const adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
                     color: '#6B7280'
                 }
             },
-            y: {
-                grid: {
-                    color: '#F3F4F6'
+y: {
+    min: 20,
+    max: 100,
+
+    grid: {
+        display: false   
+    },
+                  border: {
+                    display: false       
                 },
-                ticks: {
-                    font: {
-                        size: 12
-                    },
-                    color: '#6B7280',
-                    callback: function(value) {
-                        if (value === 0) return '0';
-                        if (value === 20) return '20k';
-                        if (value === 40) return '40k';
-                        if (value === 60) return '60k';
-                        if (value === 80) return '80k';
-                        if (value === 100) return '1.0M';
-                        return value;
-                    }
-                },
-                max: 100
-            }
+
+    ticks: {
+        stepSize: 20,
+        padding: 12,
+        font: {
+            size: 12
+        },
+        color: '#6B7280',
+        callback: function(value) {
+            if (value === 20) return '20k';
+            if (value === 40) return '40k';
+            if (value === 60) return '60k';
+            if (value === 80) return '80k';
+            if (value === 100) return '1.0M';
+            return '';
+        }
+    }
+}
+
         }
     }
 });
@@ -185,13 +250,9 @@ const adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
         labels: ['MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH', 'MH'],
         datasets: [{
             data: [22, 26, 22, 20, 16, 18, 22, 26, 22, 20, 7, 18],
-            backgroundColor: [
-                '#3B82F6', '#22C55E', '#3B82F6', '#3B82F6', 
-                '#3B82F6', '#3B82F6', '#3B82F6', '#22C55E', 
-                '#3B82F6', '#3B82F6', '#EF4444', '#3B82F6'
-            ],
-            borderRadius: 4,
-            barThickness: 12
+            backgroundColor: '#0095FF',
+            borderRadius: 2,
+            barThickness: 10
         }]
     },
     options: {
@@ -210,6 +271,9 @@ const adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
                 grid: {
                     display: false
                 },
+                        border: {
+                    display: false       
+                },
                 ticks: {
                     font: {
                         size: 11
@@ -217,9 +281,14 @@ const adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
                     color: '#6B7280'
                 }
             },
+
+            
             y: {
                 grid: {
-                    color: '#F3F4F6'
+                    display: false
+                },
+                              border: {
+                    display: false       
                 },
                 ticks: {
                     font: {size: 11
