@@ -199,4 +199,16 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.closest(".ABPDfaq-item").classList.toggle("active");
     });
   });
+
+
+  function updateTotalCount() {
+  const totalLink = document.querySelector(".ABPDTotalLink");
+  const rows = document.querySelectorAll(".ABPDTableRow");
+
+  totalLink.innerText = `Total - ${rows.length}`;
+}
+
+// Page load par call karo
+updateTotalCount();
+
 });
