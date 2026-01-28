@@ -148,7 +148,7 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.filter-bar-wrapper{
+.filter-bar-wrapper {
   position: relative;
 }
 
@@ -480,7 +480,6 @@ body {
 
 .APVfaq-item.active {
   border: 1px solid #0f8df340;
-  border-radius: 12px;
   padding-bottom: 6px;
 }
 
@@ -488,6 +487,7 @@ body {
   border-bottom: 1px solid #cce8ff;
   padding-bottom: 8px;
   margin-bottom: 8px;
+  border-radius: 0px;
 }
 
 .APVfaq-row {
@@ -650,5 +650,8 @@ body {
 
   .APVfaq-row .APVStatus.live {
     color: #de4949;
+  }
+  .APVfaq-item {
+    margin-bottom: 10px;
   }
 }

@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (e) {
     const btn = e.target.closest(".APRAActionButton");
     if (!btn) return;
-    window.location.href = "../html/adminVerificationProcess.html";
+    window.location.href = "../html/adminRecentVendorListOverview.html";
   });
   /* ================= SORT ================= */
   const settingsBtn = document.querySelector(".APRASettingsDummy");

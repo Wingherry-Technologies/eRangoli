@@ -854,15 +854,585 @@ const categoryFields = {
     },
   ],
 };
+const level4FieldMap = {
+  /* WOMEN → SAREES */
+  "Handwoven Pattu Silk Sarees": [
+    fieldSellingPrice(),
+    fieldFabric(["Pure Silk"]),
+    fieldOccasion(),
+    fieldColor(),
+    fieldLength(["5.5m", "6.3m"]),
+    fieldBlousePiece(),
+    fieldQuantity(),
+    fieldBrand(),
+    fieldReturn(),
+    fieldCare(["Dry clean only"])
+  ],
 
-const subCategories = {
-  Footwear: ["Mojadi", "Juttis", "Kolhapuri", "Sandals"],
-  Jewellery: ["Necklace", "Earrings", "Bangles", "Rings"],
-  Saree: ["Paithani", "Banarasi", "Kanjeevaram", "Chanderi"],
-  Art: ["Traditional Painting", "Modern Art", "Sculpture"],
-  DressMaterial: ["3 piece", "2 piece", "Kurta Set"],
-  Dresses: ["Salwar Suit", "Kurta Set", "Anarkali"],
+  "Handloom Banarasi Sarees": [
+    fieldSellingPrice(),
+    fieldFabric(["Silk Blend", "Pure Silk"]),
+    fieldWeave(["Banarasi"]),
+    fieldColor(),
+    fieldQuantity(),
+    fieldReturn(),
+    fieldCare(["Dry clean only"])
+  ],
+
+  /* MEN → KURTA SETS */
+  "Cotton Kurta Sets": [
+    fieldSellingPrice(),
+    fieldFabric(["Cotton"]),
+    fieldSleeve(),
+    fieldFit(),
+    fieldColor(),
+    fieldSize(),
+    fieldQuantity(),
+    fieldReturn()
+  ],
+
+  "Wedding Kurta Sets": [
+    fieldSellingPrice(),
+    fieldFabric(["Silk", "Brocade"]),
+    fieldOccasion(["Wedding"]),
+    fieldColor(),
+    fieldSize(),
+    fieldQuantity(),
+    fieldReturn()
+  ],
+
+  /* KIDS → ROMPERS */
+  "Cotton Rompers": [
+    fieldSellingPrice(),
+    fieldFabric(["Cotton"]),
+    fieldAgeGroup(),
+    fieldColor(),
+    fieldQuantity(),
+    fieldCare(["Hand wash"])
+  ],
+
+  /* FURNITURE → BEDS */
+  "King Size Beds": [
+    fieldSellingPrice(),
+    fieldMaterial(["Wood", "Engineered Wood"]),
+    fieldDimensions(),
+    fieldFinish(),
+    fieldWeightCapacity(),
+    fieldReturn()
+  ],
+
+  /* ARTS */
+  "Abstract Art": [
+    fieldSellingPrice(),
+    fieldMedium(["Acrylic"]),
+    fieldDimensions(),
+    fieldFrame(),
+    fieldCare(["Avoid direct sunlight"])
+  ]
 };
+
+const categoryHierarchy = {
+  Women: {
+    Clothing: {
+      Sarees: [
+        "Handwoven Pattu Silk Sarees",
+        "Handloom Kanchipuram Sarees",
+        "Handloom Banarasi Sarees",
+        "Handwoven Cotton Sarees",
+        "Linen Handloom Sarees",
+        "Chanderi Handloom Sarees",
+        "Tussar Handloom Sarees",
+        "Hand Block Printed Sarees"
+      ],
+      Dresses: [],
+      "Dress Materials": [],
+      "Kurtis & Kurtas": [],
+      "Ethnic Sets": []
+    },
+    Handlooms: {},
+    Footwear: {},
+    Jewellery: {},
+    Accessories: {}
+  },
+
+  Men: {
+    Clothing: {},
+    "Ethnic Wear": {
+      "Kurta Sets": [
+        "Cotton Kurta Sets",
+        "Silk Kurta Sets",
+        "Festive Kurta Sets",
+        "Wedding Kurta Sets"
+      ],
+      Sherwanis: [],
+      "Dhoti & Veshti": [],
+      "Nehru Jackets": []
+    },
+    Footwear: {},
+    Accessories: {},
+    Grooming: {}
+  },
+
+  Kids: {
+    "Boys Clothing": {},
+    "Girls Clothing": {},
+    "Baby Wear": {
+      Rompers: [
+        "Cotton Rompers",
+        "Organic Rompers",
+        "Printed Rompers"
+      ],
+      Bodysuits: [],
+      Sleepwear: [],
+      "Winter Wear": []
+    },
+    Footwear: {},
+    "Toys & Games": {},
+    "School Essentials": {}
+  },
+
+  Furniture: {
+    "Living Room Furniture": {},
+    "Bedroom Furniture": {
+      Beds: [
+        "Wooden Beds",
+        "Upholstered Beds",
+        "Storage Beds",
+        "King Size Beds",
+        "Queen Size Beds"
+      ],
+      Wardrobes: [],
+      "Side Tables": [],
+      "Dressing Tables": []
+    },
+    "Dining Furniture": {},
+    "Office Furniture": {},
+    "Outdoor Furniture": {},
+    "Storage Furniture": {}
+  },
+
+  Arts: {
+    Paintings: {
+      "Acrylic Paintings": [
+        "Abstract Art",
+        "Contemporary Art",
+        "Traditional Art",
+        "Nature & Landscape"
+      ],
+      "Oil Paintings": [],
+      "Watercolor Paintings": [],
+      "Mixed Media": []
+    },
+    Sculptures: {},
+    "Wall Art": {},
+    Collectibles: {},
+    "Digital Art": {}
+  },
+
+  Crafts: {
+    Decor: {},
+    Jewellery: {},
+    "Pottery & Clay": {},
+    "Wood Crafts": {},
+    "Metal Crafts": {},
+    "Textile Crafts": {
+      "Handwoven Items": [
+        "Table Runners",
+        "Cushion Covers",
+        "Wall Hangings"
+      ],
+      "Embroidered Items": [],
+      "Patchwork Items": []
+    }
+  },
+
+  "Home & Living": {
+    "Home Decor": {
+      "Wall Decor": [
+        "Wooden Wall Decor",
+        "Metal Wall Decor",
+        "Fabric Wall Decor"
+      ],
+      Vases: [],
+      Clocks: []
+    },
+    Lighting: {},
+    "Kitchen & Dining": {},
+    "Bedding & Furnishings": {}
+  }
+};
+const level4ToBaseCategoryMap = {
+  /* WOMEN → SAREES */
+  "Handwoven Pattu Silk Sarees": "Saree",
+  "Handloom Kanchipuram Sarees": "Saree",
+  "Handloom Banarasi Sarees": "Saree",
+  "Handwoven Cotton Sarees": "Saree",
+  "Linen Handloom Sarees": "Saree",
+  "Chanderi Handloom Sarees": "Saree",
+  "Tussar Handloom Sarees": "Saree",
+  "Hand Block Printed Sarees": "Saree",
+
+  /* MEN → KURTA SETS */
+  "Cotton Kurta Sets": "Dresses",
+  "Silk Kurta Sets": "Dresses",
+  "Festive Kurta Sets": "Dresses",
+  "Wedding Kurta Sets": "Dresses",
+
+  /* KIDS → ROMPERS */
+  "Cotton Rompers": "Dresses",
+  "Organic Rompers": "Dresses",
+  "Printed Rompers": "Dresses",
+
+  /* FURNITURE → BEDS */
+  "Wooden Beds": "Furniture",
+  "Upholstered Beds": "Furniture",
+  "Storage Beds": "Furniture",
+  "King Size Beds": "Furniture",
+  "Queen Size Beds": "Furniture",
+
+  /* ARTS */
+  "Abstract Art": "Art",
+  "Contemporary Art": "Art",
+  "Traditional Art": "Art",
+  "Nature & Landscape": "Art",
+
+  /* HOME DECOR */
+  "Wooden Wall Decor": "Art",
+  "Metal Wall Decor": "Art",
+  "Fabric Wall Decor": "Art"
+};
+
+const level1 = document.getElementById("categoryLevel1");
+const level2 = document.getElementById("categoryLevel2");
+const level3 = document.getElementById("categoryLevel3");
+const level4 = document.getElementById("categoryLevel4");
+
+/* Populate Level 1 */
+Object.keys(categoryHierarchy).forEach(cat => {
+  level1.appendChild(new Option(cat, cat));
+});
+
+/* LEVEL 1 → LEVEL 2 */
+level1.addEventListener("change", () => {
+  resetSelect(level2);
+  resetSelect(level3);
+  resetSelect(level4);
+
+  if (!level1.value) return;
+
+  Object.keys(categoryHierarchy[level1.value]).forEach(cat => {
+    level2.appendChild(new Option(cat, cat));
+  });
+
+  level2.disabled = false;
+});
+
+/* LEVEL 2 → LEVEL 3 */
+level2.addEventListener("change", () => {
+  resetSelect(level3);
+  resetSelect(level4);
+
+  const data = categoryHierarchy[level1.value][level2.value];
+  if (!data) return;
+
+  Object.keys(data).forEach(cat => {
+    level3.appendChild(new Option(cat, cat));
+  });
+
+  level3.disabled = false;
+});
+
+/* LEVEL 3 → LEVEL 4 */
+level3.addEventListener("change", () => {
+  resetSelect(level4);
+
+  const list =
+    categoryHierarchy[level1.value][level2.value][level3.value];
+
+  if (!list || !list.length) return;
+
+  list.forEach(item => {
+    level4.appendChild(new Option(item, item));
+  });
+
+  level4.disabled = false;
+});
+
+function resetSelect(select) {
+  select.innerHTML = `<option value="">Select</option>`;
+  select.disabled = true;
+}
+function fieldSellingPrice() {
+  return {
+    name: "sellingPrice",
+    label: "Selling Price",
+    type: "text",
+    placeholder: "₹ 1299",
+    required: true
+  };
+}
+
+function fieldFabric(options) {
+  return {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    options,
+    required: true
+  };
+}
+
+function fieldOccasion(options = ["Casual", "Festive", "Wedding", "Party"]) {
+  return {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    options
+  };
+}
+
+function fieldColor() {
+  return {
+    name: "colorsAvailable",
+    label: "Colours Available",
+    type: "color"
+  };
+}
+
+function fieldSize() {
+  return {
+    name: "size",
+    label: "Size",
+    type: "select",
+    options: ["S", "M", "L", "XL", "XXL"]
+  };
+}
+
+function fieldQuantity() {
+  return {
+    name: "totalQuantity",
+    label: "Total Quantity",
+    type: "text",
+    placeholder: "100",
+    required: true
+  };
+}
+
+function fieldBrand() {
+  return {
+    name: "brand",
+    label: "Brand",
+    type: "text",
+    placeholder: "Handloom India"
+  };
+}
+
+function fieldReturn() {
+  return {
+    name: "applicableReturn",
+    label: "Applicable to Return",
+    type: "select",
+    options: ["Yes", "No"],
+    required: true
+  };
+}
+
+function fieldCare(options) {
+  return {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    options
+  };
+}
+
+/* Furniture / Art helpers */
+function fieldDimensions() {
+  return {
+    name: "dimensions",
+    label: "Dimensions",
+    type: "text",
+    placeholder: "L x W x H (cm)"
+  };
+}
+
+function fieldMaterial(options) {
+  return {
+    name: "material",
+    label: "Material",
+    type: "select",
+    options
+  };
+}
+
+function fieldFrame() {
+  return {
+    name: "frame",
+    label: "Frame",
+    type: "select",
+    options: ["With Frame", "Without Frame"]
+  };
+}
+function fieldLength(options) {
+  return {
+    name: "length",
+    label: "Length",
+    type: "select",
+    options
+  };
+}
+
+function fieldBlousePiece() {
+  return {
+    name: "blousePiece",
+    label: "Blouse Piece Included",
+    type: "select",
+    options: ["Yes", "No"]
+  };
+}
+
+function fieldWeave(options) {
+  return {
+    name: "weave",
+    label: "Weave",
+    type: "select",
+    options
+  };
+}
+
+function fieldSleeve() {
+  return {
+    name: "sleeve",
+    label: "Sleeve Type",
+    type: "select",
+    options: ["Full Sleeve", "Half Sleeve", "Sleeveless"]
+  };
+}
+
+function fieldFit() {
+  return {
+    name: "fit",
+    label: "Fit",
+    type: "select",
+    options: ["Regular", "Slim", "Relaxed"]
+  };
+}
+
+function fieldAgeGroup() {
+  return {
+    name: "ageGroup",
+    label: "Age Group",
+    type: "select",
+    options: ["0-6 Months", "6-12 Months", "1-2 Years"]
+  };
+}
+
+function fieldFinish() {
+  return {
+    name: "finish",
+    label: "Finish",
+    type: "select",
+    options: ["Matte", "Glossy", "Natural"]
+  };
+}
+
+function fieldWeightCapacity() {
+  return {
+    name: "weightCapacity",
+    label: "Weight Capacity",
+    type: "text",
+    placeholder: "In Kg"
+  };
+}
+
+function fieldMedium(options) {
+  return {
+    name: "medium",
+    label: "Medium",
+    type: "select",
+    options
+  };
+}
+
+const level4Select = document.getElementById("categoryLevel4");
+const dynamicFields = document.getElementById("dynamicFields");
+
+level4Select.addEventListener("change", () => {
+  dynamicFields.innerHTML = "";
+
+  const level4Value = level4Select.value;
+  const baseCategory = level4ToBaseCategoryMap[level4Value];
+
+  // 🔒 No mapping → no dynamic fields
+  if (!baseCategory || !categoryFields[baseCategory]) return;
+
+  const grid = document.createElement("div");
+  grid.className = "form-grid";
+  grid.style.marginTop = "16px";
+
+  categoryFields[baseCategory].forEach(field => {
+    const group = document.createElement("div");
+    group.className = "form-group";
+
+    const label = document.createElement("label");
+    label.className = "form-label";
+    label.innerHTML =
+      field.label +
+      (field.required ? ' <span class="required">*</span>' : "");
+
+    let input;
+
+    // 🎨 COLOR FIELD
+    if (field.name === "colorsAvailable") {
+      const wrapper = document.createElement("div");
+      wrapper.className = "color-selector";
+
+      const swatch = document.createElement("div");
+      swatch.className = "color-swatch";
+
+      input = document.createElement("select");
+      input.className = "form-select color-select";
+      input.innerHTML = `<option value="">Select ${field.label}</option>`;
+
+      field.options.forEach(opt => {
+        input.appendChild(new Option(opt, opt));
+      });
+
+      wrapper.appendChild(swatch);
+      wrapper.appendChild(input);
+      group.append(label, wrapper);
+    }
+
+    // 🔽 SELECT
+    else if (field.type === "select") {
+      input = document.createElement("select");
+      input.className = "form-select";
+      input.innerHTML = `<option value="">Select ${field.label}</option>`;
+
+      field.options.forEach(opt => {
+        input.appendChild(new Option(opt, opt));
+      });
+
+      group.append(label, input);
+    }
+
+    // ✏️ TEXT
+    else {
+      input = document.createElement("input");
+      input.type = "text";
+      input.className = "form-input";
+      input.placeholder = field.placeholder || "";
+      group.append(label, input);
+    }
+
+    grid.appendChild(group);
+  });
+
+  dynamicFields.appendChild(grid);
+  attachDynamicFieldBlurValidation();
+});
+
+
 
 // Main upload
 const mainUpload = document.getElementById("mainUpload");
@@ -955,122 +1525,122 @@ productDescription.addEventListener("input", (e) => {
 });
 
 // Category change
-const categorySelect = document.getElementById("category");
-const subCategorySelect = document.getElementById("subCategory");
-const dynamicFields = document.getElementById("dynamicFields");
+// const categorySelect = document.getElementById("category");
+// const subCategorySelect = document.getElementById("subCategory");
+// const dynamicFields = document.getElementById("dynamicFields");
 
-categorySelect.addEventListener("change", (e) => {
-  const category = e.target.value;
+// categorySelect.addEventListener("change", (e) => {
+//   const category = e.target.value;
 
-  // Update sub categories
-  subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
-  if (category && subCategories[category]) {
-    subCategories[category].forEach((sub) => {
-      const option = document.createElement("option");
-      option.value = sub;
-      option.textContent = sub;
-      subCategorySelect.appendChild(option);
-    });
-  }
+//   // Update sub categories
+//   subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
+//   if (category && subCategories[category]) {
+//     subCategories[category].forEach((sub) => {
+//       const option = document.createElement("option");
+//       option.value = sub;
+//       option.textContent = sub;
+//       subCategorySelect.appendChild(option);
+//     });
+//   }
 
-  // Update dynamic fields
-  dynamicFields.innerHTML = "";
-  if (category && categoryFields[category]) {
-    const gridDiv = document.createElement("div");
-    gridDiv.className = "form-grid";
-    gridDiv.style.marginTop = "16px";
+//   // Update dynamic fields
+//   dynamicFields.innerHTML = "";
+//   if (category && categoryFields[category]) {
+//     const gridDiv = document.createElement("div");
+//     gridDiv.className = "form-grid";
+//     gridDiv.style.marginTop = "16px";
 
-    categoryFields[category].forEach((field) => {
-      const formGroup = document.createElement("div");
-      formGroup.className = "form-group";
-      if (field.col === "full") {
-        formGroup.classList.add("full-width");
-      }
+//     categoryFields[category].forEach((field) => {
+//       const formGroup = document.createElement("div");
+//       formGroup.className = "form-group";
+//       if (field.col === "full") {
+//         formGroup.classList.add("full-width");
+//       }
 
-      const label = document.createElement("label");
-      label.className = "form-label";
-      label.innerHTML =
-        field.label +
-        (field.required ? ' <span class="required">*</span>' : "");
+//       const label = document.createElement("label");
+//       label.className = "form-label";
+//       label.innerHTML =
+//         field.label +
+//         (field.required ? ' <span class="required">*</span>' : "");
 
-      let input;
-      if (field.type === "select") {
+//       let input;
+//       if (field.type === "select") {
 
-        if (field.name === "colorsAvailable") {
+//         if (field.name === "colorsAvailable") {
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "color-selector";
+//     const wrapper = document.createElement("div");
+//     wrapper.className = "color-selector";
 
-    const swatch = document.createElement("div");
-    swatch.className = "color-swatch";
+//     const swatch = document.createElement("div");
+//     swatch.className = "color-swatch";
 
-    input = document.createElement("select");
-    input.className = "form-select color-select";
+//     input = document.createElement("select");
+//     input.className = "form-select color-select";
 
-    const opt = document.createElement("option");
-    opt.value = "";
-    opt.textContent = "Select " + field.label;
-    input.appendChild(opt);
+//     const opt = document.createElement("option");
+//     opt.value = "";
+//     opt.textContent = "Select " + field.label;
+//     input.appendChild(opt);
 
-    field.options.forEach((optVal) => {
-      const option = document.createElement("option");
-      option.value = optVal;
-      option.textContent = optVal;
-      input.appendChild(option);
-    });
+//     field.options.forEach((optVal) => {
+//       const option = document.createElement("option");
+//       option.value = optVal;
+//       option.textContent = optVal;
+//       input.appendChild(option);
+//     });
 
-    wrapper.appendChild(swatch);
-    wrapper.appendChild(input);
+//     wrapper.appendChild(swatch);
+//     wrapper.appendChild(input);
 
-    formGroup.appendChild(label);
-    formGroup.appendChild(wrapper);
-    gridDiv.appendChild(formGroup);
-    return; // important
-  }
-        input = document.createElement("select");
-        input.className = "form-select";
-        input.innerHTML =
-          '<option value="">Select ' + field.label + "</option>";
-        field.options.forEach((opt) => {
-          const option = document.createElement("option");
-          option.value = opt;
-          option.textContent = opt;
-          input.appendChild(option);
-        });
-      } else {
-        input = document.createElement("input");
-        input.type = "text";
-        input.className = "form-input";
-        input.placeholder = field.placeholder || "";
+//     formGroup.appendChild(label);
+//     formGroup.appendChild(wrapper);
+//     gridDiv.appendChild(formGroup);
+//     return; // important
+//   }
+//         input = document.createElement("select");
+//         input.className = "form-select";
+//         input.innerHTML =
+//           '<option value="">Select ' + field.label + "</option>";
+//         field.options.forEach((opt) => {
+//           const option = document.createElement("option");
+//           option.value = opt;
+//           option.textContent = opt;
+//           input.appendChild(option);
+//         });
+//       } else {
+//         input = document.createElement("input");
+//         input.type = "text";
+//         input.className = "form-input";
+//         input.placeholder = field.placeholder || "";
 
-        if (field.name === "sellingPrice") {
-          input.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
-          });
-        }
+//         if (field.name === "sellingPrice") {
+//           input.addEventListener("input", (e) => {
+//             e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
+//           });
+//         }
 
-        if (field.name === "totalQuantity") {
-  input.classList.add("quantity-input");
-}
+//         if (field.name === "totalQuantity") {
+//   input.classList.add("quantity-input");
+// }
 
-if (field.name === "brand") {
-  input.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
-  });
-}
+// if (field.name === "brand") {
+//   input.addEventListener("input", (e) => {
+//     e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+//   });
+// }
 
         
-      }
+//       }
 
-      formGroup.appendChild(label);
-      formGroup.appendChild(input);
-      gridDiv.appendChild(formGroup);
-    });
+//       formGroup.appendChild(label);
+//       formGroup.appendChild(input);
+//       gridDiv.appendChild(formGroup);
+//     });
 
-    dynamicFields.appendChild(gridDiv);
-    attachDynamicFieldBlurValidation();
-  }
-});
+//     dynamicFields.appendChild(gridDiv);
+//     attachDynamicFieldBlurValidation();
+//   }
+// });
 
 // Quantity input - only numbers
 document.addEventListener("input", (e) => {
@@ -1363,7 +1933,7 @@ laneInput.addEventListener("input", (e) => {
 const productMandatoryFields = [
   { id: "productName", message: "Product name is required" },
   { id: "productDescription", message: "Product description is required" },
-  { id: "category", message: "Please select category" }
+  // { id: "category", message: "Please select category" }
 ];
 
 productMandatoryFields.forEach(obj => {
@@ -1377,15 +1947,15 @@ productMandatoryFields.forEach(obj => {
     }
   });
 });
-const subCategory = document.getElementById("subCategory");
+// const subCategory = document.getElementById("subCategory");
 
-subCategory.addEventListener("blur", () => {
-  if (!subCategory.value) {
-    showError(subCategory, "Please select sub category");
-  } else {
-    clearError(subCategory);
-  }
-});
+// subCategory.addEventListener("blur", () => {
+//   if (!subCategory.value) {
+//     showError(subCategory, "Please select sub category");
+//   } else {
+//     clearError(subCategory);
+//   }
+// });
 function attachDynamicFieldBlurValidation() {
   const requiredMarks = dynamicFields.querySelectorAll(".form-label .required");
 
@@ -1494,6 +2064,14 @@ if (!validateVariantQuantities()) {
     }
     return;
   }
+//   if (!level1.value || !level2.value || !level3.value || !level4.value) {
+//   alert("Please select all category levels");
+//   return;
+// }
+if (!level1.value || !level2.value || !level3.value || !level4.value) {
+  alert("Please select all 4 category levels");
+  return;
+}
 
   // ALL VALID
   window.location.href='../html/vendorProductPreview.html'

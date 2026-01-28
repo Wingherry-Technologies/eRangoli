@@ -14,11 +14,12 @@ body {
 
 /* Main Dashboard Container */
 .adminSalesDashboardContainer {
-  /* max-width: 1400px; */
+  max-width: 100vw;
   /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-x: hidden;
 }
 
 /* Stats Cards Row */
@@ -27,6 +28,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 4px;
+
 }
 
 .adminSalesStatCard {
@@ -94,6 +96,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .adminSalesChartImage {
@@ -125,10 +128,12 @@ body {
 
 .adminSalesCardLarge {
   min-height: 320px;
+  /* width: 100vw; */
 }
 
 .adminSalesCardSmall {
   min-height: 320px;
+  /* width: 100vw; */
 }
 
 /* Card Header */
@@ -288,6 +293,7 @@ canvas {
 
 #adminSalesBusinessChart {
   height: 210px !important;
+  width: 100% !important;
 }
 
 /* Responsive */
@@ -305,6 +311,9 @@ canvas {
   .adminSalesStatsRow {
     grid-template-columns: repeat(2, 1fr);
   }
+  .adminSalesLegendRow{
+    margin-left: 0rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -314,6 +323,7 @@ canvas {
 
   .adminSalesDashboardContainer {
     gap: 16px;
+    overflow-x: hidden;
   }
 
   .adminSalesCard {
@@ -321,11 +331,12 @@ canvas {
   }
 
   .adminSalesLegendGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 0rem;
   }
 
   .adminSalesStatsRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .adminSalesRevenueItem {
@@ -336,6 +347,11 @@ canvas {
   .adminSalesRevenueValue {
     text-align: left;
   }
+  /* .adminSalesStatChart
+  {
+    flex: none;
+  } */
+
 }
 
 .donutWrapper {
@@ -363,3 +379,92 @@ canvas {
 .donutWrapper canvas {
   transform: translateY(9px);
 }
+
+
+/* ============================== */
+/* SALES DASHBOARD WIDGET FIX */
+/* Same as Product Management */
+/* ============================== */
+
+@media (max-width: 1024px) {
+  .adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .adminSalesStatCard {
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .adminSalesStatValue {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  .adminSalesStatLabel {
+    font-size: 12px;
+  }
+    .adminSalesCardBodyCenter{
+    flex-direction: row;
+  }
+    .adminSalesRowBottom {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .adminSalesStatCard {
+    padding: 10px;
+  }
+
+  .adminSalesStatValue {
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  .adminSalesStatLabel {
+    font-size: 12px;
+  }
+    .adminSalesCardBodyCenter{
+    flex-direction: column;
+  }
+
+
+
+}
+
+
+@media (max-width:1024px) and (min-width:595px) {
+      .adminSalesLegendGrid
+  {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: auto;
+    grid-template-columns: 1fr;
+  }
+ .adminSalesCardBodyCenter .adminSalesLegendRow{
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    flex-direction: column;
+  }
+    
+}
+
+@media (max-width:1200px) and (min-width:1025px){
+    .adminSalesLegendGrid{
+        margin-left: 1rem;
+    }
+}
+
+
+
+

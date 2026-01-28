@@ -73,12 +73,11 @@ body {
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.filter-bar-wrapper{
+.filter-bar-wrapper {
   position: relative;
-  display: inline-flex;  
+  display: inline-flex;
   align-items: center;
 }
-
 
 .APRAFilterDummy,
 .APRASettingsDummy {
@@ -415,7 +414,6 @@ body {
 
 .APRAfaq-item.active {
   border: 1px solid #0f8df340;
-  border-radius: 12px;
   padding-bottom: 6px;
 }
 
@@ -423,6 +421,7 @@ body {
   border-bottom: 1px solid #cce8ff;
   padding-bottom: 8px;
   margin-bottom: 8px;
+  border-radius: 0px;
 }
 
 .APRAfaq-row {
@@ -551,5 +550,8 @@ body {
 
   .APRAfaq-row .APRAStatus.sent {
     color: #ecc824;
+  }
+  .APRAfaq-item {
+    margin-bottom: 10px;
   }
 }

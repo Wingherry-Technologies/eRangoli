@@ -163,59 +163,70 @@
             </div>
 
             <!-- Filter Option Main -->
-          <div class="main-content-flows-main" id="filter-main">
-            <div class="main-filter-box-content">
-              <div class="main-head-filters">
-                <span>Filter</span>
+            <div class="main-content-flows-main" id="filter-main">
+              <div class="main-filter-box-content">
+                <div class="main-head-filters">
+                  <span>Filter</span>
+                </div>
+                <ul>
+                  <li>Status</li>
+                </ul>
               </div>
-              <ul>
-                <li>Status</li>
-              </ul>
             </div>
-          </div>
 
-          <!-- Status Box -->
-          <div class="main-content-flows-main" id="status-box">
-            <div class="main-filter-box-content">
-              <div class="main-head-filters">
-                <span>Select Status</span>
+            <!-- Status Box -->
+            <div class="main-content-flows-main" id="status-box">
+              <div class="main-filter-box-content">
+                <div class="main-head-filters">
+                  <span>Select Status</span>
+                </div>
+                <ul>
+                  <li>
+                    <input
+                      type="checkbox"
+                      data-status="verified"
+                      id="verified"
+                    />
+                    <label for="verified">Verified</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      data-status="rejected"
+                      id="rejected"
+                    />
+                    <label for="rejected">Rejected</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" data-status="verify" id="verify" />
+                    <label for="verify">Verify</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      data-status="sent"
+                      id="sent-verify"
+                    />
+                    <label for="sent-verify">Sent to verify</label>
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  <input type="checkbox" data-status="verified" id="verified" />
-                  <label for="verified">Verified</label>
-                </li>
-                <li>
-                  <input type="checkbox" data-status="rejected" id="rejected" />
-                  <label for="rejected">Rejected</label>
-                </li>
-                <li>
-                  <input type="checkbox" data-status="verify" id="verify" />
-                  <label for="verify">Verify</label>
-                </li>
-                <li>
-                  <input type="checkbox" data-status="sent" id="sent-verify" />
-                  <label for="sent-verify">Sent to verify</label>
-                </li>
-              </ul>
+            </div>
+            <!-- SORT BOX -->
+            <div class="main-content-flows-main" id="sort-box">
+              <div class="main-filter-box-content">
+                <div class="main-head-filters">
+                  <span>Sort By</span>
+                </div>
+                <ul>
+                  <li data-sort="name-asc">Name (A → Z)</li>
+                  <li data-sort="name-desc">Name (Z → A)</li>
+                  <li data-sort="date-new">Created (Newest)</li>
+                  <li data-sort="date-old">Created (Oldest)</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <!-- SORT BOX -->
-          <div class="main-content-flows-main" id="sort-box">
-            <div class="main-filter-box-content">
-              <div class="main-head-filters">
-                <span>Sort By</span>
-              </div>
-              <ul>
-                <li data-sort="name-asc">Name (A → Z)</li>
-                <li data-sort="name-desc">Name (Z → A)</li>
-                <li data-sort="date-new">Created (Newest)</li>
-                <li data-sort="date-old">Created (Oldest)</li>
-              </ul>
-            </div>
-          </div>
-          </div>
-          
 
           <button class="AUMCreateBtn">Create New User</button>
         </div>
@@ -350,6 +361,8 @@
       </div>
       <!-- MOBILE USER LIST -->
       <div class="AUMMobileFAQ">
+        <h2 class="mobile-sales-heading">User Management</h2>
+        <div class="mobile-sales-divider"></div>
         <div class="faq">
           <div class="faq-item">
             <button class="faq-question">
