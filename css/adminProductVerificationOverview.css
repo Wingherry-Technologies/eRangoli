@@ -8,17 +8,17 @@
 }
 
 body {
-  background-color: #f5f5f5;
   color: #3f3f3f;
 }
 
 .APVOMainContentBeyond {
   margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .APVOContainer {
   background-color: white;
-  padding: 30px;
   border-radius: 8px;
 }
 
@@ -667,6 +667,7 @@ body {
 
 @media (max-width: 595px) {
   .APVOMobileBackButton {
+    display: none;
     font-size: 14px;
   }
 
@@ -787,7 +788,6 @@ body {
   }
 
   .APVOContainer {
-    padding: 15px;
     background-color: #ffffff;
   }
 }

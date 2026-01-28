@@ -902,7 +902,7 @@ nav{
     width: 100%;
     background-color: rgba(0, 0, 0, 0.13);
     height: 100%;
-    z-index: 9999;
+    z-index: 10000;
     top: 0px;
     display: none;
 }
@@ -913,7 +913,8 @@ nav{
     right: 20px;
     border-radius: 8px;
     width: 600px;
-    max-height: 400px;
+    max-height: 40px;
+    height: 100%;
     overflow-y: auto;
     z-index: 1000;
     background-color: white;
@@ -1226,6 +1227,7 @@ nav{
 .submenu>li{
     margin-bottom: 10px;
     font-size: 14px;
+    cursor: pointer;
 }
 .submenu .submenu-active-highlight{
     color: #0F8DF3;
@@ -1613,7 +1615,8 @@ nav{
     margin-left: 300px;
     padding: 15px;
     margin-top: 75px;
-    padding-bottom: 0px;
+    padding-bottom: 00px;
+    
 }
 @media (max-width:1200px) and (min-width:1025px) {
     nav{
@@ -1658,6 +1661,7 @@ nav{
 @media (max-width:595px) {
     .main-content-beyond{
         margin-left: 0px;
+        height: calc(100vh - 200px);
     }
     .er-footer{
         margin-left: 0px;

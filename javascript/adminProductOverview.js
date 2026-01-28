@@ -138,4 +138,5 @@ document.querySelector(".sidebar-main-vendor ul>ul>li:nth-child(1)").classList.a
 document.querySelector(".sidebar-main-vendor ul>ul").classList.add("active");
 
 document.querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector(".mobile-submenu li:nth-child(1)").classList.add("submenu-active-page");
 document.querySelector("#account-menu .mobile-dropdown:nth-child(2)").classList.add("active-mobile-submenu");
