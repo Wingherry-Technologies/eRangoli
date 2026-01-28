@@ -120,7 +120,7 @@ tbody td {
   background: #f1f1f1;
 }
 
-.mobile-discount-list {
+.mobile-coupon-card {
   display: none;
 }
 
@@ -153,7 +153,7 @@ tbody td {
   .create-discount-btn {
     display: none;
   }
-  .mobile-discount-list {
+  .mobile-coupon-card {
     display: block;
   }
 
@@ -161,38 +161,75 @@ tbody td {
     padding: 14px 12px;
   }
 
-  .mob-divider {
-    margin-top: 20px;
-    border-bottom: 1px solid #c8dae7;
-  }
-
-  .discount-title {
-    background: #e7f0f9;
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #3f3f3f;
-  }
-
-  .discount-row {
+  .coupon-header {
+    background: #eaf2fa;
+    padding: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
   }
 
-  .discount-off {
+  .coupon-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3f3f3f;
+    margin-bottom: 6px;
+  }
+
+  .coupon-code {
+    font-size: 12px;
+    color: #3f3f3f;
+    font-weight: 400;
+  }
+
+  .coupon-code span {
+    font-weight: 600;
+  }
+
+  .coupon-amount {
     font-size: 16px;
     font-weight: 700;
     color: #3f3f3f;
+    white-space: nowrap;
+    margin-top: 21px;
   }
 
-  .discount-date {
-    font-size: 12px;
-    color: #7a6b6b;
-    font-weight: 400;
-    margin-top: 6px;
+  .coupon-body {
+    position: relative;
+    margin: 12px 0;
   }
+
+  .mob-divider {
+    border-bottom: 1px solid #c8dae7;
+  }
+
+  .min-purchase {
+    font-size: 14px;
+    color: #3f3f3f;
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+
+  .coupon-date {
+    font-size: 12px;
+    color: #716b6b;
+    font-weight: 400;
+  }
+
+  .coupon-status {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .coupon-status.active {
+    color: #009605;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
   .floating-plus-btn {
     display: flex;
     position: fixed;

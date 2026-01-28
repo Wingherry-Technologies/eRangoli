@@ -22,49 +22,69 @@
         <div class="form-grid">
           <div class="form-group">
             <label>Enter Coupon Name</label>
-            <input type="text" placeholder="Pongal Price drop" />
+            <input
+              type="text"
+              id="couponName"
+              placeholder="Pongal Price drop"
+            />
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Create Coupon Code</label>
-            <input type="text" placeholder="Pongal 12567" />
+            <input type="text" id="couponCode" placeholder="Pongal 12567" />
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Enter Condition</label>
-            <input type="text" placeholder="On min. purchase of ₹3995" />
+            <input
+              type="text"
+              id="couponCondition"
+              placeholder="On min. purchase of ₹3995"
+            />
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Enter Discount Amount</label>
-            <input type="number" placeholder="500" />
+            <input type="number" id="couponDiscount" placeholder="500" />
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Select Catergory</label>
-            <select>
+            <select id="couponCategory">
+              <option value="">Select</option>
               <option>Handloom</option>
             </select>
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Select Subcategory</label>
-            <select>
+            <select id="couponSubcategory">
+              <option value="">Select</option>
               <option>Saree</option>
             </select>
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Select Start Date</label>
-            <input type="date" />
+            <input type="date" id="couponStartDate" />
+            <small class="error"></small>
           </div>
 
           <div class="form-group">
             <label>Select End Date</label>
-            <input type="date" />
+            <input type="date" id="couponEndDate" />
+            <small class="error"></small>
           </div>
+          <button class="mob-apply">Apply</button>
         </div>
       </div>
     </div>
+    <script src="../javascript/adminSalesCreateNewCoupons.js"></script>
   </body>
 </html>
