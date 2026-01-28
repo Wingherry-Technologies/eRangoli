@@ -5,9 +5,561 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Product Verification</title>
     <link rel="stylesheet" href="../css/adminProductVerification.css" />
+    <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
   </head>
   <body>
-    <div class="APVDashboardContainer">
+        <nav>
+        <div class="logo-section">
+            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
+            <div class="search-bar">
+                <div class="search-bar-icon">
+                  <img src="../assets/master/eRangoli 2-1.svg" alt="">
+                  <input type="search" id="desktop-search" placeholder="Search">
+                </div>
+                <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
+            </div>
+            <ul id="desktop-suggestions" class="suggestions-box"></ul>
+        </div>
+
+        <!-- HAMBURGER (Mobile Only) -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <img src="../assets/master/List.svg" alt="">
+        </div>
+
+        <!-- Mobile Menu -->
+          <div id="mobile-menu">
+            <div class="welcome-main-section" id="welcome-section">
+              <div class="image-section">
+                <div class="circle-image">
+                  <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+                </div>
+              </div>
+              <div class="welcome-text-section">
+                <span>Welcome !</span>
+                <a id="welcome-name">Sanskriti Collection</a>
+              </div>
+            </div>
+
+            <div class="main-bottom-section">
+              <div class="sub-section">
+                <ul class="mobile-nav-menu1" id="account-menu">
+
+                  <!-- DASHBOARD -->
+                <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                        </div>
+                        <span>Dashboard</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- PRODUCT MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Package.svg" alt="">
+                        </div>
+                        <span>Product Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                      
+                    </div>
+                    <ul class="mobile-submenu">
+                        <li>Product List</li>
+                        <li>Product Categories</li>
+                        <li>Recently Added Products</li>
+                        <li>Product Verification</li>
+                    </ul>
+                  </li>
+
+                  <!-- ORDER MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                        </div>
+                        <span>Vendor Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                    <ul class="mobile-submenu">
+                      <li>Vendor List</li>
+                      <li>Recently Added Vendors</li>
+                      <li>Vendor Verification</li>
+                    </ul>
+                  </li>
+
+                  <!-- RETURN MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                        </div>
+                        <span>Buyer Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- SALES -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                        </div>
+                        <span>User Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- CUSTOMER MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                        </div>
+                        <span>Sales</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                    <ul class="mobile-submenu">
+                      <li>Dashboard</li>
+                      <li>Purchase Orders</li>
+                      <li>Return Orders</li>
+                      <li>Buyer Payment History</li>
+                      <li>Vendor Payments</li>
+                      <li>Sales Report</li>
+                      <li>Discount / Coupons</li>
+                    </ul> 
+                  </li>
+
+
+                </ul>
+              </div>
+            </div>
+
+            <div class="mobile-logout-section">
+              <div class="mobile-logout-sub">
+                <div class="version">
+                  <span>eRangoli Version 1.0.0</span>
+                </div>
+                <div class="logout-button">
+                  <img src="../assets/master/SignOut.svg" alt="">
+                  <span>Logout</span>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+        <!-- MENU -->
+        <div class="menu-section" >
+
+            <div class="round-button" id="round-button-notification">
+                <span class="number-of-round" id="number-of-notification">3</span>
+                <img src="../assets/master/Bell.svg" alt="" />
+            </div>
+
+            <div class="round-button" id="round-button-order">
+              <span class="number-of-round" id="number-of-cart">4</span>
+              <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+            </div>
+
+            <div class="user-profile-icon" id="user-profile-icon">
+                    <div class="img-name">
+                      <div class="circle-image">
+                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="">
+                      </div>
+                      <div class="admin-name">
+                        <span id="user-name">Kristin Winget</span>
+                        <span id="role-name">Admin</span>
+                      </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="notification-main-box">
+          <ul>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="notification-main-box" id="notification-main-box">
+    <div class="notification-main-box-content">
+      <div class="notification-main-head-box">
+        <span>Notifications</span>
+        <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+      </div>
+      <ul>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+              dec.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </div>
+
+  <!-- Order Popup -->
+  <div class="notification-main-box" id="order-main-box">
+    <div class="notification-main-box-content">
+      <div class="notification-main-head-box">
+        <span>New Order</span>
+        <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+      </div>
+      <ul>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="notification-content">
+          <div>
+            <img src="../assets/master/Rectangle 34627068.svg" alt="">
+          </div>
+          <div class="contents-noti">
+            <span>13/12/25</span>
+            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+            <div class="noti-content">
+              <div class="size-list-price">
+                <span>Size: S</span>
+                <span>Qty: 2</span>
+              </div>
+              <div class="order-list-price">
+                <span>Price: ₹5400</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+        <span class="bottom-nav__label">Dashboard</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Orders</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="">
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+        <span class="bottom-nav__label">My Profile</span>
+      </a>
+    </div>
+
+
+    <!-- Sidebar -->
+     <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
+        <article>
+            <div class="welcome-sidebar-main">
+                <div class="welcome-sidebar">
+                  <span>Welcome!</span>
+                  <span>Administration</span>
+                </div>
+                <div class="hamberger-sidebar"  id="sidebarToggle">
+                  <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
+                  <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                        <span>Dashboard</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li class="has-submenu" data-menu="product">
+                  <div class="image-head">  
+                    <img src="../assets/vendorSidebar/Package.svg" alt="">
+                    <span>Product Management</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+                </li>
+                <ul class="submenu" data-submenu="product">
+                  <li>Product List</li>
+                  <li>Product Categories</li>
+                  <li>Product Recently Added</li>
+                  <li>Product Verification</li>
+                </ul>
+                <li class="has-submenu" data-menu="vendor">
+                  <div class="image-head">
+                    <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                    <span>Vendor Management</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+                </li>
+                <ul class="submenu" data-submenu="vendor">
+                  <li>Vendor List</li>
+                  <li>Vendor Recently Added</li>
+                  <li>Vendor Verification</li>
+                </ul>
+
+                <li>  
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                        <span>Buyer Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li>
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                        <span>User Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+                </li>
+                <li class="has-submenu" data-menu="sales">
+                  <div class="image-head">
+                    <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                    <span>Sales</span>
+                  </div>
+                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+                </li>
+                <ul class="submenu" data-submenu="sales">
+                  <li>Dashboard</li>
+                  <li>Purchase Order</li>
+                  <li>Return Orders</li>
+                  <li>Buyer Payment History</li>
+                  <li>Vendor Payment</li>
+                  <li>Sales Report</li>
+                  <li>Discounts / Coupons</li>
+                </ul> 
+            </ul>
+        </article>
+     </section>
+    <div class="main-content-beyond">
+      <div class="APVDashboardContainer">
       <div class="APVStatsRow">
         <!-- Total Users Card -->
         <div class="APVStatCard" id="APVTotalProductsWidget">
@@ -235,7 +787,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -261,7 +813,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -287,7 +839,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1500</td>
-                <td class="APVTableCell">₹ 1,199</td>
+                <td class="APVTableCell">₹1,199</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -313,7 +865,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -339,7 +891,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -365,7 +917,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -391,7 +943,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -417,7 +969,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -443,7 +995,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -469,7 +1021,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -495,7 +1047,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -521,7 +1073,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -547,7 +1099,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -573,7 +1125,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -599,7 +1151,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -625,7 +1177,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -651,7 +1203,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -677,7 +1229,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -703,7 +1255,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -729,7 +1281,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell pending">Pending</span></td>
@@ -755,7 +1307,7 @@
                 <td class="APVTableCell">#5738393009</td>
                 <td class="APVTableCell">Footwear</td>
                 <td class="APVTableCell">1800</td>
-                <td class="APVTableCell">₹ 1,299</td>
+                <td class="APVTableCell">₹1,299</td>
                 <td class="APVTableCell">RJ</td>
                 <td class="APVTableCell">6</td>
                 <td><span class="APVTableCell verified">Verified</span></td>
@@ -811,7 +1363,7 @@
                 <span>Quantity</span><span>1800</span>
               </div>
               <div class="APVfaq-row">
-                <span>S. Price</span><span>₹ 1,299</span>
+                <span>S. Price</span><span>₹1,299</span>
               </div>
               <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
               <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
@@ -852,7 +1404,7 @@
                 <span>Quantity</span><span>1800</span>
               </div>
               <div class="APVfaq-row">
-                <span>S. Price</span><span>₹ 1,299</span>
+                <span>S. Price</span><span>₹1,299</span>
               </div>
               <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
               <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
@@ -893,7 +1445,7 @@
                 <span>Quantity</span><span>1800</span>
               </div>
               <div class="APVfaq-row">
-                <span>S. Price</span><span>₹ 1,299</span>
+                <span>S. Price</span><span>₹1,299</span>
               </div>
               <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
               <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
@@ -937,7 +1489,188 @@
                 <span>Quantity</span><span>1800</span>
               </div>
               <div class="APVfaq-row">
-                <span>S. Price</span><span>₹ 1,299</span>
+                <span>S. Price</span><span>₹1,299</span>
+              </div>
+              <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
+              <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
+              <div class="APVfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Developer</span>
+                <span class="APVStatus verified">Verified</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Admin</span>
+                <span class="APVStatus live">Live</span>
+              </div>
+              <div class="APVfaq-row"><button class="view">View</button></div>
+              <div
+                class="APVNoData"
+                style="
+                  display: none;
+                  text-align: center;
+                  padding: 20px;
+                  color: #8e8989;
+                "
+              >
+                No matching row found
+              </div>
+            </div>
+          </div>
+
+          <div class="APVfaq-item">
+            <button class="APVfaq-question">
+              <div class="APVfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                />
+                <div class="APVfaq-user-text">
+                  <span class="APVfaq-username">Handmade Embroidery</span>
+                  <span class="APVfaq-usertype mojadi">Mojadi</span>
+                </div>
+              </div>
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="APVfaq-answer">
+              <div class="APVfaq-row">
+                <span>Request ID</span><span>#79967776</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Category</span><span>Footware</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Quantity</span><span>1800</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>S. Price</span><span>₹1,299</span>
+              </div>
+              <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
+              <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
+              <div class="APVfaq-row">
+                <span>Developer</span>
+                <span class="APVStatus verified">Verified</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Admin</span>
+                <span class="APVStatus live">Live</span>
+              </div>
+              <div class="APVfaq-row"><button class="view">View</button></div>
+            </div>
+          </div>
+
+          <div class="APVfaq-item">
+            <button class="APVfaq-question">
+              <div class="APVfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                />
+                <div class="APVfaq-user-text">
+                  <span class="APVfaq-username">Handmade Embroidery</span>
+                  <span class="APVfaq-usertype mojadi">Mojadi</span>
+                </div>
+              </div>
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="APVfaq-answer">
+              <div class="APVfaq-row">
+                <span>SKU ID</span><span>#79967776</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Category</span><span>Footware</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Quantity</span><span>1800</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>S. Price</span><span>₹1,299</span>
+              </div>
+              <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
+              <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
+              <div class="APVfaq-row">
+                <span>Developer</span>
+                <span class="APVStatus pending">Pending</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Admin</span>
+                <span class="APVStatus unverified">-</span>
+              </div>
+              <div class="APVfaq-row"><button class="view">View</button></div>
+            </div>
+          </div>
+
+          <div class="APVfaq-item">
+            <button class="APVfaq-question">
+              <div class="APVfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                />
+                <div class="APVfaq-user-text">
+                  <span class="APVfaq-username">Handmade Embroidery</span>
+                  <span class="APVfaq-usertype mojadi">Mojadi</span>
+                </div>
+              </div>
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="APVfaq-answer">
+              <div class="APVfaq-row">
+                <span>SKU ID</span><span>#79967776</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Category</span><span>Footware</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Quantity</span><span>1800</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>S. Price</span><span>₹1,299</span>
+              </div>
+              <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
+              <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
+              <div class="APVfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Developer</span>
+                <span class="APVStatus pending">Pending</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Admin</span>
+                <span class="APVStatus unverified">-</span>
+              </div>
+              <div class="APVfaq-row"><button class="view">View</button></div>
+            </div>
+          </div>
+
+          <div class="APVfaq-item">
+            <button class="APVfaq-question">
+              <div class="APVfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/Rectangle 34628176.svg"
+                />
+                <div class="APVfaq-user-text">
+                  <span class="APVfaq-username">Handmade Embroidery</span>
+                  <span class="APVfaq-usertype mojadi">Mojadi</span>
+                </div>
+              </div>
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="APVfaq-answer">
+              <div class="APVfaq-row">
+                <span>SKU ID</span><span>#79967776</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Category</span><span>Footware</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>Quantity</span><span>1800</span>
+              </div>
+              <div class="APVfaq-row">
+                <span>S. Price</span><span>₹1,299</span>
               </div>
               <div class="APVfaq-row"><span>State</span><span>RJ</span></div>
               <div class="APVfaq-row"><span>Variants</span><span>6</span></div>
@@ -969,7 +1702,9 @@
         </div>
       </div>
     </div>
+    </div>
 
     <script src="../javascript/adminProductVerification.js"></script>
+    <script src="../javascript/adminSidebarnavbar.js"></script>
   </body>
 </html>
