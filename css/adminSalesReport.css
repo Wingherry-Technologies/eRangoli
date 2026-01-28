@@ -148,7 +148,7 @@ h3 {
 .pie-chart::after {
   content: "";
   position: absolute;
-  inset: 85px;
+  inset: 40px;
   background: #fff;
   border-radius: 50%;
 }
