@@ -421,6 +421,18 @@ thead {
 .AUMMobileFAQ {
   display: none;
 }
+.mobile-sales-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3f3f3f;
+  margin: 6px 4px 10px;
+}
+
+.mobile-sales-divider {
+  border: 1px solid #0f8df3;
+  margin-bottom: 10px;
+}
+
 .faq-title {
   display: flex;
   align-items: center;
@@ -474,7 +486,6 @@ thead {
 
 .faq-item.active {
   border: 1px solid #0f8df340;
-  border-radius: 12px;
   padding-bottom: 6px;
 }
 
@@ -482,6 +493,7 @@ thead {
   border-bottom: 1px solid #cce8ff;
   padding-bottom: 8px;
   margin-bottom: 8px;
+  border-radius: 0px;
 }
 
 .faq-row {
@@ -717,6 +729,10 @@ thead {
 
   .faq-item.active .faq-answer {
     max-height: 500px;
+  }
+
+  .faq-item {
+    margin-bottom: 10px;
   }
 
   .faq-row .AUMStatus {

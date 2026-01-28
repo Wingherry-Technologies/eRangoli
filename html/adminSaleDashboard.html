@@ -66,7 +66,7 @@
         </div>
 
         <!-- Average Monthly Card -->
-        <div class="adminSalesStatCard">
+        <div class="adminSalesStatCard ">
           <div class="adminSalesStatHeader">
             <div class="adminSalesStatIcon">
               <img
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Turn Over Card -->
-        <div class="adminSalesStatCard">
+        <div class="adminSalesStatCard ">
           <div class="adminSalesStatHeader">
             <div class="adminSalesStatIcon">
               <img
@@ -119,11 +119,14 @@
           </div>
         </div>
       </div>
+      
 
+
+     
       <!-- Top Row: Revenue Contributors and Payment Mode -->
       <div class="adminSalesRow adminSalesRowTop">
         <!-- Top Revenue Contributor Categories -->
-        <div class="adminSalesCard adminSalesCardLarge">
+        <div class="adminSalesCard adminSalesCardLarge revenue">
           <div class="adminSalesCardHeader">
             <div>
               <h3 class="adminSalesCardTitle">
@@ -203,7 +206,7 @@
         </div>
 
         <!-- Payment Mode -->
-        <div class="adminSalesCard adminSalesCardSmall">
+        <div class="adminSalesCard adminSalesCardSmall payment">
           <div class="adminSalesCardHeader">
             <h3 class="adminSalesCardTitle">Payment Mode</h3>
           </div>
@@ -252,7 +255,7 @@
       </div>
 
       <!-- Middle Row: Business Chart and State Wise Revenues -->
-      <div class="adminSalesRow adminSalesRowMiddle">
+      <div class="adminSalesRow adminSalesRowMiddle Business ">
         <!-- Business Chart (Revenue) -->
         <div class="adminSalesCard adminSalesCardLarge">
           <div class="adminSalesCardHeader">
@@ -272,7 +275,7 @@
         </div>
 
         <!-- State Wise Revenues -->
-        <div class="adminSalesCard adminSalesCardSmall">
+        <div class="adminSalesCard adminSalesCardSmall statewise">
           <div class="adminSalesCardHeader">
             <h3 class="adminSalesCardTitle">State wise Revenues</h3>
           </div>
@@ -313,7 +316,7 @@
       <!-- Bottom Row: Target vs Reality and State Revenues -->
       <div class="adminSalesRow adminSalesRowBottom">
         <!-- Target vs Reality -->
-        <div class="adminSalesCard adminSalesCardLarge">
+        <div class="adminSalesCard adminSalesCardLarge target">
           <div class="adminSalesCardHeader">
             <h3 class="adminSalesCardTitle">Target vs Reality</h3>
             <div class="adminSalesCardFilters">
@@ -325,7 +328,7 @@
               </select>
             </div>
           </div>
-          <div class="adminSalesCardBody">
+          <div class="adminSalesCardBody salesstate">
             <canvas id="adminSalesTargetChart"></canvas>
             <div class="adminSalesLegendRow" style="margin-top: 16px">
               <div class="adminSalesLegendItem">
@@ -366,6 +369,8 @@
           </div>
         </div>
       </div>
+
+      
     </div>
 
     <script src="../javascript/adminSaleDashboard.js"></script>
