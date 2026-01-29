@@ -5,992 +5,1126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PM-Recently Added Overview</title>
     <link rel="stylesheet" href="../css/adminProductVerificationOverview.css" />
-    <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
-    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/adminSidebarNavbar.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <nav>
-        <div class="logo-section">
-            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
-            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
-            <div class="search-bar">
-                <div class="search-bar-icon">
-                  <img src="../assets/master/eRangoli 2-1.svg" alt="">
-                  <input type="search" id="desktop-search" placeholder="Search">
-                </div>
-                <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
+      <div class="logo-section">
+        <img
+          id="desktop-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2.svg"
+          alt=""
+        />
+        <img
+          id="mobile-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2-1.svg"
+          alt=""
+          style="z-index: 99999 !important"
+        />
+        <div class="search-bar">
+          <div class="search-bar-icon">
+            <img src="../assets/master/eRangoli 2-1.svg" alt="" />
+            <input type="search" id="desktop-search" placeholder="Search" />
+          </div>
+          <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
+        </div>
+        <ul id="desktop-suggestions" class="suggestions-box"></ul>
+      </div>
+
+      <!-- HAMBURGER (Mobile Only) -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <img src="../assets/master/List.svg" alt="" />
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <div class="welcome-main-section" id="welcome-section">
+          <div class="image-section">
+            <div class="circle-image">
+              <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="" />
             </div>
-            <ul id="desktop-suggestions" class="suggestions-box"></ul>
+          </div>
+          <div class="welcome-text-section">
+            <span>Welcome !</span>
+            <a id="welcome-name">Sanskriti Collection</a>
+          </div>
         </div>
 
-        <!-- HAMBURGER (Mobile Only) -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <img src="../assets/master/List.svg" alt="">
-        </div>
-
-        <!-- Mobile Menu -->
-          <div id="mobile-menu">
-            <div class="welcome-main-section" id="welcome-section">
-              <div class="image-section">
-                <div class="circle-image">
-                  <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+        <div class="main-bottom-section">
+          <div class="sub-section">
+            <ul class="mobile-nav-menu1" id="account-menu">
+              <!-- DASHBOARD -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                    </div>
+                    <span>Dashboard</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
-              </div>
-              <div class="welcome-text-section">
-                <span>Welcome !</span>
-                <a id="welcome-name">Sanskriti Collection</a>
-              </div>
-            </div>
+              </li>
 
-            <div class="main-bottom-section">
-              <div class="sub-section">
-                <ul class="mobile-nav-menu1" id="account-menu">
-
-                  <!-- DASHBOARD -->
-                <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                        </div>
-                        <span>Dashboard</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
+              <!-- PRODUCT MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Package.svg" alt="" />
                     </div>
-                  </li>
-
-                  <!-- PRODUCT MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/Package.svg" alt="">
-                        </div>
-                        <span>Product Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                      
-                    </div>
-                    <ul class="mobile-submenu">
-                        <li>Product List</li>
-                        <li>Product Categories</li>
-                        <li>Recently Added Products</li>
-                        <li>Product Verification</li>
-                    </ul>
-                  </li>
-
-                  <!-- ORDER MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                        </div>
-                        <span>Vendor Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                    <ul class="mobile-submenu">
-                      <li>Vendor List</li>
-                      <li>Recently Added Vendors</li>
-                      <li>Vendor Verification</li>
-                    </ul>
-                  </li>
-
-                  <!-- RETURN MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        </div>
-                        <span>Buyer Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <!-- SALES -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        </div>
-                        <span>User Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <!-- CUSTOMER MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                        </div>
-                        <span>Sales</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                    <ul class="mobile-submenu">
-                      <li>Dashboard</li>
-                      <li>Purchase Orders</li>
-                      <li>Return Orders</li>
-                      <li>Buyer Payment History</li>
-                      <li>Vendor Payments</li>
-                      <li>Sales Report</li>
-                      <li>Discount / Coupons</li>
-                    </ul> 
-                  </li>
-
-
+                    <span>Product Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Product List</li>
+                  <li>Product Categories</li>
+                  <li>Recently Added Products</li>
+                  <li>Product Verification</li>
                 </ul>
-              </div>
-            </div>
+              </li>
 
-            <div class="mobile-logout-section">
-              <div class="mobile-logout-sub">
-                <div class="version">
-                  <span>eRangoli Version 1.0.0</span>
-                </div>
-                <div class="logout-button">
-                  <img src="../assets/master/SignOut.svg" alt="">
-                  <span>Logout</span>
-                </div>
-              </div>
-            </div>
-          </div>  
-
-        <!-- MENU -->
-        <div class="menu-section" >
-
-            <div class="round-button" id="round-button-notification">
-                <span class="number-of-round" id="number-of-notification">3</span>
-                <img src="../assets/master/Bell.svg" alt="" />
-            </div>
-
-            <div class="round-button" id="round-button-order">
-              <span class="number-of-round" id="number-of-cart">4</span>
-              <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
-            </div>
-
-            <div class="user-profile-icon" id="user-profile-icon">
-                    <div class="img-name">
-                      <div class="circle-image">
-                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="">
-                      </div>
-                      <div class="admin-name">
-                        <span id="user-name">Kristin Winget</span>
-                        <span id="role-name">Admin</span>
-                      </div>
+              <!-- ORDER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText.svg"
+                        alt=""
+                      />
                     </div>
-            </div>
+                    <span>Vendor Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Vendor List</li>
+                  <li>Recently Added Vendors</li>
+                  <li>Vendor Verification</li>
+                </ul>
+              </li>
+
+              <!-- RETURN MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText (1).svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Buyer Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- SALES -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/UsersFour.svg" alt="" />
+                    </div>
+                    <span>User Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- CUSTOMER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Coins.svg" alt="" />
+                    </div>
+                    <span>Sales</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Dashboard</li>
+                  <li>Purchase Orders</li>
+                  <li>Return Orders</li>
+                  <li>Buyer Payment History</li>
+                  <li>Vendor Payments</li>
+                  <li>Sales Report</li>
+                  <li>Discount / Coupons</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="notification-main-box">
-          <ul>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-          </ul>
+        <div class="mobile-logout-section">
+          <div class="mobile-logout-sub">
+            <div class="version">
+              <span>eRangoli Version 1.0.0</span>
+            </div>
+            <div class="logout-button">
+              <img src="../assets/master/SignOut.svg" alt="" />
+              <span>Logout</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- MENU -->
+      <div class="menu-section">
+        <div class="round-button" id="round-button-notification">
+          <span class="number-of-round" id="number-of-notification">3</span>
+          <img src="../assets/master/Bell.svg" alt="" />
+        </div>
+
+        <div class="round-button" id="round-button-order">
+          <span class="number-of-round" id="number-of-cart">4</span>
+          <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+        </div>
+
+        <div class="user-profile-icon" id="user-profile-icon">
+          <div class="img-name">
+            <div class="circle-image">
+              <img src="../assets/adminSidebar/Group 2055248221.svg" alt="" />
+            </div>
+            <div class="admin-name">
+              <span id="user-name">Kristin Winget</span>
+              <span id="role-name">Admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notification-main-box">
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="notification-main-box" id="notification-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>Notifications</span>
-        <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img
+            id="notification-cross"
+            src="../assets/vendorSidebar/X.svg"
+            alt=""
+          />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
     </div>
 
-  <!-- Order Popup -->
-  <div class="notification-main-box" id="order-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>New Order</span>
-        <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
     </div>
-  </div>
 
     <!-- Mobile Bottom Navigation Bar -->
     <div class="bottom-nav" aria-label="Mobile navigation">
       <a href="index.html" class="bottom-nav__item">
-        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
         <span class="bottom-nav__label">Dashboard</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
-        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
         <span class="bottom-bar-numbers">2</span>
         <span class="bottom-nav__label">Orders</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
-        <img src="../assets/master/notificationnav.svg" alt="">
+        <img src="../assets/master/notificationnav.svg" alt="" />
         <span class="bottom-bar-numbers">3</span>
         <span class="bottom-nav__label">Notifications</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
-        <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
         <span class="bottom-nav__label">My Profile</span>
       </a>
     </div>
 
-
     <!-- Sidebar -->
-     <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
-        <article>
-            <div class="welcome-sidebar-main">
-                <div class="welcome-sidebar">
-                  <span>Welcome!</span>
-                  <span>Administration</span>
-                </div>
-                <div class="hamberger-sidebar"  id="sidebarToggle">
-                  <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
-                  <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
-                </div>
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+      <article>
+        <div class="welcome-sidebar-main">
+          <div class="welcome-sidebar">
+            <span>Welcome!</span>
+            <span>Administration</span>
+          </div>
+          <div class="hamberger-sidebar" id="sidebarToggle">
+            <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="" />
+            <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="" />
+          </div>
+        </div>
+        <ul>
+          <li>
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+              <span>Dashboard</span>
             </div>
-            <ul>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                        <span>Dashboard</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="product">
-                  <div class="image-head">  
-                    <img src="../assets/vendorSidebar/Package.svg" alt="">
-                    <span>Product Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="product">
-                  <li>Product List</li>
-                  <li>Product Categories</li>
-                  <li>Product Recently Added</li>
-                  <li>Product Verification</li>
-                </ul>
-                <li class="has-submenu" data-menu="vendor">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                    <span>Vendor Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="vendor">
-                  <li>Vendor List</li>
-                  <li>Vendor Recently Added</li>
-                  <li>Vendor Verification</li>
-                </ul>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li class="has-submenu" data-menu="product">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Package.svg" alt="" />
+              <span>Product Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="product">
+            <li>Product List</li>
+            <li>Product Categories</li>
+            <li>Product Recently Added</li>
+            <li>Product Verification</li>
+          </ul>
+          <li class="has-submenu" data-menu="vendor">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+              <span>Vendor Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="vendor">
+            <li>Vendor List</li>
+            <li>Vendor Recently Added</li>
+            <li>Vendor Verification</li>
+          </ul>
 
-                <li>  
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        <span>Buyer Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        <span>User Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="sales">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                    <span>Sales</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="sales">
-                  <li>Dashboard</li>
-                  <li>Purchase Order</li>
-                  <li>Return Orders</li>
-                  <li>Buyer Payment History</li>
-                  <li>Vendor Payment</li>
-                  <li>Sales Report</li>
-                  <li>Discounts / Coupons</li>
-                </ul> 
-            </ul>
-        </article>
-     </section>
+          <li>
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+              <span>Buyer Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li>
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/UsersFour.svg" alt="" />
+              <span>User Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li class="has-submenu" data-menu="sales">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Coins.svg" alt="" />
+              <span>Sales</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="sales">
+            <li>Dashboard</li>
+            <li>Purchase Order</li>
+            <li>Return Orders</li>
+            <li>Buyer Payment History</li>
+            <li>Vendor Payment</li>
+            <li>Sales Report</li>
+            <li>Discounts / Coupons</li>
+          </ul>
+        </ul>
+      </article>
+    </section>
 
     <div class="main-content-beyond">
       <div class="APVOMainContentBeyond">
-      <div class="APVOContainer">
-        <div class="APVOMobileHeader">
-          <div class="mobile-back-button">
-                    <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
-                    <span>Product Details</span>
-                </div> 
-          <div class="APVOMobileBackButton">
-            <img
-              onclick="window.history.back()"
-              src="../assets/adminProductVerificationOverview/Vector (2).svg"
-              alt=""
-            />
-            <span>Product Details</span>
-          </div>
-
-          <!-- <div class="APVOLiveStatus">Edit</div> -->
-        </div>
-
-        <!-- Product Details Section -->
-        <div class="APVOPreviewSection">
-          <div class="APVOSectionHeader">
-            <h2 class="APVOPreviewSectionTitle">Product Details</h2>
-            <div class="APVOHeaderDate">
-              <span>Date - 24/02/2026</span>
+        <div class="APVOContainer">
+          <div class="APVOMobileHeader">
+            <div class="mobile-back-button">
+              <img
+                onclick="window.history.back()"
+                src="../assets/adminProductOverview/Vector (2).svg"
+                alt=""
+              />
+              <span>Product Details</span>
             </div>
+            <div class="APVOMobileBackButton">
+              <img
+                onclick="window.history.back()"
+                src="../assets/adminProductVerificationOverview/Vector (2).svg"
+                alt=""
+              />
+              <span>Product Details</span>
+            </div>
+
+            <!-- <div class="APVOLiveStatus">Edit</div> -->
           </div>
 
-          <div class="APVOProductPreviewLayout">
-            <!-- Left Column: Images -->
-            <div class="APVOPreviewLeftColumn">
-              <div class="APVOProductCategory">
-                <span>Category : Footwear | Mojadi</span>
-                <span class="APVOProductTag">Tags: Rajasthan</span>
-              </div>
-              <div class="APVOMainProductImage">
-                <img
-                  src="../assets/adminProductVerificationOverview/Rectangle 34627060.svg"
-                  alt="Product"
-                />
-              </div>
-
-              <div class="APVOThumbnailGrid">
-                <div class="APVOThumbnailItem APVOActive">
-                  <img
-                    src="../assets/adminProductVerificationOverview/Rectangle 34627061 (1).svg"
-                    alt="Thumbnail 1"
-                  />
-                </div>
-                <div class="APVOThumbnailItem">
-                  <img
-                    src="../assets/adminProductVerificationOverview/Rectangle 34627062 (1).svg"
-                    alt="Thumbnail 2"
-                  />
-                </div>
-                <div class="APVOThumbnailItem">
-                  <img
-                    src="../assets/adminProductVerificationOverview/Rectangle 34627063 (1).svg"
-                    alt="Thumbnail 3"
-                  />
-                </div>
-                <div class="APVOThumbnailItem">
-                  <img
-                    src="../assets/adminProductVerificationOverview/Rectangle 34627064 (1).svg"
-                    alt="Thumbnail 4"
-                  />
-                </div>
-                <div class="APVOThumbnailItem">
-                  <img
-                    src="../assets/adminProductVerificationOverview/Rectangle 34627065 (1).svg"
-                    alt="Thumbnail 5"
-                  />
-                </div>
+          <!-- Product Details Section -->
+          <div class="APVOPreviewSection">
+            <div class="APVOSectionHeader">
+              <h2 class="APVOPreviewSectionTitle">Product Details</h2>
+              <div class="APVOHeaderDate">
+                <span>Date - 24/02/2026</span>
               </div>
             </div>
 
-            <!-- Right Column: Product Info -->
-            <div class="APVOPreviewRightColumn">
-              <h1 class="APVOProductTitle">Handmade Embroidery Mojadi</h1>
-              <p class="APVOProductBrand">by Sanskriti Collection</p>
+            <div class="APVOProductPreviewLayout">
+              <!-- Left Column: Images -->
+              <div class="APVOPreviewLeftColumn">
+                <div class="APVOProductCategory">
+                  <span>Category : Footwear | Mojadi</span>
+                  <span class="APVOProductTag">Tags: Rajasthan</span>
+                </div>
+                <div class="APVOMainProductImage">
+                  <img
+                    src="../assets/adminProductVerificationOverview/Rectangle 34627060.svg"
+                    alt="Product"
+                  />
+                </div>
 
-              <div class="APVOProductPrice">₹1,299</div>
+                <div class="APVOThumbnailGrid">
+                  <div class="APVOThumbnailItem APVOActive">
+                    <img
+                      src="../assets/adminProductVerificationOverview/Rectangle 34627061 (1).svg"
+                      alt="Thumbnail 1"
+                    />
+                  </div>
+                  <div class="APVOThumbnailItem">
+                    <img
+                      src="../assets/adminProductVerificationOverview/Rectangle 34627062 (1).svg"
+                      alt="Thumbnail 2"
+                    />
+                  </div>
+                  <div class="APVOThumbnailItem">
+                    <img
+                      src="../assets/adminProductVerificationOverview/Rectangle 34627063 (1).svg"
+                      alt="Thumbnail 3"
+                    />
+                  </div>
+                  <div class="APVOThumbnailItem">
+                    <img
+                      src="../assets/adminProductVerificationOverview/Rectangle 34627064 (1).svg"
+                      alt="Thumbnail 4"
+                    />
+                  </div>
+                  <div class="APVOThumbnailItem">
+                    <img
+                      src="../assets/adminProductVerificationOverview/Rectangle 34627065 (1).svg"
+                      alt="Thumbnail 5"
+                    />
+                  </div>
+                </div>
+              </div>
 
-              <p class="APVOProductDescription">
-                Mojadi features intricate hand embroidery inspired by
-                traditional Indian designs. Made with premium materials and a
-                comfortable fit, it's perfect for weddings, festive occasions,
-                and ethnic wear—adding timeless elegance to every step.
+              <!-- Right Column: Product Info -->
+              <div class="APVOPreviewRightColumn">
+                <h1 class="APVOProductTitle">Handmade Embroidery Mojadi</h1>
+                <p class="APVOProductBrand">by Sanskriti Collection</p>
+
+                <div class="APVOProductPrice">₹1,299</div>
+
+                <p class="APVOProductDescription">
+                  Mojadi features intricate hand embroidery inspired by
+                  traditional Indian designs. Made with premium materials and a
+                  comfortable fit, it's perfect for weddings, festive occasions,
+                  and ethnic wear—adding timeless elegance to every step.
+                </p>
+
+                <div class="APVOProductDetailsInfo">
+                  <div
+                    class="APVODetailsHeadingTitle APVOToggleHeader"
+                    data-target="details"
+                  >
+                    <h3 class="APVODetailsHeading">Product Details</h3>
+                    <!-- <span
+                    ><img
+                      class="APVOToggleIcon"
+                      src="../assets/adminProductVerificationOverview/Plus.svg"
+                      alt=""
+                  /></span> -->
+                  </div>
+                  <ul
+                    class="APVODetailsList APVOToggleContent"
+                    data-type="details"
+                  >
+                    <li>
+                      <span class="APVODetailLabel">Ornamentation</span> -
+                      Embroidered
+                    </li>
+                    <li>
+                      <span class="APVODetailLabel">Material</span> - Canvas
+                    </li>
+                    <li>
+                      <span class="APVODetailLabel">Heel Height</span> - 2inch
+                      (regular)
+                    </li>
+                    <li>
+                      <span class="APVODetailLabel">Toe Shape</span> - Round Toe
+                    </li>
+                    <li>
+                      <span class="APVODetailLabel">Occasion</span> - Party
+                    </li>
+                    <li>
+                      <span class="APVODetailLabel">Care Info</span> - Wipe with
+                      dry cloth
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="APVOReturnPolicies">
+                  <div
+                    class="APVODetailsHeadingTitle APVOToggleHeader"
+                    data-target="policy"
+                  >
+                    <h3 class="APVOPoliciesHeading">
+                      Return/Exchange Policies
+                    </h3>
+                    <!-- <span
+                    ><img
+                      class="APVOToggleIcon"
+                      src="../assets/adminProductVerificationOverview/Plus.svg"
+                      alt=""
+                  /></span> -->
+                  </div>
+                  <ol class="APVOPolicyText APVOPolicyList">
+                    <li>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </li>
+                    <li>Products must be returned in original condition.</li>
+                    <li>Return request within 7 days of delivery.</li>
+                    <li>No return on discounted items.</li>
+                    <li>Exchange allowed only once per order.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Specifications Section -->
+          <div class="APVOPreviewSection">
+            <div class="APVOSectionHeader">
+              <h2 class="APVOPreviewSectionTitle">Product Specifications</h2>
+            </div>
+
+            <div class="APVOVariantsPreviewGrid">
+              <!-- Variant 1 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 1</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+
+              <!-- Variant 2 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 2</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+
+              <!-- Variant 3 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 3</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+
+              <!-- Variant 4 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 4</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+
+              <!-- Variant 5 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 5</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+
+              <!-- Variant 6 -->
+              <div class="APVOVariantPreviewCard">
+                <h4 class="APVOVariantPreviewTitle">Variant 6</h4>
+                <div class="APVOVariantImagesGrid">
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                  <div class="APVOVariantImgPlaceholder"></div>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Size - </span>
+                  <span class="APVOVariantInfoValue">3</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Colour - </span>
+                  <span class="APVOColorSwatchDisplay"></span>
+                  <span class="APVOVariantInfoValue">Maroon</span>
+                </div>
+                <div class="APVOVariantInfoRow">
+                  <span class="APVOVariantInfoLabel">Quantity - </span>
+                  <span class="APVOVariantInfoValue">120</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pick up Address Section -->
+          <div class="APVOPreviewSection">
+            <div class="APVOSectionHeader">
+              <h2 class="APVOPreviewSectionTitle">Pick up address</h2>
+            </div>
+
+            <div class="APVOAddressPreviewCard">
+              <h4 class="APVOAddressPreviewTitle">Address 1</h4>
+              <p class="APVOAddressPreviewName">David john</p>
+              <p class="APVOAddressPreviewEmail">davidjohn23@gmail.com</p>
+              <p class="APVOAddressPreviewPhone">95367 89905</p>
+              <p class="APVOAddressPreviewDetails">
+                C - 605 , Eden Park,Mudhuban colony, parsi road,<br />
+                Near Appolo Hospital, Pune, Maharashtra, 234 678
               </p>
-
-              <div class="APVOProductDetailsInfo">
-                <div
-                  class="APVODetailsHeadingTitle APVOToggleHeader"
-                  data-target="details"
-                >
-                  <h3 class="APVODetailsHeading">Product Details</h3>
-                  <!-- <span
-                    ><img
-                      class="APVOToggleIcon"
-                      src="../assets/adminProductVerificationOverview/Plus.svg"
-                      alt=""
-                  /></span> -->
-                </div>
-                <ul
-                  class="APVODetailsList APVOToggleContent"
-                  data-type="details"
-                >
-                  <li>
-                    <span class="APVODetailLabel">Ornamentation</span> -
-                    Embroidered
-                  </li>
-                  <li>
-                    <span class="APVODetailLabel">Material</span> - Canvas
-                  </li>
-                  <li>
-                    <span class="APVODetailLabel">Heel Height</span> - 2inch
-                    (regular)
-                  </li>
-                  <li>
-                    <span class="APVODetailLabel">Toe Shape</span> - Round Toe
-                  </li>
-                  <li><span class="APVODetailLabel">Occasion</span> - Party</li>
-                  <li>
-                    <span class="APVODetailLabel">Care Info</span> - Wipe with
-                    dry cloth
-                  </li>
-                </ul>
-              </div>
-
-              <div class="APVOReturnPolicies">
-                <div
-                  class="APVODetailsHeadingTitle APVOToggleHeader"
-                  data-target="policy"
-                >
-                  <h3 class="APVOPoliciesHeading">Return/Exchange Policies</h3>
-                  <!-- <span
-                    ><img
-                      class="APVOToggleIcon"
-                      src="../assets/adminProductVerificationOverview/Plus.svg"
-                      alt=""
-                  /></span> -->
-                </div>
-                <ol class="APVOPolicyText APVOPolicyList">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </li>
-                  <li>Products must be returned in original condition.</li>
-                  <li>Return request within 7 days of delivery.</li>
-                  <li>No return on discounted items.</li>
-                  <li>Exchange allowed only once per order.</li>
-                </ol>
-              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Product Specifications Section -->
-        <div class="APVOPreviewSection">
-          <div class="APVOSectionHeader">
-            <h2 class="APVOPreviewSectionTitle">Product Specifications</h2>
-          </div>
+          <!-- For Administration Section -->
+          <div class="APVOAdminSection">
+            <div class="APVOAdminHeader">For Administration</div>
+            <div class="approval-heading">Approval Process</div>
+            <div class="APVOAdminContent">
+              <div class="APVOAdminLeft">
+                <div class="APVOAdminTextareaWrapper">
+                  <span class="APVOAdminInnerLabel"
+                    >Write a review to vendor</span
+                  >
 
-          <div class="APVOVariantsPreviewGrid">
-            <!-- Variant 1 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 1</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-
-            <!-- Variant 2 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 2</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-
-            <!-- Variant 3 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 3</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-
-            <!-- Variant 4 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 4</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-
-            <!-- Variant 5 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 5</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-
-            <!-- Variant 6 -->
-            <div class="APVOVariantPreviewCard">
-              <h4 class="APVOVariantPreviewTitle">Variant 6</h4>
-              <div class="APVOVariantImagesGrid">
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-                <div class="APVOVariantImgPlaceholder"></div>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Size - </span>
-                <span class="APVOVariantInfoValue">3</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Colour - </span>
-                <span class="APVOColorSwatchDisplay"></span>
-                <span class="APVOVariantInfoValue">Maroon</span>
-              </div>
-              <div class="APVOVariantInfoRow">
-                <span class="APVOVariantInfoLabel">Quantity - </span>
-                <span class="APVOVariantInfoValue">120</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pick up Address Section -->
-        <div class="APVOPreviewSection">
-          <div class="APVOSectionHeader">
-            <h2 class="APVOPreviewSectionTitle">Pick up address</h2>
-          </div>
-
-          <div class="APVOAddressPreviewCard">
-            <h4 class="APVOAddressPreviewTitle">Address 1</h4>
-            <p class="APVOAddressPreviewName">David john</p>
-            <p class="APVOAddressPreviewEmail">davidjohn23@gmail.com</p>
-            <p class="APVOAddressPreviewPhone">95367 89905</p>
-            <p class="APVOAddressPreviewDetails">
-              C - 605 , Eden Park,Mudhuban colony, parsi road,<br />
-              Near Appolo Hospital, Pune, Maharashtra, 234 678
-            </p>
-          </div>
-        </div>
-
-        <!-- For Administration Section -->
-        <div class="APVOAdminSection">
-          <div class="APVOAdminHeader">For Administration</div>
-          <div class="approval-heading">Approval Process</div>
-          <div class="APVOAdminContent">
-            <div class="APVOAdminLeft">
-              <div class="APVOAdminTextareaWrapper">
-                <span class="APVOAdminInnerLabel"
-                  >Write a review to vendor</span
-                >
-
-                <textarea class="APVOAdminTextarea">
+                  <textarea class="APVOAdminTextarea">
 Review and upload high quality images</textarea
-                >
+                  >
 
-                <img
-                  src="../assets/adminProductVerificationOverview/PaperPlaneTilt.svg"
-                  class="APVOAdminSendIcon"
-                  alt="send"
-                />
+                  <img
+                    src="../assets/adminProductVerificationOverview/PaperPlaneTilt.svg"
+                    class="APVOAdminSendIcon"
+                    alt="send"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="APVOAdminButtons">
+              <div class="APVOAdminActionBtns">
+                <button class="APVOApproveButton">Approve</button>
+                <button class="APVORejectButton">Reject</button>
+                <button class="APVOSentButton">Send to verify</button>
               </div>
             </div>
           </div>
-          <div class="APVOAdminButtons">
-            <div class="APVOAdminActionBtns">
-              <button class="APVOApproveButton">Approve</button>
-              <button class="APVORejectButton">Reject</button>
-              <button class="APVOSentButton">Send to verify</button>
-            </div>
+        </div>
+      </div>
+      <!-- APPROVE CONFIRMATION MODAL -->
+      <div class="APVOConfirmOverlay" id="APVOapproveModal">
+        <div class="APVOConfirmModal">
+          <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
+
+          <p class="APVOConfirmText">
+            Are you sure you want to send the product for verification ?
+          </p>
+
+          <div class="APVOConfirmActions">
+            <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
+            <button class="APVONoBtn" id="APVOapproveNo">No</button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- APPROVE CONFIRMATION MODAL -->
-    <div class="APVOConfirmOverlay" id="APVOapproveModal">
-      <div class="APVOConfirmModal">
-        <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
 
-        <p class="APVOConfirmText">
-          Are you sure you want to send the product for verification ?
-        </p>
-
-        <div class="APVOConfirmActions">
-          <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
-          <button class="APVONoBtn" id="APVOapproveNo">No</button>
+      <!-- APPROVE SUCCESS SCREEN -->
+      <div class="APVOSuccessScreen" id="APVOapproveSuccessScreen">
+        <div class="APVOSuccessContent">
+          <div>
+            <img
+              class="APVOSuccessIcon"
+              src="../assets/adminProductVerificationOverview/success.svg"
+              alt="Success"
+            />
+          </div>
+          <p class="APVOSuccessText">Product details sent for verification</p>
         </div>
       </div>
-    </div>
 
-    <!-- APPROVE SUCCESS SCREEN -->
-    <div class="APVOSuccessScreen" id="APVOapproveSuccessScreen">
-      <div class="APVOSuccessContent">
-        <div>
-          <img
-            class="APVOSuccessIcon"
-            src="../assets/adminProductVerificationOverview/success.svg"
-            alt="Success"
-          />
-        </div>
-        <p class="APVOSuccessText">Product details sent for verification</p>
-      </div>
-    </div>
+      <!-- REJECT CONFIRMATION MODAL -->
+      <div class="APVOConfirmOverlay" id="APVOrejectModal">
+        <div class="APVOConfirmModal">
+          <button class="APVOCloseBtn" id="APVOcloseRejectModal">×</button>
 
-    <!-- REJECT CONFIRMATION MODAL -->
-    <div class="APVOConfirmOverlay" id="APVOrejectModal">
-      <div class="APVOConfirmModal">
-        <button class="APVOCloseBtn" id="APVOcloseRejectModal">×</button>
+          <p class="APVOConfirmText">
+            Are you sure you want to reject the Product ?
+          </p>
 
-        <p class="APVOConfirmText">
-          Are you sure you want to reject the Product ?
-        </p>
-
-        <div class="APVOConfirmActions">
-          <button class="APVOYesBtn" id="APVOrejectYes">Yes</button>
-          <button class="APVONoBtn" id="APVOrejectNo">No</button>
+          <div class="APVOConfirmActions">
+            <button class="APVOYesBtn" id="APVOrejectYes">Yes</button>
+            <button class="APVONoBtn" id="APVOrejectNo">No</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- REJECT SUCCESS SCREEN -->
-    <div class="APVOSuccessScreen" id="APVOrejectSuccessScreen">
-      <div class="APVOSuccessContent">
-        <div>
-          <img
-            class="APVOSuccessIcon"
-            src="../assets/adminProductVerificationOverview/reject.svg"
-            alt="Rejected"
-          />
+      <!-- REJECT SUCCESS SCREEN -->
+      <div class="APVOSuccessScreen" id="APVOrejectSuccessScreen">
+        <div class="APVOSuccessContent">
+          <div>
+            <img
+              class="APVOSuccessIcon"
+              src="../assets/adminProductVerificationOverview/reject.svg"
+              alt="Rejected"
+            />
+          </div>
+          <p class="APVOSuccessText">Product has been rejected</p>
         </div>
-        <p class="APVOSuccessText">Product has been rejected</p>
       </div>
-    </div>
+      <!-- APPROVE CONFIRMATION MODAL -->
+      <div class="APVOConfirmOverlay" id="APVOapproveModal">
+        <div class="APVOConfirmModal">
+          <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
+
+          <p class="APVOConfirmText">
+            Are you sure you want to approve the Product ?
+          </p>
+
+          <div class="APVOConfirmActions">
+            <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
+            <button class="APVONoBtn" id="APVOapproveNo">No</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- APPROVE SUCCESS SCREEN -->
+      <div class="APVOSuccessScreen" id="APVOapproveSuccessScreenLive">
+        <div class="APVOSuccessContent">
+          <div>
+            <img
+              class="APVOSuccessIcon"
+              src="../assets/adminPendingProductVerificationOverview/success.svg"
+              alt="Success"
+            />
+          </div>
+          <p class="APVOSuccessText">Product is live now</p>
+        </div>
+      </div>
     </div>
 
     <script src="../javascript/adminProductVerificationOverview.js"></script>
