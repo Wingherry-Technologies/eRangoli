@@ -259,6 +259,42 @@ terms and conditions. The product will be live in next 24 hours
       </div>
     </div>
 
+
+    <!-- CREATE VENDOR CREDENTIALS POPUP -->
+<div class="VendorOverlay" id="vendorCredentialModal">
+  <div class="VendorModal">
+
+    <div class="vendorHeader">
+    <h3>Create Vendor Credentials</h3>
+    <img src="../assets/adminProductRecentlyAdded/cross.svg" alt="Close" class="VendorCloseBtn" id="closeVendorCredentialModal">
+    </div>
+
+    <div class="VendorFormBody">
+    <div class="form-group">
+      <label>Mobile Number *</label>
+      <input type="text" id="vendorMobile" readonly />
+    </div>
+
+    <div class="form-group">
+      <label>User Name *</label>
+      <input type="text" id="vendorUsername" />
+      <small class="error"></small>
+    </div>
+
+    <div class="form-group">
+      <label>Create Password *</label>
+      <input type="password" id="vendorPassword" />
+      <small class="error"></small>
+    </div>
+    </div>
+
+<div class="VendorFooter">
+  <button id="sendVendorCredentialBtn">Send</button>
+</div>
+  </div>
+</div>
+
+
     <script src="../javascript/adminVerificationProcess.js"></script>
   </body>
 </html>

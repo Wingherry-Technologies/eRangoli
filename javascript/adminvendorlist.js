@@ -1,4 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+// TOAST FOR SUCCESSFUL CREDENTIAL SEND
+  const toastFlag = localStorage.getItem("vendorCredentialSuccess");
+
+if (toastFlag === "true") {
+  const toast = document.getElementById("vendorSuccessToast");
+  const closeBtn = document.getElementById("toastCloseBtn");
+
+  toast.classList.add("show");
+
+  // Auto hide after 3 sec
+  // const timer = setTimeout(() => {
+  //   toast.classList.remove("show");
+  // }, 3000);
+
+  // Manual close
+  closeBtn.addEventListener("click", () => {
+    toast.classList.remove("show");
+    clearTimeout(timer);
+  });
+
+  // remove flag so refresh pe na aaye
+  localStorage.removeItem("vendorCredentialSuccess");
+}
+
   /* =========================
      ELEMENTS
   ========================= */

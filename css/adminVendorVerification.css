@@ -256,12 +256,12 @@ body {
 }
 
 .APRATableCell.pending {
-  color: #0e1887;
+  color: #FF8205;
   font-weight: 400;
 }
 
-.APRATableCell.verified {
-  color: #009605;
+.APRATableCell.sendToVerify {
+  color: #440BEF;
   font-weight: 400;
 }
 

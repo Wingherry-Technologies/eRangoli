@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
         vendorIDNumber.includes(searchValue);
 
       const statusSpan = row.querySelector(
-        ".APRATableCell.pending, .APRATableCell.verified",
+        ".APRATableCell.pending, .APRATableCell.sendToVerify",
       );
 
       const rowStatus = statusSpan?.classList.contains("pending")
         ? "pending"
-        : statusSpan?.classList.contains("verified")
-          ? "verified"
+        : statusSpan?.classList.contains("sendToVerify")
+          ? "sendToVerify"
           : "";
 
       const matchesStatus =

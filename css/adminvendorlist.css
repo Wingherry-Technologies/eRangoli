@@ -457,6 +457,43 @@ body {
   display: flex;
   gap: 6px;
 }
+/* SUCCESS TOAST */
+.SuccessToast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e7fbe7;
+  color: #16a34a;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 420px;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 30000;
+}
+
+.SuccessToast.show {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 40px;
+}
+
+.ToastCloseBtn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #16a34a;
+}
+
 
 
 
