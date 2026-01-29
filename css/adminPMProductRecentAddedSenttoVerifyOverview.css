@@ -11,18 +11,18 @@ body {
   color: #3f3f3f;
 }
 
-.APVOMainContentBeyond {
+.APVSVMainContentBeyond {
   margin: 0 auto;
   height: 100%;
   overflow-y: auto;
 }
 
-.APVOContainer {
+.APVSVContainer {
   background-color: white;
   border-radius: 8px;
 }
 
-.APVOMobileBackButton {
+.APVSVMobileBackButton {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -30,25 +30,25 @@ body {
   cursor: pointer;
 }
 
-.APVOMobileBackButton img {
+.APVSVMobileBackButton img {
   width: 17px;
   height: 17px;
 }
 
-.APVOMobileBackButton span {
+.APVSVMobileBackButton span {
   font-size: 16px;
   font-weight: 400;
   color: #3f3f3f;
 }
 
 /* Wrapper for left-right alignment */
-.APVOMobileHeader {
+.APVSVMobileHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* .APVOLiveStatus {
+/* .APVSVLiveStatus {
   background-color: #009605;
   color: #ffffff;
   padding: 6px 22px;
@@ -60,11 +60,11 @@ body {
   white-space: nowrap;
 } */
 
-.APVOPreviewSection {
+.APVSVPreviewSection {
   margin-bottom: 40px;
 }
 
-.APVOSectionHeader {
+.APVSVSectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,14 +74,14 @@ body {
   margin-bottom: 15px;
 }
 
-.APVOPreviewSectionTitle {
+.APVSVPreviewSectionTitle {
   font-size: 18px;
   font-weight: 600;
   color: #3f3f3f;
   margin: 0;
 }
 
-.APVOHeaderDate {
+.APVSVHeaderDate {
   display: flex;
   gap: 12px;
   color: #3f3f3f;
@@ -89,7 +89,7 @@ body {
   font-size: 12px;
 }
 
-.APVOProductPreviewLayout {
+.APVSVProductPreviewLayout {
   display: grid;
   grid-template-columns: 500px 1fr;
   gap: 30px;
@@ -99,13 +99,13 @@ body {
   background-color: #f5f5f5;
 }
 
-.APVOPreviewLeftColumn {
+.APVSVPreviewLeftColumn {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.APVOProductCategory {
+.APVSVProductCategory {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,12 +114,12 @@ body {
   font-weight: 500;
 }
 
-.APVOProductTag {
+.APVSVProductTag {
   font-size: 13px;
   color: #3f3f3f;
 }
 
-.APVOMainProductImage {
+.APVSVMainProductImage {
   width: 100%;
   height: 400px;
   border-radius: 8px;
@@ -128,19 +128,19 @@ body {
   border: 1px solid #e0e0e0;
 }
 
-.APVOMainProductImage img {
+.APVSVMainProductImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.APVOThumbnailGrid {
+.APVSVThumbnailGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
 }
 
-.APVOThumbnailItem {
+.APVSVThumbnailItem {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 6px;
@@ -150,27 +150,27 @@ body {
   transition: border-color 0.3s;
 }
 
-.APVOThumbnailItem.APVOActive {
+.APVSVThumbnailItem.APVSVActive {
   border-color: #cfcbcb;
 }
 
-.APVOThumbnailItem:hover {
+.APVSVThumbnailItem:hover {
   border-color: #8e8989;
 }
 
-.APVOThumbnailItem img {
+.APVSVThumbnailItem img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.APVOPreviewRightColumn {
+.APVSVPreviewRightColumn {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
 }
 
-.APVOProductTitle {
+.APVSVProductTitle {
   font-size: 28px;
   font-weight: 600;
   color: #3f3f3f;
@@ -178,21 +178,21 @@ body {
   line-height: 1.2;
 }
 
-.APVOProductBrand {
+.APVSVProductBrand {
   font-size: 14px;
   font-weight: 400;
   color: #716b6b;
   margin: 0;
 }
 
-.APVOProductPrice {
+.APVSVProductPrice {
   font-size: 32px;
   font-weight: 600;
   color: #3f3f3f;
   margin: 8px 0;
 }
 
-.APVOProductDescription {
+.APVSVProductDescription {
   font-size: 14px;
   color: #3f3f3f;
   line-height: 1.7;
@@ -200,37 +200,37 @@ body {
   margin: 12px 0;
 }
 
-.APVOProductDetailsInfo {
+.APVSVProductDetailsInfo {
   margin-top: 16px;
 }
 
-.APVODetailsHeading {
+.APVSVDetailsHeading {
   font-size: 16px;
   font-weight: 500;
   color: #a10404;
   margin-bottom: 3px;
 }
 
-.APVODetailsHeadingTitle {
+.APVSVDetailsHeadingTitle {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   user-select: none;
 }
 
-.APVODetailsHeadingTitle img {
+.APVSVDetailsHeadingTitle img {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
-.APVODetailsList {
+.APVSVDetailsList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.APVODetailsList li {
+.APVSVDetailsList li {
   font-size: 14px;
   font-weight: 400;
   color: #3f3f3f;
@@ -238,27 +238,27 @@ body {
   margin-bottom: 6px;
 }
 
-.APVODetailLabel {
+.APVSVDetailLabel {
   font-weight: 400;
 }
 
-.APVOToggleContent {
+.APVSVToggleContent {
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
 
-.APVOReturnPolicies {
+.APVSVReturnPolicies {
   margin-top: 16px;
 }
 
-.APVOPoliciesHeading {
+.APVSVPoliciesHeading {
   font-size: 16px;
   font-weight: 500;
   color: #a10404;
   margin-bottom: 5px;
 }
 
-.APVOPolicyText {
+.APVSVPolicyText {
   font-size: 14px;
   font-weight: 400;
   color: #3f3f3f;
@@ -267,11 +267,11 @@ body {
   padding-left: 17px;
 }
 
-.APVOPolicyList {
+.APVSVPolicyList {
   list-style: decimal;
 }
 
-.APVOVariantsPreviewGrid {
+.APVSVVariantsPreviewGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -280,34 +280,34 @@ body {
   border-radius: 16px;
 }
 
-.APVOVariantPreviewCard {
+.APVSVVariantPreviewCard {
   background-color: transparent;
   border-radius: 8px;
   padding: 16px;
 }
 
-.APVOVariantPreviewTitle {
+.APVSVVariantPreviewTitle {
   font-size: 14px;
   font-weight: 500;
   color: #3f3f3f;
   margin: 0 0 12px 0;
 }
 
-.APVOVariantImagesGrid {
+.APVSVVariantImagesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.APVOVariantImgPlaceholder {
+.APVSVVariantImgPlaceholder {
   height: 80px;
   width: 80px;
   background-color: #d9d9d9;
   border-radius: 6px;
 }
 
-.APVOVariantInfoRow {
+.APVSVVariantInfoRow {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -317,15 +317,15 @@ body {
   margin-bottom: 8px;
 }
 
-.APVOVariantInfoLabel {
+.APVSVVariantInfoLabel {
   font-weight: 500;
 }
 
-.APVOVariantInfoValue {
+.APVSVVariantInfoValue {
   font-weight: 500;
 }
 
-.APVOColorSwatchDisplay {
+.APVSVColorSwatchDisplay {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -335,47 +335,47 @@ body {
   background-color: maroon;
 }
 
-.APVOAddressPreviewCard {
+.APVSVAddressPreviewCard {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 20px;
 }
 
-.APVOAddressPreviewTitle {
+.APVSVAddressPreviewTitle {
   font-size: 13px;
   font-weight: 500;
   color: #3f3f3f;
   margin: 0 0 12px 0;
 }
 
-.APVOAddressPreviewName {
+.APVSVAddressPreviewName {
   font-size: 14px;
   font-weight: 400;
   color: #3f3f3f;
   margin: 0 0 4px 0;
 }
 
-.APVOAddressPreviewEmail {
+.APVSVAddressPreviewEmail {
   font-size: 14px;
   color: #666;
   margin: 0 0 4px 0;
 }
 
-.APVOAddressPreviewPhone {
+.APVSVAddressPreviewPhone {
   font-size: 14px;
   color: #666;
   margin: 0 0 12px 0;
 }
 
-.APVOAddressPreviewDetails {
+.APVSVAddressPreviewDetails {
   font-size: 14px;
   color: #666;
   line-height: 1.7;
   margin: 0;
 }
 
-.APVOAdminSection {
+.APVSVAdminSection {
   background-color: #f3f6f9;
   padding-left: 16px;
   padding-right: 16px;
@@ -384,7 +384,7 @@ body {
   margin-top: 40px;
 }
 
-.APVOAdminHeader {
+.APVSVAdminHeader {
   background-color: #6ec1f5;
   color: #ffffff;
   padding: 14px 20px;
@@ -400,24 +400,24 @@ body {
   padding: 14px 20px;
 }
 
-.APVOAdminContent {
+.APVSVAdminContent {
   gap: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
-.APVOAdminSelect,
-.APVOAdminInput {
+.APVSVAdminSelect,
+.APVSVAdminInput {
   width: 180px;
 }
 
-.APVOApproveButton,
-.APVORejectButton,
-.APVOSentButton {
+.APVSVApproveButton,
+.APVSVRejectButton,
+.APVSVSentButton {
   height: 44px;
 }
 
-.APVOAdminTextarea {
+.APVSVAdminTextarea {
   width: 100%;
   min-height: 150px;
   padding: 10px;
@@ -429,11 +429,11 @@ body {
   outline: none;
 }
 
-.APVOAdminTextareaWrapper {
+.APVSVAdminTextareaWrapper {
   position: relative;
 }
 
-.APVOAdminInnerLabel {
+.APVSVAdminInnerLabel {
   position: absolute;
   top: 8px;
   left: 10px;
@@ -445,7 +445,7 @@ body {
   padding: 0 4px;
 }
 
-.APVOAdminTextarea {
+.APVSVAdminTextarea {
   padding-top: 35px;
   padding-right: 40px;
   color: #3f3f3f;
@@ -453,7 +453,7 @@ body {
   font-size: 13px;
 }
 
-.APVOAdminSendIcon {
+.APVSVAdminSendIcon {
   position: absolute;
   right: 10px;
   bottom: 10px;
@@ -463,31 +463,31 @@ body {
   opacity: 0.7;
 }
 
-.APVOAdminSendIcon:hover {
+.APVSVAdminSendIcon:hover {
   opacity: 1;
 }
 
-.APVOAdminButtons {
+.APVSVAdminButtons {
   display: flex;
   justify-content: flex-end;
   gap: 14px;
   padding: 10px 10px 4px 10px;
 }
 
-.APVOAdminFields {
+.APVSVAdminFields {
   display: flex;
   gap: 24px;
 }
 
-.APVOInputsWrapper {
+.APVSVInputsWrapper {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.APVOApproveButton,
-.APVORejectButton,
-.APVOSentButton {
+.APVSVApproveButton,
+.APVSVRejectButton,
+.APVSVSentButton {
   padding: 12px 40px;
   border-radius: 8px;
   font-size: 14px;
@@ -497,26 +497,26 @@ body {
   transition: all 0.2s ease;
 }
 
-.APVOApproveButton,
-.APVORejectButton,
-.APVOSentButton {
+.APVSVApproveButton,
+.APVSVRejectButton,
+.APVSVSentButton {
   background-color: #ffffff;
   color: #0f8df3;
   border: 1px solid #0f8df3;
 }
 
-.APVODeleteButton:hover {
+.APVSVDeleteButton:hover {
   background-color: #716b6b;
 }
 
-.APVOSentButton:hover,
-.APVORejectButton:hover,
-.APVOApproveButton:hover {
+.APVSVSentButton:hover,
+.APVSVRejectButton:hover,
+.APVSVApproveButton:hover {
   background-color: #0e8bf3;
   color: #ffffff;
 }
 
-.APVOConfirmOverlay {
+.APVSVConfirmOverlay {
   position: fixed;
   inset: 0;
   background: #7e797999;
@@ -526,11 +526,11 @@ body {
   z-index: 9999;
 }
 
-.APVOConfirmOverlay.active {
+.APVSVConfirmOverlay.active {
   display: flex;
 }
 
-.APVOConfirmModal {
+.APVSVConfirmModal {
   background: #ffffff;
   width: 520px;
   padding: 28px 24px 24px;
@@ -539,7 +539,7 @@ body {
   text-align: center;
 }
 
-.APVOCloseBtn {
+.APVSVCloseBtn {
   position: absolute;
   right: 16px;
   top: 14px;
@@ -550,20 +550,20 @@ body {
   color: #6b6b6b;
 }
 
-.APVOConfirmText {
+.APVSVConfirmText {
   font-size: 17px;
   font-weight: 400;
   color: #3f3f3f;
   margin-bottom: 28px;
 }
 
-.APVOConfirmActions {
+.APVSVConfirmActions {
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
-.APVOYesBtn {
+.APVSVYesBtn {
   background-color: #0e8bf3;
   color: #ffffff;
   border: none;
@@ -574,7 +574,7 @@ body {
   font-weight: 500;
 }
 
-.APVONoBtn {
+.APVSVNoBtn {
   background-color: #ffffff;
   color: #6828e7;
   border: 1px solid #6828e7;
@@ -585,7 +585,7 @@ body {
   font-weight: 500;
 }
 
-.APVOSuccessScreen {
+.APVSVSuccessScreen {
   position: fixed;
   inset: 0;
   background: #ffffff;
@@ -595,18 +595,18 @@ body {
   z-index: 10000;
 }
 
-.APVOSuccessScreen.active {
+.APVSVSuccessScreen.active {
   display: flex;
 }
 
-.APVOSuccessContent {
+.APVSVSuccessContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.APVOSuccessIcon {
+.APVSVSuccessIcon {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -616,7 +616,7 @@ body {
   font-weight: bold;
 }
 
-.APVOSuccessText {
+.APVSVSuccessText {
   font-size: 16px;
   font-weight: 800;
   color: #3f3f3f;
@@ -625,170 +625,169 @@ body {
 /* Responsive */
 
 @media (min-width: 1025px) and (max-width: 1608px) {
-  .APVOVariantsPreviewGrid {
+  .APVSVVariantsPreviewGrid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .APVOVariantImgPlaceholder {
+  .APVSVVariantImgPlaceholder {
     width: 100%;
   }
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
-  .APVOProductPreviewLayout {
+  .APVSVProductPreviewLayout {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .APVOVariantsPreviewGrid {
+  .APVSVVariantsPreviewGrid {
     grid-template-columns: 1fr 1fr;
   }
 
-  .APVOVariantImgPlaceholder {
+  .APVSVVariantImgPlaceholder {
     width: 100%;
   }
 
-  .APVOMainProductImage {
+  .APVSVMainProductImage {
     height: unset;
   }
 
-  .APVOAdminContent {
+  .APVSVAdminContent {
     grid-template-columns: 1fr;
   }
 
-  .APVOVariantsPreviewGrid {
+  .APVSVVariantsPreviewGrid {
     background-color: #ffffff;
   }
-  .APVOProductPreviewLayout {
+  .APVSVProductPreviewLayout {
     background-color: #ffffff;
     border: none;
   }
 }
 
 @media (max-width: 595px) {
-  .APVOMobileBackButton {
+  .APVSVMobileBackButton {
     display: none;
     font-size: 14px;
   }
 
-  .APVOMobileBackButton img {
+  .APVSVMobileBackButton img {
     width: 15px;
     height: 15px;
   }
 
-  .APVOProductPreviewLayout {
+  .APVSVProductPreviewLayout {
     grid-template-columns: 1fr;
     border: none;
     background: none;
   }
 
-  .APVOMainProductImage {
+  .APVSVMainProductImage {
     height: 280px;
   }
 
-  .APVOProductTitle {
+  .APVSVProductTitle {
     font-size: 20px;
   }
 
-  .APVOProductPrice {
+  .APVSVProductPrice {
     font-size: 24px;
   }
 
-  .APVOThumbnailGrid {
+  .APVSVThumbnailGrid {
     grid-template-columns: repeat(5, 1fr);
     gap: 6px;
   }
 
-  .APVOVariantsPreviewGrid {
+  .APVSVVariantsPreviewGrid {
     grid-template-columns: 1fr;
     background-color: #ffffff;
   }
 
-  .APVOVariantImagesGrid {
+  .APVSVVariantImagesGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
   }
 
-  .APVOPreviewSectionTitle {
+  .APVSVPreviewSectionTitle {
     font-size: 13px;
   }
 
-  .APVOVariantPreviewTitle {
+  .APVSVVariantPreviewTitle {
     font-size: 13px;
   }
 
-  .APVOAddressPreviewCard {
+  .APVSVAddressPreviewCard {
     max-width: 100%;
   }
 
-  .APVOAdminContent {
+  .APVSVAdminContent {
     grid-template-columns: 1fr;
   }
 
-  .APVOAdminButtons {
+  .APVSVAdminButtons {
     justify-content: stretch;
   }
 
-  .APVOAdminActionBtns {
+  .APVSVAdminActionBtns {
     flex-direction: column;
     width: 100%;
     gap: 12px;
   }
 
-  .APVOAdminActionBtns button {
+  .APVSVAdminActionBtns button {
     width: 100%;
     padding: 12px 0;
     margin: 10px 0;
   }
 
-  .APVOSentButton {
+  .APVSVSentButton {
     order: -1;
   }
 
-  .APVOConfirmOverlay {
+  .APVSVConfirmOverlay {
     background: #595757d4;
   }
 
-  .APVOCloseBtn {
+  .APVSVCloseBtn {
     display: none;
   }
 
-  .APVOConfirmModal {
+  .APVSVConfirmModal {
     width: calc(100% - 40px);
     max-width: 340px;
     border-radius: 4px;
     padding: 24px 16px 20px;
   }
 
-  .APVOConfirmText {
+  .APVSVConfirmText {
     font-size: 15px;
     line-height: 1.5;
     text-align: center;
   }
 
-  .APVOConfirmActions {
+  .APVSVConfirmActions {
     gap: 12px;
   }
 
-  .APVOYesBtn,
-  .APVONoBtn {
+  .APVSVYesBtn,
+  .APVSVNoBtn {
     padding: 10px 0;
     width: 100%;
   }
 
-  .APVOProductCategory {
+  .APVSVProductCategory {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
 
-  .APVOProductCategory span {
+  .APVSVProductCategory span {
     font-size: 12px;
     line-height: 1.4;
   }
 
-  .APVOContainer {
+  .APVSVContainer {
     background-color: #ffffff;
   }
 }
-

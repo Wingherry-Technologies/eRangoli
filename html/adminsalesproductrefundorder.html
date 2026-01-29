@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Sales Product Refund Order</title>
+  <link rel="stylesheet" href="../css/adminsalesproductrefundorder.css" />
+</head>
+
+<body>
+  <div class="APMDashboardContainer">
+
+    <!-- Top Stats Cards Row -->
+    <div class="APMStatsRow">
+      <!-- Total Products Card -->
+      <div class="APMStatCard" id="APMTotalProductsWidget">
+        <div class="APMStatHeader">
+          <div class="APMStatIcon">
+            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+          </div>
+          <span class="APMStatLabel"> Total Products Request</span>
+        </div>
+        <div class="APMStatValue">14,945</div>
+        <div class="APMStatFooter">
+          <span class="APMStatChange">
+            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+            +15.3%
+          </span>
+          <div class="APMStatChart">
+            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+          </div>
+        </div>
+      </div>
+
+      <!-- Newly Added Card -->
+      <div class="APMStatCard" id="APMNewlyAddedWidget">
+        <div class="APMStatHeader">
+          <div class="APMStatIcon">
+            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+          </div>
+          <span class="APMStatLabel">Verified Products</span>
+        </div>
+        <div class="APMStatValue">9,945</div>
+        <div class="APMStatFooter">
+          <span class="APMStatChange">
+            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+            +15.3%
+          </span>
+          <div class="APMStatChart">
+            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending Products Card -->
+      <div class="APMStatCard" id="APMTrendingProductsWidget">
+        <div class="APMStatHeader">
+          <div class="APMStatIcon">
+            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+          </div>
+          <span class="APMStatLabel">Pending Products </span>
+        </div>
+        <div class="APMStatValue">4,945</div>
+        <div class="APMStatFooter">
+          <span class="APMStatChange">
+            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+            +15.3%
+          </span>
+          <div class="APMStatChart">
+            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+          </div>
+        </div>
+      </div>
+
+      <!-- Least Purchased Card -->
+      <div class="APMStatCard" id="APMLeastPurchasedWidget">
+        <div class="APMStatHeader">
+          <div class="APMStatIcon">
+            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+          </div>
+          <span class="APMStatLabel">Rejected Projects</span>
+        </div>
+        <div class="APMStatValue">945</div>
+        <div class="APMStatFooter">
+          <span class="APMStatChange">
+            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
+            +15.3%
+          </span>
+          <div class="APMStatChart">
+            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar Section -->
+    <div class="APMSearchRow">
+      <div class="APMSearchWrapper">
+        <img src="../assets/adminProductManagement/search (2).svg" alt="">
+        <input type="text" class="APMSearchInput" placeholder="Search by customer name, buyer name, email or city">
+      </div>
+      <div class="APMIconsGroup filter-bar-wrapper">
+        <div class="APMFilterDummy"><img src="../assets/adminProductManagement/Sliders.svg" alt="" id="apm-filter-btn">
+        </div>
+        <div class="APMSettingsDummy"><img src="../assets/adminProductManagement/SortAscending (1).svg" alt=""
+            id="apm-sort-btn"></div>
+        <!-- Filter main -->
+<div class="main-content-flows-main" id="apm-filter-main">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Filter</span>
+    </div>
+    <ul>
+      <li id="apm-state-open">State</li>
+      <li id="apm-city-open">City</li>
+    </ul>
+  </div>
+</div>
+
+<!-- State filter box -->
+<div class="main-content-flows-main" id="apm-state-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Select State</span>
+    </div>
+    <ul>
+      <li><input type="checkbox" data-state="MH"> MH</li>
+      <li><input type="checkbox" data-state="KA"> KA</li>
+      <li><input type="checkbox" data-state="DL"> DL</li>
+      <li><input type="checkbox" data-state="TN"> TN</li>
+      <li><input type="checkbox" data-state="GJ"> GJ</li>
+    </ul>
+  </div>
+</div>
+
+<!-- City filter box -->
+<div class="main-content-flows-main" id="apm-city-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Select City</span>
+    </div>
+    <ul>
+      <li><input type="checkbox" data-city="Mumbai"> Mumbai</li>
+      <li><input type="checkbox" data-city="Bengaluru"> Bengaluru</li>
+      <li><input type="checkbox" data-city="New Delhi"> New Delhi</li>
+      <li><input type="checkbox" data-city="Chennai"> Chennai</li>
+      <li><input type="checkbox" data-city="Ahmedabad"> Ahmedabad</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Sort box -->
+<div class="main-content-flows-main" id="apm-sort-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Sort Buyers</span>
+    </div>
+    <ul>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="nameAZ">
+        Name A–Z
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="nameZA">
+        Name Z–A
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="uidASC">
+        UID Ascending
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="uidDESC">
+        UID Descending
+      </li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Product Table Section -->
+    <div class="APMTableCard">
+      <div class="APMTableHeader">
+        <h3 class="APMTableTitle">Product Refund Orders</h3>
+        <a href="#" class="APMViewAllLink">200</a>
+      </div>
+
+      <div class="APMTableWrapper">
+        <table class="APMProductTable">
+
+          <thead class="APMTableHead">
+            <tr class="APMTableHeadRow">
+              <th class="APMTableHeaderCell">Product Name</th>
+              <th class="APMTableHeaderCell">Request ID</th>
+              <th class="APMTableHeaderCell">Category</th>
+              <th class="APMTableHeaderCell">Qty</th>
+              <th class="APMTableHeaderCell">S. Price</th>
+              <th class="APMTableHeaderCell">Reason</th>
+              <th class="APMTableHeaderCell">Verification</th>
+              <th class="APMTableHeaderCell">Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="APMTableBody">
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Paithani Peacock Print</span>
+    </td>
+    <td class="APMTableCell">#5738393001</td>
+    <td class="APMTableCell">Handloom</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 1,299</td>
+    <td class="APMTableCell">Damaged condition</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#6a5cff;">Initiate Refund</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Paithani Peacock Print</span>
+    </td>
+    <td class="APMTableCell">#5738393002</td>
+    <td class="APMTableCell">Handloom</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 1,299</td>
+    <td class="APMTableCell">Color mismatch</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#0abf53;">Refunded</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Paithani Peacock Print</span>
+    </td>
+    <td class="APMTableCell">#5738393003</td>
+    <td class="APMTableCell">Handloom</td>
+    <td class="APMTableCell">2</td>
+    <td class="APMTableCell">₹ 2,598</td>
+    <td class="APMTableCell">Wrong item delivered</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#ff3b3b;">Rejected</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Banarasi Silk Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393004</td>
+    <td class="APMTableCell">Silk</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 1,999</td>
+    <td class="APMTableCell">Size issue</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#6a5cff;">Initiate Refund</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Kanchipuram Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393005</td>
+    <td class="APMTableCell">Handloom</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 2,499</td>
+    <td class="APMTableCell">Damaged border</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#0abf53;">Refunded</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Chanderi Cotton Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393006</td>
+    <td class="APMTableCell">Cotton</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 999</td>
+    <td class="APMTableCell">Late delivery</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#6a5cff;">Initiate Refund</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Ikath Cotton Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393007</td>
+    <td class="APMTableCell">Cotton</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 1,199</td>
+    <td class="APMTableCell">Color faded</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#ff3b3b;">Rejected</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Organza Silk Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393008</td>
+    <td class="APMTableCell">Silk</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 2,199</td>
+    <td class="APMTableCell">Wrong color</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#6a5cff;">Initiate Refund</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Tussar Silk Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393009</td>
+    <td class="APMTableCell">Silk</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 2,799</td>
+    <td class="APMTableCell">Damaged packaging</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#0abf53;">Refunded</td>
+  </tr>
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminsalesproductrefund/business.png" class="APMProductThumb">
+      <span>Printed Linen Saree</span>
+    </td>
+    <td class="APMTableCell">#5738393010</td>
+    <td class="APMTableCell">Linen</td>
+    <td class="APMTableCell">1</td>
+    <td class="APMTableCell">₹ 1,499</td>
+    <td class="APMTableCell">Not as described</td>
+    <td class="APMTableCell" style="color:#0abf53;">Proceed Refund</td>
+    <td class="APMTableCell" style="color:#6a5cff;">Initiate Refund</td>
+  </tr>
+
+</tbody>
+
+
+        </table>
+      </div>
+    </div>
+
+
+    <!-- Mobile Product List -->
+    <div class="APMMobileList">
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Paithani Peacock Print</span>
+          <small>#5738393001</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Handloom</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 1,299</span></div>
+        <div><span>Reason</span><span>Damaged condition</span></div>
+        <div><span>Verification</span><span style="color:#0abf53;">Proceed Refund</span></div>
+      </div>
+      <button class="mobile-view-btn">Initiate Refund</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Paithani Peacock Print</span>
+          <small>#5738393002</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Handloom</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 1,299</span></div>
+        <div><span>Reason</span><span>Color mismatch</span></div>
+        <div><span>Status</span><span style="color:#0abf53;">Refunded</span></div>
+      </div>
+      <button class="mobile-view-btn" disabled>Refunded</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Paithani Peacock Print</span>
+          <small>#5738393003</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Handloom</span></div>
+        <div><span>Qty</span><span>2</span></div>
+        <div><span>Price</span><span>₹ 2,598</span></div>
+        <div><span>Reason</span><span>Wrong item delivered</span></div>
+        <div><span>Status</span><span style="color:#ff3b3b;">Rejected</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Banarasi Silk Saree</span>
+          <small>#5738393004</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Silk</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 1,999</span></div>
+        <div><span>Reason</span><span>Size issue</span></div>
+        <div><span>Verification</span><span style="color:#0abf53;">Proceed Refund</span></div>
+      </div>
+      <button class="mobile-view-btn">Initiate Refund</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Kanchipuram Saree</span>
+          <small>#5738393005</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Handloom</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 2,499</span></div>
+        <div><span>Reason</span><span>Damaged border</span></div>
+        <div><span>Status</span><span style="color:#0abf53;">Refunded</span></div>
+      </div>
+      <button class="mobile-view-btn" disabled>Refunded</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Chanderi Cotton Saree</span>
+          <small>#5738393006</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Cotton</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 999</span></div>
+        <div><span>Reason</span><span>Late delivery</span></div>
+        <div><span>Verification</span><span style="color:#0abf53;">Proceed Refund</span></div>
+      </div>
+      <button class="mobile-view-btn">Initiate Refund</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Ikath Cotton Saree</span>
+          <small>#5738393007</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Cotton</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 1,199</span></div>
+        <div><span>Reason</span><span>Color faded</span></div>
+        <div><span>Status</span><span style="color:#ff3b3b;">Rejected</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Organza Silk Saree</span>
+          <small>#5738393008</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Silk</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 2,199</span></div>
+        <div><span>Reason</span><span>Wrong color</span></div>
+        <div><span>Verification</span><span style="color:#0abf53;">Proceed Refund</span></div>
+      </div>
+      <button class="mobile-view-btn">Initiate Refund</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Tussar Silk Saree</span>
+          <small>#5738393009</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Silk</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 2,799</span></div>
+        <div><span>Reason</span><span>Damaged packaging</span></div>
+        <div><span>Status</span><span style="color:#0abf53;">Refunded</span></div>
+      </div>
+      <button class="mobile-view-btn" disabled>Refunded</button>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminsalesproductrefund/business.png">
+        <div class="mobiletitle">
+          <span>Printed Linen Saree</span>
+          <small>#5738393010</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Category</span><span>Linen</span></div>
+        <div><span>Qty</span><span>1</span></div>
+        <div><span>Price</span><span>₹ 1,499</span></div>
+        <div><span>Reason</span><span>Not as described</span></div>
+        <div><span>Verification</span><span style="color:#0abf53;"> Proceed Refund</span></div>
+      </div>
+      <button class="mobile-view-btn">Initiate Refund</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  <script src="../javascript/adminsalesproductrefundorder.js"></script>
+</body>
+
+</html>

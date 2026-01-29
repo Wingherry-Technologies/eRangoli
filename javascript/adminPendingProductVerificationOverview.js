@@ -1,3 +1,29 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+var mobileBack=document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display="none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+    mobileBack.style.display="flex"
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // Thumbnail image switch
   const thumbnails = document.querySelectorAll(".APPVOThumbnailItem");
@@ -88,6 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
     currentAction = null;
   });
 
+  function showSuccessAndRedirect(successEl, redirectUrl = "nextpage.html") {
+  if (!successEl) return;
+
+  successEl.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, 5000);
+}
+
+
   // Yes button in approve modal
   approveYes?.addEventListener("click", () => {
     approveModal.style.display = "none";
@@ -95,14 +132,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (currentAction === "sent") {
       sentSuccess.style.display = "flex";
+
+      setTimeout(() => {
+        window.location.href = "../html/adminPMProductVerification.html";
+      }, 2000);
     }
 
     if (currentAction === "approve") {
       approveSuccessLive.style.display = "flex";
+
+      setTimeout(() => {
+        window.location.href = "../html/adminPMProductList.html";
+      }, 2000);
     }
 
     currentAction = null;
   });
+
 
   // Reject flow
   const rejectBtn = document.querySelector(".APPVORejectButton");
@@ -128,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
     rejectModal.style.display = "none";
     document.querySelector(".APPVOMainContentBeyond").style.display = "none";
     rejectSuccess.style.display = "flex";
+    setTimeout(() => {
+        window.location.href = "../html/adminPMProductList.html";
+      }, 2000);
   });
 
   // Overlay click close
@@ -136,3 +185,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === rejectModal) rejectModal.style.display = "none";
   });
 });
+
+document.querySelector(".sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul>li:nth-child(4)").classList.add("submenu-active-highlight");
+document.querySelector(".sidebar-main-vendor ul>ul").classList.add("active");
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector(".mobile-submenu li:nth-child(4)").classList.add("submenu-active-page");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(2)").classList.add("active-mobile-submenu");
+

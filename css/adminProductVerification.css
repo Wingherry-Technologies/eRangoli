@@ -9,7 +9,6 @@
 
 body {
   background-color: #e5e7eb;
-  padding: 24px;
 }
 
 /* Main Dashboard Container */
@@ -19,6 +18,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Stats Cards Row */
@@ -257,7 +258,6 @@ body {
 }
 
 .APVTableWrapper {
-  overflow-x: hidden;
   overflow-y: auto;
   max-height: 500px;
   padding-right: 10px;
@@ -287,6 +287,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  overflow-x: auto;
 }
 
 .APVTableHead {
@@ -327,7 +328,6 @@ body {
   color: #3f3f3f;
   font-weight: 400;
   font-size: 14px;
-  white-space: nowrap;
 }
 
 .APVTableCell.pending {

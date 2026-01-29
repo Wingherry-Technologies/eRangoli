@@ -1,21 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Dashboard Charts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/admindashboard.css">
-<link rel="stylesheet" href="../css/adminSidebarNavbar.css">
-<link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-
-
-</head>
-
-<body>
-
-          <!-- Navigation Bar -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UM-Create New User</title>
+    <link rel="stylesheet" href="../css/adminUserManagementCreateNewUser.css" />
+    <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+  </head>
+  <body>
     <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
@@ -79,7 +72,7 @@
                       
                     </div>
                     <ul class="mobile-submenu">
-                        <li class="submenu-active-page">Product List</li>
+                        <li>Product List</li>
                         <li>Product Categories</li>
                         <li>Recently Added Products</li>
                         <li>Product Verification</li>
@@ -178,7 +171,7 @@
                 <img src="../assets/master/Bell.svg" alt="" />
             </div>
 
-            <div class="round-button" id="round-button-cart">
+            <div class="round-button" id="round-button-order">
               <span class="number-of-round" id="number-of-cart">4</span>
               <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
             </div>
@@ -466,7 +459,7 @@
         <span class="bottom-nav__label">Dashboard</span>
       </a>
       
-      <a href="#" class="bottom-nav__item1" id="bottom-nav-wishlist">
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
         <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
         <span class="bottom-bar-numbers">2</span>
         <span class="bottom-nav__label">Orders</span>
@@ -499,7 +492,7 @@
                 </div>
             </div>
             <ul>
-                <li class="has-submenu">
+                <li>
                     <div class="image-head">
                         <img src="../assets/vendorSidebar/GridFour.svg" alt="">
                         <span>Dashboard</span>
@@ -507,14 +500,14 @@
                     <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
                 </li>
                 <li class="has-submenu" data-menu="product">
-                  <div class="image-head">
+                  <div class="image-head">  
                     <img src="../assets/vendorSidebar/Package.svg" alt="">
                     <span>Product Management</span>
                   </div>
                   <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
                 </li>
                 <ul class="submenu" data-submenu="product">
-                  <li class="submenu-active-highlight">Product List</li>
+                  <li>Product List</li>
                   <li>Product Categories</li>
                   <li>Product Recently Added</li>
                   <li>Product Verification</li>
@@ -565,633 +558,101 @@
             </ul>
         </article>
      </section>
-
+    
      <div class="main-content-beyond">
-      <div class="APMStatsRow">
-      <!-- Total Products Card -->
-      <div class="APMStatCard" id="APMTotalProductsWidget">
-        <div class="APMStatHeader">
-          <div class="APMStatIcon">
-            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
-          </div>
-          <span class="APMStatLabel">Total Vendors</span>
+      <div class="page">
+      <!-- Header -->
+      <div class="page-header">
+        <div class="mobile-back-button">
+          <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
+          <span>Create New User</span>
         </div>
-        <div class="APMStatValue">14,945</div>
-        <div class="APMStatFooter">
-          <span class="APMStatChange">
-            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
-            +15.3%
-          </span>
-          <div class="APMStatChart">
-            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
-          </div>
-        </div>
+        <span class="back-arrow"
+          ><img
+            class="back-arrow"
+            src="../assets/adminUserManagementCreateNewUser/back-icon.svg"
+            alt=""
+        /></span>
+        <h2 class="header">Create New User</h2>
       </div>
 
-      <!-- Newly Added Card -->
-      <div class="APMStatCard" id="APMNewlyAddedWidget">
-        <div class="APMStatHeader">
-          <div class="APMStatIcon">
-            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
-          </div>
-          <span class="APMStatLabel">Repeat Vendors</span>
-        </div>
-        <div class="APMStatValue">9,945</div>
-        <div class="APMStatFooter">
-          <span class="APMStatChange">
-            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
-            +15.3%
-          </span>
-          <div class="APMStatChart">
-            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
-          </div>
-        </div>
-      </div>
+      <div class="card-title" id="pageTitle">Generate Credentials</div>
 
-      <!-- Trending Products Card -->
-      <div class="APMStatCard" id="APMTrendingProductsWidget">
-        <div class="APMStatHeader">
-          <div class="APMStatIcon">
-            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+      <!-- Card -->
+      <div class="card" id="createCard">
+        <form id="userForm">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Rutuja" />
+            <small class="error"></small>
           </div>
-          <span class="APMStatLabel">Churn rate</span>
-        </div>
-        <div class="APMStatValue">4,945</div>
-        <div class="APMStatFooter">
-          <span class="APMStatChange">
-            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
-            +15.3%
-          </span>
-          <div class="APMStatChart">
-            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
-          </div>
-        </div>
-      </div>
 
-      <!-- Least Purchased Card -->
-      <div class="APMStatCard" id="APMLeastPurchasedWidget">
-        <div class="APMStatHeader">
-          <div class="APMStatIcon">
-            <img src="../assets/adminSaleDashboard/CurrencyInr (1).svg" alt="">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="rutuja@gmail.com" />
+            <small class="error"></small>
           </div>
-          <span class="APMStatLabel">Retention Rate</span>
-        </div>
-        <div class="APMStatValue">945</div>
-        <div class="APMStatFooter">
-          <span class="APMStatChange">
-            <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="">
-            +15.3%
-          </span>
-          <div class="APMStatChart">
-            <img src="../assets/adminSaleDashboard/Vector 11.svg" alt="chart" class="APMChartImage">
-          </div>
-        </div>
-      </div>
-    </div>
-<div class="dashboard">
 
-    <div class="card">
-        <div class="card-header">
-            <div>
-                <h3>Revenue Data</h3>
-            </div>
-            <select onchange="updateRevenue(this.value)">
-                <option>Daily</option>
-                <option selected>Weekly</option>
-                <option>Monthly</option>
-                <option>Annually</option>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="text" id="mobile" placeholder="67890 78990" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" id="password" placeholder="tye@ijfj567" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Select the Role</label>
+            <select id="role">
+              <option value="">Select role</option>
+              <option value="Developer" selected>Developer</option>
+              <option value="Admin">Admin</option>
+              <option value="Manager">Manager</option>
             </select>
-        </div>
-        <p class="subtitle">Earning Report Lorem Ipsum</p>
-        <div class="metric">
-                    <span id="revenueValue">₹75,679</span>
-                    <small>+13% vs last week</small>
-                </div>
-        <canvas id="revenueChart"></canvas>
-    </div>
+            <small class="error"></small>
+          </div>
 
-    <div class="card">
-
-    <!-- Header -->
-    <div class="card-header order-header">
-        <div>
-            <h3>Order Trend</h3>
+          <button type="submit" class="btn">Create</button>
+        </form>
+      </div>
+      <!-- VERIFY CARD -->
+      <div class="card" id="verifyCard" style="display: none">
+        <div class="verify-item">
+          <span class="verify-label">Username</span>
+          <p id="vUsername"></p>
         </div>
 
-        <select onchange="updateOrders(this.value)">
-            <option>Daily</option>
-            <option selected>Weekly</option>
-            <option>Monthly</option>
-            <option>Annually</option>
-        </select>
-    </div>
-    <p class="subtitle">Earning Report Lorem Ipsum</p>
-    <!-- Stats + Chart Row -->
-    <div class="order-body">
-
-        <!-- Left Stats -->
-        <div class="order-info">
-            <div class="info-item blue">
-                <span id="receivedTotal">340</span>
-                <small>Received</small>
-            </div>
-
-            <div class="info-item purple">
-                <span id="deliveredTotal">230</span>
-                <small>Delivered</small>
-            </div>
-
-            <div class="info-item pink">
-                <span id="transitTotal">180</span>
-                <small>In transit</small>
-            </div>
+        <div class="verify-item">
+          <span class="verify-label">Email Address</span>
+          <p id="vEmail"></p>
         </div>
 
-        <!-- Chart -->
-        <div class="order-chart">
-            <canvas id="orderChart"></canvas>
+        <div class="verify-item">
+          <span class="verify-label">Password</span>
+          <p id="vPassword"></p>
         </div>
 
-    </div>
-</div>
-
-
-    <div class="card">
-  <div class="card-header customer-header">
-    <h3>Customer Mapping</h3>
-    <select onchange="updateCustomers(this.value)">
-      <option>Daily</option>
-      <option selected>Weekly</option>
-      <option>Monthly</option>
-      <option>Annually</option>
-    </select>
-  </div>
-  <p class="subtitle">Map your user group’s footfall </p>
-  <!-- Legend -->
-  <div class="customer-legend">
-    <span><span class="dot buyers"></span> Buyers</span>
-    <span><span class="dot sellers"></span> Sellers</span>
-  </div>
-
-  <canvas id="customerChart"></canvas>
-</div>
-
-
-    <div class="card verification-card">
-  <div class="card-header">
-    <div>
-      <h3>Verification</h3>
-    </div>
-
-    <select onchange="updateVerification(this.value)">
-      <option>Daily</option>
-      <option selected>Weekly</option>
-      <option>Monthly</option>
-      <option>Annually</option>
-    </select>
-  </div>
-        <p class="subtext">Get instant overlook of the verification insights</p>
-
-  <div class="totals">
-    <span>Total Vendors - <b>2,345</b></span>
-    <span>Total Products - <b>42,345</b></span>
-  </div>
-
-  <div class="charts-row">
-    <div class="chart-box">
-      <canvas id="vendorsChart"></canvas>
-    </div>
-    <div class="chart-box">
-      <canvas id="productsChart"></canvas>
-    </div>
-  </div>
-</div>
-
-
-</div>
-
-<div class="po-container">
-
-  <!-- HEADER -->
-  <div class="po-header">
-    <div class="po-title">
-      Today’s Purchase Orders
-      <span class="po-title-count">(149)</span>
-    </div>
-
-    <div class="po-time-filter" id="poTimeFilter">
-      <span class="po-time-selected" id="poSelectedTime">2 hours ▾</span>
-      <ul class="po-time-menu" id="poTimeMenu">
-        <li class="po-time-option">1 hour</li>
-        <li class="po-time-option">2 hours</li>
-        <li class="po-time-option">6 hours</li>
-        <li class="po-time-option">12 hours</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- TABLE -->
-  <div class="po-table-wrapper">
-    <table class="po-table">
-      <thead class="po-table-head">
-        <tr>
-          <th class="po-th pro-name">Product Name</th>
-          <th class="po-th">SKU ID</th>
-          <th class="po-th">Category</th>
-          <th class="po-th">Qty</th>
-          <th class="po-th">Region</th>
-          <th class="po-th">Price</th>
-          <th class="po-th">Margin</th>
-          <th class="po-th">Stock</th>
-          <th class="po-th">Pickup date</th>
-          <th class="po-th">Payment</th>
-          <th class="po-th">Status</th>
-        </tr>
-      </thead>
-
-      <tbody class="po-table-body">
-
-  <!-- ROW 1 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">MH</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹220</td>
-    <td class="po-td">220</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
-  </tr>
-
-  <!-- ROW 2 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">GJ</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹120</td>
-    <td class="po-td">120</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
-  </tr>
-
-  <!-- ROW 3 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">AP</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹342</td>
-    <td class="po-td">342</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-delivered">Delivered</span></td>
-  </tr>
-
-  <!-- ROW 4 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">MP</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹345</td>
-    <td class="po-td">345</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-packed">Packed</span></td>
-  </tr>
-
-  <!-- ROW 5 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">3</td>
-    <td class="po-td">RJ</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹564</td>
-    <td class="po-td">564</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-pending">Pending</span></td>
-  </tr>
-
-  <!-- EXTRA ROWS 6–10 -->
-  <!-- (same UI, different regions/qty to look real) -->
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767891</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">KA</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹110</td>
-    <td class="po-td">110</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767892</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">TN</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹250</td>
-    <td class="po-td">250</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-packed">Packed</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767893</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">KL</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹130</td>
-    <td class="po-td">130</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-delivered">Delivered</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767894</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">4</td>
-    <td class="po-td">DL</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹780</td>
-    <td class="po-td">780</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767895</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">WB</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹300</td>
-    <td class="po-td">300</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-pending">Pending</span></td>
-  </tr>
-
-</tbody>
-
-    </table>
-  </div>
-
-</div>
-
-<div class="dashboard-row">
-
-  <!-- ================= TOP PRODUCTS ================= -->
-  <div class="dash-card tp-card">
-    <div class="dash-card-header">
-      <h3>Top Products</h3>
-      <div class="dash-dropdown" id="tpDropdown">
-        <span>Weekly ▾</span>
-        <ul class="dash-dropdown-menu">
-          <li>Daily</li>
-          <li>Weekly</li>
-          <li>Monthly</li>
-        </ul>
+        <button class="btn" id="sendBtn" type="button">Send</button>
       </div>
     </div>
-
-    <div class="dash-table-head tp-head">
-      <span>Product Name</span>
-      <span>Category</span>
-      <span>Region</span>
-    </div>
-
-    <div class="dash-scroll">
-
-  <!-- ROW 1 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
+    <!-- SUCCESS MODAL -->
+    <div class="success-overlay" id="successModal">
+      <div class="success-modal">
+        <img
+          src="../assets/adminUserManagementCreateNewUser/success.svg"
+          alt="success"
+          class="success-icon"
+        />
+        <p class="success-text">Successfully created the new user</p>
       </div>
     </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">MH</div>
-  </div>
-
-  <!-- ROW 2 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">GJ</div>
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">RJ</div>
-  </div>
-
-  <!-- ROW 4 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">KA</div>
-  </div>
-
-  <!-- ROW 5 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">KE</div>
-  </div>
-
-  <!-- EXTRA ROWS FOR SCROLL -->
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">MH</div></div>
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">GJ</div></div>
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">RJ</div></div>
-
-</div>
-
-  </div>
-
-  <!-- ================= TOP VENDORS ================= -->
-  <div class="dash-card tv-card">
-    <div class="dash-card-header">
-      <h3>Top Vendors</h3>
-    </div>
-
-    <div class="dash-table-head tv-head">
-      <span>Vendor Name</span>
-      <span>State</span>
-      <span>Categories</span>
-      <span>Sales</span>
-    </div>
-
-    <div class="dash-scroll">
-
-  <!-- ROW 1 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 2 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 4 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- EXTRA ROWS -->
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-
-</div>
-
-  </div>
-
-  <!-- ================= STATE WISE COLLECTION ================= -->
-  <div class="dash-card swc-card">
-    <div class="dash-card-header">
-      <h3>State wise Collection</h3>
-    </div>
-
-    <div class="swc-list">
-      <div class="swc-row">
-        <div class="swc-top">
-          <span>Maharashtra</span>
-          <span>₹ 6,14,945</span>
-        </div>
-        <div class="swc-bar"><span style="width:70%"></span></div>
-      </div>
-
-      <div class="swc-row"><div class="swc-top"><span>Gujarat</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:60%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Andhra Pradesh</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:55%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Orissa</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:50%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Kerala</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:45%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Karnataka</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:40%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Telangana</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:35%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>West Bengal</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:30%"></span></div></div>
-    </div>
-  </div>
      </div>
 
-</div>
-
-
-<script src="../javascript/admindashboard.js"></script>
-
-</body>
+    <script src="../javascript/adminUserManagementCreateNewUser.js"></script>
+    <script src="../javascript/adminSidebarnavbar.js"></script>
+  </body>
 </html>

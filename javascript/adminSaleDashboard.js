@@ -169,7 +169,7 @@ const adminSalesStateWiseChart = new Chart(adminSalesStateWiseCtx, {
 const adminSalesTargetCtx = document
   .getElementById("adminSalesTargetChart")
   .getContext("2d");
-const adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
+window.adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
   type: "bar",
   data: {
     labels: [
@@ -372,3 +372,45 @@ const adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
     },
   },
 });
+
+function applyMobileOrder() {
+  if (window.innerWidth > 595) return;
+
+  const container = document.querySelector(".adminSalesDashboardContainer");
+  if (!container) return;
+
+  const statsRow = document.querySelector(".adminSalesStatsRow");
+  const topRevenue = document.querySelector(".adminSalesRowTop .revenue");
+  const businessChart = document.querySelector(
+    ".adminSalesRowMiddle .adminSalesCardLarge",
+  );
+  const targetReality = document.querySelector(".adminSalesRowBottom .target");
+  const paymentMode = document.querySelector(".adminSalesRowTop .payment");
+  const stateWise = document.querySelector(".adminSalesRowMiddle .statewise");
+  const topStateRevenue = document.querySelector(
+    ".adminSalesRowBottom .adminSalesCardSmall",
+  );
+
+  const mobileWrapper = document.createElement("div");
+  mobileWrapper.className = "mobile-dashboard-flow";
+
+  [
+    statsRow,
+    topRevenue,
+    businessChart,
+    targetReality,
+    paymentMode,
+    stateWise,
+    topStateRevenue,
+  ].forEach((el) => el && mobileWrapper.appendChild(el));
+
+  container.innerHTML = "";
+  container.appendChild(mobileWrapper);
+
+  setTimeout(() => {
+    if (window.adminSalesTargetChart) {
+      window.adminSalesTargetChart.resize();
+      window.adminSalesTargetChart.update();
+    }
+  }, 100);
+}

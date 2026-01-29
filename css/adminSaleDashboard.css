@@ -28,7 +28,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 4px;
-
 }
 
 .adminSalesStatCard {
@@ -311,7 +310,7 @@ canvas {
   .adminSalesStatsRow {
     grid-template-columns: repeat(2, 1fr);
   }
-  .adminSalesLegendRow{
+  .adminSalesLegendRow {
     margin-left: 0rem;
   }
 }
@@ -351,7 +350,6 @@ canvas {
   {
     flex: none;
   } */
-
 }
 
 .donutWrapper {
@@ -380,7 +378,6 @@ canvas {
   transform: translateY(9px);
 }
 
-
 /* ============================== */
 /* SALES DASHBOARD WIDGET FIX */
 /* Same as Product Management */
@@ -405,13 +402,12 @@ canvas {
   .adminSalesStatLabel {
     font-size: 12px;
   }
-    .adminSalesCardBodyCenter{
+  .adminSalesCardBodyCenter {
     flex-direction: row;
   }
-    .adminSalesRowBottom {
+  .adminSalesRowBottom {
     grid-template-columns: 1fr;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -432,39 +428,37 @@ canvas {
   .adminSalesStatLabel {
     font-size: 12px;
   }
-    .adminSalesCardBodyCenter{
+  .adminSalesCardBodyCenter {
     flex-direction: column;
   }
-
-
-
 }
 
-
-@media (max-width:1024px) and (min-width:595px) {
-      .adminSalesLegendGrid
-  {
+@media (max-width: 1024px) and (min-width: 595px) {
+  .adminSalesLegendGrid {
     position: absolute;
     top: -50px;
     right: 0;
     width: auto;
     grid-template-columns: 1fr;
   }
- .adminSalesCardBodyCenter .adminSalesLegendRow{
+  .adminSalesCardBodyCenter .adminSalesLegendRow {
     position: absolute;
     top: -50px;
     right: 10px;
     flex-direction: column;
   }
-    
 }
 
-@media (max-width:1200px) and (min-width:1025px){
-    .adminSalesLegendGrid{
-        margin-left: 1rem;
-    }
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .adminSalesLegendGrid {
+    margin-left: 1rem;
+  }
 }
 
-
-
-
+@media (max-width: 595px) {
+  .mobile-dashboard-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

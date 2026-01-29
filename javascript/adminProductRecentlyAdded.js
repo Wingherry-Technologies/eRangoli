@@ -245,7 +245,7 @@ btns.forEach((btn) => {
     if (statusSpan.classList.contains("pending")) {
       window.location.href = "../html/adminPMProductRecentAddedOverview.html";
     } else if (statusSpan.classList.contains("sent")) {
-      window.location.href = "../html/adminPMVerificationOverview.html  ";
+      window.location.href = "../html/adminPMProductRecentAddedSenttoVerifyOverview.html";
     }
 
     });
