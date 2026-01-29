@@ -612,3 +612,11 @@ body {
     border-radius: 8px;
   }
 } */
+.status.success { color: #0abf53; font-weight: 600; }
+.action.link { color: #6a5cff; cursor: pointer; }
+.action.done { color: #0abf53; font-weight: 600; }
+.action.rejected { color: #ff3b3b; font-weight: 600; }
+
+.success { color: #0abf53; }
+.done { color: #0abf53; }
+.disabled { opacity: 0.6; pointer-events: none; }
