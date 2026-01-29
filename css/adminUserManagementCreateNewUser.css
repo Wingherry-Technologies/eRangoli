@@ -13,7 +13,8 @@ body {
 }
 
 .page {
-  padding: 20px 30px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .page-header {
@@ -54,7 +55,7 @@ body {
   margin-bottom: 16px;
 }
 
-label {
+.form-group label {
   display: block;
   font-size: 13px;
   margin-bottom: 6px;
@@ -62,8 +63,8 @@ label {
   font-weight: 600;
 }
 
-input,
-select {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 10px;
   border: 1px solid #dcdcdc;
@@ -71,8 +72,8 @@ select {
   outline: none;
 }
 
-input:focus,
-select:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-color: #1a73e8;
 }
 
@@ -181,12 +182,12 @@ select:focus {
     margin-bottom: 14px;
   }
 
-  label {
+  .form-group label {
     font-size: 12px;
   }
 
-  input,
-  select {
+  .form-group input,
+  .form-group select {
     padding: 9px;
     font-size: 13px;
     width: 520px;
@@ -236,9 +237,11 @@ select:focus {
 
   .header {
     font-size: 15px;
+    display:none;
   }
 
   .back-arrow {
+    display: none;
     height: 18px;
     width: 18px;
   }
@@ -260,8 +263,8 @@ select:focus {
     font-size: 12px;
   }
 
-  input,
-  select {
+  .form-group input,
+  .form-group select {
     padding: 8px;
     font-size: 12px;
   }

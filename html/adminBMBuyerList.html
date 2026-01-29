@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Dashboard Charts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/admindashboard.css">
-<link rel="stylesheet" href="../css/adminSidebarNavbar.css">
-<link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Vendor Management</title>
+  <link rel="stylesheet" href="../css/adminbuyerlist.css" />
+  <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
+  <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
 </head>
 
 <body>
 
-          <!-- Navigation Bar -->
-    <nav>
+      <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
             <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
@@ -79,7 +75,7 @@
                       
                     </div>
                     <ul class="mobile-submenu">
-                        <li class="submenu-active-page">Product List</li>
+                        <li>Product List</li>
                         <li>Product Categories</li>
                         <li>Recently Added Products</li>
                         <li>Product Verification</li>
@@ -178,7 +174,7 @@
                 <img src="../assets/master/Bell.svg" alt="" />
             </div>
 
-            <div class="round-button" id="round-button-cart">
+            <div class="round-button" id="round-button-order">
               <span class="number-of-round" id="number-of-cart">4</span>
               <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
             </div>
@@ -466,7 +462,7 @@
         <span class="bottom-nav__label">Dashboard</span>
       </a>
       
-      <a href="#" class="bottom-nav__item1" id="bottom-nav-wishlist">
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
         <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
         <span class="bottom-bar-numbers">2</span>
         <span class="bottom-nav__label">Orders</span>
@@ -499,7 +495,7 @@
                 </div>
             </div>
             <ul>
-                <li class="has-submenu">
+                <li>
                     <div class="image-head">
                         <img src="../assets/vendorSidebar/GridFour.svg" alt="">
                         <span>Dashboard</span>
@@ -507,14 +503,14 @@
                     <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
                 </li>
                 <li class="has-submenu" data-menu="product">
-                  <div class="image-head">
+                  <div class="image-head">  
                     <img src="../assets/vendorSidebar/Package.svg" alt="">
                     <span>Product Management</span>
                   </div>
                   <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
                 </li>
                 <ul class="submenu" data-submenu="product">
-                  <li class="submenu-active-highlight">Product List</li>
+                  <li>Product List</li>
                   <li>Product Categories</li>
                   <li>Product Recently Added</li>
                   <li>Product Verification</li>
@@ -566,8 +562,11 @@
         </article>
      </section>
 
-     <div class="main-content-beyond">
-      <div class="APMStatsRow">
+    <div class="main-content-beyond">
+      <div class="APMDashboardContainer">
+
+    <!-- Top Stats Cards Row -->
+    <div class="APMStatsRow">
       <!-- Total Products Card -->
       <div class="APMStatCard" id="APMTotalProductsWidget">
         <div class="APMStatHeader">
@@ -648,550 +647,474 @@
         </div>
       </div>
     </div>
-<div class="dashboard">
 
-    <div class="card">
-        <div class="card-header">
-            <div>
-                <h3>Revenue Data</h3>
-            </div>
-            <select onchange="updateRevenue(this.value)">
-                <option>Daily</option>
-                <option selected>Weekly</option>
-                <option>Monthly</option>
-                <option>Annually</option>
-            </select>
+    <!-- Search Bar Section -->
+    <div class="APMSearchRow">
+      <div class="APMSearchWrapper">
+        <img src="../assets/adminProductManagement/search (2).svg" alt="">
+        <input type="text" class="APMSearchInput" placeholder="Search by company name, buyer name, email or city">
+      </div>
+      <div class="APMIconsGroup filter-bar-wrapper">
+        <div class="APMFilterDummy"><img src="../assets/adminProductManagement/Sliders.svg" alt="" id="apm-filter-btn">
         </div>
-        <p class="subtitle">Earning Report Lorem Ipsum</p>
-        <div class="metric">
-                    <span id="revenueValue">₹75,679</span>
-                    <small>+13% vs last week</small>
-                </div>
-        <canvas id="revenueChart"></canvas>
+        <div class="APMSettingsDummy"><img src="../assets/adminProductManagement/SortAscending (1).svg" alt=""
+            id="apm-sort-btn"></div>
+        <!-- Filter main -->
+<div class="main-content-flows-main" id="apm-filter-main">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Filter</span>
     </div>
-
-    <div class="card">
-
-    <!-- Header -->
-    <div class="card-header order-header">
-        <div>
-            <h3>Order Trend</h3>
-        </div>
-
-        <select onchange="updateOrders(this.value)">
-            <option>Daily</option>
-            <option selected>Weekly</option>
-            <option>Monthly</option>
-            <option>Annually</option>
-        </select>
-    </div>
-    <p class="subtitle">Earning Report Lorem Ipsum</p>
-    <!-- Stats + Chart Row -->
-    <div class="order-body">
-
-        <!-- Left Stats -->
-        <div class="order-info">
-            <div class="info-item blue">
-                <span id="receivedTotal">340</span>
-                <small>Received</small>
-            </div>
-
-            <div class="info-item purple">
-                <span id="deliveredTotal">230</span>
-                <small>Delivered</small>
-            </div>
-
-            <div class="info-item pink">
-                <span id="transitTotal">180</span>
-                <small>In transit</small>
-            </div>
-        </div>
-
-        <!-- Chart -->
-        <div class="order-chart">
-            <canvas id="orderChart"></canvas>
-        </div>
-
-    </div>
-</div>
-
-
-    <div class="card">
-  <div class="card-header customer-header">
-    <h3>Customer Mapping</h3>
-    <select onchange="updateCustomers(this.value)">
-      <option>Daily</option>
-      <option selected>Weekly</option>
-      <option>Monthly</option>
-      <option>Annually</option>
-    </select>
-  </div>
-  <p class="subtitle">Map your user group’s footfall </p>
-  <!-- Legend -->
-  <div class="customer-legend">
-    <span><span class="dot buyers"></span> Buyers</span>
-    <span><span class="dot sellers"></span> Sellers</span>
-  </div>
-
-  <canvas id="customerChart"></canvas>
-</div>
-
-
-    <div class="card verification-card">
-  <div class="card-header">
-    <div>
-      <h3>Verification</h3>
-    </div>
-
-    <select onchange="updateVerification(this.value)">
-      <option>Daily</option>
-      <option selected>Weekly</option>
-      <option>Monthly</option>
-      <option>Annually</option>
-    </select>
-  </div>
-        <p class="subtext">Get instant overlook of the verification insights</p>
-
-  <div class="totals">
-    <span>Total Vendors - <b>2,345</b></span>
-    <span>Total Products - <b>42,345</b></span>
-  </div>
-
-  <div class="charts-row">
-    <div class="chart-box">
-      <canvas id="vendorsChart"></canvas>
-    </div>
-    <div class="chart-box">
-      <canvas id="productsChart"></canvas>
-    </div>
+    <ul>
+      <li id="apm-state-open">State</li>
+      <li id="apm-city-open">City</li>
+    </ul>
   </div>
 </div>
 
-
+<!-- State filter box -->
+<div class="main-content-flows-main" id="apm-state-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Select State</span>
+    </div>
+    <ul>
+      <li><input type="checkbox" data-state="MH"> MH</li>
+      <li><input type="checkbox" data-state="KA"> KA</li>
+      <li><input type="checkbox" data-state="DL"> DL</li>
+      <li><input type="checkbox" data-state="TN"> TN</li>
+      <li><input type="checkbox" data-state="GJ"> GJ</li>
+    </ul>
+  </div>
 </div>
 
-<div class="po-container">
-
-  <!-- HEADER -->
-  <div class="po-header">
-    <div class="po-title">
-      Today’s Purchase Orders
-      <span class="po-title-count">(149)</span>
+<!-- City filter box -->
+<div class="main-content-flows-main" id="apm-city-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Select City</span>
     </div>
-
-    <div class="po-time-filter" id="poTimeFilter">
-      <span class="po-time-selected" id="poSelectedTime">2 hours ▾</span>
-      <ul class="po-time-menu" id="poTimeMenu">
-        <li class="po-time-option">1 hour</li>
-        <li class="po-time-option">2 hours</li>
-        <li class="po-time-option">6 hours</li>
-        <li class="po-time-option">12 hours</li>
-      </ul>
-    </div>
+    <ul>
+      <li><input type="checkbox" data-city="Mumbai"> Mumbai</li>
+      <li><input type="checkbox" data-city="Bengaluru"> Bengaluru</li>
+      <li><input type="checkbox" data-city="New Delhi"> New Delhi</li>
+      <li><input type="checkbox" data-city="Chennai"> Chennai</li>
+      <li><input type="checkbox" data-city="Ahmedabad"> Ahmedabad</li>
+    </ul>
   </div>
+</div>
 
-  <!-- TABLE -->
-  <div class="po-table-wrapper">
-    <table class="po-table">
-      <thead class="po-table-head">
-        <tr>
-          <th class="po-th pro-name">Product Name</th>
-          <th class="po-th">SKU ID</th>
-          <th class="po-th">Category</th>
-          <th class="po-th">Qty</th>
-          <th class="po-th">Region</th>
-          <th class="po-th">Price</th>
-          <th class="po-th">Margin</th>
-          <th class="po-th">Stock</th>
-          <th class="po-th">Pickup date</th>
-          <th class="po-th">Payment</th>
-          <th class="po-th">Status</th>
-        </tr>
-      </thead>
+<!-- Sort box -->
+<div class="main-content-flows-main" id="apm-sort-box">
+  <div class="main-filter-box-content">
+    <div class="main-head-filters">
+      <span>Sort Buyers</span>
+    </div>
+    <ul>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="nameAZ">
+        Name A–Z
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="nameZA">
+        Name Z–A
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="uidASC">
+        UID Ascending
+      </li>
+      <li>
+        <input type="radio" name="buyerSort" data-sort="uidDESC">
+        UID Descending
+      </li>
+    </ul>
+  </div>
+</div>
 
-      <tbody class="po-table-body">
+      </div>
+    </div>
 
-  <!-- ROW 1 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+    <!-- Product Table Section -->
+    <div class="APMTableCard">
+      <div class="APMTableHeader">
+        <h3 class="APMTableTitle">Buyer List</h3>
+        <a href="#" class="APMViewAllLink">200</a>
+      </div>
+
+      <div class="APMTableWrapper">
+        <table class="APMProductTable">
+
+          <thead class="APMTableHead">
+            <tr class="APMTableHeadRow">
+              <th class="APMTableHeaderCell">Customer Name</th>
+              <th class="APMTableHeaderCell">UID number</th>
+              <th class="APMTableHeaderCell">Email address</th>
+              <th class="APMTableHeaderCell">Contact</th>
+              <th class="APMTableHeaderCell">State</th>
+              <th class="APMTableHeaderCell">City</th>
+              <th class="APMTableHeaderCell"></th>
+            </tr>
+          </thead>
+
+          <tbody class="APMTableBody">
+
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>David John</span>
     </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">MH</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹220</td>
-    <td class="po-td">220</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
+    <td class="APMTableCell">#67588699</td>
+    <td class="APMTableCell">davidjohn23@gmail.com</td>
+    <td class="APMTableCell">89878 64748</td>
+    <td class="APMTableCell">MH</td>
+    <td class="APMTableCell">Mumbai</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <!-- ROW 2 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Ananya Rao</span>
     </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">GJ</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹120</td>
-    <td class="po-td">120</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
+    <td class="APMTableCell">#78451230</td>
+    <td class="APMTableCell">ananya.rao@gmail.com</td>
+    <td class="APMTableCell">91234 55678</td>
+    <td class="APMTableCell">KA</td>
+    <td class="APMTableCell">Bengaluru</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <!-- ROW 3 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Rohit Verma</span>
     </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">AP</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹342</td>
-    <td class="po-td">342</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-delivered">Delivered</span></td>
+    <td class="APMTableCell">#45981277</td>
+    <td class="APMTableCell">rohit.verma@gmail.com</td>
+    <td class="APMTableCell">98765 33421</td>
+    <td class="APMTableCell">DL</td>
+    <td class="APMTableCell">New Delhi</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <!-- ROW 4 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Meera Iyer</span>
     </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">MP</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹345</td>
-    <td class="po-td">345</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-packed">Packed</span></td>
+    <td class="APMTableCell">#90334421</td>
+    <td class="APMTableCell">meera.iyer@gmail.com</td>
+    <td class="APMTableCell">90012 67890</td>
+    <td class="APMTableCell">TN</td>
+    <td class="APMTableCell">Chennai</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <!-- ROW 5 -->
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Suresh Patil</span>
     </td>
-    <td class="po-td">64767890</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">3</td>
-    <td class="po-td">RJ</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹564</td>
-    <td class="po-td">564</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-pending">Pending</span></td>
+    <td class="APMTableCell">#11234990</td>
+    <td class="APMTableCell">suresh.patil@gmail.com</td>
+    <td class="APMTableCell">93456 22110</td>
+    <td class="APMTableCell">GJ</td>
+    <td class="APMTableCell">Ahmedabad</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <!-- EXTRA ROWS 6–10 -->
-  <!-- (same UI, different regions/qty to look real) -->
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Neha Sharma</span>
     </td>
-    <td class="po-td">64767891</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">KA</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹110</td>
-    <td class="po-td">110</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
+    <td class="APMTableCell">#77459832</td>
+    <td class="APMTableCell">neha.sharma@gmail.com</td>
+    <td class="APMTableCell">98123 44567</td>
+    <td class="APMTableCell">RJ</td>
+    <td class="APMTableCell">Jaipur</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Amit Kulkarni</span>
     </td>
-    <td class="po-td">64767892</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">TN</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹250</td>
-    <td class="po-td">250</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-packed">Packed</span></td>
+    <td class="APMTableCell">#66873411</td>
+    <td class="APMTableCell">amit.k@gmail.com</td>
+    <td class="APMTableCell">98876 12098</td>
+    <td class="APMTableCell">MH</td>
+    <td class="APMTableCell">Pune</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
+    </td>
   </tr>
 
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+  <tr class="APMTableRow">
+    <td class="APMTableCell APMProductNameCell">
+      <img src="../assets/adminbuyer/buyerlist.png" class="APMProductThumb">
+      <span>Priya Nair</span>
     </td>
-    <td class="po-td">64767893</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">1</td>
-    <td class="po-td">KL</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹130</td>
-    <td class="po-td">130</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-delivered">Delivered</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
+    <td class="APMTableCell">#55091234</td>
+    <td class="APMTableCell">priya.nair@gmail.com</td>
+    <td class="APMTableCell">90765 88990</td>
+    <td class="APMTableCell">KL</td>
+    <td class="APMTableCell">Kochi</td>
+    <td class="APMTableCell">
+      <button class="APMActionButton">
+        <img src="../assets/adminbuyer/ArrowCircleUpRight (1).svg">
+      </button>
     </td>
-    <td class="po-td">64767894</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">4</td>
-    <td class="po-td">DL</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹780</td>
-    <td class="po-td">780</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-success">Credited</td>
-    <td class="po-td"><span class="po-badge po-status-received">Received</span></td>
-  </tr>
-
-  <tr class="po-table-row">
-    <td class="po-td po-product-name">
-      <div class="po-product-title">Madhubani Painting Art</div>
-      <div class="po-product-sub">Vishu God</div>
-    </td>
-    <td class="po-td">64767895</td>
-    <td class="po-td">Painting</td>
-    <td class="po-td">2</td>
-    <td class="po-td">WB</td>
-    <td class="po-td">₹ 2,149</td>
-    <td class="po-td">₹300</td>
-    <td class="po-td">300</td>
-    <td class="po-td">15/12/25</td>
-    <td class="po-td po-payment-pending">Pending</td>
-    <td class="po-td"><span class="po-badge po-status-pending">Pending</span></td>
   </tr>
 
 </tbody>
 
-    </table>
-  </div>
-
-</div>
-
-<div class="dashboard-row">
-
-  <!-- ================= TOP PRODUCTS ================= -->
-  <div class="dash-card tp-card">
-    <div class="dash-card-header">
-      <h3>Top Products</h3>
-      <div class="dash-dropdown" id="tpDropdown">
-        <span>Weekly ▾</span>
-        <ul class="dash-dropdown-menu">
-          <li>Daily</li>
-          <li>Weekly</li>
-          <li>Monthly</li>
-        </ul>
+        </table>
       </div>
     </div>
 
-    <div class="dash-table-head tp-head">
-      <span>Product Name</span>
-      <span>Category</span>
-      <span>Region</span>
-    </div>
 
-    <div class="dash-scroll">
+    <!-- Mobile Product List -->
+    <div class="APMMobileList">
 
-  <!-- ROW 1 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">MH</div>
-  </div>
-
-  <!-- ROW 2 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">GJ</div>
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">RJ</div>
-  </div>
-
-  <!-- ROW 4 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">KA</div>
-  </div>
-
-  <!-- ROW 5 -->
-  <div class="tp-row">
-    <div class="tp-product">
-      <img src="../assets/admindashboard/tproduct.png" class="tp-img" />
-      <div>
-        <div class="tp-name">Kutch leather craft footware</div>
-        <div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div>
-      </div>
-    </div>
-    <div class="tp-cell">Footware</div>
-    <div class="tp-cell">KE</div>
-  </div>
-
-  <!-- EXTRA ROWS FOR SCROLL -->
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">MH</div></div>
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">GJ</div></div>
-  <div class="tp-row"><div class="tp-product"><img src="../assets/admindashboard/tproduct.png" class="tp-img"><div><div class="tp-name">Kutch leather craft footware</div><div class="tp-sub">1234 product sold <span>↗ +15.3%</span></div></div></div><div class="tp-cell">Footware</div><div class="tp-cell">RJ</div></div>
-
-</div>
-
-  </div>
-
-  <!-- ================= TOP VENDORS ================= -->
-  <div class="dash-card tv-card">
-    <div class="dash-card-header">
-      <h3>Top Vendors</h3>
-    </div>
-
-    <div class="dash-table-head tv-head">
-      <span>Vendor Name</span>
-      <span>State</span>
-      <span>Categories</span>
-      <span>Sales</span>
-    </div>
-
-    <div class="dash-scroll">
-
-  <!-- ROW 1 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 2 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- ROW 4 -->
-  <div class="tv-row">
-    <div class="tv-vendor">
-      <img src="../assets/admindashboard/tvendor.png" class="tv-img" />
-      <span>Sanskriti collections</span>
-    </div>
-    <span>MH</span>
-    <span>Sarees, Art, Craft</span>
-    <span class="tv-amount">₹ 6,14,945</span>
-  </div>
-
-  <!-- EXTRA ROWS -->
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-  <div class="tv-row"><div class="tv-vendor"><img src="../assets/admindashboard/tvendor.png" class="tv-img"><span>Sanskriti collections</span></div><span>MH</span><span>Sarees, Art, Craft</span><span class="tv-amount">₹ 6,14,945</span></div>
-
-</div>
-
-  </div>
-
-  <!-- ================= STATE WISE COLLECTION ================= -->
-  <div class="dash-card swc-card">
-    <div class="dash-card-header">
-      <h3>State wise Collection</h3>
-    </div>
-
-    <div class="swc-list">
-      <div class="swc-row">
-        <div class="swc-top">
-          <span>Maharashtra</span>
-          <span>₹ 6,14,945</span>
+  <!-- Buyer 1 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>David John</span>
+          <small>#67588699</small>
         </div>
-        <div class="swc-bar"><span style="width:70%"></span></div>
       </div>
-
-      <div class="swc-row"><div class="swc-top"><span>Gujarat</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:60%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Andhra Pradesh</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:55%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Orissa</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:50%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Kerala</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:45%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Karnataka</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:40%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>Telangana</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:35%"></span></div></div>
-      <div class="swc-row"><div class="swc-top"><span>West Bengal</span><span>₹ 6,14,945</span></div><div class="swc-bar"><span style="width:30%"></span></div></div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>davidjohn23@gmail.com</span></div>
+        <div><span>Contact</span><span>89878 64748</span></div>
+        <div><span>State</span><span>MH</span></div>
+        <div><span>City</span><span>Mumbai</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
     </div>
   </div>
-     </div>
+
+  <!-- Buyer 2 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Ananya Rao</span>
+          <small>#78451230</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>ananya.rao@gmail.com</span></div>
+        <div><span>Contact</span><span>91234 55678</span></div>
+        <div><span>State</span><span>KA</span></div>
+        <div><span>City</span><span>Bengaluru</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 3 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Rohit Verma</span>
+          <small>#45981277</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>rohit.verma@gmail.com</span></div>
+        <div><span>Contact</span><span>98765 33421</span></div>
+        <div><span>State</span><span>DL</span></div>
+        <div><span>City</span><span>New Delhi</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 4 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Meera Iyer</span>
+          <small>#90334421</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>meera.iyer@gmail.com</span></div>
+        <div><span>Contact</span><span>90012 67890</span></div>
+        <div><span>State</span><span>TN</span></div>
+        <div><span>City</span><span>Chennai</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 5 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Suresh Patil</span>
+          <small>#11234990</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>suresh.patil@gmail.com</span></div>
+        <div><span>Contact</span><span>93456 22110</span></div>
+        <div><span>State</span><span>GJ</span></div>
+        <div><span>City</span><span>Ahmedabad</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 6 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Neha Sharma</span>
+          <small>#77459832</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>neha.sharma@gmail.com</span></div>
+        <div><span>Contact</span><span>98123 44567</span></div>
+        <div><span>State</span><span>RJ</span></div>
+        <div><span>City</span><span>Jaipur</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 7 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Amit Kulkarni</span>
+          <small>#66873411</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>amit.k@gmail.com</span></div>
+        <div><span>Contact</span><span>98876 12098</span></div>
+        <div><span>State</span><span>MH</span></div>
+        <div><span>City</span><span>Pune</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
+
+  <!-- Buyer 8 -->
+  <div class="faq-item">
+    <div class="main-faq-question">
+      <div class="product-left">
+        <img src="../assets/adminbuyer/buyerlist.png">
+        <div class="mobiletitle">
+          <span>Priya Nair</span>
+          <small>#55091234</small>
+        </div>
+      </div>
+      <div class="mobile-actions">
+        <img class="mobile-three-dots" src="../assets/adminProductManagement/mobiledrop.svg">
+      </div>
+    </div>
+    <div class="faq-answer">
+      <div class="all-answers">
+        <div><span>Email</span><span>priya.nair@gmail.com</span></div>
+        <div><span>Contact</span><span>90765 88990</span></div>
+        <div><span>State</span><span>KL</span></div>
+        <div><span>City</span><span>Kochi</span></div>
+      </div>
+      <button class="mobile-view-btn">View</button>
+    </div>
+  </div>
 
 </div>
 
 
-<script src="../javascript/admindashboard.js"></script>
 
+
+  </div>
+    </div>
+  
+
+  <script src="../javascript/adminbuyerlist.js"></script>
+  <script src="../javascript/adminSidebarnavbar.js"></script>
 </body>
+
 </html>

@@ -11,7 +11,8 @@ body {
   background-color: #ebeef3;
 }
 .AUM-Container {
-  margin: 20px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .AUMTabHeader {

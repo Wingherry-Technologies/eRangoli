@@ -1602,7 +1602,8 @@ nav{
     position: fixed;
     top: 5px;
     z-index: 9999;
-    left: 10px;
+    left: 20px;
+    padding-right: 50px;
   }
   .mobile-back-button>img{
     height: 15px;
