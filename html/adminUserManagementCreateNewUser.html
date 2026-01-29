@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New User</title>
+    <link rel="stylesheet" href="../css/adminUserManagementCreateNewUser.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <div class="page-header">
+        <span class="back-arrow"
+          ><img
+            class="back-arrow"
+            src="../assets/adminUserManagementCreateNewUser/back-icon.svg"
+            alt=""
+        /></span>
+        <h2 class="header">Create New User</h2>
+      </div>
+
+      <div class="card-title" id="pageTitle">Generate Credentials</div>
+
+      <!-- Card -->
+      <div class="card" id="createCard">
+        <form id="userForm">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Rutuja" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="rutuja@gmail.com" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="text" id="mobile" placeholder="67890 78990" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" id="password" placeholder="tye@ijfj567" />
+            <small class="error"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Select the Role</label>
+            <select id="role">
+              <option value="">Select role</option>
+              <option value="Developer" selected>Developer</option>
+              <option value="Admin">Admin</option>
+              <option value="Manager">Manager</option>
+            </select>
+            <small class="error"></small>
+          </div>
+
+          <button type="submit" class="btn">Create</button>
+        </form>
+      </div>
+      <!-- VERIFY CARD -->
+      <div class="card" id="verifyCard" style="display: none">
+        <div class="verify-item">
+          <span class="verify-label">Username</span>
+          <p id="vUsername"></p>
+        </div>
+
+        <div class="verify-item">
+          <span class="verify-label">Email Address</span>
+          <p id="vEmail"></p>
+        </div>
+
+        <div class="verify-item">
+          <span class="verify-label">Password</span>
+          <p id="vPassword"></p>
+        </div>
+
+        <button class="btn" id="sendBtn" type="button">Send</button>
+      </div>
+    </div>
+    <!-- SUCCESS MODAL -->
+    <div class="success-overlay" id="successModal">
+      <div class="success-modal">
+        <img
+          src="../assets/adminUserManagementCreateNewUser/success.svg"
+          alt="success"
+          class="success-icon"
+        />
+        <p class="success-text">Successfully created the new user</p>
+      </div>
+    </div>
+
+    <script src="../javascript/adminUserManagementCreateNewUser.js"></script>
+  </body>
+</html>
