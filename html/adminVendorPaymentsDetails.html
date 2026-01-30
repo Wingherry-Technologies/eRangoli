@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Payemnts Details</title>
+    <link rel="stylesheet" href="../css/adminVendorPaymentsDetails.css" />
+  </head>
+  <body>
+    <div class="AVPDDashboardContainer">
+      <!-- Search Bar Section -->
+      <div class="AVPDSearchRow">
+        <div class="AVPDSearchWrapper">
+          <img
+            src="../assets/adminProductRecentlyAdded/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="AVPDSearchInput"
+            placeholder="Search by Product name, Transaction ID, Payment Mode."
+          />
+        </div>
+        <div class="AVPDIconsGroup filter-bar-wrapper">
+          <div class="AVPDFilterDummy">
+            <img src="../assets/adminProductRecentlyAdded/Sliders.svg" alt="" />
+          </div>
+          <div class="AVPDSettingsDummy">
+            <img
+              src="../assets/adminProductRecentlyAdded/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="avpd-filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="avpd-status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Product Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input
+                    type="checkbox"
+                    data-status="delivered"
+                    id="delivered"
+                  />
+                  <label for="delivered">Delivered</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="refunded" id="refunded" />
+                  <label for="refunded">Refunded</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="main-content-flows-main" id="avpd-sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="vprice-asc">V. Price Ascending</li>
+                <li data-sort="vprice-desc">V. Price Descending</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Table Section -->
+      <div class="AVPDTableCard">
+        <div class="AVPDTableHeader">
+          <h3 class="AVPDTableTitle">Vendor Payment Details</h3>
+          <a href="#" class="AVPDTotalLink">Total - 0</a>
+        </div>
+        <div class="AVPDTableWrapper">
+          <table class="AVPDProductTable">
+            <thead class="AVPDTableHead">
+              <tr class="AVPDTableHeadRow">
+                <th class="AVPDTableHeaderCell">Product Name</th>
+                <th class="AVPDTableHeaderCell">Vendor Name</th>
+                <th class="AVPDTableHeaderCell">V. Price</th>
+                <th class="AVPDTableHeaderCell">Product Status</th>
+                <th class="AVPDTableHeaderCell">Payment</th>
+                <th class="AVPDTableHeaderCell">Account Number</th>
+                <th class="AVPDTableHeaderCell">Transaction ID</th>
+              </tr>
+            </thead>
+            <tbody class="AVPDTableBody">
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell refunded">Refunded</span></td>
+                <td class="AVPDTableCell">Unpaid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+              <tr class="AVPDTableRow">
+                <td class="AVPDTableCell AVPDProductNameCell">
+                  <img
+                    src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                    alt=""
+                    class="AVPDProductThumb"
+                  />
+                  <span class="AVPDProductName">Madhubani Painting</span>
+                </td>
+                <td class="AVPDTableCell">Sanskriti Collection</td>
+                <td class="AVPDTableCell">₹ 6,149</td>
+                <td><span class="AVPDTableCell delivered">Delivered</span></td>
+                <td class="AVPDTableCell">Paid</td>
+                <td class="AVPDTableCell">xxxx xxxx xxxx xx89</td>
+                <td class="AVPDTableCell">788990000048</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="AVPDNoRows" style="display: none">No rows found</div>
+
+        <!-- Mobile FAQ Section -->
+        <div class="AVPDMobileFAQ">
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Refunded | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus refunded">Refunded</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Refunded | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus refunded">Refunded</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="AVPDfaq-item">
+            <button class="AVPDfaq-question">
+              <div class="AVPDfaq-title">
+                <img
+                  src="../assets/adminProductRecentlyAdded/madhubaniimgage.svg"
+                />
+
+                <div class="AVPDfaq-user-text">
+                  <span class="AVPDfaq-username">Madhubani Painting</span>
+                  <span class="AVPDfaq-subtext">Delivered | Paid</span>
+                </div>
+              </div>
+
+              <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+            </button>
+
+            <div class="AVPDfaq-answer">
+              <div class="AVPDfaq-row">
+                <span>Vendor Name</span><span>Sanskriti Collection</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>V. Price</span><span>₹ 6,149</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Product Status</span>
+                <span class="AVPDStatus delivered">Delivered</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Payment</span>
+                <span>Paid</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Account Number</span>
+                <span>xxxx xxxx xxxx xx89</span>
+              </div>
+              <div class="AVPDfaq-row">
+                <span>Transaction ID</span>
+                <span>788990000048</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/adminVendorPaymentsDetails.js"></script>
+  </body>
+</html>

@@ -1,0 +1,523 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #e5e7eb;
+  padding: 24px;
+}
+
+/* Main Dashboard Container */
+.AVPDDashboardContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Search Row Layout */
+.AVPDSearchRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Search Input Container */
+.AVPDSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.AVPDSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.AVPDSearchInput {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: none;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.AVPDSearchInput::placeholder {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* Filter container */
+.AVPDIconsGroup {
+  display: flex;
+  gap: 12px;
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.filter-bar-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.AVPDFilterDummy,
+.AVPDSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.AVPDFilterDummy img,
+.AVPDSettingsDummy img {
+  color: #8e8989;
+  width: 23px;
+  height: 23px;
+}
+
+.AVPDSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.AVPDSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+}
+
+.AVPDSearchInput {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.AVPDSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.AVPDSearchInput:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+}
+
+.AVPDIconsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.AVPDFilterDummy,
+.AVPDSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.AVPDFilterDummy:hover,
+.AVPDSettingsDummy:hover {
+  background-color: #f9fafb;
+}
+
+/* Product Table Section */
+.AVPDTableCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.AVPDTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6828e7;
+}
+
+.AVPDTableTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.AVPDTotalLink {
+  font-size: 14px;
+  color: #6828e7;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.AVPDViewAllLink:hover {
+  text-decoration: none;
+}
+
+.AVPDTableWrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 10px;
+}
+
+.AVPDTableWrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  gap: 2rem;
+}
+
+.AVPDTableWrapper::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.AVPDTableWrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 4px;
+}
+
+.AVPDTableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.AVPDProductTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.AVPDTableHead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.AVPDTableHeadRow {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.AVPDTableHeaderCell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+  white-space: nowrap;
+}
+
+.AVPDTableBody {
+  background-color: #ffffff;
+}
+
+.AVPDTableRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.AVPDTableRow:hover {
+  background-color: #f9fafb;
+}
+
+.AVPDTableCell {
+  padding: 16px;
+  color: #3f3f3f;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.AVPDTableCell.delivered {
+  color: #009605;
+  font-weight: 400;
+}
+
+.AVPDTableCell.refunded {
+  color: #ff0000;
+  font-weight: 400;
+}
+
+.AVPDProductNameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.AVPDProductThumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.AVPDProductName {
+  font-weight: 400;
+  color: #1f2937;
+}
+
+.AVPDActionButton {
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: #60a5fa;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.AVPDActionButton:hover {
+  background-color: #3b82f6;
+}
+
+.main-content-flows-main {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+#avpd-filter-main,
+#avpd-status-box,
+#avpd-sort-box {
+  top: 48px;
+  left: -160px;
+}
+
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+.main-filter-box-content {
+  background-color: white;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  color: #3f3f3f;
+  border-radius: 5px;
+  z-index: 9999;
+  width: 200px;
+}
+#avpd-filter-main li.active-filter {
+  background-color: #b9e0db;
+  color: #6828e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#avpd-filter-main li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.main-head-filters {
+  border-bottom: 1px solid #6828e7;
+}
+.main-filter-box-content > ul {
+  padding-top: 10px;
+  list-style: none;
+}
+.main-filter-box-content > ul > li {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.AVPDMobileFAQ {
+  display: none;
+}
+
+.AVPDfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.AVPDfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.AVPDfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.AVPDfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.AVPDfaq-subtext {
+  font-size: 13px;
+  color: #716b6b;
+  font-weight: 400;
+  margin-left: -31px;
+}
+
+.AVPDfaq-item.active {
+  border: 1px solid #0f8df340;
+  padding-bottom: 6px;
+}
+
+.AVPDfaq-item.active .AVPDfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0;
+}
+
+.AVPDfaq-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.AVPDfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.AVPDfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.AVPDfaq-row .AVPDStatus {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .AVPDTableWrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 420px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .AVPDProductTable {
+    min-width: 1100px;
+  }
+
+  .AVPDTableWrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  .AVPDTableWrapper::-webkit-scrollbar-track {
+    background: #f3f4f6;
+  }
+
+  .AVPDTableWrapper::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 595px) and (min-width: 320px) {
+  .AVPDTableHeader {
+    display: none;
+  }
+  .AVPDTableCard {
+    padding: 0px;
+    border-radius: 0px;
+  }
+
+  .AVPDTableWrapper {
+    display: none;
+  }
+
+  .AVPDMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .AVPDfaq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .AVPDfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .AVPDfaq-item.active .AVPDfaq-answer {
+    max-height: 500px;
+  }
+
+  .AVPDfaq-row .AVPDStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .AVPDfaq-row .AVPDStatus.delivered {
+    color: #009605;
+  }
+
+  .AVPDfaq-row .AVPDStatus.refunded {
+    color: #ff0000;
+  }
+}
+
+.AVPDNoRows {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #716b6b;
+}
