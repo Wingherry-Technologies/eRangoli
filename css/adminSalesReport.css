@@ -254,6 +254,10 @@ h3 {
   padding-bottom: 24px;
 }
 
+.y-axis span {
+  white-space: nowrap;
+}
+
 /* Bars area */
 .bars-area {
   flex: 1;

@@ -462,3 +462,39 @@ canvas {
     gap: 20px;
   }
 }
+
+@media (max-width: 375px) {
+  .adminSalesRowBottom {
+    grid-template-columns: 1fr;
+  }
+
+  .adminSalesCardLarge,
+  .adminSalesCardSmall {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .salesstate {
+    overflow-x: hidden;
+  }
+
+  #adminSalesTargetChart,
+  #adminSalesStateRevenuesChart {
+    width: 100%;
+  }
+
+  .adminSalesLegendRow {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .adminSalesCard {
+    padding: 12px;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}
