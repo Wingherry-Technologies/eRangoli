@@ -21,25 +21,50 @@ hamburger?.addEventListener("click", () => {
     mobileBack.style.display = "flex";
   }
 });
+
 document.addEventListener("DOMContentLoaded", function () {
+  const usernameInput = document.getElementById("username");
+  const mobileInput = document.getElementById("mobile");
+  const passwordInput = document.getElementById("password");
+  const pageTitle = document.getElementById("pageTitle");
+
+  usernameInput.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (/^[0-9]$/.test(key)) e.preventDefault();
+    if (/[^a-zA-Z ]/.test(key)) e.preventDefault();
+    if (key === " " && this.value.length === 0) e.preventDefault();
+  });
+
+  usernameInput.addEventListener("input", function () {
+    this.value = this.value
+      .replace(/[^a-zA-Z ]/g, "")
+      .replace(/\s{2,}/g, " ")
+      .replace(/^\s+/, "")
+      .replace(/\s+$/, "");
+  });
+
+  mobileInput.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (!/^[0-9]$/.test(key) && key !== "Backspace") e.preventDefault();
+    if (this.value.length === 0 && !/[6-9]/.test(key)) e.preventDefault();
+    if (this.value.length >= 10 && key !== "Backspace") e.preventDefault();
+  });
+
+  passwordInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\s/g, "");
+  });
+
   document.getElementById("userForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const usernameEl = document.getElementById("username");
-    const emailEl = document.getElementById("email");
-    const mobileEl = document.getElementById("mobile");
-    const passwordEl = document.getElementById("password");
-    const roleEl = document.getElementById("role");
-
-    const username = usernameEl.value.trim();
-    const email = emailEl.value.trim();
-    const mobile = mobileEl.value.trim();
-    const password = passwordEl.value.trim();
-    const role = roleEl.value;
+    const username = usernameInput.value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mobile = mobileInput.value.trim();
+    const password = passwordInput.value;
+    const role = document.getElementById("role").value;
 
     let isValid = true;
-
-    document.querySelectorAll(".error").forEach((err) => (err.innerText = ""));
+    document.querySelectorAll(".error").forEach((e) => (e.innerText = ""));
 
     if (username === "") {
       showError("username", "Username is required");
@@ -54,16 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
       isValid = false;
     }
 
-    if (mobile === "") {
-      showError("mobile", "Mobile number is required");
-      isValid = false;
-    } else if (mobile.replace(/\s/g, "").length < 10) {
-      showError("mobile", "Enter valid mobile number");
+    if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+      showError("mobile", "Enter valid 10 digit mobile number");
       isValid = false;
     }
 
-    if (password === "") {
-      showError("password", "Password is required");
+    if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        password,
+      )
+    ) {
+      showError(
+        "password",
+        "Min 8 chars, 1 uppercase, 1 lowercase, 1 number & 1 special char",
+      );
       isValid = false;
     }
 
@@ -75,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isValid) {
       document.getElementById("createCard").style.display = "none";
       document.getElementById("verifyCard").style.display = "block";
-      document.getElementById("pageTitle").innerText = "Verify Credentials";
+      pageTitle.innerText = "Verify Credentials";
 
       document.getElementById("vUsername").innerText = username;
       document.getElementById("vEmail").innerText = email;
@@ -83,16 +112,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  const sendBtn = document.getElementById("sendBtn");
-  if (sendBtn) {
-    sendBtn.addEventListener("click", function () {
-      document.getElementById("successModal").style.display = "flex";
-
-      setTimeout(() => {
-        document.getElementById("successModal").style.display = "none";
-      }, 2500);
+  document
+    .getElementById("createNewUserBtn")
+    ?.addEventListener("click", function () {
+      document.getElementById("verifyCard").style.display = "none";
+      document.getElementById("createCard").style.display = "block";
+      pageTitle.innerText = "Generate Credentials";
+      document.getElementById("userForm").reset();
+      document.querySelectorAll(".error").forEach((e) => (e.innerText = ""));
     });
-  }
+
+  document.getElementById("sendBtn")?.addEventListener("click", function () {
+    document.getElementById("successModal").style.display = "flex";
+    setTimeout(() => {
+      document.getElementById("successModal").style.display = "none";
+    }, 2500);
+  });
 });
 
 function showError(id, msg) {
@@ -100,8 +135,10 @@ function showError(id, msg) {
     msg;
 }
 
+document
+  .querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(5)")
+  .classList.add("sidebar-active");
 
-document.querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(5)").classList.add("sidebar-active");
-
-
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header").classList.add("dropdown-header-active");
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header")
+  .classList.add("dropdown-header-active");

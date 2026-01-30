@@ -5,1068 +5,1171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UM-UsersList</title>
     <link rel="stylesheet" href="../css/adminUserManagement.css" />
-    <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
-    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/adminSidebarNavbar.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <nav>
-        <div class="logo-section">
-            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
-            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
-            <div class="search-bar">
-                <div class="search-bar-icon">
-                  <img src="../assets/master/eRangoli 2-1.svg" alt="">
-                  <input type="search" id="desktop-search" placeholder="Search">
-                </div>
-                <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
+      <div class="logo-section">
+        <img
+          id="desktop-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2.svg"
+          alt=""
+        />
+        <img
+          id="mobile-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2-1.svg"
+          alt=""
+          style="z-index: 99999 !important"
+        />
+        <div class="search-bar">
+          <div class="search-bar-icon">
+            <img src="../assets/master/eRangoli 2-1.svg" alt="" />
+            <input type="search" id="desktop-search" placeholder="Search" />
+          </div>
+          <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
+        </div>
+        <ul id="desktop-suggestions" class="suggestions-box"></ul>
+      </div>
+
+      <!-- HAMBURGER (Mobile Only) -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <img src="../assets/master/List.svg" alt="" />
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <div class="welcome-main-section" id="welcome-section">
+          <div class="image-section">
+            <div class="circle-image">
+              <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="" />
             </div>
-            <ul id="desktop-suggestions" class="suggestions-box"></ul>
+          </div>
+          <div class="welcome-text-section">
+            <span>Welcome !</span>
+            <a id="welcome-name">Sanskriti Collection</a>
+          </div>
         </div>
 
-        <!-- HAMBURGER (Mobile Only) -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <img src="../assets/master/List.svg" alt="">
-        </div>
-
-        <!-- Mobile Menu -->
-          <div id="mobile-menu">
-            <div class="welcome-main-section" id="welcome-section">
-              <div class="image-section">
-                <div class="circle-image">
-                  <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+        <div class="main-bottom-section">
+          <div class="sub-section">
+            <ul class="mobile-nav-menu1" id="account-menu">
+              <!-- DASHBOARD -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                    </div>
+                    <span>Dashboard</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
-              </div>
-              <div class="welcome-text-section">
-                <span>Welcome !</span>
-                <a id="welcome-name">Sanskriti Collection</a>
-              </div>
-            </div>
+              </li>
 
-            <div class="main-bottom-section">
-              <div class="sub-section">
-                <ul class="mobile-nav-menu1" id="account-menu">
-
-                  <!-- DASHBOARD -->
-                <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                        </div>
-                        <span>Dashboard</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
+              <!-- PRODUCT MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Package.svg" alt="" />
                     </div>
-                  </li>
-
-                  <!-- PRODUCT MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/Package.svg" alt="">
-                        </div>
-                        <span>Product Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                      
-                    </div>
-                    <ul class="mobile-submenu">
-                        <li>Product List</li>
-                        <li>Product Categories</li>
-                        <li>Recently Added Products</li>
-                        <li>Product Verification</li>
-                    </ul>
-                  </li>
-
-                  <!-- ORDER MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                        </div>
-                        <span>Vendor Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                    <ul class="mobile-submenu">
-                      <li>Vendor List</li>
-                      <li>Recently Added Vendors</li>
-                      <li>Vendor Verification</li>
-                    </ul>
-                  </li>
-
-                  <!-- RETURN MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        </div>
-                        <span>Buyer Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <!-- SALES -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        </div>
-                        <span>User Management</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                  </li>
-
-                  <!-- CUSTOMER MANAGEMENT -->
-                  <li class="mobile-dropdown">
-                    <div class="dropdown-header">
-                      <div class="mobile-icon-main">
-                        <div class="mobile-icon">
-                          <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                        </div>
-                        <span>Sales</span>
-                      </div>
-                      <img class="arrow" src="../assets/master/CaretDown.svg">
-                    </div>
-                    <ul class="mobile-submenu">
-                      <li>Dashboard</li>
-                      <li>Purchase Orders</li>
-                      <li>Return Orders</li>
-                      <li>Buyer Payment History</li>
-                      <li>Vendor Payments</li>
-                      <li>Sales Report</li>
-                      <li>Discount / Coupons</li>
-                    </ul> 
-                  </li>
-
-
+                    <span>Product Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Product List</li>
+                  <li>Product Categories</li>
+                  <li>Recently Added Products</li>
+                  <li>Product Verification</li>
                 </ul>
-              </div>
-            </div>
+              </li>
 
-            <div class="mobile-logout-section">
-              <div class="mobile-logout-sub">
-                <div class="version">
-                  <span>eRangoli Version 1.0.0</span>
-                </div>
-                <div class="logout-button">
-                  <img src="../assets/master/SignOut.svg" alt="">
-                  <span>Logout</span>
-                </div>
-              </div>
-            </div>
-          </div>  
-
-        <!-- MENU -->
-        <div class="menu-section" >
-
-            <div class="round-button" id="round-button-notification">
-                <span class="number-of-round" id="number-of-notification">3</span>
-                <img src="../assets/master/Bell.svg" alt="" />
-            </div>
-
-            <div class="round-button" id="round-button-order">
-              <span class="number-of-round" id="number-of-cart">4</span>
-              <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
-            </div>
-
-            <div class="user-profile-icon" id="user-profile-icon">
-                    <div class="img-name">
-                      <div class="circle-image">
-                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="">
-                      </div>
-                      <div class="admin-name">
-                        <span id="user-name">Kristin Winget</span>
-                        <span id="role-name">Admin</span>
-                      </div>
+              <!-- ORDER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText.svg"
+                        alt=""
+                      />
                     </div>
-            </div>
+                    <span>Vendor Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Vendor List</li>
+                  <li>Recently Added Vendors</li>
+                  <li>Vendor Verification</li>
+                </ul>
+              </li>
+
+              <!-- RETURN MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText (1).svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Buyer Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- SALES -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/UsersFour.svg" alt="" />
+                    </div>
+                    <span>User Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- CUSTOMER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Coins.svg" alt="" />
+                    </div>
+                    <span>Sales</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li>Dashboard</li>
+                  <li>Purchase Orders</li>
+                  <li>Return Orders</li>
+                  <li>Buyer Payment History</li>
+                  <li>Vendor Payments</li>
+                  <li>Sales Report</li>
+                  <li>Discount / Coupons</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="notification-main-box">
-          <ul>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-            <li class="notification-content">
-              <div>
-                <img src="../assets/master/Rectangle 34627068.svg" alt="">
-              </div>
-              <div class="contents-noti">
-                <span>13/12/25</span>
-                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
-              </div>
-            </li>
-          </ul>
+        <div class="mobile-logout-section">
+          <div class="mobile-logout-sub">
+            <div class="version">
+              <span>eRangoli Version 1.0.0</span>
+            </div>
+            <div class="logout-button">
+              <img src="../assets/master/SignOut.svg" alt="" />
+              <span>Logout</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- MENU -->
+      <div class="menu-section">
+        <div class="round-button" id="round-button-notification">
+          <span class="number-of-round" id="number-of-notification">3</span>
+          <img src="../assets/master/Bell.svg" alt="" />
+        </div>
+
+        <div class="round-button" id="round-button-order">
+          <span class="number-of-round" id="number-of-cart">4</span>
+          <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+        </div>
+
+        <div class="user-profile-icon" id="user-profile-icon">
+          <div class="img-name">
+            <div class="circle-image">
+              <img src="../assets/adminSidebar/Group 2055248221.svg" alt="" />
+            </div>
+            <div class="admin-name">
+              <span id="user-name">Kristin Winget</span>
+              <span id="role-name">Admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notification-main-box">
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="notification-main-box" id="notification-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>Notifications</span>
-        <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img
+            id="notification-cross"
+            src="../assets/vendorSidebar/X.svg"
+            alt=""
+          />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
     </div>
 
-  <!-- Order Popup -->
-  <div class="notification-main-box" id="order-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>New Order</span>
-        <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
     </div>
-  </div>
 
     <!-- Mobile Bottom Navigation Bar -->
     <div class="bottom-nav" aria-label="Mobile navigation">
       <a href="index.html" class="bottom-nav__item">
-        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
         <span class="bottom-nav__label">Dashboard</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
-        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
         <span class="bottom-bar-numbers">2</span>
         <span class="bottom-nav__label">Orders</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
-        <img src="../assets/master/notificationnav.svg" alt="">
+        <img src="../assets/master/notificationnav.svg" alt="" />
         <span class="bottom-bar-numbers">3</span>
         <span class="bottom-nav__label">Notifications</span>
       </a>
-      
+
       <a href="#" class="bottom-nav__item1" id="bottom-nav-cart">
-        <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
         <span class="bottom-nav__label">My Profile</span>
       </a>
     </div>
 
-
     <!-- Sidebar -->
-       <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
-        <article>
-            <div class="welcome-sidebar-main">
-                <div class="welcome-sidebar">
-                  <span>Welcome!</span>
-                  <span>Administration</span>
-                </div>
-                <div class="hamberger-sidebar"  id="sidebarToggle">
-                  <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
-                  <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
-                </div>
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+      <article>
+        <div class="welcome-sidebar-main">
+          <div class="welcome-sidebar">
+            <span>Welcome!</span>
+            <span>Administration</span>
+          </div>
+          <div class="hamberger-sidebar" id="sidebarToggle">
+            <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="" />
+            <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="" />
+          </div>
+        </div>
+        <ul>
+          <li class="has-submenu">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+              <span>Dashboard</span>
             </div>
-            <ul>
-                <li class="has-submenu">
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                        <span>Dashboard</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="product">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/Package.svg" alt="">
-                    <span>Product Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="product">
-                  <li class="submenu-active-highlight">Product List</li>
-                  <li>Product Categories</li>
-                  <li>Product Recently Added</li>
-                  <li>Product Verification</li>
-                </ul>
-                <li class="has-submenu" data-menu="vendor">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                    <span>Vendor Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="vendor">
-                  <li>Vendor List</li>
-                  <li>Vendor Recently Added</li>
-                  <li>Vendor Verification</li>
-                </ul>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li class="has-submenu" data-menu="product">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Package.svg" alt="" />
+              <span>Product Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="product">
+            <li class="submenu-active-highlight">Product List</li>
+            <li>Product Categories</li>
+            <li>Product Recently Added</li>
+            <li>Product Verification</li>
+          </ul>
+          <li class="has-submenu" data-menu="vendor">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+              <span>Vendor Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="vendor">
+            <li>Vendor List</li>
+            <li>Vendor Recently Added</li>
+            <li>Vendor Verification</li>
+          </ul>
 
-                <li class="has-submenu">  
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        <span>Buyer Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu">
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        <span>User Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="sales">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                    <span>Sales</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="sales">
-                  <li>Dashboard</li>
-                  <li>Purchase Order</li>
-                  <li>Return Orders</li>
-                  <li>Buyer Payment History</li>
-                  <li>Vendor Payment</li>
-                  <li>Sales Report</li>
-                  <li>Discounts / Coupons</li>
-                </ul> 
-            </ul>
-        </article>
-     </section>
+          <li class="has-submenu">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+              <span>Buyer Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li class="has-submenu">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/UsersFour.svg" alt="" />
+              <span>User Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+          <li class="has-submenu" data-menu="sales">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Coins.svg" alt="" />
+              <span>Sales</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="sales">
+            <li>Dashboard</li>
+            <li>Purchase Order</li>
+            <li>Return Orders</li>
+            <li>Buyer Payment History</li>
+            <li>Vendor Payment</li>
+            <li>Sales Report</li>
+            <li>Discounts / Coupons</li>
+          </ul>
+        </ul>
+      </article>
+    </section>
 
     <div class="main-content-beyond">
       <div class="AUM-Container">
-      <!-- TAB ONLY TOP HEADER -->
-      <div class="AUMTabHeader">
-        <h2>User Management</h2>
-        <button class="AUMCreateBtn">Create New User</button>
-      </div>
-      <div class="AUMStatsSection">
-        <div class="AUMMobHeader">
+        <!-- TAB ONLY TOP HEADER -->
+        <div class="AUMTabHeader">
           <h2>User Management</h2>
           <button class="AUMCreateBtn">Create New User</button>
         </div>
-        <div class="AUMStatsRow">
-          <!-- Total Users Card -->
-          <div class="AUMStatCard" id="AUMTotalProductsWidget">
-            <div class="AUMStatHeader">
-              <div>
-                <img
-                  class="AUMStatIcon"
-                  src="../assets/adminUserManagement/rupee.svg"
-                  alt=""
-                />
+        <div class="AUMStatsSection">
+          <div class="AUMMobHeader">
+            <h2>User Management</h2>
+            <button class="AUMCreateBtn">Create New User</button>
+          </div>
+          <div class="AUMStatsRow">
+            <!-- Total Users Card -->
+            <div class="AUMStatCard" id="AUMTotalProductsWidget">
+              <div class="AUMStatHeader">
+                <div>
+                  <img
+                    class="AUMStatIcon"
+                    src="../assets/adminUserManagement/rupee.svg"
+                    alt=""
+                  />
+                </div>
+                <span class="AUMStatLabel">Total Users</span>
               </div>
-              <span class="AUMStatLabel">Total Users</span>
+              <div class="AUMStatValue">14,945</div>
+              <div class="AUMStatFooter">
+                <span class="AUMStatChange">
+                  <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+                  +15.3%
+                </span>
+                <div class="AUMStatChart">
+                  <img
+                    src="../assets/adminUserManagement/Vector 11.svg"
+                    alt="chart"
+                    class="AUMChartImage"
+                  />
+                </div>
+              </div>
             </div>
-            <div class="AUMStatValue">14,945</div>
-            <div class="AUMStatFooter">
-              <span class="AUMStatChange">
-                <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
-                +15.3%
-              </span>
-              <div class="AUMStatChart">
-                <img
-                  src="../assets/adminUserManagement/Vector 11.svg"
-                  alt="chart"
-                  class="AUMChartImage"
-                />
+
+            <!-- Total Customers Card -->
+            <div class="AUMStatCard" id="AUMNewlyAddedWidget">
+              <div class="AUMStatHeader">
+                <div>
+                  <img
+                    class="AUMStatIcon"
+                    src="../assets/adminUserManagement/rupee.svg"
+                    alt=""
+                  />
+                </div>
+                <span class="AUMStatLabel">Total Customers</span>
+              </div>
+              <div class="AUMStatValue">9,945</div>
+              <div class="AUMStatFooter">
+                <span class="AUMStatChange">
+                  <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+                  +15.3%
+                </span>
+                <div class="AUMStatChart">
+                  <img
+                    src="../assets/adminUserManagement/Vector 11.svg"
+                    alt="chart"
+                    class="AUMChartImage"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Vendors Card -->
+            <div class="AUMStatCard" id="AUMTrendingProductsWidget">
+              <div class="AUMStatHeader">
+                <div>
+                  <img
+                    class="AUMStatIcon"
+                    src="../assets/adminUserManagement/rupee.svg"
+                    alt=""
+                  />
+                </div>
+                <span class="AUMStatLabel">Total Vendors</span>
+              </div>
+              <div class="AUMStatValue">4,945</div>
+              <div class="AUMStatFooter">
+                <span class="AUMStatChange">
+                  <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+                  +15.3%
+                </span>
+                <div class="AUMStatChart">
+                  <img
+                    src="../assets/adminUserManagement/Vector 11.svg"
+                    alt="chart"
+                    class="AUMChartImage"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Inactive Card -->
+            <div class="AUMStatCard" id="AUMLeastPurchasedWidget">
+              <div class="AUMStatHeader">
+                <div>
+                  <img
+                    class="AUMStatIcon"
+                    src="../assets/adminUserManagement/rupee.svg"
+                    alt=""
+                  />
+                </div>
+                <span class="AUMStatLabel">Total Inactive</span>
+              </div>
+              <div class="AUMStatValue">945</div>
+              <div class="AUMStatFooter">
+                <span class="AUMStatChange">
+                  <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
+                  +15.3%
+                </span>
+                <div class="AUMStatChart">
+                  <img
+                    src="../assets/adminUserManagement/Vector 11.svg"
+                    alt="chart"
+                    class="AUMChartImage"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Total Customers Card -->
-          <div class="AUMStatCard" id="AUMNewlyAddedWidget">
-            <div class="AUMStatHeader">
-              <div>
-                <img
-                  class="AUMStatIcon"
-                  src="../assets/adminUserManagement/rupee.svg"
-                  alt=""
-                />
-              </div>
-              <span class="AUMStatLabel">Total Customers</span>
-            </div>
-            <div class="AUMStatValue">9,945</div>
-            <div class="AUMStatFooter">
-              <span class="AUMStatChange">
-                <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
-                +15.3%
-              </span>
-              <div class="AUMStatChart">
-                <img
-                  src="../assets/adminUserManagement/Vector 11.svg"
-                  alt="chart"
-                  class="AUMChartImage"
-                />
-              </div>
-            </div>
+        </div>
+        <div class="AUMTopBar">
+          <!-- SEARCH -->
+          <div class="AUMSearchBox">
+            <img
+              src="../assets/adminUserManagement/search.svg"
+              class="AUMIcon"
+              alt="search"
+            />
+            <input
+              type="text"
+              id="AUMSearchInput"
+              placeholder="Search by user name, type, e-mail adress."
+            />
           </div>
 
-          <!-- Total Vendors Card -->
-          <div class="AUMStatCard" id="AUMTrendingProductsWidget">
-            <div class="AUMStatHeader">
-              <div>
+          <!-- ACTIONS -->
+          <div class="AUMActions">
+            <div class="AUMFilter filter-bar-wrapper">
+              <div class="AUMActionIcon">
                 <img
-                  class="AUMStatIcon"
-                  src="../assets/adminUserManagement/rupee.svg"
-                  alt=""
+                  src="../assets/adminUserManagement/Sliders.svg"
+                  alt="filter"
+                  id="filter-bar-main-box"
                 />
               </div>
-              <span class="AUMStatLabel">Total Vendors</span>
-            </div>
-            <div class="AUMStatValue">4,945</div>
-            <div class="AUMStatFooter">
-              <span class="AUMStatChange">
-                <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
-                +15.3%
-              </span>
-              <div class="AUMStatChart">
-                <img
-                  src="../assets/adminUserManagement/Vector 11.svg"
-                  alt="chart"
-                  class="AUMChartImage"
-                />
+
+              <div class="AUMActionIcon">
+                <img src="../assets/adminUserManagement/sort.svg" alt="sort" />
+              </div>
+
+              <!-- Filter Option Main -->
+              <div class="main-content-flows-main" id="filter-main">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Filter</span>
+                  </div>
+                  <ul>
+                    <li>Status</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Status Box -->
+              <div class="main-content-flows-main" id="status-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Select Status</span>
+                  </div>
+                  <ul>
+                    <li>
+                      <input
+                        type="checkbox"
+                        data-status="verified"
+                        id="verified"
+                      />
+                      <label for="verified">Verified</label>
+                    </li>
+                    <li>
+                      <input
+                        type="checkbox"
+                        data-status="rejected"
+                        id="rejected"
+                      />
+                      <label for="rejected">Rejected</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" data-status="verify" id="verify" />
+                      <label for="verify">Verify</label>
+                    </li>
+                    <li>
+                      <input
+                        type="checkbox"
+                        data-status="sent"
+                        id="sent-verify"
+                      />
+                      <label for="sent-verify">Sent to verify</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- SORT BOX -->
+              <div class="main-content-flows-main" id="sort-box">
+                <div class="main-filter-box-content">
+                  <div class="main-head-filters">
+                    <span>Sort By</span>
+                  </div>
+                  <ul>
+                    <li data-sort="name-asc">Name (A → Z)</li>
+                    <li data-sort="name-desc">Name (Z → A)</li>
+                    <li data-sort="date-new">Created (Newest)</li>
+                    <li data-sort="date-old">Created (Oldest)</li>
+                  </ul>
+                </div>
               </div>
             </div>
+
+            <button class="AUMCreateBtn">Create New User</button>
+          </div>
+        </div>
+        <div class="AUMTableCard">
+          <!-- HEADER -->
+          <div class="AUMTableHeader">
+            <h3>User Managment</h3>
+            <span class="AUMCount">Total - 7</span>
           </div>
 
-          <!-- Total Inactive Card -->
-          <div class="AUMStatCard" id="AUMLeastPurchasedWidget">
-            <div class="AUMStatHeader">
-              <div>
-                <img
-                  class="AUMStatIcon"
-                  src="../assets/adminUserManagement/rupee.svg"
-                  alt=""
-                />
+          <!-- TABLE -->
+          <div class="AUMTableWrapper">
+            <table class="AUMTable">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Type</th>
+                  <th>Created on</th>
+                  <th>Last Active</th>
+                  <th>Contact</th>
+                  <th>Email Address</th>
+                  <th>Status</th>
+                  <th>Block</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Yash Jain
+                  </td>
+                  <td>Buyer</td>
+                  <td>15/01/26</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus verified">Verified</span></td>
+                  <td><span class="AUMToggle active"></span></td>
+                </tr>
+
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Reddy
+                  </td>
+                  <td>Vendor</td>
+                  <td>17/01/26</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus rejected">Rejected</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Yawale
+                  </td>
+                  <td>Developer</td>
+                  <td>15/12/25</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus verify">Verify</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Yawale
+                  </td>
+                  <td>Developer</td>
+                  <td>15/12/25</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus verify">Verify</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Yawale
+                  </td>
+                  <td>Developer</td>
+                  <td>15/12/25</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus sent"> Sent to verify</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Yawale
+                  </td>
+                  <td>Developer</td>
+                  <td>15/12/25</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus verify">Verify</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+                <tr>
+                  <td class="AUMUserCell">
+                    <img src="../assets/adminUserManagement/img.svg" />
+                    Rutuja Yawale
+                  </td>
+                  <td>Developer</td>
+                  <td>15/12/25</td>
+                  <td>2 hrs ago</td>
+                  <td>95473 78994</td>
+                  <td>rutuja455566@gmail.com</td>
+                  <td><span class="AUMStatus verify">Verify</span></td>
+                  <td><span class="AUMToggle"></span></td>
+                </tr>
+                <tr class="AUMNoDataRow" style="display: none">
+                  <td
+                    colspan="8"
+                    style="text-align: center; padding: 20px; color: #999"
+                  >
+                    No matching users found
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- MOBILE USER LIST -->
+        <div class="AUMMobileFAQ">
+          <h2 class="mobile-sales-heading">User Management</h2>
+          <div class="mobile-sales-divider"></div>
+          <div class="faq">
+            <div class="faq-item">
+              <button class="faq-question">
+                <div class="faq-title">
+                  <img src="../assets/adminUserManagement/img.svg" />
+
+                  <div class="faq-user-text">
+                    <span class="faq-username">Rutuja Yawale</span>
+                    <span class="faq-usertype buyer">Buyer</span>
+                  </div>
+                </div>
+
+                <img src="../assets/adminUserManagement/CaretDown.svg" />
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-row"><span>Type</span><span>Buyer</span></div>
+                <div class="faq-row">
+                  <span>Created</span><span>15/01/26</span>
+                </div>
+                <div class="faq-row">
+                  <span>Last Active</span><span>2 hrs ago</span>
+                </div>
+                <div class="faq-row">
+                  <span>Contact</span><span>95473 78994</span>
+                </div>
+                <div class="faq-row">
+                  <span>Email</span><span>rutuja@gmail.com</span>
+                </div>
+                <div class="faq-row">
+                  <span>Status</span>
+                  <span class="AUMStatus verified-mob">Verified</span>
+                </div>
+                <div class="faq-row">
+                  <span>Block</span>
+                  <span class="AUMToggle active"></span>
+                </div>
               </div>
-              <span class="AUMStatLabel">Total Inactive</span>
             </div>
-            <div class="AUMStatValue">945</div>
-            <div class="AUMStatFooter">
-              <span class="AUMStatChange">
-                <img src="../assets/adminUserManagement/TrendUp.svg" alt="" />
-                +15.3%
-              </span>
-              <div class="AUMStatChart">
-                <img
-                  src="../assets/adminUserManagement/Vector 11.svg"
-                  alt="chart"
-                  class="AUMChartImage"
-                />
+            <div class="faq-item">
+              <button class="faq-question">
+                <div class="faq-title">
+                  <img src="../assets/adminUserManagement/img.svg" />
+
+                  <div class="faq-user-text">
+                    <span class="faq-username">Rutuja Yawale</span>
+                    <span class="faq-usertype developer">Developer</span>
+                  </div>
+                </div>
+                <img src="../assets/adminUserManagement/CaretDown.svg" />
+              </button>
+              <div class="faq-answer">
+                <div class="faq-row">
+                  <span>Type</span><span>Developer</span>
+                </div>
+                <div class="faq-row">
+                  <span>Created</span><span>15/12/25</span>
+                </div>
+                <div class="faq-row">
+                  <span>Last Active</span><span>2 hrs ago</span>
+                </div>
+                <div class="faq-row">
+                  <span>Contact</span><span>95473 78994</span>
+                </div>
+                <div class="faq-row">
+                  <span>Email</span><span>rutuja455566@gmail.com</span>
+                </div>
+                <div class="faq-row">
+                  <span>Status</span>
+                  <span class="AUMStatus verify-mob">Verify</span>
+                </div>
+                <div class="faq-row">
+                  <span>Block</span>
+                  <span class="AUMToggle"></span>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <div class="faq-title">
+                  <img src="../assets/adminUserManagement/img.svg" />
+
+                  <div class="faq-user-text">
+                    <span class="faq-username">Rutuja Yawale</span>
+                    <span class="faq-usertype developer">Developer</span>
+                  </div>
+                </div>
+                <img src="../assets/adminUserManagement/CaretDown.svg" />
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-row">
+                  <span>Type</span><span>Developer</span>
+                </div>
+                <div class="faq-row">
+                  <span>Created</span><span>15/12/25</span>
+                </div>
+                <div class="faq-row">
+                  <span>Last Active</span><span>2 hrs ago</span>
+                </div>
+                <div class="faq-row">
+                  <span>Contact</span><span>95473 78994</span>
+                </div>
+                <div class="faq-row">
+                  <span>Email</span><span>rutuja455566@gmail.com</span>
+                </div>
+                <div class="faq-row">
+                  <span>Status</span>
+                  <span class="AUMStatus rejected-mob">Rejected</span>
+                </div>
+                <div class="faq-row">
+                  <span>Block</span>
+                  <span class="AUMToggle"></span>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <div class="faq-title">
+                  <img src="../assets/adminUserManagement/img.svg" />
+
+                  <div class="faq-user-text">
+                    <span class="faq-username">Rutuja Yawale</span>
+                    <span class="faq-usertype vendor">Vendor</span>
+                  </div>
+                </div>
+                <img src="../assets/adminUserManagement/CaretDown.svg" />
+              </button>
+              <div class="faq-answer">
+                <div class="faq-row">
+                  <span>Type</span><span>Developer</span>
+                </div>
+                <div class="faq-row">
+                  <span>Created</span><span>15/12/25</span>
+                </div>
+                <div class="faq-row">
+                  <span>Last Active</span><span>2 hrs ago</span>
+                </div>
+                <div class="faq-row">
+                  <span>Contact</span><span>95473 78994</span>
+                </div>
+                <div class="faq-row">
+                  <span>Email</span><span>rutuja455566@gmail.com</span>
+                </div>
+                <div class="faq-row">
+                  <span>Status</span>
+                  <span class="AUMStatus sent-mob">Sent to Verify</span>
+                </div>
+                <div class="faq-row">
+                  <span>Block</span>
+                  <span class="AUMToggle"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="AUMTopBar">
-        <!-- SEARCH -->
-        <div class="AUMSearchBox">
-          <img
-            src="../assets/adminUserManagement/search.svg"
-            class="AUMIcon"
-            alt="search"
-          />
-          <input
-            type="text"
-            id="AUMSearchInput"
-            placeholder="Search by user name, type, e-mail adress."
-          />
-        </div>
-
-        <!-- ACTIONS -->
-        <div class="AUMActions">
-          <div class="AUMFilter filter-bar-wrapper">
-            <div class="AUMActionIcon">
-              <img
-                src="../assets/adminUserManagement/Sliders.svg"
-                alt="filter"
-                id="filter-bar-main-box"
-              />
-            </div>
-
-            <div class="AUMActionIcon">
-              <img src="../assets/adminUserManagement/sort.svg" alt="sort" />
-            </div>
-
-            <!-- Filter Option Main -->
-            <div class="main-content-flows-main" id="filter-main">
-              <div class="main-filter-box-content">
-                <div class="main-head-filters">
-                  <span>Filter</span>
-                </div>
-                <ul>
-                  <li>Status</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Status Box -->
-            <div class="main-content-flows-main" id="status-box">
-              <div class="main-filter-box-content">
-                <div class="main-head-filters">
-                  <span>Select Status</span>
-                </div>
-                <ul>
-                  <li>
-                    <input
-                      type="checkbox"
-                      data-status="verified"
-                      id="verified"
-                    />
-                    <label for="verified">Verified</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      data-status="rejected"
-                      id="rejected"
-                    />
-                    <label for="rejected">Rejected</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" data-status="verify" id="verify" />
-                    <label for="verify">Verify</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      data-status="sent"
-                      id="sent-verify"
-                    />
-                    <label for="sent-verify">Sent to verify</label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- SORT BOX -->
-            <div class="main-content-flows-main" id="sort-box">
-              <div class="main-filter-box-content">
-                <div class="main-head-filters">
-                  <span>Sort By</span>
-                </div>
-                <ul>
-                  <li data-sort="name-asc">Name (A → Z)</li>
-                  <li data-sort="name-desc">Name (Z → A)</li>
-                  <li data-sort="date-new">Created (Newest)</li>
-                  <li data-sort="date-old">Created (Oldest)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <button class="AUMCreateBtn">Create New User</button>
-        </div>
-      </div>
-      <div class="AUMTableCard">
-        <!-- HEADER -->
-        <div class="AUMTableHeader">
-          <h3>User Managment</h3>
-          <span class="AUMCount">Total - 7</span>
-        </div>
-
-        <!-- TABLE -->
-        <div class="AUMTableWrapper">
-          <table class="AUMTable">
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Type</th>
-                <th>Created on</th>
-                <th>Last Active</th>
-                <th>Contact</th>
-                <th>Email Address</th>
-                <th>Status</th>
-                <th>Block</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Yash Jain
-                </td>
-                <td>Buyer</td>
-                <td>15/01/26</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus verified">Verified</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Reddy
-                </td>
-                <td>Vendor</td>
-                <td>17/01/26</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus rejected">Rejected</span></td>
-                <td><span class="AUMToggle active"></span></td>
-              </tr>
-
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
-                </td>
-                <td>Developer</td>
-                <td>15/12/25</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus verify">Verify</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
-                </td>
-                <td>Developer</td>
-                <td>15/12/25</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus verify">Verify</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
-                </td>
-                <td>Developer</td>
-                <td>15/12/25</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus sent"> Sent to verify</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
-                </td>
-                <td>Developer</td>
-                <td>15/12/25</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus verify">Verify</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-              <tr>
-                <td class="AUMUserCell">
-                  <img src="../assets/adminUserManagement/img.svg" />
-                  Rutuja Yawale
-                </td>
-                <td>Developer</td>
-                <td>15/12/25</td>
-                <td>2 hrs ago</td>
-                <td>95473 78994</td>
-                <td>rutuja455566@gmail.com</td>
-                <td><span class="AUMStatus verify">Verify</span></td>
-                <td><span class="AUMToggle"></span></td>
-              </tr>
-              <tr class="AUMNoDataRow" style="display: none">
-                <td
-                  colspan="8"
-                  style="text-align: center; padding: 20px; color: #999"
-                >
-                  No matching users found
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- MOBILE USER LIST -->
-      <div class="AUMMobileFAQ">
-        <h2 class="mobile-sales-heading">User Management</h2>
-        <div class="mobile-sales-divider"></div>
-        <div class="faq">
-          <div class="faq-item">
-            <button class="faq-question">
-              <div class="faq-title">
-                <img src="../assets/adminUserManagement/img.svg" />
-
-                <div class="faq-user-text">
-                  <span class="faq-username">Rutuja Yawale</span>
-                  <span class="faq-usertype buyer">Buyer</span>
-                </div>
-              </div>
-
-              <img src="../assets/adminUserManagement/CaretDown.svg" />
-            </button>
-
-            <div class="faq-answer">
-              <div class="faq-row"><span>Type</span><span>Buyer</span></div>
-              <div class="faq-row">
-                <span>Created</span><span>15/01/26</span>
-              </div>
-              <div class="faq-row">
-                <span>Last Active</span><span>2 hrs ago</span>
-              </div>
-              <div class="faq-row">
-                <span>Contact</span><span>95473 78994</span>
-              </div>
-              <div class="faq-row">
-                <span>Email</span><span>rutuja@gmail.com</span>
-              </div>
-              <div class="faq-row">
-                <span>Status</span>
-                <span class="AUMStatus verified-mob">Verified</span>
-              </div>
-              <div class="faq-row">
-                <span>Block</span>
-                <span class="AUMToggle"></span>
-              </div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <div class="faq-title">
-                <img src="../assets/adminUserManagement/img.svg" />
-
-                <div class="faq-user-text">
-                  <span class="faq-username">Rutuja Yawale</span>
-                  <span class="faq-usertype developer">Developer</span>
-                </div>
-              </div>
-              <img src="../assets/adminUserManagement/CaretDown.svg" />
-            </button>
-            <div class="faq-answer">
-              <div class="faq-row"><span>Type</span><span>Developer</span></div>
-              <div class="faq-row">
-                <span>Created</span><span>15/12/25</span>
-              </div>
-              <div class="faq-row">
-                <span>Last Active</span><span>2 hrs ago</span>
-              </div>
-              <div class="faq-row">
-                <span>Contact</span><span>95473 78994</span>
-              </div>
-              <div class="faq-row">
-                <span>Email</span><span>rutuja455566@gmail.com</span>
-              </div>
-              <div class="faq-row">
-                <span>Status</span>
-                <span class="AUMStatus verify-mob">Verify</span>
-              </div>
-              <div class="faq-row">
-                <span>Block</span>
-                <span class="AUMToggle"></span>
-              </div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <div class="faq-title">
-                <img src="../assets/adminUserManagement/img.svg" />
-
-                <div class="faq-user-text">
-                  <span class="faq-username">Rutuja Yawale</span>
-                  <span class="faq-usertype developer">Developer</span>
-                </div>
-              </div>
-              <img src="../assets/adminUserManagement/CaretDown.svg" />
-            </button>
-
-            <div class="faq-answer">
-              <div class="faq-row"><span>Type</span><span>Developer</span></div>
-              <div class="faq-row">
-                <span>Created</span><span>15/12/25</span>
-              </div>
-              <div class="faq-row">
-                <span>Last Active</span><span>2 hrs ago</span>
-              </div>
-              <div class="faq-row">
-                <span>Contact</span><span>95473 78994</span>
-              </div>
-              <div class="faq-row">
-                <span>Email</span><span>rutuja455566@gmail.com</span>
-              </div>
-              <div class="faq-row">
-                <span>Status</span>
-                <span class="AUMStatus rejected-mob">Rejected</span>
-              </div>
-              <div class="faq-row">
-                <span>Block</span>
-                <span class="AUMToggle"></span>
-              </div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <div class="faq-title">
-                <img src="../assets/adminUserManagement/img.svg" />
-
-                <div class="faq-user-text">
-                  <span class="faq-username">Rutuja Yawale</span>
-                  <span class="faq-usertype vendor">Vendor</span>
-                </div>
-              </div>
-              <img src="../assets/adminUserManagement/CaretDown.svg" />
-            </button>
-            <div class="faq-answer">
-              <div class="faq-row"><span>Type</span><span>Developer</span></div>
-              <div class="faq-row">
-                <span>Created</span><span>15/12/25</span>
-              </div>
-              <div class="faq-row">
-                <span>Last Active</span><span>2 hrs ago</span>
-              </div>
-              <div class="faq-row">
-                <span>Contact</span><span>95473 78994</span>
-              </div>
-              <div class="faq-row">
-                <span>Email</span><span>rutuja455566@gmail.com</span>
-              </div>
-              <div class="faq-row">
-                <span>Status</span>
-                <span class="AUMStatus sent-mob">Sent to Verify</span>
-              </div>
-              <div class="faq-row">
-                <span>Block</span>
-                <span class="AUMToggle"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
     <script src="../javascript/adminUserManagement.js"></script>
     <script src="../javascript/adminSidebarnavbar.js"></script>

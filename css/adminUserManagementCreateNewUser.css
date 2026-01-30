@@ -30,10 +30,23 @@ body {
   font-size: 18px;
 }
 
-.back-arrow {
-  height: 20px;
-  width: 20px;
+#createNewUserBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
+}
+
+#createNewUserBtn .back-arrow {
+  width: 18px;
+  height: 18px;
+}
+
+#createNewUserBtn .header {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f3f3f;
 }
 
 .card {
@@ -237,7 +250,7 @@ body {
 
   .header {
     font-size: 15px;
-    display:none;
+    display: none;
   }
 
   .back-arrow {
