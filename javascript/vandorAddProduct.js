@@ -2042,10 +2042,10 @@ if (!validateVariantQuantities()) {
   });
 
   // Sub category
-  if (!subCategory.value) {
-    showError(subCategory, "Please select sub category");
-    isValid = false;
-  }
+  // if (!subCategory.value) {
+  //   showError(subCategory, "Please select sub category");
+  //   isValid = false;
+  // }
 
   // Dynamic fields
   if (!validateDynamicFields()) {

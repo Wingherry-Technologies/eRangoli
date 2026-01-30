@@ -73,7 +73,7 @@
     function fsSlide() {
         fsIndex++;
         if (fsIndex >= fsSlides.length) fsIndex = 0;
-        fsWrapper.style.transform = `translateX(-${fsIndex * 100}%)`;
+        fsWrapper.style.transform = `translateX(-${fsIndex * 102}%)`;
     }
 
     let fsAutoSlide = setInterval(fsSlide, 3000);

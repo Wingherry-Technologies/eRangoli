@@ -199,6 +199,9 @@
     padding: 30px 20px;
     /* width: ; */
   }
+  .fs-slide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 /* =====================================================
       FINAL FIX — PERFECT FIT ON SMALL SCREENS (<=660px)
@@ -340,6 +343,7 @@
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
+  gap: 5px;
 }
 
 /* EACH SLIDE = 3 ROWS OF FLEX */
@@ -350,6 +354,7 @@
   gap: 25px;
   /* ROW GAP */
   padding: 10px 0;
+  box-sizing: border-box;
 }
 
 /* FLEX ROW */
@@ -436,9 +441,19 @@
 
 /*Tablet Responsive */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .fs-row {
-    gap: 25px;
-    justify-content: center;
+   .fs-row {
+    display: contents;
+  }
+
+  .fs-slide {
+    display: grid;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .fs-slide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .fs-card {
@@ -454,37 +469,37 @@
 
 /* Mobile Responsive */
 @media (max-width: 480px) {
+
+  /* Remove row boundaries */
   .fs-row {
-    display: flex;
-    flex-wrap: wrap;
+    display: contents;
+  }
+
+  /* Turn the slide into a grid */
+  .fs-slide {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    justify-content: flex-start;
+
+    /* 🔒 CRITICAL */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .fs-card {
-    flex: 0 0 calc(50% - 5px);
-    max-width: calc(50% - 5px);
-    min-width: 0;
+    width: 100%;
+    max-width: none;
   }
 
   .fs-card img {
     width: 100%;
-    height: auto;
-  }
-
-  .fs-row .fs-card:nth-child(3),
-  .fs-row .fs-card:nth-child(4),
-  .fs-row .fs-card:nth-child(5) {
-    display: none;
+    height: 100%;
+    object-fit: contain;
   }
 
   .fs-slider-container {
     padding: 20px 5px 40px;
-  }
-
-  .fs-slide {
-    gap: 15px;
-    padding: 10px 5px;
   }
 
   .fs-btn {
@@ -500,6 +515,7 @@
     right: 10px;
   }
 }
+
 /* end */
 
 /* footer */
