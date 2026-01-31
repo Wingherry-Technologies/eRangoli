@@ -5,6 +5,13 @@ const FAcloseApproveModal = document.getElementById("FAcloseApproveModal");
 const FAapproveYes = document.getElementById("FAapproveYes");
 const FAapproveNo = document.getElementById("FAapproveNo");
 
+const FArejectBtn = document.querySelector(".FARejectButton");
+const FArejectModal = document.getElementById("FArejectModal");
+const FArejectYes = document.getElementById("FArejectYes");
+const FArejectNo = document.getElementById("FArejectNo");
+const FAcloseRejectModal = document.getElementById("FAcloseRejectModal");
+
+
 FAapproveBtn.addEventListener("click", () => {
   FAapproveModal.classList.add("active");
 });
@@ -35,16 +42,67 @@ FAapproveYes.addEventListener("click", () => {
 });
 
 
+// Open reject confirmation
+FArejectBtn.addEventListener("click", () => {
+  FArejectModal.classList.add("active");
+});
+
+// Close actions
+FArejectNo.addEventListener("click", () => {
+  FArejectModal.classList.remove("active");
+});
+
+FAcloseRejectModal.addEventListener("click", () => {
+  FArejectModal.classList.remove("active");
+});
+
+
+FArejectYes.addEventListener("click", () => {
+  FArejectModal.classList.remove("active");
+
+  document.querySelector(".BDContainer").classList.add("blur");
+
+  // Show reject success popup
+  const rejectSuccess = document.getElementById("FArejectSuccessScreen");
+  rejectSuccess.classList.add("active");
+
+  // After 3 seconds 
+  setTimeout(() => {
+    rejectSuccess.classList.remove("active");
+
+    // blur remove
+    document.querySelector(".BDContainer").classList.remove("blur");
+
+    // redirect
+    window.location.href = "../html/adminRecentVendorList.html";
+  }, 3000);
+});
+
+
+
+let actualVendorPassword = "";
+
 function openVendorCredentialPopup() {
   const modal = document.getElementById("vendorCredentialModal");
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
 
+  // Mobile autofill
+  document.getElementById("vendorMobile").value = "9536789905";
 
-  // auto fill mobile from personal details
-  const mobile = "9536789905"; // dynamic bhi kar sakte ho
-  document.getElementById("vendorMobile").value = mobile;
+  // Username autofill
+  document.getElementById("vendorUsername").value = "David John";
+
+  // Generate real password
+  actualVendorPassword = generatePassword();
+
+  // UI me sirf ******
+  document.getElementById("vendorPassword").value = "******";
 }
+
+
+
+
 
 document.getElementById("closeVendorCredentialModal").addEventListener("click", () => {
   const modal = document.getElementById("vendorCredentialModal");
@@ -88,37 +146,50 @@ function validateUsername() {
   return true;
 }
 
-function validatePassword() {
-  const input = document.getElementById("vendorPassword");
-  const value = input.value;
+// function validatePassword() {
+//   const input = document.getElementById("vendorPassword");
+//   const value = input.value;
 
-  // Empty check
-  if (value.trim() === "") {
-    showError(input, "Password is required");
-    return false;
+//   // Empty check
+//   if (value.trim() === "") {
+//     showError(input, "Password is required");
+//     return false;
+//   }
+
+//   // Minimum length
+//   if (value.length < 6) {
+//     showError(input, "Password must be at least 6 characters long");
+//     return false;
+//   }
+
+//   // Strong password regex
+//   const strongRegex =
+//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+//   if (!strongRegex.test(value)) {
+//     showError(
+//       input,
+//       "Password must contain uppercase, lowercase, number & special character"
+//     );
+//     return false;
+//   }
+
+//   clearError(input);
+//   return true;
+// }
+
+function generatePassword() {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@$!%*?&";
+  let password = "";
+
+  for (let i = 0; i < 8; i++) {
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
   }
 
-  // Minimum length
-  if (value.length < 6) {
-    showError(input, "Password must be at least 6 characters long");
-    return false;
-  }
-
-  // Strong password regex
-  const strongRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-
-  if (!strongRegex.test(value)) {
-    showError(
-      input,
-      "Password must contain uppercase, lowercase, number & special character"
-    );
-    return false;
-  }
-
-  clearError(input);
-  return true;
+  return password;
 }
+
 
 
 // function validateConfirmPassword() {
@@ -133,31 +204,15 @@ function validatePassword() {
 //   return true;
 // }
 document.getElementById("vendorUsername").addEventListener("blur", validateUsername);
-document.getElementById("vendorPassword").addEventListener("blur", validatePassword);
+// document.getElementById("vendorPassword").addEventListener("blur", validatePassword);
 // document
 //   .getElementById("vendorConfirmPassword")
 //   .addEventListener("blur", validateConfirmPassword);
-document
-  .getElementById("sendVendorCredentialBtn")
-  .addEventListener("click", () => {
-    const u = validateUsername();
-    const p = validatePassword();
-    // const c = validateConfirmPassword();
-
-    if (u && p ) {
-      // flag set so vendor list page knows we came from credential submit
-localStorage.setItem("vendorCredentialSuccess", "true");
-
-// redirect to vendor list page
-window.location.href = "../html/adminvendorlist.html";
+document.getElementById("sendVendorCredentialBtn").addEventListener("click", () => {
 
 
-      // document
-      //   .getElementById("vendorCredentialModal")
-      //   .classList.remove("active");
-      //   document.body.style.overflow = "auto";
-      //   document.querySelector(".BDContainer").classList.remove("blur");
+  localStorage.setItem("vendorCredentialSuccess", "true");
+  window.location.href = "../html/adminvendorlist.html";
+});
 
-    }
-  });
 

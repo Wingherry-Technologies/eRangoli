@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* ================= FILTER DROPDOWN ================= */
-  const filterBtn = document.querySelector(".APRAFilterDummy");
+  const filterBtn = document.querySelector(".ADVLFilterDummy");
   const filterMain = document.getElementById("filter-main");
   const statusBox = document.getElementById("status-box");
 
-  const searchInput = document.querySelector(".APRASearchInput");
+  const searchInput = document.querySelector(".ADVLSearchInput");
   const statusCheckboxes = document.querySelectorAll(
     '#status-box input[type="checkbox"]',
   );
-  const tableRows = document.querySelectorAll(".APRATableRow");
+  const tableRows = document.querySelectorAll(".ADVLTableRow");
 
   function applyFilters() {
     const searchValue = searchInput.value.toLowerCase().trim();
@@ -29,15 +29,20 @@ document.addEventListener("DOMContentLoaded", function () {
         IdProof.includes(searchValue) ||
         vendorIDNumber.includes(searchValue);
 
-      const statusSpan = row.querySelector(
-        ".APRATableCell.pending, .APRATableCell.sendToVerify",
-      );
+const statusSpan = row.querySelector(
+  ".ADVLTableCell.pending, .ADVLTableCell.sendToVerify, .ADVLTableCell.rejected"
+);
 
-      const rowStatus = statusSpan?.classList.contains("pending")
-        ? "pending"
-        : statusSpan?.classList.contains("sendToVerify")
-          ? "sendToVerify"
-          : "";
+let rowStatus = "";
+
+if (statusSpan?.classList.contains("pending")) {
+  rowStatus = "pending";
+} else if (statusSpan?.classList.contains("sendToVerify")) {
+  rowStatus = "sendToVerify";
+} else if (statusSpan?.classList.contains("rejected")) {
+  rowStatus = "rejected";
+}
+
 
       const matchesStatus =
         selectedStatuses.length === 0 || selectedStatuses.includes(rowStatus);
@@ -65,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filterMain.classList.remove("active-main-content-flows");
     statusBox.classList.remove("active-main-content-flows");
 
-    //  RESET ONLY WHEN DROPDOWN CLOSES
+    // 🔥 RESET ONLY WHEN DROPDOWN CLOSES
     statusCheckboxes.forEach((cb) => (cb.checked = false));
     applyFilters();
   });
@@ -82,11 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ================= ACTION BUTTON ================= */
  document.addEventListener("click", function (e) {
-  const btn = e.target.closest(".APRAActionButton");
+  const btn = e.target.closest(".ADVLActionButton");
   if (!btn) return;
 
-  const row = btn.closest(".APRATableRow");
-  const statusCell = row.querySelector(".APRATableCell.pending, .APRATableCell.sendToVerify");
+  const row = btn.closest(".ADVLTableRow");
+  const statusCell = row.querySelector(".ADVLTableCell.pending, .ADVLTableCell.sendToVerify, .ADVLTableCell.rejected");
 
   if (!statusCell) return;
 
@@ -94,16 +99,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (statusCell.classList.contains("sendToVerify")) {
     window.location.href = "../html/adminDeveloperVerification.html";
   } 
+  else if (statusCell.classList.contains("pending")) {
+    window.location.href = "../html/adminDeveloperVerification.html";
+  }
   // For Pending (or others)
   else {
-    window.location.href = "../html/adminRecentVendorListOverview.html";
+    window.location.href = "../html/adminDeveloperVerification.html";
   }
 });
 
   /* ================= SORT ================= */
-  const settingsBtn = document.querySelector(".APRASettingsDummy");
+  const settingsBtn = document.querySelector(".ADVLSettingsDummy");
   const sortBox = document.getElementById("sort-box");
-  const tableBody = document.querySelector(".APRATableBody");
+  const tableBody = document.querySelector(".ADVLTableBody");
 
   settingsBtn.addEventListener("click", function (e) {
     e.stopPropagation();
@@ -116,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sortType = e.target.dataset.sort;
     if (!sortType) return;
 
-    const rows = Array.from(tableBody.querySelectorAll(".APRATableRow"));
+    const rows = Array.from(tableBody.querySelectorAll(".ADVLTableRow"));
 
     rows.sort((a, b) => {
       if (sortType.includes("qty")) {

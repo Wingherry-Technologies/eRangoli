@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #e5e7eb;
+  padding: 24px;
+}
+
+/* Main Dashboard Container */
+.ADVLDashboardContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Search Row Layout */
+.ADVLSearchRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Search Input Container */
+.ADVLSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ADVLSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.ADVLSearchInput {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: none;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.ADVLSearchInput::placeholder {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* Filter container */
+.ADVLIconsGroup {
+  display: flex;
+  gap: 12px;
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ADVLFilterDummy,
+.ADVLSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ADVLFilterDummy img,
+.ADVLSettingsDummy img {
+  color: #8e8989;
+  width: 23px;
+  height: 23px;
+}
+
+.ADVLSearchWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ADVLSearchWrapper img {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+}
+
+.ADVLSearchInput {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ADVLSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.ADVLSearchInput:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+}
+
+.ADVLIconsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.ADVLFilterDummy,
+.ADVLSettingsDummy {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ADVLFilterDummy:hover,
+.ADVLSettingsDummy:hover {
+  background-color: #f9fafb;
+}
+
+/* Product Table Section */
+.ADVLTableCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ADVLTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6828e7;
+}
+
+.ADVLTableTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.ADVLViewAllLink {
+  font-size: 14px;
+  color: #6828e7;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.ADVLViewAllLink:hover {
+  text-decoration: none;
+}
+
+.ADVLTableWrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 10px;
+}
+
+.ADVLTableWrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  gap: 2rem;
+}
+
+.ADVLTableWrapper::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.ADVLTableWrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 4px;
+}
+
+.ADVLTableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.ADVLProductTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.ADVLTableHead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.ADVLTableHeadRow {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.ADVLTableHeaderCell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+  white-space: nowrap;
+}
+
+.ADVLTableBody {
+  background-color: #ffffff;
+}
+
+.ADVLTableRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.ADVLTableRow:hover {
+  background-color: #f9fafb;
+}
+
+.ADVLTableCell {
+  padding: 16px;
+  color: #3f3f3f;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ADVLTableCell.pending {
+  color: #FF8205;
+  font-weight: 400;
+}
+.ADVLTableCell.rejected {
+  color: #FF0000;
+  font-weight: 400;
+}
+
+.ADVLTableCell.sendToVerify {
+  color: #440BEF;
+  font-weight: 400;
+}
+
+.ADVLProductNameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ADVLProductThumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.ADVLProductName {
+  font-weight: 400;
+  color: #1f2937;
+}
+
+.ADVLActionButton {
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: #60a5fa;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ADVLActionButton:hover {
+  background-color: #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .ADVLStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ADVLStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  .ADVLDashboardContainer {
+    gap: 16px;
+  }
+
+  .ADVLTableCard {
+    padding: 16px;
+  }
+
+  .ADVLStatsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .ADVLSearchContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ADVLIconsGroup {
+    justify-content: flex-end;
+  }
+}
+
+.main-content-flows-main {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 270px;
+  z-index: 1000;
+}
+.main-content-flows-main.active-main-content-flows {
+  display: block;
+}
+.main-filter-box-content {
+  background-color: white;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  color: #3f3f3f;
+  border-radius: 5px;
+  z-index: 9999;
+  width: 200px;
+}
+#filter-main li.active-filter {
+  background-color: #b9e0db;
+  color: #6828e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#filter-main li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+#status-box {
+  right: 270px;
+}
+.main-head-filters {
+  border-bottom: 1px solid #6828e7;
+}
+.main-filter-box-content > ul {
+  padding-top: 10px;
+  list-style: none;
+}
+.main-filter-box-content > ul > li {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.main-filter-box-content > ul > li > label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

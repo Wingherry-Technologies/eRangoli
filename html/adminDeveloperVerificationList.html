@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Vendor Verification List</title>
+    <link rel="stylesheet" href="../css/adminDeveloperVerificationList.css" />
+  </head>
+  <body>
+    <div class="ADVLDashboardContainer">
+      <!-- Search Bar Section -->
+      <div class="ADVLSearchRow">
+        <div class="ADVLSearchWrapper">
+          <img
+            src="../assets/adminVendorVerification/search (2).svg"
+            alt="Search"
+          />
+          <input
+            type="text"
+            class="ADVLSearchInput"
+            placeholder="Search by Product name, Request ID, Category, Vendor name."
+          />
+        </div>
+        <div class="ADVLIconsGroup">
+          <div class="ADVLFilterDummy">
+            <img src="../assets/adminVendorVerification/Sliders.svg" alt="" />
+          </div>
+          <div class="ADVLSettingsDummy">
+            <img
+              src="../assets/adminVendorVerification/SortAscending (1).svg"
+              alt=""
+            />
+          </div>
+          <div class="main-content-flows-main" id="filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Status Box -->
+          <div class="main-content-flows-main" id="status-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="checkbox" data-status="pending" id="pending" />
+                  <label for="pending">Pending</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="sendToVerify" id="sendToVerify" />
+                  <label for="sendToVerify">Send To Verify</label>
+                </li>
+                <li>
+                  <input type="checkbox" data-status="rejected" id="rejected" />
+                  <label for="rejected">Rejected</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="main-content-flows-main" id="sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort By</span>
+              </div>
+              <ul>
+                <li data-sort="qty-asc">Qty ↑</li>
+                <li data-sort="qty-desc">Qty ↓</li>
+                <li data-sort="price-asc">S. Price ↑</li>
+                <li data-sort="price-desc">S. Price ↓</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="ADVLTableCard">
+        <div class="ADVLTableHeader">
+          <h3 class="ADVLTableTitle"> Vendor Verification </h3>
+          <a href="#" class="ADVLViewAllLink">Total - 15</a>
+        </div>
+        <div class="ADVLTableWrapper">
+          <table class="ADVLProductTable">
+            <thead class="ADVLTableHead">
+              <tr class="ADVLTableHeadRow">
+                <th class="ADVLTableHeaderCell">Company Name</th>
+                <th class="ADVLTableHeaderCell">Email Address</th>
+                <th class="ADVLTableHeaderCell">Contact</th>
+                <th class="ADVLTableHeaderCell">State</th>
+                <th class="ADVLTableHeaderCell">ID Proof</th>
+                <th class="ADVLTableHeaderCell">ID Number</th>
+                <th class="ADVLTableHeaderCell">Developer</th>
+                <th class="ADVLTableHeaderCell"></th>
+              </tr>
+            </thead>
+            <tbody class="ADVLTableBody">
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending</td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell sendToVerify">Send To Verify</td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell rejected">Rejected </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell rejected">Rejected </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell rejected">Rejected </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell rejected">Rejected </td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell sendToVerify">Send To Verify</td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell sendToVerify">Send To Verify</td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr class="ADVLTableRow">
+                <td class="ADVLTableCell ADVLProductNameCell">
+                  <img
+                    src="../assets/adminVendorVerification/Rectangle 34628176.svg"
+                    alt=""
+                    class="ADVLProductThumb"
+                  />
+                  <span class="ADVLProductName">Sanskriti Collection</span>
+                </td>
+                <td class="ADVLTableCell">sanskriticollection@gmail.com</td>
+                <td class="ADVLTableCell">89878 64748</td>
+                <td class="ADVLTableCell">MH</td>
+                <td class="ADVLTableCell">Aadhar Card</td>
+                <td class="ADVLTableCell">2546 6778 7744 6778</td>
+                <td class="ADVLTableCell pending">Pending</td>
+                <td class="ADVLTableCell">
+                  <button class="ADVLActionButton">
+                    <img
+                      src="../assets/adminVendorVerification/ArrowCircleUpRight (1).svg"
+                      alt=""
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/adminDeveloperVerificationList.js"></script>
+  </body>
+</html>
