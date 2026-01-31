@@ -2,16 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <title>Buyer-Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet icon" href="../assets/master/eRangoli 2-1.svg">
   </head>
   <body>
     <div class="page-wrapper">
       <!-- LEFT PANEL -->
       <div class="custumerLoginLeftPanel">
         <div class="custumerLoginHeader">
-          <h1 class="custumerLoginTitle">Login</h1>
+          <div class="img-tag-main">
+            <img src="../assets/master/eRangoli 2.svg" alt="">
+          </div>
+          <h1 class="custumerLoginTitle">Login</h1> 
         </div>
 
         <!-- FORM SECTION -->
@@ -69,8 +73,12 @@
               </div>
             </div>
 
-            <button type="submit" class="custumerLoginButton">Sign Up</button>
+            <button type="submit" class="custumerLoginButton">Login</button>
           </form>
+
+          <div class="agree-terms">
+            <span>By continuing you agree with the <span>Terms & Privacy</span></span>
+          </div>
 
           <div class="custumerLoginDivider">or</div>
 
@@ -90,7 +98,7 @@
             </button>
           </div>
 
-          <div class="custumerLoginSkip" id="custumerLoginSkip">
+          <div class="custumerLoginSkip" id="custumerLoginSkip" onclick="window.history.back()">
             Skip for now
           </div>
         </div>

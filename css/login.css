@@ -48,6 +48,14 @@ body {
   background-position: center;
   padding: 25px 20px 45px;
   text-align: center;
+  position: relative;
+}
+.img-tag-main{
+  position: absolute;
+  top: 10px;
+}
+.img-tag-main>img{
+  height: 40px;
 }
 
 .custumerLoginTitle {
@@ -150,10 +158,22 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+.agree-terms{
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+.agree-terms>span{
+  color: #3f3f3f;
+}
+.agree-terms>span>span{
+  color: #a10404;
+  cursor: pointer;
+}
 
 .custumerLoginDivider {
   position: relative;
-  margin: 40px 80px 18px;
+  margin: 10px 80px 18px;
 
   text-align: center;
   font-size: 16px;
@@ -225,6 +245,7 @@ body {
 .custumerLoginSkip:hover {
   text-decoration: underline;
 }
+
 
 /* RIGHT PANEL */
 .custumerLoginRightPanel {
@@ -341,6 +362,9 @@ body {
     flex: 1 1 100%;
     width: 100%;
     overflow: auto;
+  }
+  .custumerLoginTitle{
+    text-align: center;
   }
   .custumerLoginForm {
     padding: 0 25px;
