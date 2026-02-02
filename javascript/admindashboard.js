@@ -708,6 +708,11 @@ document.querySelectorAll(".dash-dropdown-menu li").forEach(option => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const rowCount = document.querySelectorAll(".po-table-body .po-table-row").length;
+    document.querySelector(".po-title-count").textContent = `(${rowCount})`;
+  });
+
 /* ======================================================
    DEFAULT LOAD (Weekly)
 ====================================================== */
