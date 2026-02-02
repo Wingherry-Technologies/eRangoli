@@ -1,13 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito Sans";
 }
 
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
   background-color: #e5e7eb;
   padding: 24px;
 }
@@ -571,6 +571,11 @@ body {
   font-size: 13px;
 }
 
+.ODStatusBtnMob,
+.MobOrderId {
+  display: none;
+}
+
 .ODRow {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -862,117 +867,103 @@ body {
 }
 
 /* Mobile layout hidden by default */
-.APMMobileList {
+.ASPROMobileFAQ {
   display: none;
 }
 
-/* Mobile breakpoint */
-@media (max-width: 595px) {
-  .APMTableCard {
-    display: none;
-  }
-
-  .APMMobileList {
-    display: block;
-  }
-
-  .faq-item {
-    background: #fff;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    padding: 12px;
-    border: 1px solid #e5e7eb;
-  }
-
-  .main-faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .product-left {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .product-left img {
-    width: 45px;
-    height: 45px;
-    border-radius: 8px;
-  }
-
-  .faq-answer {
-    margin-top: 10px;
-    display: none;
-  }
-
-  .faq-item.active .faq-answer {
-    display: block;
-  }
-
-  .all-answers div {
-    display: flex;
-    font-size: 13px;
-    padding: 4px 0;
-  }
-  .all-answers span {
-    margin-right: 10px;
-  }
-  .mobile-view-btn {
-    width: 100%;
-    margin-top: 10px;
-    background: #989fff;
-    color: #fff;
-    border: none;
-    padding: 6px;
-    border-radius: 8px;
-  }
-
-  .show-threedots-box {
-    display: none;
-    position: absolute;
-    right: 10px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 6px;
-  }
-
-  .show-threedots-box.active-preview {
-    display: block;
-  }
+.ASPROfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.status.success {
-  color: #0abf53;
+.ASPROfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.ASPROfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.ASPROfaq-username {
+  font-size: 14px;
   font-weight: 600;
+  color: #3f3f3f;
 }
-.action.link {
-  color: #6a5cff;
+
+.ASPROStatus.verified-mob {
+  color: #009605;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.ASPROfaq-item.active {
+  border: 1px solid #0f8df340;
+  padding-bottom: 6px;
+}
+
+.ASPROfaq-item.active .ASPROfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+}
+
+.ASPROfaq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.ASPROfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.ASPROfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ASPROfaq-row .ASPROStatus {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.ASPROfaq-row .ASPROToggle {
+  justify-self: start;
+}
+
+.ASPROfaq-row:has(.view) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ASPROfaq-row .view {
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #989fff;
+  color: #ffffff;
+  border: none;
   cursor: pointer;
-}
-.action.done {
-  color: #0abf53;
-  font-weight: 600;
-}
-.action.rejected {
-  color: #ff3b3b;
-  font-weight: 600;
+  font-size: 14px;
 }
 
-.success {
-  color: #0abf53;
-}
-.done {
-  color: #0abf53;
-}
-.disabled {
-  opacity: 0.6;
-  pointer-events: none;
+.APMNoData {
+  text-align: center;
+  padding: 20px;
+  color: #716b6b;
+  font-size: 14px;
 }
 
-@media (max-width: 1024px) and (min-width: 596px) {
+@media (max-width: 1024px) and (min-width: 595px) {
   .ODClose {
     display: none;
   }
@@ -1004,5 +995,196 @@ body {
   .ODRow:nth-of-type(2) {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+}
+
+@media (max-width: 595px) {
+  .APMTableCard {
+    display: none;
+  }
+  .ASPROMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .ASPROfaq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .ASPROfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .ASPROfaq-item.active .ASPROfaq-answer {
+    max-height: 500px;
+  }
+
+  .ASPROfaq-row .ASPROStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .ASPROfaq-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* ===== MOBILE FULL PAGE ORDER DETAILS (ASPRO / MOBILE VIEW) ===== */
+@media (max-width: 595px) {
+  #orderDetailsPopup {
+    position: static;
+    inset: unset;
+    background: transparent;
+  }
+
+  #orderDetailsPopup.active {
+    display: block;
+  }
+
+  #orderDetailsPopup .ODOverlay {
+    background: none;
+  }
+
+  #orderDetailsPopup .ODModal {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  #orderDetailsPopup .ODClose {
+    display: none;
+  }
+
+  #orderDetailsInline,
+  #orderDetailsPopup .ODModal {
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+  }
+
+  .ODHeader {
+    padding: 12px 0;
+  }
+
+  .ODProgressDots,
+  .ODProgressLine {
+    width: 280px;
+  }
+
+  .ODOuter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .ODRow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ODSection {
+    width: 100%;
+  }
+
+  .ODCard.ODProduct {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .ODProductImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .ODProductInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ODProductInfo p {
+    margin: 4px 0;
+  }
+
+  .ODStatusGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ODBlue {
+    display: block;
+    margin-top: 8px;
+  }
+  .ODStatusBtn {
+    display: none;
+  }
+  .ODStatusBtnMob {
+    display: flex;
+    background: #1290f7;
+    color: #ffffff;
+    border: none;
+    padding: 4px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .ODMobTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .TTModal {
+    margin: 0.8rem;
+    border-radius: 4px;
+  }
+  .MobOrderId {
+    display: flex;
+    font-size: 12px;
+    color: #3f3f3f;
+  }
+  .OrderId {
+    display: none;
+  }
+  .TTLine {
+    border: 1px solid #d9d9d9;
+  }
+  .ODBackBtn {
+    display: flex;
+  }
+  .ODBackBtn img {
+    margin-bottom: 12px;
+  }
+  .ODTitle {
+    font-size: 18px;
   }
 }

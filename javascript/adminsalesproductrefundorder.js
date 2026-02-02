@@ -1,23 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* =========================
-     ELEMENTS
-  ========================= */
-
   const searchInput = document.querySelector(".APMSearchInput");
   const tableBody = document.querySelector(".APMTableBody");
   const tableRows = [...document.querySelectorAll(".APMTableRow")];
-  const mobileItems = [
-    ...document.querySelectorAll(".APMMobileList .faq-item"),
-  ];
 
-  /* =========================
-     SEARCH (BUYER)
-  ========================= */
-
+  /* SEARCH */
   searchInput.addEventListener("input", function () {
     const val = searchInput.value.toLowerCase().trim();
 
-    // TABLE SEARCH
     tableRows.forEach((row) => {
       const name = row.children[0].innerText.toLowerCase();
       const uid = row.children[1].innerText.toLowerCase();
@@ -32,27 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
           ? ""
           : "none";
     });
-
-    // MOBILE SEARCH
-    mobileItems.forEach((item) => {
-      const content = item.innerText.toLowerCase();
-      item.style.display = content.includes(val) ? "" : "none";
-    });
   });
 
-  /* =========================
-     FILTER / SORT TOGGLE
-  ========================= */
-
+  /* FILTER / SORT TOGGLE */
   const filterBtn = document.getElementById("apm-filter-btn");
   const sortBtn = document.getElementById("apm-sort-btn");
-
   const filterMain = document.getElementById("apm-filter-main");
   const sortBox = document.getElementById("apm-sort-box");
-
   const stateOpen = document.getElementById("apm-state-open");
   const cityOpen = document.getElementById("apm-city-open");
-
   const stateBox = document.getElementById("apm-state-box");
   const cityBox = document.getElementById("apm-city-box");
 
@@ -85,10 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* =========================
-     FILTER (STATE + CITY)
-  ========================= */
-
+  /* FILTER */
   function applyBuyerFilter() {
     const states = [
       ...document.querySelectorAll("#apm-state-box input:checked"),
@@ -98,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ...document.querySelectorAll("#apm-city-box input:checked"),
     ].map((cb) => cb.dataset.city);
 
-    // TABLE FILTER
     tableRows.forEach((row) => {
       const state = row.children[4].innerText.trim();
       const city = row.children[5].innerText.trim();
@@ -109,45 +82,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
       row.style.display = show ? "" : "none";
     });
-
-    // MOBILE FILTER
-    mobileItems.forEach((item) => {
-      const values = [
-        ...item.querySelectorAll(".all-answers span:last-child"),
-      ].map((s) => s.innerText);
-
-      const show =
-        (!states.length || states.includes(values[2])) &&
-        (!cities.length || cities.includes(values[3]));
-
-      item.style.display = show ? "" : "none";
-    });
   }
 
   document
     .querySelectorAll("#apm-state-box input, #apm-city-box input")
     .forEach((cb) => cb.addEventListener("change", applyBuyerFilter));
 
-  /* =========================
-     SORT (BUYER)
-  ========================= */
-
+  /* SORT */
   const sortRadios = document.querySelectorAll("#apm-sort-box input");
 
   sortRadios.forEach((radio) => {
     radio.addEventListener("change", () => {
       const type = radio.dataset.sort;
 
-      // TABLE SORT
       const sortedRows = [...tableRows].sort((a, b) => {
-        // Name sort
         if (type === "nameAZ" || type === "nameZA") {
           const A = a.children[0].innerText;
           const B = b.children[0].innerText;
           return type === "nameAZ" ? A.localeCompare(B) : B.localeCompare(A);
         }
 
-        // UID sort
         if (type === "uidASC" || type === "uidDESC") {
           const A = parseInt(a.children[1].innerText.replace("#", ""));
           const B = parseInt(b.children[1].innerText.replace("#", ""));
@@ -157,113 +111,119 @@ document.addEventListener("DOMContentLoaded", function () {
 
       tableBody.innerHTML = "";
       sortedRows.forEach((r) => tableBody.appendChild(r));
-
-      // MOBILE SORT (by name)
-      const mobileContainer = document.querySelector(".APMMobileList");
-      const sortedMobile = [...mobileItems].sort((a, b) => {
-        const A = a.querySelector(".mobiletitle span").innerText;
-        const B = b.querySelector(".mobiletitle span").innerText;
-        return type === "nameAZ" ? A.localeCompare(B) : B.localeCompare(A);
-      });
-
-      mobileContainer.innerHTML = "";
-      sortedMobile.forEach((i) => mobileContainer.appendChild(i));
     });
   });
-
-  /* =========================
-     MOBILE FAQ TOGGLE
-  ========================= */
-
-  document.addEventListener("click", function (e) {
-    const question = e.target.closest(".main-faq-question");
-    if (question) {
-      question.closest(".faq-item").classList.toggle("active");
-    }
-  });
-
-  /* =========================
-     TOTAL COUNT
-  ========================= */
 
   document.querySelector(".APMViewAllLink").innerText = tableRows.length;
 });
 
-document.querySelectorAll(".APMActionButton").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("orderDetailsPopup").classList.add("active");
-  });
-});
-
-document.getElementById("closeOD").addEventListener("click", () => {
-  document.getElementById("orderDetailsPopup").classList.remove("active");
-});
-
-document.getElementById("orderDetailsPopup").addEventListener("click", (e) => {
-  if (e.target.id === "orderDetailsPopup") {
-    document.getElementById("orderDetailsPopup").classList.remove("active");
-  }
-});
-
-document.querySelectorAll(".ODStatusSuccess").forEach((el) => {
-  el.addEventListener("click", () => {
-    document.getElementById("orderDetailsPopup").classList.remove("active");
-    document.getElementById("transportTrackingPopup").classList.add("active");
-  });
-});
-
-document.getElementById("closeTT").onclick = () => {
-  document.getElementById("transportTrackingPopup").classList.remove("active");
-};
-
-document.getElementById("transportTrackingPopup").onclick = (e) => {
-  if (e.target.id === "transportTrackingPopup") {
-    document
-      .getElementById("transportTrackingPopup")
-      .classList.remove("active");
-  }
-};
+/* ================= POPUP LOGIC ================= */
 
 const orderPopup = document.getElementById("orderDetailsPopup");
+const trackingPopup = document.getElementById("transportTrackingPopup");
 const inlineContainer = document.getElementById("orderDetailsInline");
 const modalContent = document.querySelector(".ODModal");
+const dashboard = document.querySelector(".APMDashboardContainer");
 
-function handleOrderView() {
+/* Order details open */
+function openOrderView() {
   if (window.innerWidth <= 1024) {
     inlineContainer.innerHTML = modalContent.innerHTML;
     inlineContainer.style.display = "block";
-    orderPopup.classList.remove("active");
+    dashboard.style.display = "none";
   } else {
-    inlineContainer.style.display = "none";
+    orderPopup.classList.add("active");
   }
 }
 
+/* Order details close (tab/mobile back) */
+function closeOrderView() {
+  inlineContainer.style.display = "none";
+  dashboard.style.display = "";
+}
+
+/* Open order */
 document.querySelectorAll(".APMActionButton").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    handleOrderView();
-
-    if (window.innerWidth > 1024) {
-      orderPopup.classList.add("active");
-    }
+    openOrderView();
   });
 });
 
-window.addEventListener("resize", handleOrderView);
+/* Back button (tab/mobile) */
+document.addEventListener("click", (e) => {
+  if (e.target.closest("#odBackBtn") && window.innerWidth <= 1024) {
+    inlineContainer.style.display = "none";
+    dashboard.style.display = "";
+
+    const mobileFaq = document.querySelector(".ASPROMobileFAQ");
+    if (mobileFaq) mobileFaq.style.display = "block";
+  }
+});
+document.addEventListener("click", function (e) {
+  const inTransit = e.target.closest(".ODStatusSuccess");
+  if (!inTransit) return;
+
+  e.preventDefault();
+  if (window.innerWidth > 1024) {
+    orderPopup.classList.remove("active");
+  }
+
+  trackingPopup.classList.add("active");
+});
+
+document.getElementById("closeOD").onclick = () => {
+  orderPopup.classList.remove("active");
+};
+
+document.getElementById("closeTT").onclick = () => {
+  trackingPopup.classList.remove("active");
+};
+
+trackingPopup.addEventListener("click", (e) => {
+  if (e.target.id === "transportTrackingPopup") {
+    trackingPopup.classList.remove("active");
+  }
+});
+
+/* ASPRO MOBILE FAQ DROPDOWN */
 
 document.addEventListener("click", function (e) {
-  const backBtn = e.target.closest("#odBackBtn");
-  const title = e.target.closest("#odTitle");
+  const question = e.target.closest(".ASPROfaq-question");
+  if (!question) return;
 
-  if (!backBtn && !title) return;
+  const item = question.closest(".ASPROfaq-item");
+  if (!item) return;
 
-  // sirf tab + mobile
-  if (window.innerWidth > 1024) return;
+  const allItems = document.querySelectorAll(".ASPROfaq-item");
 
-  const dashboard = document.querySelector(".APMDashboardContainer");
-  const inlineDetails = document.getElementById("orderDetailsInline");
+  allItems.forEach((el) => {
+    if (el !== item) el.classList.remove("active");
+  });
 
-  if (dashboard) dashboard.style.display = "";
-  if (inlineDetails) inlineDetails.style.display = "none";
+  item.classList.toggle("active");
+});
+
+/*  ASPRO VIEW BUTTON → ORDER DETAILS  */
+
+document.addEventListener("click", function (e) {
+  const viewBtn = e.target.closest(".ASPROfaq-row .view");
+  if (!viewBtn) return;
+
+  e.preventDefault();
+
+  const clone = modalContent.cloneNode(true);
+
+  const closeBtn = clone.querySelector("#closeOD");
+  if (closeBtn) closeBtn.remove();
+
+  clone.classList.remove("ODModal");
+
+  inlineContainer.innerHTML = "";
+  inlineContainer.appendChild(clone);
+  inlineContainer.style.display = "block";
+
+  const mobileFaq = document.querySelector(".ASPROMobileFAQ");
+  if (mobileFaq) mobileFaq.style.display = "none";
+  dashboard.style.display = "none";
 });
