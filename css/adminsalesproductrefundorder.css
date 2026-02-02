@@ -956,13 +956,6 @@ body {
   font-size: 14px;
 }
 
-.APMNoData {
-  text-align: center;
-  padding: 20px;
-  color: #716b6b;
-  font-size: 14px;
-}
-
 @media (max-width: 1024px) and (min-width: 595px) {
   .ODClose {
     display: none;
