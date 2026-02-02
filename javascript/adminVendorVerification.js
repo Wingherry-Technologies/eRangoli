@@ -81,24 +81,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ================= ACTION BUTTON ================= */
- document.addEventListener("click", function (e) {
-  const btn = e.target.closest(".APRAActionButton");
-  if (!btn) return;
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".APRAActionButton");
+    if (!btn) return;
 
-  const row = btn.closest(".APRATableRow");
-  const statusCell = row.querySelector(".APRATableCell.pending, .APRATableCell.sendToVerify");
+    const row = btn.closest(".APRATableRow");
+    const statusCell = row.querySelector(
+      ".APRATableCell.pending, .APRATableCell.sendToVerify",
+    );
 
-  if (!statusCell) return;
+    if (!statusCell) return;
 
-  //  If status is "Send To Verify"
-  if (statusCell.classList.contains("sendToVerify")) {
-    window.location.href = "../html/adminDeveloperVerification.html";
-  } 
-  // For Pending (or others)
-  else {
-    window.location.href = "../html/adminRecentVendorListOverview.html";
-  }
-});
+    //  If status is "Send To Verify"
+    if (statusCell.classList.contains("sendToVerify")) {
+      window.location.href = "../html/adminDeveloperVerification.html";
+    }
+    // For Pending (or others)
+    else {
+      window.location.href = "../html/adminRecentVendorListOverview.html";
+    }
+  });
 
   /* ================= SORT ================= */
   const settingsBtn = document.querySelector(".APRASettingsDummy");
@@ -140,4 +142,35 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function () {
     sortBox.classList.remove("active-main-content-flows");
   });
+});
+
+document.querySelectorAll(".faq-caret").forEach((caret) => {
+  caret.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const faqItem = caret.closest(".faq-item");
+
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      if (item !== faqItem) item.classList.remove("active");
+    });
+
+    faqItem.classList.toggle("active");
+  });
+});
+
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".view");
+  if (!btn) return;
+
+  const faqItem = btn.closest(".faq-item");
+  if (!faqItem) return;
+
+  const status = faqItem.querySelector(".pending, .sendToVerify");
+  if (!status) return;
+
+  if (status.classList.contains("sendToVerify")) {
+    window.location.href = "../html/adminDeveloperVerification.html";
+  } else if (status.classList.contains("pending")) {
+    window.location.href = "../html/adminRecentVendorListOverview.html";
+  }
 });

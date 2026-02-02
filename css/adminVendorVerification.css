@@ -256,12 +256,12 @@ body {
 }
 
 .APRATableCell.pending {
-  color: #FF8205;
+  color: #ff8205;
   font-weight: 400;
 }
 
 .APRATableCell.sendToVerify {
-  color: #440BEF;
+  color: #440bef;
   font-weight: 400;
 }
 
@@ -391,4 +391,149 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.MobileFAQ {
+  display: none;
+}
+
+.faq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.faq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.faq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.Status.verified-mob {
+  color: #009605;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.faq-item.active {
+  border: 1px solid #0f8df340;
+  padding-bottom: 6px;
+}
+
+.faq-item.active .faq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+}
+
+.faq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.faq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.faq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.faq-row .Status {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.faq-row .Toggle {
+  justify-self: start;
+}
+
+.faq-row:has(.view) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faq-row .view {
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #989fff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .APRATableWrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 595px) {
+  .APRATableCard {
+    display: none;
+  }
+  .MobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-item {
+    margin-bottom: 10px;
+  }
+  .faq-row span.pending {
+    color: #ff8205;
+    font-weight: 400;
+  }
+  .faq-row span.sendToVerify {
+    color: #440bef;
+    font-weight: 400;
+  }
+
+  .mail {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 }
