@@ -811,6 +811,204 @@
         </div>
       </div>
     </div>
+    <div id="orderDetailsInline" class="ODInline"></div>
+    <div class="ODOverlay" id="orderDetailsPopup">
+      <div class="ODModal">
+        <button class="ODClose" id="closeOD">×</button>
+
+        <div class="ODHeader">
+          <!-- Back Arrow -->
+          <button class="ODBackBtn" id="odBackBtn">
+            <img
+              src="../assets/adminSalesProductRefundOrder/back.svg"
+              alt="Back"
+            />
+          </button>
+
+          <!-- Order Details Title -->
+          <h2 class="ODTitle" id="odTitle">Order Details</h2>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PROGRESS -->
+        <div class="ODProgress">
+          <div class="ODProgressLine"></div>
+          <div class="ODProgressDots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+          <button class="ODStatusBtn">Received</button>
+        </div>
+
+        <!-- PRODUCT + PAYMENT -->
+        <div class="ODOuter">
+          <div class="ODRow">
+            <!-- PRODUCT DETAILS -->
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Product Details</h3>
+
+              <div class="ODCard ODProduct">
+                <img
+                  src="../assets/adminsalesproductrefund/business.svg"
+                  alt="Product"
+                  class="ODProductImage"
+                />
+
+                <div class="ODProductInfo">
+                  <p class="ODBlue">#79967776</p>
+                  <p class="ODText">Tribal brass oxidized</p>
+
+                  <p>
+                    <span class="ODBlue">Qty :</span>
+                    <span class="ODText">2</span>
+                  </p>
+                  <p>
+                    <span class="ODBlue">Size :</span>
+                    <span class="ODText">One size</span>
+                  </p>
+                  <p>
+                    <span class="ODBlue">Colour :</span>
+                    <span class="ODText">Brown</span>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAYMENT -->
+
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Expected Date</h3>
+
+              <div class="ODCard ODExpected">
+                <p class="ODBlue">Pick Up</p>
+                <p class="ODText">15/01/26 – 17/01/26</p>
+
+                <p class="ODBlue">Packaging</p>
+                <p class="ODText">15/01/26 – 17/01/26</p>
+
+                <p class="ODBlue">Delivery</p>
+                <p class="ODText">20/01/26 – 23/01/26</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- EXPECTED + CUSTOMER -->
+          <div class="ODRow">
+            <!-- EXPECTED DATE -->
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Payment</h3>
+
+              <div class="ODCard">
+                <p class="ODBlue">Paid by Paypal</p>
+                <p class="ODText">₹ 5,110</p>
+
+                <p class="ODBlue">Transaction ID</p>
+                <p class="ODText">124547586970889</p>
+              </div>
+            </section>
+
+            <!-- CUSTOMER DETAILS -->
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Customer Details</h3>
+
+              <div class="ODCard">
+                <p class="ODBlue">Name</p>
+                <p class="ODText">Pawan Singh</p>
+
+                <p class="ODBlue">Customer ID</p>
+                <p class="ODText">23453689</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- UPDATE STATUS -->
+          <section class="ODSection">
+            <h3 class="ODSectionTitle">Update Order status</h3>
+
+            <div class="ODCard ODStatusGrid">
+              <div>
+                <p class="ODBlue">Order received</p>
+                <p class="ODText">10/01/26</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Packed on</p>
+                <p class="ODText">15/01/26</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Pick up on</p>
+                <p class="ODText">–</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Delivered on</p>
+                <p class="ODStatusSuccess">In transit</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="TTOverlay" id="transportTrackingPopup">
+      <div class="TTModal">
+        <span class="TTClose" id="closeTT">×</span>
+
+        <h2 class="TTTitle">Transport Tracking</h2>
+        <div class="TTLine"></div>
+
+        <div class="TTHeader">
+          <span>#7696969060770</span>
+          <span>From West Bengal to Karnataka</span>
+        </div>
+
+        <div class="TTTimeline">
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Departure from west bengal</p>
+              <small>on Thu, 4 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Arrived at xyz warehouse</p>
+              <small>on Sat, 6 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Departure from abc warehouse</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Arrived at karnataka warehouse</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem">
+            <span class="TTDot"></span>
+            <div>
+              <p>Delivered to Pawan Singh</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="../javascript/adminsalesproductrefundorder.js"></script>
   </body>

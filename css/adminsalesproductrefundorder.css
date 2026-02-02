@@ -454,6 +454,371 @@ body {
   gap: 6px;
 }
 
+.ODBackBtn {
+  display: none;
+}
+
+.ODOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.ODOverlay.active {
+  display: flex;
+}
+
+.ODInline {
+  display: none;
+}
+
+.ODModal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 24px 26px;
+  position: relative;
+}
+
+.ODHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ODBackBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.ODBackBtn img {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 8px;
+}
+
+.ODClose {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ODTitle {
+  color: #000000;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.divider {
+  border: 1px solid #6b2bea;
+  margin-bottom: 25px;
+}
+
+.ODProgress {
+  position: relative;
+  margin-bottom: 26px;
+}
+
+.ODProgressLine {
+  height: 2px;
+  background: #e5e7eb;
+  width: 300px;
+}
+
+.ODProgressDots {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ODProgressDots span {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  border-radius: 50%;
+}
+
+.ODProgressDots span.active {
+  background: #1290f7;
+}
+
+.ODStatusBtn {
+  position: absolute;
+  right: 0;
+  top: -18px;
+  background: #1290f7;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.ODRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+.ODRow .ODSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.ODRow .ODCard {
+  background: #f5f5f5;
+  flex: 1;
+}
+
+.ODSectionTitle {
+  color: #3f3f3f;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.ODCard {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.ODSection:nth-child(2) .ODCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ODProduct {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.ODProductImage {
+  width: 110px;
+  height: 110px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ODProductInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ODBlue {
+  color: #1290f7;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.ODText {
+  color: #3f3f3f;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.ODStatusGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background-color: #f5f5f5;
+}
+
+.ODStatusSuccess {
+  color: #009605;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ODModal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ODModal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.ODModal::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 10px;
+}
+.ODExpected {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 4px;
+  align-items: start;
+}
+
+.ODExpected p {
+  margin: 0;
+}
+
+.ODExpected p:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.ODExpected p:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.ODExpected p:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.ODExpected p:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.ODExpected p:nth-child(5) {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 10px;
+}
+
+.ODExpected p:nth-child(6) {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.TTOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.TTOverlay.active {
+  display: flex;
+}
+
+.TTModal {
+  background: #fff;
+  width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.TTClose {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.TTTitle {
+  font-weight: 400;
+  color: #000000;
+  font-size: 18px;
+  text-align: left;
+}
+
+.TTLine {
+  height: 1px;
+  background: #7dcdff;
+  margin: 10px 0;
+}
+
+.TTHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #3f3f3f;
+  margin-bottom: 16px;
+}
+
+.TTTimeline {
+  position: relative;
+  padding-left: 23px;
+  max-width: 201px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.TTTimeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  height: calc(100% - 60px);
+  width: 2px;
+  background: #d9d9d9;
+}
+
+.TTItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.TTItem > div {
+  padding-top: 1px;
+}
+
+.TTDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d1d5db;
+  margin-left: -22px;
+  margin-top: 7px;
+}
+
+.TTItem.active .TTDot {
+  background: #7dcdff;
+  margin-top: 6px;
+}
+
+.TTItem p {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.TTItem small {
+  font-size: 12px;
+  color: #716b6b;
+  font-weight: 400;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .APMStatsRow {
@@ -469,11 +834,12 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding: 16px;
+    padding: 0px;
   }
 
   .APMDashboardContainer {
     gap: 16px;
+    padding: 16px;
   }
 
   .APMStatsRow {
@@ -578,38 +944,6 @@ body {
   }
 }
 
-/* 
-@media (max-width: 768px) {
-
-  .all-answers div {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    padding: 6px 0;
-    gap: 5px;
-  }
-
-  .all-answers div span:first-child {
-    width: 30%;
-    font-weight: 500;
-  }
-
-  .mobiletitle{
-    display: flex;
-    flex-direction: column;
-  }
-
-
-
-
-  .mobile-view-btn {
-    width: 100px;
-    margin-left: auto;
-    margin-top: 12px;
-    display: block;
-    border-radius: 8px;
-  }
-} */
 .status.success {
   color: #0abf53;
   font-weight: 600;
@@ -636,4 +970,39 @@ body {
 .disabled {
   opacity: 0.6;
   pointer-events: none;
+}
+
+@media (max-width: 1024px) and (min-width: 596px) {
+  .ODClose {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+  #orderDetailsInline {
+    background-color: #ffffff;
+    padding: 16px;
+    min-height: 100vh;
+  }
+  .ODBackBtn {
+    display: flex;
+    align-items: center;
+  }
+  .ODOuter {
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #ffffff;
+  }
+  .ODRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ODRow:nth-of-type(2) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }
