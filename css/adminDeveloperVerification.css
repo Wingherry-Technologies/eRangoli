@@ -522,3 +522,60 @@ body {
     display: none;
   }
 }
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .ADVOBdCard {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .ADVOBdLogoBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ADVOBdGrid {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .ADVOPdRow {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .ADVOPdAadharImg {
+    max-width: 100%;
+  }
+
+  .ADVOFaAdminContent {
+    grid-template-columns: 1fr;
+  }
+
+  .ADVOFaAdminButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ADVOFaApproveButton,
+  .ADVOFaRejectButton,
+  .ADVOFaSentButton {
+    width: 100%;
+  }
+}
+.ADVOBlur {
+  filter: blur(3px);
+  pointer-events: none;
+}
+.ADVOReviewError {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+}

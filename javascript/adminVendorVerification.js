@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //  If status is "Send To Verify"
     if (statusCell.classList.contains("sendToVerify")) {
-      window.location.href = "../html/adminDeveloperVerification.html";
+      window.location.href = "../html/adminVMVendorVerificationOverview.html";
     }
     // For Pending (or others)
     else {

@@ -300,6 +300,109 @@ body {
   background-color: #3b82f6;
 }
 
+/* ================= MOBILE DROPDOWN LIST ================= */
+
+.APMMobileList {
+  display: none;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.mobiletitle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobiletitle span:first-child {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mobiletitle .status {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.faq-toggle {
+  width: 18px;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.all-answers {
+  padding: 0 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.all-answers div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.mobileActionBtn {
+  width: calc(100% - 28px);
+  margin: 0 14px 14px;
+  padding: 10px;
+  background: #0e8bf3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.mobile-status-row {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #e5e7eb;
+  font-weight: 600;
+}
+
+.pending { color: #FF8205; }
+.verified { color: #008000; }
+.rejected { color: #FF0000; }
+
+
+/* ================= MOBILE ONLY ================= */
+@media (max-width: 768px) {
+  .ADVLTableCard {
+    display: none;
+  }
+
+  .APMMobileList {
+    display: block;
+  }
+}
+
+
 /* Responsive */
 @media (max-width: 1200px) {
   .ADVLStatsRow {
@@ -338,13 +441,14 @@ body {
   .ADVLIconsGroup {
     justify-content: flex-end;
   }
+
 }
 
 .main-content-flows-main {
   display: none;
   position: absolute;
-  top: 60px;
-  right: 270px;
+  top: 120px;
+  right: 120px;
   z-index: 1000;
 }
 .main-content-flows-main.active-main-content-flows {
@@ -371,9 +475,9 @@ body {
   padding: 5px 10px;
 }
 
-#status-box {
+/* #status-box {
   right: 270px;
-}
+} */
 .main-head-filters {
   border-bottom: 1px solid #6828e7;
 }
@@ -393,4 +497,10 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+@media (max-width:595px) {
+    .main-content-flows-main{
+    right: 70px;
+  }
 }

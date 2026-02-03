@@ -766,11 +766,15 @@
                   <div class="ADVOFaAdminTextareaWrapper">
                     <span class="ADVOFaAdminInnerLabel"> Write a review to vendor </span>
 
-                    <textarea class="ADVOFaAdminTextarea">
+                    <textarea class="ADVOFaAdminTextarea" id="ADVOReviewTextarea">
       All the product information and images are verified and are found to be as per the
       terms and conditions. The product will be live in next 24 hours
               </textarea
                     >
+                      <!-- ERROR MESSAGE -->
+  <span class="ADVOReviewError" id="ADVOReviewError">
+    Review is required before sending to verify
+  </span>
 
                     <img
                       src="../assets/adminVerificationProcess/send.svg"
@@ -790,7 +794,7 @@
 
               <div class="ADVOFaAdminButtons">
                 <button class="ADVOFaRejectButton">Reject</button>
-                <button class="ADVOFaSentButton">Sent to Verify</button>
+                <button class="ADVOFaSentButton" id="ADVOSentToVerifyBtn">Sent to Verify</button>
                 <button class="ADVOFaApproveButton">Approve</button>
               </div>
             </div>
@@ -851,6 +855,31 @@
             </div>
           </div>
 
+          <!-- SEND TO VERIFY CONFIRMATION -->
+<div class="ADVOFaConfirmOverlay" id="FAsentModal">
+  <div class="ADVOFaConfirmModal">
+    <button class="ADVOFaCloseBtn" id="FAcloseSentModal">×</button>
+
+    <p class="ADVOFaConfirmText">
+      Are you sure you want to send this vendor for verification?
+    </p>
+
+    <div class="ADVOFaConfirmActions">
+      <button class="ADVOFaNoBtn" id="FAsentNo">No</button>
+      <button class="ADVOFaYesBtn" id="FAsentYes">Yes</button>
+    </div>
+  </div>
+</div>
+
+<!-- SEND TO VERIFY SUCCESS -->
+<div class="ADVOFaSuccessScreen" id="FAsentSuccessScreen">
+  <div class="ADVOFaSuccessContent">
+    <div class="ADVOFaSuccessIcon"><img src="../assets/adminVerificationProcess/success.svg" alt=""></div>
+    <p class="ADVOFaSuccessText">Sent to Verification Successfully</p>
+  </div>
+</div>
+
+
           <!-- CREATE VENDOR CREDENTIALS POPUP -->
           <div class="ADVOVendorOverlay" id="ADVOVendorCredentialModal">
             <div class="ADVOVendorModal">
@@ -885,6 +914,8 @@
             </div>
           </div>
     </div>
+
+
 
 
     <script src="../javascript/adminDeveloperVerification.js"></script>

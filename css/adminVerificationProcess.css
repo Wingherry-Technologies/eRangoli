@@ -524,3 +524,114 @@ body {
   }
 }
 
+
+
+/* ================= RESPONSIVE : TABLET ================= */
+@media (max-width: 1024px) {
+
+  /* Business card layout */
+  .BDCard {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .BDLogoBox {
+    width: 140px;
+    height: auto;
+  }
+
+  /* Business grid */
+  .BDGrid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+
+  /* Personal details rows */
+  .PDRow {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+  }
+
+  /* Admin section */
+  .FAAdminContent {
+    grid-template-columns: 1fr;
+  }
+
+  .FAAdminButtons {
+    
+    justify-content: flex-start;
+  }
+}
+
+/* ================= RESPONSIVE : MOBILE ================= */
+@media (max-width: 600px) {
+
+  .BDContainer {
+    padding: 8px;
+  }
+
+  /* Header */
+  .BDHeader {
+    margin-bottom: 12px;
+  }
+
+  .BDTitle {
+    font-size: 14px;
+  }
+
+  /* Section titles */
+  .BDSectionTitle,
+  .PDSectionTitle {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* Business card */
+  .BDCard {
+    padding: 16px;
+  }
+
+  .BDLogoBox {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  /* Business details grid */
+  .BDGrid {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  /* Personal details */
+  .PDCard {
+    padding: 16px;
+  }
+
+  .PDRow {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  /* Aadhaar images */
+  .PDAadharImg {
+    max-width: 100%;
+  }
+
+  /* Admin textarea */
+  .FAAdminTextarea {
+    min-height: 120px;
+  }
+
+  /* Buttons */
+  .FAAdminButtons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .FAApproveButton,
+  .FARejectButton,
+  .FASentButton {
+    width: 100%;
+    padding: 12px;
+  }
+}

@@ -36,6 +36,47 @@ const FArejectYes = document.getElementById("FArejectYes");
 const FArejectNo = document.getElementById("FArejectNo");
 const FAcloseRejectModal = document.getElementById("FAcloseRejectModal");
 
+/* ===== SENT TO VERIFY FLOW ===== */
+
+const FAsentBtn = document.querySelector(".FASentButton");
+const FAsentModal = document.getElementById("FAsentModal");
+const FAcloseSentModal = document.getElementById("FAcloseSentModal");
+const FAsentYes = document.getElementById("FAsentYes");
+const FAsentNo = document.getElementById("FAsentNo");
+const FAsentSuccess = document.getElementById("FAsentSuccessScreen");
+
+// Open confirmation modal
+FAsentBtn.addEventListener("click", () => {
+  FAsentModal.classList.add("active");
+});
+
+// Close modal
+FAcloseSentModal.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+});
+
+FAsentNo.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+});
+
+// Yes clicked
+FAsentYes.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+
+  // Optional blur
+  document.querySelector(".BDContainer").classList.add("blur");
+
+  // Show success
+  FAsentSuccess.classList.add("active");
+
+  // Redirect after 3 sec
+  setTimeout(() => {
+    FAsentSuccess.classList.remove("active");
+    window.location.href = "../html/adminVMRecentVendorList.html";
+  }, 3000);
+});
+
+
 
 FAapproveBtn.addEventListener("click", () => {
   FAapproveModal.classList.add("active");
