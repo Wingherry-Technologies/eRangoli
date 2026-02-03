@@ -1,3 +1,28 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
+var mobileBack = document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display = "none"
+    document.querySelector("body").style.overflow = "hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display = "none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
+    mobileBack.style.display = "flex"
+  }
+});
 /* ===== APPROVE CONFIRMATION POPUP ===== */
 const FAapproveBtn = document.querySelector(".FAApproveButton");
 const FAapproveModal = document.getElementById("FAapproveModal");
@@ -74,7 +99,7 @@ FArejectYes.addEventListener("click", () => {
     document.querySelector(".BDContainer").classList.remove("blur");
 
     // redirect
-    window.location.href = "../html/adminRecentVendorList.html";
+    window.location.href = "../html/adminVMVendorList.html";
   }, 3000);
 });
 
@@ -212,7 +237,17 @@ document.getElementById("sendVendorCredentialBtn").addEventListener("click", () 
 
 
   localStorage.setItem("vendorCredentialSuccess", "true");
-  window.location.href = "../html/adminvendorlist.html";
+  window.location.href = "../html/adminVMVendorList.html";
 });
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(2)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(2)").classList.add("submenu-active-page");
+
 
 

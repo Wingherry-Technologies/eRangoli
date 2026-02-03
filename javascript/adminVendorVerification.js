@@ -1,3 +1,26 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   /* ================= FILTER DROPDOWN ================= */
   const filterBtn = document.querySelector(".APRAFilterDummy");
@@ -98,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // For Pending (or others)
     else {
-      window.location.href = "../html/adminRecentVendorListOverview.html";
+      window.location.href = "../html/adminVMRecentVendorListOverview.html";
     }
   });
 
@@ -171,6 +194,17 @@ document.addEventListener("click", function (e) {
   if (status.classList.contains("sendToVerify")) {
     window.location.href = "../html/adminDeveloperVerification.html";
   } else if (status.classList.contains("pending")) {
-    window.location.href = "../html/adminRecentVendorListOverview.html";
+    window.location.href = "../html/adminVMRecentVendorListOverview.html";
   }
 });
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(2)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(2)").classList.add("submenu-active-page");
+
+

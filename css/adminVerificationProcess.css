@@ -9,9 +9,7 @@ body {
   background-color: #ffffff;
 }
 
-.BDContainer {
-  padding: 24px 32px;
-}
+
 
 /* Header */
 .BDHeader {
@@ -515,5 +513,10 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+@media (max-width:595px) {
+  .BDBackIcon {
+    display: none;
+  }
 }
 
