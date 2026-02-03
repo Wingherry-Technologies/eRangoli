@@ -9,18 +9,11 @@
     <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
   </head>
   <body>
-            <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
             <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
-            <div class="search-bar">
-                <div class="search-bar-icon">
-                  <img src="../assets/master/eRangoli 2-1.svg" alt="">
-                  <input type="search" id="desktop-search" placeholder="Search">
-                </div>
-                <img src="../assets/adminSidebar/MagnifyingGlass.svg" alt="" />
-            </div>
             <ul id="desktop-suggestions" class="suggestions-box"></ul>
         </div>
 
@@ -48,7 +41,7 @@
                 <ul class="mobile-nav-menu1" id="account-menu">
 
                   <!-- DASHBOARD -->
-                <li class="mobile-dropdown">
+                <li class="mobile-dropdown" onclick="window.location.href='../html/admindashboard.html'">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -73,10 +66,10 @@
                       
                     </div>
                     <ul class="mobile-submenu">
-                        <li>Product List</li>
-                        <li>Product Categories</li>
-                        <li>Recently Added Products</li>
-                        <li>Product Verification</li>
+                        <li onclick="window.location.href='../html/adminPMProductList.html'">Product List</li>
+                        <li onclick="window.location.href='../html/adminPMProductCategories.html'">Product Categories</li>
+                        <li onclick="window.location.href='../html/adminPMProductRecentlyAdded.html'">Recently Added Products</li>
+                        <li onclick="window.location.href='../html/adminPMProductVerification.html'">Product Verification</li>
                     </ul>
                   </li>
 
@@ -92,14 +85,14 @@
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
                     <ul class="mobile-submenu">
-                      <li>Vendor List</li>
-                      <li>Recently Added Vendors</li>
-                      <li>Vendor Verification</li>
+                      <li onclick="window.location.href='../html/adminVMVendorList.html'">Vendor List</li>
+                      <li onclick="window.location.href='../html/adminVMRecentVendorList.html'">Recently Added Vendors</li>
+                      <li onclick="window.location.href='../html/adminVMVendorVerificationList.html'">Vendor Verification</li>
                     </ul>
                   </li>
 
                   <!-- RETURN MANAGEMENT -->
-                  <li class="mobile-dropdown">
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminBMBuyerList.html'">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -111,8 +104,8 @@
                     </div>
                   </li>
 
-                  <!-- SALES -->
-                  <li class="mobile-dropdown">
+                  <!-- User Management -->
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminUMUserList.html'">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
                         <div class="mobile-icon">
@@ -124,7 +117,7 @@
                     </div>
                   </li>
 
-                  <!-- CUSTOMER MANAGEMENT -->
+                  <!-- Sales -->
                   <li class="mobile-dropdown">
                     <div class="dropdown-header">
                       <div class="mobile-icon-main">
@@ -136,14 +129,28 @@
                       <img class="arrow" src="../assets/master/CaretDown.svg">
                     </div>
                     <ul class="mobile-submenu">
-                      <li>Dashboard</li>
-                      <li>Purchase Orders</li>
-                      <li>Return Orders</li>
-                      <li>Buyer Payment History</li>
-                      <li>Vendor Payments</li>
-                      <li>Sales Report</li>
-                      <li>Discount / Coupons</li>
+                      <li onclick="window.location.href='../html/adminSalesDashboard.html'">Dashboard</li>
+                      <li onclick="window.location.href='../html/adminSalesPurchaseOrder.html'">Purchase Orders</li>
+                      <li onclick="window.location.href='../html/adminSalesReturnOrders.html'">Return Orders</li>
+                      <li onclick="window.location.href='../html/adminSalesBuyerPaymentDetails.html'">Buyer Payment History</li>
+                      <li onclick="window.location.href='../html/adminSalesVendorPaymentsDetails.html'">Vendor Payments</li>
+                      <li onclick="window.lcation.href='../html/adminSalesReport.html'">Sales Report</li>
+                      <li onclick="window.location.href='../html/adminSalesDiscount.html'">Discounts</li>
+                      <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
                     </ul> 
+                  </li>
+
+                  <!-- My Profile -->
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminMyProfile.html'">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+                        </div>
+                        <span>My Profile</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
                   </li>
 
 
@@ -257,201 +264,201 @@
     </nav>
 
     <div class="notification-main-box" id="notification-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>Notifications</span>
-        <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
-              dec.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
     </div>
 
-  <!-- Order Popup -->
-  <div class="notification-main-box" id="order-main-box">
-    <div class="notification-main-box-content">
-      <div class="notification-main-head-box">
-        <span>New Order</span>
-        <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="notification-content">
-          <div>
-            <img src="../assets/master/Rectangle 34627068.svg" alt="">
-          </div>
-          <div class="contents-noti">
-            <span>13/12/25</span>
-            <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
-            <div class="noti-content">
-              <div class="size-list-price">
-                <span>Size: S</span>
-                <span>Qty: 2</span>
-              </div>
-              <div class="order-list-price">
-                <span>Price: ₹5400</span>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
     </div>
-  </div>
 
     <!-- Mobile Bottom Navigation Bar -->
     <div class="bottom-nav" aria-label="Mobile navigation">
@@ -478,87 +485,108 @@
       </a>
     </div>
 
-
     <!-- Sidebar -->
-     <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
         <article>
-            <div class="welcome-sidebar-main">
-                <div class="welcome-sidebar">
-                  <span>Welcome!</span>
-                  <span>Administration</span>
-                </div>
-                <div class="hamberger-sidebar"  id="sidebarToggle">
-                  <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
-                  <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
-                </div>
+          <div class="welcome-sidebar-main">
+            <div class="welcome-sidebar">
+              <span>Welcome!</span>
+              <span>Administration</span>
             </div>
-            <ul>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                        <span>Dashboard</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="product">
-                  <div class="image-head">  
-                    <img src="../assets/vendorSidebar/Package.svg" alt="">
-                    <span>Product Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="product">
-                  <li>Product List</li>
-                  <li>Product Categories</li>
-                  <li>Product Recently Added</li>
-                  <li>Product Verification</li>
-                </ul>
-                <li class="has-submenu" data-menu="vendor">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                    <span>Vendor Management</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="vendor">
-                  <li>Vendor List</li>
-                  <li>Vendor Recently Added</li>
-                  <li>Vendor Verification</li>
-                </ul>
+            <div class="hamberger-sidebar" id="sidebarToggle">
+              <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
+              <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
+            </div>
+          </div>
 
-                <li>  
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                        <span>Buyer Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li>
-                    <div class="image-head">
-                        <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                        <span>User Management</span>
-                    </div>
-                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-                </li>
-                <li class="has-submenu" data-menu="sales">
-                  <div class="image-head">
-                    <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                    <span>Sales</span>
-                  </div>
-                  <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-                </li>
-                <ul class="submenu" data-submenu="sales">
-                  <li>Dashboard</li>
-                  <li>Purchase Order</li>
-                  <li>Return Orders</li>
-                  <li>Buyer Payment History</li>
-                  <li>Vendor Payment</li>
-                  <li>Sales Report</li>
-                  <li>Discounts / Coupons</li>
-                </ul> 
+          <ul>
+            <!-- Dashboard -->
+            <li onclick="window.location.href='../html/admindashboard.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                <span>Dashboard</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- Product Management -->
+            <li class="has-submenu" data-menu="product">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/Package.svg" alt="">
+                <span>Product Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="product">
+              <li onclick="window.location.href='../html/adminPMProductList.html'">Product List</li>
+              <li onclick="window.location.href='../html/adminPMProductCategories.html'">Product Categories</li>
+              <li onclick="window.location.href='../html/adminPMProductRecentlyAdded.html'">Recently Added Products</li>
+              <li onclick="window.location.href='../html/adminPMProductVerification.html'">Product Verification</li>
             </ul>
+
+            <!-- Vendor Management -->
+            <li class="has-submenu" data-menu="vendor">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                <span>Vendor Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="vendor">
+              <li onclick="window.location.href='../html/adminVMVendorList.html'">Vendor List</li>
+              <li onclick="window.location.href='../html/adminVMRecentVendorList.html'">Recently Added Vendors</li>
+              <li onclick="window.location.href='../html/adminVMVendorVerificationList.html'">Vendor Verification</li>
+            </ul>
+
+            <!-- Buyer Management -->
+            <li onclick="window.location.href='../html/adminBMBuyerList.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                <span>Buyer Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- User Management -->
+            <li onclick="window.location.href='../html/adminUMUserList.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                <span>User Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- Sales -->
+            <li class="has-submenu" data-menu="sales">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                <span>Sales</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="sales">
+              <li onclick="window.location.href='../html/adminSalesDashboard.html'">Dashboard</li>
+              <li onclick="window.location.href='../html/adminSalesPurchaseOrder.html'">Purchase Orders</li>
+              <li onclick="window.location.href='../html/adminSalesReturnOrders.html'">Return Orders</li>
+              <li onclick="window.location.href='../html/adminSalesBuyerPaymentDetails.html'">Buyer Payment History</li>
+              <li onclick="window.location.href='../html/adminSalesVendorPaymentsDetails.html'">Vendor Payments</li>
+              <li onclick="window.location.href='../html/adminSalesReport.html'">Sales Report</li>
+              <li onclick="window.location.href='../html/adminSalesDiscount.html'">Discounts</li>
+              <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
+            </ul>
+
+            <!-- My Profile -->
+            <li onclick="window.location.href='../html/adminMyProfile.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+                <span>My Profile</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+          </ul>
         </article>
-     </section>
+    </section>
     <div class="main-content-beyond">
       <div class="category-card">
       <div class="card-header">

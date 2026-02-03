@@ -79,4 +79,4 @@ document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(7
 
 document.querySelector("#account-menu .mobile-dropdown:nth-child(6) .dropdown-header").classList.add("dropdown-header-active");
 document.querySelector("#account-menu .mobile-dropdown:nth-child(6)").classList.add("active-mobile-submenu");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(6) li:nth-child(7)").classList.add("submenu-active-page");s
+document.querySelector("#account-menu .mobile-dropdown:nth-child(6) li:nth-child(7)").classList.add("submenu-active-page");
