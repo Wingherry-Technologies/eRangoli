@@ -1,59 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =========================
-     ELEMENTS
-  ========================= */
-
+  /*
+   ELEMENTS
+ */
   const searchInput = document.querySelector(".APMSearchInput");
   const tableBody = document.querySelector(".APMTableBody");
   const tableRows = [...document.querySelectorAll(".APMTableRow")];
   const mobileItems = [...document.querySelectorAll(".APMMobileList .faq-item")];
 
-  /* =========================
-     SEARCH (BUYER)
-  ========================= */
+  /*
+   SEARCH (BUYER)
+ */
+searchInput.addEventListener("input", function () {
+  const val = searchInput.value.toLowerCase().trim();
 
-  searchInput.addEventListener("input", function () {
-    const val = searchInput.value.toLowerCase().trim();
-
-    // TABLE SEARCH
-    tableRows.forEach(row => {
-      const name = row.children[0].innerText.toLowerCase();
-      const uid = row.children[1].innerText.toLowerCase();
-      const email = row.children[2].innerText.toLowerCase();
-      const city = row.children[5].innerText.toLowerCase();
-
-      row.style.display =
-        name.includes(val) ||
-        uid.includes(val) ||
-        email.includes(val) ||
-        city.includes(val)
-          ? ""
-          : "none";
-    });
-
-    // MOBILE SEARCH
-    mobileItems.forEach(item => {
-      const content = item.innerText.toLowerCase();
-      item.style.display = content.includes(val) ? "" : "none";
-    });
+  // TABLE SEARCH (SAFE)
+  tableRows.forEach(row => {
+    const rowText = row.innerText.toLowerCase();
+    row.style.display = rowText.includes(val) ? "" : "none";
   });
 
-  /* =========================
-     FILTER / SORT TOGGLE
-  ========================= */
+  // MOBILE SEARCH
+  mobileItems.forEach(item => {
+    item.style.display =
+      item.innerText.toLowerCase().includes(val) ? "" : "none";
+  });
+});
 
+
+  /*
+   FILTER / SORT TOGGLE
+ */
   const filterBtn = document.getElementById("apm-filter-btn");
   const sortBtn = document.getElementById("apm-sort-btn");
 
   const filterMain = document.getElementById("apm-filter-main");
   const sortBox = document.getElementById("apm-sort-box");
 
-  const stateOpen = document.getElementById("apm-state-open");
-  const cityOpen = document.getElementById("apm-city-open");
+  const ActionOpen = document.getElementById("aspo-action-open");
 
-  const stateBox = document.getElementById("apm-state-box");
-  const cityBox = document.getElementById("apm-city-box");
+
+  const ActionBox = document.getElementById("aspo-action-box");
 
   filterBtn.onclick = () => {
     filterMain.classList.toggle("active-main-content-flows");
@@ -65,70 +52,63 @@ document.addEventListener("DOMContentLoaded", function () {
     filterMain.classList.remove("active-main-content-flows");
   };
 
-  stateOpen.onclick = () => {
-    stateBox.classList.toggle("active-main-content-flows");
-    cityBox.classList.remove("active-main-content-flows");
+  ActionOpen.onclick = () => {
+    ActionBox.classList.toggle("active-main-content-flows");
   };
 
-  cityOpen.onclick = () => {
-    cityBox.classList.toggle("active-main-content-flows");
-    stateBox.classList.remove("active-main-content-flows");
-  };
 
-  document.addEventListener("click", e => {
-    if (!e.target.closest(".filter-bar-wrapper")) {
-      filterMain.classList.remove("active-main-content-flows");
-      sortBox.classList.remove("active-main-content-flows");
-      stateBox.classList.remove("active-main-content-flows");
-      cityBox.classList.remove("active-main-content-flows");
-    }
-  });
+  function closeAllFilters() {
+  filterMain.classList.remove("active-main-content-flows");
+  sortBox.classList.remove("active-main-content-flows");
+  ActionBox.classList.remove("active-main-content-flows");
+}
 
-  /* =========================
-     FILTER (STATE + CITY)
-  ========================= */
-
-  function applyBuyerFilter() {
-
-    const states = [...document.querySelectorAll("#apm-state-box input:checked")]
-      .map(cb => cb.dataset.state);
-
-    const cities = [...document.querySelectorAll("#apm-city-box input:checked")]
-      .map(cb => cb.dataset.city);
-
-    // TABLE FILTER
-    tableRows.forEach(row => {
-      const state = row.children[4].innerText.trim();
-      const city = row.children[5].innerText.trim();
-
-      const show =
-        (!states.length || states.includes(state)) &&
-        (!cities.length || cities.includes(city));
-
-      row.style.display = show ? "" : "none";
-    });
-
-    // MOBILE FILTER
-    mobileItems.forEach(item => {
-      const values = [...item.querySelectorAll(".all-answers span:last-child")]
-        .map(s => s.innerText);
-
-      const show =
-        (!states.length || states.includes(values[2])) &&
-        (!cities.length || cities.includes(values[3]));
-
-      item.style.display = show ? "" : "none";
-    });
+document.addEventListener("click", e => {
+  if (!e.target.closest(".filter-bar-wrapper")) {
+    closeAllFilters();
   }
+});
 
-  document
-    .querySelectorAll("#apm-state-box input, #apm-city-box input")
-    .forEach(cb => cb.addEventListener("change", applyBuyerFilter));
+  /*
+   FILTER (STATE + CITY)
+ */
 
-  /* =========================
-     SORT (BUYER)
-  ========================= */
+function applyActionFilter() {
+  const selectedActions = [
+    ...document.querySelectorAll("#aspo-action-box input:checked")
+  ].map(cb => cb.dataset.state);
 
+  tableRows.forEach(row => {
+    const actionCell = row.querySelector(
+      ".refunded, .rejected, .approved-refund, .Initiate-refund"
+    );
+
+    if (!actionCell) {
+      row.style.display = "none";
+      return;
+    }
+
+    const match = [...actionCell.classList]
+      .some(cls => selectedActions.includes(cls));
+
+    row.style.display =
+      selectedActions.length === 0 || match ? "" : "none";
+  });
+}
+
+document
+  .querySelectorAll("#aspo-action-box input")
+  .forEach(cb =>
+    cb.addEventListener("change", () => {
+      applyActionFilter();
+      applyMobileActionFilter();
+      closeAllFilters();   
+    })
+  );
+
+  /*
+   SORT (BUYER)
+ */
   const sortRadios = document.querySelectorAll("#apm-sort-box input");
 
   sortRadios.forEach(radio => {
@@ -174,9 +154,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* =========================
-     MOBILE FAQ TOGGLE
-  ========================= */
+  /*
+   MOBILE FAQ TOGGLE
+ */function applyMobileActionFilter() {
+  const selectedActions = [
+    ...document.querySelectorAll("#aspo-action-box input:checked")
+  ].map(cb => cb.dataset.state);
+
+  mobileItems.forEach(item => {
+    const statusEl = item.querySelector(
+      ".refunded, .rejected, .approved-refund, .Initiate-refund"
+    );
+
+    if (!statusEl) {
+      item.style.display = "none";
+      return;
+    }
+
+    const match = [...statusEl.classList]
+      .some(cls => selectedActions.includes(cls));
+
+    item.style.display =
+      selectedActions.length === 0 || match ? "" : "none";
+  });
+}
+
 
   document.addEventListener("click", function (e) {
     const question = e.target.closest(".main-faq-question");
@@ -185,23 +187,315 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* =========================
-     VIEW REDIRECT
-  ========================= */
 
-  document.addEventListener("click", function (e) {
-    if (
-      e.target.closest(".APMActionButton") ||
-      e.target.textContent === "View"
-    ) {
-      window.location.href = "../html/adminbuyerlistoverview.html";
+  /*
+   TOTAL COUNT
+ */
+  document.querySelector(".APMViewAllLink").innerText = tableRows.length;
+
+/*
+   ===========================
+   ASPO MODAL - Product Return Details
+   ===========================
+ */
+  const aspoModal = document.getElementById("ASPOReturnModal");
+  const aspoCloseBtn = document.getElementById("ASPOCloseBtn");
+  const aspoStatusBadge = document.getElementById("ASPOStatusBadge");
+  const aspoDeliverySection = document.getElementById("ASPODeliverySection");
+  const aspoActions = document.getElementById("ASPOActions");
+  const aspoAcceptBtn = document.getElementById("ASPOAcceptBtn");
+  const aspoRejectBtn = document.getElementById("ASPORejectBtn");
+  const arModal = document.getElementById("ASPOApprovedRejectedModal");
+const arCloseBtn = document.getElementById("ASPOARCloseBtn");
+const arStatusBadge = document.getElementById("ASPOARStatusBadge");
+const arBankSection = document.getElementById("ASPOARBankSection");
+
+
+  function openASPORefundModal() {
+  aspoModal.classList.add("active");
+
+  aspoStatusBadge.textContent = "Status";
+  aspoStatusBadge.classList.remove("accepted");
+  aspoDeliverySection.style.display = "none";
+  aspoActions.style.display = "flex";
+}
+// MOBILE – Initiate Refund button
+document.addEventListener("click", function (e) {
+  const mobileBtn = e.target.closest(".mobile-view-btn.Initiate-refund");
+  if (!mobileBtn) return;
+
+  e.preventDefault();
+  openASPORefundModal();
+});
+// DESKTOP – Action icon click (only Initiate Refund rows)
+document.addEventListener("click", function (e) {
+  const actionBtn = e.target.closest(".APMActionButton");
+  if (!actionBtn) return;
+
+  const row = actionBtn.closest(".APMTableRow");
+  if (!row) return;
+  
+  const hasInitiateRefund = row.querySelector(".Initiate-refund");
+  if (!hasInitiateRefund) return;
+
+  e.preventDefault();
+  openASPORefundModal();
+});
+
+
+
+
+  // Close modal
+  aspoCloseBtn.addEventListener("click", () => {
+    aspoModal.classList.remove("active");
+  });
+
+  // Close modal when clicking outside
+  aspoModal.addEventListener("click", (e) => {
+    if (e.target.id === "ASPOReturnModal") {
+      aspoModal.classList.remove("active");
     }
   });
 
-  /* =========================
-     TOTAL COUNT
-  ========================= */
+  // Accept button functionality
+  aspoAcceptBtn.addEventListener("click", () => {
+    // Update status badge
+    aspoStatusBadge.textContent = "Accepted";
+    aspoStatusBadge.classList.add("accepted");
+    
+    // Hide action buttons
+    aspoActions.style.display = "none";
+    
+    // Show delivery section
+    aspoDeliverySection.style.display = "block";
+  });
 
-  document.querySelector(".APMViewAllLink").innerText = tableRows.length;
+  // Reject button functionality
+  aspoRejectBtn.addEventListener("click", () => {
+    // Just close the modal for now
+    aspoModal.classList.remove("active");
+  });
+
+  /*
+   ===========================
+   ASPO TRACKING MODAL
+   ===========================
+ */
+  const aspoTrackingModal = document.getElementById("ASPOTrackingModal");
+  const aspoTrackingClose = document.getElementById("ASPOTrackingClose");
+  const aspoTrackLink = document.getElementById("ASPOTrackLink");
+
+  // Open tracking modal when "Track Here" is clicked
+  aspoTrackLink.addEventListener("click", () => {
+    aspoTrackingModal.classList.add("active");
+    aspoModal.classList.remove("active");
+  });
+
+  // Close tracking modal
+  aspoTrackingClose.addEventListener("click", () => {
+    aspoTrackingModal.classList.remove("active");
+  });
+
+  // Close tracking modal when clicking outside
+  aspoTrackingModal.addEventListener("click", (e) => {
+    if (e.target.id === "ASPOTrackingModal") {
+      aspoTrackingModal.classList.remove("active");
+    }
+  });
+  /* ===============================
+   APPROVED / REJECTED POPUP JS
+================================ */
+
+const statusModal = document.getElementById("ASPOStatusModal");
+const statusClose = document.getElementById("ASPOStatusClose");
+const refundStatus = document.getElementById("ASPORefundStatus");
+const payBtn = document.getElementById("ASPOPayBtn");
+const bankDetails = document.getElementById("ASPOBankDetails");
+const statusPaySection = document.getElementById("ASPOStatusPaySection");
+const vendorApprovalSection = document.getElementById("ASPOVendorApprovalSection");
+
+
+const refundDetails = document.getElementById("ASPORefundDetails");
+const finalPayBtn = document.getElementById("ASPOFinalPayBtn");
+
+
+// OPEN ON ICON CLICK
+document.addEventListener("click", function (e) {
+  const actionBtn = e.target.closest(".APMActionButton");
+  if (!actionBtn) return;
+
+  const row = actionBtn.closest(".APMTableRow");
+  if (!row) return;
+
+  resetStatusModal();
+
+  // RESET STATE
+  refundStatus.classList.remove("refund-rejected");
+  bankDetails.style.display = "none";
+  refundDetails.style.display = "none";
+statusPaySection.style.display = "block";
+  payBtn.disabled = false;
+  payBtn.classList.remove("disabled");
+
+  // APPROVED
+  if (row.querySelector(".approved-refund")) {
+    refundStatus.textContent = "Approved";
+    statusModal.classList.add("active");
+  }
+
+  // REJECTED
+  if (row.querySelector(".rejected")) {
+    refundStatus.textContent = "Rejected";
+    refundStatus.classList.add("refund-rejected");
+    payBtn.disabled = true;
+    payBtn.classList.add("disabled");
+    statusModal.classList.add("active");
+  }
+
+  // REFUNDED
+  // REFUNDED → DIRECT FINAL POPUP
+if (row.querySelector(".refunded")) {
+
+  // hide other sections
+  statusPaySection.style.display = "none";
+  bankDetails.style.display = "none";
+
+  // show refund payment details
+  refundDetails.style.display = "block";
+
+  // change top badge to Refunded
+  const badge = statusModal.querySelector(".ASPOAcceptBtn");
+  if (badge) {
+    badge.textContent = "Refunded";
+
+  }
+
+  statusModal.classList.add("active");
+  return; // 
+}
 
 });
+
+// PAY CLICK → SHOW BANK DETAILS
+// PAY CLICK → SWITCH UI (SCREENSHOT LIKE)
+payBtn.addEventListener("click", () => {
+  // hide status + pay section
+  vendorApprovalSection.style.display = "none";
+
+  // show bank details section
+  bankDetails.style.display = "block";
+});
+
+
+// CLOSE POPUP
+statusClose.addEventListener("click", () => {
+  statusModal.classList.remove("active");
+});
+
+
+// FINAL PAY CLICK → SHOW REFUNDED STATE
+finalPayBtn.addEventListener("click", () => {
+  // hide bank details
+  bankDetails.style.display = "none";
+
+  // hide status + pay (safety)
+  statusPaySection.style.display = "none";
+
+  // show refund payment details
+  refundDetails.style.display = "block";
+
+  // change top badge to Refunded
+  const badge = statusModal.querySelector(".ASPOAcceptBtn");
+  if (badge) {
+    badge.textContent = "Refunded";
+
+  }
+});
+
+
+
+  //  MOBILE – STATUS POPUP HANDLER
+
+
+document.addEventListener("click", function (e) {
+  const mobileBtn = e.target.closest(".mobile-view-btn");
+  if (!mobileBtn) return;
+  resetStatusModal();
+
+  // RESET (same as desktop)
+  refundStatus.classList.remove("refund-rejected");
+  bankDetails.style.display = "none";
+  refundDetails.style.display = "none";
+  statusPaySection.style.display = "block";
+  payBtn.disabled = false;
+  payBtn.classList.remove("disabled");
+
+  // APPROVED
+  if (mobileBtn.classList.contains("approved-refund")) {
+    refundStatus.textContent = "Approved";
+    statusModal.classList.add("active");
+    return;
+  }
+
+  // REJECTED
+  if (mobileBtn.classList.contains("rejected")) {
+    refundStatus.textContent = "Rejected";
+    refundStatus.classList.add("refund-rejected");
+    payBtn.disabled = true;
+    payBtn.classList.add("disabled");
+    statusModal.classList.add("active");
+    return;
+  }
+
+  // REFUNDED (DIRECT FINAL STATE)
+  if (mobileBtn.classList.contains("refunded")) {
+    statusPaySection.style.display = "none";
+    bankDetails.style.display = "none";
+    refundDetails.style.display = "block";
+
+    const badge = statusModal.querySelector(".ASPOAcceptBtn");
+    if (badge) {
+      badge.textContent = "Refunded";
+      // badge.style.background = "#0abf53";
+    }
+
+    statusModal.classList.add("active");
+    return;
+  }
+
+  // INITIATE REFUND (OLD FLOW)
+  if (mobileBtn.classList.contains("Initiate-refund")) {
+    openASPORefundModal();
+  }
+});
+
+
+function resetStatusModal() {
+  // hide all dynamic sections
+  vendorApprovalSection.style.display = "block";
+  statusPaySection.style.display = "block";
+  bankDetails.style.display = "none";
+  refundDetails.style.display = "none";
+
+  // reset status text & color
+  refundStatus.textContent = "";
+  refundStatus.classList.remove("refund-rejected");
+
+  // reset pay button
+  payBtn.disabled = false;
+  payBtn.classList.remove("disabled");
+
+  // reset top badge
+  const badge = statusModal.querySelector(".ASPOAcceptBtn");
+  if (badge) {
+    badge.textContent = "Received";
+    badge.style.background = "#0ea5e9";
+  }
+}
+
+});
+
+
+
+
+
