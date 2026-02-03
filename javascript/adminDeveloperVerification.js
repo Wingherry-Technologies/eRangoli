@@ -10,6 +10,88 @@ const ADVOFaRejectModal = document.getElementById("ADVOFaRejectModal");
 const ADVOFaRejectYes = document.getElementById("ADVOFaRejectYes");
 const ADVOFaRejectNo = document.getElementById("ADVOFaRejectNo");
 const ADVOFaCloseRejectModal = document.getElementById("ADVOFaCloseRejectModal");
+// ============ VALIDATION LOGIC FOR SEND TO VERIFY BUTTON ============
+const sentToVerifyBtn = document.getElementById('ADVOSentToVerifyBtn');
+const reviewTextarea = document.getElementById('ADVOReviewTextarea');
+const reviewError = document.getElementById('ADVOReviewError');
+const sentModal = document.getElementById('FAsentModal');
+const closeSentModal = document.getElementById('FAcloseSentModal');
+const sentNo = document.getElementById('FAsentNo');
+const sentYes = document.getElementById('FAsentYes');
+const sentSuccessScreen = document.getElementById('FAsentSuccessScreen');
+
+// Function to count words in text
+function countWords(text) {
+  // Trim and split by whitespace, then filter out empty strings
+  const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+  return words.length;
+}
+
+// Validation function
+function validateReview() {
+  const reviewText = reviewTextarea.value.trim();
+  const wordCount = countWords(reviewText);
+
+  // Check if textarea is empty or has less than 5 words
+  if (reviewText === '' || wordCount < 5) {
+    reviewError.style.display = 'block';
+    reviewTextarea.style.borderColor = '#ff0000';
+    return false;
+  } else {
+    reviewError.style.display = 'none';
+    reviewTextarea.style.borderColor = '#d9d9d9';
+    return true;
+  }
+}
+
+// Event listener for "Sent to Verify" button
+sentToVerifyBtn.addEventListener('click', function() {
+  if (validateReview()) {
+    // If validation passes, show confirmation modal
+    sentModal.classList.add('active');
+  }
+  // If validation fails, error message will be shown (no modal)
+});
+
+// Hide error when user starts typing
+reviewTextarea.addEventListener('input', function() {
+  if (reviewError.style.display === 'block') {
+    const reviewText = this.value.trim();
+    const wordCount = countWords(reviewText);
+    
+    if (reviewText !== '' && wordCount >= 5) {
+      reviewError.style.display = 'none';
+      reviewTextarea.style.borderColor = '#d9d9d9';
+    }
+  }
+});
+
+// Close modal handlers
+closeSentModal.addEventListener('click', function() {
+  sentModal.classList.remove('active');
+});
+
+sentNo.addEventListener('click', function() {
+  sentModal.classList.remove('active');
+});
+
+// Yes button - proceed with sending to verify
+sentYes.addEventListener('click', function() {
+  sentModal.classList.remove('active');
+  sentSuccessScreen.classList.add('active');
+  
+  // Hide success screen after 2 seconds
+  setTimeout(function() {
+    sentSuccessScreen.classList.remove('active');
+  }, 2000);
+});
+
+// Close modal when clicking outside
+sentModal.addEventListener('click', function(e) {
+  if (e.target === sentModal) {
+    sentModal.classList.remove('active');
+  }
+});
 
 
 ADVOFaApproveBtn.addEventListener("click", () => {
@@ -188,6 +270,9 @@ function generatePassword() {
 
   return password;
 }
+
+
+
 
 
 

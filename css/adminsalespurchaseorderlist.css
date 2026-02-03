@@ -1,13 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito Sans";
 }
 
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
   background-color: #e5e7eb;
 }
 
@@ -448,26 +448,23 @@ body {
   gap: 6px;
 }
 
-
-.Proceed-refund{
-    color: #0abf53;
+.Proceed-refund {
+  color: #0abf53;
 }
-.Initiate-refund{
-    color: #6a5cff;
+.Initiate-refund {
+  color: #6a5cff;
 }
-.refunded{
-    color: #0abf53;
+.refunded {
+  color: #0abf53;
 }
-.rejected{
-    color: #ff3b3b;
+.rejected {
+  color: #ff3b3b;
 }
-.approved-refund{
-    color: #6a5cff;
+.approved-refund {
+  color: #6a5cff;
 }
-
 
 /* modal pop up  */
-
 
 /* Responsive */
 @media (max-width: 1200px) {
@@ -511,85 +508,131 @@ body {
 }
 
 /* Mobile layout hidden by default */
-.APMMobileList {
+.ASPROMobileFAQ {
   display: none;
 }
 
-/* Mobile breakpoint */
+.ASPROfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ASPROfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.ASPROfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.ASPROfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.ASPROfaq-item.active {
+  border: 1px solid #0f8df340;
+  padding-bottom: 6px;
+}
+
+.ASPROfaq-item.active .ASPROfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+}
+
+.ASPROfaq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.ASPROfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.ASPROfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ASPROfaq-row span.process-refund {
+  color: #009605;
+  font-weight: 400;
+}
+
+.ASPROfaq-row .ASPROToggle {
+  justify-self: start;
+}
+
+.ASPROfaq-row:has(.view) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ASPROfaq-row .view {
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #989fff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 @media (max-width: 595px) {
   .APMTableCard {
     display: none;
   }
-
-  .APMMobileList {
+  .ASPROMobileFAQ {
     display: block;
+    background: white;
+    padding: 10px;
   }
 
-  .faq-item {
-    background: #fff;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    padding: 12px;
-    border: 1px solid #e5e7eb;
-  }
-
-  .main-faq-question {
+  .ASPROfaq-question {
+    width: 100%;
+    background: white;
+    border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .product-left {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .product-left img {
-    width: 45px;
-    height: 45px;
+    padding: 10px;
+    cursor: pointer;
     border-radius: 8px;
   }
 
-  .faq-answer {
-    margin-top: 10px;
-    display: none;
+  .ASPROfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
   }
 
-  .faq-item.active .faq-answer {
-    display: block;
+  .ASPROfaq-item.active .ASPROfaq-answer {
+    max-height: 500px;
   }
 
-  .all-answers div {
-    display: flex;
-    font-size: 13px;
-    padding: 4px 0;
+  .ASPROfaq-row .ASPROStatus {
+    background: none;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
   }
-  .all-answers span {
-    margin-right: 10px;
-  }
-  .mobile-view-btn {
-    width: 100%;
-    margin-top: 10px;
-    background: #989fff;
-    color: #fff;
-    border: none;
-    padding: 6px;
-    border-radius: 8px;
-  }
-
-  .show-threedots-box {
-    display: none;
-    position: absolute;
-    right: 10px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 6px;
-  }
-
-  .show-threedots-box.active-preview {
-    display: block;
+  .ASPROfaq-item {
+    margin-bottom: 10px;
   }
 }
 
@@ -683,16 +726,14 @@ body {
 }
 
 .ASPOClose {
-
   /* font-size: 22px; */
   background: none;
   border: none;
   cursor: pointer;
-
 }
 .ASPOClose img {
   width: 13px;
-  height: 13px; 
+  height: 13px;
 }
 
 .ASPOHeader {
@@ -701,14 +742,13 @@ body {
   align-items: center;
   margin-bottom: 8px;
   padding-bottom: 10px;
-   border-bottom: 2px solid #6828E7;
+  border-bottom: 2px solid #6828e7;
 }
 .ASPOSubHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
- 
 }
 
 .ASPOTitle {
@@ -718,7 +758,7 @@ body {
 }
 
 .ASPOStatusBadge {
-  background: #8E8989;
+  background: #8e8989;
   color: #ffffff;
   padding: 6px 30px;
   border-radius: 6px;
@@ -830,15 +870,13 @@ body {
 }
 
 .ASPOTrackLink {
-  color: #410DDE;
+  color: #410dde;
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
   margin-top: 8px;
   text-decoration: none;
 }
-
-
 
 /* Action Buttons */
 .ASPOActions {
@@ -860,8 +898,8 @@ body {
 
 .ASPORejectBtn {
   background: #ffffff;
-  border: 1px solid #108DF3;
-  color: #108DF3;
+  border: 1px solid #108df3;
+  color: #108df3;
 }
 
 .ASPORejectBtn:hover {
@@ -869,7 +907,7 @@ body {
 }
 
 .ASPOAcceptBtn {
-  background: #108DF3;
+  background: #108df3;
   border: none;
   color: #ffffff;
 }
@@ -939,7 +977,7 @@ body {
 
 .ASPOTRACKLine {
   height: 1px;
-  background: #7dcdff;
+  background: #6828e7;
   margin: 10px 0;
 }
 
@@ -1013,68 +1051,61 @@ body {
   font-weight: 600;
 }
 
-#ASPOStatusPaySection{
-    display: none;
-    background:#f4f8ff;
-
+#ASPOStatusPaySection {
+  display: none;
+  background: #f4f8ff;
 }
 
-.ASPOPaymentstatusDetails{
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 10px;
-    background-color: #F1F5FF;
+.ASPOPaymentstatusDetails {
+  margin-left: -24px;
+  margin-right: -24px;
+  padding: 10px;
+  background-color: #f1f5ff;
 }
-#ASPOBankDetails{
-    display: none;
-    margin-top: 16px;
+#ASPOBankDetails {
+  display: none;
+  margin-top: 16px;
 
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 10px;
-    background-color: #F1F5FF;
-
-}
-
-#ASPOVendorApprovalSection{
-    margin-top: 16px;
-
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 10px;
-    background-color: #F1F5FF;
-}
-#ASPORefundDetails
-{
-    display:none; 
-    margin-top:16px;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 10px;
-    background-color: #F1F5FF;
-}
-.ASPOCard{
-    background-color: #f4f8ff;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding: 10px;
+  background-color: #f1f5ff;
 }
 
+#ASPOVendorApprovalSection {
+  margin-top: 16px;
 
-#ASPOFinalPayBtn{
-    margin-top: 16px;
-    padding: 8px 40px;
-    background-color: #6828E7;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding: 10px;
+  background-color: #f1f5ff;
+}
+#ASPORefundDetails {
+  display: none;
+  margin-top: 16px;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding: 10px;
+  background-color: #f1f5ff;
+}
+.ASPOCard {
+  background-color: #f4f8ff;
 }
 
-#ASPORefundStatus{
-    font-size: 13px;
-    font-weight: 400;
-    color: #3F3F3F;
+#ASPOFinalPayBtn {
+  margin-top: 16px;
+  padding: 8px 40px;
+  background-color: #6828e7;
 }
 
-
+#ASPORefundStatus {
+  font-size: 13px;
+  font-weight: 400;
+  color: #3f3f3f;
+}
 
 /* TABLET RESPONSIVE (481px - 1024px)*/
 @media (max-width: 1024px) and (min-width: 481px) {
-  
   /* ASPO Return Modal - Product Return Details */
   .ASPOModal {
     max-width: 90%;
@@ -1232,7 +1263,6 @@ body {
 
 /*  MOBILE RESPONSIVE (Max 480px)*/
 @media (max-width: 480px) {
-  
   /* ASPO Return Modal - Product Return Details */
   .ASPOModal {
     width: 100%;
@@ -1376,7 +1406,7 @@ body {
     margin-left: -16px;
     margin-right: -16px;
     padding: 12px;
-    background-color: #F1F5FF;
+    background-color: #f1f5ff;
   }
 
   #ASPOVendorApprovalSection .ASPOSectionTitle {
@@ -1412,7 +1442,7 @@ body {
     margin-left: -16px;
     margin-right: -16px;
     padding: 12px;
-    background-color: #F1F5FF;
+    background-color: #f1f5ff;
   }
 
   #ASPOBankDetails .ASPOSectionTitle {
@@ -1433,7 +1463,7 @@ body {
     margin-top: 12px;
     padding: 10px;
     font-size: 13px;
-    background-color: #6828E7;
+    background-color: #6828e7;
   }
 
   /* Refund Details Section */
@@ -1443,7 +1473,7 @@ body {
     margin-left: -16px;
     margin-right: -16px;
     padding: 12px;
-    background-color: #F1F5FF;
+    background-color: #f1f5ff;
   }
 
   #ASPORefundDetails .ASPOSectionTitle {
@@ -1536,7 +1566,6 @@ body {
    EXTRA SMALL MOBILE (Max 360px)
     */
 @media (max-width: 360px) {
-  
   .ASPOModal {
     padding: 12px;
   }
@@ -1593,7 +1622,6 @@ body {
    LANDSCAPE MODE FOR MOBILE
     */
 @media (max-width: 768px) and (orientation: landscape) {
-  
   .ASPOModal {
     max-height: 100vh;
     overflow-y: auto;
@@ -1609,7 +1637,6 @@ body {
    FIX FOR VERY TALL CONTENT
     */
 @media (max-width: 480px) {
-  
   .ASPOModal::-webkit-scrollbar {
     width: 4px;
   }
@@ -1633,7 +1660,6 @@ body {
    STATUS COLORS MOBILE RESPONSIVE
     */
 @media (max-width: 480px) {
-  
   .refund-rejected {
     font-size: 12px;
   }
@@ -1651,7 +1677,6 @@ body {
    ADDITIONAL FIXES FOR BETTER UX
     */
 @media (max-width: 480px) {
-  
   /* Prevent text overflow */
   .ASPOText,
   .ASPOBlue {
@@ -1663,7 +1688,6 @@ body {
   .ASPOCard {
     margin-bottom: 0;
   }
-
 
   .ASPORejectBtn,
   .ASPOAcceptBtn,
