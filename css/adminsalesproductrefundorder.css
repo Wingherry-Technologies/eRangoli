@@ -9,16 +9,16 @@
 
 body {
   background-color: #e5e7eb;
-  padding: 24px;
 }
 
 /* Main Dashboard Container */
 .APMDashboardContainer {
-  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Stats Cards Row */
@@ -328,7 +328,6 @@ body {
   color: #3f3f3f;
   font-weight: 400;
   font-size: 14px;
-  white-space: nowrap;
 }
 
 .pending {
