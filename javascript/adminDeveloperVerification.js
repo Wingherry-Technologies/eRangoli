@@ -74,7 +74,7 @@ ADVOFaRejectYes.addEventListener("click", () => {
     document.querySelector(".ADVOBdContainer").classList.remove("ADVOBlur");
 
     // redirect
-    window.location.href = "../html/adminDeveloperVerificationList.html";
+    window.location.href = "../html/adminVMVendorVerificationList.html";
   }, 3000);
 });
 
@@ -211,5 +211,14 @@ document.getElementById("ADVOSendVendorCredentialBtn").addEventListener("click",
 
 
   localStorage.setItem("vendorCredentialSuccess", "true");
-  window.location.href = "../html/adminvendorlist.html";
+  window.location.href = "../html/adminVMVendorList.html";
 });
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(3)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(3)").classList.add("submenu-active-page");

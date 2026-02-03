@@ -10,7 +10,8 @@ body {
 }
 
 .ADVOBdContainer {
-  padding: 24px 32px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Header */
@@ -515,4 +516,9 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+@media (max-width:595px) {
+  .ADVOBdBackIcon{
+    display: none;
+  }
 }

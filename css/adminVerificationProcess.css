@@ -9,6 +9,10 @@ body {
   background-color: #ffffff;
 }
 
+.BDContainer{
+  height: 100%;
+  overflow-y: auto;
+}
 
 
 /* Header */
