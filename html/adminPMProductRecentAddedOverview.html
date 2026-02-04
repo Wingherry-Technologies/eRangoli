@@ -579,14 +579,7 @@
               <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
             </ul>
 
-            <!-- My Profile -->
-            <li onclick="window.location.href='../html/adminMyProfile.html'">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
-                <span>My Profile</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-            </li>
+            
 
           </ul>
         </article>
@@ -973,24 +966,22 @@ Review and upload high quality images</textarea
           </div>
         </div>
       </div>
-      <!-- APPROVE CONFIRMATION MODAL -->
-      <div class="APVOConfirmOverlay" id="APVOapproveModal">
+      <!-- VERIFY MODAL -->
+      <div class="APVOConfirmOverlay" id="verifyModal">
         <div class="APVOConfirmModal">
-          <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
-
+          <button class="APVOCloseBtn" id="verifyClose">×</button>
           <p class="APVOConfirmText">
-            Are you sure you want to send the product for verification ?
+            Are you sure you want to send the product for verification?
           </p>
-
           <div class="APVOConfirmActions">
-            <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
-            <button class="APVONoBtn" id="APVOapproveNo">No</button>
+            <button class="APVOYesBtn" id="verifyYes">Yes</button>
+            <button class="APVONoBtn" id="verifyNo">No</button>
           </div>
         </div>
       </div>
 
-      <!-- APPROVE SUCCESS SCREEN -->
-      <div class="APVOSuccessScreen" id="APVOapproveSuccessScreen">
+      <!-- VERIFY SCREEN -->
+      <div class="APVOSuccessScreen" id="verifySuccess">
         <div class="APVOSuccessContent">
           <div>
             <img
@@ -1004,23 +995,21 @@ Review and upload high quality images</textarea
       </div>
 
       <!-- REJECT CONFIRMATION MODAL -->
-      <div class="APVOConfirmOverlay" id="APVOrejectModal">
+      <div class="APVOConfirmOverlay" id="rejectModal">
         <div class="APVOConfirmModal">
-          <button class="APVOCloseBtn" id="APVOcloseRejectModal">×</button>
-
+          <button class="APVOCloseBtn" id="rejectClose">×</button>
           <p class="APVOConfirmText">
-            Are you sure you want to reject the Product ?
+            Are you sure you want to reject the product?
           </p>
-
           <div class="APVOConfirmActions">
-            <button class="APVOYesBtn" id="APVOrejectYes">Yes</button>
-            <button class="APVONoBtn" id="APVOrejectNo">No</button>
+            <button class="APVOYesBtn" id="rejectYes">Yes</button>
+            <button class="APVONoBtn" id="rejectNo">No</button>
           </div>
         </div>
       </div>
 
       <!-- REJECT SUCCESS SCREEN -->
-      <div class="APVOSuccessScreen" id="APVOrejectSuccessScreen">
+      <div class="APVOSuccessScreen" id="rejectSuccess">
         <div class="APVOSuccessContent">
           <div>
             <img
@@ -1032,24 +1021,23 @@ Review and upload high quality images</textarea
           <p class="APVOSuccessText">Product has been rejected</p>
         </div>
       </div>
+
       <!-- APPROVE CONFIRMATION MODAL -->
-      <div class="APVOConfirmOverlay" id="APVOapproveModal">
+      <div class="APVOConfirmOverlay" id="approveModal">
         <div class="APVOConfirmModal">
-          <button class="APVOCloseBtn" id="APVOcloseApproveModal">×</button>
-
+          <button class="APVOCloseBtn" id="approveClose">×</button>
           <p class="APVOConfirmText">
-            Are you sure you want to approve the Product ?
+            Are you sure you want to approve the product?
           </p>
-
           <div class="APVOConfirmActions">
-            <button class="APVOYesBtn" id="APVOapproveYes">Yes</button>
-            <button class="APVONoBtn" id="APVOapproveNo">No</button>
+            <button class="APVOYesBtn" id="approveYes">Yes</button>
+            <button class="APVONoBtn" id="approveNo">No</button>
           </div>
         </div>
       </div>
 
       <!-- APPROVE SUCCESS SCREEN -->
-      <div class="APVOSuccessScreen" id="APVOapproveSuccessScreenLive">
+      <div class="APVOSuccessScreen" id="approveSuccess">
         <div class="APVOSuccessContent">
           <div>
             <img

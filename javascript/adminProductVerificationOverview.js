@@ -82,111 +82,74 @@ function APVOSetupFiveItemToggle(type, listSelector) {
       : "../assets/vendorProductPreview/Plus.svg";
   });
 }
-/* APPROVE CONFIRMATION POPUP */
-const APVOapproveBtn = document.querySelector(".APVOSentButton");
-const APVOapproveModal = document.getElementById("APVOapproveModal");
-const APVOcloseApproveModal = document.getElementById("APVOcloseApproveModal");
-const APVOapproveYes = document.getElementById("APVOapproveYes");
-const APVOapproveNo = document.getElementById("APVOapproveNo");
-
-if (APVOapproveBtn) {
-  APVOapproveBtn.addEventListener("click", () => {
-    APVOapproveModal.classList.add("active");
-  });
-}
-
-APVOcloseApproveModal.addEventListener("click", () => {
-  APVOapproveModal.classList.remove("active");
-});
-
-APVOapproveNo.addEventListener("click", () => {
-  APVOapproveModal.classList.remove("active");
-});
-
-APVOapproveYes.addEventListener("click", () => {
-  // popup close
-  APVOapproveModal.classList.remove("active");
-
-  // poora page hide
+function showSuccessAndRedirect(successEl, redirectUrl) {
   document.querySelector(".APVOMainContentBeyond").style.display = "none";
+  successEl.classList.add("active");
 
-  //  success screen show
-  document.getElementById("APVOapproveSuccessScreen").classList.add("active");
-});
-
-/* ===== REJECT CONFIRMATION POPUP ===== */
-const APVOrejectBtn = document.querySelector(".APVORejectButton");
-const APVOrejectModal = document.getElementById("APVOrejectModal");
-const APVOcloseRejectModal = document.getElementById("APVOcloseRejectModal");
-const APVOrejectYes = document.getElementById("APVOrejectYes");
-const APVOrejectNo = document.getElementById("APVOrejectNo");
-
-if (APVOrejectBtn) {
-  APVOrejectBtn.addEventListener("click", () => {
-    APVOrejectModal.classList.add("active");
-  });
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, 3000);
 }
+const sentBtn = document.querySelector(".APVOSentButton");
 
-APVOcloseRejectModal.addEventListener("click", () => {
-  APVOrejectModal.classList.remove("active");
+sentBtn.addEventListener("click", () => {
+  verifyModal.classList.add("active");
 });
 
-APVOrejectNo.addEventListener("click", () => {
-  APVOrejectModal.classList.remove("active");
+verifyYes.addEventListener("click", () => {
+  verifyModal.classList.remove("active");
+  showSuccessAndRedirect(
+    document.getElementById("verifySuccess"),
+    "../html/adminPMProductVerification.html"
+  );
 });
-
-APVOrejectYes.addEventListener("click", () => {
-  // popup close
-  APVOrejectModal.classList.remove("active");
-
-  // main page hide
-  document.querySelector(".APVOMainContentBeyond").style.display = "none";
-
-  // reject success screen show
-  document.getElementById("APVOrejectSuccessScreen").classList.add("active");
-});
-
-document
-  .querySelector(".sidebar-main-vendor ul>li:nth-child(2)")
-  .classList.add("sidebar-active");
-document
-  .querySelector(".sidebar-main-vendor ul>ul>li:nth-child(3)")
-  .classList.add("submenu-active-highlight");
-document.querySelector(".sidebar-main-vendor ul>ul").classList.add("active");
-
-document
-  .querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header")
-  .classList.add("dropdown-header-active");
-document
-  .querySelector(".mobile-submenu li:nth-child(3)")
-  .classList.add("submenu-active-page");
-document
-  .querySelector("#account-menu .mobile-dropdown:nth-child(2)")
-  .classList.add("active-mobile-submenu");
-
 const APVOApproveBtn = document.querySelector(".APVOApproveButton");
-const APVOApproveModalLive = document.getElementById("APVOapproveModal");
-const APVOCloseApproveLive = document.getElementById("APVOcloseApproveModal");
-const APVOApproveYesLive = document.getElementById("APVOapproveYes");
-const APVOApproveNoLive = document.getElementById("APVOapproveNo");
-const APVOApproveSuccessLive = document.getElementById(
-  "APVOapproveSuccessScreenLive",
-);
 
-APVOApproveBtn?.addEventListener("click", () => {
-  APVOApproveModalLive.classList.add("active");
+verifyNo.addEventListener("click", () => {
+  verifyModal.classList.remove("active");
+});
+APVOApproveBtn.addEventListener("click", () => {
+  approveModal.classList.add("active");
 });
 
-APVOCloseApproveLive?.addEventListener("click", () => {
-  APVOApproveModalLive.classList.remove("active");
+approveYes.addEventListener("click", () => {
+  approveModal.classList.remove("active");
+  showSuccessAndRedirect(
+    document.getElementById("approveSuccess"),
+    "../html/adminPMProductList.html"
+  );
+});
+const APVOrejectBtn = document.querySelector(".APVORejectButton");
+const rejectModal = document.getElementById("rejectModal");
+const rejectYes = document.getElementById("rejectYes");
+const rejectNo = document.getElementById("rejectNo");
+
+approveNo.addEventListener("click", () => {
+  approveModal.classList.remove("active");
 });
 
-APVOApproveNoLive?.addEventListener("click", () => {
-  APVOApproveModalLive.classList.remove("active");
+APVOrejectBtn.addEventListener("click", () => {
+  rejectModal.classList.add("active");
 });
 
-APVOApproveYesLive?.addEventListener("click", () => {
-  APVOApproveModalLive.classList.remove("active");
-  document.querySelector(".APVOMainContentBeyond").style.display = "none";
-  APVOApproveSuccessLive.classList.add("active");
+rejectYes.addEventListener("click", () => {
+  rejectModal.classList.remove("active");
+  showSuccessAndRedirect(
+    document.getElementById("rejectSuccess"),
+    "../html/adminPMProductList.html"
+  );
 });
+
+rejectNo.addEventListener("click", () => {
+  rejectModal.classList.remove("active");
+});
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(2)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)>li:nth-child(3)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(2)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(2) li:nth-child(3)").classList.add("submenu-active-page");
+
+

@@ -83,7 +83,9 @@ sentYes.addEventListener('click', function() {
   // Hide success screen after 2 seconds
   setTimeout(function() {
     sentSuccessScreen.classList.remove('active');
+    window.location.href="../html/adminPMProductVerification.html"
   }, 2000);
+  
 });
 
 // Close modal when clicking outside
@@ -156,7 +158,7 @@ ADVOFaRejectYes.addEventListener("click", () => {
     document.querySelector(".ADVOBdContainer").classList.remove("ADVOBlur");
 
     // redirect
-    window.location.href = "../html/adminVMVendorVerificationList.html";
+    window.location.href = "../html/adminVMVendorList.html";
   }, 3000);
 });
 
