@@ -1,29 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   const searchInput = document.querySelector(".APMSearchInput");
   const tableBody = document.querySelector(".APMTableBody");
   const tableRows = [...document.querySelectorAll(".APMTableRow")];
 
-  /* SEARCH */
+  /* ================= SEARCH ================= */
   searchInput.addEventListener("input", function () {
     const val = searchInput.value.toLowerCase().trim();
 
     tableRows.forEach((row) => {
       const name = row.children[0].innerText.toLowerCase();
-      const uid = row.children[1].innerText.toLowerCase();
-      const email = row.children[2].innerText.toLowerCase();
-      const city = row.children[5].innerText.toLowerCase();
+      const sku = row.children[1].innerText.toLowerCase();
+      const category = row.children[2].innerText.toLowerCase();
+      const payment = row.children[4].innerText.toLowerCase();
 
       row.style.display =
         name.includes(val) ||
-        uid.includes(val) ||
-        email.includes(val) ||
-        city.includes(val)
+        sku.includes(val) ||
+        category.includes(val) ||
+        payment.includes(val)
           ? ""
           : "none";
     });
   });
 
-  /* FILTER / SORT TOGGLE */
+  /* ================= FILTER / SORT TOGGLE ================= */
   const filterBtn = document.getElementById("apm-filter-btn");
   const sortBtn = document.getElementById("apm-sort-btn");
   const filterMain = document.getElementById("apm-filter-main");
@@ -62,44 +63,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* FILTER */
-  function applyBuyerFilter() {
-    const states = [
-      ...document.querySelectorAll("#apm-state-box input:checked"),
-    ].map((cb) => cb.dataset.state);
+  /* ================= FILTER ================= */
+  function applyFilter() {
 
-    const cities = [
-      ...document.querySelectorAll("#apm-city-box input:checked"),
-    ].map((cb) => cb.dataset.city);
+    const payments = [...document.querySelectorAll("#apm-state-box input:checked")]
+      .map(cb => cb.parentElement.textContent.trim());
 
-    tableRows.forEach((row) => {
-      const state = row.children[4].innerText.trim();
-      const city = row.children[5].innerText.trim();
+    const status = [...document.querySelectorAll("#apm-city-box input:checked")]
+      .map(cb => cb.parentElement.textContent.trim());
 
-      const show =
-        (!states.length || states.includes(state)) &&
-        (!cities.length || cities.includes(city));
+    tableRows.forEach(row => {
+      const rowPayment = row.dataset.payment;
+      const rowStatus = row.dataset.status;
 
-      row.style.display = show ? "" : "none";
+      const matchPayment = !payments.length || payments.includes(rowPayment);
+      const matchStatus = !status.length || status.includes(rowStatus);
+
+      row.style.display = (matchPayment && matchStatus) ? "" : "none";
     });
   }
 
   document
     .querySelectorAll("#apm-state-box input, #apm-city-box input")
-    .forEach((cb) => cb.addEventListener("change", applyBuyerFilter));
+    .forEach(cb => cb.addEventListener("change", applyFilter));
 
-  /* SORT */
-  const sortRadios = document.querySelectorAll("#apm-sort-box input");
-
-  sortRadios.forEach((radio) => {
+  /* ================= SORT ================= */
+  document.querySelectorAll("#apm-sort-box input").forEach((radio) => {
     radio.addEventListener("change", () => {
       const type = radio.dataset.sort;
 
       const sortedRows = [...tableRows].sort((a, b) => {
+
         if (type === "nameAZ" || type === "nameZA") {
           const A = a.children[0].innerText;
           const B = b.children[0].innerText;
-          return type === "nameAZ" ? A.localeCompare(B) : B.localeCompare(A);
+          return type === "nameAZ"
+            ? A.localeCompare(B)
+            : B.localeCompare(A);
         }
 
         if (type === "uidASC" || type === "uidDESC") {
@@ -110,12 +110,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       tableBody.innerHTML = "";
-      sortedRows.forEach((r) => tableBody.appendChild(r));
+      sortedRows.forEach(r => tableBody.appendChild(r));
     });
   });
 
+  /* ================= COUNT ================= */
   document.querySelector(".APMViewAllLink").innerText = tableRows.length;
+
 });
+
 
 /* ================= POPUP LOGIC ================= */
 
