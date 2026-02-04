@@ -25,7 +25,7 @@ hamburger?.addEventListener("click", () => {
 const adminSalesPaymentModeCtx = document
   .getElementById("adminSalesPaymentModeChart")
   .getContext("2d");
-const adminSalesPaymentModeChart = new Chart(adminSalesPaymentModeCtx, {
+window.adminSalesPaymentModeChart = new Chart(adminSalesPaymentModeCtx, {
   type: "doughnut",
   data: {
     labels: ["Credit/Debit", "Google Pay", "Net Banking", "UPI BHIM"],
@@ -57,7 +57,7 @@ const adminSalesPaymentModeChart = new Chart(adminSalesPaymentModeCtx, {
 const adminSalesBusinessCtx = document
   .getElementById("adminSalesBusinessChart")
   .getContext("2d");
-const adminSalesBusinessChart = new Chart(adminSalesBusinessCtx, {
+window.adminSalesBusinessChart = new Chart(adminSalesBusinessCtx, {
   type: "line",
   data: {
     labels: [
@@ -160,7 +160,7 @@ const adminSalesBusinessChart = new Chart(adminSalesBusinessCtx, {
 const adminSalesStateWiseCtx = document
   .getElementById("adminSalesStateWiseChart")
   .getContext("2d");
-const adminSalesStateWiseChart = new Chart(adminSalesStateWiseCtx, {
+window.adminSalesStateWiseChart = new Chart(adminSalesStateWiseCtx, {
   type: "doughnut",
   data: {
     labels: ["MH", "GJ", "RJ"],
@@ -299,6 +299,7 @@ window.adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
         },
 
         ticks: {
+          
           stepSize: 20,
           padding: 12,
           font: {
@@ -323,7 +324,7 @@ window.adminSalesTargetChart = new Chart(adminSalesTargetCtx, {
 const adminSalesStateRevenuesCtx = document
   .getElementById("adminSalesStateRevenuesChart")
   .getContext("2d");
-const adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
+window.adminSalesStateRevenuesChart = new Chart(adminSalesStateRevenuesCtx, {
   type: "bar",
   data: {
     labels: [
@@ -437,6 +438,37 @@ function applyMobileOrder() {
     }
   }, 100);
 }
+
+function resizeAllSalesCharts() {
+  const charts = [
+    window.adminSalesPaymentModeChart,
+    window.adminSalesBusinessChart,
+    window.adminSalesStateWiseChart,
+    window.adminSalesTargetChart,
+    window.adminSalesStateRevenuesChart,
+  ];
+
+  charts.forEach((chart) => {
+    if (chart) {
+      chart.resize();
+      chart.update("none");
+    }
+  });
+}
+
+// Browser resize
+window.addEventListener("resize", () => {
+  resizeAllSalesCharts();
+});
+
+// DevTools responsive mode fix
+window.addEventListener("orientationchange", () => {
+  setTimeout(resizeAllSalesCharts, 200);
+});
+
+// First load fix
+setTimeout(resizeAllSalesCharts, 300);
+
 document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(6)").classList.add("sidebar-active");
 document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)").classList.add("active");
 document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(1)").classList.add("submenu-active-highlight");

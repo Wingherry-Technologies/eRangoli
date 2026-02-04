@@ -247,12 +247,12 @@ canvas {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   width: 100%;
-  margin-left: 9rem;
+
 }
 
 .adminSalesLegendRow {
   display: flex;
-  margin-left: 4rem;
+  margin-left: 1rem;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -298,12 +298,16 @@ canvas {
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .adminSalesStatsRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* .adminSalesStatsRow {
+    grid-template-columns: repeat(4, 1fr);
+  } */
+   .adminSalesStatValue{
+    font-size: 15px;  
+
+   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .adminSalesRow {
     grid-template-columns: 1fr;
   }
@@ -498,4 +502,9 @@ canvas {
   canvas {
     max-width: 100%;
   }
+}
+.adminSalesCard canvas {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
 }
