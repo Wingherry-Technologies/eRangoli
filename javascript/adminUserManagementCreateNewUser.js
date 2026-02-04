@@ -115,18 +115,26 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("createNewUserBtn")
     ?.addEventListener("click", function () {
-      document.getElementById("verifyCard").style.display = "none";
-      document.getElementById("createCard").style.display = "block";
-      pageTitle.innerText = "Generate Credentials";
-      document.getElementById("userForm").reset();
-      document.querySelectorAll(".error").forEach((e) => (e.innerText = ""));
+      const createCard = document.getElementById("createCard");
+      const verifyCard = document.getElementById("verifyCard");
+
+      if (verifyCard.style.display !== "none") {
+        verifyCard.style.display = "none";
+        createCard.style.display = "block";
+        pageTitle.innerText = "Generate Credentials";
+        document.getElementById("userForm").reset();
+        document.querySelectorAll(".error").forEach((e) => (e.innerText = ""));
+        return;
+      }
+
+      window.location.href = "../html/adminUMUserList.html";
     });
 
   document.getElementById("sendBtn")?.addEventListener("click", function () {
     document.getElementById("successModal").style.display = "flex";
     setTimeout(() => {
       document.getElementById("successModal").style.display = "none";
-      window.location.href='../html/adminUMUserList.html'
+      window.location.href = "../html/adminUMUserList.html";
     }, 2500);
   });
 });

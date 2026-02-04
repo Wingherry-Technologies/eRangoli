@@ -256,6 +256,21 @@ h3 {
 .y-axis span {
   white-space: nowrap;
 }
+.chart-wrapper {
+  overflow-x: auto;
+}
+.chart-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chart-wrapper::-webkit-scrollbar-thumb {
+  background: #b7b2c9;
+  border-radius: 10px;
+}
+
+.chart-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 /* Bars area */
 .bars-area {

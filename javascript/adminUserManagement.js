@@ -2,22 +2,20 @@
 // HAMBURGER OPEN/CLOSE
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
-var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
-
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
   // Toggle hamburger icon
   if (mobileMenu.classList.contains("menu-open")) {
     hamberMenuIcon.src = "../assets/master/X.svg";
-    document.querySelector(".bottom-nav").style.display="none"
-    document.querySelector("body").style.overflow="hidden"
+    document.querySelector(".bottom-nav").style.display = "none";
+    document.querySelector("body").style.overflow = "hidden";
     window.scrollTo(0, 0);
-  }
-  else {
+  } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector("body").style.overflow="auto";
-    document.querySelector(".bottom-nav").style.display="flex";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
   }
 });
 
@@ -207,7 +205,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(5)").classList.add("sidebar-active");
+document
+  .querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(5)")
+  .classList.add("sidebar-active");
 
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header")
+  .classList.add("dropdown-header-active");
 
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header").classList.add("dropdown-header-active");
+// BLOCK TOGGLE ONLY FOR VERIFIED USERS
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".AUMTable tbody tr").forEach((row) => {
+    const statusEl = row.querySelector(".AUMStatus");
+    const toggle = row.querySelector(".AUMToggle");
+
+    if (!statusEl || !toggle) return;
+
+    // Only allow toggle if status is VERIFIED
+    if (statusEl.classList.contains("verified")) {
+      toggle.classList.add("toggle-enabled");
+
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
+      });
+    } else {
+      // Disable toggle for non-verified users
+      toggle.classList.add("toggle-disabled");
+    }
+  });
+
+  // MOBILE VIEW
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const statusEl = item.querySelector(".AUMStatus");
+    const toggle = item.querySelector(".AUMToggle");
+
+    if (!statusEl || !toggle) return;
+
+    if (
+      statusEl.classList.contains("verified-mob") ||
+      statusEl.classList.contains("verified")
+    ) {
+      toggle.classList.add("toggle-enabled");
+
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
+      });
+    } else {
+      toggle.classList.add("toggle-disabled");
+    }
+  });
+});
