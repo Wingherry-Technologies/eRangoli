@@ -481,9 +481,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
+  /* body {
     padding: 16px;
-  }
+  } */
 
   .APMDashboardContainer {
     gap: 16px;
@@ -605,8 +605,8 @@ body {
   /* Show mobile list */
   .APMMobileList {
     display: block;
-    background: #fff;
-    padding: 10px;
+    /* background: #fff; */
+    /* padding: 10px; */
   }
 
   /* FAQ item card */
