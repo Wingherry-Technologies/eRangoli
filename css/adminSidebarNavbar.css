@@ -19,6 +19,7 @@ nav{
     z-index: 999 !important;
     background-color: white;
     margin-left: 300px; 
+    border-bottom: 1px solid #D9D9D9;
 }
 .logo-section{
     height: 55px;

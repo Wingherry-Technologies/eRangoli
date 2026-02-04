@@ -321,9 +321,6 @@ canvas {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding: 16px;
-  }
 
   .adminSalesDashboardContainer {
     gap: 16px;

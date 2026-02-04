@@ -683,9 +683,6 @@ h3 {
 }
 
 @media (max-width: 595px) {
-  body {
-    padding: 12px;
-  }
 
   .dashboard {
     grid-template-columns: 1fr;

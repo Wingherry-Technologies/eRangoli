@@ -1,18 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VM-Vendor List Overview</title>
-    <link
-      rel="stylesheet"
-      href="../css/adminvendorlistOverview.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-My Profile</title>
     <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
+    <link rel="stylesheet" href="../css/adminMyProfile.css">
     <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
-  </head>
-  <body>
-       <!-- Navigation Bar -->
+</head>
+<body>
+        <!-- Navigation Bar -->
     <nav>
         <div class="logo-section">
             <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
@@ -488,293 +485,73 @@
       </a>
     </div>
 
-    <!-- Sidebar -->
-    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
-        <article>
-          <div class="welcome-sidebar-main">
-            <div class="welcome-sidebar">
-              <span>Welcome!</span>
-              <span>Administration</span>
-            </div>
-            <div class="hamberger-sidebar" id="sidebarToggle">
-              <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
-              <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
-            </div>
-          </div>
-
-          <ul>
-            <!-- Dashboard -->
-            <li class="has-submenu" onclick="window.location.href='../html/admindashboard.html'">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/GridFour.svg" alt="">
-                <span>Dashboard</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-            </li>
-
-            <!-- Product Management -->
-            <li class="has-submenu" data-menu="product">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/Package.svg" alt="">
-                <span>Product Management</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-            </li>
-            <ul class="submenu" data-submenu="product">
-              <li onclick="window.location.href='../html/adminPMProductList.html'">Product List</li>
-              <li onclick="window.location.href='../html/adminPMProductCategories.html'">Product Categories</li>
-              <li onclick="window.location.href='../html/adminPMProductRecentlyAdded.html'">Recently Added Products</li>
-              <li onclick="window.location.href='../html/adminPMProductVerification.html'">Product Verification</li>
-            </ul>
-
-            <!-- Vendor Management -->
-            <li class="has-submenu" data-menu="vendor">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
-                <span>Vendor Management</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-            </li>
-            <ul class="submenu" data-submenu="vendor">
-              <li onclick="window.location.href='../html/adminVMVendorList.html'">Vendor List</li>
-              <li onclick="window.location.href='../html/adminVMRecentVendorList.html'">Recently Added Vendors</li>
-              <li onclick="window.location.href='../html/adminVMVendorVerificationList.html'">Vendor Verification</li>
-            </ul>
-
-            <!-- Buyer Management -->
-            <li class="has-submenu" onclick="window.location.href='../html/adminBMBuyerList.html'">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
-                <span>Buyer Management</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-            </li>
-
-            <!-- User Management -->
-            <li class="has-submenu" onclick="window.location.href='../html/adminUMUserList.html'">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
-                <span>User Management</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
-            </li>
-
-            <!-- Sales -->
-            <li class="has-submenu" data-menu="sales">
-              <div class="image-head">
-                <img src="../assets/vendorSidebar/Coins.svg" alt="">
-                <span>Sales</span>
-              </div>
-              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
-            </li>
-            <ul class="submenu" data-submenu="sales">
-              <li onclick="window.location.href='../html/adminSalesDashboard.html'">Dashboard</li>
-              <li onclick="window.location.href='../html/adminSalesPurchaseOrder.html'">Purchase Orders</li>
-              <li onclick="window.location.href='../html/adminSalesReturnOrders.html'">Return Orders</li>
-              <li onclick="window.location.href='../html/adminSalesBuyerPaymentDetails.html'">Buyer Payment History</li>
-              <li onclick="window.location.href='../html/adminSalesVendorPaymentsDetails.html'">Vendor Payments</li>
-              <li onclick="window.location.href='../html/adminSalesReport.html'">Sales Report</li>
-              <li onclick="window.location.href='../html/adminSalesDiscount.html'">Discounts</li>
-              <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
-            </ul>
-
-            
-
-          </ul>
-        </article>
-    </section>
-    <div class="main-content-beyond">
-      <div class="APPVOMainContentBeyond">
-      <div class="APPVOContainer">
-        <div class="APPVOMobileHeader"><div class="mobile-back-button">
-                    <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
-                    <span>Product Details</span>
+    <div class="main-content-beyond1">
+        <div class="main-profile-head-bar">
+            <span>My Profile</span>
+        </div>
+        <div class="main-profile-contents">
+            <div class="left-profile-content">
+                <div class="sub-left-profile-content">
+                    <img id="preview-image-profile" src="../assets/adminSidebar/Group 2055248221.svg" alt="">
+                    <label for="change-profile-pic">Change Profile</label>
+                    <input type="file" id="change-profile-pic" accept="image/*" style="display: none;">
+                    <button id="changeBtn" class="changeBtn">Change</button>
                 </div>
-          <div class="APPVOMobileBackButton">
-            <img
-              onclick="window.history.back()"
-              src="../assets/adminPendingProductVerificationOverview/Vector (2).svg"
-              alt=""
-            />
-            <span>Sanskriti Collection</span>
-          </div>
-
-          <!-- <div class="APPVOPendingStatus">Pending</div> -->
-        </div> 
-
-      <!-- Product Details Section -->
-      <!-- ================= BUSINESS & PERSONAL DETAILS ================= -->
-      <div class="APPVOPreviewSection">
-
-        <!-- BUSINESS DETAILS -->
-        <div class="APPVOSectionHeader">
-          <h2 class="APPVOPreviewSectionTitle">Business Details</h2>
+            </div>
+            <div class="right-profile-content">
+                <div class="main-form-group">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" readonly id="fullname" value="David John">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" readonly id="username" value="DavidJ">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" readonly id="email" value="davidjohn@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobilenumber">Mobile Number</label>
+                        <input type="text" readonly id="mobilenumber" value="8123205422">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" readonly id="role" value="Admin">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastaction">Last Action on</label>
+                        <div class="main-time">
+                            <input type="text" readonly id="lastaction" value="30/02/2026">
+                            <span>05:30PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-form-group">
+                    <a href="../html/adminMyProfileResetPassword.html" id="resetPassword">Reset Password</a>
+                    <a href="" id="logout">Logout</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="APPVOBusinessCard">
-          <div class="APPVOBusinessLogo">
-            <img src="../assets/adminvendorlist/business.png" alt="Sanskriti Collection">
-          </div>
-
-          <div class="APPVOBusinessGrid">
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Business Name</span>
-              <span class="APPVOInfoValue">Sanskriti Collection</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Email Address</span>
-              <span class="APPVOInfoValue">sanskriticcollection@sanskriti.com</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Mobile</span>
-              <span class="APPVOInfoValue">67584 78900</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Shipping Address</span>
-              <span class="APPVOInfoValue">
-                C - 605, Eden Park, Mudhuban colony,<br>
-                parsi road, Near Appolo Hospital,<br>
-                Pune, Maharashtra, 234 678
-              </span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">GST Number</span>
-              <span class="APPVOInfoValue">3456 6776 6788 6778</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Business Bank Details</span>
-              <span class="APPVOInfoValue">
-                Bank of India<br>
-                Sanskriti Collection<br>
-                Bank of India – Srikalahasthi Branch<br>
-                (IFSC: BKID0005719)<br>
-                Account number - **** **** **** 823
-              </span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Joined on</span>
-              <span class="APPVOInfoValue">04/01/26</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Last Active</span>
-              <span class="APPVOInfoValue">06/01/26</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Verified On</span>
-              <span class="APPVOInfoValue">06/01/26</span>
-            </div>
-          </div>
-        </div>
-      <br>
-        <!-- PERSONAL DETAILS -->
-        <div class="APPVOSectionHeader">
-          <h2 class="APPVOPreviewSectionTitle">Personal Details</h2>
-        </div>
-
-        <div class="APPVOPersonalGrid">
-          <div class="APPVOPersonalSubGrid">
-            <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">Name</span>
-            <span class="APPVOInfoValue">David John</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">Gender</span>
-            <span class="APPVOInfoValue">Female</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Designation</span>
-              <span class="APPVOInfoValue">Artisan</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">Mobile Number</span>
-            <span class="APPVOInfoValue">95367 89905</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">State</span>
-            <span class="APPVOInfoValue">MH</span>
-          </div>
-
-          </div>
-
-          <div class="APPVOPersonalSubGrid">
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Email Address</span>
-              <span class="APPVOInfoValue">davidjohn23@gmail.com</span>
-            </div>
-
-            <div class="APPVOInfoBlock">
-              <span class="APPVOInfoLabel">Permanent Address</span>
-              <span class="APPVOInfoValue">
-                C - 605, Eden Park, Mudhuban colony,<br>
-                parsi road, Near Appolo Hospital,<br>
-                Pune, Maharashtra, 234 678
-              </span>
-            </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">City</span>
-            <span class="APPVOInfoValue">Mumbai</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">ID Proof</span>
-            <span class="APPVOInfoValue">Aadhar Card</span>
-          </div>
-          </div>
-
-          <div class="APPVOPersonalSubGrid">
-            <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">ID Number</span>
-            <span class="APPVOInfoValue">2546 6778 7744 6778</span>
-          </div>
-
-          <div class="APPVOInfoBlock">
-            <span class="APPVOInfoLabel">Identity Proof</span>
-            <div class="APPVOIdPreview">
-              <img src="../assets/adminvendorlist/aadharfront.png" alt="">
-              <img src="../assets/adminvendorlist/aadharback.png" alt="">
-            </div>
-          </div>
-          </div>
-
-        </div>
-        
-        <div class="delete-btn-main">
-          <button class="APPVOdeleteButton">Delete</button>
-        </div>
-      </div>
+    <div class="success-toastify-main">
+      <div class="success-toastify">
+        <span>Successfully changed the profile pic</span>
       </div>
     </div>
 
-    <div class="APOConfirmOverlay" id="APPVOdeleteModal">
-      <div class="APOConfirmModal">
-        <button class="APOCloseBtn" id="APPVOclosedeleteModal">×</button>
-
-        <p class="APOConfirmText">Are you sure you want to delete?</p>
-
-        <div class="APOConfirmActions">
-          <button class="APOYesBtn" id="APPVOdeleteYes">Yes</button>
-          <button class="APONoBtn" id="APPVOdeleteNo">No</button>
+    <div class="logout-confirm-main-modal" id="logout-confirm-model">
+      <div class="logout-confirm-content">
+        <span>Are You Sure You Want to Logout?</span>
+        <div class="button-group">
+          <button id="confirmLogout">Logout</button>
+          <button id="confirmCancel">Cancel</button>
         </div>
       </div>
     </div>
-
-    </div>
-
-
-    <script src="../javascript/adminvendorlistOverview.js"></script>
-    <script src="../javascript/adminSidebarnavbar.js"></script>
-  </body>
+    
+</body>
+<script src="../javascript/adminMyProfile.js"></script>
 </html>

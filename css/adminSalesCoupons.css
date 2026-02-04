@@ -144,9 +144,6 @@ tbody td {
   body {
     background: #ffffff;
   }
-  .page-wrapper {
-    padding: 5px;
-  }
   .card {
     display: none;
   }

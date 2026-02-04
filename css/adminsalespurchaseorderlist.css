@@ -481,9 +481,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* body {
-    padding: 16px;
-  } */
+  /*  */
 
   .APMDashboardContainer {
     gap: 16px;

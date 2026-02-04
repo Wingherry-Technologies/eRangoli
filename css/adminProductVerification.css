@@ -553,9 +553,7 @@ body {
 }
 
 @media (max-width: 595px) {
-  body {
-    padding: 16px;
-  }
+
 
   .APVDashboardContainer {
     gap: 16px;
