@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales-Purchase Order</title>
+    <link rel="stylesheet" href="../css/adminsalesproductrefundorder.css" />
+    <link rel="stylesheet" href="../css/adminSidebarNavbar.css">
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+  </head>
+
+  <body>
+        <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-section">
+            <img id="desktop-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" onclick="window.location.href='../html/index.html'" src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important;" />
+            <ul id="desktop-suggestions" class="suggestions-box"></ul>
+        </div>
+
+        <!-- HAMBURGER (Mobile Only) -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <img src="../assets/master/List.svg" alt="">
+        </div>
+
+        <!-- Mobile Menu -->
+          <div id="mobile-menu">
+            <div class="welcome-main-section" id="welcome-section">
+              <div class="image-section">
+                <div class="circle-image">
+                  <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="">
+                </div>
+              </div>
+              <div class="welcome-text-section">
+                <span>Welcome !</span>
+                <a id="welcome-name">Sanskriti Collection</a>
+              </div>
+            </div>
+
+            <div class="main-bottom-section">
+              <div class="sub-section">
+                <ul class="mobile-nav-menu1" id="account-menu">
+
+                  <!-- DASHBOARD -->
+                <li class="mobile-dropdown" onclick="window.location.href='../html/admindashboard.html'">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                        </div>
+                        <span>Dashboard</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- PRODUCT MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Package.svg" alt="">
+                        </div>
+                        <span>Product Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                      
+                    </div>
+                    <ul class="mobile-submenu">
+                        <li onclick="window.location.href='../html/adminPMProductList.html'">Product List</li>
+                        <li onclick="window.location.href='../html/adminPMProductCategories.html'">Product Categories</li>
+                        <li onclick="window.location.href='../html/adminPMProductRecentlyAdded.html'">Recently Added Products</li>
+                        <li onclick="window.location.href='../html/adminPMProductVerification.html'">Product Verification</li>
+                    </ul>
+                  </li>
+
+                  <!-- ORDER MANAGEMENT -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                        </div>
+                        <span>Vendor Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                    <ul class="mobile-submenu">
+                      <li onclick="window.location.href='../html/adminVMVendorList.html'">Vendor List</li>
+                      <li onclick="window.location.href='../html/adminVMRecentVendorList.html'">Recently Added Vendors</li>
+                      <li onclick="window.location.href='../html/adminVMVendorVerificationList.html'">Vendor Verification</li>
+                    </ul>
+                  </li>
+
+                  <!-- RETURN MANAGEMENT -->
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminBMBuyerList.html'">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                        </div>
+                        <span>Buyer Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- User Management -->
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminUMUserList.html'">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                        </div>
+                        <span>User Management</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+                  <!-- Sales -->
+                  <li class="mobile-dropdown">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                        </div>
+                        <span>Sales</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                    <ul class="mobile-submenu">
+                      <li onclick="window.location.href='../html/adminSalesDashboard.html'">Dashboard</li>
+                      <li onclick="window.location.href='../html/adminSalesPurchaseOrder.html'">Purchase Orders</li>
+                      <li onclick="window.location.href='../html/adminSalesReturnOrders.html'">Return Orders</li>
+                      <li onclick="window.location.href='../html/adminSalesBuyerPaymentDetails.html'">Buyer Payment History</li>
+                      <li onclick="window.location.href='../html/adminSalesVendorPaymentsDetails.html'">Vendor Payments</li>
+                      <li onclick="window.lcation.href='../html/adminSalesReport.html'">Sales Report</li>
+                      <li onclick="window.location.href='../html/adminSalesDiscount.html'">Discounts</li>
+                      <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
+                    </ul> 
+                  </li>
+
+                  <!-- My Profile -->
+                  <li class="mobile-dropdown" onclick="window.location.href='../html/adminMyProfile.html'">
+                    <div class="dropdown-header">
+                      <div class="mobile-icon-main">
+                        <div class="mobile-icon">
+                          <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+                        </div>
+                        <span>My Profile</span>
+                      </div>
+                      <img class="arrow" src="../assets/master/CaretDown.svg">
+                    </div>
+                  </li>
+
+
+                </ul>
+              </div>
+            </div>
+
+            <div class="mobile-logout-section">
+              <div class="mobile-logout-sub">
+                <div class="version">
+                  <span>eRangoli Version 1.0.0</span>
+                </div>
+                <div class="logout-button">
+                  <img src="../assets/master/SignOut.svg" alt="">
+                  <span>Logout</span>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+        <!-- MENU -->
+        <div class="menu-section" >
+
+            <div class="round-button" id="round-button-notification">
+                <span class="number-of-round" id="number-of-notification">3</span>
+                <img src="../assets/master/Bell.svg" alt="" />
+            </div>
+
+            <div class="round-button" id="round-button-order">
+              <span class="number-of-round" id="number-of-cart">4</span>
+              <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+            </div>
+
+            <div class="user-profile-icon" id="user-profile-icon">
+                    <div class="img-name">
+                      <div class="circle-image">
+                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="">
+                      </div>
+                      <div class="admin-name">
+                        <span id="user-name">Kristin Winget</span>
+                        <span id="role-name">Admin</span>
+                      </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="notification-main-box">
+          <ul>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+            <li class="notification-content">
+              <div>
+                <img src="../assets/master/Rectangle 34627068.svg" alt="">
+              </div>
+              <div class="contents-noti">
+                <span>13/12/25</span>
+                <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+                <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st dec.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="notification-main-box" id="notification-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="">
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">We are also taking orders for ready to wear saree, 20% off on orders before 31st
+                dec.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="">
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="">
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">New Collection of Kalamkari Saree is Live</div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+        <span class="bottom-nav__label">Dashboard</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Orders</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="">
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+      
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-cart" onclick="window.location.href='../html/adminMyProfile.html'">
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="">
+        <span class="bottom-nav__label">My Profile</span>
+      </a>
+    </div>
+
+    <!-- Sidebar -->
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor"> 
+        <article>
+          <div class="welcome-sidebar-main">
+            <div class="welcome-sidebar">
+              <span>Welcome!</span>
+              <span>Administration</span>
+            </div>
+            <div class="hamberger-sidebar" id="sidebarToggle">
+              <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="">
+              <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="">
+            </div>
+          </div>
+
+          <ul>
+            <!-- Dashboard -->
+            <li class="has-submenu" onclick="window.location.href='../html/admindashboard.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/GridFour.svg" alt="">
+                <span>Dashboard</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- Product Management -->
+            <li class="has-submenu" data-menu="product">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/Package.svg" alt="">
+                <span>Product Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="product">
+              <li onclick="window.location.href='../html/adminPMProductList.html'">Product List</li>
+              <li onclick="window.location.href='../html/adminPMProductCategories.html'">Product Categories</li>
+              <li onclick="window.location.href='../html/adminPMProductRecentlyAdded.html'">Recently Added Products</li>
+              <li onclick="window.location.href='../html/adminPMProductVerification.html'">Product Verification</li>
+            </ul>
+
+            <!-- Vendor Management -->
+            <li class="has-submenu" data-menu="vendor">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/ClipboardText.svg" alt="">
+                <span>Vendor Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="vendor">
+              <li onclick="window.location.href='../html/adminVMVendorList.html'">Vendor List</li>
+              <li onclick="window.location.href='../html/adminVMRecentVendorList.html'">Recently Added Vendors</li>
+              <li onclick="window.location.href='../html/adminVMVendorVerificationList.html'">Vendor Verification</li>
+            </ul>
+
+            <!-- Buyer Management -->
+            <li class="has-submenu" onclick="window.location.href='../html/adminBMBuyerList.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="">
+                <span>Buyer Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- User Management -->
+            <li class="has-submenu" onclick="window.location.href='../html/adminUMUserList.html'">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/UsersFour.svg" alt="">
+                <span>User Management</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" alt="">
+            </li>
+
+            <!-- Sales -->
+            <li class="has-submenu" data-menu="sales">
+              <div class="image-head">
+                <img src="../assets/vendorSidebar/Coins.svg" alt="">
+                <span>Sales</span>
+              </div>
+              <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="">
+            </li>
+            <ul class="submenu" data-submenu="sales">
+              <li onclick="window.location.href='../html/adminSalesDashboard.html'">Dashboard</li>
+              <li onclick="window.location.href='../html/adminSalesPurchaseOrder.html'">Purchase Orders</li>
+              <li onclick="window.location.href='../html/adminSalesReturnOrders.html'">Return Orders</li>
+              <li onclick="window.location.href='../html/adminSalesBuyerPaymentDetails.html'">Buyer Payment History</li>
+              <li onclick="window.location.href='../html/adminSalesVendorPaymentsDetails.html'">Vendor Payments</li>
+              <li onclick="window.location.href='../html/adminSalesReport.html'">Sales Report</li>
+              <li onclick="window.location.href='../html/adminSalesDiscount.html'">Discounts</li>
+              <li onclick="window.location.href='../html/adminSalesCoupons.html'">Coupons</li>
+            </ul>
+
+            
+
+          </ul>
+        </article>
+    </section>
+    <div class="main-content-beyond">
+      <div class="APMDashboardContainer">
+      <!-- Top Stats Cards Row -->
+      <div class="APMStatsRow">
+        <!-- Total Products Card -->
+        <div class="APMStatCard" id="APMTotalProductsWidget">
+          <div class="APMStatHeader">
+            <div class="APMStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel"> Total Orders</span>
+          </div>
+          <div class="APMStatValue">14,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Newly Added Card -->
+        <div class="APMStatCard" id="APMNewlyAddedWidget">
+          <div class="APMStatHeader">
+            <div class="APMStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">In transit</span>
+          </div>
+          <div class="APMStatValue">9,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Trending Products Card -->
+        <div class="APMStatCard" id="APMTrendingProductsWidget">
+          <div class="APMStatHeader">
+            <div class="APMStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Delivered</span>
+          </div>
+          <div class="APMStatValue">4,945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Least Purchased Card -->
+        <div class="APMStatCard" id="APMLeastPurchasedWidget">
+          <div class="APMStatHeader">
+            <div class="APMStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="APMStatLabel">Return</span>
+          </div>
+          <div class="APMStatValue">945</div>
+          <div class="APMStatFooter">
+            <span class="APMStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="APMStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="APMChartImage"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Bar Section -->
+      <div class="APMSearchRow">
+        <div class="APMSearchWrapper">
+          <img src="../assets/adminProductManagement/search (2).svg" alt="" />
+          <input
+            type="text"
+            class="APMSearchInput"
+            placeholder="Search by customer name, buyer name, email or city"
+          />
+        </div>
+        <div class="APMIconsGroup filter-bar-wrapper">
+        
+          <!-- Filter Icon -->
+          <div class="APMFilterDummy">
+            <img src="../assets/adminProductManagement/Sliders.svg" alt="" id="apm-filter-btn" />
+          </div>
+        
+          <!-- Sort Icon -->
+          <div class="APMSettingsDummy">
+            <img src="../assets/adminProductManagement/SortAscending (1).svg" alt="" id="apm-sort-btn" />
+          </div>
+        
+          <!-- Filter main -->
+          <div class="main-content-flows-main" id="apm-filter-main">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Filter</span>
+              </div>
+              <ul>
+                <li id="apm-state-open">Payment</li>
+                <li id="apm-city-open">Delivery Status</li>
+              </ul>
+            </div>
+          </div>
+        
+          <!-- Payment filter box -->
+          <div class="main-content-flows-main" id="apm-state-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Payment</span>
+              </div>
+              <ul>
+                <li><input type="checkbox" /> Google Pay</li>
+                <li><input type="checkbox" /> Pay Pal</li>
+                <li><input type="checkbox" /> Credit Card</li>
+                <li><input type="checkbox" /> Debit Card</li>
+                <li><input type="checkbox" /> Net Banking</li>
+              </ul>
+            </div>
+          </div>
+        
+          <!-- Delivery Status filter box -->
+          <div class="main-content-flows-main" id="apm-city-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Select Status</span>
+              </div>
+              <ul>
+                <li><input type="checkbox" /> Delivered</li>
+                <li><input type="checkbox" /> Pending</li>
+              </ul>
+            </div>
+          </div>
+        
+          <!-- Sort box -->
+          <div class="main-content-flows-main" id="apm-sort-box">
+            <div class="main-filter-box-content">
+              <div class="main-head-filters">
+                <span>Sort Products</span>
+              </div>
+              <ul>
+                <li>
+                  <input type="radio" name="buyerSort" data-sort="nameAZ" />
+                  Name A–Z
+                </li>
+                <li>
+                  <input type="radio" name="buyerSort" data-sort="nameZA" />
+                  Name Z–A
+                </li>
+                <li>
+                  <input type="radio" name="buyerSort" data-sort="uidASC" />
+                  SKU Ascending
+                </li>
+                <li>
+                  <input type="radio" name="buyerSort" data-sort="uidDESC" />
+                  SKU Descending
+                </li>
+              </ul>
+            </div>
+          </div>
+        
+        </div>
+
+      </div>
+
+      <!-- Product Table Section -->
+      <div class="APMTableCard">
+        <div class="APMTableHeader">
+          <h3 class="APMTableTitle">Recent Purchase Orders</h3>
+          <a href="#" class="APMViewAllLink">200</a>
+        </div>
+      
+        <div class="APMTableWrapper">
+          <table class="APMProductTable">
+            <thead class="APMTableHead">
+              <tr class="APMTableHeadRow">
+                <th class="APMTableHeaderCell">Product Name</th>
+                <th class="APMTableHeaderCell">SKU ID</th>
+                <th class="APMTableHeaderCell">Category</th>
+                <th class="APMTableHeaderCell">Qty</th>
+                <th class="APMTableHeaderCell">Payment</th>
+                <th class="APMTableHeaderCell">Order Date</th>
+                <th class="APMTableHeaderCell">Pickup Date</th>
+                <th class="APMTableHeaderCell">Delivery Date</th>
+                <th class="APMTableHeaderCell"></th>
+              </tr>
+            </thead>
+      
+            <tbody class="APMTableBody">
+      
+              <tr class="APMTableRow" data-payment="Google Pay" data-status="Delivered">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393001</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Google Pay</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell">07/01/26</td>
+                <td class="APMTableCell">11/01/26</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+              <tr class="APMTableRow" data-payment="Pay Pal" data-status="Pending">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393002</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Pay Pal</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell">07/01/26</td>
+                <td class="APMTableCell pending">Pending</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+              <tr class="APMTableRow" data-payment="Credit Card" data-status="Pending">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393001</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Credit Card</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell pending">Pending</td>
+                <td class="APMTableCell pending">Pending</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+              <tr class="APMTableRow" data-payment="Net Banking" data-status="Delivered">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393001</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Net Banking</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell">07/01/26</td>
+                <td class="APMTableCell">11/01/26</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+              <tr class="APMTableRow" data-payment="Debit Card" data-status="Delivered">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393001</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Debit Card</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell">07/01/26</td>
+                <td class="APMTableCell">11/01/26</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+              <tr class="APMTableRow" data-payment="Google Pay" data-status="Delivered">
+                <td class="APMTableCell APMProductNameCell">
+                  <img src="../assets/adminsalesproductrefund/business.svg" class="APMProductThumb">
+                  <span>Tribal brass oxidized</span>
+                </td>
+                <td class="APMTableCell">#5738393001</td>
+                <td class="APMTableCell">Art and Caft</td>
+                <td class="APMTableCell">1</td>
+                <td class="APMTableCell">Google Pay</td>
+                <td class="APMTableCell">05/01/26</td>
+                <td class="APMTableCell">07/01/26</td>
+                <td class="APMTableCell">11/01/26</td>
+                <td class="APMTableCell"><button class="APMActionButton"><img
+                      src="../assets/adminProductVerification/ArrowCircleUpRight (1).svg"></button></td>
+              </tr>
+      
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- Mobile Product List -->
+      <div class="ASPROMobileFAQ">
+  <div class="ASPROfaq">
+
+    <!-- Item 1 -->
+    <div class="ASPROfaq-item" data-payment="Google Pay" data-status="Delivered">
+      <button class="ASPROfaq-question">
+        <div class="ASPROfaq-title">
+          <img src="../assets/adminsalesproductrefund/business.svg" />
+          <div class="ASPROfaq-user-text">
+            <span class="ASPROfaq-username">Tribal brass oxidized</span>
+          </div>
+        </div>
+        <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+      </button>
+
+      <div class="ASPROfaq-answer">
+        <div class="ASPROfaq-row"><span>SKU ID</span><span>#79967776</span></div>
+        <div class="ASPROfaq-row"><span>Category</span><span>Footware</span></div>
+        <div class="ASPROfaq-row"><span>Quantity</span><span>5</span></div>
+        <div class="ASPROfaq-row"><span>Payment</span><span>Google Pay</span></div>
+        <div class="ASPROfaq-row"><span>Order Date</span><span>05/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Pickup Date</span><span>07/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Delivery Date</span><span>11/01/26</span></div>
+        <div class="ASPROfaq-row"><button class="view">View</button></div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="ASPROfaq-item" data-payment="Pay Pal" data-status="Pending">
+      <button class="ASPROfaq-question">
+        <div class="ASPROfaq-title">
+          <img src="../assets/adminsalesproductrefund/business.svg" />
+          <div class="ASPROfaq-user-text">
+            <span class="ASPROfaq-username">Tribal brass oxidized</span>
+          </div>
+        </div>
+        <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+      </button>
+
+      <div class="ASPROfaq-answer">
+        <div class="ASPROfaq-row"><span>SKU ID</span><span>#79967777</span></div>
+        <div class="ASPROfaq-row"><span>Category</span><span>Footware</span></div>
+        <div class="ASPROfaq-row"><span>Quantity</span><span>5</span></div>
+        <div class="ASPROfaq-row"><span>Payment</span><span>Pay Pal</span></div>
+        <div class="ASPROfaq-row"><span>Order Date</span><span>05/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Pickup Date</span><span>07/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Delivery Date</span><span class="pending">Pending</span></div>
+        <div class="ASPROfaq-row"><button class="view">View</button></div>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="ASPROfaq-item" data-payment="Credit Card" data-status="Pending">
+      <button class="ASPROfaq-question">
+        <div class="ASPROfaq-title">
+          <img src="../assets/adminsalesproductrefund/business.svg" />
+          <div class="ASPROfaq-user-text">
+            <span class="ASPROfaq-username">Tribal brass oxidized</span>
+          </div>
+        </div>
+        <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+      </button>
+
+      <div class="ASPROfaq-answer">
+        <div class="ASPROfaq-row"><span>SKU ID</span><span>#79967778</span></div>
+        <div class="ASPROfaq-row"><span>Category</span><span>Footware</span></div>
+        <div class="ASPROfaq-row"><span>Quantity</span><span>5</span></div>
+        <div class="ASPROfaq-row"><span>Payment</span><span>Credit Card</span></div>
+        <div class="ASPROfaq-row"><span>Order Date</span><span>05/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Pickup Date</span><span class="pending">Pending</span></div>
+        <div class="ASPROfaq-row"><span>Delivery Date</span><span class="pending">Pending</span></div>
+        <div class="ASPROfaq-row"><button class="view">View</button></div>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="ASPROfaq-item" data-payment="Net Banking" data-status="Delivered">
+      <button class="ASPROfaq-question">
+        <div class="ASPROfaq-title">
+          <img src="../assets/adminsalesproductrefund/business.svg" />
+          <div class="ASPROfaq-user-text">
+            <span class="ASPROfaq-username">Tribal brass oxidized</span>
+          </div>
+        </div>
+        <img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />
+      </button>
+
+      <div class="ASPROfaq-answer">
+        <div class="ASPROfaq-row"><span>SKU ID</span><span>#79967779</span></div>
+        <div class="ASPROfaq-row"><span>Category</span><span>Footware</span></div>
+        <div class="ASPROfaq-row"><span>Quantity</span><span>5</span></div>
+        <div class="ASPROfaq-row"><span>Payment</span><span>Net Banking</span></div>
+        <div class="ASPROfaq-row"><span>Order Date</span><span>05/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Pickup Date</span><span>07/01/26</span></div>
+        <div class="ASPROfaq-row"><span>Delivery Date</span><span>11/01/26</span></div>
+        <div class="ASPROfaq-row"><button class="view">View</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+    <div id="orderDetailsInline" class="ODInline"></div>
+    <div class="ODOverlay" id="orderDetailsPopup">
+      <div class="ODModal">
+        <button class="ODClose" id="closeOD">×</button>
+
+        <div class="ODHeader">
+          <!-- Back Arrow -->
+          <button class="ODBackBtn" id="odBackBtn">
+            <img
+              src="../assets/adminSalesProductRefundOrder/back.svg"
+              alt="Back"
+            />
+          </button>
+
+          <!-- Order Details Title -->
+          <h2 class="ODTitle" id="odTitle">Order Details</h2>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PROGRESS -->
+        <div class="ODProgress">
+          <div class="ODProgressLine"></div>
+          <div class="ODProgressDots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+          <button class="ODStatusBtn">Received</button>
+        </div>
+
+        <!-- PRODUCT + PAYMENT -->
+        <div class="ODOuter">
+          <div class="ODRow">
+            <!-- PRODUCT DETAILS -->
+            <section class="ODSection">
+              <div class="ODMobTitle">
+                <h3 class="ODSectionTitle">Product Details</h3>
+                <button class="ODStatusBtnMob">Received</button>
+              </div>
+
+              <div class="ODCard ODProduct">
+                <img
+                  src="../assets/adminsalesproductrefund/business.svg"
+                  alt="Product"
+                  class="ODProductImage"
+                />
+
+                <div class="ODProductInfo">
+                  <p class="ODBlue">#79967776</p>
+                  <p class="ODText">Tribal brass oxidized</p>
+
+                  <p>
+                    <span class="ODBlue">Qty :</span>
+                    <span class="ODText">2</span>
+                  </p>
+                  <p>
+                    <span class="ODBlue">Size :</span>
+                    <span class="ODText">One size</span>
+                  </p>
+                  <p>
+                    <span class="ODBlue">Colour :</span>
+                    <span class="ODText">Brown</span>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAYMENT -->
+
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Expected Date</h3>
+
+              <div class="ODCard ODExpected">
+                <p class="ODBlue">Pick Up</p>
+                <p class="ODText">15/01/26 – 17/01/26</p>
+
+                <p class="ODBlue">Packaging</p>
+                <p class="ODText">15/01/26 – 17/01/26</p>
+
+                <p class="ODBlue">Delivery</p>
+                <p class="ODText">20/01/26 – 23/01/26</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- EXPECTED + CUSTOMER -->
+          <div class="ODRow">
+            <!-- EXPECTED DATE -->
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Payment</h3>
+
+              <div class="ODCard">
+                <p class="ODBlue">Paid by Paypal</p>
+                <p class="ODText">₹ 5,110</p>
+
+                <p class="ODBlue">Transaction ID</p>
+                <p class="ODText">124547586970889</p>
+              </div>
+            </section>
+
+            <!-- CUSTOMER DETAILS -->
+            <section class="ODSection">
+              <h3 class="ODSectionTitle">Customer Details</h3>
+
+              <div class="ODCard">
+                <p class="ODBlue">Name</p>
+                <p class="ODText">Pawan Singh</p>
+
+                <p class="ODBlue">Customer ID</p>
+                <p class="ODText">23453689</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- UPDATE STATUS -->
+          <section class="ODSection">
+            <h3 class="ODSectionTitle">Update Order status</h3>
+
+            <div class="ODCard ODStatusGrid">
+              <div>
+                <p class="ODBlue">Order received</p>
+                <p class="ODText">10/01/26</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Packed on</p>
+                <p class="ODText">15/01/26</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Pick up on</p>
+                <p class="ODText">–</p>
+              </div>
+
+              <div>
+                <p class="ODBlue">Delivered on</p>
+                <p class="ODStatusSuccess">In transit</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="TTOverlay" id="transportTrackingPopup">
+      <div class="TTModal">
+        <span class="TTClose" id="closeTT">×</span>
+
+        <h2 class="TTTitle">Transport Tracking</h2>
+        <span class="MobOrderId">#7696969060770</span>
+        <div class="TTLine"></div>
+
+        <div class="TTHeader">
+          <span class="OrderId">#7696969060770</span>
+          <span>From West Bengal to Karnataka</span>
+        </div>
+
+        <div class="TTTimeline">
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Departure from west bengal</p>
+              <small>on Thu, 4 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Arrived at xyz warehouse</p>
+              <small>on Sat, 6 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Departure from abc warehouse</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem active">
+            <span class="TTDot"></span>
+            <div>
+              <p>Arrived at karnataka warehouse</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+
+          <div class="TTItem">
+            <span class="TTDot"></span>
+            <div>
+              <p>Delivered to Pawan Singh</p>
+              <small>on Sun, 7 Dec<br />05:30am</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="../javascript/adminsalesproductrefundorder.js"></script>
+    <script src="../javascript/adminSidebarnavbar.js"></script>
+  </body>
+</html>

@@ -1,3 +1,26 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 
   const searchInput = document.querySelector(".APMSearchInput");
@@ -114,9 +137,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+<<<<<<< HEAD
   /* ================= COUNT ================= */
   document.querySelector(".APMViewAllLink").innerText = tableRows.length;
 
+=======
+  document.querySelector(".APMViewAllLink").innerText = `Total-${tableRows.length}`;
+>>>>>>> 4fb8e9857e01579c16d62d7e49e672e6d18e1e18
 });
 
 
@@ -230,3 +257,12 @@ document.addEventListener("click", function (e) {
   if (mobileFaq) mobileFaq.style.display = "none";
   dashboard.style.display = "none";
 });
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(6)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(2)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(6) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(6)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(6) li:nth-child(2)").classList.add("submenu-active-page");

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Developer Login</title>
+    <link rel="stylesheet" href="../css/developerLogin.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="login-wrapper">
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <img
+          src="../assets/developerLogin/eRangoli-logo.svg"
+          class="logo-svg"
+        />
+        <img
+          src="../assets/developerLogin/eRangoli-name.svg"
+          class="brand-svg"
+        />
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <!-- TOP WAVES -->
+        <div class="top-waves">
+          <img src="../assets/developerLogin/Vector 13.svg" />
+          <img src="../assets/developerLogin/Vector 14.svg" />
+          <img src="../assets/developerLogin/Vector 17.svg" />
+          <img src="../assets/developerLogin/Vector 16.svg" />
+        </div>
+        <!-- LOGIN FORM -->
+        <div class="form-box" id="loginBox">
+          <h2>Login</h2>
+
+          <label>Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Rutuja"
+            autocomplete="off"
+          />
+          <div class="error" id="usernameError"></div>
+
+          <label>Password</label>
+          <input type="password" id="password" placeholder="ty@jjfj67" />
+          <div class="error" id="passwordError"></div>
+
+          <a href="#" class="forgot" id="forgotBtn">Forgot Password</a>
+
+          <button class="sign-up" id="signupBtn">Sign Up</button>
+        </div>
+
+        <!-- RESET PASSWORD -->
+        <div class="form-box reset hidden" id="resetBox">
+          <h2>Reset Password</h2>
+
+          <p class="info">
+            Please enter your registered Email address to reset your password
+          </p>
+
+          <label>Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="davidjohn23@gmail.com"
+            autocomplete="off"
+          />
+          <p class="error" id="emailError"></p>
+
+          <button class="request-link" id="resetBtn">Request reset link</button>
+
+          <p class="back" id="backToLogin">Back to login</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../javascript/developerLogin.js"></script>
+</html>

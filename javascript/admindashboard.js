@@ -718,6 +718,6 @@ document.addEventListener("DOMContentLoaded", function () {
 ====================================================== */
 applyDashboardData("weekly");
 
-document.querySelector(".sidebar-main-vendor ul>li:nth-child(1)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(1)").classList.add("sidebar-active");
 
 document.querySelector("#account-menu .mobile-dropdown:nth-child(1) .dropdown-header").classList.add("dropdown-header-active");

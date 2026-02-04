@@ -8,19 +8,17 @@
 }
 
 body {
-  background-color: #f5f5f5;
   color: #3f3f3f;
 }
 
 .APPVOMainContentBeyond {
-  padding: 20px;
-  max-width: 1400px;
   margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .APPVOContainer {
   background-color: white;
-  padding: 30px;
   border-radius: 8px;
 }
 
@@ -41,6 +39,11 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #3f3f3f;
+}
+.APPVOPersonalSubGrid{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Wrapper for left-right alignment */
@@ -552,6 +555,7 @@ body {
   .APPVOMobileBackButton img {
     width: 15px;
     height: 15px;
+    display: none;
   }
 
   .APPVOProductPreviewLayout {
@@ -723,9 +727,7 @@ body {
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 30px;
-  border: 1px solid #d9d9d9;
-  border-radius: 12px;
-  padding: 20px;
+
 }
 
 .APPVOBusinessLogo {
@@ -751,9 +753,8 @@ body {
   gap: 22px 30px;
 }
 .APPVOPersonalGrid{
-    border: 1px solid #d9d9d9;
-  border-radius: 12px;
-  padding: 20px;
+
+  padding: 10px;
 }
 .APPVOInfoBlock {
   display: flex;
@@ -786,6 +787,71 @@ body {
   width: 180px;
   border-radius: 6px;
   border: 1px solid #d9d9d9;
+}
+.delete-btn-main{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+.delete-btn-main>button{
+  background-color: #0E8BF3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 28px;
+  cursor: pointer;
+}
+.APOConfirmOverlay{
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #00000023;
+  height: 100%;
+  width: 100%;
+  z-index: 10000;
+  display: none;
+}
+.APOConfirmModal{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.APOCloseBtn{
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.APOConfirmActions{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.APOConfirmActions>button{
+  padding: 3px 5px;
+  width: 80px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.APOConfirmActions .APOYesBtn{
+  background-color: #0E8BF3;
+  color: white;
+}
+.APOConfirmActions .APONoBtn{
+  box-shadow: 0px 0px 1px 0px #171A1F12;
+  box-shadow: 0px 0px 2px 0px #171A1F1F;
+  border: 1px solid #3F3F3F;
 }
 
 /* ================= RESPONSIVE ================= */

@@ -1,3 +1,28 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
+var mobileBack = document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display = "none"
+    document.querySelector("body").style.overflow = "hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display = "none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
+    mobileBack.style.display = "flex"
+  }
+});
 /* ===== APPROVE CONFIRMATION POPUP ===== */
 const FAapproveBtn = document.querySelector(".FAApproveButton");
 const FAapproveModal = document.getElementById("FAapproveModal");
@@ -10,6 +35,47 @@ const FArejectModal = document.getElementById("FArejectModal");
 const FArejectYes = document.getElementById("FArejectYes");
 const FArejectNo = document.getElementById("FArejectNo");
 const FAcloseRejectModal = document.getElementById("FAcloseRejectModal");
+
+/* ===== SENT TO VERIFY FLOW ===== */
+
+const FAsentBtn = document.querySelector(".FASentButton");
+const FAsentModal = document.getElementById("FAsentModal");
+const FAcloseSentModal = document.getElementById("FAcloseSentModal");
+const FAsentYes = document.getElementById("FAsentYes");
+const FAsentNo = document.getElementById("FAsentNo");
+const FAsentSuccess = document.getElementById("FAsentSuccessScreen");
+
+// Open confirmation modal
+FAsentBtn.addEventListener("click", () => {
+  FAsentModal.classList.add("active");
+});
+
+// Close modal
+FAcloseSentModal.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+});
+
+FAsentNo.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+});
+
+// Yes clicked
+FAsentYes.addEventListener("click", () => {
+  FAsentModal.classList.remove("active");
+
+  // Optional blur
+  document.querySelector(".BDContainer").classList.add("blur");
+
+  // Show success
+  FAsentSuccess.classList.add("active");
+
+  // Redirect after 3 sec
+  setTimeout(() => {
+    FAsentSuccess.classList.remove("active");
+    window.location.href = "../html/adminVMVendorVerificationList.html";
+  }, 3000);
+});
+
 
 
 FAapproveBtn.addEventListener("click", () => {
@@ -74,7 +140,7 @@ FArejectYes.addEventListener("click", () => {
     document.querySelector(".BDContainer").classList.remove("blur");
 
     // redirect
-    window.location.href = "../html/adminRecentVendorList.html";
+    window.location.href = "../html/adminVMVendorList.html";
   }, 3000);
 });
 
@@ -212,7 +278,17 @@ document.getElementById("sendVendorCredentialBtn").addEventListener("click", () 
 
 
   localStorage.setItem("vendorCredentialSuccess", "true");
-  window.location.href = "../html/adminvendorlist.html";
+  window.location.href = "../html/adminVMVendorList.html";
 });
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(2)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(2)").classList.add("submenu-active-page");
+
 
 

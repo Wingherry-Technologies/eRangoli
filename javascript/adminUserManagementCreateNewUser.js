@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("successModal").style.display = "flex";
     setTimeout(() => {
       document.getElementById("successModal").style.display = "none";
+      window.location.href='../html/adminUMUserList.html'
     }, 2500);
   });
 });

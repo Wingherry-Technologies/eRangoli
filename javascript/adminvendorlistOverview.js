@@ -1,3 +1,29 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
+var mobileBack = document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display = "none"
+    document.querySelector("body").style.overflow = "hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display = "none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
+    mobileBack.style.display = "flex"
+  }
+});
+
 const APPVOProductData = {
   name: "Handmade Embroidery Mojadi",
   price: "₹1,299",
@@ -188,9 +214,9 @@ function APPVORenderAddress(address) {
     <p class="APPVOAddressPreviewEmail">${address.email}</p>
     <p class="APPVOAddressPreviewPhone">${address.phone}</p>
     <p class="APPVOAddressPreviewDetails">${address.address.replace(
-      /\n/g,
-      "<br>",
-    )}</p>
+    /\n/g,
+    "<br>",
+  )}</p>
   `;
 }
 
@@ -242,54 +268,28 @@ function APPVOSetupFiveItemToggle(type, listSelector) {
   });
 }
 
-const APPVODeleteButton = document.querySelector(".APPVODeleteButton");
-if (APPVODeleteButton) {
-  APPVODeleteButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to delete this product?")) {
-      alert("Product deleted successfully!");
-      window.history.back();
-    }
-  });
-}
+const deleteBtn = document.querySelector(".APPVOdeleteButton");
+deleteBtn.addEventListener("click", () => {
+  document.querySelector(".APOConfirmOverlay").style.display = "flex";
+  document.getElementById("APPVOdeleteYes").addEventListener("click",()=>{
+    window.location.href="../html/adminVMVendorList.html"
+  })
+  document.getElementById("APPVOdeleteNo").addEventListener("click",()=>{
+    document.querySelector(".APOConfirmOverlay").style.display = "none";
+  })
+})
 
-const APPVORemoveButton = document.querySelector(".APPVORemoveButton");
-if (APPVORemoveButton) {
-  APPVORemoveButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to remove this product?")) {
-      alert("Product removed successfully!");
-      window.history.back();
-    }
-  });
-}
+document.getElementById("APPVOclosedeleteModal").addEventListener("click", () => {
+  document.querySelector(".APOConfirmOverlay").style.display = "none";
+})
 
-/* ===== APPROVE CONFIRMATION POPUP ===== */
-const APPVOapproveBtn = document.querySelector(".APPVOApproveButton");
-const APPVOapproveModal = document.getElementById("APPVOapproveModal");
-const APPVOcloseApproveModal = document.getElementById(
-  "APPVOcloseApproveModal",
-);
-const APPVOapproveYes = document.getElementById("APPVOapproveYes");
-const APPVOapproveNo = document.getElementById("APPVOapproveNo");
 
-APPVOapproveBtn.addEventListener("click", () => {
-  APPVOapproveModal.classList.add("active");
-});
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(1)").classList.add("submenu-active-highlight");
 
-APPVOcloseApproveModal.addEventListener("click", () => {
-  APPVOapproveModal.classList.remove("active");
-});
 
-APPVOapproveNo.addEventListener("click", () => {
-  APPVOapproveModal.classList.remove("active");
-});
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(1)").classList.add("submenu-active-page");
 
-APPVOapproveYes.addEventListener("click", () => {
-  // popup close
-  APPVOapproveModal.classList.remove("active");
-
-  // 🔥 poora page hide
-  document.querySelector(".APPVOMainContentBeyond").style.display = "none";
-
-  // ✅ success screen show
-  document.getElementById("APPVOapproveSuccessScreen").classList.add("active");
-});

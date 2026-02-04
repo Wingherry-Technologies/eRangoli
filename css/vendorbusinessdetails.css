@@ -159,7 +159,8 @@
   justify-content: space-evenly;
   margin-top: 10px;
 }
-.popup-actions #submitBtn{
+.popup-actions #submitBtn,
+.popup-actions #updateBtn{
   background-color: #1aa7a1;
   color: white;
   border: none;

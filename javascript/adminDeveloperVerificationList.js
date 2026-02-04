@@ -1,8 +1,32 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display = "none"
+    document.querySelector("body").style.overflow = "hidden"
+    window.scrollTo(0, 0);
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
+  }
+});
 document.addEventListener("DOMContentLoaded", function () {
   /* ================= FILTER DROPDOWN ================= */
   const filterBtn = document.querySelector(".ADVLFilterDummy");
   const filterMain = document.getElementById("filter-main");
   const statusBox = document.getElementById("status-box");
+  const mobileItems = document.querySelectorAll(".faq-item");
+
 
   const searchInput = document.querySelector(".ADVLSearchInput");
   const statusCheckboxes = document.querySelectorAll(
@@ -30,15 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
         vendorIDNumber.includes(searchValue);
 
 const statusSpan = row.querySelector(
-  ".ADVLTableCell.pending, .ADVLTableCell.sendToVerify, .ADVLTableCell.rejected"
+  ".ADVLTableCell.pending, .ADVLTableCell.verified, .ADVLTableCell.rejected"
 );
 
 let rowStatus = "";
 
 if (statusSpan?.classList.contains("pending")) {
   rowStatus = "pending";
-} else if (statusSpan?.classList.contains("sendToVerify")) {
-  rowStatus = "sendToVerify";
+} else if (statusSpan?.classList.contains("verified")) {
+  rowStatus = "verified";
 } else if (statusSpan?.classList.contains("rejected")) {
   rowStatus = "rejected";
 }
@@ -49,7 +73,38 @@ if (statusSpan?.classList.contains("pending")) {
 
       row.style.display = matchesSearch && matchesStatus ? "" : "none";
     });
+    applyMobileFilters();
   }
+
+  function applyMobileFilters() {
+  const searchValue = searchInput.value.toLowerCase().trim();
+
+  const selectedStatuses = Array.from(statusCheckboxes)
+    .filter(cb => cb.checked)
+    .map(cb => cb.dataset.status);
+
+  mobileItems.forEach(item => {
+    const name =
+      item.querySelector(".mobiletitle span")?.innerText.toLowerCase() || "";
+
+    const status =
+      item.querySelector(".status")?.classList.contains("pending")
+        ? "pending"
+        : item.querySelector(".status")?.classList.contains("verified")
+        ? "verified"
+        : item.querySelector(".status")?.classList.contains("rejected")
+        ? "rejected"
+        : "";
+
+    const matchesSearch = name.includes(searchValue);
+    const matchesStatus =
+      selectedStatuses.length === 0 || selectedStatuses.includes(status);
+
+    item.style.display =
+      matchesSearch && matchesStatus ? "block" : "none";
+  });
+}
+
 
   /* ================= OPEN / CLOSE FILTER ================= */
   filterBtn.addEventListener("click", function (e) {
@@ -97,14 +152,14 @@ if (statusSpan?.classList.contains("pending")) {
 
   //  If status is "Send To Verify"
   if (statusCell.classList.contains("sendToVerify")) {
-    window.location.href = "../html/adminDeveloperVerification.html";
+    window.location.href = "../html/adminVMVendorVerificationOverview.html";
   } 
   else if (statusCell.classList.contains("pending")) {
-    window.location.href = "../html/adminDeveloperVerification.html";
+    window.location.href = "../html/adminVMVendorVerificationOverview.html";
   }
   // For Pending (or others)
   else {
-    window.location.href = "../html/adminDeveloperVerification.html";
+    window.location.href = "../html/adminVMVendorVerificationOverview.html";
   }
 });
 
@@ -148,4 +203,38 @@ if (statusSpan?.classList.contains("pending")) {
   document.addEventListener("click", function () {
     sortBox.classList.remove("active-main-content-flows");
   });
+
+
+  /* ================= MOBILE DROPDOWN ================= */
+
+document.querySelectorAll(".faq-question").forEach((question) => {
+  question.addEventListener("click", () => {
+    const item = question.closest(".faq-item");
+
+    document.querySelectorAll(".faq-item").forEach((i) => {
+      if (i !== item) i.classList.remove("active");
+    });
+
+    item.classList.toggle("active");
+  });
 });
+
+/* ================= MOBILE VIEW DETAILS ================= */
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("mobileActionBtn")) {
+    window.location.href = "../html/adminVMVendorVerificationOverview.html";
+  }
+});
+
+
+
+});
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(3)").classList.add("sidebar-active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)").classList.add("active");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(2)>li:nth-child(3)").classList.add("submenu-active-highlight");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) .dropdown-header").classList.add("dropdown-header-active");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3)").classList.add("active-mobile-submenu");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(3) li:nth-child(3)").classList.add("submenu-active-page");
+
