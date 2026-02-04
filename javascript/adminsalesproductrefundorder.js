@@ -137,13 +137,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-<<<<<<< HEAD
   /* ================= COUNT ================= */
   document.querySelector(".APMViewAllLink").innerText = tableRows.length;
 
-=======
-  document.querySelector(".APMViewAllLink").innerText = `Total-${tableRows.length}`;
->>>>>>> 4fb8e9857e01579c16d62d7e49e672e6d18e1e18
+  // document.querySelector(".APMViewAllLink").innerText = `Total-${tableRows.length}`;
 });
 
 

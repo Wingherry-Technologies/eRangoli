@@ -509,7 +509,6 @@ document.addEventListener("click", function (e) {
 
   item.classList.toggle("active");
 });
-<<<<<<< HEAD
 
 document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(6)").classList.add("sidebar-active");
 document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)").classList.add("active");
@@ -527,5 +526,3 @@ document.querySelector("#account-menu .mobile-dropdown:nth-child(6) li:nth-child
 
 
 
-=======
->>>>>>> aea2c5a9d663b54ca8a980b22a32b27d5283df65
