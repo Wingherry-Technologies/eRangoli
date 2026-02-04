@@ -111,6 +111,6 @@ const profileClicks=document.querySelectorAll("#user-profile-icon");
 
 profileClicks.forEach(profileClick => {
     profileClick.addEventListener("click",()=>{
-        window.location.href="../html/vendorpersonaldetails.html"
+        window.location.href="../html/adminMyProfile.html"
     })
 });
