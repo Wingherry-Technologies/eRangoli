@@ -207,7 +207,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(4)").classList.add("sidebar-active");
 
-
-document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
