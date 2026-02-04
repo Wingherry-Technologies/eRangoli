@@ -46,6 +46,8 @@ body {
   width: 40%;
   position: relative;
   background: #ffffff;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 /*  WAVES  */
@@ -242,14 +244,13 @@ body {
   }
 }
 
-
-@media (min-width:1440px) {
-  .adminRegistration-form-box{
+@media (min-width: 1440px) {
+  .adminRegistration-form-box {
     margin-top: 150px;
   }
 }
-@media (min-width:1520px) {
-  .adminRegistration-form-box{
+@media (min-width: 1520px) {
+  .adminRegistration-form-box {
     margin-top: 250px;
   }
 }

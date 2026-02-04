@@ -1,7 +1,9 @@
 const username = document.getElementById("adminRegistrationUsername");
 const email = document.getElementById("adminRegistrationEmail");
 const password = document.getElementById("adminRegistrationPassword");
-const confirmPassword = document.getElementById("adminRegistrationConfirmPassword");
+const confirmPassword = document.getElementById(
+  "adminRegistrationConfirmPassword",
+);
 const createBtn = document.querySelector(".adminRegistration-create-btn");
 
 const usernameError = document.getElementById("usernameError");
@@ -12,7 +14,51 @@ const confirmPasswordError = document.getElementById("confirmPasswordError");
 const formBox = document.getElementById("adminRegistrationBox");
 const successBox = document.getElementById("adminRegistrationSuccessBox");
 
-/*  USERNAME  */
+const fullname = document.getElementById("adminRegistrationFullname");
+const phone = document.getElementById("adminRegistrationPhno");
+
+const fullnameError = document.getElementById("fullnameError");
+const phnoError = document.getElementById("phnoError");
+
+/*  FULL NAME  */
+
+fullname.addEventListener("input", () => {
+  if (fullname.value.startsWith(" ")) {
+    showError(fullnameError, "Name cannot start with space");
+    fullname.value = fullname.value.trimStart();
+    return;
+  }
+  hideError(fullnameError);
+});
+
+// block numbers & special chars
+fullname.addEventListener("keydown", (e) => {
+  if (!/^[a-zA-Z ]$/.test(e.key) && e.key !== "Backspace") {
+    e.preventDefault();
+  }
+});
+
+function validateFullname() {
+  const val = fullname.value.trim();
+
+  if (val === "") {
+    showError(fullnameError, "Full name is required");
+    return false;
+  }
+
+  if (!/^[A-Za-z]+( [A-Za-z]+)*$/.test(val)) {
+    showError(
+      fullnameError,
+      "Only alphabets allowed, no numbers or special characters",
+    );
+    return false;
+  }
+
+  hideError(fullnameError);
+  return true;
+}
+
+/* USERNAME */
 
 // block numbers, special chars, leading space
 username.addEventListener("keydown", (e) => {
@@ -35,7 +81,30 @@ function validateUsername() {
   return true;
 }
 
-/*  EMAIL  */
+/* PHONE NUMBER */
+
+phone.addEventListener("input", () => {
+  phone.value = phone.value.replace(/\D/g, "").slice(0, 10);
+});
+
+phone.addEventListener("blur", validatePhone);
+
+function validatePhone() {
+  const val = phone.value;
+
+  if (!/^[6-9][0-9]{9}$/.test(val)) {
+    showError(
+      phnoError,
+      "Enter valid 10-digit mobile number starting with 6-9",
+    );
+    return false;
+  }
+
+  hideError(phnoError);
+  return true;
+}
+
+/* EMAIL */
 
 email.addEventListener("blur", validateEmail);
 
@@ -56,7 +125,7 @@ function validateEmail() {
   return true;
 }
 
-/*  PASSWORD  */
+/* PASSWORD */
 
 password.addEventListener("keydown", (e) => {
   if (e.key === " " && password.value.length === 0) {
@@ -74,7 +143,11 @@ function validatePassword() {
     return false;
   }
 
-  if (!/[A-Za-z]/.test(val) || !/[0-9]/.test(val) || !/[^A-Za-z0-9]/.test(val)) {
+  if (
+    !/[A-Za-z]/.test(val) ||
+    !/[0-9]/.test(val) ||
+    !/[^A-Za-z0-9]/.test(val)
+  ) {
     showError(passwordError, "Must include letter, number & special character");
     return false;
   }
@@ -83,7 +156,7 @@ function validatePassword() {
   return true;
 }
 
-/*  CONFIRM PASSWORD  */
+/* CONFIRM PASSWORD */
 
 confirmPassword.addEventListener("blur", validateConfirmPassword);
 
@@ -102,21 +175,27 @@ function validateConfirmPassword() {
   return true;
 }
 
-/*  SUBMIT  */
+/* SUBMIT */
 
 createBtn.addEventListener("click", () => {
+  const f = validateFullname();
   const u = validateUsername();
+  const ph = validatePhone();
   const e = validateEmail();
   const p = validatePassword();
   const c = validateConfirmPassword();
 
-  if (u && e && p && c) {
+  if (f && u && ph && e && p && c) {
     formBox.classList.add("adminRegistration-hidden");
     successBox.classList.remove("adminRegistration-hidden");
+
+    setTimeout(() => {
+      window.location.href = "../html/adminLogin.html";
+    }, 2000);
   }
 });
 
-
+/* COMMON */
 
 function showError(el, msg) {
   el.innerText = msg;
