@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.closest(".APMActionButton") ||
       e.target.textContent === "View"
     ) {
-      window.location.href = "../html/adminbuyerlistoverview.html";
+      window.location.href = "../html/adminBMBuyerOverview.html";
     }
   });
 
@@ -207,4 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.querySelector(".sidebar-main-vendor > article > ul > li:nth-of-type(4)").classList.add("sidebar-active");
 
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
