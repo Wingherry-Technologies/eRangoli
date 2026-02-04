@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #ebeef3;
+}
+
+/* Card */
+.category-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f3f3f;
+  font-family: "inter";
+}
+
+.create-btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0e8bf3;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #00000000;
+}
+
+/* Divider */
+.divider {
+  margin-top: 25px;
+  border-bottom: 1px solid #6828e7;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #d9d9d9;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 3px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 1px solid #d9d9d9;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+}
+
+thead th {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3f3f3f;
+  padding: 12px 10px;
+}
+
+tbody td {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  padding: 14px 10px;
+  vertical-align: middle;
+}
+
+/* Category Cell */
+.category-cell {
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-cell img {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .table-wrapper {
+    width: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .category-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .category-cell img {
+    flex-shrink: 0;
+  }
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 595px) {
+  body {
+    background-color: #f5f5f5;
+  }
+
+  .table-wrapper {
+    overflow: visible;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  tbody td:first-child {
+    background: #e7f0f9;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3f3f3f;
+  }
+
+  tbody td {
+    padding: 10px;
+    font-size: 14px;
+    color: #565252;
+  }
+
+  tbody td:nth-child(5)::before {
+    content: "States - ";
+    font-weight: 600;
+    color: #565252;
+  }
+
+  tbody td:nth-child(2)::before {
+    content: "Stock - ";
+    font-weight: 600;
+    color: #565252;
+  }
+
+  tbody td:nth-child(3)::before {
+    content: "Sale - ";
+    font-weight: 600;
+    color: #565252;
+  }
+
+  tbody td:nth-child(4)::before {
+    content: "Left - ";
+    font-weight: 600;
+    color: #565252;
+  }
+
+  .view-all {
+    display: none;
+  }
+  .category-card {
+    background: none;
+    padding: 0;
+  }
+  .category-cell img {
+    display: none;
+  }
+}
