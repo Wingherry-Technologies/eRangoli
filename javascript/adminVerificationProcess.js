@@ -72,7 +72,7 @@ FAsentYes.addEventListener("click", () => {
   // Redirect after 3 sec
   setTimeout(() => {
     FAsentSuccess.classList.remove("active");
-    window.location.href = "../html/adminVMRecentVendorList.html";
+    window.location.href = "../html/adminVMVendorVerificationList.html";
   }, 3000);
 });
 

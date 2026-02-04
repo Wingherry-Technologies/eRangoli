@@ -242,7 +242,7 @@ if (toastFlag === "true") {
       e.target.closest(".APMActionButton") ||
       e.target.textContent === "View"
     ) {
-      window.location.href = "../html/adminvendorlistoverview.html";
+      window.location.href = "../html/adminVMVendorListOverview.html";
     }
   });
 

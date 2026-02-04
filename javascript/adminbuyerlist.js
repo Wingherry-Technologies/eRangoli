@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.closest(".APMActionButton") ||
       e.target.textContent === "View"
     ) {
-      window.location.href = "../html/adminbuyerlistoverview.html";
+      window.location.href = "../html/adminBMBuyerOverview.html";
     }
   });
 
