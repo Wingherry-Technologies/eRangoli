@@ -602,11 +602,116 @@ Sarees: [
 ,
 
   "Dress Materials": [
-    { name: "topFabric", label: "Top Fabric", type: "select", required: true, options: ["Cotton", "Silk"] },
-    { name: "bottomFabric", label: "Bottom Fabric", type: "select", required: true, options: ["Cotton", "Santoon"] },
-    { name: "dupattaFabric", label: "Dupatta Fabric", type: "select", required: true, options: ["Chiffon", "Crepe"] },
-    { name: "work", label: "Work", type: "select", required: true, options: ["Thread", "Gotta Patti"] }
-  ],
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Party", "Festive"]
+  },
+
+  {
+    name: "topBottomFabric",
+    label: "Top / Bottom Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk", "Cotton", "Semi Crepe", "Rayon"]
+  },
+
+  {
+    name: "dupattaFabric",
+    label: "Dupatta Fabric",
+    type: "select",
+    required: true,
+    options: ["Crepe", "Chiffon", "Georgette"]
+  },
+
+  {
+    name: "materialPrint",
+    label: "Material Print",
+    type: "select",
+    required: true,
+    options: ["Floral", "Paisley", "Abstract"]
+  },
+
+  {
+    name: "materialWork",
+    label: "Material Work",
+    type: "select",
+    required: true,
+    options: ["Thread", "Gottapatti", "Embroidery", "Plain"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Maroon", "Red", "Green", "Blue", "Black"]
+  },
+
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Size 1", "Size 2", "Size 3"]
+  },
+
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "regionalTag",
+    label: "Regional Tag",
+    type: "select",
+    required: false,
+    options: ["Maharashtra", "Karnataka", "Tamil Nadu", "Andhra Pradesh"]
+  },
+
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalized orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Hand wash", "Dry clean only", "Machine wash"]
+  }
+]
+,
 
   "Kurtis & Kurtas": [
     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Rayon", "Silk"] },
@@ -757,10 +862,108 @@ Sarees: [
 ]
 ,
   Jewellery: [
-    { name: "jewelleryType", label: "Jewellery Type", type: "select", required: true, options: ["Necklace", "Earrings", "Bangles", "Rings"] },
-    { name: "metal", label: "Metal", type: "select", required: true, options: ["Gold Plated", "Silver", "Oxidised"] },
-    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Wedding", "Festive"] }
-  ],
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "design",
+    label: "Design",
+    type: "select",
+    required: true,
+    options: ["Antique", "Traditional", "Contemporary", "Temple"]
+  },
+
+  {
+    name: "metal",
+    label: "Metal",
+    type: "select",
+    required: true,
+    options: ["Gold", "Silver", "Bronze", "Copper", "Alloy"]
+  },
+
+  {
+    name: "polish",
+    label: "Polish",
+    type: "select",
+    required: true,
+    options: ["Gold", "Silver", "Rose Gold", "Matte"]
+  },
+
+  {
+    name: "stone",
+    label: "Stone",
+    type: "select",
+    required: true,
+    options: ["Zircon AD", "Kundan", "Pearl", "Ruby", "None"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Wedding", "Festive", "Party", "Daily Wear"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Maroon", "Red", "Green", "Gold", "Silver"]
+  },
+
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Size 1", "Size 2", "Size 3"]
+  },
+
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "regionalTag",
+    label: "Regional Tag",
+    type: "select",
+    required: false,
+    options: ["Rajasthan", "Tamil Nadu", "Karnataka", "Maharashtra"]
+  },
+
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalized orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
 
   Accessories: [
     { name: "accessoryType", label: "Accessory Type", type: "select", required: true, options: ["Handbags", "Clutches", "Stoles"] }
@@ -770,11 +973,125 @@ Sarees: [
      MEN
   ===================================================== */
 
-  "Kurta Sets": [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] },
-    { name: "fit", label: "Fit", type: "select", required: true, options: ["Slim", "Regular"] },
-    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive", "Wedding"] }
-  ],
+"Kurta Sets": [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Silk", "Linen", "Rayon"]
+  },
+
+  {
+    name: "kurtaLength",
+    label: "Kurta Length",
+    type: "select",
+    required: true,
+    options: ["Knee Length", "Calf Length", "Ankle Length"]
+  },
+
+  {
+    name: "fit",
+    label: "Fit",
+    type: "select",
+    required: true,
+    options: ["Slim Fit", "Regular Fit", "Relaxed Fit"]
+  },
+
+  {
+    name: "sleeveLength",
+    label: "Sleeve Length",
+    type: "select",
+    required: true,
+    options: ["Full Sleeve", "Half Sleeve", "Sleeveless"]
+  },
+
+  {
+    name: "neckPattern",
+    label: "Neck Pattern",
+    type: "select",
+    required: true,
+    options: ["Round Neck", "Mandarin Collar", "V Neck"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Festive", "Wedding", "Office"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Cream", "Maroon", "Blue", "Green", "Black"]
+  },
+
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["S", "M", "L", "XL", "XXL"]
+  },
+
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "regionalTag",
+    label: "Regional Tag",
+    type: "select",
+    required: false,
+    options: ["Rajasthan", "Karnataka", "Tamil Nadu", "Uttar Pradesh"]
+  },
+
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalized orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Hand wash", "Dry clean only", "Machine wash"]
+  }
+]
+,
 
   Sherwanis: [
     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Silk", "Velvet"] },
@@ -793,20 +1110,319 @@ Sarees: [
      KIDS
   ===================================================== */
 
-  "Baby Wear": [
-    { name: "ageGroup", label: "Age Group", type: "select", required: true, options: ["0–6 Months", "6–12 Months", "1–2 Years"] },
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Organic Cotton"] }
-  ],
+ "Baby Wear": [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "ageGroup",
+    label: "Age Group",
+    type: "select",
+    required: true,
+    options: [
+      "0–3 Months",
+      "3–6 Months",
+      "6–9 Months",
+      "9–12 Months",
+      "1–2 Years"
+    ]
+  },
+
+  {
+    name: "gender",
+    label: "Gender",
+    type: "select",
+    required: true,
+    options: ["Unisex", "Boy", "Girl"]
+  },
+
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Organic Cotton", "Bamboo Cotton", "Wool"]
+  },
+
+  {
+    name: "wearType",
+    label: "Wear Type",
+    type: "select",
+    required: true,
+    options: [
+      "Rompers",
+      "Bodysuits",
+      "Sleepwear",
+      "Winter Wear",
+      "Daily Wear"
+    ]
+  },
+
+  /* ===== FIT & SAFETY ===== */
+  {
+    name: "sleeveLength",
+    label: "Sleeve Length",
+    type: "select",
+    required: true,
+    options: ["Sleeveless", "Half Sleeve", "Full Sleeve"]
+  },
+
+  {
+    name: "closureType",
+    label: "Closure Type",
+    type: "select",
+    required: true,
+    options: ["Snap Button", "Zipper", "Tie-up", "Pullover"]
+  },
+
+  {
+    name: "skinFriendly",
+    label: "Skin Friendly",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Yellow", "Pink", "Blue", "Green", "Grey"]
+  },
+
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Newborn", "0–3M", "3–6M", "6–12M", "1–2Y"]
+  },
+
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Hand wash", "Machine wash", "Do not bleach"]
+  },
+
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalized orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
 
   /* =====================================================
      FURNITURE
   ===================================================== */
 
   Beds: [
-    { name: "material", label: "Material", type: "select", required: true, options: ["Solid Wood", "Engineered Wood"] },
-    { name: "size", label: "Size", type: "select", required: true, options: ["King", "Queen"] },
-    { name: "storage", label: "Storage", type: "select", required: true, options: ["With Storage", "Without Storage"] }
-  ],
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "bedType",
+    label: "Bed Type",
+    type: "select",
+    required: true,
+    options: [
+      "Single Bed",
+      "Double Bed",
+      "Queen Size Bed",
+      "King Size Bed"
+    ]
+  },
+
+  {
+    name: "material",
+    label: "Material",
+    type: "select",
+    required: true,
+    options: [
+      "Solid Wood",
+      "Engineered Wood",
+      "Metal",
+      "Upholstered"
+    ]
+  },
+
+  {
+    name: "finish",
+    label: "Finish",
+    type: "select",
+    required: true,
+    options: [
+      "Natural",
+      "Walnut",
+      "Teak",
+      "Wenge",
+      "Matte",
+      "Glossy"
+    ]
+  },
+
+  /* ===== SIZE & STRUCTURE ===== */
+  {
+    name: "size",
+    label: "Size",
+    type: "select",
+    required: true,
+    options: [
+      "Single",
+      "Queen",
+      "King"
+    ]
+  },
+
+  {
+    name: "storage",
+    label: "Storage",
+    type: "select",
+    required: true,
+    options: [
+      "With Storage",
+      "Without Storage",
+      "Hydraulic Storage",
+      "Drawer Storage"
+    ]
+  },
+
+  {
+    name: "headboardType",
+    label: "Headboard Type",
+    type: "select",
+    required: true,
+    options: [
+      "Box",
+      "Panel",
+      "Upholstered",
+      "No Headboard"
+    ]
+  },
+
+  /* ===== DIMENSIONS ===== */
+  {
+    name: "bedDimensions",
+    label: "Dimensions (L × W × H)",
+    type: "text",
+    required: true,
+    placeholder: "78 x 60 x 36 inches"
+  },
+
+  {
+    name: "maxLoad",
+    label: "Maximum Load Capacity",
+    type: "select",
+    required: true,
+    options: [
+      "Up to 150 kg",
+      "Up to 200 kg",
+      "Up to 300 kg"
+    ]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: [
+      "Brown",
+      "Walnut",
+      "Black",
+      "White",
+      "Grey"
+    ]
+  },
+
+  /* ===== DELIVERY & INSTALLATION ===== */
+  {
+    name: "installation",
+    label: "Installation Provided",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "deliveryTime",
+    label: "Delivery Time",
+    type: "select",
+    required: true,
+    options: [
+      "3–5 Days",
+      "5–7 Days",
+      "7–10 Days"
+    ]
+  },
+
+  /* ===== RETURN & WARRANTY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "warranty",
+    label: "Warranty",
+    type: "select",
+    required: true,
+    options: [
+      "No Warranty",
+      "6 Months",
+      "1 Year",
+      "5 Years"
+    ]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: [
+      "Wipe with dry cloth",
+      "Use wood polish",
+      "Avoid direct sunlight"
+    ]
+  }
+]
+,
 
   /* =====================================================
      ARTS
