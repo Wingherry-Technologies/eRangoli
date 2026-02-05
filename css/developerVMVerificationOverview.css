@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.ADVOBdContainer {
+  height: 100%;
+  overflow-y: auto;
+  margin: 20px;
+}
+
+/* Header */
+.ADVOBdHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.ADVOBdBackIcon {
+  width: 18px;
+  cursor: pointer;
+}
+
+.ADVOBdTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+/* Section title */
+.ADVOBdSectionTitle {
+  background: #e7f0f9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.ADVOBdCard {
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  gap: 28px;
+}
+
+/* Logo */
+.ADVOBdLogoBox {
+  min-width: 110px;
+  height: 110px;
+  border-radius: 6px;
+}
+
+.ADVOBdLogoBox img {
+  width: 70px;
+}
+
+/* Details */
+.ADVOBdDetails {
+  flex: 1;
+}
+
+.ADVOBdGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 22px;
+  column-gap: 40px;
+}
+
+.ADVOBdGrid label {
+  font-size: 14px;
+  color: #7b5dd6;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ADVOBdGrid p {
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.6;
+}
+
+/* Section */
+.ADVOPdSection {
+  margin-top: 32px;
+}
+
+.ADVOPdSectionTitle {
+  background: #e7f0f9;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.ADVOPdCard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+/* Row */
+.ADVOPdRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  margin-bottom: 26px;
+}
+
+.ADVOPdRowAlignTop {
+  align-items: flex-start;
+}
+
+/* Labels & text */
+.ADVOPdCard label {
+  font-size: 14px;
+  color: #7b5dd6;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ADVOPdCard p {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+/* Aadhaar images */
+.ADVOPdAadharImg {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin-top: 6px;
+}
+
+/* Stack (ID Proof + State etc.) */
+.ADVOPdStack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ADVOFaAdminSection {
+  background-color: #f5f8fa;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+.ADVOFaAdminHeader {
+  background-color: #71c1fb;
+  color: #ffffff;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.ADVOApprovalHeading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  padding: 14px 20px;
+}
+
+.ADVOFaAdminButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 10px 10px 4px 10px;
+}
+
+.ADVOFaRejectButton,
+.ADVOFaSentButton {
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.ADVOFaSentButton,
+.ADVOFaRejectButton {
+  background-color: #ffffff;
+  color: #0e8bf3;
+  border: 1px solid #0e8bf3;
+}
+
+/* APPROVE CONFIRMATION POPUP */
+.ADVOFaConfirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: #7e797999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.ADVOFaConfirmOverlay.active {
+  display: flex;
+}
+
+.ADVOFaConfirmModal {
+  background: #ffffff;
+  width: 520px;
+  padding: 28px 24px 24px;
+  border-radius: 14px;
+  position: relative;
+  text-align: center;
+}
+
+.ADVOFaCloseBtn {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #6b6b6b;
+}
+
+.ADVOFaConfirmText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #3f3f3f;
+  margin-bottom: 28px;
+}
+
+.ADVOFaConfirmActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.ADVOFaYesBtn {
+  background-color: #0e8bf3;
+  color: #ffffff;
+  border: none;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ADVOFaNoBtn {
+  background-color: #ffffff;
+  color: #6828e7;
+  border: 1px solid #6828e7;
+  padding: 10px 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== APPROVE SUCCESS SCREEN ===== */
+.ADVOFaSuccessScreen {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.ADVOFaSuccessScreen.active {
+  display: flex;
+}
+
+.ADVOFaSuccessContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ADVOFaSuccessIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.ADVOFaSuccessText {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3f3f3f;
+}
+
+/* Vendor Credential Popup */
+.ADVOVendorOverlay {
+  position: fixed;
+  inset: 0;
+  background: #00000066;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 12000;
+}
+
+.ADVOVendorOverlay.active {
+  display: flex;
+}
+
+.ADVOVendorModal {
+  background: #ffffff;
+  width: 420px;
+  height: 450px;
+  padding: 24px;
+  border-radius: 16px;
+}
+.ADVOVendorModal h3 {
+  color: #3f3f3f;
+  font-size: 16px;
+  font-weight: 400;
+
+  padding-bottom: 10px;
+}
+
+.ADVOFormGroup {
+  margin-bottom: 14px;
+  margin-top: 1rem;
+  font-size: 12px;
+  color: #3f3f3f;
+}
+
+.ADVOFormGroup input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dee1e6;
+  border-radius: 6px;
+  outline: none;
+}
+
+.ADVOFormGroup input[readonly] {
+  background: #eeeeee;
+  outline: none;
+  color: #8e8989;
+}
+
+#ADVOVendorPassword {
+  letter-spacing: 2px;
+  background-color: transparent;
+}
+#ADVOVendorUsername {
+  background-color: transparent;
+}
+
+.ADVOError {
+  color: red;
+  font-size: 12px;
+  height: 14px;
+  display: block;
+}
+
+.ADVOBlur {
+  filter: blur(3px);
+}
+
+.ADVOVendorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0f8bf2;
+}
+
+.ADVOVendorCloseBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b6b6b;
+}
+
+.ADVOVendorFormBody {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-top: 10px;
+}
+
+.ADVOVendorFooter {
+  padding-top: 12px;
+  /* border-top: 1px solid #eee; */
+  background: #fff;
+  margin-top: 2rem;
+}
+
+#ADVOSendVendorCredentialBtn {
+  width: 100%;
+  padding: 12px;
+  background: #0e8bf3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media (max-width: 595px) {
+  .ADVOBdBackIcon {
+    display: none;
+  }
+}
+
+/*  MOBILE RESPONSIVE  */
+@media (max-width: 768px) {
+  .ADVOBdCard {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .ADVOBdLogoBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    max-width: 110px;
+  }
+
+  .ADVOBdGrid {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .ADVOPdRow {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .ADVOPdAadharImg {
+    max-width: 100%;
+  }
+
+  .ADVOFaAdminButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ADVOFaApproveButton,
+  .ADVOFaRejectButton,
+  .ADVOFaSentButton {
+    width: 100%;
+  }
+}
+.ADVOBlur {
+  filter: blur(3px);
+  pointer-events: none;
+}
+.ADVOReviewError {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+}

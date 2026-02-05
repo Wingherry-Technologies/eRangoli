@@ -25,6 +25,10 @@ body {
 }
 
 /* Header */
+.mob-card-header {
+  display: none;
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -130,12 +134,253 @@ tbody td {
   height: 22px;
 }
 
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.APRAMobileFAQ {
+  display: none;
+}
+
+.APRAfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.APRAfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.APRAfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.APRAfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.APRAfaq-item.active {
+  padding-bottom: 6px;
+  border-bottom: 1px solid #c8dae7;
+}
+
+.APRAfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+  background: #e9f0f5;
+}
+
+.APRAfaq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.APRAfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.APRAfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.APRAfaq-row {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.create-category-screen {
+  display: none;
+  padding: 20px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.create-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  background: #e7f0f9;
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3f3f3f;
+}
+
+.back-btn {
+  width: 20px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.create-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.create-form {
+  max-width: 420px;
+}
+
+.create-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 14px 0 6px;
+  color: #3f3f3f;
+}
+
+.upload-container-res {
+  display: none;
+}
+
+.create-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+}
+
+.create-submit {
+  width: 100%;
+  padding: 12px;
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.upload-box {
+  width: 150px;
+  height: 150px;
+  background: #00000033;
+  border: 1.5px solid #00000033;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.upload-box img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+}
+
+.create-category-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* left form */
+.create-form {
+  flex: 1;
+  max-width: 420px;
+}
+
+/* right upload */
+.upload-container {
+  width: 180px;
+  margin: 14px 0 6px;
+}
+
+.error {
+  color: #e53935;
+  font-size: 12px;
+  margin-top: 12px;
+  display: none;
+}
+
+/* Responsive */
+
 @media (max-width: 1024px) and (min-width: 595px) {
   .table-wrapper {
     width: 100%;
     max-height: 420px;
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .upload-container {
+    display: none;
+  }
+
+  .upload-container-res {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .upload-title-res {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3f3f3f;
+    margin: 14px 0 6px;
+  }
+
+  .upload-box-res {
+    width: 150px;
+    height: 150px;
+    background: #00000033;
+    border: 1.5px solid #00000033;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer;
+  }
+
+  .upload-box-res img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   table {
@@ -161,100 +406,18 @@ tbody td {
   }
 }
 
-.table-wrapper::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.table-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 @media (max-width: 595px) {
   body {
     background-color: #ffffff;
   }
 
   .table-wrapper {
-    overflow: visible;
-  }
-
-  table,
-  thead,
-  tbody,
-  tr,
-  td {
-    display: block;
-    width: 100%;
-  }
-
-  thead {
     display: none;
-  }
-
-  tbody tr {
-    background: #ffffff;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #c8dae7;
-  }
-
-  tbody td:first-child {
-    background: #e7f0f9;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #3f3f3f;
-  }
-
-  tbody td {
-    padding: 10px;
-    font-size: 14px;
-    color: #565252;
-  }
-
-  tbody td:nth-child(5)::before {
-    content: "States - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(2)::before {
-    content: "Stock - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(3)::before {
-    content: "Sale - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(4)::before {
-    content: "Left - ";
-    font-weight: 600;
-    color: #565252;
   }
 
   .create-btn {
     display: none;
   }
-  .category-card {
-    background: none;
-  }
-  /* .category-cell img {
-    display: none;
-  } */
   .divider {
     display: none;
   }
@@ -276,7 +439,88 @@ tbody td {
     width: 20px;
     height: 20px;
   }
-  .card-header {
-    margin-bottom: 20px;
+  .APRAMobileFAQ {
+    display: block;
+    background: white;
+    padding-top: 20px;
+  }
+
+  .APRAfaq-question {
+    width: 100%;
+    background: #e9f0f5;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .APRAfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .APRAfaq-item.active .APRAfaq-answer {
+    max-height: 500px;
+  }
+  .APRAfaq-item {
+    margin-bottom: 10px;
+  }
+  .card-header h2 {
+    display: none;
+  }
+  .mob-card-header {
+    display: block;
+  }
+  .mob-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mob-card-header img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .mob-card-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .upload-container {
+    display: none;
+  }
+
+  .upload-container-res {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-title-res {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3f3f3f;
+    margin: 14px 0 6px;
+  }
+  .upload-box-res {
+    width: 150px;
+    height: 150px;
+    background: #00000033;
+    border: 1.5px solid #00000033;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer;
+  }
+
+  .upload-box-res img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
