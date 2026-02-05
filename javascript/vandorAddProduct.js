@@ -23,846 +23,1110 @@ hamburger?.addEventListener("click", () => {
     mobileBack.style.display="flex"
   }
 });
+
+
+/************************************
+ * 1. CATEGORY TREE (4 LEVEL FLEXIBLE)
+ ************************************/
+const categoryTree = {
+  Women: {
+    Clothing: {
+      Sarees: {
+        "Handwoven Pattu Silk Sarees": {},
+        "Handloom Kanchipuram Sarees": {},
+        "Handloom Banarasi Sarees": {},
+        "Handwoven Cotton Sarees": {},
+        "Linen Handloom Sarees": {},
+        "Chanderi Handloom Sarees": {},
+        "Tussar Handloom Sarees": {},
+        "Hand Block Printed Sarees": {}
+      },
+      Dresses: {
+        "Salwar Suit": {},
+        "Kurta Set": {},
+        "Anarkali": {},
+        "Gown": {}
+      },
+      "Dress Materials": {
+        "Cotton Dress Material": {},
+        "Silk Dress Material": {},
+        "Printed Dress Material": {}
+      },
+      "Kurtis & Kurtas": {
+        "Straight Kurti": {},
+        "A-Line Kurti": {},
+        "Kurta Set": {}
+      },
+      "Ethnic Sets": {
+        "Co-ord Sets": {},
+        "Festive Sets": {}
+      }
+    },
+    Handlooms: {
+      "Handloom Sarees": {},
+      "Handloom Dupattas": {},
+      "Handloom Fabrics": {}
+    },
+    Footwear: {
+      Flats: {},
+      Heels: {},
+      Kolhapuri: {},
+      Juttis: {}
+    },
+    Jewellery: {
+      Necklace: {},
+      Earrings: {},
+      Bangles: {},
+      Rings: {}
+    },
+    Accessories: {
+      Handbags: {},
+      Clutches: {},
+      Stoles: {},
+      HairAccessories: {}
+    }
+  },
+
+  Men: {
+    Clothing: {
+      Shirts: {},
+      Trousers: {},
+      Jackets: {}
+    },
+    "Ethnic Wear": {
+      "Kurta Sets": {
+        "Cotton Kurta Sets": {},
+        "Silk Kurta Sets": {},
+        "Festive Kurta Sets": {},
+        "Wedding Kurta Sets": {}
+      },
+      Sherwanis: {
+        "Wedding Sherwani": {},
+        "Designer Sherwani": {}
+      },
+      "Dhoti & Veshti": {
+        Cotton: {},
+        Silk: {}
+      },
+      "Nehru Jackets": {
+        Casual: {},
+        Festive: {}
+      }
+    },
+    Footwear: {
+      Mojaris: {},
+      Sandals: {},
+      FormalShoes: {}
+    },
+    Accessories: {
+      Belts: {},
+      Wallets: {},
+      Watches: {}
+    },
+    Grooming: {
+      BeardCare: {},
+      HairCare: {}
+    }
+  },
+
+  Kids: {
+    "Boys Clothing": {
+      Shirts: {},
+      TShirts: {},
+      Sets: {}
+    },
+    "Girls Clothing": {
+      Dresses: {},
+      Frocks: {},
+      Sets: {}
+    },
+    "Baby Wear": {
+      Rompers: {
+        "Cotton Rompers": {},
+        "Organic Rompers": {},
+        "Printed Rompers": {}
+      },
+      Bodysuits: {
+        Sleeveless: {},
+        FullSleeve: {}
+      },
+      Sleepwear: {
+        Cotton: {},
+        Winter: {}
+      },
+      "Winter Wear": {
+        Sweaters: {},
+        Jackets: {}
+      }
+    },
+    Footwear: {
+      Booties: {},
+      Sandals: {}
+    },
+    "Toys & Games": {
+      Educational: {},
+      WoodenToys: {}
+    },
+    "School Essentials": {
+      Bags: {},
+      Bottles: {},
+      LunchBoxes: {}
+    }
+  },
+
+  Furniture: {
+    "Living Room Furniture": {
+      Sofas: {},
+      CoffeeTables: {},
+      TVUnits: {}
+    },
+    "Bedroom Furniture": {
+      Beds: {
+        "Wooden Beds": {},
+        "Upholstered Beds": {},
+        "Storage Beds": {},
+        "King Size Beds": {},
+        "Queen Size Beds": {}
+      },
+      Wardrobes: {
+        Sliding: {},
+        Hinged: {}
+      },
+      "Side Tables": {},
+      "Dressing Tables": {}
+    },
+    "Dining Furniture": {
+      DiningTables: {},
+      DiningChairs: {}
+    },
+    "Office Furniture": {
+      OfficeChairs: {},
+      WorkDesks: {}
+    },
+    "Outdoor Furniture": {
+      GardenChairs: {},
+      Swings: {}
+    },
+    "Storage Furniture": {
+      Cabinets: {},
+      Shelves: {}
+    }
+  },
+
+  Arts: {
+    Paintings: {
+      "Oil Paintings": {},
+      "Watercolor Paintings": {},
+      "Acrylic Paintings": {
+        "Abstract Art": {},
+        "Contemporary Art": {},
+        "Traditional Art": {},
+        "Nature & Landscape": {}
+      },
+      "Mixed Media": {}
+    },
+    Sculptures: {
+      Stone: {},
+      Metal: {}
+    },
+    "Wall Art": {
+      Wooden: {},
+      Metal: {}
+    },
+    Collectibles: {
+      Antiques: {},
+      Coins: {}
+    },
+    "Digital Art": {
+      Prints: {},
+      Illustrations: {}
+    }
+  },
+
+  Crafts: {
+    Decor: {
+      Lamps: {},
+      Showpieces: {}
+    },
+    Jewellery: {
+      HandmadeNecklaces: {},
+      HandmadeEarrings: {}
+    },
+    "Pottery & Clay": {
+      Vases: {},
+      Planters: {}
+    },
+    "Wood Crafts": {
+      Carvings: {},
+      UtilityItems: {}
+    },
+    "Metal Crafts": {
+      BrassItems: {},
+      CopperItems: {}
+    },
+    "Textile Crafts": {
+      "Handwoven Items": {
+        "Table Runners": {},
+        "Cushion Covers": {},
+        "Wall Hangings": {}
+      },
+      "Embroidered Items": {},
+      "Patchwork Items": {}
+    }
+  },
+
+  "Home & Living": {
+    "Home Decor": {
+      "Wall Decor": {
+        "Wooden Wall Decor": {},
+        "Metal Wall Decor": {},
+        "Fabric Wall Decor": {}
+      },
+      Vases: {},
+      Clocks: {}
+    },
+    Lighting: {
+      TableLamps: {},
+      HangingLights: {}
+    },
+    "Kitchen & Dining": {
+      Cookware: {},
+      Serveware: {}
+    },
+    "Bedding & Furnishings": {
+      Bedsheets: {},
+      Cushions: {},
+      Curtains: {}
+    }
+  }
+};
+
+const defaultCategoryFields = [
+  {
+    name: "brand",
+    label: "Brand",
+    type: "text",
+    required: true,
+    placeholder: "Brand name"
+  },
+  {
+    name: "material",
+    label: "Material",
+    type: "text",
+    required: true,
+    placeholder: "Cotton, Silk, Wood..."
+  },
+  {
+    name: "sellingPrice",
+    label: "Selling Price (₹)",
+    type: "text",
+    required: true,
+    placeholder: "₹ 2499"
+  },
+  {
+    name: "totalQuantity",
+    label: "Total Quantity",
+    type: "text",
+    required: true,
+    placeholder: "100"
+  }
+];
+
 const categoryFields = {
-  Footwear: [
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹ 1299",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "heelHeight",
-      label: "Heel Height",
-      type: "select",
-      options: ["2inch (Regular)", "3inch", "4inch"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "ornamentation",
-      label: "Ornamentation",
-      type: "select",
-      options: ["Embroidered", "Plain", "Printed"],
-      col: 1,
-    },
-    {
-      name: "material",
-      label: "Material",
-      type: "select",
-      options: ["Canvas", "Leather", "Synthetic"],
-      col: 2,
-    },
-    {
-      name: "toeShape",
-      label: "Toe Shape",
-      type: "select",
-      options: ["Round Toe", "Pointed Toe", "Square Toe"],
-      col: 1,
-    },
-    {
-      name: "occasion",
-      label: "Occasion",
-      type: "select",
-      options: ["Party", "Casual", "Formal", "Wedding"],
-      col: 2,
-    },
-    {
-  name: "colorsAvailable",
+
+  /* =====================================================
+     WOMEN
+  ===================================================== */
+
+  /* Clothing → Sarees (applies to all Level-4 sarees) */
+Sarees: [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Festive", "Wedding"]
+  },
+
+  {
+    name: "sareeFabric",
+    label: "Saree Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk", "Cotton", "Linen"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk", "Cotton"]
+  },
+
+  {
+    name: "sareePrint",
+    label: "Saree Print",
+    type: "select",
+    required: true,
+    options: ["Peacock", "Floral", "Paisley", "Abstract"]
+  },
+
+  {
+    name: "sareeWork",
+    label: "Saree Work",
+    type: "select",
+    required: true,
+    options: ["Zari Work", "Thread Work", "Plain"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+  name: "coloursAvailable",
   label: "Colours Available",
   type: "select",
-  options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
-],
-
-  col: 1,
   required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
+  options: ["Maroon", "Red", "Green", "Blue", "Black", "Gold"]
 },
 
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["within 7days", "within 14days", "within 30days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day", "Within 2 days"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Rajasthan", "Maharashtra", "Gujarat"],
-      col: 2,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "careInformation",
-      label: "Care Information",
-      type: "select",
-      options: ["Wipe with dry cloth", "Hand wash", "Dry clean only"],
-      col: 2,
-      required: true,
-    },
-  ],
-  Jewellery: [
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹7,299",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "design",
-      label: "Design",
-      type: "select",
-      options: ["Antique", "Modern", "Traditional"],
-      col: 2,
-    },
-    {
-      name: "metal",
-      label: "Metal",
-      type: "select",
-      options: ["Bronze", "Gold", "Silver"],
-      col: 1,
-    },
-    {
-      name: "polish",
-      label: "Polish",
-      type: "select",
-      options: ["Gold", "Silver", "Rose Gold"],
-      col: 2,
-    },
-    {
-      name: "stone",
-      label: "Stone",
-      type: "select",
-      options: ["Zircon AD", "Ruby", "Emerald"],
-      col: 1,
-    },
-    {
-      name: "occasion",
-      label: "Occasion",
-      type: "select",
-      options: ["Wedding", "Party", "Casual"],
-      col: 2,
-    },
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Size 1", "Size 2", "Size 3"]
+  },
 
-    {
-  name: "colorsAvailable",
-  label: "Colours Available",
-  type: "select",
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "regionalTag",
+    label: "Regional Tag",
+    type: "select",
+    required: false,
     options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
-],
-  col: 1,
-  required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
-},
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["within 7days", "within 14days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Rajasthan", "Maharashtra", "Gujarat"],
-      col: 2,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["No", "Yes"],
-      col: 1,
-      required: true,
-    },
-  ],
-  Saree: [
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹4,699",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "occasion",
-      label: "Occasion",
-      type: "select",
-      options: ["Festive", "Wedding", "Party", "Casual"],
-      col: 2,
-    },
-    {
-      name: "sareeFabric",
-      label: "Saree Fabric",
-      type: "select",
-      options: ["Pure silk", "Cotton", "Georgette"],
-      col: 1,
-    },
-    {
-      name: "blouseFabric",
-      label: "Blouse Fabric",
-      type: "select",
-      options: ["Pure silk", "Cotton", "Georgette"],
-      col: 2,
-    },
-    {
-      name: "sareePrint",
-      label: "Saree Print",
-      type: "select",
-      options: ["Peacock", "Floral", "Geometric"],
-      col: 1,
-    },
-    {
-      name: "sareeWork",
-      label: "Saree Work",
-      type: "select",
-      options: ["Zari work", "Embroidery", "Plain"],
-      col: 2,
-    },
+      "Maharashtra",
+      "Karnataka",
+      "Tamil Nadu",
+      "Andhra Pradesh",
+      "West Bengal"
+    ]
+  },
 
-      {
-  name: "colorsAvailable",
-  label: "Colours Available",
-  type: "select",
-    options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
-],
-  col: 1,
-  required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
-},
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalised orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
 
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["within 7days", "within 14days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Maharashtra", "Rajasthan", "Gujarat"],
-      col: 2,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["No", "Yes"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "careInformation",
-      label: "Care Information",
-      type: "select",
-      options: ["Dry clean only", "Hand wash", "Machine wash"],
-      col: 2,
-      required: true,
-    },
-  ],
-  Art: [
-    {
-      name: "subSubCategory",
-      label: "Sub Sub Category",
-      type: "select",
-      options: ["Kalamkari Painting", "Madhubani", "Warli"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹ 1299",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "frame",
-      label: "Frame",
-      type: "select",
-      options: ["With frame", "Without frame"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "frameColor",
-      label: "Frame colour",
-      type: "select",
-      options: ["Black", "White", "Brown"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "weight",
-      label: "Weight",
-      type: "select",
-      options: ["2.2kg", "1.5kg", "3kg"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "material",
-      label: "Material",
-      type: "select",
-      options: ["Canvas", "Paper", "Wood"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "type",
-      label: "Type",
-      type: "select",
-      options: ["Oil Painting", "Watercolor", "Acrylic"],
-      col: 2,
-      required: true,
-    },
-    {
-  name: "colorsAvailable",
-  label: "Colours Available",
-  type: "select",
-    options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Dry clean only", "Hand wash", "Machine wash"]
+  }
 ],
-  col: 1,
-  required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
-},
 
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["No", "Yes"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["NA", "within 7days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Rajasthan", "Maharashtra", "Gujarat"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "careInformation",
-      label: "Care Information",
-      type: "select",
-      options: ["Dust with dry cloth", "Avoid direct sunlight"],
-      col: 2,
-      required: true,
-    },
-  ],
-  DressMaterial: [
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹3,459",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "occasion",
-      label: "Occasion",
-      type: "select",
-      options: ["Casual", "Festive", "Party"],
-      col: 2,
-    },
-    {
-      name: "topFabric",
-      label: "Top /Bottom Fabric",
-      type: "select",
-      options: ["Pure silk", "Cotton", "Georgette"],
-      col: 1,
-    },
-    {
-      name: "dupattaFabric",
-      label: "Dupatta Fabric",
-      type: "select",
-      options: ["Crepe", "Chiffon", "Georgette"],
-      col: 2,
-    },
-    {
-      name: "materialPrint",
-      label: "Material  Print",
-      type: "select",
-      options: ["Floral", "Geometric", "Abstract"],
-      col: 1,
-    },
-    {
-      name: "materialWork",
-      label: "Material Work",
-      type: "select",
-      options: ["Gottapatti", "Embroidery", "Plain"],
-      col: 2,
-    },
-    {
-  name: "colorsAvailable",
-  label: "Colours Available",
-  type: "select",
-   options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
-],
-  col: 1,
-  required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
-},
-
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["within 7days", "within 14days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Maharashtra", "Rajasthan", "Gujarat"],
-      col: 2,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["No", "Yes"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "careInformation",
-      label: "Care Information",
-      type: "select",
-      options: ["Hand wash", "Dry clean only", "Machine wash"],
-      col: 2,
-      required: true,
-    },
-  ],
   Dresses: [
-    {
-      name: "sellingPrice",
-      label: "Selling Price",
-      type: "text",
-      placeholder: "₹3,459",
-      col: 1,
-      required: true,
-    },
-    {
-      name: "occasion",
-      label: "Occasion",
-      type: "select",
-      options: ["Casual", "Party", "Formal"],
-      col: 2,
-    },
-    {
-      name: "topFabric",
-      label: "Top /Bottom Fabric",
-      type: "select",
-      options: ["Semi Crepe", "Cotton", "Silk"],
-      col: 1,
-    },
-    {
-      name: "dupattaFabric",
-      label: "Dupatta Fabric",
-      type: "select",
-      options: ["Semi Crepe", "Chiffon", "Georgette"],
-      col: 2,
-    },
-    {
-      name: "materialPrint",
-      label: "Material  Print",
-      type: "select",
-      options: ["Floral", "Geometric", "Abstract"],
-      col: 1,
-    },
-    {
-      name: "materialWork",
-      label: "Material Work",
-      type: "select",
-      options: ["Threadwork", "Embroidery", "Plain"],
-      col: 2,
-    },
-    {
-      name: "sleevesLength",
-      label: "Sleeves Length",
-      type: "select",
-      options: ["Three fourth Sleeves", "Full Sleeves", "Half Sleeves"],
-      col: 1,
-    },
-    {
-      name: "partsLength",
-      label: "Pants Length",
-      type: "select",
-      options: ["Knee length", "Full length", "Ankle length"],
-      col: 2,
-    },
-    {
-      name: "neckPattern",
-      label: "Neck Pattern",
-      type: "select",
-      options: ["Round", "V-neck", "Square"],
-      col: 1,
-    },
-    {
-      name: "bottomStyle",
-      label: "Bottom Style",
-      type: "select",
-      options: ["Straight pants", "Palazzo", "Churidar"],
-      col: 2,
-    },
-    {
-  name: "colorsAvailable",
-  label: "Colours Available",
-  type: "select",
-    options: [
-  "Red",
-  "Blue", 
-  "Green", 
-  "Black",
-  "White", 
-  "Maroon"  
-],
-  col: 1,
-  required: true,
-},
-{
-  name: "size",
-  label: "Size",
-  type: "select",
-  options: ["S", "M", "L", "XL", "XXL"],
-  col: 2,
-  required: true,
-},
-{
-  name: "totalQuantity",
-  label: "Total Quantity",
-  type: "text",
-  placeholder: "120",
-  col: 1,
-  required: true,
-},
-{
-  name: "brand",
-  label: "Brand",
-  type: "text",
-  placeholder: "Handloom India",
-  col: 2,
-  required: true,
-},
 
-    {
-      name: "applicableReturn",
-      label: "Applicable to Return",
-      type: "select",
-      options: ["Yes", "No"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "refundProcess",
-      label: "Refund process in days",
-      type: "select",
-      options: ["within 7days", "within 14days"],
-      col: 2,
-      required: true,
-    },
-    {
-      name: "availablePickup",
-      label: "Available to pick up",
-      type: "select",
-      options: ["Immediately", "Within 1 day"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "regionalTag",
-      label: "Regional Tag",
-      type: "select",
-      options: ["Maharashtra", "Rajasthan", "Gujarat"],
-      col: 2,
-    },
-    {
-      name: "personalizedOrders",
-      label: "Do you take personalized orders",
-      type: "select",
-      options: ["No", "Yes"],
-      col: 1,
-      required: true,
-    },
-    {
-      name: "careInformation",
-      label: "Care Information",
-      type: "select",
-      options: ["Hand wash", "Dry clean only", "Machine wash"],
-      col: 2,
-      required: true,
-    },
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Party", "Festive"]
+  },
+
+  {
+    name: "topFabric",
+    label: "Top / Bottom Fabric",
+    type: "select",
+    required: true,
+    options: ["Semi Crepe", "Cotton", "Rayon"]
+  },
+
+  {
+    name: "dupattaFabric",
+    label: "Dupatta Fabric",
+    type: "select",
+    required: true,
+    options: ["Semi Crepe", "Chiffon", "Georgette"]
+  },
+
+  {
+    name: "materialPrint",
+    label: "Material Print",
+    type: "select",
+    required: true,
+    options: ["Floral", "Abstract", "Paisley"]
+  },
+
+  {
+    name: "materialWork",
+    label: "Material Work",
+    type: "select",
+    required: true,
+    options: ["Threadwork", "Embroidery", "Plain"]
+  },
+
+  /* ===== FIT & STYLE ===== */
+  {
+    name: "sleevesLength",
+    label: "Sleeves Length",
+    type: "select",
+    required: true,
+    options: ["Sleeveless", "Three fourth Sleeves", "Full Sleeves"]
+  },
+
+  {
+    name: "kurtaLength",
+    label: "Kurta Length",
+    type: "select",
+    required: true,
+    options: ["Knee length", "Calf length", "Ankle length"]
+  },
+
+  {
+    name: "neckPattern",
+    label: "Neck Pattern",
+    type: "select",
+    required: true,
+    options: ["Round", "V Neck", "Boat Neck"]
+  },
+
+  {
+    name: "bottomStyle",
+    label: "Bottom Style",
+    type: "select",
+    required: true,
+    options: ["Straight pants", "Palazzo", "Churidar"]
+  },
+
+  /* ===== VARIANT DETAILS ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Maroon", "Red", "Green", "Blue", "Black"]
+  },
+
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Size 1", "Size 2", "Size 3"]
+  },
+
+  /* ===== RETURN & DELIVERY ===== */
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "refundProcess",
+    label: "Refund process in days",
+    type: "select",
+    required: true,
+    options: ["within 3 days", "within 5 days", "within 7 days"]
+  },
+
+  {
+    name: "availableToPickup",
+    label: "Available to pick up",
+    type: "select",
+    required: true,
+    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+  },
+
+  /* ===== EXTRA DETAILS ===== */
+  {
+    name: "regionalTag",
+    label: "Regional Tag",
+    type: "select",
+    required: false,
+    options: ["Maharashtra", "Karnataka", "Tamil Nadu", "West Bengal"]
+  },
+
+  {
+    name: "personalisedOrders",
+    label: "Do you take personalized orders",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Hand wash", "Dry clean only", "Machine wash"]
+  }
+]
+,
+
+  "Dress Materials": [
+    { name: "topFabric", label: "Top Fabric", type: "select", required: true, options: ["Cotton", "Silk"] },
+    { name: "bottomFabric", label: "Bottom Fabric", type: "select", required: true, options: ["Cotton", "Santoon"] },
+    { name: "dupattaFabric", label: "Dupatta Fabric", type: "select", required: true, options: ["Chiffon", "Crepe"] },
+    { name: "work", label: "Work", type: "select", required: true, options: ["Thread", "Gotta Patti"] }
   ],
+
+  "Kurtis & Kurtas": [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Rayon", "Silk"] },
+    { name: "length", label: "Kurti Length", type: "select", required: true, options: ["Short", "Knee Length", "Ankle Length"] },
+    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Daily Wear", "Office", "Festive"] }
+  ],
+
+  "Ethnic Sets": [
+    { name: "setType", label: "Set Type", type: "select", required: true, options: ["Kurta Set", "Co-ord Set"] },
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
+  ],
+
+  "Women_Footwear": [
+  {
+    name: "heelHeight",
+    label: "Heel Height",
+    type: "select",
+    required: true,
+    options: ["Flat", "1 inch", "2 inch", "3 inch", "4 inch"]
+  },
+  {
+    name: "ornamentation",
+    label: "Ornamentation",
+    type: "select",
+    required: true,
+    options: ["Embroidered", "Beaded", "Printed", "Plain"]
+  },
+  {
+    name: "toeShape",
+    label: "Toe Shape",
+    type: "select",
+    required: true,
+    options: ["Round Toe", "Pointed Toe", "Open Toe"]
+  },
+  {
+    name: "material",
+    label: "Material",
+    type: "select",
+    required: true,
+    options: ["Leather", "Canvas", "Synthetic"]
+  },
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Party", "Festive", "Wedding"]
+  },
+
+  /* COMMON */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Maroon", "Red", "Black", "Gold"]
+  },
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["Size 1", "Size 2", "Size 3"]
+  },
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Wipe with dry cloth", "Hand wash"]
+  }
+]
+
+,
+"Men_Footwear": [
+  {
+    name: "footwearType",
+    label: "Footwear Type",
+    type: "select",
+    required: true,
+    options: ["Formal Shoes", "Loafers", "Sandals", "Sneakers"]
+  },
+  {
+    name: "soleMaterial",
+    label: "Sole Material",
+    type: "select",
+    required: true,
+    options: ["Rubber", "PU", "Leather"]
+  },
+  {
+    name: "material",
+    label: "Upper Material",
+    type: "select",
+    required: true,
+    options: ["Leather", "Synthetic", "Canvas"]
+  },
+  {
+    name: "toeShape",
+    label: "Toe Shape",
+    type: "select",
+    required: true,
+    options: ["Round Toe", "Square Toe"]
+  },
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Formal", "Office"]
+  },
+
+  /* COMMON */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Black", "Brown", "Tan"]
+  },
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["6", "7", "8", "9", "10", "11"]
+  },
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+  {
+    name: "careInformation",
+    label: "Care Information",
+    type: "select",
+    required: true,
+    options: ["Wipe with dry cloth"]
+  }
+]
+,
+  Jewellery: [
+    { name: "jewelleryType", label: "Jewellery Type", type: "select", required: true, options: ["Necklace", "Earrings", "Bangles", "Rings"] },
+    { name: "metal", label: "Metal", type: "select", required: true, options: ["Gold Plated", "Silver", "Oxidised"] },
+    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Wedding", "Festive"] }
+  ],
+
+  Accessories: [
+    { name: "accessoryType", label: "Accessory Type", type: "select", required: true, options: ["Handbags", "Clutches", "Stoles"] }
+  ],
+
+  /* =====================================================
+     MEN
+  ===================================================== */
+
+  "Kurta Sets": [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] },
+    { name: "fit", label: "Fit", type: "select", required: true, options: ["Slim", "Regular"] },
+    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive", "Wedding"] }
+  ],
+
+  Sherwanis: [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Silk", "Velvet"] },
+    { name: "work", label: "Work", type: "select", required: true, options: ["Embroidery", "Zardozi"] }
+  ],
+
+  "Dhoti & Veshti": [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
+  ],
+
+  "Nehru Jackets": [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Tweed"] }
+  ],
+
+  /* =====================================================
+     KIDS
+  ===================================================== */
+
+  "Baby Wear": [
+    { name: "ageGroup", label: "Age Group", type: "select", required: true, options: ["0–6 Months", "6–12 Months", "1–2 Years"] },
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Organic Cotton"] }
+  ],
+
+  /* =====================================================
+     FURNITURE
+  ===================================================== */
+
+  Beds: [
+    { name: "material", label: "Material", type: "select", required: true, options: ["Solid Wood", "Engineered Wood"] },
+    { name: "size", label: "Size", type: "select", required: true, options: ["King", "Queen"] },
+    { name: "storage", label: "Storage", type: "select", required: true, options: ["With Storage", "Without Storage"] }
+  ],
+
+  /* =====================================================
+     ARTS
+  ===================================================== */
+
+  "Acrylic Paintings": [
+    { name: "style", label: "Art Style", type: "select", required: true, options: ["Abstract", "Contemporary", "Traditional", "Nature"] },
+    { name: "frame", label: "Frame", type: "select", required: true, options: ["With Frame", "Without Frame"] }
+  ],
+
+  /* =====================================================
+     CRAFTS
+  ===================================================== */
+
+  "Handwoven Items": [
+    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Jute"] },
+    { name: "usage", label: "Usage", type: "select", required: true, options: ["Decor", "Utility"] }
+  ],
+
+  /* =====================================================
+     HOME & LIVING
+  ===================================================== */
+
+  "Wall Decor": [
+    { name: "material", label: "Material", type: "select", required: true, options: ["Wood", "Metal", "Fabric"] },
+    { name: "mountType", label: "Mount Type", type: "select", required: true, options: ["Nail", "Adhesive"] }
+  ],
+
+  Lighting: [
+    { name: "lightType", label: "Light Type", type: "select", required: true, options: ["Table Lamp", "Hanging Lamp"] },
+    { name: "powerSource", label: "Power Source", type: "select", required: true, options: ["Electric", "Battery"] }
+  ]
 };
 
-const subCategories = {
-  Footwear: ["Mojadi", "Juttis", "Kolhapuri", "Sandals"],
-  Jewellery: ["Necklace", "Earrings", "Bangles", "Rings"],
-  Saree: ["Paithani", "Banarasi", "Kanjeevaram", "Chanderi"],
-  Art: ["Traditional Painting", "Modern Art", "Sculpture"],
-  DressMaterial: ["3 piece", "2 piece", "Kurta Set"],
-  Dresses: ["Salwar Suit", "Kurta Set", "Anarkali"],
-};
+
+
+
+
+/************************************
+ * 2. SELECT ELEMENTS
+ ************************************/
+// const lvl1 = document.getElementById("categoryLevel1");
+// const lvl2 = document.getElementById("categoryLevel2");
+// const lvl3 = document.getElementById("categoryLevel3");
+// const lvl4 = document.getElementById("categoryLevel4");
+// const dynamicFields = document.getElementById("dynamicFields");
+
+
+/************************************
+ * 3. HELPER FUNCTIONS
+ ************************************/
+// function resetSelect(select, placeholder) {
+//   select.innerHTML = `<option value="">${placeholder}</option>`;
+//   select.disabled = true;
+// }
+
+// function fillSelect(select, data, placeholder) {
+//   resetSelect(select, placeholder);
+//   Object.keys(data).forEach(key => {
+//     const opt = document.createElement("option");
+//     opt.value = key;
+//     opt.textContent = key;
+//     select.appendChild(opt);
+//   });
+//   select.disabled = false;
+// }
+
+
+/************************************
+ * 4. INIT LEVEL 1
+ ************************************/
+// fillSelect(lvl1, categoryTree, "Select Main Category");
+// resetSelect(lvl2, "Select Category");
+// resetSelect(lvl3, "Select Sub Category");
+// resetSelect(lvl4, "Select Sub Sub Category");
+
+
+/************************************
+ * 5. LEVEL CHANGE HANDLERS
+ ************************************/
+// lvl1.addEventListener("change", () => {
+//   resetSelect(lvl2, "Select Category");
+//   resetSelect(lvl3, "Select Sub Category");
+//   resetSelect(lvl4, "Select Sub Sub Category");
+//   dynamicFields.innerHTML = "";
+
+//   const data = categoryTree[lvl1.value];
+//   if (data && Object.keys(data).length) {
+//     fillSelect(lvl2, data, "Select Category");
+//   } else {
+//     loadDynamicFields(lvl1.value);
+//   }
+// });
+
+// lvl2.addEventListener("change", () => {
+//   resetSelect(lvl3, "Select Sub Category");
+//   resetSelect(lvl4, "Select Sub Sub Category");
+//   dynamicFields.innerHTML = "";
+
+//   const data = categoryTree[lvl1.value]?.[lvl2.value];
+//   if (data && Object.keys(data).length) {
+//     fillSelect(lvl3, data, "Select Sub Category");
+//   } else {
+//     loadDynamicFields(lvl2.value);
+//   }
+// });
+
+// lvl3.addEventListener("change", () => {
+//   resetSelect(lvl4, "Select Sub Sub Category");
+//   dynamicFields.innerHTML = "";
+
+//   const data = categoryTree[lvl1.value]?.[lvl2.value]?.[lvl3.value];
+//   if (data && Object.keys(data).length) {
+//     fillSelect(lvl4, data, "Select Sub Sub Category");
+//   } else {
+//     loadDynamicFields(lvl3.value);
+//   }
+// });
+
+// lvl4.addEventListener("change", () => {
+//   dynamicFields.innerHTML = "";
+//   loadDynamicFields(lvl4.value);
+// });
+
+const lvl1 = document.getElementById("categoryLevel1");
+const lvl2 = document.getElementById("categoryLevel2");
+const lvl3 = document.getElementById("categoryLevel3");
+const lvl4 = document.getElementById("categoryLevel4");
+
+const lvl1Wrap = document.getElementById("lvl1Wrap");
+const lvl2Wrap = document.getElementById("lvl2Wrap");
+const lvl3Wrap = document.getElementById("lvl3Wrap");
+const lvl4Wrap = document.getElementById("lvl4Wrap");
+
+const dynamicFields = document.getElementById("dynamicFields");
+
+/* ---------- HELPERS ---------- */
+
+function hideLevel(wrapper, select) {
+  wrapper.classList.add("hidden");
+  select.innerHTML = `<option value="">Select</option>`;
+  select.disabled = true;
+}
+
+function showLevel(wrapper, select, data, placeholder) {
+  select.innerHTML = `<option value="">${placeholder}</option>`;
+  Object.keys(data).forEach(key => {
+    const opt = document.createElement("option");
+    opt.value = key;
+    opt.textContent = key;
+    select.appendChild(opt);
+  });
+  select.disabled = false;
+  wrapper.classList.remove("hidden");
+}
+
+function clearDynamic() {
+  dynamicFields.innerHTML = "";
+}
+
+/* ---------- INIT ---------- */
+
+showLevel(lvl1Wrap, lvl1, categoryTree, "Select Main Category");
+hideLevel(lvl2Wrap, lvl2);
+hideLevel(lvl3Wrap, lvl3);
+hideLevel(lvl4Wrap, lvl4);
+clearDynamic();
+
+/* ---------- LEVEL 1 ---------- */
+
+lvl1.addEventListener("change", () => {
+  hideLevel(lvl2Wrap, lvl2);
+  hideLevel(lvl3Wrap, lvl3);
+  hideLevel(lvl4Wrap, lvl4);
+  clearDynamic();
+
+  const data = categoryTree[lvl1.value];
+  if (data && Object.keys(data).length) {
+    showLevel(lvl2Wrap, lvl2, data, "Select Category");
+  } else {
+    loadDynamicFields(lvl1.value);
+  }
+});
+
+/* ---------- LEVEL 2 ---------- */
+
+lvl2.addEventListener("change", () => {
+  hideLevel(lvl3Wrap, lvl3);
+  hideLevel(lvl4Wrap, lvl4);
+  clearDynamic();
+
+  const data = categoryTree[lvl1.value]?.[lvl2.value];
+  if (data && Object.keys(data).length) {
+    showLevel(lvl3Wrap, lvl3, data, "Select Sub Category");
+  } else {
+    loadDynamicFields(lvl2.value);
+  }
+});
+
+/* ---------- LEVEL 3 ---------- */
+
+lvl3.addEventListener("change", () => {
+  hideLevel(lvl4Wrap, lvl4);
+  clearDynamic();
+
+  const data = categoryTree[lvl1.value]?.[lvl2.value]?.[lvl3.value];
+  if (data && Object.keys(data).length) {
+    showLevel(lvl4Wrap, lvl4, data, "Select Sub Sub Category");
+  } else {
+    loadDynamicFields(lvl3.value || lvl2.value);
+  }
+});
+
+
+/* ---------- LEVEL 4 ---------- */
+
+lvl4.addEventListener("change", () => {
+  clearDynamic();
+  loadDynamicFields(lvl3.value || lvl2.value);
+});
+
+
+/************************************
+ * 6. DYNAMIC FIELD LOADER
+ ************************************/
+function loadDynamicFields(categoryKey) {
+  dynamicFields.innerHTML = "";
+
+  // 🔥 NEW: resolve correct field source
+  const gender = lvl1.value;          // Women / Men / Kids
+
+  // ✅ normalize category
+  if (["Flats","Heels","Kolhapuri","Juttis","Mojaris","Sandals","FormalShoes"].includes(categoryKey)) {
+    categoryKey = "Footwear";
+  }
+
+  const scopedKey = `${gender}_Footwear`;
+
+  const resolvedFields =
+    categoryFields[scopedKey] ||
+    categoryFields[categoryKey] ||
+    [];
+
+
+  const fields = [
+    ...defaultCategoryFields,
+    ...resolvedFields
+  ];
+
+  const grid = document.createElement("div");
+  grid.className = "form-grid";
+  grid.style.marginTop = "16px";
+
+  fields.forEach(field => {
+    const group = document.createElement("div");
+    group.className = "form-group";
+
+    const label = document.createElement("label");
+    label.className = "form-label";
+    label.innerHTML =
+      field.label + (field.required ? ' <span class="required">*</span>' : "");
+
+    let input;
+    if (field.type === "select") {
+
+  /* 🎨 COLOR SELECTOR (HELPER UI) */
+  if (field.name === "coloursAvailable") {
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "color-selector";
+
+    const swatch = document.createElement("div");
+    swatch.className = "color-swatch";
+
+    input = document.createElement("select");
+    input.className = "form-select color-select";
+    input.innerHTML = `<option value="">Select ${field.label}</option>`;
+
+    field.options.forEach(color => {
+      const opt = document.createElement("option");
+      opt.value = color;
+      opt.textContent = color;
+      input.appendChild(opt);
+    });
+
+    wrapper.appendChild(swatch);
+    wrapper.appendChild(input);
+
+    group.append(label, wrapper);
+    grid.appendChild(group);
+    return; // ⛔ IMPORTANT: stop default rendering
+  }
+
+  /* NORMAL SELECT */
+  input = document.createElement("select");
+  input.className = "form-select";
+  input.innerHTML = `<option value="">Select ${field.label}</option>`;
+  field.options.forEach(opt => {
+    input.innerHTML += `<option value="${opt}">${opt}</option>`;
+  });
+
+}
+ else {
+      input = document.createElement("input");
+      input.type = "text";
+      input.className = "form-input";
+      input.placeholder = field.placeholder || "";
+    }
+
+    group.append(label, input);
+    grid.appendChild(group);
+  });
+
+  dynamicFields.appendChild(grid);
+  attachDynamicFieldBlurValidation();
+}
+
+
+
+
 
 // Main upload
 const mainUpload = document.getElementById("mainUpload");
@@ -955,122 +1219,122 @@ productDescription.addEventListener("input", (e) => {
 });
 
 // Category change
-const categorySelect = document.getElementById("category");
-const subCategorySelect = document.getElementById("subCategory");
-const dynamicFields = document.getElementById("dynamicFields");
+// const categorySelect = document.getElementById("category");
+// const subCategorySelect = document.getElementById("subCategory");
+// const dynamicFields = document.getElementById("dynamicFields");
 
-categorySelect.addEventListener("change", (e) => {
-  const category = e.target.value;
+// categorySelect.addEventListener("change", (e) => {
+//   const category = e.target.value;
 
-  // Update sub categories
-  subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
-  if (category && subCategories[category]) {
-    subCategories[category].forEach((sub) => {
-      const option = document.createElement("option");
-      option.value = sub;
-      option.textContent = sub;
-      subCategorySelect.appendChild(option);
-    });
-  }
+//   // Update sub categories
+//   subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
+//   if (category && subCategories[category]) {
+//     subCategories[category].forEach((sub) => {
+//       const option = document.createElement("option");
+//       option.value = sub;
+//       option.textContent = sub;
+//       subCategorySelect.appendChild(option);
+//     });
+//   }
 
-  // Update dynamic fields
-  dynamicFields.innerHTML = "";
-  if (category && categoryFields[category]) {
-    const gridDiv = document.createElement("div");
-    gridDiv.className = "form-grid";
-    gridDiv.style.marginTop = "16px";
+//   // Update dynamic fields
+//   dynamicFields.innerHTML = "";
+//   if (category && categoryFields[category]) {
+//     const gridDiv = document.createElement("div");
+//     gridDiv.className = "form-grid";
+//     gridDiv.style.marginTop = "16px";
 
-    categoryFields[category].forEach((field) => {
-      const formGroup = document.createElement("div");
-      formGroup.className = "form-group";
-      if (field.col === "full") {
-        formGroup.classList.add("full-width");
-      }
+//     categoryFields[category].forEach((field) => {
+//       const formGroup = document.createElement("div");
+//       formGroup.className = "form-group";
+//       if (field.col === "full") {
+//         formGroup.classList.add("full-width");
+//       }
 
-      const label = document.createElement("label");
-      label.className = "form-label";
-      label.innerHTML =
-        field.label +
-        (field.required ? ' <span class="required">*</span>' : "");
+//       const label = document.createElement("label");
+//       label.className = "form-label";
+//       label.innerHTML =
+//         field.label +
+//         (field.required ? ' <span class="required">*</span>' : "");
 
-      let input;
-      if (field.type === "select") {
+//       let input;
+//       if (field.type === "select") {
 
-        if (field.name === "colorsAvailable") {
+//         if (field.name === "colorsAvailable") {
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "color-selector";
+//     const wrapper = document.createElement("div");
+//     wrapper.className = "color-selector";
 
-    const swatch = document.createElement("div");
-    swatch.className = "color-swatch";
+//     const swatch = document.createElement("div");
+//     swatch.className = "color-swatch";
 
-    input = document.createElement("select");
-    input.className = "form-select color-select";
+//     input = document.createElement("select");
+//     input.className = "form-select color-select";
 
-    const opt = document.createElement("option");
-    opt.value = "";
-    opt.textContent = "Select " + field.label;
-    input.appendChild(opt);
+//     const opt = document.createElement("option");
+//     opt.value = "";
+//     opt.textContent = "Select " + field.label;
+//     input.appendChild(opt);
 
-    field.options.forEach((optVal) => {
-      const option = document.createElement("option");
-      option.value = optVal;
-      option.textContent = optVal;
-      input.appendChild(option);
-    });
+//     field.options.forEach((optVal) => {
+//       const option = document.createElement("option");
+//       option.value = optVal;
+//       option.textContent = optVal;
+//       input.appendChild(option);
+//     });
 
-    wrapper.appendChild(swatch);
-    wrapper.appendChild(input);
+//     wrapper.appendChild(swatch);
+//     wrapper.appendChild(input);
 
-    formGroup.appendChild(label);
-    formGroup.appendChild(wrapper);
-    gridDiv.appendChild(formGroup);
-    return; // important
-  }
-        input = document.createElement("select");
-        input.className = "form-select";
-        input.innerHTML =
-          '<option value="">Select ' + field.label + "</option>";
-        field.options.forEach((opt) => {
-          const option = document.createElement("option");
-          option.value = opt;
-          option.textContent = opt;
-          input.appendChild(option);
-        });
-      } else {
-        input = document.createElement("input");
-        input.type = "text";
-        input.className = "form-input";
-        input.placeholder = field.placeholder || "";
+//     formGroup.appendChild(label);
+//     formGroup.appendChild(wrapper);
+//     gridDiv.appendChild(formGroup);
+//     return; // important
+//   }
+//         input = document.createElement("select");
+//         input.className = "form-select";
+//         input.innerHTML =
+//           '<option value="">Select ' + field.label + "</option>";
+//         field.options.forEach((opt) => {
+//           const option = document.createElement("option");
+//           option.value = opt;
+//           option.textContent = opt;
+//           input.appendChild(option);
+//         });
+//       } else {
+//         input = document.createElement("input");
+//         input.type = "text";
+//         input.className = "form-input";
+//         input.placeholder = field.placeholder || "";
 
-        if (field.name === "sellingPrice") {
-          input.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
-          });
-        }
+//         if (field.name === "sellingPrice") {
+//           input.addEventListener("input", (e) => {
+//             e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
+//           });
+//         }
 
-        if (field.name === "totalQuantity") {
-  input.classList.add("quantity-input");
-}
+//         if (field.name === "totalQuantity") {
+//   input.classList.add("quantity-input");
+// }
 
-if (field.name === "brand") {
-  input.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
-  });
-}
+// if (field.name === "brand") {
+//   input.addEventListener("input", (e) => {
+//     e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+//   });
+// }
 
         
-      }
+//       }
 
-      formGroup.appendChild(label);
-      formGroup.appendChild(input);
-      gridDiv.appendChild(formGroup);
-    });
+//       formGroup.appendChild(label);
+//       formGroup.appendChild(input);
+//       gridDiv.appendChild(formGroup);
+//     });
 
-    dynamicFields.appendChild(gridDiv);
-    attachDynamicFieldBlurValidation();
-  }
-});
+//     dynamicFields.appendChild(gridDiv);
+//     attachDynamicFieldBlurValidation();
+//   }
+// });
 
 // Quantity input - only numbers
 document.addEventListener("input", (e) => {
@@ -1363,8 +1627,9 @@ laneInput.addEventListener("input", (e) => {
 const productMandatoryFields = [
   { id: "productName", message: "Product name is required" },
   { id: "productDescription", message: "Product description is required" },
-  { id: "category", message: "Please select category" }
+  { id: "categoryLevel1", message: "Please select main category" }
 ];
+
 
 productMandatoryFields.forEach(obj => {
   const field = document.getElementById(obj.id);
@@ -1377,15 +1642,23 @@ productMandatoryFields.forEach(obj => {
     }
   });
 });
-const subCategory = document.getElementById("subCategory");
+function getDeepestSelectedCategory() {
+  return (
+    lvl4.value ||
+    lvl3.value ||
+    lvl2.value ||
+    lvl1.value ||
+    ""
+  );
+}
 
-subCategory.addEventListener("blur", () => {
-  if (!subCategory.value) {
-    showError(subCategory, "Please select sub category");
-  } else {
-    clearError(subCategory);
-  }
-});
+// subCategory.addEventListener("blur", () => {
+//   if (!subCategory.value) {
+//     showError(subCategory, "Please select sub category");
+//   } else {
+//     clearError(subCategory);
+//   }
+// });
 function attachDynamicFieldBlurValidation() {
   const requiredMarks = dynamicFields.querySelectorAll(".form-label .required");
 
@@ -1472,10 +1745,10 @@ if (!validateVariantQuantities()) {
   });
 
   // Sub category
-  if (!subCategory.value) {
-    showError(subCategory, "Please select sub category");
-    isValid = false;
-  }
+  // if (!subCategory.value) {
+  //   showError(subCategory, "Please select sub category");
+  //   isValid = false;
+  // }
 
   // Dynamic fields
   if (!validateDynamicFields()) {
@@ -1494,6 +1767,11 @@ if (!validateVariantQuantities()) {
     }
     return;
   }
+  if (!getDeepestSelectedCategory()) {
+  showError(lvl1, "Please complete category selection");
+  isValid = false;
+}
+
 
   // ALL VALID
   window.location.href='../html/vendorProductPreview.html'
