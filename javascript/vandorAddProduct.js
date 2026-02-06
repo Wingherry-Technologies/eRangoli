@@ -30,276 +30,88 @@ hamburger?.addEventListener("click", () => {
  ************************************/
 const categoryTree = {
   Women: {
-    Clothing: {
-      Sarees: {
-        "Handwoven Pattu Silk Sarees": {},
-        "Handloom Kanchipuram Sarees": {},
-        "Handloom Banarasi Sarees": {},
-        "Handwoven Cotton Sarees": {},
-        "Linen Handloom Sarees": {},
-        "Chanderi Handloom Sarees": {},
-        "Tussar Handloom Sarees": {},
-        "Hand Block Printed Sarees": {}
+    Handlooms: {
+      "Pure Silk": {
+        "Banarasi Silk": {},
+        "Tussar Silk": {},
+        "Kanchipuram Silk": {},
+        "Mysore Silk": {},
+        "Mulberry Silk": {}
       },
-      Dresses: {
-        "Salwar Suit": {},
-        "Kurta Set": {},
-        "Anarkali": {},
-        "Gown": {}
+      Cotton: {
+        "Jamdani Cotton": {},
+        "Khadi Cotton": {},
+        "Chanderi Cotton": {},
+        "Kota Doria Cotton": {}
       },
-      "Dress Materials": {
-        "Cotton Dress Material": {},
-        "Silk Dress Material": {},
-        "Printed Dress Material": {}
+      Linen: {
+        "Pure Linen Saree": {},
+        "Linen Dress Material": {},
+        "Linen Kurta": {}
       },
-      "Kurtis & Kurtas": {
-        "Straight Kurti": {},
-        "A-Line Kurti": {},
-        "Kurta Set": {}
-      },
-      "Ethnic Sets": {
-        "Co-ord Sets": {},
-        "Festive Sets": {}
+      Khadi: {
+        "Khadi Saree": {},
+        "Khadi Kurta": {},
+        "Khadi Dress Material": {}
       }
     },
-    Handlooms: {
-      "Handloom Sarees": {},
-      "Handloom Dupattas": {},
-      "Handloom Fabrics": {}
+
+    Clothing: {
+      Tops: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Designer Tops": {}
+      },
+      Dresses: {
+        "Handblock Printed": {},
+        "Evening Gown": {}
+      }
     },
+
     Footwear: {
-      Flats: {},
-      Heels: {},
-      Kolhapuri: {},
-      Juttis: {}
-    },
-    Jewellery: {
-      Necklace: {},
-      Earrings: {},
-      Bangles: {},
-      Rings: {}
-    },
-    Accessories: {
-      Handbags: {},
-      Clutches: {},
-      Stoles: {},
-      HairAccessories: {}
+      Sandals: {
+        "Leather Sandals": {},
+        "Casual Sandals": {}
+      },
+      Flats: {
+        "Ballerina Flats": {},
+        "Party Flats": {}
+      }
     }
   },
 
   Men: {
     Clothing: {
-      Shirts: {},
-      Trousers: {},
-      Jackets: {}
-    },
-    "Ethnic Wear": {
-      "Kurta Sets": {
-        "Cotton Kurta Sets": {},
-        "Silk Kurta Sets": {},
-        "Festive Kurta Sets": {},
-        "Wedding Kurta Sets": {}
-      },
-      Sherwanis: {
-        "Wedding Sherwani": {},
-        "Designer Sherwani": {}
-      },
-      "Dhoti & Veshti": {
-        Cotton: {},
-        Silk: {}
-      },
-      "Nehru Jackets": {
-        Casual: {},
-        Festive: {}
+      Shirts: {
+        "Casual Shirts": {},
+        "Formal Shirts": {},
+        "Linen Shirts": {}
       }
     },
     Footwear: {
-      Mojaris: {},
-      Sandals: {},
-      FormalShoes: {}
-    },
-    Accessories: {
-      Belts: {},
-      Wallets: {},
-      Watches: {}
-    },
-    Grooming: {
-      BeardCare: {},
-      HairCare: {}
-    }
-  },
-
-  Kids: {
-    "Boys Clothing": {
-      Shirts: {},
-      TShirts: {},
-      Sets: {}
-    },
-    "Girls Clothing": {
-      Dresses: {},
-      Frocks: {},
-      Sets: {}
-    },
-    "Baby Wear": {
-      Rompers: {
-        "Cotton Rompers": {},
-        "Organic Rompers": {},
-        "Printed Rompers": {}
-      },
-      Bodysuits: {
-        Sleeveless: {},
-        FullSleeve: {}
-      },
-      Sleepwear: {
-        Cotton: {},
-        Winter: {}
-      },
-      "Winter Wear": {
-        Sweaters: {},
-        Jackets: {}
+      Mojaris: {
+        "Traditional Mojari": {},
+        "Designer Mojari": {}
       }
-    },
-    Footwear: {
-      Booties: {},
-      Sandals: {}
-    },
-    "Toys & Games": {
-      Educational: {},
-      WoodenToys: {}
-    },
-    "School Essentials": {
-      Bags: {},
-      Bottles: {},
-      LunchBoxes: {}
-    }
-  },
-
-  Furniture: {
-    "Living Room Furniture": {
-      Sofas: {},
-      CoffeeTables: {},
-      TVUnits: {}
-    },
-    "Bedroom Furniture": {
-      Beds: {
-        "Wooden Beds": {},
-        "Upholstered Beds": {},
-        "Storage Beds": {},
-        "King Size Beds": {},
-        "Queen Size Beds": {}
-      },
-      Wardrobes: {
-        Sliding: {},
-        Hinged: {}
-      },
-      "Side Tables": {},
-      "Dressing Tables": {}
-    },
-    "Dining Furniture": {
-      DiningTables: {},
-      DiningChairs: {}
-    },
-    "Office Furniture": {
-      OfficeChairs: {},
-      WorkDesks: {}
-    },
-    "Outdoor Furniture": {
-      GardenChairs: {},
-      Swings: {}
-    },
-    "Storage Furniture": {
-      Cabinets: {},
-      Shelves: {}
     }
   },
 
   Arts: {
     Paintings: {
-      "Oil Paintings": {},
-      "Watercolor Paintings": {},
-      "Acrylic Paintings": {
-        "Abstract Art": {},
-        "Contemporary Art": {},
-        "Traditional Art": {},
-        "Nature & Landscape": {}
-      },
-      "Mixed Media": {}
-    },
-    Sculptures: {
-      Stone: {},
-      Metal: {}
-    },
-    "Wall Art": {
-      Wooden: {},
-      Metal: {}
-    },
-    Collectibles: {
-      Antiques: {},
-      Coins: {}
-    },
-    "Digital Art": {
-      Prints: {},
-      Illustrations: {}
+      "Madhubani Art": {},
+      "Warli Art": {},
+      "Gond Art": {}
     }
   },
 
   Crafts: {
-    Decor: {
-      Lamps: {},
-      Showpieces: {}
-    },
-    Jewellery: {
-      HandmadeNecklaces: {},
-      HandmadeEarrings: {}
-    },
-    "Pottery & Clay": {
-      Vases: {},
-      Planters: {}
-    },
-    "Wood Crafts": {
-      Carvings: {},
-      UtilityItems: {}
-    },
-    "Metal Crafts": {
-      BrassItems: {},
-      CopperItems: {}
-    },
-    "Textile Crafts": {
-      "Handwoven Items": {
-        "Table Runners": {},
-        "Cushion Covers": {},
-        "Wall Hangings": {}
-      },
-      "Embroidered Items": {},
-      "Patchwork Items": {}
-    }
-  },
-
-  "Home & Living": {
-    "Home Decor": {
-      "Wall Decor": {
-        "Wooden Wall Decor": {},
-        "Metal Wall Decor": {},
-        "Fabric Wall Decor": {}
-      },
-      Vases: {},
-      Clocks: {}
-    },
-    Lighting: {
-      TableLamps: {},
-      HangingLights: {}
-    },
-    "Kitchen & Dining": {
-      Cookware: {},
-      Serveware: {}
-    },
-    "Bedding & Furnishings": {
-      Bedsheets: {},
-      Cushions: {},
-      Curtains: {}
+    Toys: {
+      "Etikoppaka Toys": {},
+      "Channapatna Toys": {}
     }
   }
 };
+
 
 const defaultCategoryFields = [
   {
@@ -332,30 +144,1209 @@ const defaultCategoryFields = [
   }
 ];
 
+// const categoryFields = {
+
+//   /* =====================================================
+//      WOMEN
+//   ===================================================== */
+
+//   /* Clothing → Sarees (applies to all Level-4 sarees) */
+// Sarees: [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Festive", "Wedding"]
+//   },
+
+//   {
+//     name: "sareeFabric",
+//     label: "Saree Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Pure Silk", "Cotton", "Linen"]
+//   },
+
+//   {
+//     name: "blouseFabric",
+//     label: "Blouse Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Pure Silk", "Cotton"]
+//   },
+
+//   {
+//     name: "sareePrint",
+//     label: "Saree Print",
+//     type: "select",
+//     required: true,
+//     options: ["Peacock", "Floral", "Paisley", "Abstract"]
+//   },
+
+//   {
+//     name: "sareeWork",
+//     label: "Saree Work",
+//     type: "select",
+//     required: true,
+//     options: ["Zari Work", "Thread Work", "Plain"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//   name: "coloursAvailable",
+//   label: "Colours Available",
+//   type: "select",
+//   required: true,
+//   options: ["Maroon", "Red", "Green", "Blue", "Black", "Gold"]
+// },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Size 1", "Size 2", "Size 3"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "regionalTag",
+//     label: "Regional Tag",
+//     type: "select",
+//     required: false,
+//     options: [
+//       "Maharashtra",
+//       "Karnataka",
+//       "Tamil Nadu",
+//       "Andhra Pradesh",
+//       "West Bengal"
+//     ]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalised orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Dry clean only", "Hand wash", "Machine wash"]
+//   }
+// ],
+
+//   Dresses: [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Party", "Festive"]
+//   },
+
+//   {
+//     name: "topFabric",
+//     label: "Top / Bottom Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Semi Crepe", "Cotton", "Rayon"]
+//   },
+
+//   {
+//     name: "dupattaFabric",
+//     label: "Dupatta Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Semi Crepe", "Chiffon", "Georgette"]
+//   },
+
+//   {
+//     name: "materialPrint",
+//     label: "Material Print",
+//     type: "select",
+//     required: true,
+//     options: ["Floral", "Abstract", "Paisley"]
+//   },
+
+//   {
+//     name: "materialWork",
+//     label: "Material Work",
+//     type: "select",
+//     required: true,
+//     options: ["Threadwork", "Embroidery", "Plain"]
+//   },
+
+//   /* ===== FIT & STYLE ===== */
+//   {
+//     name: "sleevesLength",
+//     label: "Sleeves Length",
+//     type: "select",
+//     required: true,
+//     options: ["Sleeveless", "Three fourth Sleeves", "Full Sleeves"]
+//   },
+
+//   {
+//     name: "kurtaLength",
+//     label: "Kurta Length",
+//     type: "select",
+//     required: true,
+//     options: ["Knee length", "Calf length", "Ankle length"]
+//   },
+
+//   {
+//     name: "neckPattern",
+//     label: "Neck Pattern",
+//     type: "select",
+//     required: true,
+//     options: ["Round", "V Neck", "Boat Neck"]
+//   },
+
+//   {
+//     name: "bottomStyle",
+//     label: "Bottom Style",
+//     type: "select",
+//     required: true,
+//     options: ["Straight pants", "Palazzo", "Churidar"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["Maroon", "Red", "Green", "Blue", "Black"]
+//   },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Size 1", "Size 2", "Size 3"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "regionalTag",
+//     label: "Regional Tag",
+//     type: "select",
+//     required: false,
+//     options: ["Maharashtra", "Karnataka", "Tamil Nadu", "West Bengal"]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalized orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Hand wash", "Dry clean only", "Machine wash"]
+//   }
+// ]
+// ,
+
+//   "Dress Materials": [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Party", "Festive"]
+//   },
+
+//   {
+//     name: "topBottomFabric",
+//     label: "Top / Bottom Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Pure Silk", "Cotton", "Semi Crepe", "Rayon"]
+//   },
+
+//   {
+//     name: "dupattaFabric",
+//     label: "Dupatta Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Crepe", "Chiffon", "Georgette"]
+//   },
+
+//   {
+//     name: "materialPrint",
+//     label: "Material Print",
+//     type: "select",
+//     required: true,
+//     options: ["Floral", "Paisley", "Abstract"]
+//   },
+
+//   {
+//     name: "materialWork",
+//     label: "Material Work",
+//     type: "select",
+//     required: true,
+//     options: ["Thread", "Gottapatti", "Embroidery", "Plain"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["Maroon", "Red", "Green", "Blue", "Black"]
+//   },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Size 1", "Size 2", "Size 3"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "regionalTag",
+//     label: "Regional Tag",
+//     type: "select",
+//     required: false,
+//     options: ["Maharashtra", "Karnataka", "Tamil Nadu", "Andhra Pradesh"]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalized orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Hand wash", "Dry clean only", "Machine wash"]
+//   }
+// ]
+// ,
+
+//   "Kurtis & Kurtas": [
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Rayon", "Silk"] },
+//     { name: "length", label: "Kurti Length", type: "select", required: true, options: ["Short", "Knee Length", "Ankle Length"] },
+//     { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Daily Wear", "Office", "Festive"] }
+//   ],
+
+//   "Ethnic Sets": [
+//     { name: "setType", label: "Set Type", type: "select", required: true, options: ["Kurta Set", "Co-ord Set"] },
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
+//   ],
+
+//   "Women_Footwear": [
+//   {
+//     name: "heelHeight",
+//     label: "Heel Height",
+//     type: "select",
+//     required: true,
+//     options: ["Flat", "1 inch", "2 inch", "3 inch", "4 inch"]
+//   },
+//   {
+//     name: "ornamentation",
+//     label: "Ornamentation",
+//     type: "select",
+//     required: true,
+//     options: ["Embroidered", "Beaded", "Printed", "Plain"]
+//   },
+//   {
+//     name: "toeShape",
+//     label: "Toe Shape",
+//     type: "select",
+//     required: true,
+//     options: ["Round Toe", "Pointed Toe", "Open Toe"]
+//   },
+//   {
+//     name: "material",
+//     label: "Material",
+//     type: "select",
+//     required: true,
+//     options: ["Leather", "Canvas", "Synthetic"]
+//   },
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Party", "Festive", "Wedding"]
+//   },
+
+//   /* COMMON */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["Maroon", "Red", "Black", "Gold"]
+//   },
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Size 1", "Size 2", "Size 3"]
+//   },
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Wipe with dry cloth", "Hand wash"]
+//   }
+// ]
+
+// ,
+// "Men_Footwear": [
+//   {
+//     name: "footwearType",
+//     label: "Footwear Type",
+//     type: "select",
+//     required: true,
+//     options: ["Formal Shoes", "Loafers", "Sandals", "Sneakers"]
+//   },
+//   {
+//     name: "soleMaterial",
+//     label: "Sole Material",
+//     type: "select",
+//     required: true,
+//     options: ["Rubber", "PU", "Leather"]
+//   },
+//   {
+//     name: "material",
+//     label: "Upper Material",
+//     type: "select",
+//     required: true,
+//     options: ["Leather", "Synthetic", "Canvas"]
+//   },
+//   {
+//     name: "toeShape",
+//     label: "Toe Shape",
+//     type: "select",
+//     required: true,
+//     options: ["Round Toe", "Square Toe"]
+//   },
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Formal", "Office"]
+//   },
+
+//   /* COMMON */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["Black", "Brown", "Tan"]
+//   },
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["6", "7", "8", "9", "10", "11"]
+//   },
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Wipe with dry cloth"]
+//   }
+// ]
+// ,
+//   Jewellery: [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "design",
+//     label: "Design",
+//     type: "select",
+//     required: true,
+//     options: ["Antique", "Traditional", "Contemporary", "Temple"]
+//   },
+
+//   {
+//     name: "metal",
+//     label: "Metal",
+//     type: "select",
+//     required: true,
+//     options: ["Gold", "Silver", "Bronze", "Copper", "Alloy"]
+//   },
+
+//   {
+//     name: "polish",
+//     label: "Polish",
+//     type: "select",
+//     required: true,
+//     options: ["Gold", "Silver", "Rose Gold", "Matte"]
+//   },
+
+//   {
+//     name: "stone",
+//     label: "Stone",
+//     type: "select",
+//     required: true,
+//     options: ["Zircon AD", "Kundan", "Pearl", "Ruby", "None"]
+//   },
+
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Wedding", "Festive", "Party", "Daily Wear"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["Maroon", "Red", "Green", "Gold", "Silver"]
+//   },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Size 1", "Size 2", "Size 3"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "regionalTag",
+//     label: "Regional Tag",
+//     type: "select",
+//     required: false,
+//     options: ["Rajasthan", "Tamil Nadu", "Karnataka", "Maharashtra"]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalized orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   }
+// ]
+// ,
+
+//   Accessories: [
+//     { name: "accessoryType", label: "Accessory Type", type: "select", required: true, options: ["Handbags", "Clutches", "Stoles"] }
+//   ],
+
+//   /* =====================================================
+//      MEN
+//   ===================================================== */
+
+// "Kurta Sets": [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "fabric",
+//     label: "Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Cotton", "Silk", "Linen", "Rayon"]
+//   },
+
+//   {
+//     name: "kurtaLength",
+//     label: "Kurta Length",
+//     type: "select",
+//     required: true,
+//     options: ["Knee Length", "Calf Length", "Ankle Length"]
+//   },
+
+//   {
+//     name: "fit",
+//     label: "Fit",
+//     type: "select",
+//     required: true,
+//     options: ["Slim Fit", "Regular Fit", "Relaxed Fit"]
+//   },
+
+//   {
+//     name: "sleeveLength",
+//     label: "Sleeve Length",
+//     type: "select",
+//     required: true,
+//     options: ["Full Sleeve", "Half Sleeve", "Sleeveless"]
+//   },
+
+//   {
+//     name: "neckPattern",
+//     label: "Neck Pattern",
+//     type: "select",
+//     required: true,
+//     options: ["Round Neck", "Mandarin Collar", "V Neck"]
+//   },
+
+//   {
+//     name: "occasion",
+//     label: "Occasion",
+//     type: "select",
+//     required: true,
+//     options: ["Casual", "Festive", "Wedding", "Office"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["White", "Cream", "Maroon", "Blue", "Green", "Black"]
+//   },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["S", "M", "L", "XL", "XXL"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "regionalTag",
+//     label: "Regional Tag",
+//     type: "select",
+//     required: false,
+//     options: ["Rajasthan", "Karnataka", "Tamil Nadu", "Uttar Pradesh"]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalized orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Hand wash", "Dry clean only", "Machine wash"]
+//   }
+// ]
+// ,
+
+//   Sherwanis: [
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Silk", "Velvet"] },
+//     { name: "work", label: "Work", type: "select", required: true, options: ["Embroidery", "Zardozi"] }
+//   ],
+
+//   "Dhoti & Veshti": [
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
+//   ],
+
+//   "Nehru Jackets": [
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Tweed"] }
+//   ],
+
+//   /* =====================================================
+//      KIDS
+//   ===================================================== */
+
+//  "Baby Wear": [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "ageGroup",
+//     label: "Age Group",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "0–3 Months",
+//       "3–6 Months",
+//       "6–9 Months",
+//       "9–12 Months",
+//       "1–2 Years"
+//     ]
+//   },
+
+//   {
+//     name: "gender",
+//     label: "Gender",
+//     type: "select",
+//     required: true,
+//     options: ["Unisex", "Boy", "Girl"]
+//   },
+
+//   {
+//     name: "fabric",
+//     label: "Fabric",
+//     type: "select",
+//     required: true,
+//     options: ["Cotton", "Organic Cotton", "Bamboo Cotton", "Wool"]
+//   },
+
+//   {
+//     name: "wearType",
+//     label: "Wear Type",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Rompers",
+//       "Bodysuits",
+//       "Sleepwear",
+//       "Winter Wear",
+//       "Daily Wear"
+//     ]
+//   },
+
+//   /* ===== FIT & SAFETY ===== */
+//   {
+//     name: "sleeveLength",
+//     label: "Sleeve Length",
+//     type: "select",
+//     required: true,
+//     options: ["Sleeveless", "Half Sleeve", "Full Sleeve"]
+//   },
+
+//   {
+//     name: "closureType",
+//     label: "Closure Type",
+//     type: "select",
+//     required: true,
+//     options: ["Snap Button", "Zipper", "Tie-up", "Pullover"]
+//   },
+
+//   {
+//     name: "skinFriendly",
+//     label: "Skin Friendly",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: ["White", "Yellow", "Pink", "Blue", "Green", "Grey"]
+//   },
+
+//   {
+//     name: "sizes",
+//     label: "Sizes",
+//     type: "select",
+//     required: true,
+//     options: ["Newborn", "0–3M", "3–6M", "6–12M", "1–2Y"]
+//   },
+
+//   /* ===== RETURN & DELIVERY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "refundProcess",
+//     label: "Refund process in days",
+//     type: "select",
+//     required: true,
+//     options: ["within 3 days", "within 5 days", "within 7 days"]
+//   },
+
+//   {
+//     name: "availableToPickup",
+//     label: "Available to pick up",
+//     type: "select",
+//     required: true,
+//     options: ["Immediately", "Within 2 Days", "Within 5 Days"]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: ["Hand wash", "Machine wash", "Do not bleach"]
+//   },
+
+//   {
+//     name: "personalisedOrders",
+//     label: "Do you take personalized orders",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   }
+// ]
+// ,
+
+//   /* =====================================================
+//      FURNITURE
+//   ===================================================== */
+
+//   Beds: [
+
+//   /* ===== BASIC DETAILS ===== */
+//   {
+//     name: "bedType",
+//     label: "Bed Type",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Single Bed",
+//       "Double Bed",
+//       "Queen Size Bed",
+//       "King Size Bed"
+//     ]
+//   },
+
+//   {
+//     name: "material",
+//     label: "Material",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Solid Wood",
+//       "Engineered Wood",
+//       "Metal",
+//       "Upholstered"
+//     ]
+//   },
+
+//   {
+//     name: "finish",
+//     label: "Finish",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Natural",
+//       "Walnut",
+//       "Teak",
+//       "Wenge",
+//       "Matte",
+//       "Glossy"
+//     ]
+//   },
+
+//   /* ===== SIZE & STRUCTURE ===== */
+//   {
+//     name: "size",
+//     label: "Size",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Single",
+//       "Queen",
+//       "King"
+//     ]
+//   },
+
+//   {
+//     name: "storage",
+//     label: "Storage",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "With Storage",
+//       "Without Storage",
+//       "Hydraulic Storage",
+//       "Drawer Storage"
+//     ]
+//   },
+
+//   {
+//     name: "headboardType",
+//     label: "Headboard Type",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Box",
+//       "Panel",
+//       "Upholstered",
+//       "No Headboard"
+//     ]
+//   },
+
+//   /* ===== DIMENSIONS ===== */
+//   {
+//     name: "bedDimensions",
+//     label: "Dimensions (L × W × H)",
+//     type: "text",
+//     required: true,
+//     placeholder: "78 x 60 x 36 inches"
+//   },
+
+//   {
+//     name: "maxLoad",
+//     label: "Maximum Load Capacity",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Up to 150 kg",
+//       "Up to 200 kg",
+//       "Up to 300 kg"
+//     ]
+//   },
+
+//   /* ===== VARIANT DETAILS ===== */
+//   {
+//     name: "coloursAvailable",
+//     label: "Colours Available",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Brown",
+//       "Walnut",
+//       "Black",
+//       "White",
+//       "Grey"
+//     ]
+//   },
+
+//   /* ===== DELIVERY & INSTALLATION ===== */
+//   {
+//     name: "installation",
+//     label: "Installation Provided",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "deliveryTime",
+//     label: "Delivery Time",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "3–5 Days",
+//       "5–7 Days",
+//       "7–10 Days"
+//     ]
+//   },
+
+//   /* ===== RETURN & WARRANTY ===== */
+//   {
+//     name: "applicableToReturn",
+//     label: "Applicable to Return",
+//     type: "select",
+//     required: true,
+//     options: ["Yes", "No"]
+//   },
+
+//   {
+//     name: "warranty",
+//     label: "Warranty",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "No Warranty",
+//       "6 Months",
+//       "1 Year",
+//       "5 Years"
+//     ]
+//   },
+
+//   /* ===== EXTRA DETAILS ===== */
+//   {
+//     name: "careInformation",
+//     label: "Care Information",
+//     type: "select",
+//     required: true,
+//     options: [
+//       "Wipe with dry cloth",
+//       "Use wood polish",
+//       "Avoid direct sunlight"
+//     ]
+//   }
+// ]
+// ,
+
+//   /* =====================================================
+//      ARTS
+//   ===================================================== */
+
+//   "Acrylic Paintings": [
+//     { name: "style", label: "Art Style", type: "select", required: true, options: ["Abstract", "Contemporary", "Traditional", "Nature"] },
+//     { name: "frame", label: "Frame", type: "select", required: true, options: ["With Frame", "Without Frame"] }
+//   ],
+
+//   /* =====================================================
+//      CRAFTS
+//   ===================================================== */
+
+//   "Handwoven Items": [
+//     { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Jute"] },
+//     { name: "usage", label: "Usage", type: "select", required: true, options: ["Decor", "Utility"] }
+//   ],
+
+//   /* =====================================================
+//      HOME & LIVING
+//   ===================================================== */
+
+//   "Wall Decor": [
+//     { name: "material", label: "Material", type: "select", required: true, options: ["Wood", "Metal", "Fabric"] },
+//     { name: "mountType", label: "Mount Type", type: "select", required: true, options: ["Nail", "Adhesive"] }
+//   ],
+
+//   Lighting: [
+//     { name: "lightType", label: "Light Type", type: "select", required: true, options: ["Table Lamp", "Hanging Lamp"] },
+//     { name: "powerSource", label: "Power Source", type: "select", required: true, options: ["Electric", "Battery"] }
+//   ]
+// };
+
+
 const categoryFields = {
 
-  /* =====================================================
-     WOMEN
-  ===================================================== */
-
-  /* Clothing → Sarees (applies to all Level-4 sarees) */
-Sarees: [
+ "Banarasi Silk": [
 
   /* ===== BASIC DETAILS ===== */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Banarasi"]
+  },
+
+  {
+    name: "sareeType",
+    label: "Saree Type",
+    type: "select",
+    required: true,
+    options: ["Traditional", "Designer", "Contemporary"]
+  },
+
   {
     name: "occasion",
     label: "Occasion",
     type: "select",
     required: true,
-    options: ["Casual", "Festive", "Wedding"]
+    options: ["Wedding", "Festive", "Party"]
+  },
+
+  /* ===== DESIGN DETAILS ===== */
+  {
+    name: "bodyDesign",
+    label: "Body Design",
+    type: "select",
+    required: true,
+    options: ["Floral", "Paisley", "Butta", "Plain"]
   },
 
   {
-    name: "sareeFabric",
-    label: "Saree Fabric",
+    name: "borderDesign",
+    label: "Border Design",
     type: "select",
     required: true,
-    options: ["Pure Silk", "Cotton", "Linen"]
+    options: ["Temple Border", "Contrast Border", "Zari Border"]
+  },
+
+  {
+    name: "palluDesign",
+    label: "Pallu Design",
+    type: "select",
+    required: true,
+    options: ["Traditional Zari", "Floral Zari", "Heavy Zari"]
+  },
+
+  {
+    name: "zariType",
+    label: "Zari Type",
+    type: "select",
+    required: true,
+    options: ["Pure Gold Zari", "Silver Zari", "Tested Zari"]
+  },
+
+  /* ===== BLOUSE DETAILS ===== */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
   },
 
   {
@@ -363,1013 +1354,72 @@ Sarees: [
     label: "Blouse Fabric",
     type: "select",
     required: true,
-    options: ["Pure Silk", "Cotton"]
+    options: ["Silk", "Cotton Silk"]
   },
 
   {
-    name: "sareePrint",
-    label: "Saree Print",
+    name: "blouseWork",
+    label: "Blouse Work",
     type: "select",
     required: true,
-    options: ["Peacock", "Floral", "Paisley", "Abstract"]
+    options: ["Zari", "Embroidery", "Plain"]
+  },
+
+  /* ===== SIZE & WEIGHT ===== */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
   },
 
   {
-    name: "sareeWork",
-    label: "Saree Work",
+    name: "sareeWidth",
+    label: "Saree Width",
     type: "select",
     required: true,
-    options: ["Zari Work", "Thread Work", "Plain"]
+    options: ["44 inches", "46 inches"]
   },
 
-  /* ===== VARIANT DETAILS ===== */
   {
-  name: "coloursAvailable",
-  label: "Colours Available",
-  type: "select",
-  required: true,
-  options: ["Maroon", "Red", "Green", "Blue", "Black", "Gold"]
-},
-
-  {
-    name: "sizes",
-    label: "Sizes",
+    name: "weight",
+    label: "Approximate Weight",
     type: "select",
     required: true,
-    options: ["Size 1", "Size 2", "Size 3"]
+    options: ["Lightweight", "Medium", "Heavy"]
+  },
+
+  /* ===== COLOR & VARIANT ===== */
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Red", "Maroon", "Green", "Royal Blue", "Gold", "Pink"]
+  },
+
+  /* ===== CARE & ORIGIN ===== */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only"]
+  },
+
+  {
+    name: "origin",
+    label: "Place of Origin",
+    type: "select",
+    required: true,
+    options: ["Varanasi"]
   },
 
   /* ===== RETURN & DELIVERY ===== */
   {
     name: "applicableToReturn",
     label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "regionalTag",
-    label: "Regional Tag",
-    type: "select",
-    required: false,
-    options: [
-      "Maharashtra",
-      "Karnataka",
-      "Tamil Nadu",
-      "Andhra Pradesh",
-      "West Bengal"
-    ]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalised orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Dry clean only", "Hand wash", "Machine wash"]
-  }
-],
-
-  Dresses: [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Casual", "Party", "Festive"]
-  },
-
-  {
-    name: "topFabric",
-    label: "Top / Bottom Fabric",
-    type: "select",
-    required: true,
-    options: ["Semi Crepe", "Cotton", "Rayon"]
-  },
-
-  {
-    name: "dupattaFabric",
-    label: "Dupatta Fabric",
-    type: "select",
-    required: true,
-    options: ["Semi Crepe", "Chiffon", "Georgette"]
-  },
-
-  {
-    name: "materialPrint",
-    label: "Material Print",
-    type: "select",
-    required: true,
-    options: ["Floral", "Abstract", "Paisley"]
-  },
-
-  {
-    name: "materialWork",
-    label: "Material Work",
-    type: "select",
-    required: true,
-    options: ["Threadwork", "Embroidery", "Plain"]
-  },
-
-  /* ===== FIT & STYLE ===== */
-  {
-    name: "sleevesLength",
-    label: "Sleeves Length",
-    type: "select",
-    required: true,
-    options: ["Sleeveless", "Three fourth Sleeves", "Full Sleeves"]
-  },
-
-  {
-    name: "kurtaLength",
-    label: "Kurta Length",
-    type: "select",
-    required: true,
-    options: ["Knee length", "Calf length", "Ankle length"]
-  },
-
-  {
-    name: "neckPattern",
-    label: "Neck Pattern",
-    type: "select",
-    required: true,
-    options: ["Round", "V Neck", "Boat Neck"]
-  },
-
-  {
-    name: "bottomStyle",
-    label: "Bottom Style",
-    type: "select",
-    required: true,
-    options: ["Straight pants", "Palazzo", "Churidar"]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["Maroon", "Red", "Green", "Blue", "Black"]
-  },
-
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["Size 1", "Size 2", "Size 3"]
-  },
-
-  /* ===== RETURN & DELIVERY ===== */
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "regionalTag",
-    label: "Regional Tag",
-    type: "select",
-    required: false,
-    options: ["Maharashtra", "Karnataka", "Tamil Nadu", "West Bengal"]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalized orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Hand wash", "Dry clean only", "Machine wash"]
-  }
-]
-,
-
-  "Dress Materials": [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Casual", "Party", "Festive"]
-  },
-
-  {
-    name: "topBottomFabric",
-    label: "Top / Bottom Fabric",
-    type: "select",
-    required: true,
-    options: ["Pure Silk", "Cotton", "Semi Crepe", "Rayon"]
-  },
-
-  {
-    name: "dupattaFabric",
-    label: "Dupatta Fabric",
-    type: "select",
-    required: true,
-    options: ["Crepe", "Chiffon", "Georgette"]
-  },
-
-  {
-    name: "materialPrint",
-    label: "Material Print",
-    type: "select",
-    required: true,
-    options: ["Floral", "Paisley", "Abstract"]
-  },
-
-  {
-    name: "materialWork",
-    label: "Material Work",
-    type: "select",
-    required: true,
-    options: ["Thread", "Gottapatti", "Embroidery", "Plain"]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["Maroon", "Red", "Green", "Blue", "Black"]
-  },
-
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["Size 1", "Size 2", "Size 3"]
-  },
-
-  /* ===== RETURN & DELIVERY ===== */
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "regionalTag",
-    label: "Regional Tag",
-    type: "select",
-    required: false,
-    options: ["Maharashtra", "Karnataka", "Tamil Nadu", "Andhra Pradesh"]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalized orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Hand wash", "Dry clean only", "Machine wash"]
-  }
-]
-,
-
-  "Kurtis & Kurtas": [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Rayon", "Silk"] },
-    { name: "length", label: "Kurti Length", type: "select", required: true, options: ["Short", "Knee Length", "Ankle Length"] },
-    { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Daily Wear", "Office", "Festive"] }
-  ],
-
-  "Ethnic Sets": [
-    { name: "setType", label: "Set Type", type: "select", required: true, options: ["Kurta Set", "Co-ord Set"] },
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
-  ],
-
-  "Women_Footwear": [
-  {
-    name: "heelHeight",
-    label: "Heel Height",
-    type: "select",
-    required: true,
-    options: ["Flat", "1 inch", "2 inch", "3 inch", "4 inch"]
-  },
-  {
-    name: "ornamentation",
-    label: "Ornamentation",
-    type: "select",
-    required: true,
-    options: ["Embroidered", "Beaded", "Printed", "Plain"]
-  },
-  {
-    name: "toeShape",
-    label: "Toe Shape",
-    type: "select",
-    required: true,
-    options: ["Round Toe", "Pointed Toe", "Open Toe"]
-  },
-  {
-    name: "material",
-    label: "Material",
-    type: "select",
-    required: true,
-    options: ["Leather", "Canvas", "Synthetic"]
-  },
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Casual", "Party", "Festive", "Wedding"]
-  },
-
-  /* COMMON */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["Maroon", "Red", "Black", "Gold"]
-  },
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["Size 1", "Size 2", "Size 3"]
-  },
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Wipe with dry cloth", "Hand wash"]
-  }
-]
-
-,
-"Men_Footwear": [
-  {
-    name: "footwearType",
-    label: "Footwear Type",
-    type: "select",
-    required: true,
-    options: ["Formal Shoes", "Loafers", "Sandals", "Sneakers"]
-  },
-  {
-    name: "soleMaterial",
-    label: "Sole Material",
-    type: "select",
-    required: true,
-    options: ["Rubber", "PU", "Leather"]
-  },
-  {
-    name: "material",
-    label: "Upper Material",
-    type: "select",
-    required: true,
-    options: ["Leather", "Synthetic", "Canvas"]
-  },
-  {
-    name: "toeShape",
-    label: "Toe Shape",
-    type: "select",
-    required: true,
-    options: ["Round Toe", "Square Toe"]
-  },
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Casual", "Formal", "Office"]
-  },
-
-  /* COMMON */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["Black", "Brown", "Tan"]
-  },
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["6", "7", "8", "9", "10", "11"]
-  },
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Wipe with dry cloth"]
-  }
-]
-,
-  Jewellery: [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "design",
-    label: "Design",
-    type: "select",
-    required: true,
-    options: ["Antique", "Traditional", "Contemporary", "Temple"]
-  },
-
-  {
-    name: "metal",
-    label: "Metal",
-    type: "select",
-    required: true,
-    options: ["Gold", "Silver", "Bronze", "Copper", "Alloy"]
-  },
-
-  {
-    name: "polish",
-    label: "Polish",
-    type: "select",
-    required: true,
-    options: ["Gold", "Silver", "Rose Gold", "Matte"]
-  },
-
-  {
-    name: "stone",
-    label: "Stone",
-    type: "select",
-    required: true,
-    options: ["Zircon AD", "Kundan", "Pearl", "Ruby", "None"]
-  },
-
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Wedding", "Festive", "Party", "Daily Wear"]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["Maroon", "Red", "Green", "Gold", "Silver"]
-  },
-
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["Size 1", "Size 2", "Size 3"]
-  },
-
-  /* ===== RETURN & DELIVERY ===== */
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "regionalTag",
-    label: "Regional Tag",
-    type: "select",
-    required: false,
-    options: ["Rajasthan", "Tamil Nadu", "Karnataka", "Maharashtra"]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalized orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  }
-]
-,
-
-  Accessories: [
-    { name: "accessoryType", label: "Accessory Type", type: "select", required: true, options: ["Handbags", "Clutches", "Stoles"] }
-  ],
-
-  /* =====================================================
-     MEN
-  ===================================================== */
-
-"Kurta Sets": [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "fabric",
-    label: "Fabric",
-    type: "select",
-    required: true,
-    options: ["Cotton", "Silk", "Linen", "Rayon"]
-  },
-
-  {
-    name: "kurtaLength",
-    label: "Kurta Length",
-    type: "select",
-    required: true,
-    options: ["Knee Length", "Calf Length", "Ankle Length"]
-  },
-
-  {
-    name: "fit",
-    label: "Fit",
-    type: "select",
-    required: true,
-    options: ["Slim Fit", "Regular Fit", "Relaxed Fit"]
-  },
-
-  {
-    name: "sleeveLength",
-    label: "Sleeve Length",
-    type: "select",
-    required: true,
-    options: ["Full Sleeve", "Half Sleeve", "Sleeveless"]
-  },
-
-  {
-    name: "neckPattern",
-    label: "Neck Pattern",
-    type: "select",
-    required: true,
-    options: ["Round Neck", "Mandarin Collar", "V Neck"]
-  },
-
-  {
-    name: "occasion",
-    label: "Occasion",
-    type: "select",
-    required: true,
-    options: ["Casual", "Festive", "Wedding", "Office"]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["White", "Cream", "Maroon", "Blue", "Green", "Black"]
-  },
-
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["S", "M", "L", "XL", "XXL"]
-  },
-
-  /* ===== RETURN & DELIVERY ===== */
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "regionalTag",
-    label: "Regional Tag",
-    type: "select",
-    required: false,
-    options: ["Rajasthan", "Karnataka", "Tamil Nadu", "Uttar Pradesh"]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalized orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Hand wash", "Dry clean only", "Machine wash"]
-  }
-]
-,
-
-  Sherwanis: [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Silk", "Velvet"] },
-    { name: "work", label: "Work", type: "select", required: true, options: ["Embroidery", "Zardozi"] }
-  ],
-
-  "Dhoti & Veshti": [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] }
-  ],
-
-  "Nehru Jackets": [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Tweed"] }
-  ],
-
-  /* =====================================================
-     KIDS
-  ===================================================== */
-
- "Baby Wear": [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "ageGroup",
-    label: "Age Group",
-    type: "select",
-    required: true,
-    options: [
-      "0–3 Months",
-      "3–6 Months",
-      "6–9 Months",
-      "9–12 Months",
-      "1–2 Years"
-    ]
-  },
-
-  {
-    name: "gender",
-    label: "Gender",
-    type: "select",
-    required: true,
-    options: ["Unisex", "Boy", "Girl"]
-  },
-
-  {
-    name: "fabric",
-    label: "Fabric",
-    type: "select",
-    required: true,
-    options: ["Cotton", "Organic Cotton", "Bamboo Cotton", "Wool"]
-  },
-
-  {
-    name: "wearType",
-    label: "Wear Type",
-    type: "select",
-    required: true,
-    options: [
-      "Rompers",
-      "Bodysuits",
-      "Sleepwear",
-      "Winter Wear",
-      "Daily Wear"
-    ]
-  },
-
-  /* ===== FIT & SAFETY ===== */
-  {
-    name: "sleeveLength",
-    label: "Sleeve Length",
-    type: "select",
-    required: true,
-    options: ["Sleeveless", "Half Sleeve", "Full Sleeve"]
-  },
-
-  {
-    name: "closureType",
-    label: "Closure Type",
-    type: "select",
-    required: true,
-    options: ["Snap Button", "Zipper", "Tie-up", "Pullover"]
-  },
-
-  {
-    name: "skinFriendly",
-    label: "Skin Friendly",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: ["White", "Yellow", "Pink", "Blue", "Green", "Grey"]
-  },
-
-  {
-    name: "sizes",
-    label: "Sizes",
-    type: "select",
-    required: true,
-    options: ["Newborn", "0–3M", "3–6M", "6–12M", "1–2Y"]
-  },
-
-  /* ===== RETURN & DELIVERY ===== */
-  {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  },
-
-  {
-    name: "refundProcess",
-    label: "Refund process in days",
-    type: "select",
-    required: true,
-    options: ["within 3 days", "within 5 days", "within 7 days"]
-  },
-
-  {
-    name: "availableToPickup",
-    label: "Available to pick up",
-    type: "select",
-    required: true,
-    options: ["Immediately", "Within 2 Days", "Within 5 Days"]
-  },
-
-  /* ===== EXTRA DETAILS ===== */
-  {
-    name: "careInformation",
-    label: "Care Information",
-    type: "select",
-    required: true,
-    options: ["Hand wash", "Machine wash", "Do not bleach"]
-  },
-
-  {
-    name: "personalisedOrders",
-    label: "Do you take personalized orders",
-    type: "select",
-    required: true,
-    options: ["Yes", "No"]
-  }
-]
-,
-
-  /* =====================================================
-     FURNITURE
-  ===================================================== */
-
-  Beds: [
-
-  /* ===== BASIC DETAILS ===== */
-  {
-    name: "bedType",
-    label: "Bed Type",
-    type: "select",
-    required: true,
-    options: [
-      "Single Bed",
-      "Double Bed",
-      "Queen Size Bed",
-      "King Size Bed"
-    ]
-  },
-
-  {
-    name: "material",
-    label: "Material",
-    type: "select",
-    required: true,
-    options: [
-      "Solid Wood",
-      "Engineered Wood",
-      "Metal",
-      "Upholstered"
-    ]
-  },
-
-  {
-    name: "finish",
-    label: "Finish",
-    type: "select",
-    required: true,
-    options: [
-      "Natural",
-      "Walnut",
-      "Teak",
-      "Wenge",
-      "Matte",
-      "Glossy"
-    ]
-  },
-
-  /* ===== SIZE & STRUCTURE ===== */
-  {
-    name: "size",
-    label: "Size",
-    type: "select",
-    required: true,
-    options: [
-      "Single",
-      "Queen",
-      "King"
-    ]
-  },
-
-  {
-    name: "storage",
-    label: "Storage",
-    type: "select",
-    required: true,
-    options: [
-      "With Storage",
-      "Without Storage",
-      "Hydraulic Storage",
-      "Drawer Storage"
-    ]
-  },
-
-  {
-    name: "headboardType",
-    label: "Headboard Type",
-    type: "select",
-    required: true,
-    options: [
-      "Box",
-      "Panel",
-      "Upholstered",
-      "No Headboard"
-    ]
-  },
-
-  /* ===== DIMENSIONS ===== */
-  {
-    name: "bedDimensions",
-    label: "Dimensions (L × W × H)",
-    type: "text",
-    required: true,
-    placeholder: "78 x 60 x 36 inches"
-  },
-
-  {
-    name: "maxLoad",
-    label: "Maximum Load Capacity",
-    type: "select",
-    required: true,
-    options: [
-      "Up to 150 kg",
-      "Up to 200 kg",
-      "Up to 300 kg"
-    ]
-  },
-
-  /* ===== VARIANT DETAILS ===== */
-  {
-    name: "coloursAvailable",
-    label: "Colours Available",
-    type: "select",
-    required: true,
-    options: [
-      "Brown",
-      "Walnut",
-      "Black",
-      "White",
-      "Grey"
-    ]
-  },
-
-  /* ===== DELIVERY & INSTALLATION ===== */
-  {
-    name: "installation",
-    label: "Installation Provided",
     type: "select",
     required: true,
     options: ["Yes", "No"]
@@ -1380,172 +1430,851 @@ Sarees: [
     label: "Delivery Time",
     type: "select",
     required: true,
-    options: [
-      "3–5 Days",
-      "5–7 Days",
-      "7–10 Days"
-    ]
+    options: ["3–5 Days", "5–7 Days", "7–10 Days"]
   },
 
-  /* ===== RETURN & WARRANTY ===== */
+  /* ===== CERTIFICATION ===== */
   {
-    name: "applicableToReturn",
-    label: "Applicable to Return",
+    name: "giTag",
+    label: "GI Tagged Product",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+
+  "Kanchipuram Silk": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Kanchipuram"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Wedding", "Festive"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "bodyDesign",
+    label: "Body Design",
+    type: "select",
+    required: true,
+    options: ["Plain", "Checks", "Butta"]
+  },
+
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Contrast Border", "Temple Border"]
+  },
+
+  {
+    name: "palluDesign",
+    label: "Pallu Design",
+    type: "select",
+    required: true,
+    options: ["Traditional", "Zari"]
+  },
+
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
     type: "select",
     required: true,
     options: ["Yes", "No"]
   },
 
   {
-    name: "warranty",
-    label: "Warranty",
+    name: "blouseFabric",
+    label: "Blouse Fabric",
     type: "select",
     required: true,
-    options: [
-      "No Warranty",
-      "6 Months",
-      "1 Year",
-      "5 Years"
-    ]
+    options: ["Silk", "Cotton Silk"]
   },
 
-  /* ===== EXTRA DETAILS ===== */
+  /* SIZE & COLOR */
   {
-    name: "careInformation",
-    label: "Care Information",
+    name: "sareeLength",
+    label: "Saree Length",
     type: "select",
     required: true,
-    options: [
-      "Wipe with dry cloth",
-      "Use wood polish",
-      "Avoid direct sunlight"
-    ]
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Maroon", "Red", "Green", "Gold", "Royal Blue"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
   }
 ]
 ,
 
-  /* =====================================================
-     ARTS
-  ===================================================== */
+  "Jamdani Cotton": [
 
-  "Acrylic Paintings": [
-    { name: "style", label: "Art Style", type: "select", required: true, options: ["Abstract", "Contemporary", "Traditional", "Nature"] },
-    { name: "frame", label: "Frame", type: "select", required: true, options: ["With Frame", "Without Frame"] }
-  ],
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
 
-  /* =====================================================
-     CRAFTS
-  ===================================================== */
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Jamdani"]
+  },
 
-  "Handwoven Items": [
-    { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Jute"] },
-    { name: "usage", label: "Usage", type: "select", required: true, options: ["Decor", "Utility"] }
-  ],
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Office Wear", "Festive"]
+  },
 
-  /* =====================================================
-     HOME & LIVING
-  ===================================================== */
+  /* DESIGN DETAILS */
+  {
+    name: "pattern",
+    label: "Pattern",
+    type: "select",
+    required: true,
+    options: ["Floral", "Geometric", "Butta"]
+  },
 
-  "Wall Decor": [
-    { name: "material", label: "Material", type: "select", required: true, options: ["Wood", "Metal", "Fabric"] },
-    { name: "mountType", label: "Mount Type", type: "select", required: true, options: ["Nail", "Adhesive"] }
-  ],
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Self Border", "Contrast Border"]
+  },
 
-  Lighting: [
-    { name: "lightType", label: "Light Type", type: "select", required: true, options: ["Table Lamp", "Hanging Lamp"] },
-    { name: "powerSource", label: "Power Source", type: "select", required: true, options: ["Electric", "Battery"] }
-  ]
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Cotton Silk"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Off White", "Sky Blue", "Green", "Pink"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash", "Dry Clean Only"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+  "Designer Tops": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Rayon", "Silk"]
+  },
+
+  {
+    name: "topType",
+    label: "Top Type",
+    type: "select",
+    required: true,
+    options: ["Casual Top", "Party Top", "Formal Top"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Party", "Office Wear"]
+  },
+
+  /* FIT & STYLE */
+  {
+    name: "fit",
+    label: "Fit",
+    type: "select",
+    required: true,
+    options: ["Slim", "Regular", "Relaxed"]
+  },
+
+  {
+    name: "neckType",
+    label: "Neck Type",
+    type: "select",
+    required: true,
+    options: ["Round Neck", "V Neck", "Square Neck"]
+  },
+
+  {
+    name: "sleeveLength",
+    label: "Sleeve Length",
+    type: "select",
+    required: true,
+    options: ["Sleeveless", "Half Sleeve", "Full Sleeve"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["S", "M", "L", "XL"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Black", "White", "Red", "Blue", "Pink"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash", "Machine Wash", "Dry Clean Only"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+
+  "Evening Gown": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Georgette", "Satin"]
+  },
+
+  {
+    name: "gownType",
+    label: "Gown Type",
+    type: "select",
+    required: true,
+    options: ["A-Line", "Flared", "Bodycon"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Party", "Reception", "Evening Wear"]
+  },
+
+  /* FIT & STYLE */
+  {
+    name: "length",
+    label: "Length",
+    type: "select",
+    required: true,
+    options: ["Floor Length", "Ankle Length"]
+  },
+
+  {
+    name: "neckType",
+    label: "Neck Type",
+    type: "select",
+    required: true,
+    options: ["Round Neck", "V Neck", "Off Shoulder"]
+  },
+
+  {
+    name: "sleeveType",
+    label: "Sleeve Type",
+    type: "select",
+    required: true,
+    options: ["Sleeveless", "Cap Sleeve", "Full Sleeve"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["S", "M", "L", "XL"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Black", "Red", "Wine", "Navy Blue"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only", "Hand Wash"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+  "Leather Sandals": [
+
+  /* BASIC DETAILS */
+  {
+    name: "material",
+    label: "Material",
+    type: "select",
+    required: true,
+    options: ["Genuine Leather", "PU Leather"]
+  },
+
+  {
+    name: "footwearType",
+    label: "Footwear Type",
+    type: "select",
+    required: true,
+    options: ["Flat Sandals", "Heel Sandals", "Slip-On Sandals"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Daily Wear", "Party"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "strapStyle",
+    label: "Strap Style",
+    type: "select",
+    required: true,
+    options: ["Single Strap", "Multi Strap", "Ankle Strap"]
+  },
+
+  {
+    name: "closureType",
+    label: "Closure Type",
+    type: "select",
+    required: true,
+    options: ["Buckle", "Velcro", "Slip-On"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["6", "7", "8", "9", "10"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Tan", "Brown", "Black"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Wipe with dry cloth"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+
+ "Party Flats": [
+
+  /* BASIC DETAILS */
+  {
+    name: "material",
+    label: "Material",
+    type: "select",
+    required: true,
+    options: ["Synthetic", "Leather"]
+  },
+
+  {
+    name: "footwearType",
+    label: "Footwear Type",
+    type: "select",
+    required: true,
+    options: ["Ballerina", "Pointed Flats", "Open Toe Flats"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Party", "Festive", "Evening Wear"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "heelHeight",
+    label: "Heel Height",
+    type: "select",
+    required: true,
+    options: ["Flat", "1 inch"]
+  },
+
+  {
+    name: "embellishment",
+    label: "Embellishment",
+    type: "select",
+    required: true,
+    options: ["Stone Work", "Metal Detail", "Bow", "Plain"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["6", "7", "8", "9", "10"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Black", "Gold", "Silver", "Nude"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Wipe with dry cloth"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+  "Casual Shirts": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Linen"]
+  },
+
+  {
+    name: "shirtType",
+    label: "Shirt Type",
+    type: "select",
+    required: true,
+    options: ["Casual Shirt", "Printed Shirt", "Solid Shirt"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Daily Wear", "Weekend Wear"]
+  },
+
+  /* FIT & STYLE */
+  {
+    name: "fit",
+    label: "Fit",
+    type: "select",
+    required: true,
+    options: ["Slim", "Regular"]
+  },
+
+  {
+    name: "sleeveLength",
+    label: "Sleeve Length",
+    type: "select",
+    required: true,
+    options: ["Half Sleeve", "Full Sleeve"]
+  },
+
+  {
+    name: "collarType",
+    label: "Collar Type",
+    type: "select",
+    required: true,
+    options: ["Spread Collar", "Mandarin Collar", "Button-Down"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["S", "M", "L", "XL", "XXL"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Blue", "Green", "Grey", "Black"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Machine Wash", "Hand Wash"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+
+  "Traditional Mojari": [
+
+  /* BASIC DETAILS */
+  {
+    name: "material",
+    label: "Material",
+    type: "select",
+    required: true,
+    options: ["Leather"]
+  },
+
+  {
+    name: "mojariType",
+    label: "Mojari Type",
+    type: "select",
+    required: true,
+    options: ["Traditional", "Designer"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Festive", "Wedding", "Ethnic Wear"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "work",
+    label: "Work",
+    type: "select",
+    required: true,
+    options: ["Embroidery", "Plain"]
+  },
+
+  {
+    name: "toeStyle",
+    label: "Toe Style",
+    type: "select",
+    required: true,
+    options: ["Round Toe", "Curved Toe"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sizes",
+    label: "Sizes",
+    type: "select",
+    required: true,
+    options: ["6", "7", "8", "9", "10", "11"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Tan", "Brown", "Black"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Wipe with dry cloth"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+  "Madhubani Art": [
+
+  /* BASIC DETAILS */
+  {
+    name: "medium",
+    label: "Medium",
+    type: "select",
+    required: true,
+    options: ["Natural Colors", "Acrylic"]
+  },
+
+  {
+    name: "theme",
+    label: "Theme",
+    type: "select",
+    required: true,
+    options: ["Mythology", "Nature", "Folk Life"]
+  },
+
+  {
+    name: "frame",
+    label: "Frame",
+    type: "select",
+    required: true,
+    options: ["With Frame", "Without Frame"]
+  },
+
+  /* SIZE & DISPLAY */
+  {
+    name: "orientation",
+    label: "Orientation",
+    type: "select",
+    required: true,
+    options: ["Vertical", "Horizontal"]
+  },
+
+  {
+    name: "sizes",
+    label: "Artwork Size",
+    type: "select",
+    required: true,
+    options: ["Small", "Medium", "Large"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Keep away from moisture"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+
+  "Warli Art": [
+
+  /* BASIC DETAILS */
+  {
+    name: "surface",
+    label: "Surface",
+    type: "select",
+    required: true,
+    options: ["Canvas", "Paper"]
+  },
+
+  {
+    name: "theme",
+    label: "Theme",
+    type: "select",
+    required: true,
+    options: ["Village Life", "Nature", "Tribal Dance"]
+  },
+
+  {
+    name: "frame",
+    label: "Frame",
+    type: "select",
+    required: true,
+    options: ["With Frame", "Without Frame"]
+  },
+
+  /* SIZE & DISPLAY */
+  {
+    name: "orientation",
+    label: "Orientation",
+    type: "select",
+    required: true,
+    options: ["Vertical", "Horizontal"]
+  },
+
+  {
+    name: "sizes",
+    label: "Artwork Size",
+    type: "select",
+    required: true,
+    options: ["Small", "Medium", "Large"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Keep away from sunlight"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+
+
 };
 
 
-
-
-
-/************************************
- * 2. SELECT ELEMENTS
- ************************************/
-// const lvl1 = document.getElementById("categoryLevel1");
-// const lvl2 = document.getElementById("categoryLevel2");
-// const lvl3 = document.getElementById("categoryLevel3");
-// const lvl4 = document.getElementById("categoryLevel4");
-// const dynamicFields = document.getElementById("dynamicFields");
-
-
-/************************************
- * 3. HELPER FUNCTIONS
- ************************************/
-// function resetSelect(select, placeholder) {
-//   select.innerHTML = `<option value="">${placeholder}</option>`;
-//   select.disabled = true;
-// }
-
-// function fillSelect(select, data, placeholder) {
-//   resetSelect(select, placeholder);
-//   Object.keys(data).forEach(key => {
-//     const opt = document.createElement("option");
-//     opt.value = key;
-//     opt.textContent = key;
-//     select.appendChild(opt);
-//   });
-//   select.disabled = false;
-// }
-
-
-/************************************
- * 4. INIT LEVEL 1
- ************************************/
-// fillSelect(lvl1, categoryTree, "Select Main Category");
-// resetSelect(lvl2, "Select Category");
-// resetSelect(lvl3, "Select Sub Category");
-// resetSelect(lvl4, "Select Sub Sub Category");
-
-
-/************************************
- * 5. LEVEL CHANGE HANDLERS
- ************************************/
-// lvl1.addEventListener("change", () => {
-//   resetSelect(lvl2, "Select Category");
-//   resetSelect(lvl3, "Select Sub Category");
-//   resetSelect(lvl4, "Select Sub Sub Category");
-//   dynamicFields.innerHTML = "";
-
-//   const data = categoryTree[lvl1.value];
-//   if (data && Object.keys(data).length) {
-//     fillSelect(lvl2, data, "Select Category");
-//   } else {
-//     loadDynamicFields(lvl1.value);
-//   }
-// });
-
-// lvl2.addEventListener("change", () => {
-//   resetSelect(lvl3, "Select Sub Category");
-//   resetSelect(lvl4, "Select Sub Sub Category");
-//   dynamicFields.innerHTML = "";
-
-//   const data = categoryTree[lvl1.value]?.[lvl2.value];
-//   if (data && Object.keys(data).length) {
-//     fillSelect(lvl3, data, "Select Sub Category");
-//   } else {
-//     loadDynamicFields(lvl2.value);
-//   }
-// });
-
-// lvl3.addEventListener("change", () => {
-//   resetSelect(lvl4, "Select Sub Sub Category");
-//   dynamicFields.innerHTML = "";
-
-//   const data = categoryTree[lvl1.value]?.[lvl2.value]?.[lvl3.value];
-//   if (data && Object.keys(data).length) {
-//     fillSelect(lvl4, data, "Select Sub Sub Category");
-//   } else {
-//     loadDynamicFields(lvl3.value);
-//   }
-// });
-
-// lvl4.addEventListener("change", () => {
-//   dynamicFields.innerHTML = "";
-//   loadDynamicFields(lvl4.value);
-// });
 
 const lvl1 = document.getElementById("categoryLevel1");
 const lvl2 = document.getElementById("categoryLevel2");
@@ -1641,7 +2370,7 @@ lvl3.addEventListener("change", () => {
 
 lvl4.addEventListener("change", () => {
   clearDynamic();
-  loadDynamicFields(lvl3.value || lvl2.value);
+  loadDynamicFields(lvl4.value);
 });
 
 
@@ -1651,22 +2380,37 @@ lvl4.addEventListener("change", () => {
 function loadDynamicFields(categoryKey) {
   dynamicFields.innerHTML = "";
 
-  // 🔥 NEW: resolve correct field source
-  const gender = lvl1.value;          // Women / Men / Kids
+  const gender = lvl1.value; // Women / Men / Kids
 
-  // ✅ normalize category
-  if (["Flats","Heels","Kolhapuri","Juttis","Mojaris","Sandals","FormalShoes"].includes(categoryKey)) {
-    categoryKey = "Footwear";
+  let resolvedFields = [];
+
+  /* ===============================
+     1️⃣ EXACT CATEGORY MATCH
+     =============================== */
+  if (categoryFields[categoryKey]) {
+    resolvedFields = categoryFields[categoryKey];
   }
 
-  const scopedKey = `${gender}_Footwear`;
+  /* ===============================
+     2️⃣ FOOTWEAR (ONLY WHEN NEEDED)
+     =============================== */
+  else if (
+    ["Flats","Heels","Kolhapuri","Juttis"].includes(categoryKey) &&
+    categoryFields[`${gender}_Footwear`]
+  ) {
+    resolvedFields = categoryFields[`${gender}_Footwear`];
+  }
 
-  const resolvedFields =
-    categoryFields[scopedKey] ||
-    categoryFields[categoryKey] ||
-    [];
+  else if (
+    ["Mojaris","Sandals","FormalShoes"].includes(categoryKey) &&
+    categoryFields["Men_Footwear"]
+  ) {
+    resolvedFields = categoryFields["Men_Footwear"];
+  }
 
-
+  /* ===============================
+     3️⃣ FINAL FIELD LIST
+     =============================== */
   const fields = [
     ...defaultCategoryFields,
     ...resolvedFields
@@ -1686,46 +2430,43 @@ function loadDynamicFields(categoryKey) {
       field.label + (field.required ? ' <span class="required">*</span>' : "");
 
     let input;
+
     if (field.type === "select") {
 
-  /* 🎨 COLOR SELECTOR (HELPER UI) */
-  if (field.name === "coloursAvailable") {
+      /* 🎨 COLOR SELECT */
+      if (field.name === "coloursAvailable") {
+        const wrapper = document.createElement("div");
+        wrapper.className = "color-selector";
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "color-selector";
+        const swatch = document.createElement("div");
+        swatch.className = "color-swatch";
 
-    const swatch = document.createElement("div");
-    swatch.className = "color-swatch";
+        input = document.createElement("select");
+        input.className = "form-select color-select";
+        input.innerHTML = `<option value="">Select ${field.label}</option>`;
 
-    input = document.createElement("select");
-    input.className = "form-select color-select";
-    input.innerHTML = `<option value="">Select ${field.label}</option>`;
+        field.options.forEach(color => {
+          const opt = document.createElement("option");
+          opt.value = color;
+          opt.textContent = color;
+          input.appendChild(opt);
+        });
 
-    field.options.forEach(color => {
-      const opt = document.createElement("option");
-      opt.value = color;
-      opt.textContent = color;
-      input.appendChild(opt);
-    });
+        wrapper.appendChild(swatch);
+        wrapper.appendChild(input);
+        group.append(label, wrapper);
+        grid.appendChild(group);
+        return;
+      }
 
-    wrapper.appendChild(swatch);
-    wrapper.appendChild(input);
+      input = document.createElement("select");
+      input.className = "form-select";
+      input.innerHTML = `<option value="">Select ${field.label}</option>`;
+      field.options.forEach(opt => {
+        input.innerHTML += `<option value="${opt}">${opt}</option>`;
+      });
 
-    group.append(label, wrapper);
-    grid.appendChild(group);
-    return; // ⛔ IMPORTANT: stop default rendering
-  }
-
-  /* NORMAL SELECT */
-  input = document.createElement("select");
-  input.className = "form-select";
-  input.innerHTML = `<option value="">Select ${field.label}</option>`;
-  field.options.forEach(opt => {
-    input.innerHTML += `<option value="${opt}">${opt}</option>`;
-  });
-
-}
- else {
+    } else {
       input = document.createElement("input");
       input.type = "text";
       input.className = "form-input";
@@ -1739,6 +2480,7 @@ function loadDynamicFields(categoryKey) {
   dynamicFields.appendChild(grid);
   attachDynamicFieldBlurValidation();
 }
+
 
 
 
@@ -1807,13 +2549,72 @@ function handleFileSelect(e, container, preview) {
 
 function handleFileUpload(file, container, preview) {
   const reader = new FileReader();
+
   reader.onload = (e) => {
     preview.src = e.target.result;
     container.classList.add("has-image");
     container.classList.remove("error");
+
+    addDeleteButton(container, preview);
+    validateImages(); // re-check count
   };
+
   reader.readAsDataURL(file);
 }
+
+function addDeleteButton(container, preview) {
+  // avoid duplicate buttons
+  if (container.querySelector(".delete-image-btn")) return;
+
+  const btn = document.createElement("div");
+  btn.className = "delete-image-btn";
+  btn.innerHTML = "×";
+
+  btn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  showConfirm({
+    title: "Delete Image",
+    message: "Are you sure you want to delete this image?",
+    onConfirm: () => {
+      preview.src = "";
+      container.classList.remove("has-image");
+
+      const input = container.querySelector('input[type="file"]');
+      if (input) input.value = "";
+
+      btn.remove();
+
+      validateImages();
+      validateMainImage();
+    }
+  });
+});
+
+
+  container.appendChild(btn);
+}
+
+let confirmCallback = null;
+
+function showConfirm({ title, message, onConfirm }) {
+  const modal = document.getElementById("confirmModal");
+  document.getElementById("confirmTitle").innerText = title;
+  document.getElementById("confirmMessage").innerText = message;
+
+  confirmCallback = onConfirm;
+  modal.classList.remove("hidden");
+}
+
+document.getElementById("confirmOk").onclick = () => {
+  document.getElementById("confirmModal").classList.add("hidden");
+  if (confirmCallback) confirmCallback();
+};
+
+document.getElementById("confirmCancel").onclick = () => {
+  document.getElementById("confirmModal").classList.add("hidden");
+};
+
 
 // Product name - no leading spaces
 const productName = document.getElementById("productName");
@@ -1834,125 +2635,8 @@ productDescription.addEventListener("input", (e) => {
   charCount.textContent = e.target.value.length;
 });
 
-// Category change
-// const categorySelect = document.getElementById("category");
-// const subCategorySelect = document.getElementById("subCategory");
-// const dynamicFields = document.getElementById("dynamicFields");
 
-// categorySelect.addEventListener("change", (e) => {
-//   const category = e.target.value;
 
-//   // Update sub categories
-//   subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
-//   if (category && subCategories[category]) {
-//     subCategories[category].forEach((sub) => {
-//       const option = document.createElement("option");
-//       option.value = sub;
-//       option.textContent = sub;
-//       subCategorySelect.appendChild(option);
-//     });
-//   }
-
-//   // Update dynamic fields
-//   dynamicFields.innerHTML = "";
-//   if (category && categoryFields[category]) {
-//     const gridDiv = document.createElement("div");
-//     gridDiv.className = "form-grid";
-//     gridDiv.style.marginTop = "16px";
-
-//     categoryFields[category].forEach((field) => {
-//       const formGroup = document.createElement("div");
-//       formGroup.className = "form-group";
-//       if (field.col === "full") {
-//         formGroup.classList.add("full-width");
-//       }
-
-//       const label = document.createElement("label");
-//       label.className = "form-label";
-//       label.innerHTML =
-//         field.label +
-//         (field.required ? ' <span class="required">*</span>' : "");
-
-//       let input;
-//       if (field.type === "select") {
-
-//         if (field.name === "colorsAvailable") {
-
-//     const wrapper = document.createElement("div");
-//     wrapper.className = "color-selector";
-
-//     const swatch = document.createElement("div");
-//     swatch.className = "color-swatch";
-
-//     input = document.createElement("select");
-//     input.className = "form-select color-select";
-
-//     const opt = document.createElement("option");
-//     opt.value = "";
-//     opt.textContent = "Select " + field.label;
-//     input.appendChild(opt);
-
-//     field.options.forEach((optVal) => {
-//       const option = document.createElement("option");
-//       option.value = optVal;
-//       option.textContent = optVal;
-//       input.appendChild(option);
-//     });
-
-//     wrapper.appendChild(swatch);
-//     wrapper.appendChild(input);
-
-//     formGroup.appendChild(label);
-//     formGroup.appendChild(wrapper);
-//     gridDiv.appendChild(formGroup);
-//     return; // important
-//   }
-//         input = document.createElement("select");
-//         input.className = "form-select";
-//         input.innerHTML =
-//           '<option value="">Select ' + field.label + "</option>";
-//         field.options.forEach((opt) => {
-//           const option = document.createElement("option");
-//           option.value = opt;
-//           option.textContent = opt;
-//           input.appendChild(option);
-//         });
-//       } else {
-//         input = document.createElement("input");
-//         input.type = "text";
-//         input.className = "form-input";
-//         input.placeholder = field.placeholder || "";
-
-//         if (field.name === "sellingPrice") {
-//           input.addEventListener("input", (e) => {
-//             e.target.value = e.target.value.replace(/[^0-9]/g, "").trimStart();
-//           });
-//         }
-
-//         if (field.name === "totalQuantity") {
-//   input.classList.add("quantity-input");
-// }
-
-// if (field.name === "brand") {
-//   input.addEventListener("input", (e) => {
-//     e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
-//   });
-// }
-
-        
-//       }
-
-//       formGroup.appendChild(label);
-//       formGroup.appendChild(input);
-//       gridDiv.appendChild(formGroup);
-//     });
-
-//     dynamicFields.appendChild(gridDiv);
-//     attachDynamicFieldBlurValidation();
-//   }
-// });
-
-// Quantity input - only numbers
 document.addEventListener("input", (e) => {
   if (e.target.classList.contains("quantity-input")) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
@@ -1977,9 +2661,7 @@ function createVariant(number) {
                 <div class="variant-header">
                     <h3 class="variant-title">Variant ${number}</h3>
                     <div class="variant-actions">
-                        <button class="icon-btn edit-variant">
-                            <img src="../assets/vendorAddProduct/PencilSimple.svg" alt="Edit">
-                        </button>
+                        
                         <button class="icon-btn delete-variant">
                         <img src="../assets/vendorAddProduct/Trash.svg" alt="">
                         </button>
@@ -2043,13 +2725,22 @@ function createVariant(number) {
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target.closest(".delete-variant")) {
-    const variant = e.target.closest(".variant-container");
-    if (document.querySelectorAll(".variant-container").length > 1) {
+  const deleteBtn = e.target.closest(".delete-variant");
+  if (!deleteBtn) return;
+
+  const variant = deleteBtn.closest(".variant-container");
+
+  if (document.querySelectorAll(".variant-container").length <= 1) return;
+
+  showConfirm({
+    title: "Delete Variant",
+    message: "Are you sure you want to delete this variant?",
+    onConfirm: () => {
       variant.remove();
     }
-  }
+  });
 });
+
 
 document.addEventListener("change", function (e) {
   if (!e.target.classList.contains("color-select")) return;
@@ -2268,13 +2959,7 @@ function getDeepestSelectedCategory() {
   );
 }
 
-// subCategory.addEventListener("blur", () => {
-//   if (!subCategory.value) {
-//     showError(subCategory, "Please select sub category");
-//   } else {
-//     clearError(subCategory);
-//   }
-// });
+
 function attachDynamicFieldBlurValidation() {
   const requiredMarks = dynamicFields.querySelectorAll(".form-label .required");
 
@@ -2360,11 +3045,7 @@ if (!validateVariantQuantities()) {
     }
   });
 
-  // Sub category
-  // if (!subCategory.value) {
-  //   showError(subCategory, "Please select sub category");
-  //   isValid = false;
-  // }
+ 
 
   // Dynamic fields
   if (!validateDynamicFields()) {
