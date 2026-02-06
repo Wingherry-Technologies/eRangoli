@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // For verified (or others)
     else {
-      window.location.href = "../html/.html";
+      window.location.href = "../html/developerVMVerificationOverview.html";
     }
   });
 
@@ -171,6 +171,6 @@ document.addEventListener("click", function (e) {
   if (status.classList.contains("rejected")) {
     window.location.href = "../html/.html";
   } else if (status.classList.contains("verified")) {
-    window.location.href = "../html/.html";
+    window.location.href = "../html/developerVMVerificationOverview.html";
   }
 });

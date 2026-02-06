@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VM-Vendor Verification Process</title>
+    <title>VM-Vendor Reject Verification Process</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../css/developerVMVerificationOverview.css" />
+    <link
+      rel="stylesheet"
+      href="../css/developerVMVerificationRejectOverview.css"
+    />
     <link
       rel="shortcut icon"
       href="../assets/master/eRangoli 2-1.svg"
@@ -205,11 +208,19 @@
         <div class="ADVOFaAdminSection">
           <div class="ADVOFaAdminHeader">For Administration</div>
           <div class="ADVOApprovalHeading">Verification Process</div>
+          <div class="ADVOFaAdminTextareaWrapper">
+            <span class="ADVOFaAdminInnerLabel">
+              Write a reason for rejection
+            </span>
+            <p class="ADVOFaAdminTextarea" id="ADVOReviewTextarea">
+              All documents are verified and found to be true.
+            </p>
+          </div>
 
           <div class="ADVOFaAdminButtons">
             <button class="ADVOFaRejectButton">Reject</button>
             <button class="ADVOFaSentButton" id="ADVOSentToAdminbtn">
-              Sent to Admin
+              Approve
             </button>
           </div>
         </div>
@@ -290,6 +301,6 @@
         </div>
       </div>
     </div>
-    <script src="../javascript/developerVMVerificationOverview.js"></script>
+    <script src="../javascript/developerVMVerificationRejectOverview.js"></script>
   </body>
 </html>
