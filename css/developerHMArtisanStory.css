@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+.artisan-wrapper {
+  padding: 20px;
+  background: #fff;
+}
+
+.artisan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.artisan-header h3 {
+  color: #000000;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.add-btn {
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.artisan-card {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.artisan-img-box {
+  width: 190px;
+  height: 190px;
+  background: #eef3f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artisan-img-box img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.artisan-content {
+  flex: 1;
+  padding: 15px;
+}
+
+.artisan-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.artisan-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.artisan-info label,
+.artisan-bio label {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.artisan-info p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #3f3f3f;
+}
+
+.artisan-actions img {
+  width: 18px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.artisan-bio {
+  margin-top: 12px;
+}
+
+.artisan-bio p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.artisan-status {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.artisan-status span {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.artisan-bottom {
+  margin-top: 10px;
+}
+
+.artisan-divider {
+  border: 1px solid #e7f0f9;
+  margin: 20px 0;
+}
+
+.artisan-status {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  width: 36px;
+  height: 18px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  background: #cfcfcf;
+  border-radius: 20px;
+  inset: 0;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  background: white;
+  border-radius: 50%;
+  left: 2px;
+  top: 2px;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #6bbcff;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+/* POPUP OVERLAY */
+.artisan-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* POPUP BOX */
+.artisan-popup {
+  width: 900px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.artisan-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 16px 0;
+  margin-left: 2rem;
+}
+
+.artisan-popup-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.popup-close {
+  font-size: 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* DIVIDER */
+.artisan-popup-divider {
+  height: 1px;
+  background: #0f8df3;
+  margin-left: 2rem;
+}
+
+/* BODY */
+.artisan-popup-body {
+  display: flex;
+}
+
+/* LEFT */
+.artisan-popup-left {
+  width: 195px;
+  background: #edf4f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 15px;
+  margin: 0 0 24px 32px;
+}
+
+.upload-wrapper {
+  cursor: pointer;
+}
+
+.upload-circle {
+  width: 160px;
+  height: 160px;
+  background: #cbcaca;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.upload-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-text {
+  color: #716b6b;
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* RIGHT */
+.artisan-popup-right {
+  flex: 1;
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #edf4f9;
+  font-size: 14px;
+  resize: none;
+}
+
+/* PUBLISH BUTTON */
+.publish-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.publish-btn-res {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .artisan-wrapper {
+    background-color: #f5f5f5;
+  }
+  .artisan-card {
+    flex-direction: row;
+    padding: 12px;
+    background: #ffffff;
+  }
+
+  .artisan-header {
+    background: #ffffff;
+  }
+
+  .artisan-img-box {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+  }
+
+  .artisan-img-box img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .artisan-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 12px;
+  }
+
+  .artisan-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .artisan-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .artisan-divider {
+    display: none;
+  }
+
+  .artisan-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .artisan-bio {
+    margin-top: 10px;
+  }
+
+  .artisan-divider {
+    margin: 16px 0;
+  }
+
+  .artisan-status {
+    justify-content: flex-start;
+  }
+  .artisan-popup {
+    margin: 0 2rem;
+  }
+  .artisan-popup-body {
+    align-items: stretch;
+  }
+  .artisan-popup-left {
+    margin: 24px 0 41px 32px;
+  }
+  .artisan-popup-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .publish-btn {
+    display: none;
+  }
+  .publish-btn-res {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 0 24px 20px;
+    padding: 12px;
+    background: #0e8bf3;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
