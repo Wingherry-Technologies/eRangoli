@@ -48,3 +48,11 @@ uploadInput.addEventListener("change", function () {
 uploadText.addEventListener("click", () => {
   uploadInput.click();
 });
+
+const floatingAddBtn = document.querySelector(".floating-add-btn");
+
+if (floatingAddBtn) {
+  floatingAddBtn.addEventListener("click", () => {
+    popup.style.display = "flex";
+  });
+}

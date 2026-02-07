@@ -313,6 +313,10 @@
   display: none;
 }
 
+.floating-add-btn {
+  display: none;
+}
+
 @media (max-width: 1024px) and (min-width: 595px) {
   .artisan-wrapper {
     background-color: #f5f5f5;
@@ -406,6 +410,113 @@
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 595px) {
+  .artisan-wrapper {
+    padding: 12px;
+    background: #ffffff;
+  }
+
+  /* CARD */
+  .artisan-card {
+    flex-direction: column;
+    padding: 12px;
+    background: #ffffff;
+    border-radius: 14px;
+  }
+  .artisan-header {
+    border: none;
+  }
+  .add-btn {
+    display: none;
+  }
+  /* TOP ROW : IMAGE + ACTIONS */
+  .artisan-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  /* IMAGE */
+  .artisan-img-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    background: #eef3f6;
+  }
+
+  .artisan-img-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .artisan-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: -119px;
+  }
+
+  .artisan-actions img {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* CONTENT */
+  .artisan-content {
+    padding: 0;
+  }
+
+  /* INFO BELOW IMAGE */
+  .artisan-info {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .artisan-info label {
+    font-size: 12px;
+  }
+
+  .artisan-info p {
+    font-size: 13px;
+  }
+
+  /* BIO */
+  .artisan-bio {
+    margin-top: 10px;
+  }
+
+  .artisan-bio p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* STATUS */
+  .artisan-divider {
+    display: none;
+  }
+
+  .artisan-status {
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  /* FLOATING + BUTTON */
+  .floating-add-btn {
+    display: flex;
+    position: fixed;
+    bottom: 86px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
     cursor: pointer;
   }
 }
