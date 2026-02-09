@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //  If status is "Send To Verify"
     if (statusCell.classList.contains("rejected")) {
-      window.location.href = "../html/.html";
+      window.location.href = "../html/developerVMVerificationOverview.html";
     }
     // For verified (or others)
     else {
@@ -169,7 +169,7 @@ document.addEventListener("click", function (e) {
   if (!status) return;
 
   if (status.classList.contains("rejected")) {
-    window.location.href = "../html/.html";
+    window.location.href = "../html/developerVMVerificationOverview.html";
   } else if (status.classList.contains("verified")) {
     window.location.href = "../html/developerVMVerificationOverview.html";
   }

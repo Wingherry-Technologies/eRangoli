@@ -205,6 +205,24 @@
         <div class="ADVOFaAdminSection">
           <div class="ADVOFaAdminHeader">For Administration</div>
           <div class="ADVOApprovalHeading">Verification Process</div>
+          <!-- REJECTION REASON (hidden by default) -->
+          <div class="ADVOFaAdminTextareaWrapper">
+            <span class="ADVOFaAdminInnerLabel">
+              Write a reason for rejection
+            </span>
+
+            <p
+              class="ADVOFaAdminTextarea"
+              id="ADVOReviewTextarea"
+              contenteditable="true"
+              data-placeholder="Write reason for rejection"
+            >
+              All documents are verified and found to be true.
+            </p>
+          </div>
+          <span class="ADVOReviewError" id="rejectError">
+            Rejection reason is required
+          </span>
 
           <div class="ADVOFaAdminButtons">
             <button class="ADVOFaRejectButton">Reject</button>

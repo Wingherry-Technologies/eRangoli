@@ -6,7 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const rejectYes = document.getElementById("ADVOFaRejectYes");
   const rejectSuccess = document.getElementById("ADVOFaRejectSuccessScreen");
 
+  const rejectReasonBox = document.querySelector(".ADVOFaAdminTextareaWrapper");
+  const rejectReasonText = document.getElementById("ADVOReviewTextarea");
+  const rejectError = document.getElementById("rejectError");
+
+  let rejectStep = 0;
+
   rejectBtn?.addEventListener("click", () => {
+    if (rejectStep === 0) {
+      rejectReasonBox.style.display = "block";
+      rejectReasonText.focus();
+      rejectStep = 1;
+      return;
+    }
+
+    if (rejectReasonText.innerText.trim() === "") {
+      rejectError.style.display = "block";
+      rejectReasonText.classList.add("error");
+      return;
+    }
+
+    rejectError.style.display = "none";
+    rejectReasonText.classList.remove("error");
     rejectModal.classList.add("active");
   });
 
@@ -30,6 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendSuccess = document.getElementById("FAsentSuccessScreen");
 
   sendBtn?.addEventListener("click", () => {
+    rejectReasonBox.style.display = "none";
+    rejectReasonText.innerText = "";
+    rejectError.style.display = "none";
+    rejectReasonText.classList.remove("error");
+    rejectStep = 0;
     sendModal.classList.add("active");
   });
 

@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.page-wrapper {
+  padding: 20px;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.add-btn {
+  background: #1677ff;
+  color: #fff;
+  border: none;
+  padding: 6px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.brand-heading {
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.divider {
+  border-bottom: 1px solid #0f8df3;
+}
+.count {
+  color: #3f3f3f;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Table */
+.tableWrapper {
+  max-height: 500px;
+  overflow-y: auto;
+}
+.brand-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.brand-table thead {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.brand-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  color: #000000;
+}
+
+.brand-table td {
+  padding: 12px 10px;
+  font-size: 13px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+/* Brand column */
+.brand-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.brand-col span {
+  font-weight: 500;
+}
+
+/* Action column */
+.action-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Edit icon */
+.edit-icon {
+  width: 16px;
+  cursor: pointer;
+}
+
+/* Toggle */
+.switch {
+  position: relative;
+  width: 36px;
+  height: 18px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  background: #6a6767;
+  border-radius: 20px;
+  inset: 0;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #7dcdff;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+.tableWrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 2px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.TableHead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.brand-table th:nth-last-child(2),
+.brand-table td:nth-last-child(2),
+.brand-table th:last-child,
+.brand-table td:last-child {
+  width: 60px;
+  max-width: 60px;
+  text-align: center;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.brand-table td:last-child {
+  padding-top: 21px;
+}
+.brand-table td:last-child {
+  vertical-align: middle;
+}
+
+.add-brand-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.blue-line {
+  height: 2px;
+  background: #1677ff;
+  margin: 8px 0 20px;
+}
+
+.add-brand-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-form {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.right-form {
+  width: 30%;
+}
+
+.left-form input,
+.left-form select {
+  background: #eef5fb;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.primary-btn {
+  background: #1677ff;
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 6px;
+}
+
+.outline-btn {
+  border: 1px solid #1677ff;
+  background: #fff;
+  color: #1677ff;
+  padding: 8px 22px;
+  border-radius: 6px;
+}
+
+.upload-box {
+  width: 90px;
+  height: 90px;
+  background: #d9d9d9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.brand-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}

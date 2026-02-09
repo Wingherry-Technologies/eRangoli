@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer HM Featured Brands</title>
+    <link rel="stylesheet" href="../css/developerHMFeatureBrands.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Header -->
+      <div class="page-header" id="page-header">
+        <h3>Featured Brands</h3>
+        <button class="add-btn" id="addBtn">+ Add</button>
+      </div>
+
+      <div class="add-brand-wrapper" id="addBrandWrapper" style="display: none">
+        <h3>Featured Brands</h3>
+        <div class="blue-line"></div>
+
+        <div class="add-brand-layout">
+          <!-- LEFT -->
+          <div class="left-form">
+            <label>Select the Vendor</label>
+            <select>
+              <option>Sanskriti Collections</option>
+            </select>
+
+            <label>Enter Brand Name</label>
+            <input type="text" placeholder="Craftizen" />
+
+            <div class="btn-row">
+              <button class="primary-btn">Publish & Next</button>
+              <button class="outline-btn" id="closeAddBrand">
+                Publish & Close
+              </button>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="right-form">
+            <label>Upload Brand Logo</label>
+
+            <label class="upload-box">
+              <input type="file" id="brandLogo" accept="image/*" hidden />
+              <img
+                src="../assets/developerHMFeatureBrands/camera.svg"
+                id="uploadPlus"
+              />
+              <img id="brandPreview" class="brand-preview" />
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="brand-heading">Brand List</span>
+
+          <span class="count">12 Brands</span>
+        </div>
+        <div class="divider"></div>
+        <div class="tableWrapper">
+          <table class="brand-table">
+            <thead class="TableHead">
+              <tr>
+                <th>Brand Name</th>
+                <th>Company Name</th>
+                <th>Vendor Name</th>
+                <th>Featured on</th>
+                <th>Action</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- ROW -->
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="brand-col">
+                  <img
+                    src="../assets/developerHMFeatureBrands/img.png"
+                    class="brand-img"
+                  />
+                  <span>Craftizen</span>
+                </td>
+                <td>Sanskriti Collection</td>
+                <td>Chandrasekhar .A</td>
+                <td>12/01/26</td>
+                <td class="action-col">
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td>
+                  <img
+                    src="../assets/developerHMFeatureBrands/edit.svg"
+                    class="edit-icon"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/developerHMFeatureBrands.js"></script>
+  </body>
+</html>

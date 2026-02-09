@@ -1,0 +1,181 @@
+const addCard = document.querySelector(".DHMSS-add-card");
+const popup = document.getElementById("DHMSS-addCategoryPopup");
+const closePopup = document.getElementById("DHMSS-closePopup");
+
+addCard.addEventListener("click", () => {
+  popup.style.display = "flex";
+});
+
+closePopup.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
+
+const uploadBox = document.getElementById("DHMSS-uploadBox");
+const mediaInput = document.getElementById("DHMSS-mediaInput");
+const uploadContent = document.getElementById("DHMSS-uploadContent");
+
+uploadBox.addEventListener("click", () => {
+  mediaInput.click();
+});
+
+uploadBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    mediaInput.click();
+  }
+});
+
+mediaInput.addEventListener("change", () => {
+  const file = mediaInput.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) {
+    mediaInput.value = "";
+    return;
+  }
+  uploadBox.querySelectorAll("img").forEach((el) => el.remove());
+  const previewEl = document.createElement("img");
+  previewEl.src = URL.createObjectURL(file);
+  uploadContent.style.display = "none";
+  uploadBox.appendChild(previewEl);
+});
+
+const minCategoryPopup = document.getElementById("DHMSS-minCategoryPopup");
+const closeMinPopup = document.getElementById("DHMSS-closeMinPopup");
+
+function showMinCategoryError() {
+  minCategoryPopup.style.display = "flex";
+  setTimeout(() => {
+    minCategoryPopup.style.display = "none";
+  }, 4000);
+}
+
+closeMinPopup.addEventListener("click", () => {
+  minCategoryPopup.style.display = "none";
+});
+
+function bindToggleValidation() {
+  const toggles = document.querySelectorAll(".DHMSS-switch input");
+  toggles.forEach((toggle) => {
+    toggle.onchange = function () {
+      const activeCount = document.querySelectorAll(
+        ".DHMSS-switch input:checked",
+      ).length;
+      if (!this.checked && activeCount < 5) {
+        this.checked = true;
+        showMinCategoryError();
+      }
+    };
+  });
+}
+
+bindToggleValidation();
+
+const stateCountEl = document.getElementById("DHMSS-stateCount");
+
+function updatestateCount() {
+  const totalCategories = document.querySelectorAll(
+    ".DHMSS-category-card",
+  ).length;
+  stateCountEl.innerText = `${totalCategories} States`;
+}
+
+const publishBtn = document.getElementById("DHMSS-publishCategory");
+const categoryGrid = document.querySelector(".DHMSS-category-grid");
+const categoryName = document.getElementById("DHMSS-categoryName");
+const ctaLink = document.getElementById("DHMSS-ctaLink");
+const ctaDescription = document.getElementById("DHMSS-ctaDescription");
+
+const imageError = document.getElementById("DHMSS-imageError");
+const stateError = document.getElementById("DHMSS-stateError");
+const descError = document.getElementById("DHMSS-descError");
+const linkError = document.getElementById("DHMSS-linkError");
+
+publishBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  imageError.innerText = "";
+  stateError.innerText = "";
+  descError.innerText = "";
+  linkError.innerText = "";
+
+  let hasError = false;
+  const file = mediaInput.files[0];
+
+  if (!file) {
+    imageError.innerText = "Cover image is required";
+    hasError = true;
+  }
+
+  if (!categoryName.value.trim()) {
+    stateError.innerText = "State is required";
+    hasError = true;
+  }
+
+  if (!ctaDescription.value.trim()) {
+    descError.innerText = "Description is required";
+    hasError = true;
+  }
+
+  if (!ctaLink.value.trim()) {
+    linkError.innerText = "CTA link is required";
+    hasError = true;
+  }
+
+  if (hasError) return;
+
+  const card = document.createElement("div");
+  card.className = "DHMSS-category-card";
+
+  const mediaURL = URL.createObjectURL(file);
+
+  card.innerHTML = `
+    <div class="DHMSS-image-wrap">
+      <img src="${mediaURL}" />
+      <span class="DHMSS-edit-btn">
+        <img src="../assets/developerHMTopCattegories/edit.svg" />
+      </span>
+    </div>
+
+    <div class="DHMSS-card-body">
+      <div class="DHMSS-card-top">
+        <div>
+          <h4>State Name</h4>
+          <p>${categoryName.value}</p>
+        </div>
+        <label class="DHMSS-switch">
+          <input type="checkbox" checked />
+          <span class="DHMSS-slider"></span>
+        </label>
+      </div>
+
+      <span class="DHMSS-cta-description">Description</span>
+      <p class="DHMSS-cta-describe">${ctaDescription.value}</p>
+
+      <span class="DHMSS-cta-title">CTA Link</span>
+      <a href="${ctaLink.value}">${ctaLink.value}</a>
+    </div>
+  `;
+
+  const addCardEl = document.querySelector(".DHMSS-add-card");
+  categoryGrid.insertBefore(card, addCardEl);
+  categoryGrid.appendChild(addCardEl);
+
+  updatestateCount();
+  bindToggleValidation();
+
+  popup.style.display = "none";
+
+  mediaInput.value = "";
+  categoryName.value = "";
+  ctaDescription.value = "";
+  ctaLink.value = "";
+
+  uploadBox.querySelectorAll("img").forEach((el) => el.remove());
+  uploadContent.style.display = "flex";
+});
