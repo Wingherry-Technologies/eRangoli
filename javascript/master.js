@@ -77,6 +77,32 @@ level2Dropdowns.forEach(subItem => {
     });
 });
 
+// ===============================
+// Level 3 Dropdown (Pure Silk)
+// ===============================
+const level3Dropdowns = document.querySelectorAll(".mobile-dropdown-sub-sub");
+
+level3Dropdowns.forEach(subSubItem => {
+    const subSubHeader = subSubItem.querySelector("span");
+
+    subSubHeader.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        // Close siblings inside same Level 2
+        const parentLevel2 = subSubItem.closest("ul");
+        const siblings = parentLevel2.querySelectorAll(".mobile-dropdown-sub-sub");
+
+        siblings.forEach(other => {
+            if (other !== subSubItem) {
+                other.classList.remove("open-sub-sub");
+            }
+        });
+
+        subSubItem.classList.toggle("open-sub-sub");
+    });
+});
+
+
 var signup=true;
 
 const userprofileIcon=document.getElementById("user-profile-icon");

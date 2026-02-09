@@ -494,50 +494,347 @@ handleScrollForMobile();
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const heading = document.querySelector('.SBS-category-name-heading span');
-  const mainMenuItems = document.querySelectorAll('.SBS-menu-item');
-  const subMenuItems = document.querySelectorAll('.SBS-submenu-item');
+  /* ===============================
+     GLOBAL STATE
+  =============================== */
+  const cards = Array.from(document.querySelectorAll(".pd-card"));
+  const productsWrap = document.querySelector(".products.pd-grid");
+  const noProductMsg = document.getElementById("noProductMsg");
+  const paginationBar = document.querySelector(".pd-pagination-bar");
+  const pageCount = document.querySelector(".pd-page-count");
 
-  /* ===== HELPER: remove active class from all main categories ===== */
+  let filteredCards = [...cards];
+  let currentPage = 1;
+  const perPage = 16;
+
+  /* ===============================
+     MENU → HEADING + CATEGORY FILTER
+  =============================== */
+  const heading = document.querySelector(".SBS-category-name-heading span");
+  const menu = document.querySelector(".SBS-main-menu");
+  const mainMenuItems = document.querySelectorAll(".SBS-menu-item");
+
   function resetActiveMain() {
     mainMenuItems.forEach(item =>
-      item.classList.remove('SBS-catergory-active', 'SBS-active')
+      item.classList.remove("SBS-catergory-active")
     );
   }
 
-  /* ===== MAIN CATEGORY CLICK ===== */
-  mainMenuItems.forEach(mainItem => {
-    mainItem.addEventListener('click', function (e) {
-      if (e.target.classList.contains('SBS-submenu-item')) return;
+  menu.addEventListener("click", function (e) {
+    const target = e.target;
 
-      const mainCategory = this.getAttribute('data-main-category');
-      heading.textContent = mainCategory;
+    if (target.closest(".SBS-no-data")) return;
 
+    const mainItem = target.closest(".SBS-menu-item");
+    if (mainItem && target === mainItem) {
+      heading.textContent = mainItem.dataset.mainCategory;
       resetActiveMain();
-      this.classList.add('SBS-catergory-active');
+      mainItem.classList.add("SBS-catergory-active");
+
+      // Filter by main category
+      filterByMainCategory(mainItem.dataset.mainCategory.toLowerCase());
+      return;
+    }
+
+    const clickedItem = target.closest("li");
+    if (!clickedItem) return;
+
+    const name = clickedItem.dataset.category || target.textContent.trim();
+    heading.textContent = name;
+
+    const parentMain = clickedItem.closest(".SBS-menu-item");
+    if (parentMain) {
+      resetActiveMain();
+      parentMain.classList.add("SBS-catergory-active");
+    }
+  });
+
+  function filterByMainCategory(category) {
+    filteredCards = cards.filter(card =>
+      card.dataset.category === category
+    );
+    renderFiltered();
+  }
+
+  /* ===============================
+     PAGINATION
+  =============================== */
+  function showPage(page) {
+    const total = filteredCards.length;
+    const totalPages = Math.ceil(total / perPage);
+
+    currentPage = Math.max(1, Math.min(page, totalPages));
+
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+
+    cards.forEach(card => card.classList.add("is-hidden"));
+
+    filteredCards.forEach((card, i) => {
+      if (i >= start && i < end) card.classList.remove("is-hidden");
+    });
+
+    pageCount.textContent = `${start + 1}–${Math.min(end, total)} of ${total}`;
+  }
+
+  document.getElementById("pd-prev").onclick = () => {
+    if (currentPage > 1) showPage(currentPage - 1);
+  };
+
+  document.getElementById("pd-next").onclick = () => {
+    const totalPages = Math.ceil(filteredCards.length / perPage);
+    if (currentPage < totalPages) showPage(currentPage + 1);
+  };
+
+  function renderFiltered() {
+  cards.forEach(card => card.classList.add("is-hidden"));
+
+  if (!filteredCards.length) {
+    noProductMsg.style.display = "flex";
+    paginationBar.style.display = "none";
+    pageCount.textContent = "0 of 0";
+    return;
+  }
+
+  noProductMsg.style.display = "none";
+  paginationBar.style.display = "flex";
+  showPage(1);
+}
+
+
+  /* ===============================
+     SIDEBAR FILTERS (PRICE, STATE, ETC)
+  =============================== */
+  function applyFilters() {
+    const priceRadio = document.querySelector('input[name="price"]:checked');
+    const states = [...document.querySelectorAll(".state:checked")].map(i => i.parentElement.innerText.trim());
+    const materials = [...document.querySelectorAll(".material:checked")].map(i => i.parentElement.innerText.trim());
+    const brands = [...document.querySelectorAll(".brand:checked")].map(i => i.parentElement.innerText.trim());
+    const sizes = [...document.querySelectorAll(".size:checked")].map(i => i.parentElement.innerText.trim());
+
+    const [min, max] = priceRadio ? priceRadio.value.split("-").map(Number) : [0, 999999];
+
+    filteredCards = cards.filter(card => {
+      return (
+        (+card.dataset.price >= min && +card.dataset.price <= max) &&
+        (!states.length || states.includes(card.dataset.state)) &&
+        (!materials.length || materials.includes(card.dataset.material)) &&
+        (!brands.length || brands.includes(card.dataset.brand)) &&
+        (!sizes.length || sizes.includes(card.dataset.size))
+      );
+    });
+
+    renderFiltered();
+  }
+
+  function applySort() {
+  const sortPrice = document.querySelector('input[name="sortPrice"]:checked')?.value;
+  const sortRating = document.querySelector('input[name="sortRating"]:checked')?.value;
+  const sortDelivery = document.querySelector('input[name="sortDelivery"]:checked')?.value;
+  const sortDiscount = document.querySelector('input[name="sortDiscount"]:checked')?.value;
+
+  if (sortPrice) {
+    filteredCards.sort((a, b) =>
+      sortPrice === "price_asc"
+        ? +a.dataset.price - +b.dataset.price
+        : +b.dataset.price - +a.dataset.price
+    );
+  }
+
+  if (sortRating) {
+    filteredCards.sort((a, b) =>
+      sortRating === "rating_asc"
+        ? +a.dataset.rating - +b.dataset.rating
+        : +b.dataset.rating - +a.dataset.rating
+    );
+  }
+
+  if (sortDelivery) {
+    filteredCards.sort((a, b) => +a.dataset.delivery - +b.dataset.delivery);
+  }
+
+  if (sortDiscount) {
+    filteredCards.sort((a, b) => +b.dataset.discount - +a.dataset.discount);
+  }
+
+  renderFiltered();
+}
+
+
+  document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("change", () => {
+    applyFilters();
+    applySort(); // 🔥 ADD THIS
+  });
+});
+
+
+  window.clearAll = function () {
+    document.querySelectorAll("input").forEach(i => i.checked = false);
+    filteredCards = [...cards];
+    renderFiltered();
+  };
+
+  /* ===============================
+     SUB CATEGORY FILTER
+  =============================== */
+  window.filterProducts = function (category, subcategory) {
+    filteredCards = cards.filter(card =>
+      card.dataset.category === category &&
+      card.dataset.subcategory === subcategory
+    );
+    renderFiltered();
+  };
+
+  /* ===============================
+     SHARE POPUP
+  =============================== */
+  document.addEventListener("click", function (e) {
+    const shareBtn = e.target.closest(".share-btn");
+
+    if (!shareBtn) {
+      document.querySelectorAll(".share-popup").forEach(p => p.classList.remove("active"));
+      return;
+    }
+
+    e.stopPropagation();
+
+    if (!window.signup) {
+      document.getElementById("signupModal").style.display = "flex";
+      return;
+    }
+
+    const popup = shareBtn.nextElementSibling;
+    document.querySelectorAll(".share-popup").forEach(p => p.classList.remove("active"));
+    popup.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".share-option").forEach(option => {
+    option.addEventListener("click", function () {
+      const type = this.dataset.type;
+      const card = this.closest(".pd-card");
+      const name = card.querySelector(".pd-name")?.innerText || "Product";
+      const url = window.location.href;
+
+      if (type === "copy") navigator.clipboard.writeText(url);
+      if (type === "whatsapp") window.open(`https://wa.me/?text=${encodeURIComponent(name + " " + url)}`);
+      if (type === "telegram") window.open(`https://t.me/share/url?url=${url}&text=${name}`);
+      if (type === "twitter") window.open(`https://twitter.com/intent/tweet?text=${name}&url=${url}`);
     });
   });
 
-  /* ===== SUB CATEGORY CLICK ===== */
-  subMenuItems.forEach(subItem => {
-    subItem.addEventListener('click', function (e) {
+  /* ===============================
+     WISHLIST
+  =============================== */
+  const wishlistCountEl = document.getElementById("number-of-wishlist");
+
+  document.querySelectorAll(".wishlist-icon").forEach(icon => {
+    icon.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      const subCategory = this.getAttribute('data-category');
-
-      if (subCategory) {
-        heading.textContent = subCategory;
+      if (!window.signup) {
+        document.getElementById("signupModal").style.display = "flex";
+        return;
       }
 
-      // Add active class to parent main category
-      const parentMain = this.closest('.SBS-menu-item');
-      if (parentMain) {
-        resetActiveMain();
-        parentMain.classList.add('SBS-catergory-active');
+      const normal = "../assets/productcatalog/Heart.svg";
+      const active = "../assets/productcatalog/redHeart.svg";
+
+      let count = parseInt(wishlistCountEl.textContent || "0");
+
+      if (this.dataset.active === "true") {
+        this.src = normal;
+        this.dataset.active = "false";
+        wishlistCountEl.textContent = Math.max(0, count - 1);
+      } else {
+        this.src = active;
+        this.dataset.active = "true";
+        wishlistCountEl.textContent = count + 1;
       }
     });
   });
 
+  /* ===============================
+     INIT
+  =============================== */
+  renderFiltered();
 });
+function syncSidebarHeight() {
+  const sidebarEl = document.querySelector(".left-sidebar");
+  const icons = document.querySelector(".left-icons");
+  const wrapper = document.querySelector(".pro-wrapper");
+
+  if (!sidebarEl || !icons || !wrapper) return;
+
+  // MOBILE — full screen
+  if (window.innerWidth <= 480) {
+    sidebarEl.style.height = "100vh";
+    sidebarEl.style.top = "0px";
+    return;
+  }
+
+  const iconsRect = icons.getBoundingClientRect();
+  const wrapperRect = wrapper.getBoundingClientRect();
+
+  const relativeTop = iconsRect.top - wrapperRect.top;
+  sidebarEl.style.top = relativeTop + "px";
+
+  // Match HEIGHT (if icons have auto height, use computed)
+  sidebarEl.style.height = iconsRect.height + "px";
+}
+
+window.addEventListener("resize", syncSidebarHeight);
+window.addEventListener("scroll", syncSidebarHeight);
+/* ===============================
+   SIDEBAR OPEN / CLOSE FIX
+=============================== */
+
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const openFilterBtn = document.getElementById("openFilter");
+const openSortBtn = document.getElementById("openSort");
+
+// Safety check
+if (sidebar && overlay && openFilterBtn && openSortBtn) {
+
+  function openSidebar() {
+    syncSidebarHeight();
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+  openFilterBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openSidebar();
+  });
+
+  openSortBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openSidebar();
+  });
+
+  overlay.addEventListener("click", closeSidebar);
+
+  // Close button inside sidebar (your X icon)
+  window.closeSidebar = closeSidebar;
+}
+
+/* ===============================
+   SIDEBAR DROPDOWN TOGGLE
+=============================== */
+function toggleSub(el) {
+  const next = el.nextElementSibling;
+  if (!next || !next.classList.contains("sub-options")) return;
+
+  next.classList.toggle("open");
+
+  const arrow = el.querySelector("img");
+  if (arrow) arrow.classList.toggle("rotate");
+}
