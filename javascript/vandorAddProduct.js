@@ -36,80 +36,384 @@ const categoryTree = {
         "Tussar Silk": {},
         "Kanchipuram Silk": {},
         "Mysore Silk": {},
-        "Mulberry Silk": {}
+        "Mulberry Silk": {},
       },
       Cotton: {
         "Jamdani Cotton": {},
         "Khadi Cotton": {},
         "Chanderi Cotton": {},
-        "Kota Doria Cotton": {}
+        "Kota Doria Cotton": {},
+        "Gaji Cotton": {},
+      },
+      Kota: {
+        "Kota Doria Saree": {},
+        "Kota Doria Dress Material": {},
+        "Kota Cotton Dupatta": {},
+        "Kota Blouse Piece": {},
+        "Kota Doria Kurta": {},
       },
       Linen: {
         "Pure Linen Saree": {},
         "Linen Dress Material": {},
-        "Linen Kurta": {}
+        "Linen Kurta": {},
+        "Linen Dupatta": {},
+        "Linen Skirt": {},
       },
       Khadi: {
         "Khadi Saree": {},
         "Khadi Kurta": {},
-        "Khadi Dress Material": {}
-      }
+        "Khadi Dress Material": {},
+        "Khadi Blouse Piece": {},
+        "Khadi Stole": {},
+      },
     },
 
     Clothing: {
       Tops: {
         "Handblock Printed": {},
         "Hand Embroidery": {},
-        "Designer Tops": {}
+        "Designer Tops": {},
       },
+
       Dresses: {
         "Handblock Printed": {},
-        "Evening Gown": {}
-      }
+        "Hand Embroidery": {},
+        "Evening Gown": {},
+      },
+
+      Kaftans: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Summer Kaftan": {},
+      },
+
+      Shirts: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Formal Shirt": {},
+      },
+
+      Jackets: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Denim Jacket": {},
+      },
+
+      Kurta: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Casual Kurta": {},
+      },
+
+      "Long Skirts": {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Printed Skirt": {},
+      },
+
+      "Lehenga Sets": {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Bridal Lehenga": {},
+      },
+
+      Palazzo: {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Linen Palazzo": {},
+      },
+
+      "Dress Materials": {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Cotton Dress Material": {},
+      },
+
+      "Co-ord Sets": {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Casual Co-ord": {},
+      },
+
+      "Saree Blouse": {
+        "Handblock Printed": {},
+        "Hand Embroidery": {},
+        "Designer Blouse": {},
+      },
     },
 
     Footwear: {
       Sandals: {
         "Leather Sandals": {},
-        "Casual Sandals": {}
+        "Casual Sandals": {},
+        "Ethnic Sandals": {},
       },
+
       Flats: {
         "Ballerina Flats": {},
-        "Party Flats": {}
-      }
-    }
+        "Casual Flats": {},
+        "Party Flats": {},
+      },
+
+      Heels: {
+        "Stiletto Heels": {},
+        "Block Heels": {},
+        "Wedge Heels": {},
+      },
+
+      Sneakers: {
+        "Casual Sneakers": {},
+        "Sports Sneakers": {},
+        "Designer Sneakers": {},
+      },
+
+      Boots: {
+        "Ankle Boots": {},
+        "Knee-high Boots": {},
+        "Chelsea Boots": {},
+      },
+
+      Kolhapure: {
+        "Traditional Kolhapure": {},
+        "Designer Kolhapure": {},
+        "Ethnic Kolhapure": {},
+      },
+
+      Rajasthani: {
+        "Mojari Shoes": {},
+        "Embroidered Rajasthani": {},
+        "Casual Rajasthani": {},
+      },
+
+      Designer: {
+        "Party Designer Shoes": {},
+        "Wedding Designer Shoes": {},
+        "Trendy Designer Shoes": {},
+      },
+    },
+
+    Jewelry: {
+      "Silver-Coated Jewelry": {
+        Earrings: {},
+        Necklaces: {},
+        Bracelets: {},
+      },
+
+      "Wooden Jewelry": {
+        "Wooden Earrings": {},
+        "Wooden Necklaces": {},
+        "Wooden Bangles": {},
+      },
+
+      "Palm Leaf Jewelry": {
+        "Palm Leaf Earrings": {},
+        "Palm Leaf Necklace": {},
+        "Palm Leaf Bracelets": {},
+      },
+
+      "Tasakota Jewelry": {
+        "Tasakota Earrings": {},
+        "Tasakota Necklace": {},
+        "Tasakota Bangles": {},
+      },
+    },
+
+    HeritageWraps: {
+      Dupatta: {
+        "Printed Dupatta": {},
+        "Embroidered Dupatta": {},
+        "Silk Dupatta": {},
+      },
+
+      Stole: {
+        "Wool Stole": {},
+        "Cotton Stole": {},
+        "Designer Stole": {},
+      },
+
+      Shawl: {
+        "Wool Shawl": {},
+        "Cashmere Shawl": {},
+        "Embroidered Shawl": {},
+      },
+
+      Muffler: {
+        "Wool Muffler": {},
+        "Cotton Muffler": {},
+        "Knitted Muffler": {},
+      },
+    },
+
+    Accessories: {
+      Bags: {
+        "Tote Bags": {},
+        "Sling Bags": {},
+        "Clutch Bags": {},
+      },
+    },
   },
 
-  Men: {
-    Clothing: {
-      Shirts: {
-        "Casual Shirts": {},
-        "Formal Shirts": {},
-        "Linen Shirts": {}
-      }
+   Men: {
+
+  /* =====================================================
+     CLOTHING
+  ===================================================== */
+  Clothing: {
+
+    Shirts: {
+      "Casual Shirts": {},
+      "Formal Shirts": {},
+      "Linen Shirts": {}
     },
-    Footwear: {
-      Mojaris: {
-        "Traditional Mojari": {},
-        "Designer Mojari": {}
-      }
+
+    Kurtas: {
+      "Casual Kurtas": {},
+      "Cotton Kurtas": {},
+      "Silk Kurtas": {}
+    },
+
+    Jackets: {
+      "Leather Jackets": {},
+      "Denim Jackets": {},
+      "Bomber Jackets": {}
+    },
+
+    Pyjamas: {
+      "Cotton Pyjamas": {},
+      "Silk Pyjamas": {},
+      "Linen Pyjamas": {}
+    },
+
+    Pants: {
+      "Chinos": {},
+      "Formal Pants": {},
+      "Casual Pants": {}
+    },
+
+    Shorts: {
+      "Cotton Shorts": {},
+      "Denim Shorts": {},
+      "Sports Shorts": {}
+    },
+
+    "Kurta Sets": {
+      "Party Kurta Set": {},
+      "Casual Kurta Set": {},
+      "Ethnic Kurta Set": {}
     }
+
   },
+
+  /* =====================================================
+     HANDLOOMS
+  ===================================================== */
+  Handlooms: {
+
+    Dhotis: {
+      "Cotton Dhotis": {},
+      "Silk Dhotis": {},
+      "Linen Dhotis": {}
+    },
+
+    Angavastram: {
+      "Cotton Angavastram": {},
+      "Silk Angavastram": {},
+      "Linen Angavastram": {}
+    },
+
+    Lungi: {
+      "Casual Lungi": {},
+      "Printed Lungi": {},
+      "Cotton Lungi": {}
+    },
+
+    Pancha: {
+      "Cotton Pancha": {},
+      "Silk Pancha": {},
+      "Printed Pancha": {}
+    }
+
+  },
+
+  /* =====================================================
+     FOOTWEAR
+  ===================================================== */
+  Footwear: {
+
+    Flats: {
+      "Leather Flats": {},
+      "Casual Flats": {},
+      "Party Flats": {}
+    },
+
+    Sandals: {
+      "Leather Sandals": {},
+      "Casual Sandals": {},
+      "Designer Sandals": {}
+    },
+
+    Shoes: {
+      "Formal Shoes": {},
+      "Casual Shoes": {},
+      "Party Shoes": {}
+    },
+
+    Mojaris: {
+      "Traditional Mojari": {},
+      "Designer Mojari": {},
+      "Casual Mojari": {}
+    }
+
+  },
+
+  /* =====================================================
+     JEWELRY
+  ===================================================== */
+  Jewelry: {
+
+    "Silver-Coated Jewelry": {
+      Earrings: {},
+      Necklaces: {},
+      Bracelets: {}
+    },
+
+    "Wooden Jewelry": {
+      "Wooden Earrings": {},
+      "Wooden Necklaces": {},
+      "Wooden Bangles": {}
+    },
+
+    "Palm Leaf Jewelry": {
+      "Palm Leaf Earrings": {},
+      "Palm Leaf Necklace": {},
+      "Palm Leaf Bracelets": {}
+    },
+
+    "Tasakota Jewelry": {
+      "Tasakota Earrings": {},
+      "Tasakota Necklace": {},
+      "Tasakota Bangles": {}
+    }
+
+  }
+
+},
+
 
   Arts: {
     Paintings: {
       "Madhubani Art": {},
       "Warli Art": {},
-      "Gond Art": {}
-    }
+      "Gond Art": {},
+    },
   },
 
   Crafts: {
     Toys: {
       "Etikoppaka Toys": {},
-      "Channapatna Toys": {}
-    }
-  }
+      "Channapatna Toys": {},
+    },
+  },
 };
 
 
@@ -1546,7 +1850,303 @@ const categoryFields = {
     required: true,
     options: ["Yes", "No"]
   }
+],
+"Tussar Silk": [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk"]
+  },
+
+  {
+    name: "silkSource",
+    label: "Silk Source",
+    type: "select",
+    required: true,
+    options: ["Wild Silk", "Natural Silk"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Festive", "Casual", "Office Wear"]
+  },
+
+  /* ===== DESIGN DETAILS ===== */
+  {
+    name: "bodyDesign",
+    label: "Body Design",
+    type: "select",
+    required: true,
+    options: ["Plain", "Printed", "Tribal Motifs"]
+  },
+
+  {
+    name: "palluDesign",
+    label: "Pallu Design",
+    type: "select",
+    required: true,
+    options: ["Simple", "Printed", "Contrast"]
+  },
+
+  /* ===== TEXTURE & FINISH ===== */
+  {
+    name: "texture",
+    label: "Texture",
+    type: "select",
+    required: true,
+    options: ["Matte", "Coarse"]
+  },
+
+  {
+    name: "finish",
+    label: "Finish",
+    type: "select",
+    required: true,
+    options: ["Natural", "Polished"]
+  },
+
+  /* ===== SIZE & COLOR ===== */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Beige", "Brown", "Mustard", "Rust", "Green"]
+  },
+
+  /* ===== CARE & ORIGIN ===== */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only"]
+  },
+
+  {
+    name: "origin",
+    label: "Place of Origin",
+    type: "select",
+    required: true,
+    options: ["Jharkhand", "Bihar", "Odisha"]
+  }
 ]
+,
+"Mysore Silk": [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Mysore"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Wedding", "Festive", "Formal"]
+  },
+
+  /* ===== DESIGN DETAILS ===== */
+  {
+    name: "bodyDesign",
+    label: "Body Design",
+    type: "select",
+    required: true,
+    options: ["Plain", "Minimal Motifs"]
+  },
+
+  {
+    name: "borderDesign",
+    label: "Border Design",
+    type: "select",
+    required: true,
+    options: ["Simple Zari Border", "Temple Border"]
+  },
+
+  /* ===== ZARI & WEIGHT ===== */
+  {
+    name: "zariPercentage",
+    label: "Zari Percentage",
+    type: "select",
+    required: true,
+    options: ["Low", "Medium"]
+  },
+
+  {
+    name: "weight",
+    label: "Approximate Weight",
+    type: "select",
+    required: true,
+    options: ["Lightweight", "Medium"]
+  },
+
+  /* ===== SIZE & COLOR ===== */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Yellow", "Green", "Pink", "Blue", "Orange"]
+  },
+
+  /* ===== CARE & CERTIFICATION ===== */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only"]
+  },
+
+  {
+    name: "giTag",
+    label: "GI Tagged Product",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "origin",
+    label: "Place of Origin",
+    type: "select",
+    required: true,
+    options: ["Karnataka"]
+  }
+]
+,
+"Mulberry Silk": [
+
+  /* ===== BASIC DETAILS ===== */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Pure Silk"]
+  },
+
+  {
+    name: "silkGrade",
+    label: "Silk Grade",
+    type: "select",
+    required: true,
+    options: ["A", "AA", "Premium"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Wedding", "Festive", "Party"]
+  },
+
+  /* ===== FINISH & QUALITY ===== */
+  {
+    name: "finish",
+    label: "Finish",
+    type: "select",
+    required: true,
+    options: ["Glossy", "Soft"]
+  },
+
+  {
+    name: "threadCount",
+    label: "Thread Count",
+    type: "select",
+    required: false,
+    options: ["Low", "Medium", "High"]
+  },
+
+  /* ===== DESIGN DETAILS ===== */
+  {
+    name: "bodyDesign",
+    label: "Body Design",
+    type: "select",
+    required: true,
+    options: ["Plain", "Printed", "Jacquard"]
+  },
+
+  {
+    name: "palluDesign",
+    label: "Pallu Design",
+    type: "select",
+    required: true,
+    options: ["Simple", "Designer"]
+  },
+
+  /* ===== SIZE & COLOR ===== */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Ivory", "Peach", "Red", "Blue", "Gold"]
+  },
+
+  /* ===== CARE & ORIGIN ===== */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Dry Clean Only"]
+  },
+
+  {
+    name: "origin",
+    label: "Place of Origin",
+    type: "select",
+    required: true,
+    options: ["Karnataka", "Tamil Nadu", "West Bengal"]
+  }
+]
+
 ,
 
   "Jamdani Cotton": [
@@ -1643,7 +2243,750 @@ const categoryFields = {
     required: true,
     options: ["Yes", "No"]
   }
+],
+"Khadi Cotton": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Khadi"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Office Wear", "Daily Wear"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "pattern",
+    label: "Pattern",
+    type: "select",
+    required: true,
+    options: ["Plain", "Stripes", "Checks"]
+  },
+
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Self Border", "Contrast Border"]
+  },
+
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Beige", "Brown", "Indigo", "Grey"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
 ]
+,
+"Chanderi Cotton": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Chanderi"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Festive", "Office Wear", "Casual"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "pattern",
+    label: "Pattern",
+    type: "select",
+    required: true,
+    options: ["Butta", "Floral", "Geometric"]
+  },
+
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Zari Border", "Contrast Border"]
+  },
+
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton", "Cotton Silk"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Pastel Pink", "Mint Green", "Yellow", "Ivory"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash", "Dry Clean Only"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+"Kota Doria Cotton": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Kota Doria"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Casual", "Office Wear", "Summer Wear"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "pattern",
+    label: "Pattern",
+    type: "select",
+    required: true,
+    options: ["Checks", "Butta", "Plain"]
+  },
+
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Light Border", "Contrast Border"]
+  },
+
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["White", "Sky Blue", "Peach", "Lavender"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+"Gaji Cotton": [
+
+  /* BASIC DETAILS */
+  {
+    name: "fabric",
+    label: "Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  {
+    name: "weave",
+    label: "Weave Type",
+    type: "select",
+    required: true,
+    options: ["Gaji"]
+  },
+
+  {
+    name: "occasion",
+    label: "Occasion",
+    type: "select",
+    required: true,
+    options: ["Festive", "Casual"]
+  },
+
+  /* DESIGN DETAILS */
+  {
+    name: "pattern",
+    label: "Pattern",
+    type: "select",
+    required: true,
+    options: ["Bandhani", "Plain", "Printed"]
+  },
+
+  {
+    name: "borderType",
+    label: "Border Type",
+    type: "select",
+    required: true,
+    options: ["Traditional Border", "Contrast Border"]
+  },
+
+  /* BLOUSE DETAILS */
+  {
+    name: "blouseIncluded",
+    label: "Blouse Piece Included",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+  {
+    name: "blouseFabric",
+    label: "Blouse Fabric",
+    type: "select",
+    required: true,
+    options: ["Cotton"]
+  },
+
+  /* SIZE & COLOR */
+  {
+    name: "sareeLength",
+    label: "Saree Length",
+    type: "select",
+    required: true,
+    options: ["5.5 meters", "6.3 meters"]
+  },
+
+  {
+    name: "coloursAvailable",
+    label: "Colours Available",
+    type: "select",
+    required: true,
+    options: ["Red", "Yellow", "Green", "Blue", "Black"]
+  },
+
+  /* CARE & RETURN */
+  {
+    name: "careInformation",
+    label: "Care Instructions",
+    type: "select",
+    required: true,
+    options: ["Hand Wash", "Dry Clean Only"]
+  },
+
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  }
+]
+,
+"Kota Doria Saree": [
+
+    /* BASIC DETAILS */
+    {
+      name: "fabric",
+      label: "Fabric",
+      type: "select",
+      required: true,
+      options: ["Kota Doria Cotton"]
+    },
+
+    {
+      name: "weave",
+      label: "Weave Type",
+      type: "select",
+      required: true,
+      options: ["Kota Doria"]
+    },
+
+    {
+      name: "occasion",
+      label: "Occasion",
+      type: "select",
+      required: true,
+      options: ["Casual", "Office Wear", "Summer Wear"]
+    },
+
+    /* DESIGN DETAILS */
+    {
+      name: "pattern",
+      label: "Pattern",
+      type: "select",
+      required: true,
+      options: ["Checks", "Butta", "Printed", "Plain"]
+    },
+
+    {
+      name: "borderType",
+      label: "Border Type",
+      type: "select",
+      required: true,
+      options: ["Light Border", "Contrast Border"]
+    },
+
+    /* BLOUSE DETAILS */
+    {
+      name: "blouseIncluded",
+      label: "Blouse Piece Included",
+      type: "select",
+      required: true,
+      options: ["Yes", "No"]
+    },
+
+    {
+      name: "blouseFabric",
+      label: "Blouse Fabric",
+      type: "select",
+      required: true,
+      options: ["Cotton"]
+    },
+
+    /* SIZE & COLOR */
+    {
+      name: "sareeLength",
+      label: "Saree Length",
+      type: "select",
+      required: true,
+      options: ["5.5 meters", "6.3 meters"]
+    },
+
+    {
+      name: "coloursAvailable",
+      label: "Colours Available",
+      type: "select",
+      required: true,
+      options: ["White", "Sky Blue", "Peach", "Lavender", "Pink"]
+    },
+
+    /* CARE & RETURN */
+    {
+      name: "careInformation",
+      label: "Care Instructions",
+      type: "select",
+      required: true,
+      options: ["Hand Wash"]
+    },
+
+    {
+      name: "applicableToReturn",
+      label: "Applicable to Return",
+      type: "select",
+      required: true,
+      options: ["Yes", "No"]
+    }
+  ],
+
+  /* =====================================================
+     KOTA DORIA DRESS MATERIAL
+  ===================================================== */
+  "Kota Doria Dress Material": [
+
+    /* BASIC DETAILS */
+    {
+      name: "fabric",
+      label: "Fabric",
+      type: "select",
+      required: true,
+      options: ["Kota Doria Cotton"]
+    },
+
+    {
+      name: "occasion",
+      label: "Occasion",
+      type: "select",
+      required: true,
+      options: ["Casual", "Office Wear"]
+    },
+
+    /* SET DETAILS */
+    {
+      name: "setIncludes",
+      label: "Set Includes",
+      type: "select",
+      required: true,
+      options: ["Top + Dupatta", "Top + Bottom + Dupatta"]
+    },
+
+    {
+      name: "pattern",
+      label: "Pattern",
+      type: "select",
+      required: true,
+      options: ["Printed", "Butta", "Checks"]
+    },
+
+    /* SIZE & LENGTH */
+    {
+      name: "topLength",
+      label: "Top Length",
+      type: "select",
+      required: true,
+      options: ["2.5 meters", "3 meters"]
+    },
+
+    {
+      name: "dupattalength",
+      label: "Dupatta Length",
+      type: "select",
+      required: true,
+      options: ["2.25 meters"]
+    },
+
+    /* COLOR & CARE */
+    {
+      name: "coloursAvailable",
+      label: "Colours Available",
+      type: "select",
+      required: true,
+      options: ["White", "Beige", "Blue", "Green"]
+    },
+
+    {
+      name: "careInformation",
+      label: "Care Instructions",
+      type: "select",
+      required: true,
+      options: ["Hand Wash"]
+    }
+  ],
+
+  /* =====================================================
+     KOTA COTTON DUPATTA
+  ===================================================== */
+  "Kota Cotton Dupatta": [
+
+    /* BASIC DETAILS */
+    {
+      name: "fabric",
+      label: "Fabric",
+      type: "select",
+      required: true,
+      options: ["Kota Cotton"]
+    },
+
+    {
+      name: "occasion",
+      label: "Occasion",
+      type: "select",
+      required: true,
+      options: ["Casual", "Festive"]
+    },
+
+    /* DESIGN DETAILS */
+    {
+      name: "pattern",
+      label: "Pattern",
+      type: "select",
+      required: true,
+      options: ["Butta", "Printed", "Plain"]
+    },
+
+    {
+      name: "borderType",
+      label: "Border Type",
+      type: "select",
+      required: true,
+      options: ["Light Border", "Contrast Border"]
+    },
+
+    /* SIZE */
+    {
+      name: "dupattaLength",
+      label: "Dupatta Length",
+      type: "select",
+      required: true,
+      options: ["2.25 meters", "2.5 meters"]
+    },
+
+    /* COLOR & CARE */
+    {
+      name: "coloursAvailable",
+      label: "Colours Available",
+      type: "select",
+      required: true,
+      options: ["White", "Pink", "Yellow", "Sky Blue"]
+    },
+
+    {
+      name: "careInformation",
+      label: "Care Instructions",
+      type: "select",
+      required: true,
+      options: ["Hand Wash"]
+    }
+  ],
+
+  /* =====================================================
+     KOTA BLOUSE PIECE
+  ===================================================== */
+  "Kota Blouse Piece": [
+
+    /* BASIC DETAILS */
+    {
+      name: "fabric",
+      label: "Fabric",
+      type: "select",
+      required: true,
+      options: ["Kota Cotton"]
+    },
+
+    {
+      name: "pattern",
+      label: "Pattern",
+      type: "select",
+      required: true,
+      options: ["Plain", "Printed", "Butta"]
+    },
+
+    /* SIZE */
+    {
+      name: "blouseLength",
+      label: "Blouse Piece Length",
+      type: "select",
+      required: true,
+      options: ["0.8 meters", "1 meter"]
+    },
+
+    /* COLOR & CARE */
+    {
+      name: "coloursAvailable",
+      label: "Colours Available",
+      type: "select",
+      required: true,
+      options: ["White", "Black", "Red", "Blue"]
+    },
+
+    {
+      name: "careInformation",
+      label: "Care Instructions",
+      type: "select",
+      required: true,
+      options: ["Hand Wash"]
+    }
+  ],
+
+  /* =====================================================
+     KOTA DORIA KURTA
+  ===================================================== */
+  "Kota Doria Kurta": [
+
+    /* BASIC DETAILS */
+    {
+      name: "fabric",
+      label: "Fabric",
+      type: "select",
+      required: true,
+      options: ["Kota Doria Cotton"]
+    },
+
+    {
+      name: "fit",
+      label: "Fit",
+      type: "select",
+      required: true,
+      options: ["Regular", "Straight"]
+    },
+
+    {
+      name: "occasion",
+      label: "Occasion",
+      type: "select",
+      required: true,
+      options: ["Casual", "Office Wear"]
+    },
+
+    /* DESIGN DETAILS */
+    {
+      name: "pattern",
+      label: "Pattern",
+      type: "select",
+      required: true,
+      options: ["Printed", "Butta", "Plain"]
+    },
+
+    {
+      name: "sleeveType",
+      label: "Sleeve Type",
+      type: "select",
+      required: true,
+      options: ["3/4 Sleeve", "Full Sleeve"]
+    },
+
+    /* SIZE & COLOR */
+    {
+      name: "kurtaLength",
+      label: "Kurta Length",
+      type: "select",
+      required: true,
+      options: ["Calf Length", "Knee Length"]
+    },
+
+    {
+      name: "coloursAvailable",
+      label: "Colours Available",
+      type: "select",
+      required: true,
+      options: ["White", "Pastel Pink", "Blue", "Green"]
+    },
+
+    /* CARE */
+    {
+      name: "careInformation",
+      label: "Care Instructions",
+      type: "select",
+      required: true,
+      options: ["Hand Wash"]
+    }
+  ]
+
 ,
   "Designer Tops": [
 
