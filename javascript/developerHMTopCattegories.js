@@ -1,17 +1,28 @@
 const DHMTC_addCard = document.querySelector(".DHMTC-add-card");
 const DHMTC_popup = document.getElementById("DHMTC-addCategoryPopup");
 const DHMTC_closePopup = document.getElementById("DHMTC-closePopup");
+const DHMTC_pageWrapper = document.querySelector(".DHMTC-page-wrapper");
+const DHMTC_page_header_mob = document.querySelector(".DHMTC-page-header-mob");
 
 DHMTC_addCard.addEventListener("click", () => {
-  DHMTC_popup.style.display = "flex";
+  if (window.innerWidth <= 595) {
+    DHMTC_pageWrapper.style.display = "none";
+    DHMTC_popup.style.display = "block";
+    DHMTC_page_header_mob.style.display = "none";
+  } else {
+    DHMTC_popup.style.display = "flex";
+  }
 });
 
 DHMTC_closePopup.addEventListener("click", () => {
   DHMTC_popup.style.display = "none";
+  if (window.innerWidth <= 595) {
+    DHMTC_pageWrapper.style.display = "block";
+  }
 });
 
 DHMTC_popup.addEventListener("click", (e) => {
-  if (e.target === DHMTC_popup) {
+  if (e.target === DHMTC_popup && window.innerWidth > 595) {
     DHMTC_popup.style.display = "none";
   }
 });
@@ -169,6 +180,10 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
 
   DHMTC_popup.style.display = "none";
 
+  if (window.innerWidth <= 595) {
+    DHMTC_pageWrapper.style.display = "block";
+  }
+
   DHMTC_mediaInput.value = "";
   DHMTC_categoryName.value = "";
   DHMTC_ctaLink.value = "";
@@ -176,3 +191,23 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
   DHMTC_uploadBox.querySelectorAll("img").forEach((el) => el.remove());
   DHMTC_uploadContent.style.display = "flex";
 });
+
+const DHMTC_deleteBtn = document.querySelector(".DHMTC-btn-outline");
+
+DHMTC_deleteBtn.addEventListener("click", () => {
+  DHMTC_popup.style.display = "none";
+  if (window.innerWidth <= 595) {
+    DHMTC_pageWrapper.style.display = "block";
+    DHMTC_page_header_mob.style.display = "block";
+  }
+});
+
+function DHMTC_handleResponsiveState() {
+  if (window.innerWidth <= 595) {
+    DHMTC_popup.style.display = "none";
+    DHMTC_pageWrapper.style.display = "block";
+  }
+}
+
+window.addEventListener("load", DHMTC_handleResponsiveState);
+window.addEventListener("resize", DHMTC_handleResponsiveState);

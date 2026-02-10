@@ -351,3 +351,68 @@ body {
   margin-bottom: 8px;
   display: block;
 }
+
+.DHMTC-mob-count,
+.DHMTC-page-header-mob {
+  display: none;
+}
+
+@media (max-width: 595px) {
+  .DHMTC-page-wrapper {
+    display: none;
+  }
+
+  .DHMTC-popup-overlay {
+    position: static;
+    inset: auto;
+    background: none;
+    display: block;
+    padding: 0;
+  }
+
+  .DHMTC-popup-box {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  .DHMTC-close-btn {
+    display: none;
+  }
+  .DHMTC-popup-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .DHMTC-btn-outline,
+  .DHMTC-btn-primary {
+    width: 100%;
+    margin-right: 0;
+  }
+  .DHMTC-page-header {
+    display: none;
+  }
+  .DHMTC-mob-count {
+    display: flex;
+    color: #716b6b;
+    font-weight: 400;
+    justify-content: flex-end;
+    margin-top: -13px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .DHMTC-add-card {
+    height: 150px;
+  }
+  .DHMTC-small {
+    justify-content: flex-start;
+  }
+  .DHMTC-page-header-mob {
+    display: flex;
+    background: #ffffff;
+    color: #3f3f3f;
+    padding: 20px;
+    margin-top: 15px;
+  }
+}

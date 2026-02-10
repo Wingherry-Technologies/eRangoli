@@ -1,17 +1,26 @@
 const addCard = document.querySelector(".DHMSS-add-card");
 const popup = document.getElementById("DHMSS-addCategoryPopup");
 const closePopup = document.getElementById("DHMSS-closePopup");
+const pageWrapper = document.querySelector(".DHMSS-page-wrapper");
 
 addCard.addEventListener("click", () => {
-  popup.style.display = "flex";
+  if (window.innerWidth <= 595) {
+    pageWrapper.style.display = "none";
+    popup.style.display = "block";
+  } else {
+    popup.style.display = "flex";
+  }
 });
 
 closePopup.addEventListener("click", () => {
   popup.style.display = "none";
+  if (window.innerWidth <= 595) {
+    pageWrapper.style.display = "block";
+  }
 });
 
 popup.addEventListener("click", (e) => {
-  if (e.target === popup) {
+  if (e.target === popup && window.innerWidth > 595) {
     popup.style.display = "none";
   }
 });
@@ -170,6 +179,9 @@ publishBtn.addEventListener("click", (e) => {
   bindToggleValidation();
 
   popup.style.display = "none";
+  if (window.innerWidth <= 595) {
+    pageWrapper.style.display = "block";
+  }
 
   mediaInput.value = "";
   categoryName.value = "";
@@ -179,3 +191,22 @@ publishBtn.addEventListener("click", (e) => {
   uploadBox.querySelectorAll("img").forEach((el) => el.remove());
   uploadContent.style.display = "flex";
 });
+
+const deleteBtn = document.querySelector(".DHMSS-btn-outline");
+
+deleteBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+  if (window.innerWidth <= 595) {
+    pageWrapper.style.display = "block";
+  }
+});
+
+function handleResponsiveState() {
+  if (window.innerWidth <= 595) {
+    popup.style.display = "none";
+    pageWrapper.style.display = "block";
+  }
+}
+
+window.addEventListener("load", handleResponsiveState);
+window.addEventListener("resize", handleResponsiveState);
