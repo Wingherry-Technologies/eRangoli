@@ -229,6 +229,18 @@ body {
     gap: 8px !important;
     width: fit-content !important;
   }
+  .left-icons{
+    position: absolute;
+    top: -85px;
+    right: 0px !important;
+    border: 2px solid red;
+    width: 100% !important;
+    justify-content: end;
+    padding: 0px 20px !important;
+  }
+  .left-icons button{
+    background-color: #ffffff;
+  }
 
 }
 
@@ -280,7 +292,7 @@ body {
   /* border: 1px solid black; */
   width: 100%;
   min-height: 60vh;
-    height: auto;
+    height: 220vh;
   transition: min-height 0.25s ease;
   min-height: 100px;
   position: relative;
@@ -837,6 +849,10 @@ input[type="radio"] {
   }
 }
 @media (max-width:480px) {
+  .pro-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
   .products.pd-grid {
     padding-top: 20px;
     gap: 8px;

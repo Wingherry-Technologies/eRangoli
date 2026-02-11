@@ -770,7 +770,7 @@ function syncSidebarHeight() {
 
   // MOBILE — full screen
   if (window.innerWidth <= 480) {
-    sidebarEl.style.height = "100vh";
+    sidebarEl.style.height = "100%";
     sidebarEl.style.top = "0px";
     return;
   }

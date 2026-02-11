@@ -35,6 +35,14 @@
     padding: 8px 20px;
     border-radius: 10px;
 }
+@media (max-width:675px) {
+  .SBS-middle-nav-ba-main>ul{
+    gap: 10px;
+  }
+}
+@media (max-width:535px) {
+  
+}
 .SBS-middle-nav-ba-main>ul>li{
     color: white;
     padding: 5px 15px;
@@ -273,4 +281,51 @@
     font-size: 30px;
     font-weight: 700;
     color: #3F3F3F;
+}
+@media (max-width:535px) {
+  .main-state-name{
+    background-image: url("../assets/shopbystate/Rectangle\ 3.svg");
+    object-fit: fill;
+  }
+.main-state-name>span{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+.SBS-main-banner{
+    background-image: none;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.SBS-middle-nav-ba-main{
+    padding-top: 0px;
+}
+.SBS-middle-nav-ba-main>ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: transparent;
+}
+.SBS-middle-nav-ba-main>ul>li{
+  background-color: #D9D9D9;
+}
+.SBS-submenu{
+  right: -20px;
+  min-width: auto !important;
+}
+.SBS-submenu-label{
+  text-wrap: wrap;
+}
+}
+@media (max-width:480px) {
+  .SBS-category-name-heading{
+    justify-content: start;
+    padding: 0px 20px;
+  }
+  .SBS-middle-nav-ba-main>ul>li{
+    font-size: 16px !important;
+  }
 }
