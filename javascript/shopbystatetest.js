@@ -552,11 +552,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function filterByMainCategory(category) {
-    filteredCards = cards.filter(card =>
-      card.dataset.category === category
-    );
+
+    if (category === "kids") {
+      filteredCards = []; // empty array
+    } 
+    else {
+      // 👕 For Mens & others → show ALL products
+      filteredCards = [...cards];
+    }
+
     renderFiltered();
   }
+
 
   /* ===============================
      PAGINATION
