@@ -82,6 +82,13 @@ body {
   font-size: 15px;
   background: white;
 }
+.img-tag-main{
+  position: absolute;
+  top: 10px;
+}
+.img-tag-main>img{
+  height: 40px;
+}
 
 .vendorLoginInput:focus {
   border-color: #a10404;
