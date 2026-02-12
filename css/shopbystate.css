@@ -292,7 +292,7 @@ body {
   /* border: 1px solid black; */
   width: 100%;
   min-height: 60vh;
-    height: 220vh;
+    height: auto;
   transition: min-height 0.25s ease;
   min-height: 100px;
   position: relative;
@@ -897,7 +897,7 @@ input[type="radio"] {
 
   .products.pd-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0px;
+    gap: 5px;
     padding-top: 16px;
   }
 
