@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background-color: #e5e7eb;
+}
+
+/* Main Dashboard Container */
+.FSDashboardContainer {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Product Table Section */
+.FSTableCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.FSTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #0F8DF3;
+}
+
+.FSTableTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.FSViewAllLink {
+  font-size: 14px;
+  color: #3F3F3F;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.FSViewAllLink:hover {
+  text-decoration: none;
+}
+
+.FSTableWrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 10px;
+}
+
+.FSTableWrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  gap: 2rem;
+}
+
+.FSTableWrapper::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.FSTableWrapper::-webkit-scrollbar-thumb {
+  background: #716b6b;
+  border-radius: 4px;
+}
+
+.FSTableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.FSProductTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.FSTableHead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.FSTableHeadRow {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.FSTableHeaderCell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.FSTableBody {
+  background-color: #ffffff;
+}
+
+.FSTableRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.FSTableRow:hover {
+  background-color: #f9fafb;
+}
+
+.FSTableCell {
+  padding: 16px;
+  color: #3F3F3F;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.FSProductNameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.FSProductThumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 20px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.FSProductName {
+  font-weight: 400;
+  color: #1f2937;
+}
+
+/* Toggle Switch */
+.FSToggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.FSToggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.FSToggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.FSToggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.FSToggleSwitch input:checked + .FSToggleSlider {
+  background-color: #7DCDFF;
+}
+
+.FSToggleSwitch input:checked + .FSToggleSlider:before {
+  transform: translateX(20px);
+}
+
+/* Mobile FAQ Section */
+.FSMobileFAQ {
+  display: none;
+}
+
+.FSFaqTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.FSFaqTitle img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.FSFaqUserText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.FSFaqUsername {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.FSFaqItem.FSActive {
+  border: 1px solid #0F8DF340;
+  padding-bottom: 6px;
+  border-radius: 6px;
+}
+
+.FSFaqItem.FSActive .FSFaqQuestion {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+}
+
+.FSFaqRow {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 14px;
+  gap: 20px;
+}
+
+.FSFaqRow span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.FSFaqRow span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+  
+}
+
+.FSFaqRow:last-child{
+    grid-template-columns: 90px 1fr 1fr;
+}
+.toggleIcon{
+    justify-self: end;
+}
+
+.FSFaqRow .FSToggleSwitch {
+  justify-self: start;
+}
+
+/* Responsive */
+@media (max-width: 1024px) and (min-width: 595px) {
+  .FSTableWrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 595px) {
+  body {
+    background: #ffffff;
+  }
+  .FSTableCard {
+    display: none;
+  }
+  .FSMobileFAQ {
+    display: block;
+    background: white;
+    padding: 10px;
+  }
+
+  .FSFaqQuestion {
+    width: 100%;
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .FSFaqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .FSFaqItem.FSActive .FSFaqAnswer {
+    max-height: 500px;
+  }
+
+  .FSFaqItem {
+    margin-bottom: 10px;
+  }
+}

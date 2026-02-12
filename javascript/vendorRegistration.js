@@ -606,7 +606,7 @@ document.addEventListener("DOMContentLoaded", function () {
     this.value = v;
   });
 
-  function showFilePreview(input, previewClass) {
+function showFilePreview(input, previewClass) {
   const previewBox = input
     .closest(".vendorRegistrationUploadBox")
     .querySelector(previewClass);
@@ -614,31 +614,51 @@ document.addEventListener("DOMContentLoaded", function () {
   const file = input.files[0];
   if (!file) return;
 
-  // Clear old preview
   previewBox.innerHTML = "";
+
+  // Create wrapper
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("filePreviewWrapper");
 
   // IMAGE FILE
   if (file.type.startsWith("image/")) {
     const img = document.createElement("img");
     img.src = URL.createObjectURL(file);
-    img.style.width = "100%";
-    img.style.height = "85%";
-    img.style.objectFit = "cover";
-    img.style.borderRadius = "8px";
+    img.classList.add("previewImage");
 
-    previewBox.appendChild(img);
+    wrapper.appendChild(img);
   }
 
   // PDF FILE
   else if (file.type === "application/pdf") {
-    previewBox.innerHTML = `
+    wrapper.innerHTML = `
       <div class="pdfPreview">
         <span>📄</span>
         <p>${file.name}</p>
       </div>
     `;
   }
+
+  // Create delete button
+  const deleteBtn = document.createElement("span");
+  deleteBtn.classList.add("deletePreviewBtn");
+  deleteBtn.innerHTML = "&times;";
+
+  deleteBtn.addEventListener("click", function (e) {
+    e.stopPropagation();     // prevent upload box click
+    input.value = "";        // clear file input
+    previewBox.innerHTML = `
+      <span class="vendorRegistrationUploadIcon">
+        <img src="../assets/login/UploadSimple.svg" alt="" />
+      </span>
+      <span>${previewClass.includes("Front") ? "Upload Front" : "Upload Back"}</span>
+    `;
+  });
+
+  wrapper.appendChild(deleteBtn);
+  previewBox.appendChild(wrapper);
 }
+
 
 
   // STEP 2 VALIDATION FUNCTIONS
