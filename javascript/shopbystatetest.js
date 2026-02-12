@@ -552,11 +552,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function filterByMainCategory(category) {
-    filteredCards = cards.filter(card =>
-      card.dataset.category === category
-    );
+
+    if (category === "kids") {
+      filteredCards = []; // empty array
+    } 
+    else {
+      // 👕 For Mens & others → show ALL products
+      filteredCards = [...cards];
+    }
+
     renderFiltered();
   }
+
 
   /* ===============================
      PAGINATION
@@ -761,32 +768,32 @@ document.addEventListener("DOMContentLoaded", () => {
   =============================== */
   renderFiltered();
 });
-function syncSidebarHeight() {
-  const sidebarEl = document.querySelector(".left-sidebar");
-  const icons = document.querySelector(".left-icons");
-  const wrapper = document.querySelector(".pro-wrapper");
+// function syncSidebarHeight() {
+//   const sidebarEl = document.querySelector(".left-sidebar");
+//   const icons = document.querySelector(".left-icons");
+//   const wrapper = document.querySelector(".pro-wrapper");
 
-  if (!sidebarEl || !icons || !wrapper) return;
+//   if (!sidebarEl || !icons || !wrapper) return;
 
-  // MOBILE — full screen
-  if (window.innerWidth <= 480) {
-    sidebarEl.style.height = "100%";
-    sidebarEl.style.top = "0px";
-    return;
-  }
+//   // MOBILE — full screen
+//   if (window.innerWidth <= 480) {
+//     sidebarEl.style.height = "100%";
+//     sidebarEl.style.top = "0px";
+//     return;
+//   }
 
-  const iconsRect = icons.getBoundingClientRect();
-  const wrapperRect = wrapper.getBoundingClientRect();
+//   const iconsRect = icons.getBoundingClientRect();
+//   const wrapperRect = wrapper.getBoundingClientRect();
 
-  const relativeTop = iconsRect.top - wrapperRect.top;
-  sidebarEl.style.top = relativeTop + "px";
+//   const relativeTop = iconsRect.top - wrapperRect.top;
+//   sidebarEl.style.top = relativeTop + "px";
 
-  // Match HEIGHT (if icons have auto height, use computed)
-  sidebarEl.style.height = iconsRect.height + "px";
-}
+//   // Match HEIGHT (if icons have auto height, use computed)
+//   sidebarEl.style.height = iconsRect.height + "px";
+// }
 
-window.addEventListener("resize", syncSidebarHeight);
-window.addEventListener("scroll", syncSidebarHeight);
+// window.addEventListener("resize", syncSidebarHeight);
+// window.addEventListener("scroll", syncSidebarHeight);
 /* ===============================
    SIDEBAR OPEN / CLOSE FIX
 =============================== */
@@ -800,7 +807,6 @@ const openSortBtn = document.getElementById("openSort");
 if (sidebar && overlay && openFilterBtn && openSortBtn) {
 
   function openSidebar() {
-    syncSidebarHeight();
     sidebar.classList.add("active");
     overlay.classList.add("active");
   }
