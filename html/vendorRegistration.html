@@ -167,6 +167,9 @@
                     <option value="pan">PAN Card</option>
                     <option value="voter">Voter ID</option>
                     <option value="passport">Passport</option>
+                    <option value="Pehachan-Card">Pehachan Card</option>
+                    <option value="Weaver-Card">Weaver Card</option>
+                    <option value="Artisan-Card">Artisan Card</option>
                   </select>
                   <span
                     id="vendorRegistrationIdTypeError"
@@ -188,7 +191,7 @@
                     type="text"
                     id="vendorRegistrationIdNumber"
                     class="vendorRegistrationInput"
-                    placeholder="2546 6778 7744 6778"
+                    placeholder="Please enter the Identity Number"
                   />
                   <span
                     id="vendorRegistrationIdNumberError"
@@ -203,44 +206,31 @@
 
                 <div class="vendorRegistrationRow vendorRegistrationRowUpload ">
                   <!-- Front -->
-                  <label
-                    class="vendorRegistrationUploadBox"
-                    for="vendorIdFront"
-                  >
+                  <label class="vendorRegistrationUploadBox" for="vendorIdFront">
                     <!-- <span class="vendorRegistrationUploadPlus">
-                      <img src="../assets/login/PlusCircle.svg" alt="" />
-                    </span> -->
-                     <div class="uploadPreview uploadPreviewFront">
-                    <span class="vendorRegistrationUploadIcon">
-                      <img src="../assets/login/UploadSimple.svg" alt="" />
-                    </span>
-                    <span>Upload Front </span>
+                                      <img src="../assets/login/PlusCircle.svg" alt="" />
+                                    </span> -->
+                    <div class="uploadPreview uploadPreviewFront">
+                      <span class="vendorRegistrationUploadIcon">
+                        <img src="../assets/login/UploadSimple.svg" alt="" />
+                      </span>
+                      <span>Upload Front </span>
                     </div>
-                    <input
-                      type="file"
-                      id="vendorIdFront"
-                      style="display: none"
-                      accept="image/*,.pdf"
-                    />
+                    <input type="file" id="vendorIdFront" style="display: none" accept="image/*,.pdf" />
                   </label>
-
+                
                   <!-- Back -->
                   <label class="vendorRegistrationUploadBox" for="vendorIdBack">
                     <!-- <span class="vendorRegistrationUploadPlus">
-                      <img src="../assets/login/PlusCircle.svg" alt="" />
-                    </span> -->
-                     <div class="uploadPreview uploadPreviewBack">
-                    <span class="vendorRegistrationUploadIcon">
-                      <img src="../assets/login/UploadSimple.svg" alt="" />
-                    </span>
-                    <span>Upload Back</span>
+                                      <img src="../assets/login/PlusCircle.svg" alt="" />
+                                    </span> -->
+                    <div class="uploadPreview uploadPreviewBack">
+                      <span class="vendorRegistrationUploadIcon">
+                        <img src="../assets/login/UploadSimple.svg" alt="" />
+                      </span>
+                      <span>Upload Back</span>
                     </div>
-                    <input
-                      type="file"
-                      id="vendorIdBack"
-                      style="display: none"
-                      accept="image/*,.pdf"
-                    />
+                    <input type="file" id="vendorIdBack" style="display: none" accept="image/*,.pdf" />
                   </label>
                 </div>
                 <span

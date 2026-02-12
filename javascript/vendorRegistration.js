@@ -305,6 +305,57 @@ document.addEventListener("DOMContentLoaded", function () {
     this.value = v;
   });
 
+
+  const idConfigs = {
+  "Aadhar-Card": {
+    placeholder: "Enter 12-digit Aadhar Number",
+    regex: /^\d{12}$/,
+    error: "Aadhar number must be exactly 12 digits"
+  },
+  "pan": {
+    placeholder: "Enter PAN (ABCDE1234F)",
+    regex: /^[A-Z]{5}[0-9]{4}[A-Z]$/,
+    error: "Please enter a valid PAN (ABCDE1234F)"
+  },
+  "voter": {
+    placeholder: "Enter Voter ID (ABC1234567)",
+    regex: /^[A-Z]{3}[0-9]{7}$/,
+    error: "Voter ID must be 3 letters followed by 7 digits"
+  },
+  "passport": {
+    placeholder: "Enter Passport No (A1234567)",
+    regex: /^[A-Z][0-9]{7}$/,
+    error: "Passport must be 1 letter followed by 7 digits"
+  },
+  "Pehachan-Card": {
+    placeholder: "Enter Pehachan Card Number",
+    regex: /^[A-Z0-9]{6,20}$/,
+    error: "Please enter a valid Pehachan Card number"
+  },
+  "Weaver-Card": {
+    placeholder: "Enter Weaver Card Number",
+    regex: /^[A-Z0-9]{6,20}$/,
+    error: "Please enter a valid Weaver Card number"
+  },
+  "Artisan-Card": {
+    placeholder: "Enter Artisan Card Number",
+    regex: /^[A-Z0-9]{6,20}$/,
+    error: "Please enter a valid Artisan Card number"
+  }
+};
+idTypeSelect.addEventListener("change", function () {
+  validateIdType();          // dropdown validation
+  idNumberInput.value = "";  // reset input
+  clearError(idNumberInput, "vendorRegistrationIdNumberError");
+
+  const selectedType = this.value;
+
+  if (idConfigs[selectedType]) {
+    idNumberInput.placeholder = idConfigs[selectedType].placeholder;
+  } else {
+    idNumberInput.placeholder = "Enter Identity Number";
+  }
+});
   // Validate Select Identity Proof (dropdown)
   function validateIdType() {
     if (idTypeSelect.value.trim() === "") {
@@ -319,50 +370,45 @@ document.addEventListener("DOMContentLoaded", function () {
       return true;
     }
   }
-
   // Validate Mention Identity Number based on selected ID type
-  function validateIdNumber() {
-    let value = idNumberInput.value.replace(/\s+/g, "");
-    const idType = idTypeSelect.value;
-    let error = "";
+ function validateIdNumber() {
+  const selectedType = idTypeSelect.value;
+  let value = idNumberInput.value.replace(/\s+/g, "").toUpperCase();
+  idNumberInput.value = value;
 
-    value = value.toUpperCase();
-    idNumberInput.value = value; // show formatted value
-
-    if (!value) {
-      error = "Please enter identity number";
-    } else if (idType === "Aadhar-Card") {
-      // Aadhar: exactly 12 digits
-      if (!/^\d{12}$/.test(value)) {
-        error = "Aadhar number must be exactly 12 digits";
-      }
-    } else if (idType === "pan") {
-      // PAN: 5 letters, 4 digits, 1 letter (e.g. ABCDE1234F)
-      if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(value)) {
-        error = "Please enter a valid PAN (e.g. ABCDE1234F)";
-      }
-    } else if (idType === "voter") {
-      // Voter ID: 3 letters + 7 digits (e.g. ABC1234567)
-      if (!/^[A-Z]{3}[0-9]{7}$/.test(value)) {
-        error =
-          "Please enter a valid Voter ID (3 letters followed by 7 digits)";
-      }
-    } else if (idType === "passport") {
-      // Passport: 1 letter + 7 digits (e.g. A1234567)
-      if (!/^[A-Z][0-9]{7}$/.test(value)) {
-        error =
-          "Please enter a valid Passport number (1 letter followed by 7 digits)";
-      }
-    }
-
-    if (error) {
-      showError(idNumberInput, "vendorRegistrationIdNumberError", error);
-      return false;
-    } else {
-      clearError(idNumberInput, "vendorRegistrationIdNumberError");
-      return true;
-    }
+  if (!selectedType) {
+    showError(
+      idNumberInput,
+      "vendorRegistrationIdNumberError",
+      "Please select identity proof first"
+    );
+    return false;
   }
+
+  if (!value) {
+    showError(
+      idNumberInput,
+      "vendorRegistrationIdNumberError",
+      "Please enter identity number"
+    );
+    return false;
+  }
+
+  const config = idConfigs[selectedType];
+
+  if (!config.regex.test(value)) {
+    showError(
+      idNumberInput,
+      "vendorRegistrationIdNumberError",
+      config.error
+    );
+    return false;
+  }
+
+  clearError(idNumberInput, "vendorRegistrationIdNumberError");
+  return true;
+}
+
 
   // Validate Identity Proof upload (front + back)
   function validateIdUpload() {

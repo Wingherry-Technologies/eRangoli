@@ -426,11 +426,11 @@ const defaultCategoryFields = [
     placeholder: "Brand name"
   },
   {
-    name: "material",
-    label: "Material",
+    name: "sate",
+    label: "sate",
     type: "text",
     required: true,
-    placeholder: "Cotton, Silk, Wood..."
+    placeholder: "enter state"
   },
   {
     name: "sellingPrice",
