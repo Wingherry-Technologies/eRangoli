@@ -222,6 +222,74 @@
           </div>
         </div>
       </div>
+
+      <!-- CARD 4 -->
+             <div class="CR-card">
+        <!-- LEFT IMAGE -->
+        <div class="CR-img-box">
+          <img
+            src="../assets/developerHMExplorecategory1/Rectangle 34628381 (2).svg"
+            alt="customer"
+          />
+          <div class="CR-date">18/11/2025</div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="CR-content">
+          <div class="CR-top">
+            <div class="CR-info">
+              <div>
+                <label>Customer Name</label>
+                <p>Kishorilal Magan</p>
+              </div>
+              <div>
+                <label>Product</label>
+                <p>Madhubani Painting</p>
+              </div>
+              <div>
+                <label>Ratings</label>
+                <div class="CR-stars">
+                  <span class="CR-rating-number">4.5</span>
+                  <span class="CR-star filled">★</span>
+                  <span class="CR-star filled">★</span>
+                  <span class="CR-star filled">★</span>
+                  <span class="CR-star filled">★</span>
+                  <span class="CR-star">★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ICONS -->
+            <div class="CR-actions">
+              <img
+                src="../assets/developerHMArtisanStory/delete.svg"
+                class="CR-delete-btn"
+              />
+              <img
+                src="../assets/developerHMArtisanStory/edit.svg"
+                class="CR-edit-btn"
+              />
+            </div>
+          </div>
+          <div class="CR-review">
+            <label>Review</label>
+            <p>
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales risus a dui luctus fringilla. Sed vehicula in lorem quis ultrices.Ut nibh orci, sodales cursus luctus et, accumsan ac velit. "
+            </p>
+          </div>
+          <!-- STATUS -->
+          <div class="CR-bottom">
+            <div class="CR-divider"></div>
+            <div class="CR-status">
+              <span>Active status</span>
+              <label class="CR-switch">
+                <input type="checkbox" checked />
+                <span class="CR-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ADD NEW CUSTOMER REVIEW POPUP -->
@@ -251,18 +319,21 @@
           <div class="CR-popup-right">
             <div class="CR-form-group">
               <label>Customer Name</label>
-              <input type="text" placeholder="Kishorilal Magan" />
+              <input type="text" placeholder="Kishorilal Magan" id="CRCustomerName" />
+               <span class="CR-error" id="CRNameError"></span>
             </div>
 
             <div class="CR-form-group">
               <label>Product</label>
-              <input type="text" placeholder="Madhubani Painting" />
+              <input type="text" placeholder="Madhubani Painting" id="CRProduct" />
+              <span class="CR-error" ></span>
             </div>
 
             <div class="CR-form-row">
               <div class="CR-form-group CR-form-half">
                 <label>Ratings</label>
-                <input type="text" placeholder="4.5" />
+                <input type="text" placeholder="4.5"  id="CRRating"/>
+                 <span class="CR-error" ></span>
               </div>
 
               <div class="CR-form-group CR-form-half">
@@ -282,7 +353,9 @@
               <textarea
                 rows="4"
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales risus a dui luctus fringilla. Sed vehicula in lorem quis ultrices.Ut nibh orci, sodales cursus luctus et, accumsan ac velit. "
-              ></textarea>
+              id="CRReview"
+                ></textarea>
+               <span class="CR-error" ></span>
             </div>
 
             <button class="CR-publish-btn">Publish</button>
@@ -293,7 +366,7 @@
     </div>
 
     <div class="CR-floating-add-btn">
-      <img src="../assets/customerReview/plus.svg" alt="add" />
+      <img src="../assets/developerHMArtisanStory/plus.svg" alt="add" />
     </div>
 
     <script src="../javascript/developerHMCustumerReview.js"></script>

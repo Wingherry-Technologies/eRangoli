@@ -116,34 +116,113 @@ if (CRStarsInput) {
   });
 }
 
+const CRFields = document.querySelectorAll(
+  "#CRCustomerName, #CRProduct, #CRRating, #CRReview"
+);
+
+// Attach blur event to all fields
+CRFields.forEach((field) => {
+  field.addEventListener("blur", () => validateField(field));
+});
+
+// Main validation function
+function validateField(field) {
+  const errorEl = field.nextElementSibling;
+  let value = field.value.trim();
+
+  field.classList.remove("CR-input-error");
+  errorEl.textContent = "";
+
+  // CUSTOMER NAME
+  if (field.id === "CRCustomerName") {
+    if (!value) {
+      showError(field, "Name is required");
+      return false;
+    }
+    if (!/^[A-Za-z\s]+$/.test(value)) {
+      showError(field, "Only characters allowed");
+      return false;
+    }
+  }
+
+  // PRODUCT
+  if (field.id === "CRProduct") {
+    if (!value) {
+      showError(field, "Product is required");
+      return false;
+    }
+  }
+
+  // RATING
+  if (field.id === "CRRating") {
+    if (!value) {
+      showError(field, "Rating is required");
+      return false;
+    }
+    if (isNaN(value) || value < 0 || value > 5) {
+      showError(field, "Enter valid rating (0-5)");
+      return false;
+    }
+  }
+
+  // REVIEW
+  if (field.id === "CRReview") {
+    if (!value) {
+      showError(field, "Review is required");
+      return false;
+    }
+    if (value.length < 10) {
+      showError(field, "Minimum 10 characters required");
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Show error helper
+function showError(field, message) {
+  const errorEl = field.nextElementSibling;
+  errorEl.textContent = message;
+  field.classList.add("CR-input-error");
+}
+const nameInput = document.getElementById("CRCustomerName");
+
+nameInput.addEventListener("input", function () {
+  let value = this.value;
+
+  // remove leading space
+  if (value.startsWith(" ")) {
+    value = value.trimStart();
+  }
+
+  // allow only characters
+  value = value.replace(/[^A-Za-z\s]/g, "");
+
+  this.value = value;
+});
+
+
 // Publish button functionality
 const CRPublishBtn = document.querySelector(".CR-publish-btn");
 const CRPublishBtnRes = document.querySelector(".CR-publish-btn-res");
 
 function CRHandlePublish() {
-  // Get form values
-  const customerName = document.querySelector('.CR-form-group input[placeholder="Kishorilal Magan"]').value;
-  const product = document.querySelector('.CR-form-group input[placeholder="Madhubani Painting"]').value;
-  const rating = document.querySelector('.CR-form-half input[placeholder="4.5"]').value;
-  const review = document.querySelector('.CR-form-group textarea').value;
+  let isValid = true;
 
-  // Validate
-  if (!customerName || !product || !rating || !review) {
-    alert("Please fill in all fields");
+  CRFields.forEach((field) => {
+    const fieldValid = validateField(field);
+    if (!fieldValid) isValid = false;
+  });
+
+  if (!isValid) {
     return;
   }
 
-  // Close popup and reset form
   CRPopup.style.display = "none";
-  alert("Review published successfully!");
   
-  // Reset form (optional)
-  document.querySelector('.CR-form-group input[placeholder="Kishorilal Magan"]').value = "";
-  document.querySelector('.CR-form-group input[placeholder="Madhubani Painting"]').value = "";
-  document.querySelector('.CR-form-half input[placeholder="4.5"]').value = "";
-  document.querySelector('.CR-form-group textarea').value = "";
-  CRUploadPreview.innerHTML = "";
 }
+
 
 if (CRPublishBtn) {
   CRPublishBtn.addEventListener("click", CRHandlePublish);

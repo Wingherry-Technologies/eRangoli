@@ -20,6 +20,7 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 12px 16px;
+  border: 1px solid #D9D9D9;
 }
 
 .CR-header h3 {
@@ -47,6 +48,7 @@
   margin-bottom: 16px;
   padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #D9D9D9;
 }
 
 .CR-img-box {
@@ -352,7 +354,7 @@
   background: #e8f4fb;
   font-size: 14px;
   resize: none;
-  font-family: "Nunito Sans";
+  outline: none;
 }
 
 .CR-form-group input::placeholder,
@@ -421,6 +423,17 @@
 .CR-floating-add-btn {
   display: none;
 }
+.CR-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.CR-input-error {
+  border: 1px solid red !important;
+}
+
 
 /* TABLET RESPONSIVE */
 @media (max-width: 1024px) and (min-width: 595px) {
@@ -578,11 +591,11 @@
     box-shadow: 0 4px 12px rgba(14, 139, 243, 0.4);
   }
 
-  .CR-floating-add-btn img {
+  /* .CR-floating-add-btn img {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);
-  }
+  } */
 
   .CR-popup {
     width: 95%;
@@ -613,5 +626,10 @@
     display: block;
     width: calc(100% - 32px);
     margin: 0 16px 16px;
+            padding: 10px;
+        border-radius: 8px;
+        border: none;
+        background: #0E8BF3;
+        color: #ffffff
   }
 }
