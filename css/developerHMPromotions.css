@@ -275,7 +275,6 @@ body {
   background: #eef5fb;
 }
 .DHMSS-upload-content {
-  width: 100%;
   height: 180px;
   background: #ececec;
   border-radius: 8px;
@@ -331,6 +330,7 @@ body {
   padding: 10px 24px;
   border: none;
   border-radius: 6px;
+  width: 25%;
 }
 
 .cancel-btn {
@@ -339,6 +339,39 @@ body {
   color: #0f8df3;
   padding: 10px 24px;
   border-radius: 6px;
+  width: 25%;
+}
+
+.DHMSS-add-promotion-header-tab {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .DHMSS-add-promotion-body input,
+  .DHMSS-add-promotion-body textarea,
+  .DHMSS-upload-content {
+    width: 100%;
+  }
+  .DHMSS-add-promotion-actions {
+    justify-content: space-between;
+  }
+  .publish-btn,
+  .cancel-btn {
+    width: 50%;
+  }
+  .DHMSS-add-promotion-header-tab {
+    display: flex;
+    font-weight: 700;
+    font-size: 15px;
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+  .DHMSS-add-promotion-header,
+  .divider {
+    display: none;
+  }
 }
 
 @media (max-width: 595px) {
@@ -360,5 +393,31 @@ body {
   }
   .DHMSS-page-header {
     display: none;
+  }
+  .DHMSS-add-promotion-body input,
+  .DHMSS-add-promotion-body textarea,
+  .DHMSS-upload-content {
+    width: 100%;
+  }
+  .DHMSS-add-promotion-wrapper {
+    padding: 20px 0 0 0;
+  }
+  .DHMSS-add-promotion-body {
+    border-radius: 0;
+  }
+  .DHMSS-add-promotion-actions {
+    flex-direction: column;
+  }
+  .divider {
+    display: none !important;
+  }
+  .DHMSS-add-promotion-header {
+    font-weight: 700;
+    color: #3f3f3f;
+    font-size: 14px;
+  }
+  .publish-btn,
+  .cancel-btn {
+    width: 100%;
   }
 }

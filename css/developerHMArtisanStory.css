@@ -519,4 +519,46 @@
     z-index: 999;
     cursor: pointer;
   }
+  .artisan-popup-overlay.mobile-full {
+    display: block !important;
+    background: #ffffff;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .artisan-popup-overlay.mobile-full .artisan-popup {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+
+  .artisan-popup-overlay.mobile-full .artisan-popup-body {
+    flex-direction: column;
+  }
+
+  .artisan-popup-overlay.mobile-full .artisan-popup-left {
+    width: 100%;
+    margin: 0;
+    background: transparent;
+  }
+
+  .artisan-popup-overlay.mobile-full .artisan-popup-right {
+    padding: 16px;
+  }
+
+  .artisan-popup-overlay.mobile-full .popup-close {
+    display: none;
+  }
+
+  .artisan-popup-divider {
+    display: none;
+  }
+
+  .upload-wrapper {
+    background-color: #e6edf2;
+    padding: 10px;
+    border-radius: 6px;
+  }
 }

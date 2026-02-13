@@ -301,9 +301,9 @@ tbody td {
   background: #00000033;
   border: 1.5px solid #00000033;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
 }
 

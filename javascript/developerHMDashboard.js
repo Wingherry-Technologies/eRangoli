@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (title === "Artisans Story") {
         window.location.href = "../html/developerHMArtisanStory.html";
       }
+      if (title === "Promotion") {
+        window.location.href = "../html/developerHMPromotions.html";
+      }
+      if (title === "Exclusive Product") {
+        window.location.href = "../html/developerHMExclusiveProducts.html";
+      }
     });
   });
 });
