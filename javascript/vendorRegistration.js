@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const step2Container = document.getElementById("vendorRegistrationStep2");
   const steps = document.querySelectorAll(".vendorRegistrationStep");
 
+  const otherDoc1Input = document.getElementById("vendorOtherDoc1");
+const otherDoc2Input = document.getElementById("vendorOtherDoc2");
+
+
   // STEP 2 inputs
   const houseInput = document.getElementById("vendorAddressHouse");
   const areaInput = document.getElementById("vendorAddressArea");
@@ -442,14 +446,46 @@ idTypeSelect.addEventListener("change", function () {
     }
   });
   idNumberInput.addEventListener("blur", validateIdNumber);
-  idFrontInput.addEventListener("change", function () {
+idFrontInput.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorIdUploadError");
+
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = "";
+    return;
+  }
+
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
   showFilePreview(this, ".uploadPreviewFront");
-  validateIdUpload();
 });
-  idBackInput.addEventListener("change", function () {
+
+
+
+idBackInput.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorIdUploadError");
+
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = ""; // clear file
+    return;
+  }
+
+  // clear error if valid
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
   showFilePreview(this, ".uploadPreviewBack");
-  validateIdUpload();
 });
+
+
 
   // STEP 1 submit -> validation -> STEP 2
   step1Form.addEventListener("submit", function (e) {
@@ -657,42 +693,47 @@ function showFilePreview(input, previewClass) {
     .closest(".vendorRegistrationUploadBox")
     .querySelector(previewClass);
 
+  const errorSpan = document.getElementById("vendorIdUploadError");
   const file = input.files[0];
+
   if (!file) return;
 
+  // ❌ If NOT image → show error & STOP
+  if (!file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    input.value = ""; // clear selected file
+
+    return; // IMPORTANT → stop further execution
+  }
+
+  // Clear error if valid
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
+  // Reset preview
   previewBox.innerHTML = "";
 
-  // Create wrapper
   const wrapper = document.createElement("div");
   wrapper.classList.add("filePreviewWrapper");
 
-  // IMAGE FILE
-  if (file.type.startsWith("image/")) {
-    const img = document.createElement("img");
-    img.src = URL.createObjectURL(file);
-    img.classList.add("previewImage");
+  const img = document.createElement("img");
+  img.src = URL.createObjectURL(file);
+  img.classList.add("previewImage");
 
-    wrapper.appendChild(img);
-  }
+  wrapper.appendChild(img);
 
-  // PDF FILE
-  else if (file.type === "application/pdf") {
-    wrapper.innerHTML = `
-      <div class="pdfPreview">
-        <span>📄</span>
-        <p>${file.name}</p>
-      </div>
-    `;
-  }
-
-  // Create delete button
+  // delete button
   const deleteBtn = document.createElement("span");
   deleteBtn.classList.add("deletePreviewBtn");
   deleteBtn.innerHTML = "&times;";
 
   deleteBtn.addEventListener("click", function (e) {
-    e.stopPropagation();     // prevent upload box click
-    input.value = "";        // clear file input
+    e.stopPropagation();
+    e.preventDefault(); 
+    input.value = "";
+
     previewBox.innerHTML = `
       <span class="vendorRegistrationUploadIcon">
         <img src="../assets/login/UploadSimple.svg" alt="" />
@@ -704,6 +745,45 @@ function showFilePreview(input, previewClass) {
   wrapper.appendChild(deleteBtn);
   previewBox.appendChild(wrapper);
 }
+
+
+otherDoc1Input.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorOtherDocError");
+
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = "";
+    return;
+  }
+
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
+  showFilePreview(this, ".uploadPreviewOther1");
+});
+
+
+otherDoc2Input.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorOtherDocError");
+
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = "";
+    return;
+  }
+
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
+  showFilePreview(this, ".uploadPreviewOther2");
+});
+
 
 
 
@@ -1103,10 +1183,10 @@ function showLogoPreview(input) {
   const file = input.files[0];
   if (!file) return;
 
-  // Only images allowed
-  if (!file.type.startsWith("image/")) return;
-
   previewBox.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("filePreviewWrapper");
 
   const img = document.createElement("img");
   img.src = URL.createObjectURL(file);
@@ -1115,12 +1195,57 @@ function showLogoPreview(input) {
   img.style.objectFit = "contain";
   img.style.borderRadius = "8px";
 
-  previewBox.appendChild(img);
+  wrapper.appendChild(img);
+
+  // DELETE BUTTON ADD
+  const deleteBtn = document.createElement("span");
+  deleteBtn.classList.add("deletePreviewBtn");
+  deleteBtn.innerHTML = "&times;";
+
+deleteBtn.addEventListener("click", function (e) {
+  e.stopPropagation();
+  e.preventDefault();
+
+  input.value = "";
+
+  //  ERROR HIDE
+  document.getElementById("vendorLogoError").textContent = "";
+  document.getElementById("vendorLogoError").style.display = "none";
+
+  previewBox.innerHTML = `
+    <span class="vendorRegistrationUploadIcon">
+      <img src="../assets/login/UploadSimple.svg" alt="" />
+    </span>
+    <span>Upload</span>
+  `;
+});
+
+
+  wrapper.appendChild(deleteBtn);
+  previewBox.appendChild(wrapper);
 }
 
+
 businessLogoInput.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorLogoError");
+
+  //  Invalid file (PDF etc.)
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = "";
+    return;
+  }
+
+  // VALID FILE → HIDE ERROR
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
   showLogoPreview(this);
 });
+
 
 
   // MAIN STEP 3 VALIDATION (for Continue button)

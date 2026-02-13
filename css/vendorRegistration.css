@@ -362,7 +362,7 @@
 .previewImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
 }
 
@@ -492,7 +492,7 @@
 /* upload identity proof */
 .uploadPreview {
   width: 100%;
-  height: 110px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -511,9 +511,13 @@
 /* preview logo */
 .uploadPreviewLogo {
   width: 100%;
-  height: 120px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#vendorLogoError{
+  font-size: 11px;
+  color: #fa0a0a;
 }
 

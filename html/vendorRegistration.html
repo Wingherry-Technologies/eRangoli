@@ -216,10 +216,15 @@
                       </span>
                       <span>Upload Front </span>
                     </div>
-                    <input type="file" id="vendorIdFront" style="display: none" accept="image/*,.pdf" />
+                    <input type="file" id="vendorIdFront" style="display: none" accept="image/*" />
+                    <!-- <span id="vendorIdFrontError" class="vendorRegistrationErrorText"></span> -->
                   </label>
+                  
+
                 
                   <!-- Back -->
+
+                  
                   <label class="vendorRegistrationUploadBox" for="vendorIdBack">
                     <!-- <span class="vendorRegistrationUploadPlus">
                                       <img src="../assets/login/PlusCircle.svg" alt="" />
@@ -230,14 +235,52 @@
                       </span>
                       <span>Upload Back</span>
                     </div>
-                    <input type="file" id="vendorIdBack" style="display: none" accept="image/*,.pdf" />
+                    <input type="file" id="vendorIdBack" style="display: none" accept="image/*" />
                   </label>
+                  <!-- <span id="vendorIdBackError" class="vendorRegistrationErrorText"></span> -->
+
                 </div>
                 <span
                   id="vendorIdUploadError"
                   class="vendorRegistrationErrorText"
                 ></span>
               </div>
+
+              <!-- OTHER DOCUMENT (OPTIONAL) -->
+<div class="vendorRegistrationUploadWrapper">
+  <label class="vendorRegistrationLabel">
+    Other Document 
+  </label>
+
+  <div class="vendorRegistrationRow vendorRegistrationRowUpload">
+    
+    <!-- Other Doc 1 -->
+    <label class="vendorRegistrationUploadBox" for="vendorOtherDoc1">
+      <div class="uploadPreview uploadPreviewOther1">
+        <span class="vendorRegistrationUploadIcon">
+          <img src="../assets/login/UploadSimple.svg" alt="" />
+        </span>
+        <span>Upload Doc 1</span>
+      </div>
+      <input type="file" id="vendorOtherDoc1" style="display: none" accept="image/*" />
+    </label>
+
+    <!-- Other Doc 2 -->
+    <label class="vendorRegistrationUploadBox" for="vendorOtherDoc2">
+      <div class="uploadPreview uploadPreviewOther2">
+        <span class="vendorRegistrationUploadIcon">
+          <img src="../assets/login/UploadSimple.svg" alt="" />
+        </span>
+        <span>Upload Doc 2</span>
+      </div>
+      <input type="file" id="vendorOtherDoc2" style="display: none" accept="image/*" />
+    </label>
+
+  </div>
+  <span id="vendorOtherDocError" class="vendorRegistrationErrorText"></span>
+
+</div>
+
 
               <!-- BUTTON -->
               <button type="submit" class="vendorRegistrationButton">
@@ -466,6 +509,9 @@
                   />
                 </label>
               </div>
+              <span id="vendorLogoError" class="vendorRegistrationErrorText"></span>
+
+
 
               <button
                 type="button"
