@@ -426,11 +426,11 @@ const defaultCategoryFields = [
     placeholder: "Brand name"
   },
   {
-    name: "material",
-    label: "Material",
+    name: "sate",
+    label: "sate",
     type: "text",
     required: true,
-    placeholder: "Cotton, Silk, Wood..."
+    placeholder: "enter state"
   },
   {
     name: "sellingPrice",
@@ -3785,8 +3785,14 @@ function loadDynamicFields(categoryKey) {
         swatch.className = "color-swatch";
 
         input = document.createElement("select");
-        input.className = "form-select color-select";
-        input.innerHTML = `<option value="">Select ${field.label}</option>`;
+input.className = "form-select";
+
+// 🔴 ADD THESE TWO LINES
+input.id = `dynamic_${field.name}`;
+input.dataset.field = field.name;
+
+input.innerHTML = `<option value="">Select ${field.label}</option>`;
+
 
         field.options.forEach(color => {
           const opt = document.createElement("option");
@@ -3803,7 +3809,12 @@ function loadDynamicFields(categoryKey) {
       }
 
       input = document.createElement("select");
-      input.className = "form-select";
+input.className = "form-select color-select";
+
+// 🔴 ADD THESE TWO LINES
+input.id = `dynamic_${field.name}`;
+input.dataset.field = field.name;
+
       input.innerHTML = `<option value="">Select ${field.label}</option>`;
       field.options.forEach(opt => {
         input.innerHTML += `<option value="${opt}">${opt}</option>`;
@@ -3811,9 +3822,15 @@ function loadDynamicFields(categoryKey) {
 
     } else {
       input = document.createElement("input");
-      input.type = "text";
-      input.className = "form-input";
-      input.placeholder = field.placeholder || "";
+input.type = "text";
+input.className = "form-input";
+
+// 🔴 ADD THESE TWO LINES
+input.id = `dynamic_${field.name}`;
+input.dataset.field = field.name;
+
+input.placeholder = field.placeholder || "";
+
     }
 
     group.append(label, input);
@@ -4362,6 +4379,7 @@ function validateAddressSelection() {
   }
 }
 
+
 const savePreviewBtn = document.querySelector(".save-preview-btn");
 savePreviewBtn.addEventListener("click", () => {
   let isValid = true;
@@ -4415,6 +4433,8 @@ if (!validateVariantQuantities()) {
 
   // ALL VALID
   window.location.href='../html/vendorProductPreview.html'
+  localStorage.removeItem("vendor_add_product_draft");
+
 });
 
 
@@ -4505,6 +4525,141 @@ function validateMainImage() {
   errorDiv.style.display = "none";
   return true;
 }
+
+// for edit purpose
+const FORM_STORAGE_KEY = "vendor_add_product_draft";
+
+/* SAVE ALL FORM DATA */
+function saveFormDraft() {
+  const data = {
+    categories: {
+      lvl1: lvl1.value,
+      lvl2: lvl2.value,
+      lvl3: lvl3.value,
+      lvl4: lvl4.value
+    },
+    staticFields: {},
+    dynamicFields: {},
+    variants: [],
+    addresses: []
+  };
+
+  // STATIC + DYNAMIC
+  document.querySelectorAll("input, textarea, select").forEach(el => {
+    if (!el.id) return;
+
+    if (el.id.startsWith("dynamic_")) {
+      data.dynamicFields[el.dataset.field] = el.value;
+    } else {
+      data.staticFields[el.id] =
+        el.type === "checkbox" ? el.checked : el.value;
+    }
+  });
+
+  // VARIANTS
+  document.querySelectorAll(".variant-container").forEach(variant => {
+    data.variants.push({
+      color: variant.querySelector(".color-select")?.value || "",
+      size: variant.querySelector(".variant-size-select")?.value || "",
+      quantity: variant.querySelector(".quantity-input")?.value || ""
+    });
+  });
+
+  // ADDRESSES
+  document.querySelectorAll(".address-card").forEach(card => {
+    data.addresses.push({
+      text: card.querySelector(".address-details").innerHTML,
+      checked: card.querySelector(".address-checkbox").checked
+    });
+  });
+
+  localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(data));
+}
+
+
+/* AUTO SAVE */
+document.addEventListener("input", saveFormDraft);
+document.addEventListener("change", saveFormDraft);
+
+function loadFormDraft() {
+  const saved = localStorage.getItem(FORM_STORAGE_KEY);
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+
+  // 1️⃣ RESTORE CATEGORIES (ORDERED)
+  lvl1.value = data.categories.lvl1 || "";
+  lvl1.dispatchEvent(new Event("change"));
+
+  setTimeout(() => {
+    lvl2.value = data.categories.lvl2 || "";
+    lvl2.dispatchEvent(new Event("change"));
+
+    setTimeout(() => {
+      lvl3.value = data.categories.lvl3 || "";
+      lvl3.dispatchEvent(new Event("change"));
+
+      setTimeout(() => {
+        lvl4.value = data.categories.lvl4 || "";
+        lvl4.dispatchEvent(new Event("change"));
+
+        // 2️⃣ STATIC FIELDS
+        Object.entries(data.staticFields || {}).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.type === "checkbox" ? (el.checked = value) : (el.value = value);
+        });
+
+        // 3️⃣ DYNAMIC FIELDS
+        setTimeout(() => {
+          Object.entries(data.dynamicFields || {}).forEach(([key, value]) => {
+            const el = document.getElementById(`dynamic_${key}`);
+            if (el) el.value = value;
+          });
+        }, 200);
+
+        // 4️⃣ VARIANTS
+        const container = document.getElementById("variantsContainer");
+        container.innerHTML = "";
+        variantCount = 0;
+
+        data.variants.forEach(v => {
+          variantCount++;
+          const variant = createVariant(variantCount);
+          container.appendChild(variant);
+
+          variant.querySelector(".color-select").value = v.color;
+          variant.querySelector(".variant-size-select").value = v.size;
+          variant.querySelector(".quantity-input").value = v.quantity;
+        });
+
+        // 5️⃣ ADDRESSES
+        const addressList = document.getElementById("addressList");
+        addressList.innerHTML = "";
+
+        data.addresses.forEach((addr, i) => {
+          const card = document.createElement("div");
+          card.className = "address-card";
+          card.innerHTML = `
+            <div class="use-address">
+              <input type="checkbox" class="address-checkbox" ${addr.checked ? "checked" : ""}>
+              <span>Use this address details</span>
+            </div>
+            <div class="address-content">
+              <div class="address-name">Address ${i + 1}</div>
+              <div class="address-details">${addr.text}</div>
+            </div>`;
+          addressList.appendChild(card);
+        });
+
+      }, 200);
+    }, 200);
+  }, 200);
+}
+
+
+window.addEventListener("load", loadFormDraft);
+
 
 document.querySelector("#sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");
 
