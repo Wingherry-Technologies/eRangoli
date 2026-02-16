@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer HM Hero Section</title>
+    <link rel="stylesheet" href="../css/developerHMHeroSection.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- ── Card 1: Hero Section Core Content ── -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Hero Section</h2>
+        </div>
+
+        <div class="core-content">
+          <div class="section-row">
+            <span class="label">Core Content</span>
+
+            <div>
+              <button
+                class="publish-btn"
+                id="publishHeroBtn"
+                style="display: none"
+              >
+                Publish
+              </button>
+              <button class="edit-btn" id="editHeroBtn">Edit</button>
+            </div>
+          </div>
+
+          <div id="editMode" style="display: none">
+            <div class="form-group">
+              <label>Heading</label>
+              <input
+                type="text"
+                id="heroHeading"
+                placeholder="Experience India’s Colours, Textures & Traditions."
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label>Sub Text</label>
+              <input
+                type="text"
+                id="heroSubText"
+                placeholder="Welcome to the world of craft uniquely Indian, handmade & Sustainable."
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label>CTA Link</label>
+              <input
+                type="text"
+                id="heroCta"
+                placeholder="https://store.example.com/collection/products"
+              />
+              <span class="error-message"></span>
+            </div>
+          </div>
+
+          <!-- VIEW MODE -->
+          <div id="viewMode">
+            <div class="field-block">
+              <div class="field-label">Heading</div>
+              <div class="field-value" id="viewHeading"></div>
+            </div>
+
+            <div class="field-block">
+              <div class="field-label">Sub Text</div>
+              <div class="field-value" id="viewSubText"></div>
+            </div>
+
+            <div class="field-block">
+              <div class="field-label">CTA Link</div>
+              <div class="field-value" id="viewCta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 2: Hero Images ── -->
+      <div class="images-card">
+        <div class="images-header">
+          <div class="images-title">
+            <h3>Hero Images</h3>
+            <span>(Minimum 3 images or videos)</span>
+          </div>
+          <button class="publish-btn">Publish</button>
+        </div>
+
+        <div class="image-grid">
+          <!-- Tile 1 — with dropdown open -->
+          <div class="img-tile-wrapper">
+            <div class="img-tile" id="tile1">
+              <img
+                src="../assets/developerHMHeroSection/img-1.jpg"
+                alt="Weaving loom"
+              />
+              <span class="tile-menu-btn" onclick="toggleDropdown('dd1')">
+                <img src="../assets/developerHMHeroSection/3dot.svg" />
+              </span>
+              <div class="tile-dropdown" id="dd1">
+                <button class="delete">Delete</button>
+
+                <button>Upload</button>
+              </div>
+            </div>
+            <div class="img-caption">Recommended size: 1920px 1080px</div>
+          </div>
+
+          <!-- Tile 2 -->
+          <div class="img-tile-wrapper">
+            <div class="img-tile" id="tile2">
+              <img
+                src="../assets/developerHMHeroSection/img-3.png"
+                alt="Craft painting"
+              />
+              <span class="tile-menu-btn" onclick="toggleDropdown('dd2')">
+                <img src="../assets/developerHMHeroSection/3dot.svg" />
+              </span>
+              <div class="tile-dropdown" id="dd2">
+                <button class="delete">Delete</button>
+                <button>Upload</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tile 3 -->
+          <div class="img-tile-wrapper">
+            <div class="img-tile" id="tile3">
+              <img
+                src="../assets/developerHMHeroSection/img-2.png"
+                alt="Craft painting"
+              />
+              <span class="tile-menu-btn" onclick="toggleDropdown('dd3')">
+                <img src="../assets/developerHMHeroSection/3dot.svg" />
+              </span>
+              <div class="tile-dropdown" id="dd3">
+                <button class="delete">Delete</button>
+                <button>Upload</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add tile -->
+          <div class="img-tile-wrapper">
+            <div class="add-tile">
+              <div class="add-icon">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/developerHMHeroSection.js"></script>
+  </body>
+</html>

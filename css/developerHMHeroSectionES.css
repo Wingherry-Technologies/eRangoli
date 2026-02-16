@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.card-header {
+  border-bottom: 1px solid #0f8df3;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.card-header h2 {
+  color: #000000;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 15px;
+}
+
+.section-top h3 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.section-top h3 span {
+  color: #716b6b;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.publish-btn {
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.form-group input {
+  width: 70%;
+  padding: 12px;
+  background: #ebf3f9;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.upload-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 60%;
+}
+
+.upload-box {
+  flex: 1;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-icon img {
+  width: 40px;
+  margin-bottom: 15px;
+}
+
+.upload-box p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.small-text {
+  font-size: 12px;
+  color: #8e8989;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.plus-icon {
+  width: 50px;
+  height: 50px;
+  background: #1e88e5;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-media-box {
+  position: relative;
+}
+
+.media-popup {
+  position: absolute;
+  top: 130px;
+  right: 45px;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+  z-index: 10;
+}
+
+.media-popup button {
+  padding: 8px 10px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+}
+
+.media-popup button:hover {
+  background: #1e88e5;
+  color: #fff;
+}
+
+.media-popup button.active {
+  background: #1e88e5;
+  color: #fff;
+}
+
+.media-popup.show {
+  display: flex;
+}
+
+.publish-btn-mob,
+.small-text-mob {
+  display: none;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.input-error {
+  border: 1px solid #ff0000 !important;
+}
+
+.view-text {
+  color: #3f3f3f;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: #0e8bf3;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .upload-wrapper {
+    flex-direction: column;
+  }
+
+  .upload-box {
+    width: 100%;
+  }
+
+  .media-popup {
+    right: 190px;
+  }
+  .upload-wrapper,
+  .form-group input {
+    width: 100%;
+  }
+  .card {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 595px) {
+  .container {
+    padding: 0px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 0;
+  }
+
+  .section-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .publish-btn {
+    display: none;
+  }
+
+  .form-group input {
+    width: 100%;
+  }
+
+  .media-popup {
+    right: 5px;
+    top: 150px;
+  }
+  .upload-wrapper {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .publish-btn-mob {
+    display: block;
+    background: #0e8bf3;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .small-text {
+    display: none;
+  }
+  .small-text-mob {
+    display: block;
+    font-size: 12px;
+    color: #8e8989;
+    font-weight: 400;
+  }
+  .card-header h2 {
+    font-size: 18px;
+  }
+}
