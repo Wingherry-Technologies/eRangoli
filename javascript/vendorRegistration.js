@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const otherDoc1Input = document.getElementById("vendorOtherDoc1");
 const otherDoc2Input = document.getElementById("vendorOtherDoc2");
+const otherDoc3Input = document.getElementById("vendorOtherDoc3");
 
 
   // STEP 2 inputs
@@ -784,7 +785,23 @@ otherDoc2Input.addEventListener("change", function () {
   showFilePreview(this, ".uploadPreviewOther2");
 });
 
+otherDoc3Input.addEventListener("change", function () {
+  const file = this.files[0];
+  const errorSpan = document.getElementById("vendorOtherDocError");
 
+  if (file && !file.type.startsWith("image/")) {
+    errorSpan.textContent = "Only image files are allowed (JPG, PNG)";
+    errorSpan.style.display = "block";
+
+    this.value = "";
+    return;
+  }
+
+  errorSpan.textContent = "";
+  errorSpan.style.display = "none";
+
+  showFilePreview(this, ".uploadPreviewOther3");
+});
 
 
   // STEP 2 VALIDATION FUNCTIONS
