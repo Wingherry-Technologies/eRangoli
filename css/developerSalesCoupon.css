@@ -1,0 +1,669 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  background-color: #ebeef3;
+  padding: 20px;
+}
+
+/* =============================================
+   CARD
+   ============================================= */
+.SalesList-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* =============================================
+   FLOATING BUTTON
+   ============================================= */
+.SalesList-floating-plus-btn {
+  display: none;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+.SalesList-mob-card-header {
+  display: none;
+}
+
+.SalesList-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SalesList-card-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  font-family: "Inter", sans-serif;
+}
+
+.SalesList-create-btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0e8bf3;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.SalesList-create-btn:hover {
+  background: #0c7ad9;
+}
+
+/* =============================================
+   DIVIDER
+   ============================================= */
+.SalesList-divider {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #6828e7;
+}
+
+/* =============================================
+   TABLE WRAPPER
+   ============================================= */
+.SalesList-table-wrapper {
+  max-height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.SalesList-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.SalesList-table-wrapper::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.SalesList-table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+/* =============================================
+   TABLE
+   ============================================= */
+.SalesList-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.SalesList-table-wrapper thead {
+  border-bottom: 1px solid #d9d9d9;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+}
+
+.SalesList-table-wrapper thead th {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3f3f3f;
+  padding: 16px 12px;
+}
+
+/* Column widths — 8 columns */
+.SalesList-table-wrapper thead th:nth-child(1) { width: 17%; } /* Coupon Name */
+.SalesList-table-wrapper thead th:nth-child(2) { width: 13%; } /* Coupon Code */
+.SalesList-table-wrapper thead th:nth-child(3) { width: 22%; } /* Condition */
+.SalesList-table-wrapper thead th:nth-child(4) { width: 11%; } /* Discount price */
+.SalesList-table-wrapper thead th:nth-child(5) { width: 9%;  } /* Start Date */
+.SalesList-table-wrapper thead th:nth-child(6) { width: 9%;  } /* End Date */
+.SalesList-table-wrapper thead th:nth-child(7) { width: 9%;  } /* Status */
+.SalesList-table-wrapper thead th:nth-child(8) { width: 10%; } /* Action */
+
+.SalesList-table-wrapper tbody td {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  padding: 16px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* =============================================
+   COUPON CELL (Name + Icon)
+   ============================================= */
+.SalesList-coupon-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.SalesList-coupon-icon {
+  /* width: 40px;
+  height: 40px;
+  background: #fff3ee; */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.SalesList-coupon-icon--sm {
+  width: 34px;
+  height: 34px;
+}
+
+/* =============================================
+   STATUS BADGE
+   ============================================= */
+.SalesList-status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.SalesList-status-active {
+  color: #009605;
+}
+
+.SalesList-status-inactive {
+  color: #ef4444;
+  background-color: #fef2f2;
+}
+
+/* =============================================
+   ACTION ICONS
+   ============================================= */
+.SalesList-action-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.SalesList-action-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+.SalesList-action-icon-btn img{
+    width: 15x;
+    height: 15px;
+}
+
+.SalesList-action-icon-btn:hover {
+  opacity: 0.65;
+}
+
+/* =============================================
+   MOBILE ACCORDION / FAQ
+   ============================================= */
+.SalesList-mobile-faq {
+  display: none;
+}
+
+.SalesList-faq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.SalesList-faq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.SalesList-faq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.SalesList-faq-item {
+  margin-bottom: 12px;
+}
+
+.SalesList-faq-item.active {
+  border: 1px solid rgba(15, 141, 243, 0.25);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.SalesList-faq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding: 5px 0;
+  background: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+.SalesList-caret-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.SalesList-faq-item.active .SalesList-caret-icon {
+  transform: rotate(180deg);
+}
+
+.SalesList-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #ffffff;
+}
+
+.SalesList-faq-item.active .SalesList-faq-answer {
+  max-height: 600px;
+  padding-top: 10px;
+  border-top: 1px solid #cce8ff;
+}
+
+.SalesList-faq-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  padding: 8px 6px;
+  font-size: 14px;
+}
+
+.SalesList-faq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.SalesList-faq-row span:last-child {
+  font-weight: 400;
+  text-align: left;
+}
+
+.SalesList-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* =============================================
+   CREATE SCREEN
+   ============================================= */
+.coupanCreate-screen {
+  display: none;
+  padding: 20px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* Header */
+.coupanCreate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #1290f7;
+  padding-bottom: 10px;
+}
+
+.coupanCreate-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coupanCreate-back-btn {
+  width: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.coupanCreate-back-btn:hover {
+  opacity: 0.7;
+}
+
+.coupanCreate-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  font-family: "Inter", sans-serif;
+}
+
+/* =============================================
+   FORM LAYOUT — Image left + Fields right
+   ============================================= */
+.coupanCreate-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* Image column */
+.coupanCreate-image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.coupanCreate-image-box {
+  width: 110px;
+  height: 110px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.coupanCreate-image-box:hover {
+  background: #e4e8ec;
+}
+
+.coupanCreate-file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.coupanCreate-image-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #716b6b;
+  text-align: center;
+}
+
+/* Fields column */
+.coupanCreate-fields-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Form rows */
+.coupanCreate-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.coupanCreate-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.coupanCreate-form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 14px 0 6px;
+  color: #716b6b;
+}
+
+.coupanCreate-form-group input,
+.coupanCreate-form-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #3f3f3f;
+  background-color: #ebf3f9;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.coupanCreate-form-group input:focus,
+.coupanCreate-form-group select:focus {
+  outline: none;
+  background-color: #ddeef8;
+}
+
+.coupanCreate-form-group input::placeholder {
+  color: #a0aec0;
+}
+
+/* Custom select arrow */
+.coupanCreate-form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233f3f3f' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* =============================================
+   SUBMIT BUTTONS
+   ============================================= */
+.coupanCreate-submit {
+  padding: 10px 40px;
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.coupanCreate-submit:hover {
+  background: #0c7ad9;
+}
+
+.coupanCreate-mobBtn {
+  display: none;
+  width: 100%;
+  margin-top: 24px;
+  justify-self: center;
+}
+
+/* =============================================
+   ERROR MESSAGES
+   ============================================= */
+.coupanCreate-error {
+  color: #e53935;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+.coupanCreate-input-error {
+  outline: 1px solid #e53935 !important;
+  background-color: #fff5f5 !important;
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (595px – 1024px)
+   ============================================= */
+@media (max-width: 1024px) and (min-width: 595px) {
+  .SalesList-table-wrapper {
+    max-height: 500px;
+  }
+
+  .SalesList-table-wrapper table {
+    table-layout: auto;
+  }
+
+  .SalesList-table-wrapper th,
+  .SalesList-table-wrapper td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .coupanCreate-mobBtn {
+    display: block;
+  }
+
+  .coupanCreate-desktopBtn {
+    display: none;
+  }
+
+  .coupanCreate-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .coupanCreate-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (< 595px)
+   ============================================= */
+@media (max-width: 595px) {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+  }
+
+  .SalesList-card {
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  /* Hide desktop table */
+  .SalesList-table-wrapper {
+    display: none;
+  }
+
+  /* Hide desktop header elements */
+  .SalesList-create-btn {
+    display: none;
+  }
+
+  .SalesList-divider {
+    display: none;
+  }
+
+  .SalesList-card-header h2 {
+    display: none;
+  }
+
+  /* Mobile header */
+  .SalesList-mob-card-header {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #6828e7;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .SalesList-mob-card-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Floating plus button */
+  .SalesList-floating-plus-btn {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0e8bf3;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(14, 139, 243, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .SalesList-floating-plus-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Show mobile accordion */
+  .SalesList-mobile-faq {
+    display: block;
+    background: white;
+  }
+
+  /* Create screen */
+  .coupanCreate-screen {
+    padding: 16px;
+  }
+
+  .coupanCreate-header h3 {
+    font-size: 17px;
+  }
+
+  /* Stack layout vertically on mobile */
+  .coupanCreate-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .coupanCreate-image-col {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .coupanCreate-image-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .coupanCreate-fields-col {
+    width: 100%;
+  }
+
+  .coupanCreate-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .coupanCreate-mobBtn {
+    display: block;
+  }
+
+  .coupanCreate-desktopBtn {
+    display: none;
+  }
+}

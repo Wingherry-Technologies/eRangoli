@@ -434,6 +434,17 @@
   border: 1px solid red !important;
 }
 
+.footerCustumer{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.CR-review{
+  margin-bottom: 0;
+}
+
 
 /* TABLET RESPONSIVE */
 @media (max-width: 1024px) and (min-width: 595px) {
