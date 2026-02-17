@@ -37,40 +37,60 @@
           <!-- Offer Title -->
           <div class="form-group">
             <label>Offer Title</label>
-            <input type="text" value="Christmas Offer Megasale" />
+            <input type="text" placeholder="Christmas Offer Megasale" />
           </div>
 
           <div class="catalog-wrapper">
             <!-- Left Side -->
-            <div class="catalog-card">
-              <div class="upload-box">
-                <div class="upload-icon">
-                  <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+            <form id="offerForm">
+              <div class="catalog-card">
+                <div class="upload-box" id="uploadBox">
+                  <input type="file" id="coverImage" accept="image/*" hidden />
+
+                  <div class="upload-content" id="uploadContent">
+                    <div class="upload-icon">
+                      <img
+                        src="../assets/developerHMFestiveOffersES/upload.svg"
+                      />
+                    </div>
+                    <p>Upload Cover Image or drag & drop</p>
+                    <span>Recommended size: 1920px 1080px</span>
+                  </div>
+
+                  <!-- Preview Image -->
+                  <img id="imagePreview" class="preview-img" />
                 </div>
-                <p>Upload Cover Image or drag & drop</p>
-                <span>Recommended size: 1920px 1080px</span>
+                <small class="error" id="imageError"></small>
+                <div class="innerbox">
+                  <div class="innerbox-form-group">
+                    <label>Image Name</label>
+                    <input
+                      type="text"
+                      id="imageName"
+                      placeholder="Wooden Toys"
+                    />
+                    <small class="error" id="nameError"></small>
+                  </div>
+
+                  <div class="innerbox-form-group">
+                    <label>Enter CTA Link</label>
+                    <input
+                      type="text"
+                      id="ctaLink"
+                      placeholder="https://store.example.com/collection/products"
+                    />
+                    <small class="error" id="linkError"></small>
+                  </div>
+
+                  <div class="btn-group">
+                    <button type="submit" class="publish-btn">Publish</button>
+                    <button type="button" class="delete-btn" id="deleteBtn">
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              <div class="innerbox">
-                <div class="innerbox-form-group">
-                  <label>Image Name</label>
-                  <input type="text" placeholder="Wooden Toys" />
-                </div>
-
-                <div class="innerbox-form-group">
-                  <label>Enter CTA Link</label>
-                  <input
-                    type="text"
-                    placeholder="https://store.example.com/collection/products"
-                  />
-                </div>
-
-                <div class="btn-group">
-                  <button class="publish-btn">Publish</button>
-                  <button class="delete-btn">Delete</button>
-                </div>
-              </div>
-            </div>
+            </form>
 
             <!-- Add New Section -->
             <div class="add-section">
@@ -90,16 +110,22 @@
           <div class="section-2-form-group">
             <label>Upload Cover Image</label>
 
-            <div class="upload-box large-upload">
-              <div class="upload-icon">
-                <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+            <div class="upload-box-sec2 large-upload" id="uploadBox2">
+              <input type="file" id="coverImage2" accept="image/*" hidden />
+
+              <div class="upload-content" id="uploadContent2">
+                <div class="upload-icon">
+                  <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+                </div>
+                <p>Upload Cover Image or drag & drop</p>
               </div>
-              <p>Upload Cover Image or drag & drop</p>
+
+              <img id="imagePreview2" class="preview-img" />
             </div>
 
-            <span class="upload-note">
-              Recommended size : 1920px 1080px | Max 2MB
-            </span>
+            <small class="error" id="imageError2"></small>
+
+            <span class="upload-note"> Recommended size : 1920px 1080px </span>
           </div>
 
           <!-- Discount Amount -->
@@ -128,6 +154,6 @@
         </div>
       </div>
     </div>
-    <!-- <script src="../javascript/developerHMFestiveOffersES.js"></script> -->
+    <script src="../javascript/developerHMFestiveOffersES.js"></script>
   </body>
 </html>
