@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount List</title>
+    <link rel="stylesheet" href="../css/developerSalesDiscountList.css">
+</head>
+<body>
+    <div class="category-card">
+        <div class="main-content-beyond">
+            <!-- Desktop Header -->
+            <div class="card-header">
+                <h2>Discount List</h2>
+                <button class="create-btn">Create new</button>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="mob-card-header">
+                <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233f3f3f' stroke-width='2'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E" alt="Back"> -->
+                <h4>Discount List</h4>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Desktop Table View -->
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Sub-category</th>
+                            <th>Percentage</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="discountTableBody">
+                        <!-- Sample Data -->
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <img src="../assets/developersalesdiscount/handloom.svg" alt="Category Icon">
+                                    <span>Handloom</span>
+                                </div>
+                            </td>
+                            <td>Saree</td>
+                            <td>25% OFF</td>
+                            <td>01/01/26</td>
+                            <td>15/01/26</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                    <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Accordion View -->
+            <div class="APRAMobileFAQ">
+                <div class="APRAfaq-item">
+                    <button class="APRAfaq-question">
+                        <div class="APRAfaq-title">
+                            <img src="../assets/developersalesdiscount/handloom.svg" alt="Icon">
+                            <div class="APRAfaq-user-text">
+                                <span class="APRAfaq-username">Handloom</span>
+                            </div>
+                        </div>
+                        <img src="../assets/developersalesdiscount/CaretCircleDown.svg" alt="Expand">
+                    </button>
+                    <div class="APRAfaq-answer">
+                        <div class="APRAfaq-row">
+                            <span>Sub-category:</span>
+                           <div class="action-row">
+                                <span>Saree</span>
+                                    <div class="action-icons">
+                                        <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                        <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Percentage:</span>
+                            <span>25% OFF</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Start Date:</span>
+                            <span>01/01/26</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>End Date:</span>
+                            <span>15/01/26</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Status:</span>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <!-- <div class="APRAfaq-row action-row">
+                            <span>Action:</span>
+                            <div class="action-icons">
+                                <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="APRAfaq-item">
+                    <button class="APRAfaq-question">
+                        <div class="APRAfaq-title">
+                            <img src="../assets/developersalesdiscount/handloom.svg" alt="Icon">
+                            <div class="APRAfaq-user-text">
+                                <span class="APRAfaq-username">Handloom</span>
+                            </div>
+                        </div>
+                        <img src="../assets/developersalesdiscount/CaretCircleDown.svg" alt="Expand">
+                    </button>
+                    <div class="APRAfaq-answer">
+                        <div class="APRAfaq-row">
+                            <span>Sub-category:</span>
+                            <div class="action-row">
+                                <span>Saree</span>
+                                    <div class="action-icons">
+                                        <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                        <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Percentage:</span>
+                            <span>25% OFF</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Start Date:</span>
+                            <span>01/01/26</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>End Date:</span>
+                            <span>15/01/26</span>
+                        </div>
+                        <div class="APRAfaq-row">
+                            <span>Status:</span>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <!-- <div class="APRAfaq-row action-row">
+                            <span>Action:</span>
+                            <div class="action-icons">
+                                <img src="../assets/developersalesdiscount/Vector (3).svg" alt="Edit" class="action-icon">
+                                <img src="../assets/developersalesdiscount/Vector (4).svg" alt="Delete" class="action-icon">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create/Edit Discount Screen -->
+        <div class="create-category-screen" id="createCategoryScreen">
+            <div class="create-header">
+                <div class="leftPart">
+                <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233f3f3f' stroke-width='2'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E" alt="Back" class="back-btn" id="backToList"> -->
+                <h3>Create new discount</h3>
+                </div>
+                <button type="button" class="create-submit desktopBtn">Apply</button>
+            </div>
+
+<form class="create-form">
+
+    <!-- ROW 1 -->
+    <div class="form-row">
+        <div class="form-group">
+            <label>Select Category</label>
+            <select id="selectCategory" class="form-select">
+                    <option value="">Select Category</option>
+                    <option value="handloom">Handloom</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="furniture">Furniture</option>
+            </select>
+            <span class="error" id="categoryError"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Select Subcategory</label>
+            <select id="selectSubcategory" class="form-select">
+                <option value="">Select Subcategory</option>
+                <option value="saree">Saree</option>
+                <option value="kurta">Kurta</option>
+                <option value="bedsheet">Bedsheet</option>
+                <option value="dress">Dress</option>    
+            </select>
+            <span class="error" id="subcategoryError"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Enter Discount</label>
+            <div class="discount-input-wrapper">
+                <input type="number" id="discountPercentage" placeholder="25">
+                <span class="discount-suffix">%</span>
+            </div>
+            <span class="error" id="discountError"></span>
+        </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="form-row">
+        <div class="form-group">
+            <label>Select Start Date</label>
+            <input type="date" id="startDate">
+            <span class="error" id="startDateError"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Select End Date</label>
+            <input type="date" id="endDate">
+            <span class="error" id="endDateError"></span>
+        </div>
+    </div>
+
+    <button type="button" class="create-submit tab-mobBtn">Apply</button>
+
+</form>
+
+        </div>
+
+        <!-- Floating Plus Button (Mobile) -->
+        <button class="floating-plus-btn">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E" alt="Add">
+        </button>
+    </div>
+
+    <script src="../javascript/developerSalesDiscountList.js"></script>
+</body>
+</html>
