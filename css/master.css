@@ -1313,7 +1313,7 @@ nav{
     justify-content: center;
     gap: 20px;
 }
-.banner-heading{
+.banner-heading h1{
     font-size: 30px;
     color: white;
     font-weight: 500;
@@ -1499,7 +1499,7 @@ nav{
         height: 400px;
         width: 100%; 
     }
-    .banner-heading{
+    .banner-heading h1{
         font-size: 24px;
         max-width: 400px;
     }
@@ -1596,7 +1596,7 @@ nav{
         margin-left: 0px;
     }
     /* Banner Section */
-    .banner-heading{
+    .banner-heading h1{
         font-size: 20px;    
     }
     .carousel-container { 
