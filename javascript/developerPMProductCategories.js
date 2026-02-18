@@ -109,8 +109,6 @@ subCategoryInput.addEventListener("keydown", blockInvalidKeys);
 categoryInput.addEventListener("input", validateCategory);
 subCategoryInput.addEventListener("input", validateSubCategory);
 
-/* ================= IMAGE PREVIEW + VALIDATION ================= */
-
 const uploadInputs = document.querySelectorAll(
   ".upload-box input, .upload-box-res input",
 );
@@ -153,7 +151,6 @@ function validateImages() {
       input.closest("label").after(errorDiv);
     }
 
-    // ✅ Only first two images required
     if (index < 2) {
       if (!input.files || input.files.length === 0) {
         errorDiv.innerText = "Image is required";
@@ -186,8 +183,6 @@ uploadInputs.forEach((input) => {
     }
   });
 });
-
-/* ================= SUBMIT ================= */
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
