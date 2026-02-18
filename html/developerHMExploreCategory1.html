@@ -1,217 +1,297 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Category 1</title>
-    <link rel="stylesheet" href="../css/developerHMExploreCategory1.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/developerHMExploreCategory1.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <div class="containerECOne">
-        <!-- Header Section -->
-        <header class="headerECOne">
-            <h1 class="titleECOne">Explore Category 1</h1>
-            <button class="btnAddNewECOne" id="btnAddNewECOne">
-                <span class="iconPlusECOne">+</span> Add New
+      <!-- Header Section -->
+      <header class="headerECOne">
+        <h1 class="titleECOne">Explore Category 1</h1>
+        <button class="btnAddNewECOne" id="btnAddNewECOne">
+          <span class="iconPlusECOne">+</span> Add New
+        </button>
+      </header>
+
+      <!-- Category Title Section -->
+      <section class="sectionCategoryTitleECOne">
+        <label for="inputCategoryTitleECOne" class="labelECOne"
+          >Category Title</label
+        >
+        <input
+          type="text"
+          id="inputCategoryTitleECOne"
+          class="inputCategoryECOne"
+          value="Exclusive Crafted Fashion"
+          disabled
+        />
+      </section>
+
+      <!-- Preview Section -->
+      <section class="sectionPreviewECOne">
+        <div class="previewHeaderECOne">
+          <span class="labelPreviewECOne">Preview</span>
+          <span class="badgeLiveECOne">Live on site</span>
+        </div>
+
+        <div class="previewContentECOne">
+          <h2 class="previewTitleECOne">Exclusive Crafted Fashion</h2>
+
+          <!-- Image Grid -->
+          <div class="gridImagesECOne">
+            <!-- Large Left Card -->
+            <div class="cardImageLargeECOne">
+              <img
+                src="../assets/developerHMExplorecategory1/Rectangle 18.svg"
+                alt="Lehenga"
+                class="imgCardECOne"
+              />
+              <div class="overlayECOne">
+                <span class="tagLabelECOne">Lehenga</span>
+                <button class="btnExploreECOne">Explore</button>
+              </div>
+            </div>
+
+            <!-- Right Grid Container -->
+            <div class="gridRightECOne">
+              <!-- Top Row -->
+              <div class="cardImageSmallECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 19.svg"
+                  alt="Men"
+                  class="imgCardECOne"
+                />
+                <div class="overlayECOne">
+                  <span class="tagLabelECOne">Men</span>
+                  <button class="btnExploreECOne">Explore</button>
+                </div>
+              </div>
+
+              <div class="cardImageSmallECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 20.svg"
+                  alt="Stoles"
+                  class="imgCardECOne"
+                />
+                <div class="overlayECOne">
+                  <span class="tagLabelECOne">Stoles</span>
+                  <button class="btnExploreECOne">Explore</button>
+                </div>
+              </div>
+
+              <!-- Bottom Row -->
+              <div class="cardImageWideECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+                  alt="Sarees"
+                  class="imgCardECOne"
+                />
+                <div class="overlayECOne">
+                  <span class="tagLabelECOne">Sarees</span>
+                  <button class="btnExploreECOne">Explore</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="textLastEditedECOne">Last edited on: 29/01/25</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actionsPreviewECOne">
+          <button class="btnPublishECOne" id="btnPublishECOne">Publish</button>
+          <button class="btnDiscardECOne" id="btnDiscardECOne">Discard</button>
+        </div>
+      </section>
+
+      <!-- Image List Cards Section -->
+      <section class="sectionImageListECOne">
+        <!-- Image Card 1 -->
+        <div class="cardImageItemECOne" id="cardImageItem1ECOne">
+          <div class="headerCardItemECOne">
+            <span class="iconEditECOne"
+              ><img
+                src="../assets/developerHMExplorecategory1/Notches.svg"
+                alt=""
+            /></span>
+            <span class="textImageNumECOne">Image 1</span>
+            <button class="btnMenuECOne">
+              <img
+                src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                alt=""
+              />
             </button>
-        </header>
-
-        <!-- Category Title Section -->
-        <section class="sectionCategoryTitleECOne">
-            <label for="inputCategoryTitleECOne" class="labelECOne">Category Title</label>
-            <input 
-                type="text" 
-                id="inputCategoryTitleECOne" 
-                class="inputCategoryECOne" 
-                value="Exclusive Crafted Fashion"
-                disabled
+          </div>
+          <div class="bodyCardItemECOne">
+            <img
+              src="../assets/developerHMExplorecategory1/Rectangle 34628384.svg"
+              alt="Lehenga"
+              class="thumbImageECOne"
             />
-        </section>
-
-        <!-- Preview Section -->
-        <section class="sectionPreviewECOne">
-            <div class="previewHeaderECOne">
-                <span class="labelPreviewECOne">Preview</span>
-                <span class="badgeLiveECOne">Live on site</span>
+            <div class="infoCardItemECOne">
+              <span class="labelItemECOne">Label</span>
+              <span class="valueItemECOne">Lehenga</span>
+              <span class="statusTextECOne">Active status</span>
             </div>
+            <label class="toggleSwitchECOne">
+              <input type="checkbox" class="toggleInputECOne" checked />
+              <span class="sliderECOne"></span>
+            </label>
+          </div>
+        </div>
 
-            <div class="previewContentECOne">
-                <h2 class="previewTitleECOne">Exclusive Crafted Fashion</h2>
-                
-                <!-- Image Grid -->
-                <div class="gridImagesECOne">
-                    <!-- Large Left Card -->
-                    <div class="cardImageLargeECOne">
-                        <img src="../assets/developerHMExplorecategory1/Rectangle 18.svg" alt="Lehenga" class="imgCardECOne">
-                        <div class="overlayECOne">
-                            <span class="tagLabelECOne">Lehenga</span>
-                            <button class="btnExploreECOne">Explore</button>
-                        </div>
-                    </div>
-
-                    <!-- Right Grid Container -->
-                    <div class="gridRightECOne">
-                        <!-- Top Row -->
-                        <div class="cardImageSmallECOne">
-                            <img src="../assets/developerHMExplorecategory1/Rectangle 19.svg" alt="Men" class="imgCardECOne">
-                            <div class="overlayECOne">
-                                <span class="tagLabelECOne">Men</span>
-                                <button class="btnExploreECOne">Explore</button>
-                            </div>
-                        </div>
-
-                        <div class="cardImageSmallECOne">
-                            <img src="../assets/developerHMExplorecategory1/Rectangle 20.svg" alt="Stoles" class="imgCardECOne">
-                            <div class="overlayECOne">
-                                <span class="tagLabelECOne">Stoles</span>
-                                <button class="btnExploreECOne">Explore</button>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Row -->
-                        <div class="cardImageWideECOne">
-                            <img src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg" alt="Sarees" class="imgCardECOne">
-                            <div class="overlayECOne">
-                                <span class="tagLabelECOne">Sarees</span>
-                                <button class="btnExploreECOne">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="textLastEditedECOne">Last edited on: 29/01/25</div>
+        <!-- Image Card 2 -->
+        <div class="cardImageItemECOne" id="cardImageItem2ECOne">
+          <div class="headerCardItemECOne">
+            <span class="iconEditECOne"
+              ><img
+                src="../assets/developerHMExplorecategory1/Notches.svg"
+                alt=""
+            /></span>
+            <span class="textImageNumECOne">Image 2</span>
+            <button class="btnMenuECOne">
+              <img
+                src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="bodyCardItemECOne">
+            <img
+              src="../assets/developerHMExplorecategory1/Rectangle 351.svg"
+              alt="Men"
+              class="thumbImageECOne"
+            />
+            <div class="infoCardItemECOne">
+              <span class="labelItemECOne">Label</span>
+              <span class="valueItemECOne">Men</span>
+              <span class="statusTextECOne">Active status</span>
             </div>
+            <label class="toggleSwitchECOne">
+              <input type="checkbox" class="toggleInputECOne" checked />
+              <span class="sliderECOne"></span>
+            </label>
+          </div>
+        </div>
 
-            <!-- Action Buttons -->
-            <div class="actionsPreviewECOne">
-                <button class="btnPublishECOne" id="btnPublishECOne">Publish</button>
-                <button class="btnDiscardECOne" id="btnDiscardECOne">Discard</button>
+        <!-- Image Card 3 -->
+        <div class="cardImageItemECOne" id="cardImageItem3ECOne">
+          <div class="headerCardItemECOne">
+            <span class="iconEditECOne"
+              ><img
+                src="../assets/developerHMExplorecategory1/Notches.svg"
+                alt=""
+            /></span>
+            <span class="textImageNumECOne">Image 3</span>
+            <button class="btnMenuECOne">
+              <img
+                src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="bodyCardItemECOne">
+            <img
+              src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+              alt="Stole"
+              class="thumbImageECOne"
+            />
+            <div class="infoCardItemECOne">
+              <span class="labelItemECOne">Label</span>
+              <span class="valueItemECOne">Stole</span>
+              <span class="statusTextECOne">Active status</span>
             </div>
-        </section>
+            <label class="toggleSwitchECOne">
+              <input type="checkbox" class="toggleInputECOne" checked />
+              <span class="sliderECOne"></span>
+            </label>
+          </div>
+        </div>
 
-        <!-- Image List Cards Section -->
-        <section class="sectionImageListECOne">
-            <!-- Image Card 1 -->
-            <div class="cardImageItemECOne" id="cardImageItem1ECOne">
-                <div class="headerCardItemECOne">
-                    <span class="iconEditECOne"><img src="../assets/developerHMExplorecategory1/Notches.svg" alt=""></span>
-                    <span class="textImageNumECOne">Image 1</span>
-                    <button class="btnMenuECOne"><img src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg" alt=""></button>
-                </div>
-                <div class="bodyCardItemECOne">
-                    <img src="../assets/developerHMExplorecategory1/Rectangle 34628384.svg" alt="Lehenga" class="thumbImageECOne">
-                    <div class="infoCardItemECOne">
-                        <span class="labelItemECOne">Label</span>
-                        <span class="valueItemECOne">Lehenga</span>
-                        <span class="statusTextECOne">Active status</span>
-                    </div>
-                    <label class="toggleSwitchECOne">
-                        <input type="checkbox" class="toggleInputECOne" checked>
-                        <span class="sliderECOne"></span>
-                    </label>
-                </div>
+        <!-- Image Card 4 -->
+        <div class="cardImageItemECOne" id="cardImageItem4ECOne">
+          <div class="headerCardItemECOne">
+            <span class="iconEditECOne"
+              ><img
+                src="../assets/developerHMExplorecategory1/Notches.svg"
+                alt=""
+            /></span>
+            <span class="textImageNumECOne">Image 4</span>
+            <button class="btnMenuECOne">
+              <img
+                src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="bodyCardItemECOne">
+            <img
+              src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+              alt="Saree"
+              class="thumbImageECOne"
+            />
+            <div class="infoCardItemECOne">
+              <span class="labelItemECOne">Label</span>
+              <span class="valueItemECOne">Saree</span>
+              <span class="statusTextECOne">Active status</span>
             </div>
-
-            <!-- Image Card 2 -->
-            <div class="cardImageItemECOne" id="cardImageItem2ECOne">
-                <div class="headerCardItemECOne">
-                    <span class="iconEditECOne"><img src="../assets/developerHMExplorecategory1/Notches.svg" alt=""></span>
-                    <span class="textImageNumECOne">Image 2</span>
-                    <button class="btnMenuECOne"><img src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg" alt=""></button>
-                </div>
-                <div class="bodyCardItemECOne">
-                    <img src="../assets/developerHMExplorecategory1/Rectangle 351.svg" alt="Men" class="thumbImageECOne">
-                    <div class="infoCardItemECOne">
-                        <span class="labelItemECOne">Label</span>
-                        <span class="valueItemECOne">Men</span>
-                        <span class="statusTextECOne">Active status</span>
-                    </div>
-                    <label class="toggleSwitchECOne">
-                        <input type="checkbox" class="toggleInputECOne" checked>
-                        <span class="sliderECOne"></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Image Card 3 -->
-            <div class="cardImageItemECOne" id="cardImageItem3ECOne">
-                <div class="headerCardItemECOne">
-                    <span class="iconEditECOne"><img src="../assets/developerHMExplorecategory1/Notches.svg" alt=""></span>
-                    <span class="textImageNumECOne">Image 3</span>
-                    <button class="btnMenuECOne"><img src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg" alt=""></button>
-                </div>
-                <div class="bodyCardItemECOne">
-                    <img src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg" alt="Stole" class="thumbImageECOne">
-                    <div class="infoCardItemECOne">
-                        <span class="labelItemECOne">Label</span>
-                        <span class="valueItemECOne">Stole</span>
-                        <span class="statusTextECOne">Active status</span>
-                    </div>
-                    <label class="toggleSwitchECOne">
-                        <input type="checkbox" class="toggleInputECOne" checked>
-                        <span class="sliderECOne"></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Image Card 4 -->
-            <div class="cardImageItemECOne" id="cardImageItem4ECOne">
-                <div class="headerCardItemECOne">
-                    <span class="iconEditECOne"><img src="../assets/developerHMExplorecategory1/Notches.svg" alt=""></span>
-                    <span class="textImageNumECOne">Image 4</span>
-                    <button class="btnMenuECOne"><img src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg" alt=""></button>
-                </div>
-                <div class="bodyCardItemECOne">
-                    <img src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg" alt="Saree" class="thumbImageECOne">
-                    <div class="infoCardItemECOne">
-                        <span class="labelItemECOne">Label</span>
-                        <span class="valueItemECOne">Saree</span>
-                        <span class="statusTextECOne">Active status</span>
-                    </div>
-                    <label class="toggleSwitchECOne">
-                        <input type="checkbox" class="toggleInputECOne" checked>
-                        <span class="sliderECOne"></span>
-                    </label>
-                </div>
-            </div>
-        </section>
+            <label class="toggleSwitchECOne">
+              <input type="checkbox" class="toggleInputECOne" checked />
+              <span class="sliderECOne"></span>
+            </label>
+          </div>
+        </div>
+      </section>
     </div>
     <!-- ===== ADD CATEGORY MODAL ===== -->
 
-<div class="modalOverlayECOne" id="modalOverlayECOne">
-
-    <div class="modalBoxECOne">
-
+    <div class="modalOverlayECOne" id="modalOverlayECOne">
+      <div class="modalBoxECOne">
         <div class="modalHeaderECOne">
-            <h3>Add an Category Image</h3>
-            <span class="modalCloseECOne" id="modalCloseECOne"><img src="../assets/developerHMExplorecategory1/X (1).svg" alt=""></span>
+          <h3>Add an Category Image</h3>
+          <span class="modalCloseECOne" id="modalCloseECOne"
+            ><img src="../assets/developerHMExplorecategory1/X (1).svg" alt=""
+          /></span>
         </div>
 
-        <input type="file" id="imageUploadECOne" hidden>
+        <input type="file" id="imageUploadECOne" hidden />
         <div class="uploadBoxECOne" id="uploadBoxECOne">
-            <p id="uploadTextECOne">Upload Cover Image or<br>drag & drop</p>
+          <p id="uploadTextECOne">Upload Cover Image or<br />drag & drop</p>
         </div>
         <div class="errorECOne" id="imageErrorECOne"></div>
 
         <div class="uploadHintECOne">
-            Recommended size : 1920px × 1080px | Max 2MB
+          Recommended size : 1920px × 1080px | Max 2MB
         </div>
 
         <label class="modalLabelECOne">Label</label>
-        <input class="modalInputECOne" id="labelInputECOne" placeholder="Lehenga">
+        <input
+          class="modalInputECOne"
+          id="labelInputECOne"
+          placeholder="Lehenga"
+        />
         <div class="errorECOne" id="labelErrorECOne"></div>
 
         <label class="modalLabelECOne">Enter CTA Link</label>
-        <input class="modalInputECOne" id="ctaInputECOne" placeholder="https://store.example.com/collection/products">
+        <input
+          class="modalInputECOne"
+          id="ctaInputECOne"
+          placeholder="https://store.example.com/collection/products"
+        />
         <div class="errorECOne" id="ctaErrorECOne"></div>
 
         <button class="modalSaveBtnECOne" id="modalSaveBtnECOne">Save</button>
-
+      </div>
     </div>
 
-</div>
-
-
     <script src="../javascript/developerHMExploreCategory1.js"></script>
-</body>
+  </body>
 </html>
