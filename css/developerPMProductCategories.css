@@ -106,13 +106,6 @@ thead th {
   padding: 12px 10px;
 }
 
-thead th:nth-child(2),
-tbody td:nth-child(2) {
-  width: 30%;
-  white-space: normal;
-  word-break: break-word;
-}
-
 tbody td {
   font-size: 14px;
   font-weight: 400;
@@ -338,14 +331,20 @@ tbody td {
   display: none;
 }
 
+.imageError {
+  margin-top: 0;
+}
+
+.create-form input:focus {
+  outline: none;
+}
+
 /* Responsive */
 
 @media (max-width: 1024px) and (min-width: 595px) {
   .table-wrapper {
     width: 100%;
     max-height: 420px;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 
   .upload-container {

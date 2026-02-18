@@ -72,6 +72,7 @@ function validateCategory() {
     return false;
   }
   categorynameError.innerText = "";
+  categorynameError.style.display = "none";
   categoryInput.classList.remove("input-error");
   return true;
 }
@@ -97,6 +98,7 @@ function validateSubCategory() {
     return false;
   }
   subcategorynameError.innerText = "";
+  subcategorynameError.style.display = "none";
   subCategoryInput.classList.remove("input-error");
   return true;
 }
@@ -107,11 +109,93 @@ subCategoryInput.addEventListener("keydown", blockInvalidKeys);
 categoryInput.addEventListener("input", validateCategory);
 subCategoryInput.addEventListener("input", validateSubCategory);
 
+/* ================= IMAGE PREVIEW + VALIDATION ================= */
+
+const uploadInputs = document.querySelectorAll(
+  ".upload-box input, .upload-box-res input",
+);
+
+function handleImagePreview(input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const uploadBox = input.closest("label");
+    uploadBox.innerHTML = "";
+
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "8px";
+
+    uploadBox.appendChild(img);
+  };
+
+  reader.readAsDataURL(file);
+}
+
+function validateImages() {
+  let valid = true;
+
+  uploadInputs.forEach((input, index) => {
+    let errorDiv =
+      input.closest(".upload-container")?.querySelector(".imageError") ||
+      input.closest(".upload-container-res")?.querySelector(".imageError");
+
+    if (!errorDiv) {
+      errorDiv = document.createElement("div");
+      errorDiv.classList.add("error", "imageError");
+      input.closest("label").after(errorDiv);
+    }
+
+    // ✅ Only first two images required
+    if (index < 2) {
+      if (!input.files || input.files.length === 0) {
+        errorDiv.innerText = "Image is required";
+        errorDiv.style.display = "block";
+        valid = false;
+      } else {
+        errorDiv.innerText = "";
+        errorDiv.style.display = "none";
+      }
+    } else {
+      errorDiv.innerText = "";
+      errorDiv.style.display = "none";
+    }
+  });
+
+  return valid;
+}
+
+uploadInputs.forEach((input) => {
+  input.addEventListener("change", function () {
+    handleImagePreview(this);
+
+    let errorDiv =
+      this.closest(".upload-container")?.querySelector(".imageError") ||
+      this.closest(".upload-container-res")?.querySelector(".imageError");
+
+    if (errorDiv) {
+      errorDiv.innerText = "";
+      errorDiv.style.display = "none";
+    }
+  });
+});
+
+/* ================= SUBMIT ================= */
+
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const c = validateCategory();
   const s = validateSubCategory();
-  if (c && s) {
+  const imgValid = validateImages();
+
+  if (c && s && imgValid) {
     console.log("valid");
   }
 });
