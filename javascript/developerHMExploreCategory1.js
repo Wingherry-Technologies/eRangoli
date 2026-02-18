@@ -9,8 +9,14 @@ const ctaInputECOne = document.getElementById("ctaInputECOne");
 const imageErrorECOne = document.getElementById("imageErrorECOne");
 const labelErrorECOne = document.getElementById("labelErrorECOne");
 const ctaErrorECOne = document.getElementById("ctaErrorECOne");
+const floatingAddBtnECOne = document.querySelector(".ECOne-floating-add-btn");
 /* OPEN MODAL */
 btnAddNewECOne.addEventListener("click", () => {
+    modalOverlayECOne.style.display = "flex";
+    document.body.classList.add("bodyModalOpenECOne");
+});
+
+floatingAddBtnECOne.addEventListener("click", () => {
     modalOverlayECOne.style.display = "flex";
     document.body.classList.add("bodyModalOpenECOne");
 });

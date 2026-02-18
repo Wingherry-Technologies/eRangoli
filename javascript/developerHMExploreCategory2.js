@@ -8,8 +8,14 @@ const ctaInputECTwo = document.getElementById("ctaInputECTwo");
 const imageErrorECTwo = document.getElementById("imageErrorECTwo");
 const labelErrorECTwo = document.getElementById("labelErrorECTwo");
 const ctaErrorECTwo = document.getElementById("ctaErrorECTwo");
+const floatingAddBtnECTwo = document.querySelector(".ECTwo-floating-add-btn");
 /* OPEN MODAL */
 btnAddNewECTwo.addEventListener("click", () => {
+    modalOverlayECTwo.style.display = "flex";
+    document.body.classList.add("bodyModalOpenECTwo");
+});
+
+floatingAddBtnECTwo.addEventListener("click", () => {
     modalOverlayECTwo.style.display = "flex";
     document.body.classList.add("bodyModalOpenECTwo");
 });
