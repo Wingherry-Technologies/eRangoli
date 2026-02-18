@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     previewImg.src = "";
     previewImg.style.display = "none";
     uploadContent.style.display = "block";
+    uploadBox.style.padding = "";
     imageName.value = "";
     ctaLink.value = "";
     imageError.textContent = "";
@@ -105,15 +106,14 @@ document.addEventListener("DOMContentLoaded", function () {
       previewImg.src = e.target.result;
       previewImg.style.display = "block";
       uploadContent.style.display = "none";
+      uploadBox.style.padding = "0";
     };
     reader.readAsDataURL(file);
   }
 
   imageName.addEventListener("keydown", function (e) {
     const value = imageName.value;
-
     if (e.key >= "0" && e.key <= "9") e.preventDefault();
-
     if (e.key === " " && value.length === 0) e.preventDefault();
   });
 
