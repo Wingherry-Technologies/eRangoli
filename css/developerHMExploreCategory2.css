@@ -10,7 +10,6 @@ body {
     background-color: #f5f7fa;
     color: #2d3748;
     line-height: 1.6;
-    padding: 10px;
 }
 
 /* Container */
@@ -597,6 +596,15 @@ body {
     overflow:hidden;
 }
 
+.ECTwo-floating-add-btn {
+  display: none;
+}
+
+.ECTwo-mob-count {
+  display: none;
+}
+
+
 @keyframes modalPopECTwo{
     from{
         transform:scale(0.9);
@@ -710,6 +718,33 @@ body {
     .actionsPreviewECTwo{
         flex-direction: column;
     }  
+
+     .ECTwo-floating-add-btn {
+    display: flex;
+    position: fixed;
+    bottom: 86px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0e8bf3;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(14, 139, 243, 0.4);
+  }
+
+  .btnAddNewECTwo{
+    display: none;
+  }
+    .ECTwo-mob-count {
+        display: block;
+        font-size: 14px;
+        color: #3F3F3F;
+         font-weight: 500;
+    }
+
 
 
 }
