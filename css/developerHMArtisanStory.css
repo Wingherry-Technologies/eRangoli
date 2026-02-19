@@ -561,4 +561,7 @@
     padding: 10px;
     border-radius: 6px;
   }
+  .artisan-popup-header {
+    margin-left: 16px;
+  }
 }
