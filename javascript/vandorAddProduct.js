@@ -4364,6 +4364,9 @@ function validateAddressSelection() {
 
 
 const savePreviewBtn = document.querySelector(".save-preview-btn");
+const finalConfirmModal = document.getElementById("finalConfirmModal");
+const confirmCheckbox = document.getElementById("confirmCheckbox");
+const confirmCheckboxError = document.getElementById("confirmCheckboxError");
 savePreviewBtn.addEventListener("click", () => {
   let isValid = true;
 
@@ -4401,6 +4404,10 @@ if (!validateVariantQuantities()) {
     isValid = false;
   }
 
+  if (!getDeepestSelectedCategory()) {
+    showError(lvl1, "Please complete category selection");
+    isValid = false;
+  }
   if (!isValid) {
     const firstError = document.querySelector(".error-text");
     if (firstError) {
@@ -4412,12 +4419,30 @@ if (!validateVariantQuantities()) {
   showError(lvl1, "Please complete category selection");
   isValid = false;
 }
-
+// ✅ SHOW CONFIRMATION POPUP
+  finalConfirmModal.classList.remove("hidden");
 
   // ALL VALID
-  window.location.href='../html/vendorProductPreview.html'
+  // window.location.href='../html/vendorProductPreview.html'
 });
 
+document.getElementById("finalConfirmCancel").addEventListener("click", () => {
+  finalConfirmModal.classList.add("hidden");
+  confirmCheckbox.checked = false;
+  confirmCheckboxError.style.display = "none";
+});
+
+document.getElementById("finalConfirmOk").addEventListener("click", () => {
+  if (!confirmCheckbox.checked) {
+    confirmCheckboxError.style.display = "block";
+    return;
+  }
+
+  confirmCheckboxError.style.display = "none";
+
+  // ✅ FINAL SUBMIT / PREVIEW
+  window.location.href = "../html/vendorProductPreview.html";
+});
 
 
 // checkbox - only one selectable

@@ -72,7 +72,7 @@
 .vendorRegistrationSteps::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 40px;
   right: 40px;
   height: 2.5px;
@@ -156,8 +156,8 @@
 }
 
 .vendorRegistrationUploadBox {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 70px;
   border: 1px solid #dee1e6;
   border-radius: 4px;
   display: flex;
@@ -454,7 +454,7 @@
   .vendorRegistrationUploadBox {
     padding: 5px;
     flex-direction: row-reverse;
-    width: 100%;
+    width: 65px;
     /* height: auto; */
     gap: 10px;
   }
@@ -490,10 +490,11 @@
 
 .identity-proof-upload{
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 .vendorRegistrationUploadIcon img{
-  width: 20px;
+  width: 16px;
 }
 /* upload identity proof */
 .uploadPreview {
@@ -509,8 +510,8 @@
 }
 .vendorRegistrationUploadBox input{
   object-fit: contain;
-  width: 100%;
-  max-height: 80px;
+  width: 75px;
+  height: 70px;
 }
 .pdfPreview {
   text-align: center;
