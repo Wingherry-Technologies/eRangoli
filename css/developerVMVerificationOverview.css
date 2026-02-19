@@ -461,24 +461,27 @@ body {
   display: none;
 }
 
-@media (max-width: 595px) {
-  .ADVOBdBackIcon {
-    display: none;
-  }
-  .ADVOFaConfirmModal {
-    margin: 1rem;
-    border-radius: 2px;
-  }
-
-  .ADVOFaCloseBtn {
-    top: 7px;
-  }
+.img-res {
+  display: none;
 }
 
-/*  MOBILE RESPONSIVE  */
-@media (max-width: 768px) {
+.ADVOBlur {
+  filter: blur(3px);
+  pointer-events: none;
+}
+.ADVOReviewError {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) and (min-width: 595px) {
   .ADVOBdCard {
-    flex-direction: column;
+    flex-direction: row;
     padding: 16px;
     gap: 16px;
   }
@@ -501,30 +504,89 @@ body {
     row-gap: 14px;
   }
 
-  .ADVOPdAadharImg {
-    max-width: 100%;
-  }
-
   .ADVOFaAdminButtons {
-    flex-direction: column;
+    flex-direction: row-reverse;
     gap: 10px;
   }
 
-  .ADVOFaApproveButton,
-  .ADVOFaRejectButton,
-  .ADVOFaSentButton {
+  .aadhar-img {
+    display: none;
+  }
+  .img-res {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .img-res div {
+    flex: 1;
+  }
+
+  .ADVOPdAadharImg {
     width: 100%;
+    height: auto;
+  }
+  .right-img {
+    margin-top: 25px;
+  }
+  .ADVOFaSentButton,
+  .ADVOFaRejectButton {
+    width: 180px;
+  }
+
+  .shipping-address {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .ADVOPdCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 }
-.ADVOBlur {
-  filter: blur(3px);
-  pointer-events: none;
-}
-.ADVOReviewError {
-  display: none;
-  margin-top: 6px;
-  font-size: 12px;
-  color: #ff0000;
-  font-weight: 400;
-  padding-left: 10px;
+
+@media (max-width: 595px) {
+  .ADVOBdBackIcon {
+    display: none;
+  }
+  .ADVOFaConfirmModal {
+    margin: 1rem;
+    border-radius: 2px;
+  }
+
+  .ADVOFaCloseBtn {
+    top: 7px;
+  }
+  .img-res {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .right-img {
+    margin-top: 30px;
+  }
+
+  .aadhar-img {
+    display: none;
+  }
+  .ADVOBdCard {
+    flex-direction: column;
+  }
+  .ADVOBdGrid,
+  .ADVOPdRow {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .ADVOFaAdminSection {
+    margin-top: 0;
+  }
+  .ADVOFaAdminButtons {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
