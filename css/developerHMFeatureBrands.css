@@ -209,7 +209,7 @@ body {
 }
 
 .blue-line {
-  height: 2px;
+  height: 1px;
   background: #1677ff;
   margin: 8px 0 20px;
 }
@@ -236,6 +236,11 @@ body {
   border: none;
   padding: 10px;
   border-radius: 6px;
+}
+
+.left-form input:focus,
+.left-form select:focus {
+  outline: none;
 }
 
 .btn-row {
@@ -282,8 +287,7 @@ body {
 .MobileFAQ,
 .page-header-mob,
 .brandCount-mob,
-.floating-plus-btn,
-.add-brand-mobile {
+.floating-plus-btn {
   display: none;
 }
 .faq-title {
@@ -440,81 +444,7 @@ body {
     z-index: 999;
     cursor: pointer;
   }
-  .add-brand-mobile {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: #ffffff;
-    padding: 16px;
-  }
 
-  .add-brand-mob-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  .add-brand-mob-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .add-brand-mob-body label {
-    font-size: 13px;
-    font-weight: 600;
-    color: #3f3f3f;
-  }
-
-  .add-brand-mob-body input,
-  .add-brand-mob-body select {
-    background: #eef5fb;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 14px;
-  }
-
-  .upload-box-mob {
-    width: 90px;
-    height: 90px;
-    background: #d9d9d9;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: #6a6767;
-  }
-
-  .add-brand-mob-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .primary-btn-mob {
-    background: #1677ff;
-    color: #ffffff;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 15px;
-  }
-
-  .outline-btn-mob {
-    background: #ffffff;
-    color: #1677ff;
-    border: 1px solid #1677ff;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 15px;
-  }
   .page-wrapper {
     padding: 10px;
   }

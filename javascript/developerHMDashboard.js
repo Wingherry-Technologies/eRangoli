@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      if (title === "Featured Bands") {
+      if (title === "Featured Brands") {
         window.location.href = "../html/developerHMFeatureBrands.html";
       }
 

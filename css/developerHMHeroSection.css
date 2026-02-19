@@ -308,4 +308,7 @@ body {
   .form-group input {
     width: 100%;
   }
+  .form-group label {
+    margin-top: 10px;
+  }
 }
