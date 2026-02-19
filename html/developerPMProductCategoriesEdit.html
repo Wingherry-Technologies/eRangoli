@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Category</title>
+<link rel="stylesheet" href="../css/developerPMProductCategoriesEdit.css">
+</head>
+<body>
+
+
+<!-- HEADER-->
+<header class="CE-header">
+  <button class="CE-back-btn" title="Go back">
+    <img src="../assets/developerCategoriesEdit/Group 2055248596.svg" alt="">
+  </button>
+  <span class="CE-header-title">Create New User</span>
+</header>
+
+<!-- MAIN-->
+<main class="CE-main">
+  <div class="CE-card">
+
+    <div class="CE-card-header">
+      <span class="CE-card-title">Create New Category</span>
+      <button class="CE-add-btn">Add</button>
+    </div>
+
+    <div class="CE-sections" id="CE-sections-container">
+      <div class="CE-section" id="CE-section-1" data-section-id="1">
+
+        <!-- ─── Level 0: Category ─── -->
+        <div class="CE-level" id="CE-lvl-1-0" data-level="0" data-field-name="category_name" data-required="true">
+          <div class="CE-field">
+            <label class="CE-label" for="CE-input-1-0">
+              <div class="CE-level-actions">
+                <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-0">
+                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                </button>
+                <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-0">
+
+                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                </button>
+              </div>
+              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+              Category Name <span class="CE-required">*</span>
+            </label>
+            <!-- ▼ VALUE HERE — backend reads this input's value -->
+            <input class="CE-input" id="CE-input-1-0" name="category_name" type="text"
+              value="Women" readonly data-required="true">
+            <div class="CE-error" id="CE-err-1-0">This field is required.</div>
+          </div>
+          <div class="CE-field">
+            <div class="CE-upload-label">Upload Category Icon</div>
+<div class="CE-upload-box" id="CE-box-1-0" data-file="CE-file-1-0" data-level="CE-lvl-1-0">
+
+              <!-- ▼ IMAGE SRC HERE — backend reads this img src -->
+              <img class="CE-img-preview" id="CE-preview-1-0"
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
+                alt="Category Icon" data-img-name="category_icon">
+              <div class="CE-upload-placeholder" style="display:none">
+                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                <span>Upload</span>
+              </div>
+              <button class="CE-remove-img" title="Remove">✕</button>
+            </div>
+            <input type="file" class="CE-file-input" id="CE-file-1-0">
+
+          </div>
+        </div>
+
+        <!-- ─── Level 1: Sub-Category ─── -->
+        <div class="CE-level" id="CE-lvl-1-1" data-level="1" data-field-name="sub_category_name" data-required="true">
+          <div class="CE-field">
+            <label class="CE-label" for="CE-input-1-1">
+              <div class="CE-level-actions">
+                <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-1">
+
+                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                </button>
+                    <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-1" title="Delete">
+                    <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                </button>
+              </div>
+              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+              Sub - Category Name <span class="CE-required">*</span>
+            </label>
+            <!-- ▼ VALUE HERE -->
+            <input class="CE-input" id="CE-input-1-1" name="sub_category_name" type="text"
+              value="Handloom" readonly data-required="true">
+            <div class="CE-error" id="CE-err-1-1">This field is required.</div>
+          </div>
+          <div class="CE-field">
+            <div class="CE-upload-label">Upload Sub -Category Icon</div>
+<div class="CE-upload-box" id="CE-box-1-1" data-file="CE-file-1-1" data-level="CE-lvl-1-1">
+              <!-- ▼ IMAGE SRC HERE -->
+              <img class="CE-img-preview" id="CE-preview-1-1"
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80"
+                alt="Sub-Category Icon" data-img-name="sub_category_icon">
+              <div class="CE-upload-placeholder" style="display:none">
+                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                <span>Upload</span>
+              </div>
+              <button class="CE-remove-img" title="Remove">✕</button>
+            </div>
+<input type="file" class="CE-file-input" id="CE-file-1-1">
+
+          </div>
+        </div>
+
+        <!-- ─── Level 2: Sub-Sub-Category ─── -->
+        <!-- FIX: id="CE-lvl-1-2" added -->
+        <div class="CE-level" id="CE-lvl-1-2" data-level="2" data-field-name="sub_sub_category_name" data-required="false">
+          <div class="CE-field">
+            <label class="CE-label" for="CE-input-1-2">
+              <div class="CE-level-actions">
+<button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-2">
+
+                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                </button>
+                <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-2">
+                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                </button>
+              </div>
+              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+              Sub -Sub- Category Name (if applicable)
+            </label>
+            <!-- ▼ VALUE HERE -->
+            <input class="CE-input" id="CE-input-1-2" name="sub_sub_category_name" type="text"
+              value="Pure Silk" readonly>
+          </div>
+          <div class="CE-field">
+            <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
+<div class="CE-upload-box" id="CE-box-1-2" data-file="CE-file-1-2" data-level="CE-lvl-1-2">
+              <!-- ▼ IMAGE SRC HERE -->
+              <img class="CE-img-preview" id="CE-preview-1-2"
+                src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=200&q=80"
+                alt="Sub-Sub-Category Icon" data-img-name="sub_sub_category_icon">
+              <div class="CE-upload-placeholder" style="display:none">
+                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                <span>Upload</span>
+              </div>
+              <button class="CE-remove-img" title="Remove">✕</button>
+            </div>
+<input type="file" class="CE-file-input" id="CE-file-1-2">
+
+          </div>
+        </div>
+
+        <!-- ─── Level 3: Sub-Sub-Sub-Category ─── -->
+        <!-- FIX: id="CE-lvl-1-3" added -->
+        <div class="CE-level" id="CE-lvl-1-3" data-level="3" data-field-name="sub_sub_sub_category_name" data-required="false">
+          <div class="CE-field">
+            <label class="CE-label" for="CE-input-1-3">
+              <div class="CE-level-actions">
+<button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-3">
+
+                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                </button>
+<button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-3" title="Delete">
+                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                </button>
+              </div>
+              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+              Sub -Sub- sub Category Name (if applicable)
+            </label>
+            <!-- ▼ VALUE HERE -->
+            <input class="CE-input" id="CE-input-1-3" name="sub_sub_sub_category_name" type="text"
+              value="Banarasi Silk" readonly>
+          </div>
+          <div class="CE-field">
+            <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
+<div class="CE-upload-box" id="CE-box-1-3" data-file="CE-file-1-3" data-level="CE-lvl-1-3">
+              <!-- ▼ IMAGE SRC HERE -->
+              <img class="CE-img-preview" id="CE-preview-1-3"
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
+                alt="Sub-Sub-Sub-Category Icon" data-img-name="sub_sub_sub_category_icon">
+              <div class="CE-upload-placeholder" style="display:none">
+                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                <span>Upload</span>
+              </div>
+              <button class="CE-remove-img" title="Remove">✕</button>
+            </div>
+<input type="file" class="CE-file-input" id="CE-file-1-3">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="CE-save-wrap">
+      <button class="CE-save-btn">Save</button>
+    </div>
+
+  </div>
+</main>
+
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../javascript/developerPMProductCategoriesEdit.js"></script>
+</body>
+</html>

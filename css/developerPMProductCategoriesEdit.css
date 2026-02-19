@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* ── Header ── */
+.CE-header {
+  background: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 0;
+  z-index: 100;
+}
+.CE-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #555;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.CE-back-btn:hover {
+  background: #f0f0f0;
+}
+.CE-back-btn img {
+  width: 20px;
+  height: 20px;
+}
+.CE-header-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3F3F3F;
+}
+
+/* ── Main ── */
+/* .CE-main {  padding: 20px 16px 40px; } */
+
+/* ── Card ── */
+.CE-card {
+  background: #ffffff;
+  overflow: hidden;
+}
+.CE-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #E7F0F9;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+.CE-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3F3F3F;
+}
+.CE-add-btn {
+  background: #0E8BF3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 35px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* ── Sections wrapper ── */
+.CE-sections {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Single section ── */
+.CE-section {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #efefef;
+}
+.CE-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.CE-section-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.CE-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+.CE-icon-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+.CE-icon-btn img {
+  width: 16px;
+  height: 16px;
+}
+.CE-delete-btn:hover {
+  color: #dc2626 !important;
+  background: #fef2f2 !important;
+}
+
+/* ── Level block ── */
+.CE-level {
+  position: relative;
+  padding-right: 55px;
+}
+.CE-level + .CE-level {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed #e8e8e8;
+}
+
+/* ── Level action icons ── */
+.CE-level-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Field ── */
+.CE-field {
+  margin-bottom: 20px;
+}
+.CE-label {
+  font-size: 12px;
+  color: #3F3F3F;
+  font-weight: 400;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.CE-label-pencil {
+  color: #bbb;
+}
+.CE-label-pencil img {
+  width: 12px;
+  height: 12px;
+}
+.CE-required {
+  color: #dc2626;
+}
+
+.CE-input {
+  width: 30%;
+  padding: 9px 12px;
+  border: 1px solid #DEE1E6;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+  background: #FFFFFF;
+  outline: none;
+  cursor: default;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+/* FIX: Editable state now controlled via .CE-editing on .CE-level (not .CE-section) */
+.CE-level.CE-editing .CE-input {
+  background: #fff;
+  color: #222;
+  cursor: text;
+
+}
+.CE-level.CE-editing .CE-input:focus {
+    outline: none;
+}
+
+/*
+  REMOVED: .CE-section.CE-editing .CE-input — was wrong, edit is now level-scoped.
+  Old rule kept here as comment for reference:
+  .CE-section.CE-editing .CE-input:focus { box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+*/
+
+.CE-error {
+  font-size: 11px;
+  color: #dc2626;
+  margin-top: 3px;
+  display: none;
+}
+.CE-error.CE-show {
+  display: block;
+}
+
+/* ── Upload ── */
+.CE-upload-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+.CE-upload-box {
+  width: 150px;
+  height: 150px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #f9fafb;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+/* FIX: upload box pointer and styling now on .CE-level.CE-editing (not .CE-section.CE-editing) */
+.CE-level.CE-editing .CE-upload-box {
+  cursor: pointer;
+  outline: none;
+  border-style: solid;
+}
+.CE-level.CE-editing .CE-upload-box:hover {
+  background: #eff6ff;
+}
+
+.CE-img-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.CE-upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #bbb;
+  font-size: 11px;
+  z-index: 1;
+}
+.CE-upload-placeholder img {
+  width: 22px;
+  height: 22px;
+}
+
+.CE-remove-img {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  line-height: 1;
+  display: none;
+}
+
+/* FIX: remove-img button shows when .CE-level is editing (not .CE-section) */
+.CE-level.CE-editing .CE-remove-img {
+  display: flex;
+}
+
+.CE-file-input {
+  display: none;
+}
+
+/* ── Save ── */
+.CE-save-wrap {
+  padding: 16px 18px 20px;
+  width: 100px;
+}
+.CE-save-btn {
+  width: 350px;
+  padding: 11px;
+  background: #108AF2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.CE-save-btn:hover {
+  background: #1d4ed8;
+}
+
+
+
+
+@media (max-width:1024px) {
+    .CE-input{
+        width: unset;
+    }
+}
