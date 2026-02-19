@@ -426,8 +426,8 @@ const defaultCategoryFields = [
     placeholder: "Brand name"
   },
   {
-    name: "sate",
-    label: "sate",
+    name: "state",
+    label: "state",
     type: "text",
     required: true,
     placeholder: "enter state"
