@@ -49,6 +49,7 @@
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
+    text-wrap: nowrap;
 }
 .SBS-middle-nav-ba-main>ul>li.SBS-catergory-active{
     background-color: #A10404;
@@ -74,6 +75,7 @@
   padding: 10px 0;
   font-size: 16px;
   color: #222;
+  z-index: 10;
 }
 
 /* Active main category */
@@ -97,6 +99,8 @@
   /* max-height: 200px;
   overflow-y: auto; */
   padding: 5px;
+  z-index: 9999;
+  width: 150px;
 }
 
 /* WebKit browsers (Chrome, Safari, Edge) */
@@ -133,7 +137,9 @@
 
 .SBS-menu-item:hover > .SBS-submenu {
   display: block;
+  
 }
+
 
 /* Submenu items */
 .SBS-submenu-item {
@@ -149,8 +155,9 @@
     font-size: 14px;
   color: #333;
   cursor: pointer;
-  white-space: nowrap;
+  white-space: wrap;
   border-radius: 5px;
+  z-index: 999;position: relative;
 }
 .SBS-submenu-item:hover {
   background-color: transparent;
@@ -160,12 +167,14 @@
   display: block;
   padding: 8px;
   border-radius: 5px;
+  z-index: 9999;
 }
 
 /* KEEP highlight when either label OR submenu is hovered */
 .SBS-submenu-item:hover > .SBS-submenu-label {
   background-color: #EFDFDF;
   color: #A10404;
+  
 }
 .SBS-submenu-label:hover {
   background-color: #EFDFDF;
@@ -196,9 +205,8 @@
 /* override absolute positioning ONLY for inner submenu */
 .SBS-submenu-inner {
   position: absolute !important;
-  top: 0;
+  top: -5px;
   left: 100%;
-  min-width: 200px;
   box-shadow: none;        /* no separate block */
   border-radius: 0;
   padding: 0;
@@ -217,6 +225,7 @@
 .SBS-submenu-inner li {
   font-size: 13px;
   cursor: pointer;
+  padding-top:10px ;
 }
 
 .SBS-submenu-inner li:hover {
@@ -245,15 +254,18 @@
 /* ===== SUB-SUBMENU LIST ===== */
 .SBS-sub-submenu {
  position: absolute !important;
-  top: 0;
-  left: 100%;
-  min-width: 200px;
-  background: inherit !important;      /* same background */
+  top: 0px;
+  left: 101%;
+  background: #fff;      /* same background */
   box-shadow: none;        /* no new card */
   border-radius: 0;
   padding: 0;
   display: none;
-  z-index: 99999
+  z-index: 99999;
+  height: max-content;
+  border-radius: 10px;
+  padding: 10px;
+
 }
 
 /* Show submenu on hover */
@@ -273,6 +285,8 @@
 .SBS-sub-submenu li {
   font-size: 13px;
   padding: 5px;
+  text-wrap: nowrap;
+  z-index: 999;
 }
 .SBS-sub-submenu li:hover{
     background-color: #EFDFDF;
@@ -313,6 +327,8 @@
 }
 .SBS-middle-nav-ba-main{
     padding-top: 0px;
+    position: relative;
+  z-index: 1000;
 }
 .SBS-middle-nav-ba-main>ul{
     display: flex;

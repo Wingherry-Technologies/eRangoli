@@ -650,6 +650,7 @@
   .DPOProductPreviewLayout {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 25px;
   }
 
   .DPOVariantsPreviewGrid {
@@ -795,6 +796,10 @@
 @media (max-width: 595px) {
   .DPODevTopBar {
     margin-bottom: 14px;
+  }
+
+  .DPOPreviewHeader{
+    display: none;
   }
 
   .DPODevBackBtn span {
