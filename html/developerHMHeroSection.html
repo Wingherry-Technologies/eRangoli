@@ -12,149 +12,153 @@
     />
   </head>
   <body>
-    <div class="page-wrapper">
-      <!-- ── Card 1: Hero Section Core Content ── -->
-      <div class="card">
-        <div class="card-header">
+    <div class="DHMHSpage-wrapper">
+      <div class="DHMHScard">
+        <div class="DHMHScard-header">
           <h2>Hero Section</h2>
         </div>
 
-        <div class="core-content">
-          <div class="section-row">
-            <span class="label">Core Content</span>
+        <div class="DHMHScontent">
+          <div class="DHMHSsection-row">
+            <span class="DHMHSlabel">Core Content</span>
 
             <div>
               <button
-                class="publish-btn"
-                id="publishHeroBtn"
+                class="DHMHSpublish-btn"
+                id="DHMHSpublishHeroBtn"
                 style="display: none"
               >
                 Publish
               </button>
-              <button class="edit-btn" id="editHeroBtn">Edit</button>
+              <button class="DHMHSedit-btn" id="DHMHSeditHeroBtn">Edit</button>
             </div>
           </div>
 
-          <div id="editMode" style="display: none">
-            <div class="form-group">
+          <div id="DHMHSeditMode" style="display: none">
+            <div class="DHMHSform-group">
               <label>Heading</label>
               <input
                 type="text"
-                id="heroHeading"
+                id="DHMHSheroHeading"
                 placeholder="Experience India’s Colours, Textures & Traditions."
               />
-              <span class="error-message"></span>
+              <span class="DHMHSerror-message"></span>
             </div>
 
-            <div class="form-group">
+            <div class="DHMHSform-group">
               <label>Sub Text</label>
               <input
                 type="text"
-                id="heroSubText"
+                id="DHMHSheroSubText"
                 placeholder="Welcome to the world of craft uniquely Indian, handmade & Sustainable."
               />
-              <span class="error-message"></span>
+              <span class="DHMHSerror-message"></span>
             </div>
 
-            <div class="form-group">
+            <div class="DHMHSform-group">
               <label>CTA Link</label>
               <input
                 type="text"
-                id="heroCta"
+                id="DHMHSheroCta"
                 placeholder="https://store.example.com/collection/products"
               />
-              <span class="error-message"></span>
+              <span class="DHMHSerror-message"></span>
             </div>
           </div>
 
           <!-- VIEW MODE -->
-          <div id="viewMode">
-            <div class="field-block">
-              <div class="field-label">Heading</div>
-              <div class="field-value" id="viewHeading"></div>
+          <div id="DHMHSviewMode">
+            <div class="DHMHSfield-block">
+              <div class="DHMHSfield-label">Heading</div>
+              <div class="DHMHSfield-value" id="DHMHSviewHeading"></div>
             </div>
 
-            <div class="field-block">
-              <div class="field-label">Sub Text</div>
-              <div class="field-value" id="viewSubText"></div>
+            <div class="DHMHSfield-block">
+              <div class="DHMHSfield-label">Sub Text</div>
+              <div class="DHMHSfield-value" id="DHMHSviewSubText"></div>
             </div>
 
-            <div class="field-block">
-              <div class="field-label">CTA Link</div>
-              <div class="field-value" id="viewCta"></div>
+            <div class="DHMHSfield-block">
+              <div class="DHMHSfield-label">CTA Link</div>
+              <div class="DHMHSfield-value" id="DHMHSviewCta"></div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ── Card 2: Hero Images ── -->
-      <div class="images-card">
-        <div class="images-header">
-          <div class="images-title">
+      <div class="DHMHSimages-card">
+        <div class="DHMHSimages-header">
+          <div class="DHMHSimages-title">
             <h3>Hero Images</h3>
             <span>(Minimum 3 images or videos)</span>
           </div>
-          <button class="publish-btn">Publish</button>
+          <button class="DHMHSpublish-btn">Publish</button>
         </div>
 
-        <div class="image-grid">
-          <!-- Tile 1 — with dropdown open -->
-          <div class="img-tile-wrapper">
-            <div class="img-tile" id="tile1">
+        <div class="DHMHSimage-grid">
+          <div class="DHMHSimg-tile-wrapper">
+            <div class="DHMHSimg-tile" id="DHMHStile1">
               <img
                 src="../assets/developerHMHeroSection/img-1.jpg"
                 alt="Weaving loom"
               />
-              <span class="tile-menu-btn" onclick="toggleDropdown('dd1')">
+              <span
+                class="DHMHStile-menu-btn"
+                onclick="DHMHStoggleDropdown('DHMHSdd1')"
+              >
                 <img src="../assets/developerHMHeroSection/3dot.svg" />
               </span>
-              <div class="tile-dropdown" id="dd1">
-                <button class="delete">Delete</button>
+              <div class="DHMHStile-dropdown" id="DHMHSdd1">
+                <button class="DHMHSdelete">Delete</button>
 
                 <button>Upload</button>
               </div>
             </div>
-            <div class="img-caption">Recommended size: 1920px 1080px</div>
+            <div class="DHMHSimg-caption">Recommended size: 1920px 1080px</div>
           </div>
 
-          <!-- Tile 2 -->
-          <div class="img-tile-wrapper">
-            <div class="img-tile" id="tile2">
+          <div class="DHMHSimg-tile-wrapper">
+            <div class="DHMHSimg-tile" id="DHMHStile2">
               <img
                 src="../assets/developerHMHeroSection/img-3.png"
                 alt="Craft painting"
               />
-              <span class="tile-menu-btn" onclick="toggleDropdown('dd2')">
+              <span
+                class="DHMHStile-menu-btn"
+                onclick="DHMHStoggleDropdown('DHMHSdd2')"
+              >
                 <img src="../assets/developerHMHeroSection/3dot.svg" />
               </span>
-              <div class="tile-dropdown" id="dd2">
-                <button class="delete">Delete</button>
+              <div class="DHMHStile-dropdown" id="DHMHSdd2">
+                <button class="DHMHSdelete">Delete</button>
                 <button>Upload</button>
               </div>
             </div>
           </div>
 
-          <!-- Tile 3 -->
-          <div class="img-tile-wrapper">
-            <div class="img-tile" id="tile3">
+          <div class="DHMHSimg-tile-wrapper">
+            <div class="DHMHSimg-tile" id="DHMHStile3">
               <img
                 src="../assets/developerHMHeroSection/img-2.png"
                 alt="Craft painting"
               />
-              <span class="tile-menu-btn" onclick="toggleDropdown('dd3')">
+              <span
+                class="DHMHStile-menu-btn"
+                onclick="DHMHStoggleDropdown('DHMHSdd3')"
+              >
                 <img src="../assets/developerHMHeroSection/3dot.svg" />
               </span>
-              <div class="tile-dropdown" id="dd3">
-                <button class="delete">Delete</button>
+              <div class="DHMHStile-dropdown" id="DHMHSdd3">
+                <button class="DHMHSdelete">Delete</button>
                 <button>Upload</button>
               </div>
             </div>
           </div>
 
-          <!-- Add tile -->
-          <div class="img-tile-wrapper">
-            <div class="add-tile">
-              <div class="add-icon">+</div>
+          <div class="DHMHSimg-tile-wrapper">
+            <div class="DHMHSadd-tile">
+              <div class="DHMHSadd-icon">+</div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-function toggleDropdown(id) {
-  const all = document.querySelectorAll(".tile-dropdown");
+function DHMHStoggleDropdown(id) {
+  const all = document.querySelectorAll(".DHMHStile-dropdown");
   all.forEach((dropdown) => {
     if (dropdown.id !== id) {
       dropdown.classList.remove("open");
@@ -12,35 +12,37 @@ function toggleDropdown(id) {
 }
 
 document.addEventListener("click", function (e) {
-  if (!e.target.closest(".img-tile")) {
+  if (!e.target.closest(".DHMHSimg-tile")) {
     document
-      .querySelectorAll(".tile-dropdown")
+      .querySelectorAll(".DHMHStile-dropdown")
       .forEach((d) => d.classList.remove("open"));
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const editBtn = document.getElementById("editHeroBtn");
-  const publishBtn = document.getElementById("publishHeroBtn");
+  const editBtn = document.getElementById("DHMHSeditHeroBtn");
+  const publishBtn = document.getElementById("DHMHSpublishHeroBtn");
 
-  const viewMode = document.getElementById("viewMode");
-  const editMode = document.getElementById("editMode");
+  const viewMode = document.getElementById("DHMHSviewMode");
+  const editMode = document.getElementById("DHMHSeditMode");
 
-  const headingInput = document.getElementById("heroHeading");
-  const subTextInput = document.getElementById("heroSubText");
-  const ctaInput = document.getElementById("heroCta");
+  const headingInput = document.getElementById("DHMHSheroHeading");
+  const subTextInput = document.getElementById("DHMHSheroSubText");
+  const ctaInput = document.getElementById("DHMHSheroCta");
 
-  const viewHeading = document.getElementById("viewHeading");
-  const viewSubText = document.getElementById("viewSubText");
-  const viewCta = document.getElementById("viewCta");
+  const viewHeading = document.getElementById("DHMHSviewHeading");
+  const viewSubText = document.getElementById("DHMHSviewSubText");
+  const viewCta = document.getElementById("DHMHSviewCta");
 
-  const deleteButtons = document.querySelectorAll(".tile-dropdown .delete");
+  const deleteButtons = document.querySelectorAll(
+    ".DHMHStile-dropdown .DHMHSdelete",
+  );
 
   deleteButtons.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      const tileWrapper = btn.closest(".img-tile-wrapper");
+      const tileWrapper = btn.closest(".DHMHSimg-tile-wrapper");
       if (tileWrapper) {
         tileWrapper.remove();
       }
@@ -85,24 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (value === "") {
       errorSpan.textContent = message;
-      input.classList.add("input-error");
+      input.classList.add("DHMHSinput-error");
       return false;
     }
 
     if (!/^[A-Za-z ]+$/.test(value)) {
       errorSpan.textContent = "Only letters are allowed";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSinput-error");
       return false;
     }
 
     if (value.startsWith(" ")) {
       errorSpan.textContent = "First character cannot be space";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSinput-error");
       return false;
     }
 
     errorSpan.textContent = "";
-    input.classList.remove("input-error");
+    input.classList.remove("DHMHSinput-error");
     return true;
   }
 
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (value === "") {
       errorSpan.textContent = "CTA Link is required";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSinput-error");
       return false;
     }
 
@@ -120,12 +122,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!urlPattern.test(value)) {
       errorSpan.textContent = "Enter valid URL (http:// or https:// required)";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSinput-error");
       return false;
     }
 
     errorSpan.textContent = "";
-    input.classList.remove("input-error");
+    input.classList.remove("DHMHSinput-error");
     return true;
   }
 

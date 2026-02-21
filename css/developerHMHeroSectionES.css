@@ -11,30 +11,30 @@ body {
   background: #ebeef3;
 }
 
-.container {
+.DHMHSEScontainer {
   padding: 20px;
 }
 
-.card {
+.DHMHSEScard {
   background: #ffffff;
   border-radius: 10px;
   padding: 25px;
   margin-bottom: 25px;
 }
 
-.card-header {
+.DHMHSEScard-header {
   border-bottom: 1px solid #0f8df3;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-.card-header h2 {
+.DHMHSEScard-header h2 {
   color: #000000;
   font-weight: 700;
   font-size: 22px;
 }
 
-.section-top {
+.DHMHSESsection-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,19 +43,19 @@ body {
   padding-bottom: 15px;
 }
 
-.section-top h3 {
+.DHMHSESsection-top h3 {
   font-size: 18px;
   color: #000000;
   font-weight: 700;
 }
 
-.section-top h3 span {
+.DHMHSESsection-top h3 span {
   color: #716b6b;
   font-weight: 400;
   font-size: 11px;
 }
 
-.publish-btn {
+.DHMHSESpublish-btn {
   background: #0e8bf3;
   color: #fff;
   border: none;
@@ -64,18 +64,18 @@ body {
   cursor: pointer;
 }
 
-.form-group {
+.DHMHSESform-group {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.DHMHSESform-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #3f3f3f;
 }
 
-.form-group input {
+.DHMHSESform-group input {
   width: 70%;
   padding: 12px;
   background: #ebf3f9;
@@ -84,18 +84,18 @@ body {
   font-size: 14px;
 }
 
-.form-group input:focus {
+.DHMHSESform-group input:focus {
   outline: none;
   box-shadow: none;
 }
 
-.upload-wrapper {
+.DHMHSESupload-wrapper {
   display: flex;
   gap: 20px;
   width: 60%;
 }
 
-.upload-box {
+.DHMHSESupload-box {
   flex: 1;
   background: #f3f4f6;
   border-radius: 10px;
@@ -109,24 +109,24 @@ body {
   align-items: center;
 }
 
-.upload-icon img {
+.DHMHSESupload-icon img {
   width: 40px;
   margin-bottom: 15px;
 }
 
-.upload-box p {
+.DHMHSESupload-box p {
   margin-bottom: 10px;
   color: #666;
 }
 
-.small-text {
+.DHMHSESsmall-text {
   font-size: 12px;
   color: #8e8989;
   font-weight: 400;
   margin-top: 10px;
 }
 
-.plus-icon {
+.DHMHSESplus-icon {
   width: 50px;
   height: 50px;
   background: #1e88e5;
@@ -139,11 +139,11 @@ body {
   cursor: pointer;
 }
 
-.add-media-box {
+.DHMHSESadd-media-box {
   position: relative;
 }
 
-.media-popup {
+.DHMHSESmedia-popup {
   position: absolute;
   top: 130px;
   right: 45px;
@@ -157,7 +157,7 @@ body {
   z-index: 10;
 }
 
-.media-popup button {
+.DHMHSESmedia-popup button {
   padding: 8px 10px;
   background-color: #ffffff;
   border: none;
@@ -167,43 +167,43 @@ body {
   font-size: 14px;
 }
 
-.media-popup button:hover {
+.DHMHSESmedia-popup button:hover {
   background: #1e88e5;
   color: #fff;
 }
 
-.media-popup button.active {
+.DHMHSESmedia-popup button.DHMHSESactive {
   background: #1e88e5;
   color: #fff;
 }
 
-.media-popup.show {
+.DHMHSESmedia-popup.DHMHSESshow {
   display: flex;
 }
 
-.publish-btn-mob,
-.small-text-mob {
+.DHMHSESpublish-btn-mob,
+.DHMHSESsmall-text-mob {
   display: none;
 }
 
-.error-message {
+.DHMHSESerror-message {
   color: #ff0000;
   font-size: 12px;
   margin-top: 5px;
   display: block;
 }
 
-.input-error {
+.DHMHSESinput-error {
   border: 1px solid #ff0000 !important;
 }
 
-.view-text {
+.DHMHSESview-text {
   color: #3f3f3f;
   font-weight: 400;
   margin-top: 4px;
 }
 
-.edit-btn {
+.DHMHSESedit-btn {
   background: none;
   border: none;
   color: #0e8bf3;
@@ -212,60 +212,60 @@ body {
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
-  .upload-wrapper {
+  .DHMHSESupload-wrapper {
     flex-direction: column;
   }
 
-  .upload-box {
+  .DHMHSESupload-box {
     width: 100%;
   }
 
-  .media-popup {
+  .DHMHSESmedia-popup {
     right: 190px;
   }
-  .upload-wrapper,
-  .form-group input {
+  .DHMHSESupload-wrapper,
+  .DHMHSESform-group input {
     width: 100%;
   }
-  .card {
+  .DHMHSEScard {
     border-radius: 0;
   }
 }
 
 @media (max-width: 595px) {
-  .container {
+  .DHMHSEScontainer {
     padding: 0px;
   }
 
-  .card {
+  .DHMHSEScard {
     padding: 18px;
     border-radius: 0;
   }
 
-  .section-top {
+  .DHMHSESsection-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  .publish-btn {
+  .DHMHSESpublish-btn {
     display: none;
   }
 
-  .form-group input {
+  .DHMHSESform-group input {
     width: 100%;
   }
 
-  .media-popup {
+  .DHMHSESmedia-popup {
     right: 5px;
     top: 150px;
   }
-  .upload-wrapper {
+  .DHMHSESupload-wrapper {
     width: 100%;
     flex-direction: column;
     gap: 10px;
   }
-  .publish-btn-mob {
+  .DHMHSESpublish-btn-mob {
     display: block;
     background: #0e8bf3;
     color: #fff;
@@ -276,16 +276,16 @@ body {
     width: 100%;
     margin-top: 10px;
   }
-  .small-text {
+  .DHMHSESsmall-text {
     display: none;
   }
-  .small-text-mob {
+  .DHMHSESsmall-text-mob {
     display: block;
     font-size: 12px;
     color: #8e8989;
     font-weight: 400;
   }
-  .card-header h2 {
+  .DHMHSEScard-header h2 {
     font-size: 18px;
   }
 }

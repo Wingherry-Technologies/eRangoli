@@ -1,31 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const openPopupBtn = document.querySelector(".DHMTC-add-card");
-  const popup = document.getElementById("offerPopup");
-  const deleteBtn = document.getElementById("deleteBtn");
-  const container = document.querySelector(".container");
+  const openPopupBtn = document.querySelector(".DHMFO-add-card");
+  const popup = document.getElementById("DHMFOofferPopup");
+  const deleteBtn = document.getElementById("DHMFOdeleteBtn");
+  const container = document.querySelector(".DHMFOcontainer");
 
-  const uploadBox = document.getElementById("uploadBox");
-  const fileInput = document.getElementById("coverImage");
-  const uploadContent = document.getElementById("uploadContent");
-  const previewImg = document.getElementById("imagePreview");
+  const uploadBox = document.getElementById("DHMFOuploadBox");
+  const fileInput = document.getElementById("DHMFOcoverImage");
+  const uploadContent = document.getElementById("DHMFOuploadContent");
+  const previewImg = document.getElementById("DHMFOimagePreview");
 
-  const imageName = document.getElementById("imageName");
-  const ctaLink = document.getElementById("ctaLink");
+  const imageName = document.getElementById("DHMFOimageName");
+  const ctaLink = document.getElementById("DHMFOctaLink");
 
-  const imageError = document.getElementById("imageError");
-  const nameError = document.getElementById("nameError");
-  const linkError = document.getElementById("linkError");
+  const imageError = document.getElementById("DHMFOimageError");
+  const nameError = document.getElementById("DHMFOnnameError");
+  const linkError = document.getElementById("DHMFOlinkError");
 
-  const publishBtn = document.querySelector(".publish-btn");
+  const publishBtn = document.querySelector(".DHMFOpublish-btn");
 
   function handleMobileHeading() {
-    const existingHeading = document.querySelector(".mobile-create-heading");
+    const existingHeading = document.querySelector(
+      ".DHMFOmobile-create-heading",
+    );
 
     if (window.innerWidth <= 595) {
       if (!existingHeading) {
         const heading = document.createElement("h3");
         heading.textContent = "Create New Offer";
-        heading.classList.add("mobile-create-heading");
+        heading.classList.add("DHMFOmobile-create-heading");
         uploadBox.parentNode.insertBefore(heading, uploadBox);
       }
       uploadBox.style.padding = "20px";
@@ -150,33 +152,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!valid) return;
 
-    const grid = document.querySelector(".DHMTC-category-grid");
-    const addCard = document.querySelector(".DHMTC-add-card");
+    const grid = document.querySelector(".DHMFO-category-grid");
+    const addCard = document.querySelector(".DHMFO-add-card");
     const totalCards =
-      document.querySelectorAll(".DHMTC-category-card").length + 1;
+      document.querySelectorAll(".DHMFO-category-card").length + 1;
 
     const newCard = document.createElement("div");
-    newCard.classList.add("DHMTC-category-card");
+    newCard.classList.add("DHMFO-category-card");
 
     newCard.innerHTML = `
-      <div class="DHMTC-image-wrap">
+      <div class="DHMFO-image-wrap">
         <img src="${previewImg.src}" />
-        <span class="DHMTC-edit-btn">
+        <span class="DHMFO-edit-btn">
           <img src="../assets/developerHMTopCattegories/edit.svg" />
         </span>
       </div>
-      <div class="DHMTC-card-body">
-        <div class="DHMTC-card-top">
+      <div class="DHMFO-card-body">
+        <div class="DHMFO-card-top">
           <div>
             <h4>Category ${totalCards}</h4>
             <p>${imageName.value.trim()}</p>
           </div>
-          <label class="DHMTC-switch">
+          <label class="DHMFO-switch">
             <input type="checkbox" checked />
-            <span class="DHMTC-slider"></span>
+            <span class="DHMFO-slider"></span>
           </label>
         </div>
-        <span class="DHMTC-cta-title">CTA Link</span>
+        <span class="DHMFO-cta-title">CTA Link</span>
         <a href="${ctaLink.value.trim()}" target="_blank">${ctaLink.value.trim()}</a>
       </div>
     `;

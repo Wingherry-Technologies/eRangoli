@@ -12,40 +12,44 @@
     />
   </head>
   <body>
-    <div class="add-brand-mobile">
-      <div class="add-brand-header">
+    <div class="DHMFBANadd-brand-mobile">
+      <div class="DHMFBANadd-brand-header">
         <h3>Add new brand</h3>
       </div>
 
-      <div class="add-brand-mob-body">
-        <div class="add-brand-mob-header">
+      <div class="DHMFBANadd-brand-mob-body">
+        <div class="DHMFBANadd-brand-mob-header">
           <h3>Add new brand</h3>
         </div>
         <label>Select the Vendor</label>
-        <select>
+        <select class="DHMFBANvendorSelect">
           <option>Sanskriti Collections</option>
         </select>
 
         <label>Enter Brand Name</label>
-        <input type="text" placeholder="Craftizen" />
+        <input
+          type="text"
+          placeholder="Craftizen"
+          class="DHMFBANbrandNameInput"
+        />
 
         <label>Upload Brand Logo</label>
 
-        <div class="upload-box-mob" id="uploadBoxMob">
-          <input type="file" id="brandLogoMob" accept="image/*" hidden />
+        <div class="DHMFBANupload-box-mob" id="DHMFBANuploadBoxMob">
+          <input type="file" id="DHMFBANbrandLogoMob" accept="image/*" hidden />
 
           <img
-            id="brandPreviewMob"
+            id="DHMFBANbrandPreviewMob"
             style="display: none; width: 100%; height: 100%; object-fit: cover"
           />
 
-          <span class="plus" id="uploadPlusMob">
+          <span class="DHMFBANplus" id="DHMFBANuploadPlusMob">
             <img src="../assets/developerHMFeatureBrands/camera.svg" />
           </span>
         </div>
-        <div class="add-brand-mob-footer">
-          <button class="primary-btn-mob">Publish & Next</button>
-          <button class="outline-btn-mob">Publish & Close</button>
+        <div class="DHMFBANadd-brand-mob-footer">
+          <button class="DHMFBANprimary-btn-mob">Publish & Next</button>
+          <button class="DHMFBANoutline-btn-mob">Publish & Close</button>
         </div>
       </div>
     </div>

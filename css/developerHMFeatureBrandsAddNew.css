@@ -7,7 +7,7 @@
   font-family: "Nunito Sans";
 }
 
-.add-brand-mobile {
+.DHMFBANadd-brand-mobile {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -15,7 +15,7 @@
   padding: 16px;
 }
 
-.add-brand-header {
+.DHMFBANadd-brand-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,7 @@
   border-radius: 12px;
 }
 
-.add-brand-mob-body {
+.DHMFBANadd-brand-mob-body {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -37,14 +37,14 @@
   padding: 20px;
 }
 
-.add-brand-mob-body label {
+.DHMFBANadd-brand-mob-body label {
   font-size: 13px;
   font-weight: 600;
   color: #3f3f3f;
 }
 
-.add-brand-mob-body input,
-.add-brand-mob-body select {
+.DHMFBANadd-brand-mob-body input,
+.DHMFBANadd-brand-mob-body select {
   background: #eef5fb;
   border: none;
   padding: 12px;
@@ -52,12 +52,12 @@
   font-size: 14px;
 }
 
-.add-brand-mob-body input:focus,
-.add-brand-mob-body select:focus {
+.DHMFBANadd-brand-mob-body input:focus,
+.DHMFBANadd-brand-mob-body select:focus {
   outline: none;
 }
 
-.upload-box-mob {
+.DHMFBANupload-box-mob {
   width: 90px;
   height: 90px;
   background: #d9d9d9;
@@ -69,14 +69,14 @@
   color: #6a6767;
 }
 
-.add-brand-mob-footer {
+.DHMFBANadd-brand-mob-footer {
   display: flex;
   flex-direction: row;
   gap: 12px;
   margin-top: 16px;
 }
 
-.primary-btn-mob {
+.DHMFBANprimary-btn-mob {
   background: #1677ff;
   color: #ffffff;
   border: none;
@@ -85,7 +85,7 @@
   font-size: 15px;
 }
 
-.outline-btn-mob {
+.DHMFBANoutline-btn-mob {
   background: #ffffff;
   color: #1677ff;
   border: 1px solid #1677ff;
@@ -94,21 +94,21 @@
   font-size: 15px;
 }
 
-.add-brand-mob-header {
+.DHMFBANadd-brand-mob-header {
   display: none;
 }
 
 @media (max-width: 595px) {
-  .add-brand-mob-footer {
+  .DHMFBANadd-brand-mob-footer {
     flex-direction: column;
   }
-  .add-brand-mobile {
+  .DHMFBANadd-brand-mobile {
     padding: 0;
   }
-  .add-brand-header {
+  .DHMFBANadd-brand-header {
     display: none;
   }
-  .add-brand-mob-header {
+  .DHMFBANadd-brand-mob-header {
     display: flex;
     justify-content: space-between;
     align-items: center;

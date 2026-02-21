@@ -1,19 +1,19 @@
-const addBtn = document.getElementById("addBtn");
-const floatingPlusBtn = document.querySelector(".floating-plus-btn");
+const addBtn = document.getElementById("DHMFB-addBtn");
+const floatingPlusBtn = document.querySelector(".DHMFB-floating-plus-btn");
 
-const addBrandWrapper = document.getElementById("addBrandWrapper");
-const closeAddBrand = document.getElementById("closeAddBrand");
-const pageHeader = document.getElementById("page-header");
+const addBrandWrapper = document.getElementById("DHMFB-addBrandWrapper");
+const closeAddBrand = document.getElementById("DHMFB-closeAddBrand");
+const pageHeader = document.getElementById("DHMFB-page-header");
 
-const brandLogo = document.getElementById("brandLogo");
-const brandPreview = document.getElementById("brandPreview");
-const uploadPlus = document.getElementById("uploadPlus");
+const brandLogo = document.getElementById("DHMFB-brandLogo");
+const brandPreview = document.getElementById("DHMFB-brandPreview");
+const uploadPlus = document.getElementById("DHMFB-uploadPlus");
 
-const countDesktop = document.querySelector(".count");
-const countMobile = document.querySelector(".brandCount-mob");
+const countDesktop = document.querySelector(".DHMFB-count");
+const countMobile = document.querySelector(".DHMFB-brandCount-mob");
 
-const tableRows = document.querySelectorAll(".brand-table tbody tr");
-const faqItems = document.querySelectorAll(".faq-item");
+const tableRows = document.querySelectorAll(".DHMFB-brand-table tbody tr");
+const faqItems = document.querySelectorAll(".DHMFB-faq-item");
 
 function updateCounts() {
   const totalDesktop = tableRows.length;
@@ -64,7 +64,7 @@ brandLogo?.addEventListener("change", function () {
 });
 
 faqItems.forEach((item) => {
-  const question = item.querySelector(".faq-question");
+  const question = item.querySelector(".DHMFB-faq-question");
   question.addEventListener("click", () => {
     faqItems.forEach((el) => {
       if (el !== item) el.classList.remove("active");

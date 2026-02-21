@@ -1,37 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const plusIcons = document.querySelectorAll(".plus-icon");
+  const plusIcons = document.querySelectorAll(".DHMHSESplus-icon");
   const publishButtons = document.querySelectorAll(
-    ".publish-btn, .publish-btn-mob",
+    ".DHMHSESpublish-btn, .DHMHSESpublish-btn-mob",
   );
 
-  const headingInput = document.getElementById("heroHeading");
-  const subTextInput = document.getElementById("heroSubText");
-  const ctaInput = document.getElementById("heroCta");
+  const headingInput = document.getElementById("DHMHSESheroHeading");
+  const subTextInput = document.getElementById("DHMHSESheroSubText");
+  const ctaInput = document.getElementById("DHMHSESheroCta");
 
   plusIcons.forEach(function (icon) {
     icon.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      document.querySelectorAll(".media-popup").forEach(function (popup) {
-        popup.classList.remove("show");
-      });
+      document
+        .querySelectorAll(".DHMHSESmedia-popup")
+        .forEach(function (popup) {
+          popup.classList.remove("DHMHSESshow");
+        });
 
-      const popup = icon.parentElement.querySelector(".media-popup");
+      const popup = icon.parentElement.querySelector(".DHMHSESmedia-popup");
       if (popup) {
-        popup.classList.toggle("show");
+        popup.classList.toggle("DHMHSESshow");
       }
     });
   });
 
-  document.querySelectorAll(".media-popup").forEach(function (popup) {
+  document.querySelectorAll(".DHMHSESmedia-popup").forEach(function (popup) {
     popup.addEventListener("click", function (e) {
       e.stopPropagation();
     });
   });
 
   document.addEventListener("click", function () {
-    document.querySelectorAll(".media-popup").forEach(function (popup) {
-      popup.classList.remove("show");
+    document.querySelectorAll(".DHMHSESmedia-popup").forEach(function (popup) {
+      popup.classList.remove("DHMHSESshow");
     });
   });
 
@@ -65,14 +67,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (isValid) {
-        document.querySelector(".section-top .publish-btn").style.display =
-          "none";
+        document.querySelector(
+          ".DHMHSESsection-top .DHMHSESpublish-btn",
+        ).style.display = "none";
 
         const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
-        editBtn.classList.add("edit-btn");
+        editBtn.classList.add("DHMHSESedit-btn");
 
-        document.querySelector(".section-top").appendChild(editBtn);
+        document.querySelector(".DHMHSESsection-top").appendChild(editBtn);
 
         convertToViewMode();
 
@@ -89,24 +92,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (value === "") {
       errorSpan.textContent = message;
-      input.classList.add("input-error");
+      input.classList.add("DHMHSESinput-error");
       return false;
     }
 
     if (!/^[A-Za-z ]+$/.test(value)) {
       errorSpan.textContent = "Only letters are allowed";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSESinput-error");
       return false;
     }
 
     if (input.value.startsWith(" ")) {
       errorSpan.textContent = "First character cannot be space";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSESinput-error");
       return false;
     }
 
     errorSpan.textContent = "";
-    input.classList.remove("input-error");
+    input.classList.remove("DHMHSESinput-error");
     return true;
   }
 
@@ -116,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (value === "") {
       errorSpan.textContent = "CTA Link is required";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSESinput-error");
       return false;
     }
 
@@ -124,18 +127,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!urlPattern.test(value)) {
       errorSpan.textContent = "Enter valid URL (http:// or https:// required)";
-      input.classList.add("input-error");
+      input.classList.add("DHMHSESinput-error");
       return false;
     }
 
     errorSpan.textContent = "";
-    input.classList.remove("input-error");
+    input.classList.remove("DHMHSESinput-error");
     return true;
   }
 });
 
 function convertToViewMode() {
-  const formGroups = document.querySelectorAll(".card-body .form-group");
+  const formGroups = document.querySelectorAll(
+    ".DHMHSEScard-body .DHMHSESform-group",
+  );
 
   formGroups.forEach(function (group) {
     const input = group.querySelector("input");
@@ -144,7 +149,7 @@ function convertToViewMode() {
     input.style.display = "none";
 
     const viewText = document.createElement("div");
-    viewText.classList.add("view-text");
+    viewText.classList.add("DHMHSESview-text");
     viewText.textContent = value;
 
     group.appendChild(viewText);

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer HM Promotions Add New</title>
+    <link rel="stylesheet" href="../css/developerHMPromotionsAddNew.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="DHMPAN-add-promotion-wrapper" id="DHMPAN-addPromotionWrapper">
+      <div class="DHMPAN-add-promotion-header-tab">
+        <h3>Add New Promotion Campaign</h3>
+      </div>
+      <div class="DHMPAN-add-promotion-body">
+        <div class="DHMPAN-add-promotion-header">
+          <h3>Add New Promotion Campaign</h3>
+        </div>
+        <div class="DHMPAN-divider"></div>
+        <label>Heading</label>
+        <input
+          type="text"
+          placeholder="Experience India’s Colours, Textures & Traditions."
+        />
+
+        <label>Traditional Marketplace</label>
+        <textarea
+          rows="5"
+          placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        ></textarea>
+
+        <label>CTA Link</label>
+        <input
+          type="text"
+          placeholder="https://store.example.com/collection/products"
+        />
+
+        <label>Upload Cover Image</label>
+        <div class="DHMPAN-upload-content" id="DHMPAN-uploadContent">
+          <div>
+            <img
+              src="../assets/developerHMTopCattegories/add.svg"
+              class="DHMPAN-upload-icon"
+            />
+          </div>
+          <p>Upload Cover Image or<br />drag & drop</p>
+          <input type="file" id="DHMPAN-mediaInput" accept="image/*" hidden />
+        </div>
+        <span class="DHMPAN-small">Recommended size: 1920px × 1080px</span>
+
+        <div class="DHMPAN-add-promotion-actions">
+          <button class="DHMPAN-publish-btn">Publish</button>
+          <button class="DHMPAN-cancel-btn" id="DHMPAN-cancelAddPromotion">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/developerHMPromotionsAddNew.js"></script>
+  </body>
+</html>

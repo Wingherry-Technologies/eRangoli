@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const createBtn = document.querySelector(".create-submit");
-  const backBtn = document.getElementById("backToList");
+  const createBtn = document.querySelector(".DPMCNC-create-submit");
+  const backBtn = document.getElementById("DPMCNC-backToList");
 
-  const categoryName = document.getElementById("categoryName");
-  const subCategoryName = document.getElementById("subCategoryName");
+  const categoryName = document.getElementById("DPMCNC-categoryName");
+  const subCategoryName = document.getElementById("DPMCNC-subCategoryName");
 
-  const categoryNameError = document.getElementById("categorynameError");
-  const subCategoryNameError = document.getElementById("subcategorynameError");
+  const categoryNameError = document.getElementById("DPMCNC-categorynameError");
+  const subCategoryNameError = document.getElementById(
+    "DPMCNC-subcategorynameError",
+  );
 
-  const uploadContainers = document.querySelectorAll(".upload-container");
+  const uploadContainers = document.querySelectorAll(
+    ".DPMCNC-upload-container",
+  );
 
   function restrictInput(inputField) {
     inputField.addEventListener("keypress", function (e) {
@@ -37,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   uploadContainers.forEach(function (container) {
     const input = container.querySelector("input[type='file']");
-    const img = container.querySelector(".upload-box img");
-    const errorDiv = container.querySelector(".error");
-    const uploadBox = container.querySelector(".upload-box");
+    const img = container.querySelector(".DPMCNC-upload-box img");
+    const errorDiv = container.querySelector(".DPMCNC-error");
+    const uploadBox = container.querySelector(".DPMCNC-upload-box");
 
     if (input) {
       input.addEventListener("change", function () {
@@ -61,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           if (uploadBox) {
-            uploadBox.classList.remove("upload-error");
+            uploadBox.classList.remove("DPMCNC-upload-error");
           }
         }
       });
@@ -92,22 +96,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
       uploadContainers.forEach(function (container) {
         const input = container.querySelector("input[type='file']");
-        const errorDiv = container.querySelector(".error");
-        const uploadBox = container.querySelector(".upload-box");
+        const errorDiv = container.querySelector(".DPMCNC-error");
+        const uploadBox = container.querySelector(".DPMCNC-upload-box");
 
         if (errorDiv) {
           if (!input.files || input.files.length === 0) {
             errorDiv.innerText = "Image is required";
             errorDiv.style.display = "block";
             if (uploadBox) {
-              uploadBox.classList.add("upload-error");
+              uploadBox.classList.add("DPMCNC-upload-error");
             }
             isValid = false;
           } else {
             errorDiv.innerText = "";
             errorDiv.style.display = "none";
             if (uploadBox) {
-              uploadBox.classList.remove("upload-error");
+              uploadBox.classList.remove("DPMCNC-upload-error");
             }
           }
         }

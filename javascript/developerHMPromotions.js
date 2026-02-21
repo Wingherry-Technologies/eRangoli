@@ -1,38 +1,23 @@
-const addPromotionCard = document.querySelector(".DHMSS-add-card");
-const addPromotionWrapper = document.getElementById("addPromotionWrapper");
-const pageWrapper = document.querySelector(".DHMSS-page-wrapper");
-const pageHeaderMob = document.querySelector(".DHMSS-page-header-mob");
-const cancelAddPromotion = document.getElementById("cancelAddPromotion");
+document.addEventListener("DOMContentLoaded", function () {
+  const addCard = document.querySelector(".DHMP-add-card");
 
-const desktopHeader = document.querySelector(".DHMSS-add-promotion-header");
-const tabHeader = document.querySelector(".DHMSS-add-promotion-header-tab");
-const divider = document.querySelector(".divider");
-
-function handleResponsiveHeader() {
-  const width = window.innerWidth;
-
-  if (width <= 1024 && width >= 595) {
-    if (desktopHeader) desktopHeader.style.display = "none";
-    if (divider) divider.style.display = "none";
-    if (tabHeader) tabHeader.style.display = "flex";
-  } else {
-    if (desktopHeader) desktopHeader.style.display = "block";
-    if (divider) divider.style.display = "block";
-    if (tabHeader) tabHeader.style.display = "none";
+  if (addCard) {
+    addCard.addEventListener("click", function () {
+      window.location.href = "../html/developerHMPromotionsAddNew.html";
+    });
   }
-}
 
-addPromotionCard.addEventListener("click", () => {
-  pageWrapper.style.display = "none";
-  if (pageHeaderMob) pageHeaderMob.style.display = "none";
-  addPromotionWrapper.style.display = "block";
-  handleResponsiveHeader();
+  const allCards = document.querySelectorAll(".DHMP-category-card");
+  const totalCards = allCards.length;
+
+  const desktopCount = document.getElementById("DHMP-stateCount");
+  const mobileCount = document.querySelector(".DHMP-stateCount-mob");
+
+  if (desktopCount) {
+    desktopCount.textContent = totalCards + " Campaign";
+  }
+
+  if (mobileCount) {
+    mobileCount.textContent = totalCards + " Campaign";
+  }
 });
-
-cancelAddPromotion.addEventListener("click", () => {
-  addPromotionWrapper.style.display = "none";
-  pageWrapper.style.display = "block";
-  if (pageHeaderMob) pageHeaderMob.style.display = "flex";
-});
-
-window.addEventListener("resize", handleResponsiveHeader);

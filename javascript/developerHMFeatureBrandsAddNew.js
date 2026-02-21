@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const vendorSelect = document.querySelector("select");
-  const brandNameInput = document.querySelector("input[type='text']");
-  const fileInput = document.getElementById("brandLogoMob");
-  const uploadBox = document.getElementById("uploadBoxMob");
-  const previewImg = document.getElementById("brandPreviewMob");
-  const uploadPlus = document.getElementById("uploadPlusMob");
-  const publishNextBtn = document.querySelector(".primary-btn-mob");
-  const publishCloseBtn = document.querySelector(".outline-btn-mob");
+  const vendorSelect = document.querySelector(".DHMFBANvendorSelect");
+  const brandNameInput = document.querySelector(".DHMFBANbrandNameInput");
+  const fileInput = document.getElementById("DHMFBANbrandLogoMob");
+  const uploadBox = document.getElementById("DHMFBANuploadBoxMob");
+  const previewImg = document.getElementById("DHMFBANbrandPreviewMob");
+  const uploadPlus = document.getElementById("DHMFBANuploadPlusMob");
+  const publishNextBtn = document.querySelector(".DHMFBANprimary-btn-mob");
+  const publishCloseBtn = document.querySelector(".DHMFBANoutline-btn-mob");
 
   function showError(element, message) {
     removeAllErrors();

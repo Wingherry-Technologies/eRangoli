@@ -7,20 +7,20 @@
   font-family: "Nunito Sans";
 }
 
-.create-category-screen {
+.DPMCNC-create-category-screen {
   padding: 20px;
   background: #ffffff;
   min-height: 100vh;
 }
 
-.create-header {
+.DPMCNC-create-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.card-title {
+.DPMCNC-card-title {
   background: #e7f0f9;
   padding: 12px 15px;
   border-radius: 4px;
@@ -29,41 +29,41 @@
   color: #3f3f3f;
 }
 
-.back-btn {
+.DPMCNC-back-btn {
   width: 20px;
   cursor: pointer;
   margin-top: 6px;
 }
 
-.create-header h3 {
+.DPMCNC-create-header h3 {
   font-size: 18px;
   font-weight: 600;
   color: #3f3f3f;
 }
 
-.create-form {
+.DPMCNC-create-form {
   max-width: 420px;
 }
 
-.create-form label {
+.DPMCNC-create-form label {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 6px;
   color: #3f3f3f;
 }
 
-.upload-container-res {
+.DPMCNC-upload-container-res {
   display: none;
 }
 
-.create-form input {
+.DPMCNC-create-form input {
   width: 100%;
   padding: 10px;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
 }
 
-.create-submit {
+.DPMCNC-create-submit {
   width: 100%;
   padding: 12px;
   background: #0e8bf3;
@@ -75,20 +75,20 @@
   margin-top: 20px;
 }
 
-.upload-container {
+.DPMCNC-upload-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.upload-title {
+.DPMCNC-upload-title {
   font-size: 14px;
   font-weight: 600;
   color: #3f3f3f;
-  width: 200px;
+  width: 280px;
 }
 
-.upload-box {
+.DPMCNC-upload-box {
   width: 150px;
   height: 150px;
   background: #00000033;
@@ -100,54 +100,54 @@
   cursor: pointer;
 }
 
-.upload-box img {
+.DPMCNC-upload-box img {
   width: 28px;
   height: 28px;
   opacity: 0.8;
 }
 
-.create-category-layout {
+.DPMCNC-create-category-layout {
   display: flex;
   gap: 40px;
   align-items: flex-start;
 }
 
 /* left form */
-.create-form {
+.DPMCNC-create-form {
   flex: 1;
   max-width: 420px;
 }
 
 /* right upload */
-.upload-container {
+.DPMCNC-upload-container {
   width: 180px;
   margin: 14px 0 6px;
 }
 
-.error {
+.DPMCNC-error {
   color: #e53935;
   font-size: 12px;
   margin-top: 12px;
 }
 
-.upload-error {
+.DPMCNC-upload-error {
   border: 1px solid #e53935;
 }
 
-.upload-box {
+.DPMCNC-upload-box {
   transition: 0.3s ease;
 }
 
-.imageError {
+.DPMCNC-imageError {
   margin-top: 0;
 }
 
-.create-form input:focus {
+.DPMCNC-create-form input:focus {
   outline: none;
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
-  .upload-box-res {
+  .DPMCNC-upload-box-res {
     width: 130px;
     height: 130px;
     background: #00000033;
@@ -159,23 +159,23 @@
     cursor: pointer;
   }
 
-  .upload-box-res img {
+  .DPMCNC-upload-box-res img {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
   }
-  .upload-container {
+  .DPMCNC-upload-container {
     display: none;
   }
 
-  .upload-container-res {
+  .DPMCNC-upload-container-res {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  .upload-title-res {
+  .DPMCNC-upload-title-res {
     font-size: 14px;
     font-weight: 600;
     color: #3f3f3f;
@@ -184,22 +184,22 @@
 }
 
 @media (max-width: 595px) {
-  .upload-container {
+  .DPMCNC-upload-container {
     display: none;
   }
 
-  .upload-container-res {
+  .DPMCNC-upload-container-res {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .upload-title-res {
+  .DPMCNC-upload-title-res {
     font-size: 14px;
     font-weight: 600;
     color: #3f3f3f;
     margin: 14px 0 6px;
   }
-  .upload-box-res {
+  .DPMCNC-upload-box-res {
     width: 120px;
     height: 120px;
     background: #00000033;
@@ -211,7 +211,7 @@
     cursor: pointer;
   }
 
-  .upload-box-res img {
+  .DPMCNC-upload-box-res img {
     display: flex;
     align-items: center;
     justify-content: center;

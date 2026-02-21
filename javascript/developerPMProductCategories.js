@@ -1,15 +1,17 @@
-document.querySelectorAll(".APRAfaq-question").forEach((btn) => {
+document.querySelectorAll(".DPMPC-APRAfaq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
-    btn.closest(".APRAfaq-item").classList.toggle("active");
+    btn.closest(".DPMPC-APRAfaq-item").classList.toggle("active");
   });
 });
 
-document.querySelector(".create-btn")?.addEventListener("click", function () {
-  window.location.href = "../html/developerPMCreateNewCategories.html";
-});
+document
+  .querySelector(".DPMPC-create-btn")
+  ?.addEventListener("click", function () {
+    window.location.href = "../html/developerPMCreateNewCategories.html";
+  });
 
 document
-  .querySelector(".floating-plus-btn")
+  .querySelector(".DPMPC-floating-plus-btn")
   ?.addEventListener("click", function () {
     window.location.href = "../html/developerPMCreateNewCategories.html";
   });

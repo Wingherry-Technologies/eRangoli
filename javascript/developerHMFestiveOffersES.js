@@ -1,29 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const uploadBox = document.getElementById("uploadBox");
-  const fileInput = document.getElementById("coverImage");
-  const imagePreview = document.getElementById("imagePreview");
-  const uploadContent = document.getElementById("uploadContent");
-  const deleteBtn = document.getElementById("deleteBtn");
-
-  const imageName = document.getElementById("imageName");
-  const ctaLink = document.getElementById("ctaLink");
-  const form = document.getElementById("offerForm");
-
-  const imageError = document.getElementById("imageError");
-  const nameError = document.getElementById("nameError");
-  const linkError = document.getElementById("linkError");
-
-  /* CLICK UPLOAD */
+  const uploadBox = document.getElementById("DHMFOES-uploadBox");
+  const fileInput = document.getElementById("DHMFOES-coverImage");
+  const imagePreview = document.getElementById("DHMFOES-imagePreview");
+  const uploadContent = document.getElementById("DHMFOES-uploadContent");
+  const deleteBtn = document.getElementById("DHMFOES-deleteBtn");
+  const imageName = document.getElementById("DHMFOES-imageName");
+  const ctaLink = document.getElementById("DHMFOES-ctaLink");
+  const form = document.getElementById("DHMFOES-offerForm");
+  const imageError = document.getElementById("DHMFOES-imageError");
+  const nameError = document.getElementById("DHMFOES-nameError");
+  const linkError = document.getElementById("DHMFOES-linkError");
   uploadBox.addEventListener("click", function () {
     fileInput.click();
   });
-
   fileInput.addEventListener("change", function () {
     const file = this.files[0];
     if (!file) return;
-
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
-
     if (!allowedTypes.includes(file.type)) {
       imageError.textContent = "Only image files allowed (jpg, png, webp)";
       fileInput.value = "";
@@ -31,9 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       uploadContent.classList.remove("hide");
       return;
     }
-
     imageError.textContent = "";
-
     const reader = new FileReader();
     reader.onload = function (e) {
       imagePreview.src = e.target.result;
@@ -41,58 +32,44 @@ document.addEventListener("DOMContentLoaded", function () {
       uploadContent.classList.add("hide");
       uploadBox.classList.add("preview-active");
     };
-
     reader.readAsDataURL(file);
   });
-
-  /* DELETE RESET */
   deleteBtn.addEventListener("click", function () {
     fileInput.value = "";
     imagePreview.src = "";
     imagePreview.style.display = "none";
     uploadContent.classList.remove("hide");
     uploadBox.classList.remove("preview-active");
-
     imageName.value = "";
     ctaLink.value = "";
-
     imageError.textContent = "";
     nameError.textContent = "";
     linkError.textContent = "";
   });
-
-  /* PREVENT FIRST SPACE */
   imageName.addEventListener("keydown", function (e) {
     if (this.selectionStart === 0 && e.key === " ") {
       e.preventDefault();
     }
   });
-
-  /* URL VALIDATION */
   function isValidURL(url) {
     const pattern = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/i;
     return pattern.test(url);
   }
-
-  /* FORM VALIDATION */
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
-
     if (!fileInput.files.length) {
       imageError.textContent = "Image is required";
       isValid = false;
     } else {
       imageError.textContent = "";
     }
-
     if (imageName.value.trim() === "") {
       nameError.textContent = "Image name is required";
       isValid = false;
     } else {
       nameError.textContent = "";
     }
-
     if (ctaLink.value.trim() === "") {
       linkError.textContent = "CTA Link is required";
       isValid = false;
@@ -102,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       linkError.textContent = "";
     }
-
     if (isValid) {
       alert("Offer Published Successfully!");
       form.reset();
@@ -111,23 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-const uploadBox2 = document.getElementById("uploadBox2");
-const fileInput2 = document.getElementById("coverImage2");
-const imagePreview2 = document.getElementById("imagePreview2");
-const uploadContent2 = document.getElementById("uploadContent2");
-const imageError2 = document.getElementById("imageError2");
-
+const uploadBox2 = document.getElementById("DHMFOES-uploadBox2");
+const fileInput2 = document.getElementById("DHMFOES-coverImage2");
+const imagePreview2 = document.getElementById("DHMFOES-imagePreview2");
+const uploadContent2 = document.getElementById("DHMFOES-uploadContent2");
+const imageError2 = document.getElementById("DHMFOES-imageError2");
 uploadBox2.addEventListener("click", function () {
   fileInput2.click();
 });
-
 fileInput2.addEventListener("change", function () {
   const file = this.files[0];
   if (!file) return;
-
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
-
   if (!allowedTypes.includes(file.type)) {
     imageError2.textContent = "Only image files allowed";
     fileInput2.value = "";
@@ -136,9 +107,7 @@ fileInput2.addEventListener("change", function () {
     uploadBox2.classList.remove("preview-active");
     return;
   }
-
   imageError2.textContent = "";
-
   const reader = new FileReader();
   reader.onload = function (e) {
     imagePreview2.src = e.target.result;
@@ -146,6 +115,5 @@ fileInput2.addEventListener("change", function () {
     uploadContent2.classList.add("hide");
     uploadBox2.classList.add("preview-active");
   };
-
   reader.readAsDataURL(file);
 });

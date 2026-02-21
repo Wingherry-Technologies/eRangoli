@@ -11,12 +11,12 @@ body {
   background: #ebeef3;
 }
 
-.page-wrapper {
+.DHMFB-page-wrapper {
   padding: 20px;
 }
 
 /* Header */
-.page-header {
+.DHMFB-page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +26,7 @@ body {
   padding: 12px;
 }
 
-.add-btn {
+.DHMFB-add-btn {
   background: #1677ff;
   color: #fff;
   border: none;
@@ -36,49 +36,49 @@ body {
 }
 
 /* Card */
-.card {
+.DHMFB-card {
   background: #fff;
   border-radius: 6px;
   padding: 12px;
 }
 
-.card-header {
+.DHMFB-card-header {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.brand-heading {
+.DHMFB-brand-heading {
   color: #000000;
   font-weight: 700;
   font-size: 16px;
 }
 
-.divider {
+.DHMFB-divider {
   border-bottom: 1px solid #0f8df3;
 }
-.count {
+.DHMFB-count {
   color: #3f3f3f;
   font-weight: 500;
   font-size: 14px;
 }
 
 /* Table */
-.tableWrapper {
+.DHMFB-tableWrapper {
   max-height: 500px;
   overflow-y: auto;
 }
-.brand-table {
+.DHMFB-brand-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.brand-table thead {
+.DHMFB-brand-table thead {
   border-bottom: 1px solid #d9d9d9;
 }
 
-.brand-table th {
+.DHMFB-brand-table th {
   text-align: left;
   font-size: 13px;
   font-weight: 600;
@@ -86,7 +86,7 @@ body {
   color: #000000;
 }
 
-.brand-table td {
+.DHMFB-brand-table td {
   padding: 12px 10px;
   font-size: 13px;
   color: #3f3f3f;
@@ -94,47 +94,47 @@ body {
 }
 
 /* Brand column */
-.brand-col {
+.DHMFB-brand-col {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.brand-img {
+.DHMFB-brand-img {
   width: 28px;
   height: 28px;
   border-radius: 50%;
 }
 
-.brand-col span {
+.DHMFB-brand-col span {
   font-weight: 500;
 }
 
 /* Action column */
-.action-col {
+.DHMFB-action-col {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
 /* Edit icon */
-.edit-icon {
+.DHMFB-edit-icon {
   width: 16px;
   cursor: pointer;
 }
 
 /* Toggle */
-.switch {
+.DHMFB-switch {
   position: relative;
   width: 36px;
   height: 18px;
 }
 
-.switch input {
+.DHMFB-switch input {
   display: none;
 }
 
-.slider {
+.DHMFB-slider {
   position: absolute;
   background: #6a6767;
   border-radius: 20px;
@@ -142,7 +142,7 @@ body {
   cursor: pointer;
 }
 
-.slider::before {
+.DHMFB-slider::before {
   content: "";
   position: absolute;
   height: 14px;
@@ -154,102 +154,102 @@ body {
   transition: 0.3s;
 }
 
-.switch input:checked + .slider {
+.DHMFB-switch input:checked + .DHMFB-slider {
   background: #7dcdff;
 }
 
-.switch input:checked + .slider::before {
+.DHMFB-switch input:checked + .DHMFB-slider::before {
   transform: translateX(18px);
 }
 
-.tableWrapper::-webkit-scrollbar {
+.DHMFB-tableWrapper::-webkit-scrollbar {
   width: 6px;
   height: 2px;
 }
 
-.tableWrapper::-webkit-scrollbar-thumb {
+.DHMFB-tableWrapper::-webkit-scrollbar-thumb {
   background: #716b6b;
   border-radius: 4px;
 }
 
-.tableWrapper::-webkit-scrollbar-track {
+.DHMFB-tableWrapper::-webkit-scrollbar-track {
   background: #f3f4f6;
   border-radius: 4px;
 }
 
-.TableHead {
+.DHMFB-TableHead {
   position: sticky;
   top: 0;
   background-color: #ffffff;
   z-index: 10;
 }
 
-.brand-table th:nth-last-child(2),
-.brand-table td:nth-last-child(2),
-.brand-table th:last-child,
-.brand-table td:last-child {
+.DHMFB-brand-table th:nth-last-child(2),
+.DHMFB-brand-table td:nth-last-child(2),
+.DHMFB-brand-table th:last-child,
+.DHMFB-brand-table td:last-child {
   width: 60px;
   max-width: 60px;
   text-align: center;
   padding-left: 6px;
   padding-right: 6px;
 }
-.brand-table td:last-child {
+.DHMFB-brand-table td:last-child {
   padding-top: 21px;
 }
-.brand-table td:last-child {
+.DHMFB-brand-table td:last-child {
   vertical-align: middle;
 }
 
-.add-brand-wrapper {
+.DHMFB-add-brand-wrapper {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
   margin: 16px 0;
 }
 
-.blue-line {
+.DHMFB-blue-line {
   height: 1px;
   background: #1677ff;
   margin: 8px 0 20px;
 }
 
-.add-brand-layout {
+.DHMFB-add-brand-layout {
   display: flex;
   justify-content: space-between;
 }
 
-.left-form {
+.DHMFB-left-form {
   width: 55%;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.right-form {
+.DHMFB-right-form {
   width: 30%;
 }
 
-.left-form input,
-.left-form select {
+.DHMFB-left-form input,
+.DHMFB-left-form select {
   background: #eef5fb;
   border: none;
   padding: 10px;
   border-radius: 6px;
 }
 
-.left-form input:focus,
-.left-form select:focus {
+.DHMFB-left-form input:focus,
+.DHMFB-left-form select:focus {
   outline: none;
 }
 
-.btn-row {
+.DHMFB-btn-row {
   display: flex;
   gap: 12px;
   margin-top: 10px;
 }
 
-.primary-btn {
+.DHMFB-primary-btn {
   background: #1677ff;
   color: #fff;
   border: none;
@@ -257,7 +257,7 @@ body {
   border-radius: 6px;
 }
 
-.outline-btn {
+.DHMFB-outline-btn {
   border: 1px solid #1677ff;
   background: #fff;
   color: #1677ff;
@@ -265,7 +265,7 @@ body {
   border-radius: 6px;
 }
 
-.upload-box {
+.DHMFB-upload-box {
   width: 90px;
   height: 90px;
   background: #d9d9d9;
@@ -277,56 +277,56 @@ body {
   overflow: hidden;
 }
 
-.brand-preview {
+.DHMFB-brand-preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: none;
 }
 
-.MobileFAQ,
-.page-header-mob,
-.brandCount-mob,
-.floating-plus-btn {
+.DHMFB-MobileFAQ,
+.DHMFB-page-header-mob,
+.DHMFB-brandCount-mob,
+.DHMFB-floating-plus-btn {
   display: none;
 }
-.faq-title {
+.DHMFB-faq-title {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.faq-title img {
+.DHMFB-faq-title img {
   width: 40px;
   height: 40px;
   border-radius: 4px;
 }
 
-.faq-user-text {
+.DHMFB-faq-user-text {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
 }
 
-.faq-username {
+.DHMFB-faq-username {
   font-size: 14px;
   font-weight: 600;
   color: #3f3f3f;
 }
 
-.faq-item.active {
+.DHMFB-faq-item.active {
   border: 1px solid #0f8df340;
   padding-bottom: 6px;
 }
 
-.faq-item.active .faq-question {
+.DHMFB-faq-item.active .DHMFB-faq-question {
   border-bottom: 1px solid #cce8ff;
   padding-bottom: 8px;
   margin-bottom: 8px;
   border-radius: 0px;
 }
 
-.faq-row {
+.DHMFB-faq-row {
   display: grid;
   grid-template-columns: 90px 1fr 20px;
   align-items: center;
@@ -334,28 +334,28 @@ body {
   font-size: 14px;
 }
 
-.mob-edit {
+.DHMFB-mob-edit {
   width: 15px;
   height: 15px;
 }
 
-.faq-row span:first-child {
+.DHMFB-faq-row span:first-child {
   color: #3f3f3f;
   font-weight: 700;
 }
 
-.faq-row span:last-child {
+.DHMFB-faq-row span:last-child {
   color: #3f3f3f;
   font-weight: 400;
   text-align: left;
 }
 
-.faq-row:has(.view) {
+.DHMFB-faq-row:has(.view) {
   display: flex;
   justify-content: flex-end;
 }
 
-.faq-row .view {
+.DHMFB-faq-row .view {
   padding: 6px 14px;
   border-radius: 4px;
   background-color: #989fff;
@@ -365,30 +365,30 @@ body {
   font-size: 14px;
 }
 
-.upload-box-mob {
+.DHMFB-upload-box-mob {
   position: relative;
   overflow: hidden;
 }
 
-.upload-box-mob .plus {
+.DHMFB-upload-box-mob .plus {
   position: absolute;
 }
 
-.upload-box-mob img {
+.DHMFB-upload-box-mob img {
   border-radius: 8px;
 }
 
 @media (max-width: 595px) {
-  .card {
+  .DHMFB-card {
     display: none;
   }
-  .MobileFAQ {
+  .DHMFB-MobileFAQ {
     display: block;
     background: white;
     padding: 10px;
   }
 
-  .faq-question {
+  .DHMFB-faq-question {
     width: 100%;
     background: white;
     border: none;
@@ -400,30 +400,30 @@ body {
     border-radius: 8px;
   }
 
-  .faq-answer {
+  .DHMFB-faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: 0.4s ease;
   }
 
-  .faq-item.active .faq-answer {
+  .DHMFB-faq-item.active .DHMFB-faq-answer {
     max-height: 500px;
   }
 
-  .faq-item {
+  .DHMFB-faq-item {
     margin-bottom: 10px;
   }
-  .page-header {
+  .DHMFB-page-header {
     display: none;
   }
-  .page-header-mob {
+  .DHMFB-page-header-mob {
     display: flex;
     background: #ffffff;
     color: #3f3f3f;
     padding: 20px;
     margin-top: 15px;
   }
-  .brandCount-mob {
+  .DHMFB-brandCount-mob {
     display: flex;
     color: #716b6b;
     font-weight: 400;
@@ -431,7 +431,7 @@ body {
     margin: 10px 20px 0 0;
     font-size: 12px;
   }
-  .floating-plus-btn {
+  .DHMFB-floating-plus-btn {
     display: flex;
     position: fixed;
     bottom: 86px;
@@ -445,7 +445,7 @@ body {
     cursor: pointer;
   }
 
-  .page-wrapper {
+  .DHMFB-page-wrapper {
     padding: 10px;
   }
 }
