@@ -268,13 +268,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!faqItem) return;
 
       // Get the status span (pending / sent)
-      const statusSpan = faqItem.querySelector(".DPRAStatus.pending, .DPRAStatus.sent");
+      const statusSpan = faqItem.querySelector(".DPRAStatus.pending, .DPRAStatus.verified");
       if (!statusSpan) return;
 
       if (statusSpan.classList.contains("pending")) {
-        window.location.href = "../html/adminPMProductRecentAddedOverview.html";
-      } else if (statusSpan.classList.contains("sent")) {
-        window.location.href = "../html/adminPMVerificationOverview.html";
+        window.location.href = "../html/developerPMProductVerificationOverview.html";
+      } else if (statusSpan.classList.contains("verified")) {
+        window.location.href = "../html/developerPMProductVerificationOverview.html";
       }
     });
   });
