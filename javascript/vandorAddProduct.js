@@ -268,6 +268,48 @@ const defaultCategoryFields = [
   }
 ];
 
+// GLOBAL FIELDS - Applied to all Sub Categories (Level 3 & 4)
+const globalReturnRefundFields = [
+  {
+    name: "applicableToReturn",
+    label: "Applicable to Return/Exchange",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+  {
+  name: "coloursAvailable",
+  label: "Colours Available",
+  type: "select",
+  required: true,
+  options: ["Red", "Maroon", "Blue", "Navy Blue", "Green", "Black", "White", "Yellow", "Pink", "Purple", "Orange", "Gold", "Silver", "Brown", "Beige"]
+},
+  
+  {
+    name: "personalization",
+    label: "Personalization Available",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+
+    {
+    name: "availableForReturnRefund",
+    label: "Available for Return/Refund",
+    type: "select",
+    required: true,
+    options: ["Yes", "No"]
+  },
+  {
+    name: "refundDays",
+    label: "Refund Processing (Days)",
+    type: "select",
+    required: true,
+    options: ["Within 3 Days", "Within 5 Days", "Within 7 Days", "Within 10 Days"]
+  },
+
+];
+
 // const categoryFields = {
 
 //   /* =====================================================
@@ -1445,7 +1487,7 @@ const categoryFields = {
     { name: "weaveType", label: "Weave Type", type: "select", required: true, options: ["Handspun", "Handwoven"] },
     { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Daily Wear"] },
     { name: "texture", label: "Texture", type: "select", required: true, options: ["Soft", "Lightweight"] },
-    { name: "color", label: "Color", type: "text", required: true },
+    // { name: "color", label: "Color", type: "text", required: true },
     { name: "sareeLength", label: "Saree Length", type: "select", required: true, options: ["5.5 m"] },
     { name: "careInformation", label: "Care Instructions", type: "select", required: true, options: ["Hand Wash"] }
   ],
@@ -1537,7 +1579,7 @@ const categoryFields = {
 
 "Terracotta": [
   { name: "type", label: "Type", type: "select", required: true, options: ["Earrings", "Pendant"] },
-  { name: "color", label: "Color", type: "text", required: true },
+  // { name: "color", label: "Color", type: "text", required: true },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive"] },
   { name: "handmade", label: "Handmade", type: "select", required: true, options: ["Yes"] },
   { name: "returnable", label: "Returnable", type: "select", required: true, options: ["Yes", "No"] }
@@ -1591,6 +1633,7 @@ const lvl3Wrap = document.getElementById("lvl3Wrap");
 const lvl4Wrap = document.getElementById("lvl4Wrap");
 
 const dynamicFields = document.getElementById("dynamicFields");
+let lastRenderedCategory = null;
 
 /* ---------- HELPERS ---------- */
 
@@ -1614,6 +1657,7 @@ function showLevel(wrapper, select, data, placeholder) {
 
 function clearDynamic() {
   dynamicFields.innerHTML = "";
+  lastRenderedCategory = null; 
 }
 
 /* ---------- INIT ---------- */
@@ -1683,7 +1727,9 @@ lvl4.addEventListener("change", () => {
  ************************************/
 function loadDynamicFields(categoryKey) {
   dynamicFields.innerHTML = "";
-
+  if (!categoryKey) return;
+    if (categoryKey === lastRenderedCategory) return;
+  lastRenderedCategory = categoryKey;
   const gender = lvl1.value; // Women / Men / Kids
 
   let resolvedFields = [];
@@ -1712,12 +1758,73 @@ function loadDynamicFields(categoryKey) {
     resolvedFields = categoryFields["Men_Footwear"];
   }
 
+
+  function restrictToAlpha(input) {
+  input.addEventListener("keydown", function (e) {
+    const key = e.key;
+    // Allow control keys
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(key)) return;
+
+    // Block leading space
+    if (key === " " && input.value.length === 0) {
+      e.preventDefault();
+      return;
+    }
+
+    // Block double space
+    if (key === " " && input.value.slice(-1) === " ") {
+      e.preventDefault();
+      return;
+    }
+
+    // Allow only letters and space
+    if (!/^[a-zA-Z ]$/.test(key)) {
+      e.preventDefault();
+    }
+  });
+
+  // Handle paste
+  input.addEventListener("paste", function (e) {
+    e.preventDefault();
+    const pasted = (e.clipboardData || window.clipboardData).getData("text");
+    const cleaned = pasted.replace(/[^a-zA-Z ]/g, "").replace(/^\s+/, "").replace(/\s{2,}/g, " ");
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    input.value = input.value.slice(0, start) + cleaned + input.value.slice(end);
+  });
+}
+
+function restrictToNumeric(input) {
+  input.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(key)) return;
+
+    // Allow only digits
+    if (!/^[0-9]$/.test(key)) {
+      e.preventDefault();
+    }
+  });
+
+  // Handle paste
+  input.addEventListener("paste", function (e) {
+    e.preventDefault();
+    const pasted = (e.clipboardData || window.clipboardData).getData("text");
+    const cleaned = pasted.replace(/[^0-9]/g, "");
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    input.value = input.value.slice(0, start) + cleaned + input.value.slice(end);
+  });
+}
+
   /* ===============================
      3️⃣ FINAL FIELD LIST
      =============================== */
   const fields = [
     ...defaultCategoryFields,
-    ...resolvedFields
+    ...resolvedFields,
+    ...globalReturnRefundFields
   ];
 
   const grid = document.createElement("div");
@@ -1776,6 +1883,12 @@ function loadDynamicFields(categoryKey) {
       input.className = "form-input";
       input.placeholder = field.placeholder || "";
     }
+      if (field.name === "state") {
+    restrictToAlpha(input);
+  } else if (field.name === "sellingPrice" || field.name === "totalQuantity") {
+    restrictToNumeric(input);
+  }
+
 
     group.append(label, input);
     grid.appendChild(group);
@@ -2046,19 +2159,91 @@ document.addEventListener("click", (e) => {
 });
 
 
+// AFTER — replace with this:
+const COLOR_MAP = {
+  "Red": "#e53935",
+  "Maroon": "#880e4f",
+  "Blue": "#1e88e5",
+  "Navy Blue": "#1a237e",
+  "Green": "#43a047",
+  "Black": "#212121",
+  "White": "#f5f5f5",
+  "Yellow": "#fdd835",
+  "Pink": "#e91e63",
+  "Purple": "#8e24aa",
+  "Orange": "#fb8c00",
+  "Gold": "#ffc107",
+  "Silver": "#90a4ae",
+  "Brown": "#6d4c41",
+  "Beige": "#d7ccc8"
+};
+
 document.addEventListener("change", function (e) {
   if (!e.target.classList.contains("color-select")) return;
 
   const select = e.target;
   const colorValue = select.value;
-
-  if (!colorValue) return;
-
   const colorBox = select
     .closest(".color-selector")
     .querySelector(".color-swatch");
 
-  colorBox.style.backgroundColor = colorValue;
+  if (!colorValue) {
+    colorBox.style.backgroundColor = "";
+    return;
+  }
+
+  colorBox.style.backgroundColor = COLOR_MAP[colorValue] || colorValue;
+});
+
+// CONDITIONAL VALIDATION: availableForReturnRefund → refundDays
+document.addEventListener("change", function (e) {
+  const select = e.target;
+  if (!select.classList.contains("form-select")) return;
+
+  // Check if this is the "Available for Return/Refund" select
+  const formGroup = select.closest(".form-group");
+  if (!formGroup) return;
+
+  const labelEl = formGroup.querySelector(".form-label");
+  if (!labelEl) return;
+
+  // Use trim() to avoid whitespace/star issues
+  const labelText = labelEl.childNodes[0]?.nodeValue?.trim();
+  if (labelText !== "Available for Return/Refund") return;
+
+  // Find refundDays in the same grid
+  const grid = select.closest(".form-grid");
+  if (!grid) return;
+
+  let refundSelect = null;
+  grid.querySelectorAll(".form-group").forEach(fg => {
+    const lbl = fg.querySelector(".form-label");
+    const lblText = lbl?.childNodes[0]?.nodeValue?.trim();
+    if (lblText === "Refund Processing (Days)") {
+      refundSelect = fg.querySelector("select");
+    }
+  });
+
+  if (!refundSelect) return;
+
+  const isRequired = select.value === "Yes";
+  refundSelect.required = isRequired;
+  refundSelect.disabled = !isRequired; 
+
+  // Toggle * indicator
+  const refundLabel = refundSelect.closest(".form-group")?.querySelector(".form-label");
+  if (refundLabel) {
+    const existingStar = refundLabel.querySelector(".required");
+    if (isRequired && !existingStar) {
+      const star = document.createElement("span");
+      star.className = "required";
+      star.textContent = " *";
+      refundLabel.appendChild(star);
+    } else if (!isRequired && existingStar) {
+      existingStar.remove();
+      clearError(refundSelect);
+    }
+  }
 });
 
 // Address
@@ -2492,6 +2677,16 @@ function validateMainImage() {
   errorDiv.style.display = "none";
   return true;
 }
+
+// Restore dynamic fields on browser back navigation
+window.addEventListener("pageshow", function (e) {
+  // e.persisted = true means page was restored from cache (back button)
+  const restoredCategory = getDeepestSelectedCategory();
+  if (restoredCategory) {
+    lastRenderedCategory = null; // force re-render
+    loadDynamicFields(restoredCategory);
+  }
+});
 
 document.querySelector("#sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");
 
