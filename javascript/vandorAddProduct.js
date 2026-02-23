@@ -1513,43 +1513,56 @@ const categoryFields = {
   ],
 
   // dress
-  "Kalamkari": [
+"Dress_Kalamkari": [
   { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton", "Silk"] },
   { name: "printType", label: "Print Type", type: "select", required: true, options: ["Hand Painted", "Block Print"] },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Casual", "Festive"] },
   { name: "sleeveLength", label: "Sleeve Length", type: "select", required: true, options: ["Half Sleeve", "Full Sleeve"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
   { name: "careInformation", label: "Care", type: "select", required: true, options: ["Hand Wash"] }
 ],
 
-"Madhubani": [
+"Dress_Madhubani": [
   { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton"] },
   { name: "printTheme", label: "Theme", type: "select", required: true, options: ["Nature", "Mythology"] },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Casual"] },
   { name: "fit", label: "Fit", type: "select", required: true, options: ["Regular", "Flared"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
   { name: "careInformation", label: "Care", type: "select", required: true, options: ["Hand Wash"] }
 ],
 
-"Bandhani": [
+"Dress_Bandhani": [
   { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Georgette", "Cotton"] },
   { name: "pattern", label: "Pattern", type: "select", required: true, options: ["Tie & Dye"] },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive"] },
   { name: "dupattaIncluded", label: "Dupatta Included", type: "select", required: true, options: ["Yes", "No"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
   { name: "careInformation", label: "Care", type: "select", required: true, options: ["Dry Clean"] }
 ],
 
-"Ajrak": [
+"Dress_Ajrak": [
   { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Cotton"] },
   { name: "printStyle", label: "Print Style", type: "select", required: true, options: ["Block Print"] },
   { name: "colorTone", label: "Color Tone", type: "select", required: true, options: ["Indigo", "Maroon"] },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Casual"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
   { name: "careInformation", label: "Care", type: "select", required: true, options: ["Hand Wash"] }
 ],
 
-"Leheriya": [
+"Dress_Leheriya": [
   { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Chiffon", "Georgette"] },
   { name: "pattern", label: "Pattern", type: "select", required: true, options: ["Wave Pattern"] },
   { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive"] },
   { name: "dupattaIncluded", label: "Dupatta Included", type: "select", required: true, options: ["Yes", "No"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
+  { name: "careInformation", label: "Care", type: "select", required: true, options: ["Dry Clean"] }
+],
+"Dress_MirrorWork": [
+  { name: "fabric", label: "Fabric", type: "select", required: true, options: ["Chiffon", "Georgette"] },
+  { name: "pattern", label: "Pattern", type: "select", required: true, options: ["Wave Pattern"] },
+  { name: "occasion", label: "Occasion", type: "select", required: true, options: ["Festive"] },
+  { name: "dupattaIncluded", label: "Dupatta Included", type: "select", required: true, options: ["Yes", "No"] },
+  { name: "sizes", label: "Sizes", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL"] },
   { name: "careInformation", label: "Care", type: "select", required: true, options: ["Dry Clean"] }
 ],
 // footwear
@@ -1634,6 +1647,7 @@ const lvl4Wrap = document.getElementById("lvl4Wrap");
 
 const dynamicFields = document.getElementById("dynamicFields");
 let lastRenderedCategory = null;
+let variantMeasurementField = null;
 
 /* ---------- HELPERS ---------- */
 
@@ -1725,73 +1739,23 @@ lvl4.addEventListener("change", () => {
 /************************************
  * 6. DYNAMIC FIELD LOADER
  ************************************/
-function loadDynamicFields(categoryKey) {
-  dynamicFields.innerHTML = "";
-  if (!categoryKey) return;
-    if (categoryKey === lastRenderedCategory) return;
-  lastRenderedCategory = categoryKey;
-  const gender = lvl1.value; // Women / Men / Kids
-
-  let resolvedFields = [];
-
-  /* ===============================
-     1️⃣ EXACT CATEGORY MATCH
-     =============================== */
-  if (categoryFields[categoryKey]) {
-    resolvedFields = categoryFields[categoryKey];
-  }
-
-  /* ===============================
-     2️⃣ FOOTWEAR (ONLY WHEN NEEDED)
-     =============================== */
-  else if (
-    ["Flats","Heels","Kolhapuri","Juttis"].includes(categoryKey) &&
-    categoryFields[`${gender}_Footwear`]
-  ) {
-    resolvedFields = categoryFields[`${gender}_Footwear`];
-  }
-
-  else if (
-    ["Mojaris","Sandals","FormalShoes"].includes(categoryKey) &&
-    categoryFields["Men_Footwear"]
-  ) {
-    resolvedFields = categoryFields["Men_Footwear"];
-  }
-
-
-  function restrictToAlpha(input) {
+/************************************
+ * VALIDATION HELPERS
+ ************************************/
+function restrictToAlpha(input) {
   input.addEventListener("keydown", function (e) {
     const key = e.key;
-    // Allow control keys
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(key)) return;
-
-    // Block leading space
-    if (key === " " && input.value.length === 0) {
-      e.preventDefault();
-      return;
-    }
-
-    // Block double space
-    if (key === " " && input.value.slice(-1) === " ") {
-      e.preventDefault();
-      return;
-    }
-
-    // Allow only letters and space
-    if (!/^[a-zA-Z ]$/.test(key)) {
-      e.preventDefault();
-    }
+    if (key === " " && input.value.length === 0) { e.preventDefault(); return; }
+    if (key === " " && input.value.slice(-1) === " ") { e.preventDefault(); return; }
+    if (!/^[a-zA-Z ]$/.test(key)) e.preventDefault();
   });
-
-  // Handle paste
   input.addEventListener("paste", function (e) {
     e.preventDefault();
     const pasted = (e.clipboardData || window.clipboardData).getData("text");
     const cleaned = pasted.replace(/[^a-zA-Z ]/g, "").replace(/^\s+/, "").replace(/\s{2,}/g, " ");
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
-    input.value = input.value.slice(0, start) + cleaned + input.value.slice(end);
+    input.value = input.value.slice(0, input.selectionStart) + cleaned + input.value.slice(input.selectionEnd);
   });
 }
 
@@ -1800,27 +1764,62 @@ function restrictToNumeric(input) {
     const key = e.key;
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(key)) return;
-
-    // Allow only digits
-    if (!/^[0-9]$/.test(key)) {
-      e.preventDefault();
-    }
+    if (!/^[0-9]$/.test(key)) e.preventDefault();
   });
-
-  // Handle paste
   input.addEventListener("paste", function (e) {
     e.preventDefault();
     const pasted = (e.clipboardData || window.clipboardData).getData("text");
     const cleaned = pasted.replace(/[^0-9]/g, "");
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
-    input.value = input.value.slice(0, start) + cleaned + input.value.slice(end);
+    input.value = input.value.slice(0, input.selectionStart) + cleaned + input.value.slice(input.selectionEnd);
   });
 }
 
-  /* ===============================
-     3️⃣ FINAL FIELD LIST
-     =============================== */
+/************************************
+ * 6. DYNAMIC FIELD LOADER
+ ************************************/
+function loadDynamicFields(categoryKey) {
+  dynamicFields.innerHTML = "";
+  if (!categoryKey) return;
+  if (categoryKey === lastRenderedCategory) return;
+  lastRenderedCategory = categoryKey;
+  const MEASUREMENT_NAMES = ["sizes", "size", "sareeLength", "length", "weight"];
+
+variantMeasurementField = null;
+
+  const gender = lvl1.value;
+  const parentCategory = lvl3.value; // ✅ FIXED: Dress is at level 3, not level 2
+
+  let resolvedFields = [];
+
+  // Dress sub-subcategory (lvl4 selected)
+  if (parentCategory === "Dress" && categoryFields[`Dress_${categoryKey}`]) {
+    resolvedFields = categoryFields[`Dress_${categoryKey}`];
+  }
+  // Exact match
+  else if (categoryFields[categoryKey]) {
+    resolvedFields = categoryFields[categoryKey];
+  }
+  // Women Footwear
+  else if (
+    ["Flats", "Heels", "Kolhapuri", "Juttis"].includes(categoryKey) &&
+    categoryFields[`${gender}_Footwear`]
+  ) {
+    resolvedFields = categoryFields[`${gender}_Footwear`];
+  }
+  // Men Footwear
+  else if (
+    ["Mojaris", "Sandals", "FormalShoes"].includes(categoryKey) &&
+    categoryFields["Men_Footwear"]
+  ) {
+    resolvedFields = categoryFields["Men_Footwear"];
+  }
+
+
+  // Detect measurement field for variant section
+variantMeasurementField = resolvedFields.find(f =>
+  MEASUREMENT_NAMES.includes(f.name)
+) || null;
+
   const fields = [
     ...defaultCategoryFields,
     ...resolvedFields,
@@ -1837,14 +1836,13 @@ function restrictToNumeric(input) {
 
     const label = document.createElement("label");
     label.className = "form-label";
-    label.innerHTML =
-      field.label + (field.required ? ' <span class="required">*</span>' : "");
+    label.innerHTML = field.label + (field.required ? ' <span class="required">*</span>' : "");
 
     let input;
 
     if (field.type === "select") {
 
-      /* 🎨 COLOR SELECT */
+      // Color selector
       if (field.name === "coloursAvailable") {
         const wrapper = document.createElement("div");
         wrapper.className = "color-selector";
@@ -1855,7 +1853,6 @@ function restrictToNumeric(input) {
         input = document.createElement("select");
         input.className = "form-select color-select";
         input.innerHTML = `<option value="">Select ${field.label}</option>`;
-
         field.options.forEach(color => {
           const opt = document.createElement("option");
           opt.value = color;
@@ -1882,13 +1879,14 @@ function restrictToNumeric(input) {
       input.type = "text";
       input.className = "form-input";
       input.placeholder = field.placeholder || "";
-    }
-      if (field.name === "state") {
-    restrictToAlpha(input);
-  } else if (field.name === "sellingPrice" || field.name === "totalQuantity") {
-    restrictToNumeric(input);
-  }
 
+      // ✅ FIXED: validation only on text inputs, inside else block
+      if (field.name === "state") {
+        restrictToAlpha(input);
+      } else if (field.name === "sellingPrice" || field.name === "totalQuantity") {
+        restrictToNumeric(input);
+      }
+    }
 
     group.append(label, input);
     grid.appendChild(group);
@@ -1896,8 +1894,19 @@ function restrictToNumeric(input) {
 
   dynamicFields.appendChild(grid);
   attachDynamicFieldBlurValidation();
-}
 
+updateVariantMeasurementFields();
+
+  // ✅ Disable refundDays by default
+  grid.querySelectorAll(".form-group").forEach(fg => {
+    const lbl = fg.querySelector(".form-label");
+    const lblText = lbl?.childNodes[0]?.nodeValue?.trim();
+    if (lblText === "Refund Processing (Days)") {
+      const sel = fg.querySelector("select");
+      if (sel) { sel.disabled = true; sel.required = false; }
+    }
+  });
+}
 
 
 
@@ -2074,71 +2083,111 @@ function createVariant(number) {
   const div = document.createElement("div");
   div.className = "variant-container";
   div.dataset.variant = number;
+
+const measurementHTML = buildMeasurementHTML();
+
   div.innerHTML = `
-                <div class="variant-header">
-                    <h3 class="variant-title">Variant ${number}</h3>
-                    <div class="variant-actions">
-                        
-                        <button class="icon-btn delete-variant">
-                        <img src="../assets/vendorAddProduct/Trash.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="variant-body">
-                    <div class="form-group">
-                        <label class="form-label">Product Image</label>
-                        <div class="variant-upload-grid">
-                            ${Array(6)
-                              .fill(0)
-                              .map(
-                                (_, i) => `
-                                <div class="upload-box variant-upload" data-variant-upload="${i}">
-                                <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="">
-                                <span class="upload-box-text">Upload</span>
-                                <img class="preview-image" alt="Preview">
-                                <input type="file" accept="image/*">
-                            </div>
-                        `
-                              )
-                              .join("")}
-                    </div>
-                </div>
+    <div class="variant-header">
+      <h3 class="variant-title">Variant ${number}</h3>
+      <div class="variant-actions">
+        <button class="icon-btn delete-variant">
+          <img src="../assets/vendorAddProduct/Trash.svg" alt="">
+        </button>
+      </div>
+    </div>
 
-                <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">Colours Available</label>
-                            <div class="color-selector">
-                                <div class="color-swatch"></div>
-                                <select class="form-select color-select" >
-                                    <option value="" selected disabled>Select color</option>
-                                    <option value="#9b8bc9">Lavender</option>
-                                    <option value="#ff0000">Red</option>
-                                    <option value="#0000ff">Blue</option>
-                                    <option value="#008000">Green</option>
-                                    <option value="#ffa500">Orange</option>
-                                    <option value="#ff00ff">Fuchsia</option>
-                                </select>
-                            </div>
-                        </div>
+    <div class="variant-body">
+      <div class="form-group">
+        <label class="form-label">Product Image</label>
+        <div class="variant-upload-grid">
+          ${Array(6).fill(0).map((_, i) => `
+            <div class="upload-box variant-upload" data-variant-upload="${i}">
+              <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="">
+              <span class="upload-box-text">Upload</span>
+              <img class="preview-image" alt="Preview">
+              <input type="file" accept="image/*">
+            </div>
+          `).join("")}
+        </div>
+      </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Sizes</label>
-                            <select class="form-select variant-size-select">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
-                        </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Colours Available</label>
+          <div class="color-selector">
+            <div class="color-swatch"></div>
+            <select class="form-select color-select">
+              <option value="" selected disabled>Select color</option>
+              <option value="#e53935">Red</option>
+              <option value="#880e4f">Maroon</option>
+              <option value="#1e88e5">Blue</option>
+              <option value="#1a237e">Navy Blue</option>
+              <option value="#43a047">Green</option>
+              <option value="#212121">Black</option>
+              <option value="#f5f5f5">White</option>
+              <option value="#fdd835">Yellow</option>
+              <option value="#e91e63">Pink</option>
+              <option value="#8e24aa">Purple</option>
+              <option value="#fb8c00">Orange</option>
+              <option value="#ffc107">Gold</option>
+              <option value="#90a4ae">Silver</option>
+              <option value="#6d4c41">Brown</option>
+              <option value="#d7ccc8">Beige</option>
+            </select>
+          </div>
+        </div>
 
-                    <div class="form-group full-width">
-                        <label class="form-label">Total Quantity</label>
-                        <input type="text" class="form-input " placeholder="112">
-                    </div>
-                </div>
-            `;
+        ${measurementHTML}
+
+        <div class="form-group full-width">
+          <label class="form-label">Total Quantity <span class="required">*</span></label>
+          <input type="text" class="form-input quantity-input" placeholder="112">
+        </div>
+      </div>
+    </div>
+  `;
   return div;
+}
+
+function buildMeasurementHTML() {
+  if (!variantMeasurementField) return "";
+  const f = variantMeasurementField;
+  if (f.type === "select" && f.options) {
+    const optionsHTML = f.options.map(o => `<option value="${o}">${o}</option>`).join("");
+    return `
+      <div class="form-group variant-measurement-group">
+        <label class="form-label">${f.label} <span class="required">*</span></label>
+        <select class="form-select variant-size-select">
+          <option value="">Select ${f.label}</option>
+          ${optionsHTML}
+        </select>
+      </div>`;
+  } else if (f.type === "text") {
+    return `
+      <div class="form-group variant-measurement-group">
+        <label class="form-label">${f.label} <span class="required">*</span></label>
+        <input type="text" class="form-input variant-size-input" placeholder="Enter ${f.label}">
+      </div>`;
+  }
+  return "";
+}
+
+function updateVariantMeasurementFields() {
+  document.querySelectorAll(".variant-container").forEach(variant => {
+    const formGrid = variant.querySelector(".form-grid");
+    if (!formGrid) return;
+
+    const existing = formGrid.querySelector(".variant-measurement-group");
+    if (existing) existing.remove();
+
+    const newHTML = buildMeasurementHTML();
+    if (newHTML) {
+      const quantityGroup = formGrid.querySelector(".full-width");
+      if (quantityGroup) {
+        quantityGroup.insertAdjacentHTML("beforebegin", newHTML);
+      }
+    }
+  });
 }
 
 document.addEventListener("click", (e) => {
