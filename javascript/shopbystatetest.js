@@ -529,12 +529,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mainItem = target.closest(".SBS-menu-item");
     if (mainItem && target === mainItem) {
-      heading.textContent = mainItem.dataset.mainCategory;
+      const mainCategory = mainItem.dataset.mainCategory;
+
+      heading.textContent = mainCategory || mainItem.textContent.trim();
       resetActiveMain();
       mainItem.classList.add("SBS-catergory-active");
 
-      // Filter by main category
-      filterByMainCategory(mainItem.dataset.mainCategory.toLowerCase());
+      // Filter only if data-main-category exists
+      if (mainCategory) {
+        filterByMainCategory(mainCategory.toLowerCase());
+      }
       return;
     }
 

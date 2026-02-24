@@ -35,3 +35,9 @@ document
 document
   .querySelector("#account-menu .mobile-dropdown:nth-child(2) li:nth-child(2)")
   .classList.add("submenu-active-page");
+
+  document.querySelectorAll(".edit-page-navigation-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.location.href = "../html/developerPMProductCategoriesEdit.html";
+    });
+});

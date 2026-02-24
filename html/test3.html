@@ -2,139 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Auto Scroll Carousel</title>
+  <title>4 Level Middle Navbar</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <style>
-  .carousel-container{
-    border: 2px solid red;
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-  }
-  .carousel-track{
-    display: flex;
-  }
-  .card {
-  height: 160px;
-  margin-right: 20px;
-  background: #eee;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  font-weight: bold;
-  user-select: none;
-}
-.card>img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-}
+ 
 </style>
 <body>
 
-  <div class="carousel-wrapper">
-    <button class="nav prev">❮</button>
+  
 
-    <div class="carousel-container">
-      <div class="carousel-track">
-        <div class="card">
-          <img src="../assets/master/Rectangle 3.svg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/054/517/039/small/community-market-showcasing-handmade-pottery-woven-baskets-and-locally-sourced-food-with-customers-photo.jpg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://blog.pashmina.com/wp-content/uploads/2021/12/Blog-images-1080x700-3.jpg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://t3.ftcdn.net/jpg/05/66/34/10/360_F_566341036_f2mCzWyHi9I4aMOSSiy1XUUhvEqdUKJ1.jpg" alt="">
-        </div>
-        <div class="card">
-          <img src="../assets/master/Rectangle 3.svg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/054/517/039/small/community-market-showcasing-handmade-pottery-woven-baskets-and-locally-sourced-food-with-customers-photo.jpg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://blog.pashmina.com/wp-content/uploads/2021/12/Blog-images-1080x700-3.jpg" alt="">
-        </div>
-        <div class="card">
-          <img src="https://t3.ftcdn.net/jpg/05/66/34/10/360_F_566341036_f2mCzWyHi9I4aMOSSiy1XUUhvEqdUKJ1.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <button class="nav next">❯</button>
-  </div>
-
-  <script>
-    const track = document.querySelector(".carousel-track");
-const cards = document.querySelectorAll(".card");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-
-let index = 0;
-let cardWidth = cards[0].offsetWidth + 20; // width + margin
-let autoSlide;
-
-function updateCarousel() {
-  track.style.transform = `translateX(-${index * cardWidth}px)`;
-}
-
-function nextSlide() {
-  if (index < cards.length - getVisibleCards()) {
-    index++;
-  } else {
-    index = 0;
-  }
-  updateCarousel();
-}
-
-function prevSlide() {
-  if (index > 0) {
-    index--;
-  } else {
-    index = cards.length - getVisibleCards();
-  }
-  updateCarousel();
-}
-
-function getVisibleCards() {
-  const containerWidth = document.querySelector(".carousel-container").offsetWidth;
-  return Math.floor(containerWidth / cardWidth);
-}
-
-// Buttons
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
-
-// Auto scroll
-function startAutoScroll() {
-  autoSlide = setInterval(nextSlide, 2500);
-}
-
-function stopAutoScroll() {
-  clearInterval(autoSlide);
-}
-
-// Pause on hover
-track.addEventListener("mouseenter", stopAutoScroll);
-track.addEventListener("mouseleave", startAutoScroll);
-
-// Responsive resize fix
-window.addEventListener("resize", () => {
-  cardWidth = cards[0].offsetWidth + 20;
-  updateCarousel();
-});
-
-// Start
-startAutoScroll();
-
-  </script>
 </body>
 </html>

@@ -214,7 +214,7 @@ nav{
 /* opened state */
 
 .mobile-dropdown.open .mobile-submenu {
-  max-height: 600px; /* enough to show content, a large value works for animation */
+  max-height: 2000px; /* enough to show content, a large value works for animation */
   opacity: 1;
   pointer-events: auto;
   width: 100%;
@@ -351,7 +351,7 @@ nav{
 }
 
 .mobile-dropdown.open > .mobile-submenu {
-    max-height: 1000px;
+    max-height: none;
     background-color: white;
 }
 
@@ -372,7 +372,7 @@ nav{
     background-color: white;
 }
 .mobile-dropdown-sub.open-sub > ul {
-    max-height: 800px;
+    max-height: 5000px;
 }
 .mobile-dropdown-sub > ul>li{
     padding: 10px;
@@ -405,7 +405,7 @@ nav{
 }
 
 .mobile-dropdown-sub-sub.open-sub-sub > ul {
-  max-height: 600px;
+  max-height: none;
 }
 
 .mobile-dropdown-sub-sub > ul > li {
@@ -1195,6 +1195,8 @@ nav{
     }
 }
 
+
+
 @media (max-width:815px) {
 
     /* Nav Bar */
@@ -1490,6 +1492,43 @@ nav{
 }
 .wishlist-icon.active {
   transform: scale(1.15);
+}
+@media (max-width:877px) {
+    .SBS-submenu.level-2:hover {
+        left: -30px;
+    }
+}
+@media (max-width:826px) {
+  .SBS-middle-nav-ba-main > ul{
+    gap: 5px;
+    padding: 8px 10px;
+  }
+  .SBS-submenu.level-2:hover {
+        left: -10px;
+    }
+}
+@media (max-width:767px) {
+    .SBS-middle-nav-ba-main > ul{
+        gap: 0px;
+        padding: 8px 5px;
+    }
+
+}
+@media (max-width:737px) {
+    .SBS-middle-nav-ba-main {
+        padding-top: 8px ;
+    }
+    .SBS-middle-nav-ba-main > ul > li {
+        text-wrap: wrap;
+    }
+    .SBS-submenu.level-2:hover {
+        left: -50px;
+    }
+}
+@media (max-width:694px) {
+    .SBS-submenu.level-2:hover {
+        left: -10px;
+    }
 }
 
 
