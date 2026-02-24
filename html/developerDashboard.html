@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Charts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/developerDashboard.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+
+  <body>
+    <div class="DD-wrapper">
+      <div class="DD-adminSalesStatsRow">
+        <!-- Total Sales Card -->
+        <div class="DD-adminSalesStatCard">
+          <div class="DD-adminSalesStatHeader">
+            <div class="DD-adminSalesStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="DD-adminSalesStatLabel">Total Sales</span>
+          </div>
+          <div class="DD-adminSalesStatValue">26,14,945</div>
+          <div class="DD-adminSalesStatFooter">
+            <span class="DD-adminSalesStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="DD-adminSalesStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="DD-adminSalesChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Profit Card -->
+        <div class="DD-adminSalesStatCard">
+          <div class="DD-adminSalesStatHeader">
+            <div class="DD-adminSalesStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="DD-adminSalesStatLabel">Profit</span>
+          </div>
+          <div class="DD-adminSalesStatValue">6,14,945</div>
+          <div class="DD-adminSalesStatFooter">
+            <span class="DD-adminSalesStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="DD-adminSalesStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="DD-adminSalesChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Average Monthly Card -->
+        <div class="DD-adminSalesStatCard">
+          <div class="DD-adminSalesStatHeader">
+            <div class="DD-adminSalesStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="DD-adminSalesStatLabel">Average Monthly</span>
+          </div>
+          <div class="DD-adminSalesStatValue">4,945</div>
+          <div class="DD-adminSalesStatFooter">
+            <span class="DD-adminSalesStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="DD-adminSalesStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="DD-adminSalesChartImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Turn Over Card -->
+        <div class="DD-adminSalesStatCard">
+          <div class="DD-adminSalesStatHeader">
+            <div class="DD-adminSalesStatIcon">
+              <img
+                src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                alt=""
+              />
+            </div>
+            <span class="DD-adminSalesStatLabel">Turn over</span>
+          </div>
+          <div class="DD-adminSalesStatValue">945</div>
+          <div class="DD-adminSalesStatFooter">
+            <span class="DD-adminSalesStatChange">
+              <img src="../assets/adminSaleDashboard/TrendUp (2).svg" alt="" />
+              +15.3%
+            </span>
+            <div class="DD-adminSalesStatChart">
+              <img
+                src="../assets/adminSaleDashboard/Vector 11.svg"
+                alt="chart"
+                class="DD-adminSalesChartImage"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="DD-dashboard">
+        <div class="DD-card">
+          <div class="DD-card-header">
+            <div>
+              <h3>Vendor Community</h3>
+            </div>
+            <select onchange="updateRevenue(this.value)">
+              <option>Daily</option>
+              <option selected>Weekly</option>
+              <option>Monthly</option>
+              <option>Annually</option>
+            </select>
+          </div>
+          <p class="DD-subtitle">Earning Report Lorem Ipsum</p>
+          <canvas id="DD-revenueChart"></canvas>
+        </div>
+        <div class="DD-card">
+          <!-- Header -->
+          <div class="DD-card-header DD-order-header">
+            <div>
+              <h3>Product Approvals</h3>
+            </div>
+
+            <select onchange="updateOrders(this.value)">
+              <option>Daily</option>
+              <option selected>Weekly</option>
+              <option>Monthly</option>
+              <option>Annually</option>
+            </select>
+          </div>
+          <p class="DD-subtitle">Earning Report Lorem Ipsum</p>
+          <!-- Stats + Chart Row -->
+          <div class="DD-order-body">
+            <!-- Left Stats -->
+            <div class="DD-order-info">
+              <div class="DD-info-item DD-blue">
+                <span id="DD-receivedTotal">340</span>
+                <small>Received</small>
+              </div>
+
+              <div class="DD-info-item DD-purple">
+                <span id="DD-deliveredTotal">230</span>
+                <small>Delivered</small>
+              </div>
+
+              <div class="DD-info-item DD-pink">
+                <span id="DD-transitTotal">180</span>
+                <small>In transit</small>
+              </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="DD-order-chart">
+              <canvas id="DD-orderChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="DD-dashboard-row">
+        <div class="DD-dash-card DD-tp-card">
+          <div class="DD-dash-card-header">
+            <h3>Top Products</h3>
+            <div class="DD-dash-dropdown" id="DD-tpDropdown">
+              <span>Weekly ▾</span>
+              <ul class="DD-dash-dropdown-menu">
+                <li>Daily</li>
+                <li>Weekly</li>
+                <li>Monthly</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="DD-dash-table-head DD-tp-head">
+            <span>Product Name</span>
+            <span>Category</span>
+            <span>Region</span>
+          </div>
+
+          <div class="DD-dash-scroll">
+            <!-- ROW 1 -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">MH</div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">GJ</div>
+            </div>
+
+            <!-- ROW 3 -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">RJ</div>
+            </div>
+
+            <!-- ROW 4 -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">KA</div>
+            </div>
+
+            <!-- ROW 5 -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">KE</div>
+            </div>
+
+            <!-- EXTRA ROWS FOR SCROLL -->
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">MH</div>
+            </div>
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">GJ</div>
+            </div>
+            <div class="DD-tp-row">
+              <div class="DD-tp-product">
+                <img
+                  src="../assets/admindashboard/tproduct.png"
+                  class="DD-tp-img"
+                />
+                <div>
+                  <div class="DD-tp-name">Kutch leather craft footware</div>
+                  <div class="DD-tp-sub">
+                    1234 product sold
+                    <span class="DD-tp-trend"
+                      ><img src="../assets/admindashboard/TrendUp.svg" />
+                      +15.3%</span
+                    >
+                  </div>
+                  <div class="DD-tp-meta">
+                    <span>Footware | MH </span
+                    ><span
+                      ><img
+                        src="../assets/admindashboard/TrendUp.svg"
+                      />+15.3%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="DD-tp-cell">Footware</div>
+              <div class="DD-tp-cell">RJ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TOP VENDORS ================= -->
+        <div class="DD-dash-card DD-tv-card">
+          <div class="DD-dash-card-header">
+            <h3>Top Vendors</h3>
+          </div>
+
+          <div class="DD-dash-table-head DD-tv-head">
+            <span>Vendor Name</span>
+            <span>State</span>
+            <span>Categories</span>
+            <span>Sales</span>
+          </div>
+
+          <div class="DD-dash-scroll">
+            <!-- ROW 1 -->
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 3 -->
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 4 -->
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXTRA ROWS -->
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="DD-tv-row">
+              <div class="DD-tv-vendor DD-desktop-view">
+                <img
+                  src="../assets/admindashboard/tvendor.png"
+                  class="DD-tv-img"
+                />
+                <span>Sanskriti collections</span>
+              </div>
+              <span class="DD-desktop-view">MH</span>
+              <span class="DD-desktop-view">Sarees, Art, Craft</span>
+              <span class="DD-tv-amount DD-desktop-view">₹ 6,14,945</span>
+
+              <div class="DD-tv-mobile">
+                <div class="DD-tv-mobile-left">
+                  <img
+                    src="../assets/admindashboard/tvendor.png"
+                    class="DD-tv-img"
+                  />
+                  <div class="DD-tv-mobile-content">
+                    <div class="DD-tv-name">Sanskriti collections</div>
+                    <div class="DD-tv-amount">₹ 6,14,945</div>
+                    <div class="DD-tv-category">
+                      <span>Footware | Sarees | Craft</span>
+                      <span class="DD-tv-state">MH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/developerDashboard.js"></script>
+  </body>
+</html>

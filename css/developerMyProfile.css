@@ -1,0 +1,221 @@
+nav {
+  width: 100% !important;
+  margin-left: 0px;
+  padding: 0px 30px;
+}
+.main-content-beyond1 {
+  margin-top: 75px;
+  padding: 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-profile-head-bar {
+  background-color: #e7f0f9;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.main-profile-head-bar > span {
+  font-weight: 600;
+  color: #3f3f3f;
+}
+.main-profile-contents {
+  height: 75vh;
+  display: flex;
+  gap: 20px;
+}
+.left-profile-content {
+  background-color: #e7f0f9;
+  width: 25%;
+  border-radius: 8px;
+}
+.sub-left-profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 10px;
+}
+.sub-left-profile-content > img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sub-left-profile-content > label {
+  color: #716b6b;
+  font-weight: 500;
+  cursor: pointer;
+}
+.changeBtn {
+  background-color: #108df3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: none;
+}
+.right-profile-content {
+  width: 75%;
+  padding-left: 10px;
+}
+.main-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.form-group label {
+  color: #716b6b;
+  font-size: 13px;
+}
+.form-group input {
+  color: #3f3f3f;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+.form-group .main-time {
+  display: flex;
+  align-items: center;
+}
+.form-group .main-time > input {
+  width: 90px;
+}
+.form-group .main-time > span {
+  color: #716b6b;
+  font-size: 10px;
+}
+.reset-form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  padding-top: 20px;
+}
+.reset-form-group > a {
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+.reset-form-group #resetPassword {
+  color: #3f3f3f;
+}
+.reset-form-group #logout {
+  color: #ff0000;
+}
+/* Success Toastify */
+.success-toastify-main {
+  position: fixed;
+  top: 80px;
+  right: -320px;
+  transition: all 1s ease;
+}
+.success-toastify {
+  background-color: rgb(198, 221, 198);
+  padding: 10px 20px;
+  transform: translatex(-20px);
+  border-radius: 5px;
+  color: green;
+}
+
+/* Confirm Modal */
+.logout-confirm-main-modal {
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.199);
+  z-index: 999;
+  display: none;
+}
+.showModal {
+  display: block;
+}
+.logout-confirm-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  background-color: white;
+  max-width: 400px;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+.logout-confirm-main-modal.showModal .logout-confirm-content {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.button-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.button-group > button {
+  width: 30%;
+  padding: 10px 0px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+.button-group #confirmLogout {
+  background-color: #108df3;
+  color: white;
+}
+@media (max-width: 1024px) {
+  .sub-left-profile-content > img {
+    height: 130px;
+    width: 130px;
+  }
+}
+@media (max-width: 768px) {
+  .main-profile-contents {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sub-left-profile-content > img {
+    height: 180px;
+    width: 180px;
+  }
+  .left-profile-content {
+    width: 100%;
+  }
+  .right-profile-content {
+    width: 100%;
+  }
+  .main-form-group {
+    align-items: center;
+    width: 100%;
+  }
+  .form-group {
+    width: 90%;
+  }
+  .form-group input,
+  .form-group #createNewPassword {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (max-width: 595px) {
+  .main-content-beyond1 {
+    padding: 20px 20px;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+}
