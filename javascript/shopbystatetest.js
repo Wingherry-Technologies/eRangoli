@@ -316,7 +316,6 @@ function handleScrollForMobile() {
     if (!bar || !contentbar) return;
 
     if (window.innerWidth <= 595) {
-        if (window.scrollY > 10) {
             bar.style.position = "fixed";
             bar.style.backgroundColor = "transparent";
             bar.style.top = "-2px";
@@ -337,30 +336,31 @@ function handleScrollForMobile() {
             mobileSuggestion && (mobileSuggestion.style.top = "80px");
             notificationBox && (notificationBox.style.top = "75px");
 
-        } else {
-            bar.style.position = "relative";
-            bar.style.backgroundColor = "#f7f7f7";
-            bar.style.top = "75px";
-            bar.style.left = "0px";
+    //     } else {
+    //         bar.style.position = "relative";
+    //         bar.style.backgroundColor = "#f7f7f7";
+    //         bar.style.top = "75px";
+    //         bar.style.left = "0px";
 
-            contentbar.style.border = "none";
-            contentbar.style.borderRadius = "30px";
-            contentbar.style.backgroundColor = "white";
-            contentbar.style.marginLeft='0px'
+    //         contentbar.style.border = "none";
+    //         contentbar.style.borderRadius = "30px";
+    //         contentbar.style.backgroundColor = "white";
+    //         contentbar.style.marginLeft='0px'
 
-            desktopERan && (desktopERan.style.display = "flex");
-            mobileERan && (mobileERan.style.display = "none");
-            maginfyingMobile && (maginfyingMobile.style.display = "block");
+    //         desktopERan && (desktopERan.style.display = "flex");
+    //         mobileERan && (mobileERan.style.display = "none");
+    //         maginfyingMobile && (maginfyingMobile.style.display = "block");
 
-            mobileSuggestion && (mobileSuggestion.style.top = "150px");
-        }
-    } else {
-        bar.style = "";
-        contentbar.style = "";
+    //         mobileSuggestion && (mobileSuggestion.style.top = "150px");
+    //     }
+    // } 
+    // else {
+    //     bar.style = "";
+    //     contentbar.style = "";
 
-        desktopERan && (desktopERan.style.display = "flex");
-        mobileERan && (mobileERan.style.display = "none");
-        maginfyingMobile && (maginfyingMobile.style.display = "block");
+    //     desktopERan && (desktopERan.style.display = "flex");
+    //     mobileERan && (mobileERan.style.display = "none");
+    //     maginfyingMobile && (maginfyingMobile.style.display = "block");
     }
 }
 
@@ -523,37 +523,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   menu.addEventListener("click", function (e) {
-    const target = e.target;
 
-    if (target.closest(".SBS-no-data")) return;
+  const clickedItem = e.target.closest("li");
+  if (!clickedItem) return;
 
-    const mainItem = target.closest(".SBS-menu-item");
-    if (mainItem && target === mainItem) {
-      const mainCategory = mainItem.dataset.mainCategory;
+  e.stopPropagation();
 
-      heading.textContent = mainCategory || mainItem.textContent.trim();
-      resetActiveMain();
-      mainItem.classList.add("SBS-catergory-active");
+  // ✅ Get ONLY direct text (not children text)
+  const getDirectText = (element) => {
+    return Array.from(element.childNodes)
+      .filter(node => node.nodeType === 3) // TEXT NODE ONLY
+      .map(node => node.textContent.trim())
+      .join("");
+  };
 
-      // Filter only if data-main-category exists
-      if (mainCategory) {
-        filterByMainCategory(mainCategory.toLowerCase());
-      }
-      return;
-    }
+  const clickedText = getDirectText(clickedItem);
 
-    const clickedItem = target.closest("li");
-    if (!clickedItem) return;
+  if (!clickedText) return;
 
-    const name = clickedItem.dataset.category || target.textContent.trim();
-    heading.textContent = name;
+  heading.textContent = clickedText;
 
-    const parentMain = clickedItem.closest(".SBS-menu-item");
-    if (parentMain) {
-      resetActiveMain();
-      parentMain.classList.add("SBS-catergory-active");
-    }
-  });
+  // Highlight only main category
+  const parentMain = clickedItem.closest(".SBS-menu-item");
+  if (parentMain) {
+    mainMenuItems.forEach(item =>
+      item.classList.remove("SBS-catergory-active")
+    );
+    parentMain.classList.add("SBS-catergory-active");
+  }
+
+});
 
   function filterByMainCategory(category) {
 

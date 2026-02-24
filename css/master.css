@@ -1493,6 +1493,227 @@ nav{
 .wishlist-icon.active {
   transform: scale(1.15);
 }
+ /* Middle Nav */
+.SBS-middle-nav-ba-main {
+  padding-top: 30px;
+  position: relative;
+}
+
+.SBS-middle-nav-ba-main > ul {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.164);
+  backdrop-filter: blur(20px);
+  list-style: none;
+  gap: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.301);
+  padding: 8px 20px;
+  border-radius: 10px;
+}
+
+
+.SBS-menu-item {
+  position: relative;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.SBS-submenu{
+  list-style: none;
+}
+
+.level-2-scroll{
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* LEVEL 2 */
+.SBS-submenu.level-2 {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  display: none;                 /* hidden by default */
+  background: inherit;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  height: 200px;
+
+  align-items: flex-start;       /* 🔥 start from top */
+  gap: 40px;
+  white-space: nowrap;
+  flex-direction: column;
+
+}
+.SBS-submenu.level-2  li {
+  position: static;
+}
+
+.level-3-scroll {
+  height: 200px;
+  width: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+/* LEVEL 3 */
+.level-3 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  flex-direction: column;
+  color: #B55E7D !important;
+}
+
+/* LEVEL 4 */
+.level-4 {
+  display: none;
+  position: absolute;
+  top: 0px;          /* same starting line */
+  left: 100px;        /* shift more right than level-3 */
+  background: white;
+  padding: 10px 20px;
+  height: 200px;
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 0px 10px 10px 0px;
+  gap: 10px;
+}
+
+/* Show level 2 */
+.SBS-menu-item:hover  .level-2 {
+  display: flex;
+}
+
+/* Show level 3 */
+.level-2  li:hover > .level-3 {
+  display: flex;     /* 🔥 inline horizontal */
+  gap: 20px;
+}
+
+/* Show level 4 */
+.level-3  li:hover > .level-4 {
+  display: flex;
+  gap: 10px;
+}
+
+/* Submenu items */
+.SBS-submenu-item {
+  position: static;   /* 🔥 important */
+  padding: 5px 12px;
+  color: black;
+  cursor: pointer;
+  white-space: wrap;
+  width: 100px;
+  font-size: 12px;
+}
+
+/* Smooth expand */
+.level-2,
+.level-3,
+.level-4 {
+  transition: all 0.25s ease;
+}
+
+/* LEVEL 1 hover - background red */
+.SBS-menu-item:hover {
+  background-color: #A10404;
+  color: white; 
+}
+
+/* LEVEL 2 hover - background green */
+.SBS-submenu.level-2 > .level-2-scroll >.SBS-submenu-item:hover {
+  background-color: #EFDFDF;
+  color: #A10404;
+  border-radius: 5px;
+  width: max-content;
+  text-wrap: wrap;
+}
+
+.SBS-submenu.level-2:hover {
+  left: -50px;
+}
+
+/* LEVEL 3 hover - text color red (keep bg white) */
+.level-3  .SBS-submenu-item:hover {
+  color: #A10404 !important;
+}
+
+
+
+/* LEVEL 4 hover - same as level 2, background green */
+.SBS-submenu.level-4  .SBS-submenu-item:hover {
+  background-color: #EFDFDF;
+  color: #A10404;
+  border-radius: 5px;
+  width: max-content;
+}
+.SBS-main-menu >li{
+  text-wrap:nowrap;
+}
+@media (max-width:1270px) {
+  .level-3-scroll{
+    width: 100px;
+  }
+  .level-4{
+    left: 60px;
+  }
+}
+@media (max-width:1192px) {
+  .SBS-middle-nav-ba-main > ul{
+    gap: 20px;
+  }
+}
+@media (max-width:1068px) {
+  .SBS-menu-item {
+    font-size: 12px;
+  }
+}
+@media (max-width:1034px) {
+  .SBS-middle-nav-ba-main > ul{
+    gap: 10px;
+  }
+}
+@media (max-width:987px) {
+  .SBS-submenu-item{
+    font-size: 10px;
+  }
+  .level-3{
+    left: 80px;
+  }
+  .level-3-scroll{
+    width: 90px;
+    align-items: flex-start;
+  }
+  .level-4{
+    left: 40px;
+    padding: 10px 10px;
+  }
+}
+@media (max-width:898px) {
+  .SBS-submenu-item{
+    text-wrap: wrap;
+    width: 75px;
+  }
+  .level-4{
+    left: 55px;
+    padding: 10px 5px;
+  }
+}
 @media (max-width:877px) {
     .SBS-submenu.level-2:hover {
         left: -30px;
