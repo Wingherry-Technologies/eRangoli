@@ -515,7 +515,7 @@
     </section>
 
     <div class="main-content-beyond">
-      <div class="container">
+      <div class="container-part">
         <!-- Main Content Area -->
         <div class="main-content">
           <!-- Main Section -->
@@ -529,7 +529,7 @@
               <div class="DPOSectionHeader DPOPreviewHeader">
                 <div class="DPODevTopBar">
     
-                  <div class="DPODevBackBtn" onclick="window.history.back()">
+                  <div class="DPODevBackBtn" onclick="window.location.href='../html/developerPMRecentlyAddedList.html'">
                     <img src="../assets/adminProductOverview/Vector (2).svg" alt="Back" />
                     <span>Product Details</span>
                   </div>
@@ -539,7 +539,7 @@
               <div class="DPOSectionHeader">
                 <h2 class="DPOPreviewSectionTitle">Product Preview</h2>
                 <div class="DPOHeaderIcons">
-                  <img src="../assets/adminProductOverview/PencilSimple (1).svg" alt="Edit" class="DPOEditIcon" />
+                  <img src="../assets/adminProductOverview/PencilSimple (1).svg" alt="Edit" class="DPOEditIcon" onclick="window.location.href='../html/developerPMProductVerificationEditOverview.html'" />
                   <!-- <img src="../assets/adminProductOverview/Trash (1).svg" alt="Delete"> -->
                 </div>
               </div>
@@ -682,195 +682,6 @@
                   </div>
                 </div>
               </div>
-    
-              <!-- ===== EDIT MODE WRAPPER ===== -->
-    
-              <div id="DeveloperEditMode" style="display: none">
-                <!-- Vendor Form Paste Here -->
-                <div class="product-details-layout">
-                  <div class="left-column">
-                    <div class="upload-area main-upload" id="mainUpload">
-                      <div class="upload-content">
-                        <img src="../assets/vendorAddProduct/mainImageIcon.svg" alt="" />
-                        <p class="upload-text">
-                          Upload Product Cover Photo<br />or drag and drop
-                        </p>
-                      </div>
-                      <img class="preview-image" id="mainPreview" alt="Preview" />
-                      <div class="img-menu-wrapper">
-                        <div class="img-menu-dot">
-                          <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                        </div>
-    
-                        <div class="img-menu-dropdown">
-                          <div class="img-menu-upload">Upload</div>
-                          <div class="img-menu-download">Download</div>
-                        </div>
-                      </div>
-    
-                      <input type="file" id="mainFileInput" accept="image/*" />
-                    </div>
-    
-                    <p class="image-info-text">
-                      * You need to add at least 4 images. Pay attention to the
-                      quality of the pictures you add, comply with the background
-                      color standards. Pictures must be in certain dimensions.
-                      Notice that the product shows all the details
-                    </p>
-    
-                    <div id="imageError" class="error-text" style="display: none"></div>
-    
-                    <div class="upload-grid">
-                      <div class="upload-box" data-upload-index="0">
-                        <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="" />
-                        <span class="upload-box-text">Upload</span>
-                        <img class="preview-image" alt="Preview" />
-                        <div class="img-menu-wrapper">
-                          <div class="img-menu-dot">
-                            <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                          </div>
-    
-                          <div class="img-menu-dropdown">
-                            <div class="img-menu-upload">Upload</div>
-                            <div class="img-menu-download">Download</div>
-                          </div>
-                        </div>
-    
-                        <input type="file" accept="image/*" />
-                      </div>
-                      <div class="upload-box" data-upload-index="1">
-                        <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="" />
-                        <span class="upload-box-text">Upload</span>
-                        <img class="preview-image" alt="Preview" />
-                        <div class="img-menu-wrapper">
-                          <div class="img-menu-dot">
-                            <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                          </div>
-    
-                          <div class="img-menu-dropdown">
-                            <div class="img-menu-upload">Upload</div>
-                            <div class="img-menu-download">Download</div>
-                          </div>
-                        </div>
-    
-                        <input type="file" accept="image/*" />
-                      </div>
-                      <div class="upload-box" data-upload-index="2">
-                        <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="" />
-                        <span class="upload-box-text">Upload</span>
-                        <img class="preview-image" alt="Preview" />
-                        <div class="img-menu-wrapper">
-                          <div class="img-menu-dot">
-                            <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                          </div>
-    
-                          <div class="img-menu-dropdown">
-                            <div class="img-menu-upload">Upload</div>
-                            <div class="img-menu-download">Download</div>
-                          </div>
-                        </div>
-    
-                        <input type="file" accept="image/*" />
-                      </div>
-                      <div class="upload-box" data-upload-index="3">
-                        <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="" />
-                        <span class="upload-box-text">Upload</span>
-                        <img class="preview-image" alt="Preview" />
-                        <div class="img-menu-wrapper">
-                          <div class="img-menu-dot">
-                            <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                          </div>
-    
-                          <div class="img-menu-dropdown">
-                            <div class="img-menu-upload">Upload</div>
-                            <div class="img-menu-download">Download</div>
-                          </div>
-                        </div>
-    
-                        <input type="file" accept="image/*" />
-                      </div>
-                      <div class="upload-box" data-upload-index="4">
-                        <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="" />
-                        <span class="upload-box-text">Upload</span>
-                        <img class="preview-image" alt="Preview" />
-                        <div class="img-menu-wrapper">
-                          <div class="img-menu-dot">
-                            <img src="../assets/vendorAddProduct/3dot.svg" alt="" />
-                          </div>
-    
-                          <div class="img-menu-dropdown">
-                            <div class="img-menu-upload">Upload</div>
-                            <div class="img-menu-download">Download</div>
-                          </div>
-                        </div>
-    
-                        <input type="file" accept="image/*" />
-                      </div>
-                    </div>
-                  </div>
-    
-                  <div class="right-column">
-                    <div class="form-group">
-                      <label class="form-label">Product Name <span class="required">*</span></label>
-                      <input type="text" class="form-input" id="productName" placeholder="Handmade Embroidery Shoe" />
-                    </div>
-    
-                    <div class="form-group" style="margin-top: 16px">
-                      <label class="form-label">Product Description
-                        <span class="required">*</span></label>
-                      <textarea class="form-textarea" id="productDescription"
-                        placeholder="Enter product description"></textarea>
-                      <div class="char-counter">
-                        <span id="charCount">0</span>/1000
-                      </div>
-                    </div>
-    
-                    <div class="form-grid">
-                      <!-- LEVEL 1 -->
-                      <div class="form-group" id="lvl1Wrap">
-                        <label class="form-label">Main Category <span class="required">*</span></label>
-                        <select class="form-select" id="categoryLevel1">
-                          <option value="">Select Main Category</option>
-                        </select>
-                      </div>
-    
-                      <!-- LEVEL 2 -->
-                      <div class="form-group" id="lvl2Wrap">
-                        <label class="form-label">Category <span class="required">*</span></label>
-                        <select class="form-select" id="categoryLevel2" disabled>
-                          <option value="">Select Category</option>
-                        </select>
-                      </div>
-    
-                      <!-- LEVEL 3 -->
-                      <div class="form-group" id="lvl3Wrap">
-                        <label class="form-label">Sub Category <span class="required">*</span></label>
-                        <select class="form-select" id="categoryLevel3" disabled>
-                          <option value="">Select Sub Category</option>
-                        </select>
-                      </div>
-    
-                      <!-- LEVEL 4 -->
-                      <div class="form-group" id="lvl4Wrap">
-                        <label class="form-label">Sub Sub Category <span class="required">*</span></label>
-                        <select class="form-select" id="categoryLevel4" disabled>
-                          <option value="">Select Sub Sub Category</option>
-                        </select>
-                      </div>
-                    </div>
-    
-                    <div id="dynamicFields"></div>
-                    <div class="dev-save-row">
-                      <button type="button" id="DEV_SAVE_BTN" class="save-preview-btn">
-                        Save
-                      </button>
-                    </div>
-    
-                  </div>
-    
-                </div>
-    
-              </div>
             </div>
     
     
@@ -888,19 +699,15 @@
           </div>
         </div>
     
-        <!-- REMOVE CONFIRMATION MODAL -->
-        <div class="DPOConfirmOverlay" id="DPOremoveModal">
-          <div class="DPOConfirmModal">
-            <button class="DPOCloseBtn" id="DPOcloseRemoveModal">×</button>
-    
-            <p class="DPOConfirmText" id="DPOConfirmText"></p>
-    
-            <div class="DPOConfirmActions">
-              <button class="DPOYesBtn" id="DPOremoveYes">Yes</button>
-              <button class="DPONoBtn" id="DPOremoveNo">No</button>
-            </div>
-          </div>
-        </div>
+        <div id="successOverlay" class="success-overlay hidden">
+  <div class="success-box">
+    <div class="success-icon">✓</div>
+    <p class="success-text">
+      The Product details Verified & sent to<br />
+      Administration
+    </p>
+  </div>
+</div>
       </div>
     </div>
 
