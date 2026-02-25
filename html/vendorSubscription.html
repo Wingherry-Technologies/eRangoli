@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscriptions</title>
+  <link rel="stylesheet" href="../css/vendorSubscriptions.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+</head>
+<body>
+
+  <!-- =====================
+       BACK LINK
+  ===================== -->
+  <a class="VS-back-link" href="#">
+    <img src="../assets/vednorSubscriptions/Vector (7).svg" alt="">
+    Back to search
+  </a>
+
+  <!-- =====================
+       HERO HEADER
+       Layer order: img (z:0) → overlay div (z:1) → title div (z:2)
+  ===================== -->
+  <div class="VS-hero">
+    <img
+      class="VS-hero-img"
+      src="../assets/vednorSubscriptions/image 9.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class="VS-hero-overlay"></div>
+    <div class="VS-hero-title-wrap">
+        <img src="../assets/vednorSubscriptions/Vector (7).svg" alt="" class="mobile-tabBack">
+      <h1 class="VS-hero-title">Subscriptions</h1>
+    </div>
+  </div>
+
+  <!-- =====================
+       CARDS GRID
+  ===================== -->
+  <div class="VS-grid" id="VS-cards-wrapper">
+
+    <!-- ===========================
+         FREE CARD
+    =========================== -->
+    <div class="VS-card" data-plan="Free">
+      <!-- Layer 1: background image -->
+      <img
+        class="VS-card-img"
+        src="../assets/vednorSubscriptions/image 9.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <!-- Layer 2: colour overlay -->
+      <div class="VS-card-overlay"></div>
+      <!-- Layer 3: content -->
+      <div class="VS-card-content">
+
+        <h2 class="VS-plan-title">Free</h2>
+
+        <div class="VS-pricing">
+          <span class="VS-price">
+            <span class="VS-price-symbol">₹</span>
+            <span>0</span>
+            <span class="VS-price-period">/month</span>
+          </span>
+        </div>
+
+        <p class="VS-platform-fee">10% Platform Fee *</p>
+
+        <button class="VS-btn" id="buyNowFreeBtn" data-plan="Free">Try Now</button>
+        <p class="VS-btn-note">No credit card required</p>
+
+        <ul class="VS-features">
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum dolor sit ametn</strong></span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item VS-feature-item--disabled">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/wrong.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item VS-feature-item--disabled">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/wrong.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item VS-feature-item--disabled">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/wrong.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- ===========================
+         PREMIUM CARD (highlighted)
+    =========================== -->
+    <div class="VS-card VS-card--premium" data-plan="Premium">
+      <img
+        class="VS-card-img"
+        src="../assets/vednorSubscriptions/image 9.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="VS-card-overlay"></div>
+      <div class="VS-card-content">
+
+        <h2 class="VS-plan-title">Premium</h2>
+
+        <div class="VS-pricing">
+          <span class="VS-price">
+            <span class="VS-price-symbol">₹</span>
+            <span>600</span>
+            <span class="VS-price-period">/month</span>
+          </span>
+        </div>
+
+        <p class="VS-platform-fee">0% Platform Fee *</p>
+
+        <button class="VS-btn" data-plan="Premium">Buy Now</button>
+        <p class="VS-btn-note">No credit card required</p>
+
+        <ul class="VS-features">
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum dolor sit ametn</strong></span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum dolor sit ametn</strong></span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- ===========================
+         ENTERPRISE CARD
+    =========================== -->
+    <div class="VS-card" data-plan="Enterprise">
+      <img
+        class="VS-card-img"
+        src="../assets/vednorSubscriptions/image 9.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="VS-card-overlay"></div>
+      <div class="VS-card-content">
+
+        <h2 class="VS-plan-title">Enterprise</h2>
+
+        <div class="VS-pricing">
+          <span class="VS-price">
+            <span class="VS-price-symbol">₹</span>
+            <span>1399</span>
+            <span class="VS-price-period">/6month</span>
+          </span>
+        </div>
+
+        <p class="VS-platform-fee">10% Platform Fee *</p>
+
+        <button class="VS-btn" data-plan="Enterprise">Buy Now</button>
+        <p class="VS-btn-note">No credit card required</p>
+
+        <ul class="VS-features">
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum dolor sit ametn</strong></span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span>Lorem ipsum dolor sit ametn</span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum dolor sit ametn</strong></span>
+          </li>
+          <li class="VS-feature-item">
+                <img class="VS-icon" src="../assets/vednorSubscriptions/right.svg" alt="">
+            <span><strong>Lorem ipsum</strong> dolor sit ametn</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+
+<script src="../javascript/vednorSubscriptions.js"></script>
+
+</body>
+</html>
