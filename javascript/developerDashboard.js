@@ -226,10 +226,6 @@ function updateOrders(type) {
   orderChart.update();
 }
 
-// =============================
-// TOP PRODUCTS DROPDOWN
-// =============================
-
 const tpDropdown = document.getElementById("DD-tpDropdown");
 const tpMenu = tpDropdown.querySelector(".DD-dash-dropdown-menu");
 const tpLabel = tpDropdown.querySelector("span");
