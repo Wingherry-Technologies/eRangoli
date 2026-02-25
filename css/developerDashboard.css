@@ -7,9 +7,13 @@
   font-family: "Nunito Sans";
 }
 
-.DD-wrapper {
-  padding: 20px;
+body {
   background: #ebeef3;
+}
+
+.DD-wrapper{
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Stats Cards Row */

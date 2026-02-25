@@ -98,7 +98,7 @@ signupBtn.addEventListener("click", function (e) {
 
   if (userFound) {
     // ✅ success
-    window.location.href = "../html/admindashboard.html";
+    window.location.href = "../html/developerDashboard.html";
   } else {
     // ❌ invalid login
     passwordError.textContent = "Username or password not found";
