@@ -12,6 +12,7 @@ body {
 .container {
   margin: 0 auto;
   background-color: #ffffff;
+  padding-bottom: 40px;
 }
 
 .header {
