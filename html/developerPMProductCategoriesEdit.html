@@ -3,203 +3,866 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Category</title>
+<title>PM-Edit Category</title>
+<link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
 <link rel="stylesheet" href="../css/developerPMProductCategoriesEdit.css">
+<link rel="stylesheet" href="../css/developerSidebarNavbar.css">
 </head>
 <body>
 
+    <nav>
+      <div class="logo-section">
+        <img
+          id="desktop-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2.svg"
+          alt=""
+        />
+        <img
+          id="mobile-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2-1.svg"
+          alt=""
+          style="z-index: 99999 !important"
+        />
+        <ul id="desktop-suggestions" class="suggestions-box"></ul>
+      </div>
 
-<!-- HEADER-->
-<header class="CE-header">
-  <button class="CE-back-btn" title="Go back">
-    <img src="../assets/developerCategoriesEdit/Group 2055248596.svg" alt="">
-  </button>
-  <span class="CE-header-title">Create New User</span>
-</header>
+      <!-- HAMBURGER (Mobile Only) -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <img src="../assets/master/List.svg" alt="" />
+      </div>
 
-<!-- MAIN-->
-<main class="CE-main">
-  <div class="CE-card">
-
-    <div class="CE-card-header">
-      <span class="CE-card-title">Create New Category</span>
-      <button class="CE-add-btn">Add</button>
-    </div>
-
-    <div class="CE-sections" id="CE-sections-container">
-      <div class="CE-section" id="CE-section-1" data-section-id="1">
-
-        <!-- ─── Level 0: Category ─── -->
-        <div class="CE-level" id="CE-lvl-1-0" data-level="0" data-field-name="category_name" data-required="true">
-          <div class="CE-field">
-            <label class="CE-label" for="CE-input-1-0">
-              <div class="CE-level-actions">
-                <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-0">
-                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
-                </button>
-                <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-0">
-
-                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
-                </button>
-              </div>
-              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
-              Category Name <span class="CE-required">*</span>
-            </label>
-            <!-- ▼ VALUE HERE — backend reads this input's value -->
-            <input class="CE-input" id="CE-input-1-0" name="category_name" type="text"
-              value="Women" readonly data-required="true">
-            <div class="CE-error" id="CE-err-1-0">This field is required.</div>
-          </div>
-          <div class="CE-field">
-            <div class="CE-upload-label">Upload Category Icon</div>
-<div class="CE-upload-box" id="CE-box-1-0" data-file="CE-file-1-0" data-level="CE-lvl-1-0">
-
-              <!-- ▼ IMAGE SRC HERE — backend reads this img src -->
-              <img class="CE-img-preview" id="CE-preview-1-0"
-                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
-                alt="Category Icon" data-img-name="category_icon">
-              <div class="CE-upload-placeholder" style="display:none">
-                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
-                <span>Upload</span>
-              </div>
-              <button class="CE-remove-img" title="Remove">✕</button>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <div class="welcome-main-section" id="welcome-section">
+          <div class="image-section">
+            <div class="circle-image">
+              <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="" />
             </div>
-            <input type="file" class="CE-file-input" id="CE-file-1-0">
-
+          </div>
+          <div class="welcome-text-section">
+            <span>Welcome !</span>
+            <a id="welcome-name">Sanskriti Collection</a>
           </div>
         </div>
 
-        <!-- ─── Level 1: Sub-Category ─── -->
-        <div class="CE-level" id="CE-lvl-1-1" data-level="1" data-field-name="sub_category_name" data-required="true">
-          <div class="CE-field">
-            <label class="CE-label" for="CE-input-1-1">
-              <div class="CE-level-actions">
-                <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-1">
+        <div class="main-bottom-section">
+          <div class="sub-section">
+            <ul class="mobile-nav-menu1" id="account-menu">
+              <!-- DASHBOARD -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerDashboard.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                    </div>
+                    <span>Dashboard</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
 
-                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
-                </button>
-                    <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-1" title="Delete">
-                    <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
-                </button>
-              </div>
-              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
-              Sub - Category Name <span class="CE-required">*</span>
-            </label>
-            <!-- ▼ VALUE HERE -->
-            <input class="CE-input" id="CE-input-1-1" name="sub_category_name" type="text"
-              value="Handloom" readonly data-required="true">
-            <div class="CE-error" id="CE-err-1-1">This field is required.</div>
-          </div>
-          <div class="CE-field">
-            <div class="CE-upload-label">Upload Sub -Category Icon</div>
-<div class="CE-upload-box" id="CE-box-1-1" data-file="CE-file-1-1" data-level="CE-lvl-1-1">
-              <!-- ▼ IMAGE SRC HERE -->
-              <img class="CE-img-preview" id="CE-preview-1-1"
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80"
-                alt="Sub-Category Icon" data-img-name="sub_category_icon">
-              <div class="CE-upload-placeholder" style="display:none">
-                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
-                <span>Upload</span>
-              </div>
-              <button class="CE-remove-img" title="Remove">✕</button>
-            </div>
-<input type="file" class="CE-file-input" id="CE-file-1-1">
+              <!-- PRODUCT MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                    </div>
+                    <span>Product Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerPMRecentlyAddedList.html'
+                    "
+                  >
+                    Products Recently Added
+                  </li>
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerPMProductCategories.html'
+                    "
+                  >
+                    Product Categories
+                  </li>
+                </ul>
+              </li>
 
+              <!-- ORDER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText.svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Vendor Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerVMVendorVerfication.html'
+                    "
+                  >
+                    Vendor Verification
+                  </li>
+                </ul>
+              </li>
+
+              <!-- HOME PAGE MANAGEMENT -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerHMDashboard.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText (1).svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Home Page Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- My Profile -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerMyProfile.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/UserCircle.svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>My Profile</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- ─── Level 2: Sub-Sub-Category ─── -->
-        <!-- FIX: id="CE-lvl-1-2" added -->
-        <div class="CE-level" id="CE-lvl-1-2" data-level="2" data-field-name="sub_sub_category_name" data-required="false">
-          <div class="CE-field">
-            <label class="CE-label" for="CE-input-1-2">
-              <div class="CE-level-actions">
-<button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-2">
-
-                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
-                </button>
-                <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-2">
-                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
-                </button>
-              </div>
-              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
-              Sub -Sub- Category Name (if applicable)
-            </label>
-            <!-- ▼ VALUE HERE -->
-            <input class="CE-input" id="CE-input-1-2" name="sub_sub_category_name" type="text"
-              value="Pure Silk" readonly>
-          </div>
-          <div class="CE-field">
-            <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
-<div class="CE-upload-box" id="CE-box-1-2" data-file="CE-file-1-2" data-level="CE-lvl-1-2">
-              <!-- ▼ IMAGE SRC HERE -->
-              <img class="CE-img-preview" id="CE-preview-1-2"
-                src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=200&q=80"
-                alt="Sub-Sub-Category Icon" data-img-name="sub_sub_category_icon">
-              <div class="CE-upload-placeholder" style="display:none">
-                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
-                <span>Upload</span>
-              </div>
-              <button class="CE-remove-img" title="Remove">✕</button>
+        <div class="mobile-logout-section">
+          <div class="mobile-logout-sub">
+            <div class="version">
+              <span>eRangoli Version 1.0.0</span>
             </div>
-<input type="file" class="CE-file-input" id="CE-file-1-2">
-
+            <div class="logout-button">
+              <img src="../assets/master/SignOut.svg" alt="" />
+              <span>Logout</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- ─── Level 3: Sub-Sub-Sub-Category ─── -->
-        <!-- FIX: id="CE-lvl-1-3" added -->
-        <div class="CE-level" id="CE-lvl-1-3" data-level="3" data-field-name="sub_sub_sub_category_name" data-required="false">
-          <div class="CE-field">
-            <label class="CE-label" for="CE-input-1-3">
-              <div class="CE-level-actions">
-<button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-3">
-
-                  <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
-                </button>
-<button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-3" title="Delete">
-                  <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
-                </button>
-              </div>
-              <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
-              Sub -Sub- sub Category Name (if applicable)
-            </label>
-            <!-- ▼ VALUE HERE -->
-            <input class="CE-input" id="CE-input-1-3" name="sub_sub_sub_category_name" type="text"
-              value="Banarasi Silk" readonly>
-          </div>
-          <div class="CE-field">
-            <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
-<div class="CE-upload-box" id="CE-box-1-3" data-file="CE-file-1-3" data-level="CE-lvl-1-3">
-              <!-- ▼ IMAGE SRC HERE -->
-              <img class="CE-img-preview" id="CE-preview-1-3"
-                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
-                alt="Sub-Sub-Sub-Category Icon" data-img-name="sub_sub_sub_category_icon">
-              <div class="CE-upload-placeholder" style="display:none">
-                <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
-                <span>Upload</span>
-              </div>
-              <button class="CE-remove-img" title="Remove">✕</button>
-            </div>
-<input type="file" class="CE-file-input" id="CE-file-1-3">
-
-          </div>
+      <!-- MENU -->
+      <div class="menu-section">
+        <div class="round-button" id="round-button-notification">
+          <span class="number-of-round" id="number-of-notification">3</span>
+          <img src="../assets/master/Bell.svg" alt="" />
         </div>
 
+        <div class="round-button" id="round-button-order">
+          <span class="number-of-round" id="number-of-cart">4</span>
+          <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+        </div>
+
+        <div class="user-profile-icon" id="user-profile-icon">
+          <div class="img-name">
+            <div class="circle-image">
+              <img src="../assets/adminSidebar/Group 2055248221.svg" alt="" />
+            </div>
+            <div class="admin-name">
+              <span id="user-name">Kristin Winget</span>
+              <span id="role-name">Admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notification-main-box">
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="notification-main-box" id="notification-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img
+            id="notification-cross"
+            src="../assets/vendorSidebar/X.svg"
+            alt=""
+          />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div class="CE-save-wrap">
-      <button class="CE-save-btn">Save</button>
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
 
-  </div>
-</main>
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+        <span class="bottom-nav__label">Dashboard</span>
+      </a>
+
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Orders</span>
+      </a>
+
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="" />
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+
+      <a
+        href="#"
+        class="bottom-nav__item1"
+        id="bottom-nav-cart"
+        onclick="window.location.href = '../html/adminMyProfile.html'"
+      >
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
+        <span class="bottom-nav__label">My Profile</span>
+      </a>
+    </div>
+
+    <!-- Sidebar -->
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+      <article>
+        <div class="welcome-sidebar-main">
+          <div class="welcome-sidebar">
+            <span>Welcome!</span>
+            <span>Administration</span>
+          </div>
+          <div class="hamberger-sidebar" id="sidebarToggle">
+            <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="" />
+            <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="" />
+          </div>
+        </div>
+
+        <ul>
+          <!-- Dashboard -->
+          <li
+            class="has-submenu"
+            onclick="window.location.href = '../html/developerDashboard.html'"
+          >
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+              <span>Dashboard</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+
+          <!-- Product Management -->
+          <li class="has-submenu" data-menu="product">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Package.svg" alt="" />
+              <span>Product Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="product">
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerPMRecentlyAddedList.html'
+              "
+            >
+              Products Recently Added
+            </li>
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerPMProductCategories.html'
+              "
+            >
+              Product Categories
+            </li>
+          </ul>
+
+          <!-- Vendor Management -->
+          <li class="has-submenu" data-menu="vendor">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+              <span>Vendor Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="vendor">
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerVMVendorVerfication.html'
+              "
+            >
+              Vendor Verification
+            </li>
+          </ul>
+
+          <!-- Home Page  Management -->
+          <li
+            class="has-submenu"
+            onclick="window.location.href = '../html/developerHMDashboard.html'"
+          >
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+              <span>Homepage Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+        </ul>
+      </article>
+    </section>
 
 
+    <div class="main-content-beyond">
+      <!-- HEADER-->
+       <div class="mobile-back-button">
+          <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
+          <span>Edit Product Category</span>
+        </div>
+      <header class="CE-header">
+        <button class="CE-back-btn" title="Go back" onclick="window.history.back()">
+          <img src="../assets/developerCategoriesEdit/Group 2055248596.svg" alt="">
+        </button>
+        <span class="CE-header-title">Edit Product Category</span>
+      </header>
 
+      <!-- MAIN-->
+      <main class="CE-main">
+        <div class="CE-card">
+
+          <div class="CE-card-header">
+            <span class="CE-card-title">Create New Category</span>
+            <button class="CE-add-btn">Add</button>
+          </div>
+
+          <div class="CE-sections" id="CE-sections-container">
+            <div class="CE-section" id="CE-section-1" data-section-id="1">
+
+              <!-- ─── Level 0: Category ─── -->
+              <div class="CE-level" id="CE-lvl-1-0" data-level="0" data-field-name="category_name" data-required="true">
+                <div class="CE-field">
+                  <label class="CE-label" for="CE-input-1-0">
+                    <div class="CE-level-actions">
+                      <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-0">
+                        <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                      </button>
+                      <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-0">
+
+                        <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                      </button>
+                    </div>
+                    <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+                    Category Name <span class="CE-required">*</span>
+                  </label>
+                  <!-- ▼ VALUE HERE — backend reads this input's value -->
+                  <input class="CE-input" id="CE-input-1-0" name="category_name" type="text"
+                    value="Women" readonly data-required="true">
+                  <div class="CE-error" id="CE-err-1-0">This field is required.</div>
+                </div>
+                <div class="CE-field">
+                  <div class="CE-upload-label">Upload Category Icon</div>
+      <div class="CE-upload-box" id="CE-box-1-0" data-file="CE-file-1-0" data-level="CE-lvl-1-0">
+
+                    <!-- ▼ IMAGE SRC HERE — backend reads this img src -->
+                    <img class="CE-img-preview" id="CE-preview-1-0"
+                      src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
+                      alt="Category Icon" data-img-name="category_icon">
+                    <div class="CE-upload-placeholder" style="display:none">
+                      <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                      <span>Upload</span>
+                    </div>
+                    <button class="CE-remove-img" title="Remove">✕</button>
+                  </div>
+                  <input type="file" class="CE-file-input" id="CE-file-1-0">
+
+                </div>
+              </div>
+
+              <!-- ─── Level 1: Sub-Category ─── -->
+              <div class="CE-level" id="CE-lvl-1-1" data-level="1" data-field-name="sub_category_name" data-required="true">
+                <div class="CE-field">
+                  <label class="CE-label" for="CE-input-1-1">
+                    <div class="CE-level-actions">
+                      <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-1">
+
+                        <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                      </button>
+                          <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-1" title="Delete">
+                          <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                      </button>
+                    </div>
+                    <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+                    Sub - Category Name <span class="CE-required">*</span>
+                  </label>
+                  <!-- ▼ VALUE HERE -->
+                  <input class="CE-input" id="CE-input-1-1" name="sub_category_name" type="text"
+                    value="Handloom" readonly data-required="true">
+                  <div class="CE-error" id="CE-err-1-1">This field is required.</div>
+                </div>
+                <div class="CE-field">
+                  <div class="CE-upload-label">Upload Sub -Category Icon</div>
+      <div class="CE-upload-box" id="CE-box-1-1" data-file="CE-file-1-1" data-level="CE-lvl-1-1">
+                    <!-- ▼ IMAGE SRC HERE -->
+                    <img class="CE-img-preview" id="CE-preview-1-1"
+                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80"
+                      alt="Sub-Category Icon" data-img-name="sub_category_icon">
+                    <div class="CE-upload-placeholder" style="display:none">
+                      <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                      <span>Upload</span>
+                    </div>
+                    <button class="CE-remove-img" title="Remove">✕</button>
+                  </div>
+      <input type="file" class="CE-file-input" id="CE-file-1-1">
+
+                </div>
+              </div>
+
+              <!-- ─── Level 2: Sub-Sub-Category ─── -->
+              <!-- FIX: id="CE-lvl-1-2" added -->
+              <div class="CE-level" id="CE-lvl-1-2" data-level="2" data-field-name="sub_sub_category_name" data-required="false">
+                <div class="CE-field">
+                  <label class="CE-label" for="CE-input-1-2">
+                    <div class="CE-level-actions">
+      <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-2">
+
+                        <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                      </button>
+                      <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-2">
+                        <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                      </button>
+                    </div>
+                    <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+                    Sub -Sub- Category Name (if applicable)
+                  </label>
+                  <!-- ▼ VALUE HERE -->
+                  <input class="CE-input" id="CE-input-1-2" name="sub_sub_category_name" type="text"
+                    value="Pure Silk" readonly>
+                </div>
+                <div class="CE-field">
+                  <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
+      <div class="CE-upload-box" id="CE-box-1-2" data-file="CE-file-1-2" data-level="CE-lvl-1-2">
+                    <!-- ▼ IMAGE SRC HERE -->
+                    <img class="CE-img-preview" id="CE-preview-1-2"
+                      src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=200&q=80"
+                      alt="Sub-Sub-Category Icon" data-img-name="sub_sub_category_icon">
+                    <div class="CE-upload-placeholder" style="display:none">
+                      <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                      <span>Upload</span>
+                    </div>
+                    <button class="CE-remove-img" title="Remove">✕</button>
+                  </div>
+      <input type="file" class="CE-file-input" id="CE-file-1-2">
+
+                </div>
+              </div>
+
+              <!-- ─── Level 3: Sub-Sub-Sub-Category ─── -->
+              <!-- FIX: id="CE-lvl-1-3" added -->
+              <div class="CE-level" id="CE-lvl-1-3" data-level="3" data-field-name="sub_sub_sub_category_name" data-required="false">
+                <div class="CE-field">
+                  <label class="CE-label" for="CE-input-1-3">
+                    <div class="CE-level-actions">
+      <button class="CE-icon-btn CE-edit-btn" data-id="CE-lvl-1-3">
+
+                        <img src="../assets/developerCategoriesEdit/PencilSimple (4).svg" alt="">
+                      </button>
+      <button class="CE-icon-btn CE-delete-btn" data-id="CE-lvl-1-3" title="Delete">
+                        <img src="../assets/developerCategoriesEdit/TrashSimple (1).svg" alt="">
+                      </button>
+                    </div>
+                    <span class="CE-label-pencil"><img src="../assets/developerCategoriesEdit/Notches (1).svg" alt=""></span>
+                    Sub -Sub- sub Category Name (if applicable)
+                  </label>
+                  <!-- ▼ VALUE HERE -->
+                  <input class="CE-input" id="CE-input-1-3" name="sub_sub_sub_category_name" type="text"
+                    value="Banarasi Silk" readonly>
+                </div>
+                <div class="CE-field">
+                  <div class="CE-upload-label">Upload Sub -SubCategory Icon</div>
+      <div class="CE-upload-box" id="CE-box-1-3" data-file="CE-file-1-3" data-level="CE-lvl-1-3">
+                    <!-- ▼ IMAGE SRC HERE -->
+                    <img class="CE-img-preview" id="CE-preview-1-3"
+                      src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200&q=80"
+                      alt="Sub-Sub-Sub-Category Icon" data-img-name="sub_sub_sub_category_icon">
+                    <div class="CE-upload-placeholder" style="display:none">
+                      <img src="../assets/developerCategoriesEdit/Vector (6).svg" alt="">
+                      <span>Upload</span>
+                    </div>
+                    <button class="CE-remove-img" title="Remove">✕</button>
+                  </div>
+      <input type="file" class="CE-file-input" id="CE-file-1-3">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="CE-save-wrap">
+            <button class="CE-save-btn">Save</button>
+          </div>
+
+        </div>
+      </main>
+    </div>
 
 <!-- JAVASCRIPT -->
 <script src="../javascript/developerPMProductCategoriesEdit.js"></script>
+<script src="../javascript/developerSidebarnavbar.js"></script>
 </body>
 </html>

@@ -8,9 +8,10 @@
 }
 
 .DPMCNC-create-category-screen {
-  padding: 20px;
   background: #ffffff;
-  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .DPMCNC-create-header {
@@ -216,5 +217,11 @@
     align-items: center;
     justify-content: center;
     width: 25px;
+  }
+  #DPMCNC-backToList{
+    display: none;
+  }
+  .DPMCNC-create-header h3{
+    display: none;
   }
 }

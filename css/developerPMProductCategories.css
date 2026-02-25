@@ -266,7 +266,7 @@ tbody td {
   .DPMPC-floating-plus-btn {
     display: flex;
     position: fixed;
-    bottom: 16px;
+    bottom: 75px;
     right: 16px;
     width: 44px;
     height: 44px;

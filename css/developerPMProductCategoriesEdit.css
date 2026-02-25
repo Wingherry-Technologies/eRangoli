@@ -6,20 +6,22 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, sans-serif;
-  background: #f0f2f5;
-  min-height: 100vh;
-  color: #333;
 }
 
 /* ── Header ── */
 .CE-header {
   background: #fff;
-  padding: 14px 20px;
   display: flex;
   align-items: center;
   gap: 5px;
   top: 0;
   z-index: 100;
+  padding-bottom: 10px;
+}
+@media (max-width:595px) {
+  .CE-header{
+    display: none;
+  }
 }
 .CE-back-btn {
   background: none;
@@ -40,7 +42,7 @@ body {
   height: 20px;
 }
 .CE-header-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   color: #3F3F3F;
 }
