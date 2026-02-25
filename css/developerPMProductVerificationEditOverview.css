@@ -49,7 +49,7 @@ body {
 }
 
 .save-preview-btn {
-  background-color: #21a593;
+  background-color: #1e4cff;
   color: #ffffff;
   border: none;
   padding: 10px 24px;
@@ -61,7 +61,7 @@ body {
 }
 
 .save-preview-btn:hover {
-  background-color: #138f75;
+  background-color: #0125b6;
 }
 
 .section {
@@ -218,10 +218,10 @@ body {
   justify-content: center;
 }
 
-.upload-area img {
+/* .upload-area img {
   width: 65px;
   height: 65px;
-}
+} */
 /* 
         .upload-area:hover {
             border-color: #16a085;
@@ -247,7 +247,7 @@ body {
 .preview-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: none;
 }
 
@@ -255,7 +255,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit:contain;
+  object-fit:cover;
 }
 
 .upload-area.has-image .upload-content {
@@ -311,7 +311,7 @@ body {
 .upload-box .preview-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: none;
 }
 
@@ -1017,4 +1017,9 @@ input[type="file"] {
     opacity: 1;
     transform: scale(1);
   }
+}
+.savebuttonpart{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
 }
