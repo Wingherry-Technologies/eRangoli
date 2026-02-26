@@ -12,7 +12,9 @@ body {
 }
 
 .DHMTC-page-wrapper {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .DHMTC-page-header {
@@ -316,7 +318,7 @@ body {
 /* ERROR POPUP */
 .DHMTC-error-popup {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   background: #f7e4e4;
@@ -359,6 +361,7 @@ body {
 }
 
 @media (max-width: 595px) {
+
   .DHMTC-page-wrapper {
     display: none;
   }
@@ -399,7 +402,7 @@ body {
     color: #716b6b;
     font-weight: 400;
     justify-content: flex-end;
-    margin-top: -13px;
+    margin-top: 0px;
     margin-bottom: 10px;
     font-size: 12px;
   }
@@ -415,6 +418,9 @@ body {
     color: #3f3f3f;
     padding: 20px;
     margin-top: 15px;
+  }
+  .DHMTC-popup-header{
+    display: none;
   }
 }
 
