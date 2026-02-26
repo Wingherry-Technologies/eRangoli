@@ -1,36 +1,3 @@
-// Navigation Bar Interaction
-// HAMBURGER OPEN/CLOSE
-const hamburger = document.querySelector(".hamburger-menu");
-var mobileMenu = document.getElementById("mobile-menu");
-var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
-var mobileBack=document.querySelector(".mobile-back-button");
-
-
-hamburger?.addEventListener("click", () => {
-  mobileMenu.classList.toggle("menu-open");
-  // Toggle hamburger icon
-  if (mobileMenu.classList.contains("menu-open")) {
-    hamberMenuIcon.src = "../assets/master/X.svg";
-    document.querySelector(".bottom-nav").style.display="none"
-    document.querySelector("body").style.overflow="hidden"
-    window.scrollTo(0, 0);
-    mobileBack.style.display="none"
-  }
-  else {
-    hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector("body").style.overflow="auto";
-    document.querySelector(".bottom-nav").style.display="flex";
-    mobileBack.style.display="flex"
-  }
-});
-
-document.querySelectorAll(".faq-question").forEach((button) => {
-  // har button pe click listener lagao
-  button.addEventListener("click", () => {
-    const faqItem = button.closest(".faq-item"); // parent item lo
-    faqItem.classList.toggle("active"); // open / close toggle
-  });
-});
 function DHMHStoggleDropdown(id) {
   const all = document.querySelectorAll(".DHMHStile-dropdown");
   all.forEach((dropdown) => {
@@ -67,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const viewSubText = document.getElementById("DHMHSviewSubText");
   const viewCta = document.getElementById("DHMHSviewCta");
 
+  // DELETE EXISTING IMAGES
   const deleteButtons = document.querySelectorAll(
     ".DHMHStile-dropdown .DHMHSdelete",
   );
@@ -74,14 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
   deleteButtons.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
-
       const tileWrapper = btn.closest(".DHMHSimg-tile-wrapper");
       if (tileWrapper) {
         tileWrapper.remove();
       }
     });
   });
-
   if (!viewHeading.textContent.trim()) {
     viewHeading.textContent = headingInput.placeholder;
   }
@@ -94,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     viewCta.textContent = ctaInput.placeholder;
   }
 
+  // EDIT BUTTON
   editBtn.addEventListener("click", function () {
     editMode.style.display = "block";
     viewMode.style.display = "none";
@@ -114,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       viewCta.textContent === ctaInput.placeholder ? "" : viewCta.textContent;
   });
 
+  //VALIDATIONS
   function validateTextField(input, message) {
     const errorSpan = input.nextElementSibling;
     const value = input.value.trim();
@@ -200,10 +168,157 @@ document.addEventListener("DOMContentLoaded", function () {
 
   restrictTextInput(headingInput);
   restrictTextInput(subTextInput);
+
+  const addTile = document.getElementById("DHMHSaddTile");
+  const imageInput = document.getElementById("DHMHSimageInput");
+  const imageGrid = document.querySelector(".DHMHSimage-grid");
+
+  // MINIMUM 3 MEDIA VALIDATION
+
+  const heroPublishBtn = document.querySelector(
+    ".DHMHSimages-card .DHMHSpublish-btn",
+  );
+  const minPopup = document.getElementById("DHMSS-minCategoryPopup");
+  const closeMinPopup = document.getElementById("DHMSS-closeMinPopup");
+
+  if (heroPublishBtn) {
+    heroPublishBtn.addEventListener("click", function () {
+      const mediaTiles = document.querySelectorAll(
+        ".DHMHSimg-tile-wrapper .DHMHSimg-tile",
+      );
+
+      if (mediaTiles.length < 3) {
+        minPopup.style.display = "flex";
+        return;
+      }
+
+      // If valid
+      alert("Hero media published successfully!");
+    });
+  }
+
+  // Close popup
+  if (closeMinPopup) {
+    closeMinPopup.addEventListener("click", function () {
+      minPopup.style.display = "none";
+    });
+  }
+
+  if (addTile && imageInput && imageGrid) {
+    addTile.addEventListener("click", function () {
+      imageInput.click();
+    });
+
+    imageInput.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) {
+        imageInput.value = "";
+        return;
+      }
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "DHMHSimg-tile-wrapper";
+
+        const uniqueId = Date.now();
+        const tileId = "DHMHStile" + uniqueId;
+        const dropdownId = "DHMHSdd" + uniqueId;
+
+        let mediaElement = "";
+
+        if (file.type.startsWith("image/")) {
+          mediaElement = `<img src="${event.target.result}" alt="Hero Media" />`;
+        } else if (file.type.startsWith("video/")) {
+          mediaElement = `
+      <video controls>
+        <source src="${event.target.result}" type="${file.type}">
+        Your browser does not support the video tag.
+      </video>
+    `;
+        }
+
+        wrapper.innerHTML = `
+    <div class="DHMHSimg-tile" id="${tileId}">
+      ${mediaElement}
+      <span class="DHMHStile-menu-btn"
+            onclick="DHMHStoggleDropdown('${dropdownId}')">
+        <img src="../assets/developerHMHeroSection/3dot.svg" />
+      </span>
+      <div class="DHMHStile-dropdown" id="${dropdownId}">
+        <button class="DHMHSdelete">Delete</button>
+      </div>
+    </div>
+  `;
+
+        wrapper
+          .querySelector(".DHMHSdelete")
+          .addEventListener("click", function (e) {
+            e.stopPropagation();
+            wrapper.remove();
+          });
+
+        imageGrid.insertBefore(wrapper, addTile.parentElement);
+        imageInput.value = "";
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+  const existingInput = document.getElementById("DHMHSexistingMediaInput");
+  let currentTile = null;
+
+  const existingUploadButtons = document.querySelectorAll(
+    ".DHMHStile-dropdown button:not(.DHMHSdelete)",
+  );
+
+  existingUploadButtons.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      currentTile = btn.closest(".DHMHSimg-tile");
+
+      if (currentTile) {
+        existingInput.click();
+      }
+    });
+  });
+
+  existingInput.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (!file || !currentTile) return;
+
+    if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) {
+      alert("Only image or video files allowed");
+      existingInput.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      const oldMedia = currentTile.querySelector("img, video");
+      if (oldMedia) oldMedia.remove();
+
+      let newMedia;
+
+      if (file.type.startsWith("image/")) {
+        newMedia = document.createElement("img");
+        newMedia.src = event.target.result;
+        newMedia.alt = "Hero Media";
+      } else {
+        newMedia = document.createElement("video");
+        newMedia.controls = true;
+        newMedia.src = event.target.result;
+      }
+
+      currentTile.insertBefore(newMedia, currentTile.firstChild);
+
+      existingInput.value = "";
+    };
+
+    reader.readAsDataURL(file);
+  });
 });
-
-document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)").classList.add("sidebar-active");
-
-
-document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
-

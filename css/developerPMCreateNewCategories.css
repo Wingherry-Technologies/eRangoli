@@ -53,10 +53,6 @@
   color: #3f3f3f;
 }
 
-.DPMCNC-upload-container-res {
-  display: none;
-}
-
 .DPMCNC-create-form input {
   width: 100%;
   padding: 10px;
@@ -166,62 +162,17 @@
     justify-content: center;
     width: 30px;
   }
-  .DPMCNC-upload-container {
-    display: none;
-  }
-
-  .DPMCNC-upload-container-res {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .DPMCNC-upload-title-res {
-    font-size: 14px;
-    font-weight: 600;
-    color: #3f3f3f;
-    margin: 14px 0 6px;
-  }
 }
 
 @media (max-width: 595px) {
-  .DPMCNC-upload-container {
+  #DPMCNC-backToList {
     display: none;
   }
-
-  .DPMCNC-upload-container-res {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .DPMCNC-upload-title-res {
-    font-size: 14px;
-    font-weight: 600;
-    color: #3f3f3f;
-    margin: 14px 0 6px;
-  }
-  .DPMCNC-upload-box-res {
-    width: 120px;
-    height: 120px;
-    background: #00000033;
-    border: 1.5px solid #00000033;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .DPMCNC-upload-box-res img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-  }
-  #DPMCNC-backToList{
+  .DPMCNC-create-header h3 {
     display: none;
   }
-  .DPMCNC-create-header h3{
-    display: none;
+  .DPMCNC-upload-box {
+    width: 100px;
+    height: 100px;
   }
 }

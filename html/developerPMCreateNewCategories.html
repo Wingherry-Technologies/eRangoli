@@ -10,10 +10,10 @@
       href="../assets/master/eRangoli 2-1.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/developerSidebarNavbar.css">
+    <link rel="stylesheet" href="../css/developerSidebarNavbar.css" />
   </head>
   <body>
-        <nav>
+    <nav>
       <div class="logo-section">
         <img
           id="desktop-erangoli-logo"
@@ -669,101 +669,106 @@
         </ul>
       </article>
     </section>
-    
+
     <div class="main-content-beyond">
       <!-- CREATE CATEGORY SCREEN -->
-    <div class="DPMCNC-create-category-screen" id="DPMCNC-createCategoryScreen">
-      <div class="DPMCNC-create-header">
-        <div class="mobile-back-button">
-            <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="">
+      <div
+        class="DPMCNC-create-category-screen"
+        id="DPMCNC-createCategoryScreen"
+      >
+        <div class="DPMCNC-create-header">
+          <div class="mobile-back-button">
+            <img
+              onclick="window.history.back()"
+              src="../assets/adminProductOverview/Vector (2).svg"
+              alt=""
+            />
             <span>Create New Category</span>
+          </div>
+          <span class="DPMCNC-back-btn" id="DPMCNC-backToList"
+            ><img src="../assets/adminProductCategories/back.svg"
+          /></span>
+          <h3>Create New Category</h3>
         </div>
-        <span class="DPMCNC-back-btn" id="DPMCNC-backToList"
-          ><img src="../assets/adminProductCategories/back.svg"
-        /></span>
-        <h3>Create New Category</h3>
-      </div>
-      <div class="DPMCNC-card-title">Create New Category</div>
+        <div class="DPMCNC-card-title">Create New Category</div>
 
-      <div class="DPMCNC-create-category-layout">
-        <!-- LEFT SIDE FORM -->
-        <div class="DPMCNC-create-form">
-          <label>Category Name *</label>
-          <input type="text" id="DPMCNC-categoryName" placeholder="Handloom" />
-          <div class="DPMCNC-error" id="DPMCNC-categorynameError"></div>
-          <div class="DPMCNC-upload-container">
-            <p class="DPMCNC-upload-title">Upload Category Icon</p>
+        <div class="DPMCNC-create-category-layout">
+          <!-- LEFT SIDE FORM -->
+          <div class="DPMCNC-create-form">
+            <label>Category Name *</label>
+            <input
+              type="text"
+              id="DPMCNC-categoryName"
+              placeholder="Handloom"
+            />
+            <div class="DPMCNC-error" id="DPMCNC-categorynameError"></div>
+            <div class="DPMCNC-upload-container">
+              <p class="DPMCNC-upload-title">Upload Category Icon</p>
 
-            <label class="DPMCNC-upload-box">
-              <input type="file" hidden />
-              <img
-                src="../assets/adminProductCategories/upload.svg"
-                alt="upload"
-              />
-            </label>
-            <div class="DPMCNC-error DPMCNC-imageError"></div>
+              <label class="DPMCNC-upload-box">
+                <input type="file" hidden />
+                <img
+                  src="../assets/adminProductCategories/upload.svg"
+                  alt="upload"
+                />
+              </label>
+              <div class="DPMCNC-error DPMCNC-imageError"></div>
+            </div>
+
+            <label>Sub - Category Name *</label>
+            <input
+              type="text"
+              id="DPMCNC-subCategoryName"
+              placeholder="Saree"
+            />
+            <div class="DPMCNC-error" id="DPMCNC-subcategorynameError"></div>
+            <div class="DPMCNC-upload-container">
+              <p class="DPMCNC-upload-title">Upload Sub-Category Icon</p>
+
+              <label class="DPMCNC-upload-box">
+                <input type="file" hidden />
+                <img
+                  src="../assets/adminProductCategories/upload.svg"
+                  alt="upload"
+                />
+              </label>
+              <div class="DPMCNC-error DPMCNC-imageError"></div>
+            </div>
+
+            <label>Sub - Sub- Category Name (if applicable)</label>
+            <input type="text" placeholder="Enter Name" />
+            <div class="DPMCNC-upload-container">
+              <p class="DPMCNC-upload-title">Upload Sub-Sub Category Icon</p>
+
+              <label class="DPMCNC-upload-box">
+                <input type="file" hidden />
+                <img
+                  src="../assets/adminProductCategories/upload.svg"
+                  alt="upload"
+                />
+              </label>
+            </div>
+
+            <label>Sub-Sub-Sub Category Name (if applicable)</label>
+            <input type="text" placeholder="Enter Name" />
+            <div class="DPMCNC-upload-container">
+              <p class="DPMCNC-upload-title">
+                Upload Sub-Sub-Sub Category Icon
+              </p>
+
+              <label class="DPMCNC-upload-box">
+                <input type="file" hidden />
+                <img
+                  src="../assets/adminProductCategories/upload.svg"
+                  alt="upload"
+                />
+              </label>
+            </div>
+
+            <button type="button" class="DPMCNC-create-submit">Create</button>
           </div>
-
-          <label>Sub - Category Name *</label>
-          <input type="text" id="DPMCNC-subCategoryName" placeholder="Saree" />
-          <div class="DPMCNC-error" id="DPMCNC-subcategorynameError"></div>
-          <div class="DPMCNC-upload-container">
-            <p class="DPMCNC-upload-title">Upload Sub-Category Icon</p>
-
-            <label class="DPMCNC-upload-box">
-              <input type="file" hidden />
-              <img
-                src="../assets/adminProductCategories/upload.svg"
-                alt="upload"
-              />
-            </label>
-            <div class="DPMCNC-error DPMCNC-imageError"></div>
-          </div>
-
-          <label>Sub - Sub- Category Name (if applicable)</label>
-          <input type="text" placeholder="Enter Name" />
-          <div class="DPMCNC-upload-container">
-            <p class="DPMCNC-upload-title">Upload Sub-Sub Category Icon</p>
-
-            <label class="DPMCNC-upload-box">
-              <input type="file" hidden />
-              <img
-                src="../assets/adminProductCategories/upload.svg"
-                alt="upload"
-              />
-            </label>
-          </div>
-
-          <label>Sub-Sub-Sub Category Name (if applicable)</label>
-          <input type="text" placeholder="Enter Name" />
-          <div class="DPMCNC-upload-container">
-            <p class="DPMCNC-upload-title">Upload Sub-Sub-Sub Category Icon</p>
-
-            <label class="DPMCNC-upload-box">
-              <input type="file" hidden />
-              <img
-                src="../assets/adminProductCategories/upload.svg"
-                alt="upload"
-              />
-            </label>
-          </div>
-
-          <div class="DPMCNC-upload-container-res">
-            <p class="DPMCNC-upload-title-res">Upload Category Icon</p>
-
-            <label class="DPMCNC-upload-box-res">
-              <input type="file" hidden />
-              <img
-                src="../assets/adminProductCategories/upload.svg"
-                alt="upload"
-              />
-            </label>
-          </div>
-
-          <button type="button" class="DPMCNC-create-submit">Create</button>
         </div>
       </div>
-    </div>
     </div>
     <script src="../javascript/developerSidebarnavbar.js"></script>
     <script src="../javascript/developerPMCreateNewCategories.js"></script>

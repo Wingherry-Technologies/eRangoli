@@ -73,3 +73,43 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileCountElement.textContent = faqItems.length + " Products";
   }
 });
+
+// DELETE ROW (TABLE)
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("DHMEP-delete-icon")) {
+    const row = e.target.closest("tr");
+    if (row) {
+      row.remove();
+      updateProductCount();
+    }
+  }
+});
+
+// DELETE FAQ ITEM (MOBILE)
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("DHMEP-delete-icon")) {
+    const faqItem = e.target.closest(".DHMEP-faq-item");
+    if (faqItem) {
+      faqItem.remove();
+      updateProductCount();
+    }
+  }
+});
+
+function updateProductCount() {
+  const tableRows = document.querySelectorAll(".DHMEP-brand-table tbody tr");
+  const countElement = document.querySelector(".DHMEP-count");
+
+  if (countElement) {
+    countElement.textContent = tableRows.length + " Products";
+  }
+
+  const faqItems = document.querySelectorAll(
+    ".DHMEP-MobileFAQ .DHMEP-faq-item",
+  );
+  const mobileCountElement = document.querySelector(".DHMEP-brandCount-mob");
+
+  if (mobileCountElement) {
+    mobileCountElement.textContent = faqItems.length + " Products";
+  }
+}

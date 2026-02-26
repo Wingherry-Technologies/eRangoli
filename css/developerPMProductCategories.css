@@ -215,6 +215,10 @@ tbody td {
 .edit-page-navigation-btn {
   cursor: pointer;
 }
+#edit-icon {
+  width: 20px;
+  height: 20px;
+}
 
 /* Responsive */
 
@@ -353,5 +357,4 @@ tbody td {
   padding: 8px 28px;
   border-radius: 8px;
   border: none;
-  cursor: pointer;
 }
