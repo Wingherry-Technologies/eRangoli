@@ -4,7 +4,40 @@ const DHMTC_closePopup = document.getElementById("DHMTC-closePopup");
 const DHMTC_pageWrapper = document.querySelector(".DHMTC-page-wrapper");
 const DHMTC_page_header_mob = document.querySelector(".DHMTC-page-header-mob");
 
+const DHMTC_uploadBox = document.getElementById("DHMTC-uploadBox");
+const DHMTC_mediaInput = document.getElementById("DHMTC-mediaInput");
+const DHMTC_uploadContent = document.getElementById("DHMTC-uploadContent");
+
+const DHMTC_minCategoryPopup = document.getElementById(
+  "DHMTC-minCategoryPopup",
+);
+const DHMTC_closeMinPopup = document.getElementById("DHMTC-closeMinPopup");
+
+const DHMTC_categoryCountEl = document.getElementById("DHMTC-categoryCount");
+const DHMTC_publishBtn = document.getElementById("DHMTC-publishCategory");
+const DHMTC_categoryGrid = document.querySelector(".DHMTC-category-grid");
+const DHMTC_categoryName = document.getElementById("DHMTC-categoryName");
+const DHMTC_ctaLink = document.getElementById("DHMTC-ctaLink");
+
+const DHMTC_imageError = document.getElementById("DHMTC-imageError");
+const DHMTC_categoryError = document.getElementById("DHMTC-categoryError");
+const DHMTC_linkError = document.getElementById("DHMTC-linkError");
+
+const DHMTC_deleteBtn = document.querySelector(".DHMTC-btn-outline");
+
+let previewImage = null;
+
+function resetUploadBox() {
+  DHMTC_mediaInput.value = "";
+  if (previewImage) {
+    previewImage.remove();
+    previewImage = null;
+  }
+  DHMTC_uploadContent.style.display = "flex";
+}
+
 DHMTC_addCard.addEventListener("click", () => {
+  resetUploadBox();
   if (window.innerWidth <= 595) {
     DHMTC_pageWrapper.style.display = "none";
     DHMTC_popup.style.display = "block";
@@ -16,6 +49,7 @@ DHMTC_addCard.addEventListener("click", () => {
 
 DHMTC_closePopup.addEventListener("click", () => {
   DHMTC_popup.style.display = "none";
+  resetUploadBox();
   if (window.innerWidth <= 595) {
     DHMTC_pageWrapper.style.display = "block";
   }
@@ -24,46 +58,30 @@ DHMTC_closePopup.addEventListener("click", () => {
 DHMTC_popup.addEventListener("click", (e) => {
   if (e.target === DHMTC_popup && window.innerWidth > 595) {
     DHMTC_popup.style.display = "none";
+    resetUploadBox();
   }
 });
-
-const DHMTC_uploadBox = document.getElementById("DHMTC-uploadBox");
-const DHMTC_mediaInput = document.getElementById("DHMTC-mediaInput");
-const DHMTC_uploadContent = document.getElementById("DHMTC-uploadContent");
 
 DHMTC_uploadBox.addEventListener("click", () => {
   DHMTC_mediaInput.click();
 });
 
-DHMTC_uploadBox.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    DHMTC_mediaInput.click();
-  }
-});
-
 DHMTC_mediaInput.addEventListener("change", () => {
   const file = DHMTC_mediaInput.files[0];
   if (!file) return;
-
   if (!file.type.startsWith("image/")) {
     DHMTC_mediaInput.value = "";
     return;
   }
 
-  DHMTC_uploadBox.querySelectorAll("img").forEach((el) => el.remove());
+  if (previewImage) previewImage.remove();
 
-  const previewEl = document.createElement("img");
-  previewEl.src = URL.createObjectURL(file);
+  previewImage = document.createElement("img");
+  previewImage.src = URL.createObjectURL(file);
 
   DHMTC_uploadContent.style.display = "none";
-  DHMTC_uploadBox.appendChild(previewEl);
+  DHMTC_uploadBox.appendChild(previewImage);
 });
-
-const DHMTC_minCategoryPopup = document.getElementById(
-  "DHMTC-minCategoryPopup",
-);
-const DHMTC_closeMinPopup = document.getElementById("DHMTC-closeMinPopup");
 
 function showMinCategoryError() {
   DHMTC_minCategoryPopup.style.display = "flex";
@@ -78,7 +96,6 @@ DHMTC_closeMinPopup.addEventListener("click", () => {
 
 function bindToggleValidation() {
   const toggles = document.querySelectorAll(".DHMTC-switch input");
-
   toggles.forEach((toggle) => {
     toggle.onchange = function () {
       const activeCount = document.querySelectorAll(
@@ -94,23 +111,12 @@ function bindToggleValidation() {
 
 bindToggleValidation();
 
-const DHMTC_categoryCountEl = document.getElementById("DHMTC-categoryCount");
-
 function updateCategoryCount() {
   const totalCategories = document.querySelectorAll(
     ".DHMTC-category-card",
   ).length;
   DHMTC_categoryCountEl.innerText = `${totalCategories} categories`;
 }
-
-const DHMTC_publishBtn = document.getElementById("DHMTC-publishCategory");
-const DHMTC_categoryGrid = document.querySelector(".DHMTC-category-grid");
-const DHMTC_categoryName = document.getElementById("DHMTC-categoryName");
-const DHMTC_ctaLink = document.getElementById("DHMTC-ctaLink");
-
-const DHMTC_imageError = document.getElementById("DHMTC-imageError");
-const DHMTC_categoryError = document.getElementById("DHMTC-categoryError");
-const DHMTC_linkError = document.getElementById("DHMTC-linkError");
 
 DHMTC_publishBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -153,7 +159,6 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
         <img src="../assets/developerHMTopCattegories/edit.svg" />
       </span>
     </div>
-
     <div class="DHMTC-card-body">
       <div class="DHMTC-card-top">
         <div>
@@ -165,7 +170,6 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
           <span class="DHMTC-slider"></span>
         </label>
       </div>
-
       <span class="DHMTC-cta-title">CTA Link</span>
       <a href="${DHMTC_ctaLink.value}">${DHMTC_ctaLink.value}</a>
     </div>
@@ -184,18 +188,14 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
     DHMTC_pageWrapper.style.display = "block";
   }
 
-  DHMTC_mediaInput.value = "";
   DHMTC_categoryName.value = "";
   DHMTC_ctaLink.value = "";
-
-  DHMTC_uploadBox.querySelectorAll("img").forEach((el) => el.remove());
-  DHMTC_uploadContent.style.display = "flex";
+  resetUploadBox();
 });
-
-const DHMTC_deleteBtn = document.querySelector(".DHMTC-btn-outline");
 
 DHMTC_deleteBtn.addEventListener("click", () => {
   DHMTC_popup.style.display = "none";
+  resetUploadBox();
   if (window.innerWidth <= 595) {
     DHMTC_pageWrapper.style.display = "block";
     DHMTC_page_header_mob.style.display = "block";
