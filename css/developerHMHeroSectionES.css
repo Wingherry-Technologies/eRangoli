@@ -12,7 +12,8 @@ body {
 }
 
 .DHMHSEScontainer {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .DHMHSEScard {
@@ -233,8 +234,17 @@ body {
 }
 
 @media (max-width: 595px) {
+  body{
+    background: #fff;
+  }
+
   .DHMHSEScontainer {
     padding: 0px;
+    border-top: 1px solid #0F8DF3;
+  }
+  
+  .DHMHSEScard-header{
+    display:none;
   }
 
   .DHMHSEScard {

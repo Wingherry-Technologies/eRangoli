@@ -12,7 +12,8 @@ body {
 }
 
 .DHMFB-page-wrapper {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Header */
@@ -382,6 +383,7 @@ body {
   .DHMFB-card {
     display: none;
   }
+
   .DHMFB-MobileFAQ {
     display: block;
     background: white;
@@ -417,7 +419,7 @@ body {
     display: none;
   }
   .DHMFB-page-header-mob {
-    display: flex;
+    display: none;
     background: #ffffff;
     color: #3f3f3f;
     padding: 20px;

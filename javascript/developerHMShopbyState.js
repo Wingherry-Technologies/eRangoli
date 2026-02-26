@@ -1,3 +1,29 @@
+// Navigation Bar Interaction
+// HAMBURGER OPEN/CLOSE
+const hamburger = document.querySelector(".hamburger-menu");
+var mobileMenu = document.getElementById("mobile-menu");
+var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
+var mobileBack=document.querySelector(".mobile-back-button");
+
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("menu-open");
+  // Toggle hamburger icon
+  if (mobileMenu.classList.contains("menu-open")) {
+    hamberMenuIcon.src = "../assets/master/X.svg";
+    document.querySelector(".bottom-nav").style.display="none"
+    document.querySelector("body").style.overflow="hidden"
+    window.scrollTo(0, 0);
+    mobileBack.style.display="none"
+  }
+  else {
+    hamberMenuIcon.src = "../assets/master/List.svg";
+    document.querySelector("body").style.overflow="auto";
+    document.querySelector(".bottom-nav").style.display="flex";
+    mobileBack.style.display="flex"
+  }
+});
+
 const addCard = document.querySelector(".DHMSS-add-card");
 const popup = document.getElementById("DHMSS-addCategoryPopup");
 const closePopup = document.getElementById("DHMSS-closePopup");
@@ -210,3 +236,9 @@ function handleResponsiveState() {
 
 window.addEventListener("load", handleResponsiveState);
 window.addEventListener("resize", handleResponsiveState);
+
+document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)").classList.add("sidebar-active");
+
+
+document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
+

@@ -11,9 +11,11 @@ body {
   background: #ebeef3;
 }
 
-.page-wrapper {
-  padding: 20px;
+.page-wrapper{
+  height: 100%;
+  overflow-y: auto;
 }
+
 
 .card {
   background: #ffffff;

@@ -12,7 +12,6 @@ body {
 .ADVOBdContainer {
   height: 100%;
   overflow-y: auto;
-  margin: 20px;
 }
 
 /* Header */
@@ -588,5 +587,8 @@ body {
   .ADVOFaAdminButtons {
     display: flex;
     flex-direction: column-reverse;
+  }
+  .ADVOBdHeader{
+    display: none;
   }
 }

@@ -12,7 +12,9 @@ body {
 }
 
 .DHMSS-page-wrapper {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .DHMSS-page-header {
@@ -381,12 +383,14 @@ body {
 @media (max-width: 595px) {
   .DHMSS-popup-overlay {
     position: fixed;
+    top: 75px !important;
     inset: 0;
     background: #ffffff;
     display: none;
     z-index: 999;
     align-items: flex-start;
     justify-content: flex-start;
+    height: 100%;
   }
 
   .DHMSS-popup-box {
@@ -394,6 +398,9 @@ body {
     min-height: 100vh;
     border-radius: 0;
     padding: 16px;
+  }
+  .DHMSS-popup-header{
+    display: none;
   }
 
   .DHMSS-popup-actions {

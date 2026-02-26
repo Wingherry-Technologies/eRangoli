@@ -11,9 +11,11 @@ body {
   background: #ebeef3;
 }
 
-.DHMHSpage-wrapper {
-  padding: 20px;
+.DHMHSpage-wrapper{
+  height: 100%;
+  overflow-y: auto;
 }
+
 
 .DHMHScard {
   background: #fff;
@@ -285,8 +287,15 @@ body {
 }
 
 @media (max-width: 595px) {
+  body {
+    background: #fff;
+  }
   .DHMHSimage-grid {
     grid-template-columns: 1fr;
+  }
+  .DHMHScontent{
+    border-top: 1px solid #0F8DF3;
+    padding-top: 20px;
   }
 
   .DHMHSimg-tile,
@@ -310,5 +319,8 @@ body {
   }
   .DHMHSform-group label {
     margin-top: 10px;
+  }
+  .DHMHScard-header{
+    display: none;
   }
 }
