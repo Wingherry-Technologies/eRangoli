@@ -399,7 +399,7 @@ body {
     border-radius: 0;
     padding: 16px;
   }
-  .DHMSS-popup-header{
+  .DHMSS-popup-header {
     display: none;
   }
 
@@ -441,4 +441,9 @@ body {
     padding: 20px;
     margin-top: 15px;
   }
+}
+
+.DHMSS-upload-content {
+  display: flex;
+  flex-direction: column;
 }

@@ -7,7 +7,6 @@ var mobileBack = document.querySelector(".mobile-back-button");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
-  // Toggle hamburger icon
   if (mobileMenu.classList.contains("menu-open")) {
     hamberMenuIcon.src = "../assets/master/X.svg";
     document.querySelector(".bottom-nav").style.display = "none";
@@ -49,6 +48,11 @@ const DHMTC_linkError = document.getElementById("DHMTC-linkError");
 
 const DHMTC_deleteBtn = document.querySelector(".DHMTC-btn-outline");
 
+const DHMTC_cancelBtn = document.getElementById("DHMTC-cancelBtn");
+
+let isEditMode = false;
+let currentEditCard = null;
+
 let previewImage = null;
 
 function resetUploadBox() {
@@ -61,7 +65,19 @@ function resetUploadBox() {
 }
 
 DHMTC_addCard.addEventListener("click", () => {
+  isEditMode = false;
+  currentEditCard = null;
+
+  document.querySelector(".DHMTC-popup-header h3").innerText =
+    "Add New Category";
+
+  DHMTC_cancelBtn.style.display = "inline-block";
+  DHMTC_cancelBtn.innerText = "Cancel";
+
   resetUploadBox();
+  DHMTC_categoryName.value = "";
+  DHMTC_ctaLink.value = "";
+
   if (window.innerWidth <= 595) {
     DHMTC_pageWrapper.style.display = "none";
     DHMTC_popup.style.display = "block";
@@ -142,6 +158,46 @@ function updateCategoryCount() {
   DHMTC_categoryCountEl.innerText = `${totalCategories} categories`;
 }
 
+function bindEditButtons() {
+  DHMTC_categoryGrid.addEventListener("click", (e) => {
+    const btn = e.target.closest(".DHMTC-edit-btn");
+    if (!btn) return;
+
+    isEditMode = true;
+    currentEditCard = btn.closest(".DHMTC-category-card");
+
+    document.querySelector(".DHMTC-popup-header h3").innerText =
+      "Edit Category";
+
+    DHMTC_cancelBtn.style.display = "inline-block";
+    DHMTC_cancelBtn.innerText = "Delete";
+
+    const imgSrc = currentEditCard.querySelector(".DHMTC-image-wrap img").src;
+    const categoryName = currentEditCard.querySelector("p").innerText;
+    const cta = currentEditCard.querySelector("a").innerText;
+
+    DHMTC_categoryName.value = categoryName;
+    DHMTC_ctaLink.value = cta;
+
+    if (previewImage) previewImage.remove();
+    previewImage = document.createElement("img");
+    previewImage.src = imgSrc;
+    DHMTC_uploadContent.style.display = "none";
+    DHMTC_uploadBox.appendChild(previewImage);
+
+    if (window.innerWidth <= 595) {
+      DHMTC_pageWrapper.style.display = "none";
+      DHMTC_popup.style.display = "block";
+      document.querySelector(".mobile-back-button h3").innerText =
+        "Edit Category";
+    } else {
+      DHMTC_popup.style.display = "flex";
+    }
+  });
+}
+
+bindEditButtons();
+
 DHMTC_publishBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -149,62 +205,75 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
   DHMTC_categoryError.innerText = "";
   DHMTC_linkError.innerText = "";
 
-  let hasError = false;
   const file = DHMTC_mediaInput.files[0];
+  const categoryName = DHMTC_categoryName.value.trim();
+  const ctaLink = DHMTC_ctaLink.value.trim();
 
-  if (!file) {
+  let hasError = false;
+
+  if (!isEditMode && !file) {
     DHMTC_imageError.innerText = "Cover image is required";
     hasError = true;
   }
 
-  if (!DHMTC_categoryName.value.trim()) {
+  if (!categoryName) {
     DHMTC_categoryError.innerText = "Category is required";
     hasError = true;
   }
 
-  if (!DHMTC_ctaLink.value.trim()) {
+  if (!ctaLink) {
     DHMTC_linkError.innerText = "CTA link is required";
     hasError = true;
   }
 
   if (hasError) return;
 
-  const card = document.createElement("div");
-  card.className = "DHMTC-category-card";
+  if (isEditMode && currentEditCard) {
+    currentEditCard.querySelector("p").innerText = categoryName;
+    currentEditCard.querySelector("a").innerText = ctaLink;
+    currentEditCard.querySelector("a").href = ctaLink;
 
-  const mediaURL = URL.createObjectURL(file);
-  const totalCategories =
-    document.querySelectorAll(".DHMTC-category-card").length + 1;
+    if (file) {
+      const mediaURL = URL.createObjectURL(file);
+      currentEditCard.querySelector(".DHMTC-image-wrap img").src = mediaURL;
+    }
+  } else {
+    const card = document.createElement("div");
+    card.className = "DHMTC-category-card";
 
-  card.innerHTML = `
-    <div class="DHMTC-image-wrap">
-      <img src="${mediaURL}" />
-      <span class="DHMTC-edit-btn">
-        <img src="../assets/developerHMTopCattegories/edit.svg" />
-      </span>
-    </div>
-    <div class="DHMTC-card-body">
-      <div class="DHMTC-card-top">
-        <div>
-          <h4>Category ${totalCategories}</h4>
-          <p>${DHMTC_categoryName.value}</p>
-        </div>
-        <label class="DHMTC-switch">
-          <input type="checkbox" checked />
-          <span class="DHMTC-slider"></span>
-        </label>
+    const mediaURL = URL.createObjectURL(file);
+    const totalCategories =
+      document.querySelectorAll(".DHMTC-category-card").length + 1;
+
+    card.innerHTML = `
+      <div class="DHMTC-image-wrap">
+        <img src="${mediaURL}" />
+        <span class="DHMTC-edit-btn">
+          <img src="../assets/developerHMTopCattegories/edit.svg" />
+        </span>
       </div>
-      <span class="DHMTC-cta-title">CTA Link</span>
-      <a href="${DHMTC_ctaLink.value}">${DHMTC_ctaLink.value}</a>
-    </div>
-  `;
+      <div class="DHMTC-card-body">
+        <div class="DHMTC-card-top">
+          <div>
+            <h4>Category ${totalCategories}</h4>
+            <p>${categoryName}</p>
+          </div>
+          <label class="DHMTC-switch">
+            <input type="checkbox" checked />
+            <span class="DHMTC-slider"></span>
+          </label>
+        </div>
+        <span class="DHMTC-cta-title">CTA Link</span>
+        <a href="${ctaLink}">${ctaLink}</a>
+      </div>
+    `;
 
-  const DHMTC_addCardEl = document.querySelector(".DHMTC-add-card");
-  DHMTC_categoryGrid.insertBefore(card, DHMTC_addCardEl);
-  DHMTC_categoryGrid.appendChild(DHMTC_addCardEl);
+    const DHMTC_addCardEl = document.querySelector(".DHMTC-add-card");
+    DHMTC_categoryGrid.insertBefore(card, DHMTC_addCardEl);
 
-  updateCategoryCount();
-  bindToggleValidation();
+    bindToggleValidation();
+    updateCategoryCount();
+  }
 
   DHMTC_popup.style.display = "none";
 
@@ -217,14 +286,28 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
   DHMTC_categoryName.value = "";
   DHMTC_ctaLink.value = "";
   resetUploadBox();
+
+  isEditMode = false;
+  currentEditCard = null;
 });
 
-DHMTC_deleteBtn.addEventListener("click", () => {
+DHMTC_cancelBtn.addEventListener("click", () => {
+  if (isEditMode && currentEditCard) {
+    currentEditCard.remove();
+    updateCategoryCount();
+  }
+
   DHMTC_popup.style.display = "none";
   resetUploadBox();
+
   if (window.innerWidth <= 595) {
     DHMTC_pageWrapper.style.display = "block";
+    document.querySelector(".mobile-back-button h3").innerText =
+      "Top Categories";
   }
+
+  isEditMode = false;
+  currentEditCard = null;
 });
 
 function DHMTC_handleResponsiveState() {

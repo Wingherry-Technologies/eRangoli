@@ -146,7 +146,13 @@
       </div>
 
       <div class="DHMFOsection2-wrapper">
-        <h3 class="DHMFOsection2-title">Section 2 - Offer details</h3>
+        <div class="DHMFOp-title">
+          <h3 class="DHMFOsection2-title">Section 2 - Offer details</h3>
+          <img
+            src="../assets/developerHMFestiveOffers/edit.svg"
+            class="section2-edit"
+          />
+        </div>
 
         <div class="DHMFOsection2-body">
           <div class="DHMFOform-group">
@@ -154,9 +160,9 @@
 
             <div class="DHMFOcover-image">
               <img src="../assets/developerHMFestiveOffers/cover-img.png" />
-              <div class="DHMFOedit-icon">
+              <!-- <div class="DHMFOedit-icon">
                 <img src="../assets/developerHMFestiveOffers/edit-1.svg" />
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -178,6 +184,47 @@
           <div class="DHMFOform-group">
             <label>Coupon Code</label>
             <p>FIRST500</p>
+          </div>
+        </div>
+        <!-- SECTION 2 EDIT FORM -->
+        <div
+          class="DHMFOES-section-2 DHMFOES-section-2-edit"
+          style="display: none"
+        >
+          <div class="DHMFOES-section-2-form-group">
+            <label>Upload Cover Image</label>
+
+            <div class="DHMFOcover-image" id="editUploadBox2">
+              <img id="editImagePreview2" />
+              <input type="file" id="editCoverImage2" accept="image/*" hidden />
+            </div>
+          </div>
+
+          <div class="DHMFOES-section-2-form-group">
+            <label>Discount Amount</label>
+            <input type="text" id="editDiscountAmount" />
+          </div>
+
+          <div class="DHMFOES-section-2-form-group">
+            <label>Enter the condition</label>
+            <input type="text" id="editConditionField" />
+          </div>
+
+          <div class="DHMFOES-section-2-form-group">
+            <label>Enter the Sub-condition (if applicable)</label>
+            <input type="text" id="editSubConditionField" />
+          </div>
+
+          <div class="DHMFOES-section-2-form-group">
+            <label>Enter Coupon Code</label>
+            <input type="text" id="editCouponCode" />
+          </div>
+
+          <div class="DHMFOES-btn-group">
+            <button class="DHMFOES-publishBtn" id="editSaveBtn">Save</button>
+            <button class="DHMFOES-delete-btn" id="editCancelBtn">
+              Cancel
+            </button>
           </div>
         </div>
       </div>

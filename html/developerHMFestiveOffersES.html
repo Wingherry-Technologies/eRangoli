@@ -101,6 +101,7 @@
       <div class="DHMFOES-card DHMFOES-card-2">
         <div class="DHMFOES-section DHMFOES-section-2">
           <h4>Section 2 - Offer details</h4>
+
           <div class="DHMFOES-section-2-form-group">
             <label>Upload Cover Image</label>
             <div
@@ -122,27 +123,102 @@
               <img id="DHMFOES-imagePreview2" class="DHMFOES-preview-img" />
             </div>
             <small class="DHMFOES-error" id="DHMFOES-imageError2"></small>
-            <span class="DHMFOES-upload-note">
-              Recommended size : 1920px 1080px
-            </span>
           </div>
+
           <div class="DHMFOES-section-2-form-group">
             <label>Discount Amount</label>
-            <input type="text" placeholder="500" />
+            <input type="text" id="discountAmount" placeholder="500" />
+            <small class="DHMFOES-error" id="discountError"></small>
           </div>
+
           <div class="DHMFOES-section-2-form-group">
             <label>Enter the condition</label>
-            <input type="text" placeholder="On order above 2499" />
+            <input
+              type="text"
+              id="conditionField"
+              placeholder="On order above 2499"
+            />
+            <small class="DHMFOES-error" id="conditionError"></small>
           </div>
+
           <div class="DHMFOES-section-2-form-group">
             <label>Enter the Sub-condition (if applicable)</label>
-            <input type="text" placeholder="Only for First time users" />
+            <input
+              type="text"
+              id="subConditionField"
+              placeholder="Only for First time users"
+            />
           </div>
+
           <div class="DHMFOES-section-2-form-group">
             <label>Enter Coupon Code</label>
-            <input type="text" placeholder="FIRST500" />
+            <input type="text" id="couponCode" placeholder="FIRST500" />
+            <small class="DHMFOES-error" id="couponError"></small>
           </div>
+
+          <button class="DHMFOES-publishBtn" id="section2PublishBtn">
+            Publish
+          </button>
         </div>
+      </div>
+    </div>
+    <!-- Popup Modal -->
+    <div class="DHMFOES-modal" id="DHMFOES-modal">
+      <div class="DHMFOES-modal-content">
+        <form id="DHMFOES-offerFormPopup">
+          <div class="DHMFOES-catalog-card">
+            <div class="DHMFOES-upload-box" id="popupUploadBox">
+              <input type="file" id="popupFileInput" accept="image/*" hidden />
+
+              <div class="DHMFOES-upload-content" id="popupUploadContent">
+                <div class="DHMFOES-upload-icon">
+                  <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+                </div>
+                <p>Upload Cover Image or drag & drop</p>
+                <span>Recommended size: 1920px 1080px</span>
+              </div>
+
+              <img id="popupPreview" class="DHMFOES-preview-img" />
+            </div>
+
+            <small class="DHMFOES-error" id="popupImageError"></small>
+
+            <div class="DHMFOES-innerbox">
+              <div class="DHMFOES-innerbox-form-group">
+                <label>Image Name</label>
+                <input
+                  type="text"
+                  id="popupImageName"
+                  placeholder="Wooden Toys"
+                />
+                <small class="DHMFOES-error" id="popupNameError"></small>
+              </div>
+
+              <div class="DHMFOES-innerbox-form-group">
+                <label>Enter CTA Link</label>
+                <input
+                  type="text"
+                  id="popupCtaLink"
+                  placeholder="https://example.com"
+                />
+                <small class="DHMFOES-error" id="popupLinkError"></small>
+              </div>
+
+              <div class="DHMFOES-btn-group">
+                <button type="submit" class="DHMFOES-publish-btn">
+                  Publish
+                </button>
+                <button
+                  type="button"
+                  class="DHMFOES-delete-btn"
+                  id="popupCancelBtn"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <script src="../javascript/developerHMFestiveOffersES.js"></script>
