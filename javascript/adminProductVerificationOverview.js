@@ -133,11 +133,28 @@ const rejectBtn = document.querySelector(".APVORejectButton");
 const approveBtn = document.querySelector(".APVOApproveButton");
 const sentBtnUI = document.querySelector(".APVOSentButton");
 const cancelBtn = document.querySelector(".APVOCancelButton");
+const verifyClose = document.getElementById("verifyClose");
+const rejectClose = document.getElementById("rejectClose");
+const approveClose = document.getElementById("approveClose");
 
 const rejectBox = document.getElementById("rejectBox");
 
 let rejectStep = 0;
 
+// VERIFY CLOSE
+verifyClose.addEventListener("click", () => {
+  verifyModal.classList.remove("active");
+});
+
+// REJECT CLOSE
+rejectClose.addEventListener("click", () => {
+  rejectModal.classList.remove("active");
+});
+
+// APPROVE CLOSE
+approveClose.addEventListener("click", () => {
+  approveModal.classList.remove("active");
+});
 approveNo.addEventListener("click", () => {
   approveModal.classList.remove("active");
 });
