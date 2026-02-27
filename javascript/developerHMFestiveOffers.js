@@ -186,4 +186,91 @@ document.addEventListener("DOMContentLoaded", function () {
     grid.insertBefore(newCard, addCard);
     closePopup();
   });
+
+  // SECTION 2 INLINE EDIT
+
+  const section2EditBtn = document.querySelector(".section2-edit");
+  const section2View = document.querySelector(".DHMFOsection2-body");
+  const section2Edit = document.querySelector(".DHMFOES-section-2-edit");
+
+  const editDiscount = document.getElementById("editDiscountAmount");
+  const editCondition = document.getElementById("editConditionField");
+  const editSubCondition = document.getElementById("editSubConditionField");
+  const editCoupon = document.getElementById("editCouponCode");
+
+  const editUploadBox = document.getElementById("editUploadBox2");
+  const editFileInput = document.getElementById("editCoverImage2");
+  const editPreview = document.getElementById("editImagePreview2");
+
+  const editSaveBtn = document.getElementById("editSaveBtn");
+  const editCancelBtn = document.getElementById("editCancelBtn");
+
+  if (section2EditBtn && section2View && section2Edit) {
+    //  OPEN EDIT MODE
+    section2EditBtn.addEventListener("click", function () {
+      const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
+      const viewImage = section2View.querySelector(".DHMFOcover-image img");
+
+      editDiscount.value = paragraphs[0]?.textContent.trim() || "";
+      editCondition.value = paragraphs[1]?.textContent.trim() || "";
+      editSubCondition.value = paragraphs[2]?.textContent.trim() || "";
+      editCoupon.value = paragraphs[3]?.textContent.trim() || "";
+
+      editPreview.src = viewImage?.src || "";
+      editPreview.style.display = "block";
+
+      section2View.style.display = "none";
+      section2Edit.style.display = "block";
+    });
+
+    // IMAGE REPLACE
+    if (editUploadBox && editFileInput) {
+      editUploadBox.addEventListener("click", function () {
+        editFileInput.click();
+      });
+
+      editFileInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          editPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    //  SAVE CHANGES
+    if (editSaveBtn) {
+      editSaveBtn.addEventListener("click", function () {
+        const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
+        const viewImage = section2View.querySelector(".DHMFOcover-image img");
+
+        // Update view mode values
+        if (paragraphs.length >= 4) {
+          paragraphs[0].textContent = editDiscount.value.trim();
+          paragraphs[1].textContent = editCondition.value.trim();
+          paragraphs[2].textContent = editSubCondition.value.trim();
+          paragraphs[3].textContent = editCoupon.value.trim();
+        }
+
+        // Update image
+        if (viewImage && editPreview.src) {
+          viewImage.src = editPreview.src;
+        }
+
+        section2Edit.style.display = "none";
+        section2View.style.display = "block";
+      });
+    }
+
+    //  CANCEL EDIT
+    if (editCancelBtn) {
+      editCancelBtn.addEventListener("click", function () {
+        section2Edit.style.display = "none";
+        section2View.style.display = "block";
+      });
+    }
+  }
 });

@@ -259,7 +259,8 @@ body {
   margin-bottom: 22px;
 }
 
-.DHMFOform-group label {
+.DHMFOform-group label,
+.DHMFOES-section-2-form-group label {
   display: block;
   font-size: 14px;
   font-weight: 700;
@@ -275,7 +276,7 @@ body {
 
 .DHMFOcover-image {
   position: relative;
-  max-width: 480px;
+  width: 530px;
   height: 180px;
   border-radius: 12px;
   overflow: hidden;
@@ -521,5 +522,106 @@ body {
     margin: 0 24px;
     font-size: 10px;
     font-weight: 400;
+  }
+}
+/* SECTION 2 INLINE EDIT MODE  */
+
+.DHMFOES-section-2,
+.DHMFOES-section-2-edit {
+  transition: all 0.3s ease;
+}
+
+.DHMFOES-section-2-edit {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.DHMFOES-section-2-edit .DHMFOES-section-2-form-group input {
+  width: 530px;
+  padding: 10px 12px;
+  border: none;
+  background: #ebf3f9;
+  color: #716b6b;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+
+.DHMFOES-section-2-form-group {
+  margin-bottom: 18px;
+}
+
+#editUploadBox2.preview-active {
+  padding: 0;
+}
+
+#editUploadContent2.hide {
+  display: none;
+}
+
+#editImagePreview2 {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  object-fit: cover;
+  display: none;
+}
+
+.DHMFOES-section-2-edit .DHMFOES-btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.DHMFOES-publishBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1f88e5;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.DHMFOES-delete-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #1f88e5;
+  background: transparent;
+  color: #1f88e5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.DHMFOES-btn-group {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  width: 530px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .DHMFOES-section-2-edit .DHMFOES-section-2-form-group input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 595px) {
+  .DHMFOES-section-2-edit {
+    padding: 15px;
+  }
+
+  .DHMFOES-section-2-edit .DHMFOES-section-2-form-group input,
+  #editUploadBox2 {
+    width: 100%;
+  }
+
+  .DHMFOES-section-2-edit .DHMFOES-btn-group {
+    flex-direction: column;
   }
 }

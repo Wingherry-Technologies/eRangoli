@@ -619,10 +619,20 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: #d9d9d9;
+  text-wrap: nowrap;
 }
-
+.er-copy a{
+  text-decoration: none;
+  color: #d9d9d9;
+  font-weight: 700;
+  padding-right: 10px;
+}
+.devpart{
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
 /* Subscribe box */
 .er-subscribe {
   display: flex;
@@ -765,6 +775,7 @@
 @media (max-width: 595px) {
   .er-footer {
     padding: 20px 25px;
+    padding-bottom: 70px;
   }
 
   .er-container {
