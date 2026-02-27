@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Selling Details</title>
+<link rel="stylesheet" href="../css/adminAddCompanyProfit.css">
+</head>
+<body>
+
+<div class="topbar">
+  <button class="back-btn"  aria-label="Go back">
+<img src="../assets/adminProductOverview/Vector (2).svg" alt="">
+  </button>
+  <span class="topbar-title">Product Selling Details</span>
+</div>
+
+<div class="page">
+        <div class="section-header">
+      <h2>Enter Product Selling Details</h2>
+    </div>
+  <div class="container">
+
+
+
+    <div class="form-body">
+      <form id="form" novalidate>
+
+        <div class="field">
+          <label for="vendorPrice">Vendor Selling Price *</label>
+          <div class="input-wrap">
+            <span class="rupee">₹</span>
+            <input type="text" id="vendorPrice" class="readonly with-rupee" value="1,299" readonly tabindex="-1">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="gst">Enter GST (%) <span class="star">*</span></label>
+          <div class="input-wrap">
+            <input type="number" id="gst" placeholder="e.g. 8" min="0" max="100" step="any" autocomplete="off">
+          </div>
+          <div class="error-text" id="gst-err">Please enter a valid number (0–100)</div>
+        </div>
+
+        <div class="field">
+          <label for="profit">Enter Campany profit (%)</label>
+          <div class="input-wrap">
+            <input type="number" id="profit" placeholder="e.g. 10" min="0" max="100" step="any" autocomplete="off">
+          </div>
+          <div class="error-text" id="profit-err">Please enter a valid number (0–100)</div>
+        </div>
+
+        <div class="field">
+          <label for="discount">Enter discount (%)</label>
+          <div class="input-wrap">
+            <input type="number" id="discount" placeholder="e.g. 25" min="0" max="100" step="any" autocomplete="off">
+          </div>
+          <div class="error-text" id="discount-err">Please enter a valid number (0–100)</div>
+        </div>
+
+        <div class="field">
+          <label for="sellingPrice">Company Product Selling Price</label>
+          <div class="input-wrap">
+            <span class="rupee">₹</span>
+            <input type="text" id="sellingPrice" class="readonly with-rupee" value="1,299" readonly tabindex="-1" aria-live="polite">
+          </div>
+        </div>
+
+        <div class="margin-text" id="marginText">
+  Margin: ₹0
+</div>
+
+        <button type="submit" class="done-btn">Done</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div class="APVOSuccessScreen" id="successPopup">
+  <div class="APVOSuccessContent">
+    <img src="../assets/adminVerificationProcess/success.svg" alt="success" />
+    <p>Details saved successfully</p>
+  </div>
+</div>
+
+<script src="../javascript/adminAddCompanyProfit.js"></script>
+</body>
+</html>

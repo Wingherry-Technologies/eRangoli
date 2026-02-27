@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const productName = row.children[0].innerText.toLowerCase();
       const requestId = row.children[1].innerText.toLowerCase();
       const category = row.children[2].innerText.toLowerCase();
-      const vendorName = row.children[7].innerText.toLowerCase();
+      const vendorName = row.children[6].innerText.toLowerCase();
 
       const matchesSearch =
         productName.includes(searchValue) ||
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ?.innerText.toLowerCase();
 
       const vendor = item
-        .querySelector(".APRAfaq-row:nth-child(7) span:last-child")
+        .querySelector(".APRAfaq-row:nth-child(6) span:last-child")
         ?.innerText.toLowerCase();
 
       const statusEl = item.querySelector(".APRAStatus");

@@ -112,24 +112,60 @@ APVOApproveBtn.addEventListener("click", () => {
   approveModal.classList.add("active");
 });
 
+// approveYes.addEventListener("click", () => {
+//   approveModal.classList.remove("active");
+//   showSuccessAndRedirect(
+//     document.getElementById("approveSuccess"),
+//     "../html/adminPMProductList.html"
+//   );
+// });
 approveYes.addEventListener("click", () => {
   approveModal.classList.remove("active");
-  showSuccessAndRedirect(
-    document.getElementById("approveSuccess"),
-    "../html/adminPMProductList.html"
-  );
+
+  // direct redirect 
+  window.location.href = "../html/adminAddCompanyProfit.html";
 });
-const APVOrejectBtn = document.querySelector(".APVORejectButton");
+// const APVOrejectBtn = document.querySelector(".APVORejectButton");
 const rejectModal = document.getElementById("rejectModal");
 const rejectYes = document.getElementById("rejectYes");
 const rejectNo = document.getElementById("rejectNo");
+const rejectBtn = document.querySelector(".APVORejectButton");
+const approveBtn = document.querySelector(".APVOApproveButton");
+const sentBtnUI = document.querySelector(".APVOSentButton");
+const cancelBtn = document.querySelector(".APVOCancelButton");
+
+const rejectBox = document.getElementById("rejectBox");
+
+let rejectStep = 0;
 
 approveNo.addEventListener("click", () => {
   approveModal.classList.remove("active");
 });
 
-APVOrejectBtn.addEventListener("click", () => {
+// REJECT BUTTON CLICK
+rejectBtn.addEventListener("click", () => {
+  if (rejectStep === 0) {
+    rejectBox.style.display = "block";
+    approveBtn.style.display = "none";
+    sentBtnUI.style.display = "none";
+    cancelBtn.style.display = "inline-block";
+
+    rejectStep = 1;
+    return;
+  }
+
+  // STEP 2 → open modal
   rejectModal.classList.add("active");
+});
+
+// CANCEL BUTTON
+cancelBtn.addEventListener("click", () => {
+  rejectBox.style.display = "none";
+  approveBtn.style.display = "inline-block";
+  sentBtnUI.style.display = "inline-block";
+  cancelBtn.style.display = "none";
+
+  rejectStep = 0;
 });
 
 rejectYes.addEventListener("click", () => {
