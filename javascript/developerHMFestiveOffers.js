@@ -152,6 +152,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!valid) return;
 
+    if (popup._editTargetCard) {
+      const card = popup._editTargetCard;
+
+      const cardImg = card.querySelector(".DHMFO-image-wrap img");
+      const cardName = card.querySelector(".DHMFO-card-body p");
+      const cardLink = card.querySelector(".DHMFO-card-body a");
+
+      if (cardImg) cardImg.src = previewImg.src;
+      if (cardName) cardName.textContent = imageName.value.trim();
+      if (cardLink) {
+        cardLink.href = ctaLink.value.trim();
+        cardLink.textContent = ctaLink.value.trim();
+      }
+
+      popup._editTargetCard = null;
+      closePopup();
+      return;
+    }
+
     const grid = document.querySelector(".DHMFO-category-grid");
     const addCard = document.querySelector(".DHMFO-add-card");
     const totalCards =
@@ -187,8 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
     closePopup();
   });
 
-  // SECTION 2 INLINE EDIT
-
   const section2EditBtn = document.querySelector(".section2-edit");
   const section2View = document.querySelector(".DHMFOsection2-body");
   const section2Edit = document.querySelector(".DHMFOES-section-2-edit");
@@ -206,7 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const editCancelBtn = document.getElementById("editCancelBtn");
 
   if (section2EditBtn && section2View && section2Edit) {
-    //  OPEN EDIT MODE
     section2EditBtn.addEventListener("click", function () {
       const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
       const viewImage = section2View.querySelector(".DHMFOcover-image img");
@@ -223,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
       section2Edit.style.display = "block";
     });
 
-    // IMAGE REPLACE
     if (editUploadBox && editFileInput) {
       editUploadBox.addEventListener("click", function () {
         editFileInput.click();
@@ -241,13 +256,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    //  SAVE CHANGES
     if (editSaveBtn) {
       editSaveBtn.addEventListener("click", function () {
         const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
         const viewImage = section2View.querySelector(".DHMFOcover-image img");
 
-        // Update view mode values
         if (paragraphs.length >= 4) {
           paragraphs[0].textContent = editDiscount.value.trim();
           paragraphs[1].textContent = editCondition.value.trim();
@@ -255,7 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
           paragraphs[3].textContent = editCoupon.value.trim();
         }
 
-        // Update image
         if (viewImage && editPreview.src) {
           viewImage.src = editPreview.src;
         }
@@ -265,7 +277,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    //  CANCEL EDIT
     if (editCancelBtn) {
       editCancelBtn.addEventListener("click", function () {
         section2Edit.style.display = "none";
@@ -273,4 +284,59 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+
+  function openCardEditPopup(card) {
+    const cardImg = card.querySelector(".DHMFO-image-wrap img");
+    const cardName = card.querySelector(".DHMFO-card-body p");
+    const cardLink = card.querySelector(".DHMFO-card-body a");
+
+    imageName.value = cardName ? cardName.textContent.trim() : "";
+    ctaLink.value = cardLink ? cardLink.getAttribute("href") : "";
+
+    if (cardImg && cardImg.src) {
+      previewImg.src = cardImg.src;
+      previewImg.style.display = "block";
+      uploadContent.style.display = "none";
+      uploadBox.style.padding = "0";
+    }
+
+    imageError.textContent = "";
+    nameError.textContent = "";
+    linkError.textContent = "";
+
+    popup._editTargetCard = card;
+
+    openPopup();
+  }
+
+  function handleCardEditBtnClick(e) {
+    const editBtn = e.target.closest(".DHMFO-edit-btn");
+    if (!editBtn) return;
+
+    const card = editBtn.closest(".DHMFO-category-card");
+    if (!card) return;
+
+    e.stopPropagation();
+    openCardEditPopup(card);
+  }
+
+  const categoryGrid = document.querySelector(".DHMFO-category-grid");
+  if (categoryGrid) {
+    categoryGrid.addEventListener("click", handleCardEditBtnClick);
+  }
+
+  deleteBtn.removeEventListener("click", closePopup);
+  deleteBtn.addEventListener("click", function () {
+    if (popup._editTargetCard) {
+      popup._editTargetCard.remove();
+      popup._editTargetCard = null;
+    }
+    closePopup();
+  });
+
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup && window.innerWidth > 595) {
+      popup._editTargetCard = null;
+    }
+  });
 });

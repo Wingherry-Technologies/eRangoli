@@ -451,3 +451,11 @@ body {
     padding: 10px;
   }
 }
+
+#DHMFB-mobileAddNewPanel {
+  display: none;
+}
+
+.DHMFB-main-content-hidden {
+  display: none !important;
+}

@@ -574,6 +574,7 @@ body {
   display: flex;
   gap: 12px;
   margin-top: 15px;
+  width: 530px;
 }
 
 .DHMFOES-publishBtn {
@@ -598,24 +599,31 @@ body {
   cursor: pointer;
 }
 
-.DHMFOES-btn-group {
-  display: flex;
-  gap: 14px;
-  margin-top: 10px;
-  width: 530px;
-}
-
 @media (max-width: 1024px) and (min-width: 595px) {
   .DHMFOES-section-2-edit .DHMFOES-section-2-form-group input {
     width: 100%;
   }
+  .DHMFOES-section-2-edit .DHMFOES-btn-group {
+    width: 100%;
+  }
+  .DHMFOsection2-body,
+  .DHMFOES-section-2-edit {
+    width: 100%;
+  }
+
+  .DHMFOcover-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #editImagePreview2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 595px) {
-  .DHMFOES-section-2-edit {
-    padding: 15px;
-  }
-
   .DHMFOES-section-2-edit .DHMFOES-section-2-form-group input,
   #editUploadBox2 {
     width: 100%;
@@ -623,5 +631,21 @@ body {
 
   .DHMFOES-section-2-edit .DHMFOES-btn-group {
     flex-direction: column;
+  }
+  .DHMFOcover-image {
+    width: 100%;
+    max-width: 530px;
+    height: 180px;
+  }
+
+  .DHMFOcover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .DHMFOES-section-2-edit .DHMFOES-btn-group,
+  .DHMFOES-section-2-edit #editImagePreview2 {
+    width: 100%;
   }
 }
