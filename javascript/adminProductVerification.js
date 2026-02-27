@@ -245,32 +245,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // navigation logic
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".view, .APVActionButton");
-    if (!btn) return;
+  const btn = e.target.closest(".view, .APVActionButton");
+  if (!btn) return;
 
-    const row = btn.closest(".APVTableRow");
-    const faq = btn.closest(".APVfaq-item");
+  const row = btn.closest(".APVTableRow");
+  const faq = btn.closest(".APVfaq-item");
 
-    let statusEl;
+  let developerEl, adminEl;
 
-    if (row) {
-      statusEl = row.querySelector(
-        ".APVTableCell.pending, .APVTableCell.verified",
-      );
-    }
+  // ===== TABLE =====
+  if (row) {
+    developerEl = row.querySelector(
+      ".developer-verified, .developer-pending, .developer-rejected, .developer-unverified"
+    );
 
-    if (faq) {
-      statusEl = faq.querySelector(".APVStatus.pending, .APVStatus.verified");
-    }
+    adminEl = row.querySelector(
+      ".admin-approved, .admin-rejected, .admin-unverified"
+    );
+  }
 
-    if (!statusEl) return;
+  // ===== FAQ =====
+  if (faq) {
+    developerEl = faq.querySelector(
+      ".developer-verified, .developer-pending, .developer-rejected, .developer-unverified"
+    );
 
-    if (statusEl.classList.contains("verified")) {
+    adminEl = faq.querySelector(
+      ".admin-approved, .admin-rejected, .admin-unverified"
+    );
+  }
+
+  if (!developerEl || !adminEl) return;
+
+  // =============================
+  // GET STATUS
+  // =============================
+  const developerStatus = developerEl.classList;
+  const adminStatus = adminEl.classList;
+
+  // =============================
+  // CONDITIONS
+  // =============================
+
+  // 1️⃣ Developer = VERIFIED
+  if (developerStatus.contains("developer-verified")) {
+    if (adminStatus.contains("admin-approved")) {
       window.location.href = "../html/adminPMProductOverviewLive.html";
-    } else if (statusEl.classList.contains("pending")) {
-      window.location.href = "../html/adminPMVerificationOverview.html";
+    } else if (adminStatus.contains("admin-rejected")) {
+      window.location.href = "../html/adminPMProductOverviewRejectedLive.html";
+    } else if (adminStatus.contains("admin-unverified")) {
+      window.location.href = "../html/adminPMVerificationOverviewVerified.html";
     }
-  });
+  }
+
+  // 2️⃣ Developer = PENDING
+  else if (developerStatus.contains("developer-pending")) {
+    window.location.href = "../html/adminPMVerificationOverview.html";
+  }
+
+  // 3️⃣ Developer = REJECTED
+  else if (developerStatus.contains("developer-rejected")) {
+    if (adminStatus.contains("admin-approved")) {
+      window.location.href = "../html/adminPMProductOverviewLive.html";
+    } else if (adminStatus.contains("admin-rejected")) {
+      window.location.href = "../html/adminPMProductOverviewRejectedLive.html";
+    } else if (adminStatus.contains("admin-unverified")) {
+      window.location.href = "../html/adminPMVerificationOverviewRejected.html";
+    }
+  }
+
+  // 4️⃣ Developer = UNVERIFIED
+  else if (developerStatus.contains("developer-unverified")) {
+    if (adminStatus.contains("admin-approved")) {
+      window.location.href = "../html/adminPMProductOverviewLive.html";
+    } else if (adminStatus.contains("admin-rejected")) {
+      window.location.href = "../html/adminPMProductOverviewRejectedLive.html";
+    }
+  }
+});
 });
 
 document.querySelector(".sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");

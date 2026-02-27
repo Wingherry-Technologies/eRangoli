@@ -330,23 +330,41 @@ body {
   font-size: 14px;
 }
 
-.APVTableCell.pending {
+.APVTableCell.developer-pending {
   color: #989fff;
   font-weight: 400;
 }
 
-.APVTableCell.verified {
+.APVTableCell.developer-verified {
   color: #009605;
   font-weight: 400;
 }
 
-.APVTableCell.live {
+.APVTableCell.admin-approved {
   color: #ea8016;
   font-weight: 400;
 }
-.APVTableCell.unverified {
+
+.APVTableCell.developer-rejected {
+  color: #FA1B26;
+  font-weight: 400;
+}
+
+.APVTableCell.admin-rejected {
+  color: #FA1B26;
+  font-weight: 400;
+}
+.APVTableCell.developer-unverified {
   color: #989fff;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.APVTableCell.admin-unverified {
+  color: #989fff;
+  font-weight: 400;
+  text-align: center;
 }
 
 .APVProductNameCell {
@@ -548,7 +566,7 @@ body {
   .APVTableWrapper {
     overflow-x: auto;
     overflow-y: auto;
-    max-height: 420px;
+    max-height: 100%;
   }
 }
 
@@ -572,6 +590,9 @@ body {
   .APVStatCard {
     padding: 12px;
     border: 1px solid #d9d9d9;
+  }
+  .APVOMobileHeader{
+    justify-content: flex-end;
   }
 
   .APVStatIcon {
@@ -634,7 +655,7 @@ body {
     font-weight: 500;
   }
 
-  .APVfaq-row .APVStatus.verified {
+  .APVfaq-row .APVStatus.developer-verified {
     color: #009605;
   }
 
@@ -642,12 +663,24 @@ body {
     color: #74b0fa;
   }
 
-  .APVfaq-row .APVStatus.unverified {
+  .APVfaq-row .APVStatus.developer-unverified {
     color: #989fff;
   }
 
-  .APVfaq-row .APVStatus.live {
-    color: #de4949;
+  .APVfaq-row .APVStatus.admin-unverified {
+    color: #989fff;
+  }
+
+  .APVfaq-row .APVStatus.admin-approved {
+    color: #de8049;
+  }
+
+  .APVfaq-row .APVStatus.developer-rejected {
+    color: #FA1B26;
+  }
+
+  .APVfaq-row .APVStatus.admin-rejected {
+    color: #FA1B26;
   }
   .APVfaq-item {
     margin-bottom: 10px;

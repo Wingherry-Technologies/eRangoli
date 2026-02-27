@@ -50,9 +50,9 @@ body {
 }
 
 .APVOLiveStatus {
-  background-color: #5B82A2;
+  background-color: #009605;
   color: #ffffff;
-  padding: 6px 22px;
+  padding: 6px 10px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -723,7 +723,6 @@ body {
     display: none;
     font-size: 14px;
   }
-
   .APVOMobileHeader{
     justify-content: flex-end;
   }
@@ -749,6 +748,9 @@ body {
 
   .APVOProductPrice {
     font-size: 24px;
+  }
+  .APVOMobileHeader{
+    justify-content: flex-end;
   }
 
   .APVOThumbnailGrid {

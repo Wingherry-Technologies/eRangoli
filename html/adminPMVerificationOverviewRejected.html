@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PM-Verification Pending</title>
-    <link rel="stylesheet" href="../css/adminPendingProductVerificationOverview.css" />
+    <title>PM-Verfication Rejected</title>
+    <link rel="stylesheet" href="../css/adminRejectedProductVerificationOverview.css" />
     <link rel="stylesheet" href="../css/adminSidebarNavbar.css" />
     <link
       rel="shortcut icon"
@@ -606,7 +606,7 @@
               <span>Product Details</span>
             </div>
 
-            <div class="APVOLiveStatus">Pending</div>
+            <div class="APVOLiveStatus">Rejected</div>
           </div>
 
           <!-- Product Details Section -->
@@ -962,15 +962,17 @@
             <div class="APVOAdminHeader">For Administration</div>
             <!-- <div class="approval-heading">Approval Process</div> -->
             <div class="APVOAdminContent">
+                <div class="APOVdeveloperreason">
+                    <span>Message from developer</span>
+                    <textarea readonly name="message-from-dev" rows="5" id="message-from-dev">Image Quality is not Good</textarea>
+                </div>
               <div class="APVOAdminLeft">
                 <div class="APVOAdminTextareaWrapper" id="rejectBox" style="display:none;">
                   <span class="APVOAdminInnerLabel"
                     >Write a review to vendor</span
                   >
 
-                  <textarea class="APVOAdminTextarea">
-Review and upload high quality images</textarea
-                  >
+                  <textarea class="APVOAdminTextarea">Review and upload high quality images</textarea>
 
                   <!-- <img
                     src="../assets/adminProductVerificationOverview/PaperPlaneTilt.svg"
@@ -984,7 +986,7 @@ Review and upload high quality images</textarea
               <div class="APVOAdminActionBtns">
                 <button class="APVOApproveButton">Approve</button>
                 <button class="APVORejectButton">Reject</button>
-                <button class="APVOSentButton">Send to verify</button>
+                <button class="APVOSentButton">Resend to Verify</button>
                 <button class="APVOCancelButton" style="display:none;">Cancel</button>
               </div>
             </div>
@@ -1076,7 +1078,7 @@ Review and upload high quality images</textarea
       </div>
     </div>
 
-    <script src="../javascript/adminPendingProductVerificationOverview.js"></script>
+    <script src="../javascript/adminRejectedProductVerificationOverview.js"></script>
     <script src="../javascript/adminSidebarnavbar.js"></script>
   </body>
 </html>

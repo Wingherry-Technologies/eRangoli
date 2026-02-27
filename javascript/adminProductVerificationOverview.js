@@ -123,7 +123,7 @@ approveYes.addEventListener("click", () => {
   approveModal.classList.remove("active");
 
   // direct redirect 
-  window.location.href = "../html/adminAddCompanyProfit.html";
+  window.location.href = "../html/adminPMAddCompanyProfit.html";
 });
 // const APVOrejectBtn = document.querySelector(".APVORejectButton");
 const rejectModal = document.getElementById("rejectModal");
@@ -189,7 +189,7 @@ rejectYes.addEventListener("click", () => {
   rejectModal.classList.remove("active");
   showSuccessAndRedirect(
     document.getElementById("rejectSuccess"),
-    "../html/adminPMProductList.html"
+    "../html/adminPMProductVerification.html"
   );
 });
 

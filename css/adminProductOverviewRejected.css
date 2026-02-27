@@ -630,6 +630,42 @@
   border-radius: 6px;
   cursor: pointer;
 }
+/* new */
+.APVOExtraDetails {
+  margin-top: 12px;
+}
+
+.APVOExtraRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.APVOExtraLabel {
+  font-weight: 600;
+  color: #0F8DF3;
+  min-width: 120px;
+}
+
+.APVOExtraValue {
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.APVOColorBox {
+  width: 30px;
+  height: 20px;
+  background-color: beige;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.APVOColorrow{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
 
 
