@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
+}
+body{
+    background-color: #f5f5f5;
+}
+nav{
+    height: 75px;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding: 0px 30px   ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1;
+}
+nav>img{
+    height: 50px;
+}
+.VSPG-main-section{
+    padding: 20px 30px;
+
+}
+.VSPG-back-to-search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+.VSPG-back-to-search>img{
+    height: 20px;
+}
+.VSPG-back-to-search>span{
+    color: #3F3F3F;
+}
+.VSPG-imageandpayment{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+.VSPG-image-display{
+    width: 40%;
+    height: 95vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../assets/paymentgateway/Rectangle\ 404.svg");
+    border-radius: 10px;
+    
+}
+.VSPG-discount-block{
+    border: 1px solid rgba(255, 255, 255, 0.342);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px 0px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+}
+.VSPG-discount-block>span{
+    text-align: center;
+}
+.VSPG-discount-block>span:first-child{
+    font-size: 50px;
+    font-weight: 700;
+    color: #FFCB45;
+}
+.VSPG-discount-block>span:nth-child(2){
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    padding: 0px 20px;
+}
+.VSPG-discount-block>span:last-child{
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+.VSPG-payment-display{
+    width: 60%;
+    height: 95vh;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    gap: 20px;
+}
+.VSPG-option-block{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    background-color: #B9E0DB;
+    padding: 10px 5px;
+    gap: 10px;
+    height: 100%;
+    border-radius:8px ;
+}
+.VSPG-option-block>li{
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #3F3F3F;
+}
+.VSPG-option-block>li:hover{
+    border: 2px solid #21A593;
+}
+.VSPG-option-block>li.VSPG-active-option{
+    border: 2px solid #21A593;
+    color: #000000;
+}
+.VSPG-payment-block{
+    width: 60%;
+    height: 100%;
+    border-radius: 8px;
+}
+.VSPG-scan-block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.VSPG-scan-block>span,
+.VSPG-upi-method>span,
+.VSPG-card-block>span,
+.VSPG-common-bank>span{
+    font-size: 18px;
+    font-weight: 700;
+    color: #3F3F3F;
+}
+.VSPG-scan-block>.VSPG-QR-image-block{
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+}
+.VSPG-QR-image-block>img{
+    width: 100%;
+    height: 100%;
+}
+.VSPG-upi-method{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 30px;
+}
+.VSPG-upi-method .VSPG-upi-input-block{
+    width: 100%;
+}
+.VSPG-upi-input-block>input{
+    width: 100%;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3F3F3F;
+    outline: none;
+}
+.VSPG-upi-method>button{
+    width: 100%;
+    padding: 10px 0px;
+    background-color: #21A593;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.VSPG-upi-status {
+    margin: 6px 0;
+    font-size: 14px;
+    display: none;
+}
+
+.VSPG-upi-status.VSPG-success {
+    color: green;
+}
+
+.VSPG-upi-status.VSPG-error {
+    color: red;
+}
+
+#VSPG-upiBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #21A593;
+    box-shadow: 0px 0px 2px 0px #171A1F1F;
+
+}
+
+.VSPG-payment-inputs{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding-top: 20px;
+}
+.VSPG-form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+.VSPG-payment-inputs>.VSPG-form-group>input{
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+}
+.VSPG-card-expiry-cvv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.VSPG-form-group-2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+.VSPG-card-expiry-cvv .VSPG-form-group-2>input{
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+}
+.VSPG-payment-inputs>button{
+    width: 100%;
+    padding: 10px 0px;
+    background-color:#21A593;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.VSPG-error {
+    color: red;
+    font-size: 13px;
+}
+
+.VSPG-netbanking-block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.VSPG-payment-method-display{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+.VSPG-netbanking-block{
+    height: 100%;
+}
+.VSPG-search-bar-main{
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.VSPG-search-bar-main>input{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3F3F3F;
+}
+.VSPG-bank-names-main{
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.VSPG-common-bank{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.VSPG-common-bank>ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+}
+.VSPG-common-bank>ul>li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-bottom: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+.VSPG-common-bank>ul>li.VSPG-last-bank{
+    border-bottom: none;
+}
+.VSPG-bank-name{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.VSPG-bank-name>img{
+    width: 25px;
+    height: 25px;
+}
+.VSPG-bank-name>span{
+    font-size: 14px;
+    font-weight: 400;
+    color: #8E8989;
+}
+.VSPG-common-bank>ul>li>img{
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+@media (max-width:1023px) {
+    .VSPG-imageandpayment{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .VSPG-image-display{
+        height: 300px;
+        display: flex;
+    }
+    .VSPG-image-display, .VSPG-payment-display{
+        width: 100%;
+    }
+}
+@media (max-width:595px) {
+    nav{
+        padding: 0px 15px;
+    }
+    .VSPG-main-section{
+        padding: 20px 15px;
+    }
+    .VSPG-image-display{
+        height: 200px;
+        display: none;
+    }
+    .VSPG-discount-block>span:first-child{
+        font-size: 30px;
+    }
+    .VSPG-discount-block>span:nth-child(2){
+        font-size: 20px;
+    }
+    .VSPG-discount-block>span:last-child{
+        font-size: 12px;
+    }
+    .VSPG-payment-display{
+        flex-direction: column-reverse;
+        height: auto;
+        width: 100%;
+    }
+    .VSPG-option-block{
+        width: 100%;
+    }
+    .VSPG-payment-block{
+        width: 100%;
+    }
+    .VSPG-scan-block>span, .VSPG-upi-method>span, .VSPG-card-block>span, .VSPG-common-bank>span{
+        font-size: 14px;
+    }
+}
+@media (max-width:480px) {
+    .VSPG-discount-block>span:first-child{
+        font-size: 20px;
+    }
+    .VSPG-discount-block>span:nth-child(2){
+        font-size: 16px;
+    }
+    .VSPG-discount-block>span:last-child{
+        font-size: 10px;
+    }
+    
+}
+
+/* Processsing Modal */
+
+.VSPG-all-modal-main{
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.VSPG-processing-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.VSPG-processing-modal-content>h2{
+    color: #3F3F3F;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.VSPG-processing-modal-content>div{
+    color: #3F3F3F;
+    margin-top: 20px;
+
+}
+.VSPG-processing-modal-content>div>p{
+    text-align: center;
+    font-size: 16px;
+}
+.VSPG-processing-modal-content>button{
+    margin-top: 80px;
+    border: 1px solid #D9D9D9;
+    background-color: transparent;
+    color: #8E8989;
+    font-size: 18px;
+    padding: 10px 50px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.VSPG-processing-modal-content>button:hover{
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+/* Success Modal */
+
+.VSPG-success-modal-main,
+.VSPG-failed-modal-main{
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url("../assets/paymentgateway/image\ 9.svg"); */
+}
+
+.VSPG-success-modal-content,
+.VSPG-failed-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.VSPG-success-modal-content,
+.VSPG-failed-modal-content{
+    height: 300px;
+}
+.VSPG-success-modal-content>h2{
+    color: #009605;
+}
+
+.VSPG-order-placed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    bottom: 100px;
+}
+.VSPG-order-failed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.VSPG-order-placed>span{
+    color: #3F3F3F;
+    font-size: 20px;
+    text-wrap: nowrap;
+    font-weight: 400;
+}
+.VSPG-order-failed>span{
+    color: #3F3F3F;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+}
+.VSPG-success-modal-content .VSPG-order-placed>img,
+.VSPG-failed-modal-content .VSPG-order-failed>img{
+    height: 200px;
+    width: 200px;
+}
+.VSPG-failed-modal-content>button{
+    margin-top: 40px;
+    background-color: #A10404;
+    color: white;
+    border: none;
+    padding: 8px 60px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}

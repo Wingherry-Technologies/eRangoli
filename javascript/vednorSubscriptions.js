@@ -6,6 +6,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 700);
   });
 
+document.querySelectorAll(".buyNowBtn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    setTimeout(function () {
+      window.location.href = "../html/vendorSubscriptionPayment.html";
+    }, 700);
+  });
+});
+
+
+
   /* Staggered entrance: each card fades + slides up one by one */
   var cards = document.querySelectorAll(".VS-card");
   cards.forEach(function (card, index) {
