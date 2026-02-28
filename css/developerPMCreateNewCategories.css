@@ -82,12 +82,12 @@
   font-size: 14px;
   font-weight: 600;
   color: #3f3f3f;
-  width: 280px;
+  width: 800px;
 }
 
 .DPMCNC-upload-box {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background: #00000033;
   border: 1.5px solid #00000033;
   border-radius: 8px;
@@ -162,6 +162,9 @@
     justify-content: center;
     width: 30px;
   }
+  .DPMCNC-upload-title {
+    width: 450px;
+  }
 }
 
 @media (max-width: 595px) {
@@ -175,4 +178,27 @@
     width: 100px;
     height: 100px;
   }
+  .DPMCNC-upload-title {
+    width: 290px;
+  }
+  .DPMCNC-AddBtn {
+    padding: 5px 20px !important;
+  }
+}
+
+.DPMCNC-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.DPMCNC-AddBtn {
+  background: #0e8bf3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 35px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }

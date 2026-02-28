@@ -90,6 +90,19 @@ body {
   cursor: pointer;
 }
 
+/* Offer Title Inline Edit Input */
+.DHMFOoffer-title-input {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3f3f3f;
+  background: #ebf3f9;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  outline: none;
+}
+
 .DHMFO-category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -646,6 +659,16 @@ body {
   }
   .DHMFOES-section-2-edit .DHMFOES-btn-group,
   .DHMFOES-section-2-edit #editImagePreview2 {
+    width: 100%;
+  }
+  .DHMFOp-title img {
+    margin-top: -5px;
+  }
+  .section2-edit {
+    margin-top: -15px !important;
+  }
+
+  .DHMFOoffer-title-input {
     width: 100%;
   }
 }
