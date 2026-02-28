@@ -1531,6 +1531,7 @@ nav{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
 /* LEVEL 2 */
@@ -1549,66 +1550,65 @@ nav{
   gap: 40px;
   white-space: nowrap;
   flex-direction: column;
+  width: 130px;
 
 }
 .SBS-submenu.level-2  li {
   position: static;
+  width: 100%;
 }
 
 .level-3-scroll {
-  height: 200px;
-  width: 120px;
+  height: 180px;
+  width: 110px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 10px 0px;
 }
 
 /* LEVEL 3 */
 .level-3 {
   display: none;
   position: absolute;
-  top: 0;
-  left: 100px;
+  top: 20px;
+  left: 145px;
   background: white;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   flex-direction: column;
   color: #B55E7D !important;
+  padding: 10px 10px;
 }
 
 /* LEVEL 4 */
 .level-4 {
   display: none;
   position: absolute;
-  top: 0px;          /* same starting line */
-  left: 100px;        /* shift more right than level-3 */
+  top: 20px;          /* same starting line */
+  left: 145px;        /* shift more right than level-3 */
   background: white;
-  padding: 10px 20px;
+  padding: 10px;
   height: 200px;
   overflow-y: auto;
   flex-direction: column;
   justify-content: flex-start;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px;
   gap: 10px;
+  width: 130px;
+}
+/* Smooth expand */
+.level-2,
+.level-3,
+.level-4 {
+  transition: all 0.25s ease;
+  display: none;
 }
 
-/* Show level 2 */
-.SBS-menu-item:hover  .level-2 {
+.level-2.show,
+.level-3.show,
+.level-4.show {
   display: flex;
-}
-
-/* Show level 3 */
-.level-2  li:hover > .level-3 {
-  display: flex;     /* 🔥 inline horizontal */
-  gap: 20px;
-}
-
-/* Show level 4 */
-.level-3  li:hover > .level-4 {
-  display: flex;
-  gap: 10px;
 }
 
 /* Submenu items */
@@ -1618,16 +1618,12 @@ nav{
   color: black;
   cursor: pointer;
   white-space: wrap;
-  width: 100px;
+  width: 100%;
   font-size: 12px;
+  text-align: flex;
 }
 
-/* Smooth expand */
-.level-2,
-.level-3,
-.level-4 {
-  transition: all 0.25s ease;
-}
+
 
 /* LEVEL 1 hover - background red */
 .SBS-menu-item:hover {
@@ -1640,8 +1636,8 @@ nav{
   background-color: #EFDFDF;
   color: #A10404;
   border-radius: 5px;
-  width: max-content;
   text-wrap: wrap;
+  width: 100%;
 }
 
 .SBS-submenu.level-2:hover {
@@ -1650,7 +1646,9 @@ nav{
 
 /* LEVEL 3 hover - text color red (keep bg white) */
 .level-3  .SBS-submenu-item:hover {
-  color: #A10404 !important;
+  background-color: #EFDFDF;
+  color: #A10404;
+  border-radius: 5px;
 }
 
 
@@ -1660,23 +1658,45 @@ nav{
   background-color: #EFDFDF;
   color: #A10404;
   border-radius: 5px;
-  width: max-content;
 }
 .SBS-main-menu >li{
   text-wrap:nowrap;
 }
-@media (max-width:1270px) {
-  .level-3-scroll{
-    width: 100px;
-  }
-  .level-4{
-    left: 60px;
-  }
-}
+
 @media (max-width:1192px) {
   .SBS-middle-nav-ba-main > ul{
     gap: 20px;
   }
+}
+@media (max-width:1157px) {
+    .SBS-submenu.level-2{
+        width: 120px;
+    }
+    .level-3{
+        left: 135px;
+    }
+    .level-3-scroll{
+        width: 100px;
+    }
+    .level-4{
+        left: 135px;
+        width: 120px;
+    }
+}
+@media (max-width:1090px) {
+    .SBS-submenu.level-2{
+        width: 120px;
+    }
+    .level-3{
+        left: 125px;
+    }
+    .level-3-scroll{
+        width: 100px;
+    }
+    .level-4{
+        left: 125px;
+        width: 120px;
+    }
 }
 @media (max-width:1068px) {
   .SBS-menu-item {
@@ -1692,27 +1712,26 @@ nav{
   .SBS-submenu-item{
     font-size: 10px;
   }
-  .level-3{
-    left: 80px;
-  }
+  .SBS-submenu.level-2{
+        width: 100px;
+    }
+    .level-3{
+        left: 105px;
+    }
   .level-3-scroll{
-    width: 90px;
-    align-items: flex-start;
+    width:80px ;
   }
   .level-4{
-    left: 40px;
-    padding: 10px 10px;
-  }
+        left: 105px;
+        width: 100px;
+    }
 }
 @media (max-width:898px) {
   .SBS-submenu-item{
     text-wrap: wrap;
     width: 75px;
   }
-  .level-4{
-    left: 55px;
-    padding: 10px 5px;
-  }
+
 }
 @media (max-width:877px) {
     .SBS-submenu.level-2:hover {

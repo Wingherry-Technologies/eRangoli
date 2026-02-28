@@ -830,6 +830,58 @@ function resetCartButtons() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const delay = 250;
+
+  function setupMenu(parentSelector, submenuSelector) {
+    document.querySelectorAll(parentSelector).forEach(parent => {
+
+      const submenu = parent.querySelector(submenuSelector);
+      if (!submenu) return;
+
+      let showTimer;
+      let hideTimer;
+
+      parent.addEventListener("mouseenter", () => {
+
+        clearTimeout(hideTimer);
+
+        // 🔥 Close all sibling submenus
+        document.querySelectorAll(submenuSelector).forEach(menu => {
+          if (menu !== submenu) {
+            menu.classList.remove("show");
+          }
+        });
+
+        showTimer = setTimeout(() => {
+          submenu.classList.add("show");
+        }, delay);
+      });
+
+      parent.addEventListener("mouseleave", () => {
+        clearTimeout(showTimer);
+
+        hideTimer = setTimeout(() => {
+          submenu.classList.remove("show");
+        }, delay);
+      });
+
+    });
+  }
+
+  // Level 2
+  setupMenu(".SBS-menu-item", ".level-2");
+
+  // Level 3
+  setupMenu(".level-2 > .level-2-scroll > .SBS-submenu-item", ".level-3");
+
+  // Level 4
+  setupMenu(".level-3 > .level-3-scroll > .SBS-submenu-item", ".level-4");
+  
+
+});
+
 
 
 
