@@ -19,6 +19,12 @@ hamburger?.addEventListener("click", () => {
   }
 });
 
+document.querySelectorAll(".DPMPC-APRAfaq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".DPMPC-APRAfaq-item").classList.toggle("active");
+  });
+});
+
 document
   .querySelector(".sidebar-main-vendor ul>li:nth-child(2)")
   .classList.add("sidebar-active");

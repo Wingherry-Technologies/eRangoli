@@ -309,12 +309,117 @@
   cursor: pointer;
 }
 
+/* POPUP BUTTON ROW */
+.popup-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.popup-btn-row .publish-btn {
+  margin-top: 0;
+  flex: 1;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  color: #3f3f3f;
+  border: 1.5px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .publish-btn-res {
+  display: none;
+}
+
+.cancel-btn-res {
+  display: none;
+}
+
+.popup-btn-row-res {
   display: none;
 }
 
 .floating-add-btn {
   display: none;
+}
+
+/* FIELD ERROR */
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #e53935;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+/* INPUT ERROR STATE */
+.input-error {
+  border: 1.5px solid #e53935 !important;
+  background: #fff5f5 !important;
+}
+
+/* DELETE CONFIRMATION POPUP */
+.delete-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.delete-confirm-overlay.active {
+  display: flex;
+}
+
+.delete-confirm-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.delete-confirm-msg {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.delete-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.delete-confirm-cancel {
+  padding: 10px 28px;
+  border-radius: 8px;
+  border: 1.5px solid #d9d9d9;
+  background: #fff;
+  color: #3f3f3f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-confirm-ok {
+  padding: 10px 28px;
+  border-radius: 8px;
+  border: none;
+  background: #0e8bf3;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
@@ -399,14 +504,37 @@
   .publish-btn {
     display: none;
   }
-  .publish-btn-res {
-    display: block;
+  .cancel-btn {
+    display: none;
+  }
+  .popup-btn-row {
+    display: none;
+  }
+  .popup-btn-row-res {
+    display: flex;
+    gap: 12px;
     width: calc(100% - 48px);
     margin: 0 24px 20px;
+  }
+  .publish-btn-res {
+    display: block;
+    flex: 1;
+    margin: 0;
     padding: 12px;
     background: #0e8bf3;
     color: #ffffff;
     border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .cancel-btn-res {
+    flex: 1;
+    padding: 12px;
+    background: #fff;
+    color: #3f3f3f;
+    border: 1.5px solid #d9d9d9;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;

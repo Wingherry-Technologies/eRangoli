@@ -62,8 +62,8 @@
           <div class="artisan-bio">
             <label>Biography</label>
             <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Curabitur sodales risus a dui luctus fringilla.”
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Curabitur sodales risus a dui luctus fringilla."
             </p>
           </div>
           <!-- STATUS -->
@@ -121,8 +121,8 @@
           <div class="artisan-bio">
             <label>Biography</label>
             <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Curabitur sodales risus a dui luctus fringilla.”
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Curabitur sodales risus a dui luctus fringilla."
             </p>
           </div>
           <!-- STATUS -->
@@ -180,8 +180,8 @@
           <div class="artisan-bio">
             <label>Biography</label>
             <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Curabitur sodales risus a dui luctus fringilla.”
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Curabitur sodales risus a dui luctus fringilla."
             </p>
           </div>
           <!-- STATUS -->
@@ -198,12 +198,13 @@
         </div>
       </div>
     </div>
-    <!-- ADD NEW ARTISAN STORY POPUP -->
+
+    <!-- ADD / EDIT ARTISAN STORY POPUP -->
     <div class="artisan-popup-overlay" id="artisanPopup">
       <div class="artisan-popup">
         <!-- HEADER -->
         <div class="artisan-popup-header">
-          <h2>Add New Artisan Story</h2>
+          <h2 id="popupTitle">Add New Artisan Story</h2>
           <button class="popup-close" id="closePopup">&times;</button>
         </div>
 
@@ -215,44 +216,86 @@
           <div class="artisan-popup-left">
             <label class="upload-wrapper">
               <input type="file" id="profileUpload" accept="image/*" hidden />
-
               <div class="upload-circle" id="uploadPreview"></div>
             </label>
-
-            <span class="upload-text">Upload Profile Photo</span>
+            <span class="upload-text" id="uploadText"
+              >Upload Profile Photo</span
+            >
+            <span class="field-error" id="photoError"></span>
           </div>
 
           <!-- RIGHT SIDE -->
           <div class="artisan-popup-right">
             <div class="form-group">
               <label>Artisan Name</label>
-              <input type="text" placeholder="Kishorilal Magan" />
+              <input
+                type="text"
+                id="inputName"
+                placeholder="Kishorilal Magan"
+              />
+              <span class="field-error" id="nameError"></span>
             </div>
 
             <div class="form-group">
               <label>Location</label>
-              <input type="text" placeholder="Madhya Pradesh" />
+              <input
+                type="text"
+                id="inputLocation"
+                placeholder="Madhya Pradesh"
+              />
+              <span class="field-error" id="locationError"></span>
             </div>
 
             <div class="form-group">
               <label>Craft</label>
-              <input type="text" placeholder="Weaving" />
+              <input type="text" id="inputCraft" placeholder="Weaving" />
+              <span class="field-error" id="craftError"></span>
             </div>
 
             <div class="form-group">
               <label>Biography</label>
               <textarea
+                id="inputBio"
                 rows="4"
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur sodales risus a dui luctus fringilla. Sed vehicula in lorem quis ultrices.Ut nibh orci:, sodales cursus luctus et, accumsan ac velit. "
               ></textarea>
+              <span class="field-error" id="bioError"></span>
             </div>
 
-            <button class="publish-btn">Publish</button>
+            <div class="popup-btn-row" id="popupBtnRow">
+              <button class="publish-btn" id="publishBtn">Publish</button>
+              <button class="cancel-btn" id="cancelBtn" style="display: none">
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
-        <button class="publish-btn-res">Publish</button>
+        <div class="popup-btn-row-res" id="popupBtnRowRes">
+          <button class="publish-btn-res" id="publishBtnRes">Publish</button>
+          <button
+            class="cancel-btn-res"
+            id="cancelBtnRes"
+            style="display: none"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- DELETE CONFIRMATION POPUP -->
+    <div class="delete-confirm-overlay" id="deleteConfirmPopup">
+      <div class="delete-confirm-box">
+        <p class="delete-confirm-msg">Are you sure you want to delete?</p>
+        <div class="delete-confirm-actions">
+          <button class="delete-confirm-cancel" id="deleteCancelBtn">
+            Cancel
+          </button>
+          <button class="delete-confirm-ok" id="deleteOkBtn">OK</button>
+        </div>
+      </div>
+    </div>
+
     <div class="floating-add-btn">
       <img src="../assets/developerHMArtisanStory/plus.svg" alt="add" />
     </div>

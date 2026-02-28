@@ -12,7 +12,7 @@ body {
 }
 
 /* Card */
-.category-card {
+.DPMPC-category-card {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
@@ -20,55 +20,55 @@ body {
   overflow-y: auto;
 }
 
+.DPMPC-floating-plus-btn {
+  display: none;
+}
+
 /* Header */
-.card-header {
+.DPMPC-mob-card-header {
+  display: none;
+}
+
+.DPMPC-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card-header h2 {
+.DPMPC-card-header h2 {
   font-size: 18px;
   font-weight: 600;
   color: #3f3f3f;
   font-family: "inter";
 }
 
-.view-all {
-  font-size: 14px;
-  font-weight: 400;
-  color: #6828e7;
-  text-decoration: none;
-  font-family: "inter";
-}
-
 /* Divider */
-.divider {
-  margin-top: 25px;
-  border-bottom: 1px solid #6828e7;
+.DPMPC-divider {
+  margin: 15px 0;
+  border-bottom: 1px solid #c8dae7;
 }
 
 /* Table Wrapper */
-.table-wrapper {
+.DPMPC-table-wrapper {
   height: 600px;
   overflow-x: auto;
   overflow-y: auto;
 }
 
-.table-wrapper::-webkit-scrollbar {
+.DPMPC-table-wrapper::-webkit-scrollbar {
   width: 6px;
 }
 
-.table-wrapper::-webkit-scrollbar-track {
+.DPMPC-table-wrapper::-webkit-scrollbar-track {
   background: #d9d9d9;
 }
 
-.table-wrapper::-webkit-scrollbar-thumb {
+.DPMPC-table-wrapper::-webkit-scrollbar-thumb {
   background: #716b6b;
   border-radius: 3px;
 }
 
-.table-wrapper::-webkit-scrollbar-thumb {
+.DPMPC-table-wrapper::-webkit-scrollbar-thumb {
   background: #716b6b;
   border-radius: 3px;
 }
@@ -77,6 +77,7 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 thead {
@@ -104,24 +105,114 @@ tbody td {
 }
 
 /* Category Cell */
-.category-cell {
-  padding-top:25px ;
+.DPMPC-category-cell {
+  padding-top: 25px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.category-cell img {
-  width: 22px;
-  height: 22px;
+.DPMPC-category-cell img {
+  width: 38px;
+  height: 38px;
 }
 
+.DPMPC-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.DPMPC-table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.DPMPC-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.DPMPC-APRAMobileFAQ {
+  display: none;
+}
+
+.DPMPC-APRAfaq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.DPMPC-APRAfaq-title img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.DPMPC-APRAfaq-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.DPMPC-APRAfaq-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.DPMPC-APRAfaq-item.active {
+  padding-bottom: 6px;
+  border-bottom: 1px solid #c8dae7;
+}
+
+.DPMPC-APRAfaq-question {
+  border-bottom: 1px solid #cce8ff;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-radius: 0px;
+  background: #e9f0f5;
+}
+
+.DPMPC-APRAfaq-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  font-size: 14px;
+}
+
+.DPMPC-APRAfaq-row span:first-child {
+  color: #3f3f3f;
+  font-weight: 700;
+}
+
+.DPMPC-APRAfaq-row span:last-child {
+  color: #3f3f3f;
+  font-weight: 400;
+  text-align: left;
+}
+
+.DPMPC-APRAfaq-row {
+  width: fit-content;
+  padding: 6px 10px;
+}
+
+.DPMPC-table-wrapper th:last-child,
+.DPMPC-table-wrapper td:last-child {
+  width: 40px;
+}
+.edit-page-navigation-btn {
+  cursor: pointer;
+}
+#edit-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+
 @media (max-width: 1024px) and (min-width: 595px) {
-  .table-wrapper {
+  .DPMPC-table-wrapper {
     width: 100%;
-    max-height: 420px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    height: 100%;
   }
 
   table {
@@ -136,109 +227,80 @@ tbody td {
     white-space: normal;
   }
 
-  .category-cell {
+  .DPMPC-category-cell {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .category-cell img {
+  .DPMPC-category-cell img {
     flex-shrink: 0;
   }
 }
 
-.table-wrapper::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.table-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 @media (max-width: 595px) {
   body {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
   }
 
-  .table-wrapper {
-    overflow: visible;
-  }
-
-  table,
-  thead,
-  tbody,
-  tr,
-  td {
-    display: block;
-    width: 100%;
-  }
-
-  thead {
+  .DPMPC-table-wrapper {
     display: none;
   }
 
-  tbody tr {
-    background: #ffffff;
-    border-radius: 4px;
-    margin-bottom: 16px;
+  .DPMPC-divider {
+    display: none;
   }
 
-  tbody td:first-child {
-    background: #e7f0f9;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
+  .DPMPC-APRAMobileFAQ {
+    display: block;
+    background: white;
+    padding-top: 20px;
+  }
+
+  .DPMPC-APRAfaq-question {
+    width: 100%;
+    background: #e9f0f5;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .DPMPC-APRAfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .DPMPC-APRAfaq-item.active .DPMPC-APRAfaq-answer {
+    max-height: 500px;
+  }
+  .DPMPC-APRAfaq-item {
+    margin-bottom: 10px;
+  }
+  .DPMPC-card-header h2 {
+    display: none;
+  }
+  .DPMPC-mob-card-header {
+    display: block;
+  }
+  .DPMPC-mob-card-header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: #3f3f3f;
+    gap: 12px;
   }
 
-  tbody td {
-    padding: 10px;
-    font-size: 14px;
-    color: #565252;
+  .DPMPC-mob-card-header img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 
-  tbody td:nth-child(5)::before {
-    content: "States - ";
+  .DPMPC-mob-card-header h4 {
+    margin: 0;
+    font-size: 16px;
     font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(2)::before {
-    content: "Stock - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(3)::before {
-    content: "Sale - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  tbody td:nth-child(4)::before {
-    content: "Left - ";
-    font-weight: 600;
-    color: #565252;
-  }
-
-  .view-all {
-    display: none;
-  }
-  .category-card {
-    background: none;
-    padding: 0;
-  }
-  .category-cell img {
-    display: none;
   }
 }
