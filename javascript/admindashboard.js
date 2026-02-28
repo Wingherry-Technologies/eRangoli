@@ -712,6 +712,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const rowCount = document.querySelectorAll(".po-table-body .po-table-row").length;
     document.querySelector(".po-title-count").textContent = `(${rowCount})`;
   });
+window.addEventListener("load", function () {
+
+  const countSpan = document.querySelector(".mobile-po-container .po-title-count");
+
+  if (!countSpan) return;
+
+  const items = document.querySelectorAll(".mobile-row-data .mobile-po-item");
+
+  countSpan.textContent = `(${items.length})`;
+
+});
+
+  // toggle for table in mobile view
+  document.querySelectorAll(".mobile-po-top").forEach(header => {
+  header.addEventListener("click", function(){
+
+    const item = this.parentElement;
+
+    // Close others
+    document.querySelectorAll(".mobile-po-item").forEach(card => {
+      if(card !== item){
+        card.classList.remove("active");
+      }
+    });
+
+    // Toggle current
+    item.classList.toggle("active");
+
+  });
+});
 
 /* ======================================================
    DEFAULT LOAD (Weekly)
