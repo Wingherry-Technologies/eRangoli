@@ -832,30 +832,38 @@ function resetCartButtons() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const delay = 250;
+  const delay = 200;
 
   function setupMenu(parentSelector, submenuSelector) {
+
     document.querySelectorAll(parentSelector).forEach(parent => {
 
-      const submenu = parent.querySelector(submenuSelector);
+      const submenu = parent.querySelector(":scope > " + submenuSelector);
       if (!submenu) return;
+
+      parent.classList.add("has-child");
 
       let showTimer;
       let hideTimer;
 
       parent.addEventListener("mouseenter", () => {
-
         clearTimeout(hideTimer);
 
-        // 🔥 Close all sibling submenus
-        document.querySelectorAll(submenuSelector).forEach(menu => {
-          if (menu !== submenu) {
-            menu.classList.remove("show");
+        // Close sibling menus safely
+        const siblings = parent.parentElement.querySelectorAll(":scope > .SBS-submenu-item");
+        siblings.forEach(sib => {
+          if (sib !== parent) {
+            const sibSub = sib.querySelector(":scope > " + submenuSelector);
+            if (sibSub) {
+              sibSub.classList.remove("show");
+              sib.classList.remove("open");
+            }
           }
         });
 
         showTimer = setTimeout(() => {
           submenu.classList.add("show");
+          parent.classList.add("open");
         }, delay);
       });
 
@@ -864,21 +872,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hideTimer = setTimeout(() => {
           submenu.classList.remove("show");
+          parent.classList.remove("open");
         }, delay);
       });
 
     });
   }
 
-  // Level 2
   setupMenu(".SBS-menu-item", ".level-2");
-
-  // Level 3
-  setupMenu(".level-2 > .level-2-scroll > .SBS-submenu-item", ".level-3");
-
-  // Level 4
-  setupMenu(".level-3 > .level-3-scroll > .SBS-submenu-item", ".level-4");
-  
+  setupMenu(".level-2 .SBS-submenu-item", ".level-3");
+  setupMenu(".level-3 .SBS-submenu-item", ".level-4");
 
 });
 
