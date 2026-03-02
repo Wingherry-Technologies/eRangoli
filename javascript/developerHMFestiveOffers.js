@@ -18,14 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const publishBtn = document.querySelector(".DHMFOpublish-btn");
 
-  // ── Offer Title Inline Edit ──────────────────────────────────────────────
+  //Offer Title Edit
   const offerTitleText = document.getElementById("DHMFOofferTitleText");
   const offerTitleInput = document.getElementById("DHMFOofferTitleInput");
   const offerTitleEditBtn = document.getElementById("DHMFOofferTitleEditBtn");
 
   if (offerTitleEditBtn && offerTitleText && offerTitleInput) {
     offerTitleEditBtn.addEventListener("click", function () {
-      // Populate input with current title value and switch to edit mode
       offerTitleInput.value = offerTitleText.textContent.trim();
       offerTitleText.style.display = "none";
       offerTitleInput.style.display = "block";
@@ -39,13 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (newValue !== "") {
           offerTitleText.textContent = newValue;
         }
-        // Revert to view mode regardless (keep old value if empty)
         offerTitleInput.style.display = "none";
         offerTitleText.style.display = "block";
       }
     });
 
-    // Also exit edit mode on blur, preserving old value if empty
     offerTitleInput.addEventListener("blur", function () {
       const newValue = offerTitleInput.value.trim();
       if (newValue !== "") {
@@ -55,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
       offerTitleText.style.display = "block";
     });
   }
-  // ────────────────────────────────────────────────────────────────────────
 
   function handleMobileHeading() {
     const existingHeading = document.querySelector(
