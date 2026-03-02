@@ -1548,7 +1548,7 @@ nav{
 /* LEVEL 2 */
 .SBS-submenu.level-2 {
   position: absolute;
-  top: 100%;
+  top: 40px;
   left: -20px;
   display: none;                 /* hidden by default */
   background: inherit;
@@ -1586,7 +1586,7 @@ nav{
   display: none;
   position: absolute;
   top: 20px;
-  left: 145px;
+  left: 135px;
   background: white;
   border-radius: 10px;
   flex-direction: column;
@@ -1599,7 +1599,7 @@ nav{
   display: none;
   position: absolute;
   top: 20px;          /* same starting line */
-  left: 145px;        /* shift more right than level-3 */
+  left: 135px;        /* shift more right than level-3 */
   background: white;
   padding: 10px;
   height: 200px;
@@ -1626,7 +1626,7 @@ nav{
 
 /* Submenu items */
 .SBS-submenu-item {
-  position: static;   /* 🔥 important */
+  position: relative;   /* 🔥 important */
   padding: 5px 12px;
   color: black;
   cursor: pointer;
@@ -1682,16 +1682,18 @@ nav{
 }
 
 /* Arrow */
+
 .SBS-submenu-item.has-child::after {
   content: "❯";
   position: absolute;
-  top: 13px;
-  right: 15px;
+  right: 18px;
   opacity: 0;
   transition: opacity 0.2s ease;
   font-weight: 400;
   color: grey;
   font-size: 14px;
+  margin-bottom: 5px;
+  padding-top: -6px;
 }
 
 /* Show arrow when submenu visible */

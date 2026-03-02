@@ -836,48 +836,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setupMenu(parentSelector, submenuSelector) {
 
-    document.querySelectorAll(parentSelector).forEach(parent => {
+  document.querySelectorAll(parentSelector).forEach(parent => {
 
-      const submenu = parent.querySelector(":scope > " + submenuSelector);
-      if (!submenu) return;
+    const submenu = parent.querySelector(":scope > " + submenuSelector);
+    if (!submenu) return;
 
-      parent.classList.add("has-child");
+    parent.classList.add("has-child");
 
-      let showTimer;
-      let hideTimer;
+    let showTimer;
+    let hideTimer;
 
-      parent.addEventListener("mouseenter", () => {
-        clearTimeout(hideTimer);
+    parent.addEventListener("mouseenter", () => {
+      clearTimeout(hideTimer);
 
-        // Close sibling menus safely
-        const siblings = parent.parentElement.querySelectorAll(":scope > .SBS-submenu-item");
-        siblings.forEach(sib => {
-          if (sib !== parent) {
-            const sibSub = sib.querySelector(":scope > " + submenuSelector);
-            if (sibSub) {
-              sibSub.classList.remove("show");
-              sib.classList.remove("open");
-            }
-          }
-        });
+      // 🔥 CLOSE ALL siblings completely
+      const siblings = parent.parentElement.children;
 
-        showTimer = setTimeout(() => {
-          submenu.classList.add("show");
-          parent.classList.add("open");
-        }, delay);
+      Array.from(siblings).forEach(sib => {
+        if (sib !== parent) {
+          sib.classList.remove("open");
+
+          // remove ALL open submenus inside sibling
+          sib.querySelectorAll(".show").forEach(el => {
+            el.classList.remove("show");
+          });
+        }
       });
 
-      parent.addEventListener("mouseleave", () => {
-        clearTimeout(showTimer);
-
-        hideTimer = setTimeout(() => {
-          submenu.classList.remove("show");
-          parent.classList.remove("open");
-        }, delay);
-      });
-
+      showTimer = setTimeout(() => {
+        submenu.classList.add("show");
+        parent.classList.add("open");
+      }, 200);
     });
-  }
+
+    parent.addEventListener("mouseleave", () => {
+      clearTimeout(showTimer);
+
+      hideTimer = setTimeout(() => {
+        submenu.classList.remove("show");
+        parent.classList.remove("open");
+      }, 200);
+    });
+
+  });
+}
 
   setupMenu(".SBS-menu-item", ".level-2");
   setupMenu(".level-2 .SBS-submenu-item", ".level-3");
