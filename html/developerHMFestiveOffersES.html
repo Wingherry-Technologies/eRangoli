@@ -10,217 +10,877 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../css/developerHMFestiveOffersES.css" />
+    <link rel="stylesheet" href="../css/developerSidebarNavbar.css">
   </head>
   <body>
-    <div class="DHMFOES-page-wrapper">
-      <div class="DHMFOES-top-header">
-        <h2>Festive offers</h2>
-        <span class="DHMFOES-product-count">18 Products</span>
+    <nav>
+      <div class="logo-section">
+        <img
+          id="desktop-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2.svg"
+          alt=""
+        />
+        <img
+          id="mobile-erangoli-logo"
+          onclick="window.location.href = '../html/index.html'"
+          src="../assets/master/eRangoli 2-1.svg"
+          alt=""
+          style="z-index: 99999 !important"
+        />
+        <ul id="desktop-suggestions" class="suggestions-box"></ul>
       </div>
-      <div class="DHMFOES-card">
-        <div class="DHMFOES-top-header-mob">
-          <h2>Festive offers</h2>
-        </div>
-        <div class="DHMFOES-card-header">
-          <h3>Create Festive offer</h3>
-        </div>
-        <div class="DHMFOES-divider"></div>
-        <div class="DHMFOES-section">
-          <h4>Section 1 - Create Offer Category Catalog</h4>
-          <div class="DHMFOES-form-group">
-            <label>Offer Title</label>
-            <input type="text" placeholder="Christmas Offer Megasale" />
+
+      <!-- HAMBURGER (Mobile Only) -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <img src="../assets/master/List.svg" alt="" />
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <div class="welcome-main-section" id="welcome-section">
+          <div class="image-section">
+            <div class="circle-image">
+              <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="" />
+            </div>
           </div>
-          <div class="DHMFOES-catalog-wrapper">
-            <form id="DHMFOES-offerForm">
-              <div class="DHMFOES-catalog-card">
-                <div class="DHMFOES-upload-box" id="DHMFOES-uploadBox">
-                  <input
-                    type="file"
-                    id="DHMFOES-coverImage"
-                    accept="image/*"
-                    hidden
-                  />
-                  <div
-                    class="DHMFOES-upload-content"
-                    id="DHMFOES-uploadContent"
+          <div class="welcome-text-section">
+            <span>Welcome !</span>
+            <a id="welcome-name">Sanskriti Collection</a>
+          </div>
+        </div>
+
+        <div class="main-bottom-section">
+          <div class="sub-section">
+            <ul class="mobile-nav-menu1" id="account-menu">
+              <!-- DASHBOARD -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerDashboard.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                    </div>
+                    <span>Dashboard</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+
+              <!-- PRODUCT MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                    </div>
+                    <span>Product Management</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+                <ul class="mobile-submenu">
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerPMRecentlyAddedList.html'
+                    "
                   >
-                    <div class="DHMFOES-upload-icon">
+                    Products Recently Added
+                  </li>
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerPMProductCategories.html'
+                    "
+                  >
+                    Product Categories
+                  </li>
+                </ul>
+              </li>
+
+              <!-- ORDER MANAGEMENT -->
+              <li class="mobile-dropdown">
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
                       <img
-                        src="../assets/developerHMFestiveOffersES/upload.svg"
+                        src="../assets/vendorSidebar/ClipboardText.svg"
+                        alt=""
                       />
                     </div>
-                    <p>Upload Cover Image or drag & drop</p>
-                    <span>Recommended size: 1920px 1080px</span>
+                    <span>Vendor Management</span>
                   </div>
-                  <img id="DHMFOES-imagePreview" class="DHMFOES-preview-img" />
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
-                <small class="DHMFOES-error" id="DHMFOES-imageError"></small>
-                <div class="DHMFOES-innerbox">
-                  <div class="DHMFOES-innerbox-form-group">
-                    <label>Image Name</label>
-                    <input
-                      type="text"
-                      id="DHMFOES-imageName"
-                      placeholder="Wooden Toys"
-                    />
-                    <small class="DHMFOES-error" id="DHMFOES-nameError"></small>
+                <ul class="mobile-submenu">
+                  <li
+                    onclick="
+                      window.location.href =
+                        '../html/developerVMVendorVerfication.html'
+                    "
+                  >
+                    Vendor Verification
+                  </li>
+                </ul>
+              </li>
+
+              <!-- HOME PAGE MANAGEMENT -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerHMDashboard.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/ClipboardText (1).svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>Home Page Management</span>
                   </div>
-                  <div class="DHMFOES-innerbox-form-group">
-                    <label>Enter CTA Link</label>
-                    <input
-                      type="text"
-                      id="DHMFOES-ctaLink"
-                      placeholder="https://store.example.com/collection/products"
-                    />
-                    <small class="DHMFOES-error" id="DHMFOES-linkError"></small>
-                  </div>
-                  <div class="DHMFOES-btn-group">
-                    <button type="submit" class="DHMFOES-publish-btn">
-                      Publish
-                    </button>
-                    <button
-                      type="button"
-                      class="DHMFOES-delete-btn"
-                      id="DHMFOES-deleteBtn"
-                    >
-                      Delete
-                    </button>
-                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
-              </div>
-            </form>
-            <div class="DHMFOES-add-section">
-              <div class="DHMFOES-plus-circle">+</div>
-              <p>Add New Section</p>
-              <span>Create a New Category for Offer</span>
+              </li>
+
+              <!-- My Profile -->
+              <li
+                class="mobile-dropdown"
+                onclick="
+                  window.location.href = '../html/developerMyProfile.html'
+                "
+              >
+                <div class="dropdown-header">
+                  <div class="mobile-icon-main">
+                    <div class="mobile-icon">
+                      <img
+                        src="../assets/vendorSidebar/UserCircle.svg"
+                        alt=""
+                      />
+                    </div>
+                    <span>My Profile</span>
+                  </div>
+                  <img class="arrow" src="../assets/master/CaretDown.svg" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mobile-logout-section">
+          <div class="mobile-logout-sub">
+            <div class="version">
+              <span>eRangoli Version 1.0.0</span>
+            </div>
+            <div class="logout-button">
+              <img src="../assets/master/SignOut.svg" alt="" />
+              <span>Logout</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="DHMFOES-card DHMFOES-card-2">
-        <div class="DHMFOES-section DHMFOES-section-2">
-          <h4>Section 2 - Offer details</h4>
 
-          <div class="DHMFOES-section-2-form-group">
-            <label>Upload Cover Image</label>
-            <div
-              class="DHMFOES-upload-box-sec2 DHMFOES-large-upload"
-              id="DHMFOES-uploadBox2"
-            >
-              <input
-                type="file"
-                id="DHMFOES-coverImage2"
-                accept="image/*"
-                hidden
-              />
-              <div class="DHMFOES-upload-content" id="DHMFOES-uploadContent2">
-                <div class="DHMFOES-upload-icon">
-                  <img src="../assets/developerHMFestiveOffersES/upload.svg" />
-                </div>
-                <p>Upload Cover Image or drag & drop</p>
-              </div>
-              <img id="DHMFOES-imagePreview2" class="DHMFOES-preview-img" />
-            </div>
-            <small class="DHMFOES-error" id="DHMFOES-imageError2"></small>
-          </div>
-
-          <div class="DHMFOES-section-2-form-group">
-            <label>Discount Amount</label>
-            <input type="text" id="discountAmount" placeholder="500" />
-            <small class="DHMFOES-error" id="discountError"></small>
-          </div>
-
-          <div class="DHMFOES-section-2-form-group">
-            <label>Enter the condition</label>
-            <input
-              type="text"
-              id="conditionField"
-              placeholder="On order above 2499"
-            />
-            <small class="DHMFOES-error" id="conditionError"></small>
-          </div>
-
-          <div class="DHMFOES-section-2-form-group">
-            <label>Enter the Sub-condition (if applicable)</label>
-            <input
-              type="text"
-              id="subConditionField"
-              placeholder="Only for First time users"
-            />
-          </div>
-
-          <div class="DHMFOES-section-2-form-group">
-            <label>Enter Coupon Code</label>
-            <input type="text" id="couponCode" placeholder="FIRST500" />
-            <small class="DHMFOES-error" id="couponError"></small>
-          </div>
-
-          <button class="DHMFOES-publishBtn" id="section2PublishBtn">
-            Publish
-          </button>
+      <!-- MENU -->
+      <div class="menu-section">
+        <div class="round-button" id="round-button-notification">
+          <span class="number-of-round" id="number-of-notification">3</span>
+          <img src="../assets/master/Bell.svg" alt="" />
         </div>
+
+        <div class="round-button" id="round-button-order">
+          <span class="number-of-round" id="number-of-cart">4</span>
+          <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+        </div>
+
+        <div class="user-profile-icon" id="user-profile-icon">
+          <div class="img-name">
+            <div class="circle-image">
+              <img src="../assets/adminSidebar/Group 2055248221.svg" alt="" />
+            </div>
+            <div class="admin-name">
+              <span id="user-name">Kristin Winget</span>
+              <span id="role-name">Admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notification-main-box">
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="notification-main-box" id="notification-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>Notifications</span>
+          <img
+            id="notification-cross"
+            src="../assets/vendorSidebar/X.svg"
+            alt=""
+          />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                We are also taking orders for ready to wear saree, 20% off on
+                orders before 31st dec.
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- Popup Modal -->
-    <div class="DHMFOES-modal" id="DHMFOES-modal">
-      <div class="DHMFOES-modal-content">
-        <form id="DHMFOES-offerFormPopup">
-          <div class="DHMFOES-catalog-card">
-            <div class="DHMFOES-upload-box" id="popupUploadBox">
-              <input type="file" id="popupFileInput" accept="image/*" hidden />
 
-              <div class="DHMFOES-upload-content" id="popupUploadContent">
-                <div class="DHMFOES-upload-icon">
-                  <img src="../assets/developerHMFestiveOffersES/upload.svg" />
-                </div>
-                <p>Upload Cover Image or drag & drop</p>
-                <span>Recommended size: 1920px 1080px</span>
-              </div>
-
-              <img id="popupPreview" class="DHMFOES-preview-img" />
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+      <div class="notification-main-box-content">
+        <div class="notification-main-head-box">
+          <span>New Order</span>
+          <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+        </div>
+        <ul>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
             </div>
-
-            <small class="DHMFOES-error" id="popupImageError"></small>
-
-            <div class="DHMFOES-innerbox">
-              <div class="DHMFOES-innerbox-form-group">
-                <label>Image Name</label>
-                <input
-                  type="text"
-                  id="popupImageName"
-                  placeholder="Wooden Toys"
-                />
-                <small class="DHMFOES-error" id="popupNameError"></small>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
               </div>
-
-              <div class="DHMFOES-innerbox-form-group">
-                <label>Enter CTA Link</label>
-                <input
-                  type="text"
-                  id="popupCtaLink"
-                  placeholder="https://example.com"
-                />
-                <small class="DHMFOES-error" id="popupLinkError"></small>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
               </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="notification-content">
+            <div>
+              <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+            </div>
+            <div class="contents-noti">
+              <span>13/12/25</span>
+              <div class="noti-head">
+                New Collection of Kalamkari Saree is Live
+              </div>
+              <div class="noti-content">
+                <div class="size-list-price">
+                  <span>Size: S</span>
+                  <span>Qty: 2</span>
+                </div>
+                <div class="order-list-price">
+                  <span>Price: ₹5400</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-              <div class="DHMFOES-btn-group">
-                <button type="submit" class="DHMFOES-publish-btn">
-                  Publish
-                </button>
-                <button
-                  type="button"
-                  class="DHMFOES-delete-btn"
-                  id="popupCancelBtn"
-                >
-                  Cancel
-                </button>
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+      <a href="index.html" class="bottom-nav__item">
+        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+        <span class="bottom-nav__label">Dashboard</span>
+      </a>
+
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+        <span class="bottom-bar-numbers">2</span>
+        <span class="bottom-nav__label">Orders</span>
+      </a>
+
+      <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+        <img src="../assets/master/notificationnav.svg" alt="" />
+        <span class="bottom-bar-numbers">3</span>
+        <span class="bottom-nav__label">Notifications</span>
+      </a>
+
+      <a
+        href="#"
+        class="bottom-nav__item1"
+        id="bottom-nav-cart"
+        onclick="window.location.href = '../html/adminMyProfile.html'"
+      >
+        <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
+        <span class="bottom-nav__label">My Profile</span>
+      </a>
+    </div>
+
+    <!-- Sidebar -->
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+      <article>
+        <div class="welcome-sidebar-main">
+          <div class="welcome-sidebar">
+            <span>Welcome!</span>
+            <span>Administration</span>
+          </div>
+          <div class="hamberger-sidebar" id="sidebarToggle">
+            <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="" />
+            <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="" />
+          </div>
+        </div>
+
+        <ul>
+          <!-- Dashboard -->
+          <li
+            class="has-submenu"
+            onclick="window.location.href = '../html/developerDashboard.html'"
+          >
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+              <span>Dashboard</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+
+          <!-- Product Management -->
+          <li class="has-submenu" data-menu="product">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/Package.svg" alt="" />
+              <span>Product Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="product">
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerPMRecentlyAddedList.html'
+              "
+            >
+              Products Recently Added
+            </li>
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerPMProductCategories.html'
+              "
+            >
+              Product Categories
+            </li>
+          </ul>
+
+          <!-- Vendor Management -->
+          <li class="has-submenu" data-menu="vendor">
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+              <span>Vendor Management</span>
+            </div>
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
+          </li>
+          <ul class="submenu" data-submenu="vendor">
+            <li
+              onclick="
+                window.location.href =
+                  '../html/developerVMVendorVerfication.html'
+              "
+            >
+              Vendor Verification
+            </li>
+          </ul>
+
+          <!-- Home Page  Management -->
+          <li
+            class="has-submenu"
+            onclick="window.location.href = '../html/developerHMDashboard.html'"
+          >
+            <div class="image-head">
+              <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+              <span>Homepage Management</span>
+            </div>
+            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+          </li>
+        </ul>
+      </article>
+    </section>
+    <div class="main-content-beyond">
+      <div class="DHMFOES-page-wrapper">
+        <div class="DHMFOES-top-header">
+          <h2>Festive offers</h2>
+          <span class="DHMFOES-product-count">18 Offers</span>
+        </div>
+        <div class="DHMFOES-card">
+          <div class="mobile-back-button">
+            <h2>Festive offers</h2>
+          </div>
+          <div class="DHMFOES-card-header">
+            <h3>Create Festive offer</h3>
+          </div>
+          <div class="DHMFOES-divider"></div>
+          <div class="DHMFOES-section">
+            <h4>Section 1 - Create Offer Category Catalog</h4>
+            <div class="DHMFOES-form-group">
+              <label>Offer Title</label>
+              <input type="text" placeholder="Christmas Offer Megasale" />
+            </div>
+            <div class="DHMFOES-catalog-wrapper">
+              <form id="DHMFOES-offerForm">
+                <div class="DHMFOES-catalog-card">
+                  <div class="DHMFOES-upload-box" id="DHMFOES-uploadBox">
+                    <input
+                      type="file"
+                      id="DHMFOES-coverImage"
+                      accept="image/*"
+                      hidden
+                    />
+                    <div
+                      class="DHMFOES-upload-content"
+                      id="DHMFOES-uploadContent"
+                    >
+                      <div class="DHMFOES-upload-icon">
+                        <img
+                          src="../assets/developerHMFestiveOffersES/upload.svg"
+                        />
+                      </div>
+                      <p>Upload Cover Image or drag & drop</p>
+                      <span>Recommended size: 1920px 1080px</span>
+                    </div>
+                    <img id="DHMFOES-imagePreview" class="DHMFOES-preview-img" />
+                  </div>
+                  <small class="DHMFOES-error" id="DHMFOES-imageError"></small>
+                  <div class="DHMFOES-innerbox">
+                    <div class="DHMFOES-innerbox-form-group">
+                      <label>Image Name</label>
+                      <input
+                        type="text"
+                        id="DHMFOES-imageName"
+                        placeholder="Wooden Toys"
+                      />
+                      <small class="DHMFOES-error" id="DHMFOES-nameError"></small>
+                    </div>
+                    <div class="DHMFOES-innerbox-form-group">
+                      <label>Enter CTA Link</label>
+                      <input
+                        type="text"
+                        id="DHMFOES-ctaLink"
+                        placeholder="https://store.example.com/collection/products"
+                      />
+                      <small class="DHMFOES-error" id="DHMFOES-linkError"></small>
+                    </div>
+                    <div class="DHMFOES-btn-group">
+                      <button type="submit" class="DHMFOES-publish-btn">
+                        Publish
+                      </button>
+                      <button
+                        type="button"
+                        class="DHMFOES-delete-btn"
+                        id="DHMFOES-deleteBtn"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="DHMFOES-add-section">
+                <div class="DHMFOES-plus-circle">+</div>
+                <p>Add New Section</p>
+                <span>Create a New Category for Offer</span>
               </div>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="DHMFOES-card DHMFOES-card-2">
+          <div class="DHMFOES-section DHMFOES-section-2">
+            <h4>Section 2 - Offer details</h4>
+
+            <div class="DHMFOES-section-2-form-group">
+              <label>Upload Cover Image</label>
+              <div
+                class="DHMFOES-upload-box-sec2 DHMFOES-large-upload"
+                id="DHMFOES-uploadBox2"
+              >
+                <input
+                  type="file"
+                  id="DHMFOES-coverImage2"
+                  accept="image/*"
+                  hidden
+                />
+                <div class="DHMFOES-upload-content" id="DHMFOES-uploadContent2">
+                  <div class="DHMFOES-upload-icon">
+                    <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+                  </div>
+                  <p>Upload Cover Image or drag & drop</p>
+                </div>
+                <img id="DHMFOES-imagePreview2" class="DHMFOES-preview-img" />
+              </div>
+              <small class="DHMFOES-error" id="DHMFOES-imageError2"></small>
+            </div>
+
+            <div class="DHMFOES-section-2-form-group">
+              <label>Discount Amount</label>
+              <input type="text" id="discountAmount" placeholder="500" />
+              <small class="DHMFOES-error" id="discountError"></small>
+            </div>
+
+            <div class="DHMFOES-section-2-form-group">
+              <label>Enter the condition</label>
+              <input
+                type="text"
+                id="conditionField"
+                placeholder="On order above 2499"
+              />
+              <small class="DHMFOES-error" id="conditionError"></small>
+            </div>
+
+            <div class="DHMFOES-section-2-form-group">
+              <label>Enter the Sub-condition (if applicable)</label>
+              <input
+                type="text"
+                id="subConditionField"
+                placeholder="Only for First time users"
+              />
+            </div>
+
+            <div class="DHMFOES-section-2-form-group">
+              <label>Enter Coupon Code</label>
+              <input type="text" id="couponCode" placeholder="FIRST500" />
+              <small class="DHMFOES-error" id="couponError"></small>
+            </div>
+
+            <button class="DHMFOES-publishBtn" id="section2PublishBtn">
+              Publish
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Popup Modal -->
+      <div class="DHMFOES-modal" id="DHMFOES-modal">
+        <div class="DHMFOES-modal-content">
+          <form id="DHMFOES-offerFormPopup">
+            <div class="DHMFOES-catalog-card">
+              <div class="DHMFOES-upload-box" id="popupUploadBox">
+                <input type="file" id="popupFileInput" accept="image/*" hidden />
+
+                <div class="DHMFOES-upload-content" id="popupUploadContent">
+                  <div class="DHMFOES-upload-icon">
+                    <img src="../assets/developerHMFestiveOffersES/upload.svg" />
+                  </div>
+                  <p>Upload Cover Image or drag & drop</p>
+                  <span>Recommended size: 1920px 1080px</span>
+                </div>
+
+                <img id="popupPreview" class="DHMFOES-preview-img" />
+              </div>
+
+              <small class="DHMFOES-error" id="popupImageError"></small>
+
+              <div class="DHMFOES-innerbox">
+                <div class="DHMFOES-innerbox-form-group">
+                  <label>Image Name</label>
+                  <input
+                    type="text"
+                    id="popupImageName"
+                    placeholder="Wooden Toys"
+                  />
+                  <small class="DHMFOES-error" id="popupNameError"></small>
+                </div>
+
+                <div class="DHMFOES-innerbox-form-group">
+                  <label>Enter CTA Link</label>
+                  <input
+                    type="text"
+                    id="popupCtaLink"
+                    placeholder="https://example.com"
+                  />
+                  <small class="DHMFOES-error" id="popupLinkError"></small>
+                </div>
+
+                <div class="DHMFOES-btn-group">
+                  <button type="submit" class="DHMFOES-publish-btn">
+                    Publish
+                  </button>
+                  <button
+                    type="button"
+                    class="DHMFOES-delete-btn"
+                    id="popupCancelBtn"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <script src="../javascript/developerHMFestiveOffersES.js"></script>
+    <script src="../javascript/developerSidebarnavbar.js"></script>
   </body>
 </html>
