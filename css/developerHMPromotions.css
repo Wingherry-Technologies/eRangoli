@@ -12,7 +12,9 @@ body {
 }
 
 .DHMP-page-wrapper {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom:20px;
 }
 
 .DHMP-page-header {
@@ -238,7 +240,6 @@ body {
 }
 
 .DHMPAN-add-promotion-wrapper {
-  padding: 20px;
   background: #ebeef3;
 }
 
