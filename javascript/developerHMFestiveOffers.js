@@ -132,10 +132,48 @@ document.addEventListener("DOMContentLoaded", function () {
     imageError.textContent = "";
     nameError.textContent = "";
     linkError.textContent = "";
+    const imgEditBtnClose = document.getElementById("DHMFOimgEditBtn");
+    if (imgEditBtnClose) {
+      imgEditBtnClose.classList.remove("visible");
+      document.getElementById("DHMFOimgEditDropdown")?.classList.remove("open");
+    }
   }
 
   openPopupBtn.addEventListener("click", openPopup);
   deleteBtn.addEventListener("click", closePopup);
+
+  // X Close Button
+  const popupCloseBtn = document.getElementById("DHMFOpopupCloseBtn");
+  if (popupCloseBtn) {
+    popupCloseBtn.addEventListener("click", function () {
+      popup._editTargetCard = null;
+      closePopup();
+    });
+  }
+
+  // Image edit overlay button & mini dropdown
+  const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
+  const imgEditDropdown = document.getElementById("DHMFOimgEditDropdown");
+  const changeImageBtn = document.getElementById("DHMFOchangeImageBtn");
+
+  if (imgEditBtn && imgEditDropdown && changeImageBtn) {
+    imgEditBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      imgEditDropdown.classList.toggle("open");
+    });
+
+    changeImageBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      imgEditDropdown.classList.remove("open");
+      fileInput.click();
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!imgEditBtn.contains(e.target)) {
+        imgEditDropdown.classList.remove("open");
+      }
+    });
+  }
 
   popup.addEventListener("click", function (e) {
     if (e.target === popup && window.innerWidth > 595) closePopup();
@@ -167,6 +205,8 @@ document.addEventListener("DOMContentLoaded", function () {
       previewImg.style.display = "block";
       uploadContent.style.display = "none";
       uploadBox.style.padding = "0";
+      const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
+      if (imgEditBtn) imgEditBtn.classList.add("visible");
     };
     reader.readAsDataURL(file);
   }
@@ -356,6 +396,8 @@ document.addEventListener("DOMContentLoaded", function () {
       previewImg.style.display = "block";
       uploadContent.style.display = "none";
       uploadBox.style.padding = "0";
+      const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
+      if (imgEditBtn) imgEditBtn.classList.add("visible");
     }
 
     imageError.textContent = "";
@@ -399,8 +441,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)").classList.add("sidebar-active");
+document
+  .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)")
+  .classList.add("sidebar-active");
 
-
-document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
-
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header")
+  .classList.add("dropdown-header-active");

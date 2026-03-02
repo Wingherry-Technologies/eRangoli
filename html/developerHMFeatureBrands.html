@@ -698,17 +698,26 @@
             <!-- LEFT -->
             <div class="DHMFB-left-form">
               <label>Select the Vendor</label>
-              <select>
-                <option>Sanskriti Collections</option>
+              <select id="DHMFB-vendorSelect">
+                <option value="">-- Select Vendor --</option>
+                <option value="Sanskriti Collections">
+                  Sanskriti Collections
+                </option>
               </select>
 
               <label>Enter Brand Name</label>
-              <input type="text" placeholder="Craftizen" />
+              <input
+                type="text"
+                placeholder="Craftizen"
+                id="DHMFB-brandNameInput"
+              />
 
               <div class="DHMFB-btn-row">
-                <button class="DHMFB-primary-btn">Publish & Next</button>
+                <button class="DHMFB-primary-btn" id="DHMFB-publishNext">
+                  Publish &amp; Next
+                </button>
                 <button class="DHMFB-outline-btn" id="DHMFB-closeAddBrand">
-                  Publish & Close
+                  Publish &amp; Close
                 </button>
               </div>
             </div>
@@ -1297,7 +1306,8 @@
         </div>
         <label>Select the Vendor</label>
         <select class="DHMFBANvendorSelect" id="DHMFB-AN-vendorSelect">
-          <option>Sanskriti Collections</option>
+          <option value="">-- Select Vendor --</option>
+          <option value="Sanskriti Collections">Sanskriti Collections</option>
         </select>
 
         <label>Enter Brand Name</label>

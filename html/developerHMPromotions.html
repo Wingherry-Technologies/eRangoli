@@ -10,7 +10,7 @@
       href="../assets/master/eRangoli 2-1.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/developerSidebarNavbar.css">
+    <link rel="stylesheet" href="../css/developerSidebarNavbar.css" />
   </head>
   <body>
     <nav>
@@ -889,17 +889,14 @@
             </div>
           </div>
         </div>
-        <div class="DHMP-error-popup" id="DHMP-minCategoryPopup">
-          <span class="DHMP-error-text">
-            Unable to inactive as minimum 5 categories should be active
-          </span>
-          <button class="DHMP-error-close" id="DHMP-closeMinPopup">×</button>
-        </div>
       </div>
 
       <!-- ADD / EDIT FORM VIEW  -->
       <div id="DHMP-formView" style="display: none">
-        <div class="DHMPAN-add-promotion-wrapper" id="DHMPAN-addPromotionWrapper">
+        <div
+          class="DHMPAN-add-promotion-wrapper"
+          id="DHMPAN-addPromotionWrapper"
+        >
           <div class="DHMPAN-add-promotion-header-tab">
             <h3 id="DHMPAN-formHeaderTab">Add New Promotion Campaign</h3>
           </div>
@@ -931,15 +928,39 @@
             />
 
             <label>Upload Cover Image</label>
-            <div class="DHMPAN-upload-content" id="DHMPAN-uploadContent">
-              <div>
-                <img
-                  src="../assets/developerHMTopCattegories/add.svg"
-                  class="DHMPAN-upload-icon"
+            <div class="DHMPAN-upload-wrapper">
+              <div class="DHMPAN-upload-content" id="DHMPAN-uploadContent">
+                <div>
+                  <img
+                    src="../assets/developerHMTopCattegories/add.svg"
+                    class="DHMPAN-upload-icon"
+                  />
+                </div>
+                <p>Upload Cover Image or<br />drag & drop</p>
+                <input
+                  type="file"
+                  id="DHMPAN-mediaInput"
+                  accept="image/*"
+                  hidden
                 />
               </div>
-              <p>Upload Cover Image or<br />drag & drop</p>
-              <input type="file" id="DHMPAN-mediaInput" accept="image/*" hidden />
+              <div class="DHMPAN-dots-wrapper" id="DHMPAN-dotsWrapper">
+                <button
+                  class="DHMPAN-dots-btn"
+                  id="DHMPAN-dotsBtn"
+                  type="button"
+                >
+                  <img
+                    src="../assets/developerHMFestiveOffers/dots.svg"
+                    alt="Options"
+                  />
+                </button>
+                <div class="DHMPAN-dots-dropdown" id="DHMPAN-dotsDropdown">
+                  <div class="DHMPAN-dots-option" id="DHMPAN-changeImageOption">
+                    Change Image
+                  </div>
+                </div>
+              </div>
             </div>
             <span class="DHMPAN-small">Recommended size: 1920px × 1080px</span>
 
@@ -954,6 +975,13 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="DHMP-error-popup" id="DHMP-minCategoryPopup">
+      <span class="DHMP-error-text">
+        Unable to inactive as minimum 5 categories should be active
+      </span>
+      <button class="DHMP-error-close" id="DHMP-closeMinPopup">×</button>
     </div>
 
     <script src="../javascript/developerHMPromotions.js"></script>

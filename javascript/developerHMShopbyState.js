@@ -61,7 +61,6 @@ function setPopupButtonMode(mode) {
 }
 
 addCard.addEventListener("click", () => {
-  // Reset to Add mode
   editMode = false;
   editingCard = null;
   popupHeader.textContent = "Add New State";
@@ -83,16 +82,48 @@ popup.addEventListener("click", (e) => {
 const uploadBox = document.getElementById("DHMSS-uploadBox");
 const mediaInput = document.getElementById("DHMSS-mediaInput");
 const uploadContent = document.getElementById("DHMSS-uploadContent");
+const dotsBtn = document.getElementById("DHMSS-imageDotsBtn");
+const dotsDropdown = document.getElementById("DHMSS-imageDotsDropdown");
+const changeImageBtn = document.getElementById("DHMSS-changeImageBtn");
 
-uploadBox.addEventListener("click", () => {
-  mediaInput.click();
+uploadBox.addEventListener("click", (e) => {
+  if (
+    e.target.closest(".DHMSS-image-dots-btn") ||
+    e.target.closest(".DHMSS-image-dots-dropdown")
+  )
+    return;
+  const hasPreview = !!uploadBox.querySelector("img.DHMSS-preview-img");
+  if (!hasPreview) {
+    mediaInput.click();
+  }
 });
 
 uploadBox.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
-    mediaInput.click();
+    const hasPreview = !!uploadBox.querySelector("img.DHMSS-preview-img");
+    if (!hasPreview) mediaInput.click();
   }
+});
+
+// Dots button: toggle dropdown
+dotsBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dotsDropdown.style.display =
+    dotsDropdown.style.display === "none" ? "block" : "none";
+});
+
+// Change Image: open file input
+changeImageBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dotsDropdown.style.display = "none";
+  mediaInput.value = "";
+  mediaInput.click();
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", () => {
+  dotsDropdown.style.display = "none";
 });
 
 mediaInput.addEventListener("change", () => {
@@ -116,6 +147,7 @@ function setImagePreview(src) {
     "width:100%;height:100%;object-fit:cover;border-radius:10px;position:absolute;top:0;left:0;margin:0;padding:0;";
   uploadContent.style.display = "none";
   uploadBox.appendChild(previewEl);
+  dotsBtn.style.display = "flex";
 }
 
 function resetForm() {
@@ -131,6 +163,8 @@ function resetForm() {
   const existingPreview = uploadBox.querySelector("img.DHMSS-preview-img");
   if (existingPreview) existingPreview.remove();
   uploadContent.style.display = "flex";
+  dotsBtn.style.display = "none";
+  dotsDropdown.style.display = "none";
 
   // Clear errors
   document.getElementById("DHMSS-imageError").innerText = "";

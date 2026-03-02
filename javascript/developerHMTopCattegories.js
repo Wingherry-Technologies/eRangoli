@@ -50,6 +50,12 @@ const DHMTC_deleteBtn = document.querySelector(".DHMTC-btn-outline");
 
 const DHMTC_cancelBtn = document.getElementById("DHMTC-cancelBtn");
 
+// DOTS ICON
+const DHMTC_imageDotsWrap = document.getElementById("DHMTC-imageDotsWrap");
+const DHMTC_dotsBtn = document.getElementById("DHMTC-dotsBtn");
+const DHMTC_dotsDropdown = document.getElementById("DHMTC-dotsDropdown");
+const DHMTC_changeImageBtn = document.getElementById("DHMTC-changeImageBtn");
+
 let isEditMode = false;
 let currentEditCard = null;
 
@@ -62,7 +68,28 @@ function resetUploadBox() {
     previewImage = null;
   }
   DHMTC_uploadContent.style.display = "flex";
+  DHMTC_imageDotsWrap.style.display = "none";
+  DHMTC_dotsDropdown.style.display = "none";
 }
+
+// DOTS BUTTON TOGGLE
+DHMTC_dotsBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  DHMTC_dotsDropdown.style.display =
+    DHMTC_dotsDropdown.style.display === "none" ? "block" : "none";
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", () => {
+  DHMTC_dotsDropdown.style.display = "none";
+});
+
+// CHANGE IMAGE
+DHMTC_changeImageBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  DHMTC_dotsDropdown.style.display = "none";
+  DHMTC_mediaInput.click();
+});
 
 DHMTC_addCard.addEventListener("click", () => {
   isEditMode = false;
@@ -121,6 +148,9 @@ DHMTC_mediaInput.addEventListener("change", () => {
 
   DHMTC_uploadContent.style.display = "none";
   DHMTC_uploadBox.appendChild(previewImage);
+  if (isEditMode) {
+    DHMTC_imageDotsWrap.style.display = "block";
+  }
 });
 
 function showMinCategoryError() {
@@ -184,6 +214,10 @@ function bindEditButtons() {
     previewImage.src = imgSrc;
     DHMTC_uploadContent.style.display = "none";
     DHMTC_uploadBox.appendChild(previewImage);
+
+    // Show dots icon in edit mode
+    DHMTC_imageDotsWrap.style.display = "block";
+    DHMTC_dotsDropdown.style.display = "none";
 
     if (window.innerWidth <= 595) {
       DHMTC_pageWrapper.style.display = "none";
@@ -293,6 +327,13 @@ DHMTC_publishBtn.addEventListener("click", (e) => {
 
 DHMTC_cancelBtn.addEventListener("click", () => {
   if (isEditMode && currentEditCard) {
+    const totalCategories = document.querySelectorAll(
+      ".DHMTC-category-card",
+    ).length;
+    if (totalCategories <= 5) {
+      showMinCategoryError();
+      return;
+    }
     currentEditCard.remove();
     updateCategoryCount();
   }

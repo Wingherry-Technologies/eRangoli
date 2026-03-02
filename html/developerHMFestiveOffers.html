@@ -10,7 +10,7 @@
       href="../assets/master/eRangoli 2-1.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/developerSidebarNavbar.css">
+    <link rel="stylesheet" href="../css/developerSidebarNavbar.css" />
   </head>
 
   <body>
@@ -868,7 +868,12 @@
 
               <div class="DHMFOcover-image" id="editUploadBox2">
                 <img id="editImagePreview2" />
-                <input type="file" id="editCoverImage2" accept="image/*" hidden />
+                <input
+                  type="file"
+                  id="editCoverImage2"
+                  accept="image/*"
+                  hidden
+                />
               </div>
             </div>
 
@@ -903,6 +908,16 @@
       </div>
       <div class="DHMFOpopup-overlay" id="DHMFOofferPopup">
         <div class="DHMFOcatalog-card">
+          <div class="DHMFOpopup-heading">
+            <span class="DHMFOpopup-title">Add New Festive Offer</span>
+            <button
+              class="DHMFOpopup-close-btn"
+              id="DHMFOpopupCloseBtn"
+              type="button"
+            >
+              &times;
+            </button>
+          </div>
           <div class="DHMFOupload-box" id="DHMFOuploadBox">
             <input type="file" id="DHMFOcoverImage" accept="image/*" hidden />
 
@@ -915,13 +930,30 @@
             </div>
 
             <img id="DHMFOimagePreview" class="DHMFOpreview-img" />
+            <button
+              class="DHMFOimg-edit-btn"
+              id="DHMFOimgEditBtn"
+              type="button"
+            >
+              <img
+                src="../assets/developerHMFestiveOffers/dots.svg"
+                alt="Edit"
+              />
+              <div class="DHMFOimg-edit-dropdown" id="DHMFOimgEditDropdown">
+                <span id="DHMFOchangeImageBtn">Change Image</span>
+              </div>
+            </button>
           </div>
           <small class="DHMFOerror" id="DHMFOimageError"></small>
           <span class="DHMFOsmall">Recommended size: 1920px 1080px</span>
           <div class="DHMFOinnerbox">
             <div class="DHMFOinnerbox-form-group">
               <label>Image Name</label>
-              <input type="text" id="DHMFOimageName" placeholder="Wooden Toys" />
+              <input
+                type="text"
+                id="DHMFOimageName"
+                placeholder="Wooden Toys"
+              />
               <small class="DHMFOerror" id="DHMFOnnameError"></small>
             </div>
 

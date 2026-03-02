@@ -119,6 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
       <p>Upload Cover Image or<br />drag & drop</p>
       <input type="file" id="DHMPAN-mediaInput" accept="image/*" hidden />
     `;
+    uploadBox.style.position = "";
+    uploadBox.style.overflow = "";
+    const uploadWrapper = uploadBox.closest(".DHMPAN-upload-wrapper");
+    if (uploadWrapper) uploadWrapper.classList.remove("has-image");
     bindFileInput();
   }
 
@@ -129,7 +133,37 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     uploadBox.style.position = "relative";
     uploadBox.style.overflow = "hidden";
+    // Show dots wrapper via CSS class
+    const uploadWrapper = uploadBox.closest(".DHMPAN-upload-wrapper");
+    if (uploadWrapper) uploadWrapper.classList.add("has-image");
     bindFileInput();
+    bindDotsEvents();
+  }
+
+  function bindDotsEvents() {
+    const dotsBtn = document.getElementById("DHMPAN-dotsBtn");
+    const dropdown = document.getElementById("DHMPAN-dotsDropdown");
+    const changeOption = document.getElementById("DHMPAN-changeImageOption");
+    if (!dotsBtn || !dropdown || !changeOption) return;
+
+    dotsBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      dropdown.classList.toggle("open");
+    });
+
+    changeOption.addEventListener("click", function (e) {
+      e.stopPropagation();
+      dropdown.classList.remove("open");
+      const fileInput = document.getElementById("DHMPAN-mediaInput");
+      if (fileInput) fileInput.click();
+    });
+
+    document.addEventListener("click", function (e) {
+      const wrapper = document.getElementById("DHMPAN-dotsWrapper");
+      if (wrapper && !wrapper.contains(e.target)) {
+        dropdown.classList.remove("open");
+      }
+    });
   }
 
   function bindFileInput() {
@@ -208,7 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //    UPLOAD BOX CLICK → trigger file input
-  uploadBox.addEventListener("click", function () {
+  uploadBox.addEventListener("click", function (e) {
+    // Don't trigger file input if clicking the dots icon or dropdown
+    if (e.target.closest("#DHMPAN-dotsWrapper")) return;
     const activeFileInput = document.getElementById("DHMPAN-mediaInput");
     if (activeFileInput) activeFileInput.click();
   });
@@ -299,7 +335,16 @@ document.addEventListener("DOMContentLoaded", function () {
   //    CANCEL / DELETE BUTTON
   cancelBtn.addEventListener("click", function () {
     if (currentEditCard) {
-      // Delete mode
+      // Delete mode — check minimum 5 cards
+      const allCards = categoryGrid.querySelectorAll(".DHMP-category-card");
+      if (allCards.length <= 5) {
+        const errorText = minPopup.querySelector(".DHMP-error-text");
+        if (errorText)
+          errorText.textContent =
+            "Unable to delete as minimum 5 promotions should be present";
+        minPopup.style.display = "flex";
+        return;
+      }
       currentEditCard.remove();
       updateCounts();
     }
@@ -384,8 +429,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   updateCounts();
 });
-document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)").classList.add("sidebar-active");
+document
+  .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)")
+  .classList.add("sidebar-active");
 
-
-document.querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header").classList.add("dropdown-header-active");
-
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header")
+  .classList.add("dropdown-header-active");

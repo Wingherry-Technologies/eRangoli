@@ -229,7 +229,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 14px;
 }
 
 .DHMTC-upload-icon {
@@ -429,4 +428,67 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.DHMTC-upload-wrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.DHMTC-upload-wrapper .DHMTC-upload-box {
+  margin-bottom: 0;
+}
+
+.DHMTC-image-dots-wrap {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
+
+.DHMTC-dots-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DHMTC-dots-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.DHMTC-dots-dropdown {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #dee1e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  min-width: 130px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.DHMTC-dots-option {
+  display: block;
+  width: 100%;
+  padding: 9px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 13px;
+  color: #3f3f3f;
+  cursor: pointer;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+}
+
+.DHMTC-dots-option:hover {
+  background: #f0f4f8;
 }

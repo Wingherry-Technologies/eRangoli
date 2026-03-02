@@ -830,15 +830,48 @@
           </div>
 
           <!-- IMAGE UPLOAD -->
-          <div class="DHMTC-upload-box" id="DHMTC-uploadBox" tabindex="0">
-            <div class="DHMTC-upload-content" id="DHMTC-uploadContent">
-              <div class="DHMTC-upload-icon">
-                <img src="../assets/developerHMTopCattegories/add.svg" />
+          <div class="DHMTC-upload-wrapper">
+            <div class="DHMTC-upload-box" id="DHMTC-uploadBox" tabindex="0">
+              <div class="DHMTC-upload-content" id="DHMTC-uploadContent">
+                <div class="DHMTC-upload-icon">
+                  <img src="../assets/developerHMTopCattegories/add.svg" />
+                </div>
+                <p>Upload Cover Image or<br />drag & drop</p>
               </div>
-              <p>Upload Cover Image or<br />drag & drop</p>
-            </div>
 
-            <input type="file" id="DHMTC-mediaInput" accept="image/*" hidden />
+              <input
+                type="file"
+                id="DHMTC-mediaInput"
+                accept="image/*"
+                hidden
+              />
+            </div>
+            <!-- DOTS ICON  -->
+            <div
+              class="DHMTC-image-dots-wrap"
+              id="DHMTC-imageDotsWrap"
+              style="display: none"
+            >
+              <button class="DHMTC-dots-btn" id="DHMTC-dotsBtn" type="button">
+                <img
+                  src="../assets/developerHMFestiveOffers/dots.svg"
+                  alt="Edit"
+                />
+              </button>
+              <div
+                class="DHMTC-dots-dropdown"
+                id="DHMTC-dotsDropdown"
+                style="display: none"
+              >
+                <button
+                  class="DHMTC-dots-option"
+                  id="DHMTC-changeImageBtn"
+                  type="button"
+                >
+                  Change Image
+                </button>
+              </div>
+            </div>
           </div>
           <span class="DHMTC-small">Recommended size: 1920px × 1080px</span>
           <span class="DHMTC-field-error" id="DHMTC-imageError"></span>

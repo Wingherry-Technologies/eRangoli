@@ -496,3 +496,41 @@ body {
     font-size: 12px;
   }
 }
+
+/* Search & Validation additions */
+.DHMEP-no-results {
+  text-align: center;
+  padding: 16px;
+  color: #999;
+  font-size: 13px;
+}
+
+.DHMEP-add-product-btn.DHMEP-btn-error {
+  background: #ff4d4f;
+  animation: DHMEP-shake 0.3s ease;
+}
+
+.DHMEP-validation-msg {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.DHMEP-validation-msg.show {
+  display: block;
+}
+
+@keyframes DHMEP-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
