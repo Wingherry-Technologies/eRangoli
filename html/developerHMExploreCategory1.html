@@ -769,7 +769,7 @@
         <!-- Action Buttons -->
         <div class="actionsPreviewECOne">
           <button class="btnPublishECOne" id="btnPublishECOne">Publish</button>
-          <button class="btnDiscardECOne" id="btnDiscardECOne">Discard</button>
+          <!-- <button class="btnDiscardECOne" id="btnDiscardECOne">Discard</button> -->
         </div>
       </section>
 
@@ -923,7 +923,7 @@
           /></span>
         </div>
 
-        <input type="file" id="imageUploadECOne" hidden />
+        <input type="file" id="imageUploadECOne" accept="image/*" hidden />
         <div class="uploadBoxECOne" id="uploadBoxECOne">
           <p id="uploadTextECOne">Upload Cover Image or<br />drag & drop</p>
         </div>
@@ -958,6 +958,23 @@
     </div>
     </div>
 
+    <!-- CARD ACTION MENU -->
+<div class="cardActionMenuECOne" id="cardActionMenuECOne">
+  <div class="cardActionItemECOne deleteActionECOne">Delete</div>
+  <div class="cardActionItemECOne editActionECOne">Edit</div>
+</div>
+<!-- SUCCESS MODAL -->
+<div class="publishSuccessModalECOne" id="publishSuccessModalECOne">
+  <div class="publishSuccessBoxECOne">
+    Published Successfully 🎉
+  </div>
+</div>
+
+<!-- ERROR TOAST -->
+<div class="publishErrorToastECOne" id="publishErrorToastECOne">
+  <span id="publishErrorTextECOne"></span>
+  <span class="closeToastECOne" id="closeToastECOne">✕</span>
+</div>
     <script src="../javascript/developerHMExploreCategory1.js"></script>
     <script src="../javascript/developerSidebarnavbar.js"></script>
   </body>
