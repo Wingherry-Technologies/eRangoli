@@ -24,239 +24,391 @@ hamburger?.addEventListener("click", () => {
     plusIcon.style.display="flex";
   }
 });
-// Edit button functionality
-document.querySelectorAll(".CR-edit-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    alert("Edit clicked");
-  });
-});
 
-// Delete button functionality
-document.querySelectorAll(".CR-delete-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (confirm("Are you sure you want to delete this review?")) {
-      btn.closest(".CR-card").remove();
-    }
-  });
-});
+/* =====================================
+   VARIABLES
+===================================== */
 
-// Popup controls
-const CRAddNewBtn = document.querySelector(".CR-add-btn");
 const CRPopup = document.getElementById("CRPopup");
+const CRAddBtn = document.querySelector(".CR-add-btn");
+const CRFloatingBtn = document.querySelector(".CR-floating-add-btn");
 const CRClosePopup = document.getElementById("CRClosePopup");
-const CRFloatingAddBtn = document.querySelector(".CR-floating-add-btn");
 
-// Open popup from header button
-if (CRAddNewBtn) {
-  CRAddNewBtn.addEventListener("click", () => {
-    CRPopup.style.display = "flex";
-  });
-}
+const CRCustomerName = document.getElementById("CRCustomerName");
+const CRProduct = document.getElementById("CRProduct");
+const CRRating = document.getElementById("CRRating");
+const CRReview = document.getElementById("CRReview");
 
-// Close popup
-if (CRClosePopup) {
-  CRClosePopup.addEventListener("click", () => {
-    CRPopup.style.display = "none";
-  });
-}
+const CRRatingError = document.getElementById("CRRatingError");
 
-// Close popup when clicking overlay
-if (CRPopup) {
-  CRPopup.addEventListener("click", (e) => {
-    if (e.target === CRPopup) {
-      CRPopup.style.display = "none";
-    }
-  });
-}
-
-// Open popup from floating button
-if (CRFloatingAddBtn) {
-  CRFloatingAddBtn.addEventListener("click", () => {
-    CRPopup.style.display = "flex";
-  });
-}
-
-// Profile upload functionality
 const CRUploadInput = document.getElementById("CRProfileUpload");
 const CRUploadPreview = document.getElementById("CRUploadPreview");
-const CRUploadText = document.querySelector(".CR-upload-text");
 
-if (CRUploadInput) {
-  CRUploadInput.addEventListener("change", function () {
-    const file = this.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      CRUploadPreview.innerHTML = `<img src="${e.target.result}" />`;
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-if (CRUploadText) {
-  CRUploadText.addEventListener("click", () => {
-    CRUploadInput.click();
-  });
-}
-
-// Star rating functionality in popup
-const CRStarInputs = document.querySelectorAll(".CR-star-input");
-
-CRStarInputs.forEach((star, index) => {
-  star.addEventListener("click", () => {
-    // Clear all stars
-    CRStarInputs.forEach((s) => s.classList.remove("filled"));
-    
-    // Fill stars up to clicked one
-    for (let i = 0; i <= index; i++) {
-      CRStarInputs[i].classList.add("filled");
-    }
-    
-    // Update rating value
-    const ratingInput = document.querySelector('.CR-form-half input[placeholder="4.5"]');
-    if (ratingInput) {
-      ratingInput.value = (index + 1).toFixed(1);
-    }
-  });
-
-  // Hover effect
-  star.addEventListener("mouseenter", () => {
-    CRStarInputs.forEach((s, i) => {
-      if (i <= index) {
-        s.style.color = "#ffc107";
-      } else {
-        s.style.color = s.classList.contains("filled") ? "#ffc107" : "#d1d1d1";
-      }
-    });
-  });
-});
-
-// Reset hover effect
-const CRStarsInput = document.querySelector(".CR-stars-input");
-if (CRStarsInput) {
-  CRStarsInput.addEventListener("mouseleave", () => {
-    CRStarInputs.forEach((s) => {
-      s.style.color = s.classList.contains("filled") ? "#ffc107" : "#d1d1d1";
-    });
-  });
-}
-
-const CRFields = document.querySelectorAll(
-  "#CRCustomerName, #CRProduct, #CRRating, #CRReview"
-);
-
-// Attach blur event to all fields
-CRFields.forEach((field) => {
-  field.addEventListener("blur", () => validateField(field));
-});
-
-// Main validation function
-function validateField(field) {
-  const errorEl = field.nextElementSibling;
-  let value = field.value.trim();
-
-  field.classList.remove("CR-input-error");
-  errorEl.textContent = "";
-
-  // CUSTOMER NAME
-  if (field.id === "CRCustomerName") {
-    if (!value) {
-      showError(field, "Name is required");
-      return false;
-    }
-    if (!/^[A-Za-z\s]+$/.test(value)) {
-      showError(field, "Only characters allowed");
-      return false;
-    }
-  }
-
-  // PRODUCT
-  if (field.id === "CRProduct") {
-    if (!value) {
-      showError(field, "Product is required");
-      return false;
-    }
-  }
-
-  // RATING
-  if (field.id === "CRRating") {
-    if (!value) {
-      showError(field, "Rating is required");
-      return false;
-    }
-    if (isNaN(value) || value < 0 || value > 5) {
-      showError(field, "Enter valid rating (0-5)");
-      return false;
-    }
-  }
-
-  // REVIEW
-  if (field.id === "CRReview") {
-    if (!value) {
-      showError(field, "Review is required");
-      return false;
-    }
-    if (value.length < 10) {
-      showError(field, "Minimum 10 characters required");
-      return false;
-    }
-  }
-
-  return true;
-}
-
-// Show error helper
-function showError(field, message) {
-  const errorEl = field.nextElementSibling;
-  errorEl.textContent = message;
-  field.classList.add("CR-input-error");
-}
-const nameInput = document.getElementById("CRCustomerName");
-
-nameInput.addEventListener("input", function () {
-  let value = this.value;
-
-  // remove leading space
-  if (value.startsWith(" ")) {
-    value = value.trimStart();
-  }
-
-  // allow only characters
-  value = value.replace(/[^A-Za-z\s]/g, "");
-
-  this.value = value;
-});
-
-
-// Publish button functionality
 const CRPublishBtn = document.querySelector(".CR-publish-btn");
 const CRPublishBtnRes = document.querySelector(".CR-publish-btn-res");
 
-function CRHandlePublish() {
-  let isValid = true;
+const CRStarInputs = document.querySelectorAll(".CR-star-input");
 
-  CRFields.forEach((field) => {
-    const fieldValid = validateField(field);
-    if (!fieldValid) isValid = false;
-  });
+const CRConfirmPopup = document.getElementById("CRConfirmPopup");
+const CRConfirmCancel = document.getElementById("CRConfirmCancel");
+const CRConfirmOk = document.getElementById("CRConfirmOk");
+const CRConfirmMessage = document.getElementById("CRConfirmMessage");
 
-  if (!isValid) {
-    return;
+const CRCardTemplate = document.getElementById("CRCardTemplate");
+
+let editCard = null;
+let confirmCallback = null;
+
+/* =====================================
+   DISABLE TOGGLE FOR FIRST 4
+===================================== */
+
+// document.querySelectorAll(".CR-fixed .CR-switch input").forEach(toggle => {
+//   toggle.checked = true;
+//   toggle.disabled = true;
+// });
+
+/* =====================================
+   POPUP CONTROL
+===================================== */
+
+function openPopup() {
+  CRPopup.style.display = "flex";
+}
+
+function closePopup() {
+  CRPopup.style.display = "none";
+}
+
+function resetPopup() {
+  editCard = null;
+
+  CRCustomerName.value = "";
+  CRProduct.value = "";
+  CRRating.value = "";
+  CRReview.value = "";
+
+  clearErrors();
+
+  CRUploadPreview.innerHTML = "";
+  CRUploadPreview.classList.remove("has-image");
+  CRUploadInput.value = "";
+
+  CRStarInputs.forEach(s => s.classList.remove("filled"));
+}
+
+CRAddBtn?.addEventListener("click", () => {
+  resetPopup();
+  openPopup();
+});
+
+CRFloatingBtn?.addEventListener("click", () => {
+  resetPopup();
+  openPopup();
+});
+
+CRClosePopup.addEventListener("click", closePopup);
+
+CRPopup.addEventListener("click", (e) => {
+  if (e.target === CRPopup) closePopup();
+});
+
+/* =====================================
+   IMAGE UPLOAD
+===================================== */
+
+CRUploadInput.addEventListener("change", function () {
+
+  const file = this.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+
+    CRUploadPreview.innerHTML = `
+      <img src="${e.target.result}" />
+      <span class="CR-remove-photo">✖</span>
+    `;
+
+    CRUploadPreview.classList.add("has-image");
+  };
+
+  reader.readAsDataURL(file);
+});
+
+CRUploadPreview.addEventListener("click", function (e) {
+
+  const removeBtn = e.target.closest(".CR-remove-photo");
+
+  if (removeBtn) {
+    CRUploadPreview.innerHTML = "";
+    CRUploadPreview.classList.remove("has-image");
+    CRUploadInput.value = "";
   }
 
-  CRPopup.style.display = "none";
-  
+});
+
+/* =====================================
+   STAR RATING
+===================================== */
+
+CRStarInputs.forEach((star, index) => {
+  star.addEventListener("click", () => {
+
+    CRStarInputs.forEach(s => s.classList.remove("filled"));
+
+    for (let i = 0; i <= index; i++) {
+      CRStarInputs[i].classList.add("filled");
+    }
+
+    CRRating.value = index + 1;
+    CRRatingError.textContent = "";
+  });
+});
+
+/* =====================================
+   VALIDATION
+===================================== */
+
+function clearErrors() {
+  document.querySelectorAll(".CR-error").forEach(e => e.textContent = "");
 }
 
+function validate() {
 
-if (CRPublishBtn) {
-  CRPublishBtn.addEventListener("click", CRHandlePublish);
+  clearErrors();
+  let valid = true;
+
+  const ratingValue = Number(CRRating.value);
+
+  if (!CRCustomerName.value.trim()) {
+    CRCustomerName.nextElementSibling.textContent = "Name required";
+    valid = false;
+  }
+
+  if (!CRProduct.value.trim()) {
+    CRProduct.nextElementSibling.textContent = "Product required";
+    valid = false;
+  }
+
+  if (!ratingValue) {
+    CRRatingError.textContent = "Star rating required";
+    valid = false;
+  }
+
+  if (ratingValue < 1 || ratingValue > 5) {
+    CRRatingError.textContent = "Rating must be between 1-5";
+    valid = false;
+  }
+
+  if (!CRReview.value.trim()) {
+    CRReview.nextElementSibling.textContent = "Review required";
+    valid = false;
+  }
+
+  if (CRReview.value.trim().length < 10) {
+    CRReview.nextElementSibling.textContent = "Minimum 10 characters required";
+    valid = false;
+  }
+
+  return valid;
 }
 
-if (CRPublishBtnRes) {
-  CRPublishBtnRes.addEventListener("click", CRHandlePublish);
+/* =====================================
+   CONFIRM MODAL
+===================================== */
+
+function openConfirm(message, callback) {
+  CRConfirmMessage.textContent = message;
+  CRConfirmPopup.style.display = "flex";
+  confirmCallback = callback;
 }
+
+CRConfirmCancel.addEventListener("click", () => {
+  CRConfirmPopup.style.display = "none";
+});
+
+CRConfirmOk.addEventListener("click", () => {
+  if (confirmCallback) confirmCallback();
+  CRConfirmPopup.style.display = "none";
+});
+
+/* =====================================
+   EDIT / DELETE
+===================================== */
+
+document.addEventListener("click", function (e) {
+
+  if (e.target.classList.contains("CR-edit-btn")) {
+
+    editCard = e.target.closest(".CR-card");
+
+    const nameEl = editCard.querySelector(".CR-name") ||
+      editCard.querySelector(".CR-info div:nth-child(1) p");
+
+    const productEl = editCard.querySelector(".CR-product") ||
+      editCard.querySelector(".CR-info div:nth-child(2) p");
+
+    const reviewEl = editCard.querySelector(".CR-review-text") ||
+      editCard.querySelector(".CR-review p");
+
+    CRCustomerName.value = nameEl.innerText;
+    CRProduct.value = productEl.innerText;
+    CRRating.value = editCard.querySelector(".CR-rating-number").innerText;
+    CRReview.value = reviewEl.innerText;
+
+    const imgSrc = editCard.querySelector(".CR-img-box img").src;
+
+    CRUploadPreview.innerHTML = `
+      <img src="${imgSrc}" />
+      <span class="CR-remove-photo">✖</span>
+    `;
+    CRUploadPreview.classList.add("has-image");
+
+    CRStarInputs.forEach((s, i) => {
+      s.classList.toggle("filled", i < CRRating.value);
+    });
+
+    openPopup();
+  }
+
+  if (e.target.classList.contains("CR-delete-btn")) {
+
+    const card = e.target.closest(".CR-card");
+
+    if (card.classList.contains("CR-fixed")) {
+      showToast("Minimum 4 reviews required. Cannot delete.");
+      return;
+    }
+
+    openConfirm("Delete this review?", () => {
+      card.remove();
+    });
+  }
+});
+/* =====================================
+   TOGGLE CONTROL (ONLY FIXED CARDS)
+===================================== */
+
+document.addEventListener("change", function (e) {
+
+  const toggle = e.target;
+
+  if (!toggle.matches(".CR-switch input")) return;
+
+  const card = toggle.closest(".CR-card");
+
+  // 🚨 Only block fixed 4 cards
+  if (card.classList.contains("CR-fixed")) {
+
+    // Force toggle back ON
+    toggle.checked = true;
+
+    showToast("Unable to inactive as minimum 4 reviews should be active");
+  }
+
+});
+/* =====================================
+   TOAST
+===================================== */
+
+function showToast(message) {
+
+  const toast = document.createElement("div");
+  toast.className = "CR-toast";
+  toast.textContent = message;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 100);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+/* =====================================
+   PUBLISH
+===================================== */
+
+function handlePublish() {
+
+  if (!validate()) return;
+
+  if (editCard) {
+    updateCard(editCard);
+  } else {
+    createCard();
+  }
+
+  closePopup();
+}
+
+function updateCard(card) {
+
+  const nameEl = card.querySelector(".CR-name") ||
+    card.querySelector(".CR-info div:nth-child(1) p");
+
+  const productEl = card.querySelector(".CR-product") ||
+    card.querySelector(".CR-info div:nth-child(2) p");
+
+  const reviewEl = card.querySelector(".CR-review-text") ||
+    card.querySelector(".CR-review p");
+
+  nameEl.innerText = CRCustomerName.value;
+  productEl.innerText = CRProduct.value;
+  reviewEl.innerText = CRReview.value;
+
+  card.querySelector(".CR-rating-number").innerText = CRRating.value;
+
+  const previewImg = CRUploadPreview.querySelector("img");
+
+  if (previewImg) {
+    card.querySelector(".CR-img-box img").src = previewImg.src;
+  }
+
+  const stars = card.querySelectorAll(".CR-star");
+
+  stars.forEach((star, i) => {
+    star.classList.toggle("filled", i < CRRating.value);
+  });
+}
+
+function createCard() {
+
+  const newCard = CRCardTemplate.cloneNode(true);
+  newCard.removeAttribute("id");
+  newCard.style.display = "flex";
+  newCard.classList.remove("CR-template");
+
+  const today = new Date();
+  const formattedDate =
+    String(today.getDate()).padStart(2, '0') + '/' +
+    String(today.getMonth() + 1).padStart(2, '0') + '/' +
+    today.getFullYear();
+
+  newCard.querySelector(".CR-date").innerText = formattedDate;
+
+  updateCard(newCard);
+
+  const previewImg = CRUploadPreview.querySelector("img");
+
+  if (!previewImg) {
+    newCard.querySelector(".CR-img-box img").src =
+      "../assets/developerHMExplorecategory1/proimg.jpg";
+  }
+
+  const fixedCards = document.querySelectorAll(".CR-fixed");
+  fixedCards[fixedCards.length - 1]
+    .insertAdjacentElement("afterend", newCard);
+}
+
+CRPublishBtn.addEventListener("click", handlePublish);
+CRPublishBtnRes.addEventListener("click", handlePublish);
+
 document
   .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)")
   ?.classList.add("sidebar-active");

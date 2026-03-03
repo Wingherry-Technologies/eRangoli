@@ -25,6 +25,19 @@ hamburger?.addEventListener("click", () => {
   }
 });
 
+
+function showToast(message) {
+  const toast = document.getElementById("customToast");
+  const toastMsg = document.getElementById("toastMessage");
+
+  toastMsg.textContent = message;
+  toast.style.display = "block";
+
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 2500);
+}
+
 let currentEditCard = null;
 let pendingDeleteCard = null;
 let editImageDataUrl = null;
@@ -91,12 +104,31 @@ deleteConfirmPopup.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const card = e.target.closest(".artisan-card");
+
+    if (card.classList.contains("fixed-card")) {
+      showToast("Unable to delete as minimum 4 Artisan should be there");
+      return;
+    }
+
     openDeleteConfirm(card);
   }
 
   if (e.target.classList.contains("edit-btn")) {
     const card = e.target.closest(".artisan-card");
     openEditPopup(card);
+  }
+});
+
+// toogle for fixed cards
+document.addEventListener("change", (e) => {
+  if (e.target.closest(".switch input")) {
+    const checkbox = e.target;
+    const card = checkbox.closest(".artisan-card");
+
+    if (card.classList.contains("fixed-card")) {
+      checkbox.checked = !checkbox.checked;
+      showToast("Unable to inactive as minimum 4 Artisan should be active");
+    }
   }
 });
 
@@ -165,12 +197,18 @@ function openEditPopup(card) {
   // Pre-fill image
   const cardImg = card.querySelector(".artisan-img-box img");
   if (cardImg) {
-    editImageDataUrl = cardImg.src;
-    uploadPreview.innerHTML = `<img src="${cardImg.src}" />`;
-  } else {
-    editImageDataUrl = null;
-    uploadPreview.innerHTML = "";
-  }
+  editImageDataUrl = cardImg.src;
+
+  uploadPreview.innerHTML = `
+    <div class="preview-wrapper">
+      <img src="${cardImg.src}" />
+      <span class="remove-img" id="removeImageBtn">&times;</span>
+    </div>
+  `;
+} else {
+  editImageDataUrl = null;
+  uploadPreview.innerHTML = "";
+}
 
   clearAllErrors();
   setCancelButtonVisibility(true);
@@ -353,6 +391,13 @@ popup.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("click", (e) => {
+  if (e.target.id === "removeImageBtn") {
+    uploadPreview.innerHTML = "";
+    editImageDataUrl = null;
+    uploadInput.value = "";
+  }
+});
 //IMAGE UPLOAD
 if (uploadInput) {
   uploadInput.addEventListener("change", function () {
@@ -360,7 +405,12 @@ if (uploadInput) {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function (e) {
-      uploadPreview.innerHTML = `<img src="${e.target.result}" />`;
+      uploadPreview.innerHTML = `
+  <div class="preview-wrapper">
+    <img src="${e.target.result}" />
+    <span class="remove-img" id="removeImageBtn">&times;</span>
+  </div>
+`;
       editImageDataUrl = e.target.result;
       uploadPreview.classList.remove("input-error");
       document.getElementById("photoError").textContent = "";
