@@ -20,6 +20,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     padding: 15px;
+    height: 100%;
+    overflow-y: auto;
 }
 
 /* Header Section */
@@ -751,6 +753,23 @@ body {
 
 
 
+}
+@media (max-width:595px) {
+    .titleECTwo{
+        display: none;
+    }
+    .headerECTwo{
+        position: absolute;
+        top: 75px;
+        right: 20px;
+        align-items: flex-end;
+        justify-content: end;
+        background-color: transparent;
+        margin-bottom: 0px;
+    }
+    .containerECTwo{
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 480px) {

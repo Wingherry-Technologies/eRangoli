@@ -746,6 +746,11 @@ body {
     }
 
 }
+@media (max-width:595px) {
+    .headerECOne{
+        display: none;
+    }
+}
 
 @media (max-width: 480px) {
     .titleECOne {

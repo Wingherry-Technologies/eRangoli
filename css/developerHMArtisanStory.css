@@ -8,7 +8,8 @@
 }
 
 .artisan-wrapper {
-  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
   background: #fff;
 }
 
@@ -557,6 +558,7 @@
   }
   .artisan-header {
     border: none;
+    display: none;
   }
   .add-btn {
     display: none;

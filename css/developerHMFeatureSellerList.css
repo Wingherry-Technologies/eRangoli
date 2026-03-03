@@ -13,7 +13,7 @@ body {
 
 /* Main Dashboard Container */
 .FSDashboardContainer {
-  margin: 15px;
+ 
   display: flex;
   flex-direction: column;
   gap: 20px;
