@@ -72,6 +72,82 @@ function updateCounts() {
 }
 
 updateCounts();
+
+// Toast notification
+function showToast(message) {
+  const existing = document.querySelector(".DHMFB-toast");
+  if (existing) existing.remove();
+  const toast = document.createElement("div");
+  toast.className = "DHMFB-toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add("DHMFB-toast-hide");
+    setTimeout(() => toast.remove(), 400);
+  }, 2500);
+}
+
+function attachToggleValidation(toggleInput) {
+  toggleInput.addEventListener("change", function () {
+    const tableRows = Array.from(
+      document.querySelectorAll(".DHMFB-brand-table tbody tr"),
+    );
+    const idx = tableRows.indexOf(this.closest("tr"));
+
+    if (!this.checked) {
+      const activeToggles = document.querySelectorAll(
+        ".DHMFB-brand-table tbody tr .DHMFB-switch input:checked",
+      ).length;
+      if (activeToggles < 10) {
+        this.checked = true;
+        showToast("Minimum 10 rows should be active");
+        return;
+      }
+    }
+
+    // Sync to matching mobile FAQ toggle
+    const faqItems = document.querySelectorAll(".DHMFB-faq-item");
+    if (faqItems[idx]) {
+      const mobToggle = faqItems[idx].querySelector(".DHMFB-switch input");
+      if (mobToggle) mobToggle.checked = this.checked;
+    }
+  });
+}
+
+// Mobile FAQ toggl
+function attachMobToggleValidation(toggleInput) {
+  toggleInput.addEventListener("change", function () {
+    const faqItems = Array.from(document.querySelectorAll(".DHMFB-faq-item"));
+    const idx = faqItems.indexOf(this.closest(".DHMFB-faq-item"));
+
+    if (!this.checked) {
+      const activeToggles = document.querySelectorAll(
+        ".DHMFB-brand-table tbody tr .DHMFB-switch input:checked",
+      ).length;
+      if (activeToggles < 10) {
+        this.checked = true;
+        showToast("Minimum 10 rows should be active");
+        return;
+      }
+    }
+
+    // Sync to matching desktop table toggle
+    const tableRows = document.querySelectorAll(".DHMFB-brand-table tbody tr");
+    if (tableRows[idx]) {
+      const deskToggle = tableRows[idx].querySelector(".DHMFB-switch input");
+      if (deskToggle) deskToggle.checked = this.checked;
+    }
+  });
+}
+
+document
+  .querySelectorAll(".DHMFB-brand-table tbody tr .DHMFB-switch input")
+  .forEach(attachToggleValidation);
+
+document
+  .querySelectorAll(".DHMFB-faq-item .DHMFB-switch input")
+  .forEach(attachMobToggleValidation);
+
 let editingRow = null;
 let editingFaqItem = null;
 let desktopLogoDataUrl = "";
@@ -128,6 +204,26 @@ function desktopValidateForm() {
   return isValid;
 }
 
+if (desktopBrandNameInput) {
+  desktopBrandNameInput.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (this.value.length === 0 && key === " ") {
+      e.preventDefault();
+      return;
+    }
+    if (
+      !/^[a-zA-Z ]$/.test(key) &&
+      key !== "Backspace" &&
+      key !== "Tab" &&
+      key !== "ArrowLeft" &&
+      key !== "ArrowRight" &&
+      key !== "Delete"
+    ) {
+      e.preventDefault();
+    }
+  });
+}
+
 // Desktop form logo upload
 desktopBrandLogo?.addEventListener("change", function () {
   const file = this.files[0];
@@ -180,6 +276,9 @@ function buildTableRow(logoSrc, brandName, vendorName, featuredDate) {
       <img src="../assets/developerHMFeatureBrands/edit.svg" class="DHMFB-edit-icon" />
     </td>
   `;
+  // Attach toggle validation to the new row
+  const toggleInput = tr.querySelector(".DHMFB-switch input");
+  if (toggleInput) attachToggleValidation(toggleInput);
   return tr;
 }
 
@@ -231,6 +330,9 @@ function buildFaqItem(logoSrc, brandName, vendorName, featuredDate) {
     });
     div.classList.toggle("active");
   });
+  // Attach mobile toggle validation
+  const mobToggleInput = div.querySelector(".DHMFB-switch input");
+  if (mobToggleInput) attachMobToggleValidation(mobToggleInput);
   return div;
 }
 
@@ -269,7 +371,7 @@ if (addBtnEl) {
   });
 }
 
-// Desktop: Publish & Next
+// Desktop: Publish (add to table, keep form open)
 publishNextBtn?.addEventListener("click", () => {
   if (!desktopValidateForm()) return;
 
@@ -300,38 +402,11 @@ publishNextBtn?.addEventListener("click", () => {
 
   updateCounts();
   desktopResetForm();
+  // Keep form open (do not close)
 });
 
-// Desktop: Publish & Close
+// Desktop: Close (just close the form, no data added)
 publishCloseBtn?.addEventListener("click", () => {
-  if (!desktopValidateForm()) return;
-
-  const logoSrc =
-    desktopLogoDataUrl || "../assets/developerHMFeatureBrands/img.png";
-  const brandName = desktopBrandNameInput.value.trim();
-  const vendorName = desktopVendorSelect.value;
-  const featuredDate = getCurrentDate();
-
-  const tbody = document.querySelector(".DHMFB-brand-table tbody");
-  if (editingRow) {
-    updateTableRow(editingRow, logoSrc, brandName, vendorName);
-    const rows = Array.from(tbody.querySelectorAll("tr"));
-    const idx = rows.indexOf(editingRow);
-    const faqItems = document.querySelectorAll(".DHMFB-faq-item");
-    if (faqItems[idx])
-      updateFaqItem(faqItems[idx], logoSrc, brandName, vendorName);
-    editingRow = null;
-  } else {
-    const tr = buildTableRow(logoSrc, brandName, vendorName, featuredDate);
-    tbody.appendChild(tr);
-    const faqContainer = document.querySelector(".DHMFB-MobileFAQ");
-    if (faqContainer)
-      faqContainer.appendChild(
-        buildFaqItem(logoSrc, brandName, vendorName, featuredDate),
-      );
-  }
-
-  updateCounts();
   desktopResetForm();
   if (addBrandWrapper) addBrandWrapper.style.display = "none";
   if (pageHeader) pageHeader.style.display = "flex";
@@ -565,7 +640,6 @@ if (anBrandNameInput) {
   });
 }
 
-// Mobile Publish & Next
 anPublishNext?.addEventListener("click", function () {
   if (!anValidateForm()) return;
 
@@ -598,40 +672,10 @@ anPublishNext?.addEventListener("click", function () {
   mobileResetForm();
 });
 
-// Mobile Publish & Close
 anPublishClose?.addEventListener("click", function () {
-  if (!anValidateForm()) return;
-
-  const logoSrc =
-    mobileLogoDataUrl || "../assets/developerHMFeatureBrands/img.png";
-  const brandName = anBrandNameInput.value.trim();
-  const vendorName = anVendorSelect.value;
-  const featuredDate = getCurrentDate();
-
-  const tbody = document.querySelector(".DHMFB-brand-table tbody");
-  const faqContainer = document.querySelector(".DHMFB-MobileFAQ");
-
-  if (editingFaqItem) {
-    updateFaqItem(editingFaqItem, logoSrc, brandName, vendorName);
-    if (editingRow) updateTableRow(editingRow, logoSrc, brandName, vendorName);
-    editingFaqItem = null;
-    editingRow = null;
-  } else {
-    if (tbody)
-      tbody.appendChild(
-        buildTableRow(logoSrc, brandName, vendorName, featuredDate),
-      );
-    if (faqContainer)
-      faqContainer.appendChild(
-        buildFaqItem(logoSrc, brandName, vendorName, featuredDate),
-      );
-  }
-
-  updateCounts();
   closeMobileAddNewPanel();
 });
 
-// FAQ Accordion for existing items
 document.querySelectorAll(".DHMFB-faq-item").forEach((item) => {
   const question = item.querySelector(".DHMFB-faq-question");
   question?.addEventListener("click", () => {
