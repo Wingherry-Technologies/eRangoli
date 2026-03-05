@@ -456,9 +456,9 @@ function bindCardEvents(card) {
         return;
       }
 
-      if (!card.dataset.previewSlot || card.dataset.previewSlot === "none") {
-        card.dataset.previewSlot = findFreePreviewSlot();
-      }
+      card.dataset.previewSlot = findFreePreviewSlot();
+    } else {
+      card.dataset.previewSlot = "none";
     }
     markChanges();
     updatePreview();
@@ -484,9 +484,10 @@ let dropdownTargetCard = null;
 function showCardDropdown(card, btn) {
   dropdownTargetCard = card;
 
-  const rect = btn.getBoundingClientRect();
-  cardDropdownMenu.style.top = rect.bottom + window.scrollY + 4 + "px";
-  cardDropdownMenu.style.left = rect.left + window.scrollX - 60 + "px";
+  const header = btn.closest(".headerCardItemECTwo");
+  if (header && cardDropdownMenu.parentElement !== header) {
+    header.appendChild(cardDropdownMenu);
+  }
 
   cardDropdownMenu.classList.add("cardDropdownVisibleECTwo");
 }
