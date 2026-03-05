@@ -672,169 +672,290 @@
     </section>
     <div class="main-content-beyond">
       <div class="DHMFOcontainer">
+
+        <!-- TOP BAR -->
         <div class="DHMFOtop-bar">
           <div class="DHMFOheader">Festive offers</div>
           <span>18 Offers</span>
         </div>
 
-        <div class="DHMFOcard-wrapper">
-          <div class="mobile-back-button">
-            <h2>Festive offers</h2>
+        <div class="class-section-1">
+          <!-- PAGE HEADING -->
+          <div class="DHMFOpage-title">
+            Create Festive offer
           </div>
-          <div class="DHMFOpage-title">Create Festive offer</div>
+          <!-- Header Section -->
+          <header class="headerECOne">
+            <h1 class="titleECOne">Section 1: Create Offer Category Catalog</h1>
+            <button class="btnAddNewECOne" id="btnAddNewECOne">
+              <span class="iconPlusECOne">+</span> Add New
+            </button>
+          </header>
 
-          <div class="DHMFOsection-title">
-            Section 1 - Create Offer Category Catalog
-          </div>
+          <!-- Category Title Section -->
+          <section class="sectionCategoryTitleECOne">
 
-          <div class="DHMFOoffer-title">
-            <label>Offer Title</label>
-            <div class="DHMFOp-title">
-              <p id="DHMFOofferTitleText">Christmas Offer Megasale</p>
+            <label for="inputCategoryTitleECOne" class="labelECOne">
+              Offer Title
+            </label>
+
+            <div class="inputWrapperECOne">
+
               <input
                 type="text"
-                id="DHMFOofferTitleInput"
-                class="DHMFOoffer-title-input"
-                style="display: none"
+                id="inputCategoryTitleECOne"
+                class="inputCategoryECOne"
+                value="Exclusive Crafted Fashion"
+                disabled
               />
-              <img
-                src="../assets/developerHMFestiveOffers/edit.svg"
-                id="DHMFOofferTitleEditBtn"
-              />
-            </div>
-          </div>
-          <div class="DHMFO-category-grid">
-            <div class="DHMFO-category-card">
-              <div class="DHMFO-image-wrap">
-                <img src="../assets/developerHMTopCattegories/img-1.png" />
-                <span class="DHMFO-edit-btn">
-                  <img src="../assets/developerHMTopCattegories/edit.svg" />
-                </span>
-              </div>
 
-              <div class="DHMFO-card-body">
-                <div class="DHMFO-card-top">
-                  <div>
-                    <h4>Category 1</h4>
-                    <p>Jewellery</p>
+              <button id="editCategoryTitleECOne" class="editCategoryBtnECOne">
+                <img src="../assets/developerHMExplorecategory1/PencilSimple (2).svg" alt="edit"/>
+              </button>
+
+            </div>
+
+            <button
+              id="publishCategoryTitleECOne"
+              class="publishCategoryBtnECOne"
+              style="display:none"
+            >
+              Publish
+            </button>
+
+          </section>
+
+          <!-- Preview Section -->
+          <section class="sectionPreviewECOne">
+            <div class="previewHeaderECOne">
+              <span class="labelPreviewECOne">Preview</span>
+              <span class="badgeLiveECOne">Live on site</span>
+            </div>
+
+            <div class="previewContentECOne">
+              <h2 class="previewTitleECOne">Exclusive Crafted Fashion</h2>
+
+              <!-- Image Grid -->
+              <div class="gridImagesECOne">
+                <!-- Large Left Card -->
+                <div class="cardImageLargeECOne" id="previewSlot1">
+                  <img
+                    src="../assets/developerHMExplorecategory1/Rectangle 18.svg"
+                    alt="Lehenga"
+                    class="imgCardECOne"
+                  />
+                  <div class="overlayECOne">
+                    <span class="tagLabelECOne">Lehenga</span>
+                    <button class="btnExploreECOne">Explore</button>
                   </div>
-                  <label class="DHMFO-switch">
-                    <input type="checkbox" checked />
-                    <span class="DHMFO-slider"></span>
-                  </label>
                 </div>
 
-                <span class="DHMFO-cta-title">CTA Link</span>
-                <a href="https://store.example.com/collection/products"
-                  >https://store.example.com/collection/products</a
-                >
-              </div>
-            </div>
-
-            <div class="DHMFO-category-card">
-              <div class="DHMFO-image-wrap">
-                <img src="../assets/developerHMTopCattegories/img-2.png" />
-                <span class="DHMFO-edit-btn">
-                  <img src="../assets/developerHMTopCattegories/edit.svg" />
-                </span>
-              </div>
-
-              <div class="DHMFO-card-body">
-                <div class="DHMFO-card-top">
-                  <div>
-                    <h4>Category 2</h4>
-                    <p>Kitchen ware</p>
+                <!-- Right Grid Container -->
+                <div class="gridRightECOne">
+                  <!-- Top Row -->
+                  <div class="cardImageSmallECOne" id="previewSlot2">
+                    <img
+                      src="../assets/developerHMExplorecategory1/Rectangle 19.svg"
+                      alt="Men"
+                      class="imgCardECOne"
+                    />
+                    <div class="overlayECOne">
+                      <span class="tagLabelECOne">Men</span>
+                      <button class="btnExploreECOne">Explore</button>
+                    </div>
                   </div>
-                  <label class="DHMFO-switch">
-                    <input type="checkbox" checked />
-                    <span class="DHMFO-slider"></span>
-                  </label>
-                </div>
 
-                <span class="DHMFO-cta-title">CTA Link</span>
-                <a href="https://store.example.com/collection/products"
-                  >https://store.example.com/collection/products</a
-                >
-              </div>
-            </div>
-
-            <div class="DHMFO-category-card">
-              <div class="DHMFO-image-wrap">
-                <img src="../assets/developerHMTopCattegories/img-3.png" />
-                <span class="DHMFO-edit-btn">
-                  <img src="../assets/developerHMTopCattegories/edit.svg" />
-                </span>
-              </div>
-
-              <div class="DHMFO-card-body">
-                <div class="DHMFO-card-top">
-                  <div>
-                    <h4>Category 3</h4>
-                    <p>Home decor</p>
+                  <div class="cardImageSmallECOne" id="previewSlot3">
+                    <img
+                      src="../assets/developerHMExplorecategory1/Rectangle 20.svg"
+                      alt="Stoles"
+                      class="imgCardECOne"
+                    />
+                    <div class="overlayECOne">
+                      <span class="tagLabelECOne">Stoles</span>
+                      <button class="btnExploreECOne">Explore</button>
+                    </div>
                   </div>
-                  <label class="DHMFO-switch">
-                    <input type="checkbox" checked />
-                    <span class="DHMFO-slider"></span>
-                  </label>
-                </div>
 
-                <span class="DHMFO-cta-title">CTA Link</span>
-                <a href="https://store.example.com/collection/products"
-                  >https://store.example.com/collection/products</a
-                >
-              </div>
-            </div>
-
-            <div class="DHMFO-category-card">
-              <div class="DHMFO-image-wrap">
-                <img src="../assets/developerHMTopCattegories/img-4.png" />
-                <span class="DHMFO-edit-btn">
-                  <img src="../assets/developerHMTopCattegories/edit.svg" />
-                </span>
-              </div>
-
-              <div class="DHMFO-card-body">
-                <div class="DHMFO-card-top">
-                  <div>
-                    <h4>Category 4</h4>
-                    <p>Wall Art</p>
+                  <!-- Bottom Row -->
+                  <div class="cardImageWideECOne" id="previewSlot4">
+                    <img
+                      src="../assets/master/hand-carved-wooden-floral-wall-panel-indian-antique.svg"
+                      alt="Sarees"
+                      class="imgCardECOne"
+                    />
+                    <div class="overlayECOne">
+                      <span class="tagLabelECOne">Sarees</span>
+                      <button class="btnExploreECOne">Explore</button>
+                    </div>
                   </div>
-                  <label class="DHMFO-switch">
-                    <input type="checkbox" checked />
-                    <span class="DHMFO-slider"></span>
-                  </label>
                 </div>
+              </div>
 
-                <span class="DHMFO-cta-title">CTA Link</span>
-                <a href="https://store.example.com/collection/products"
-                  >https://store.example.com/collection/products</a
-                >
+              <div class="textLastEditedECOne">Last edited on: 29/01/25</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actionsPreviewECOne">
+              <button class="btnPublishECOne" id="btnPublishECOne">Publish</button>
+              <!-- <button class="btnDiscardECOne" id="btnDiscardECOne">Discard</button> -->
+            </div>
+          </section>
+
+          <!-- Image List Cards Section -->
+          <section class="sectionImageListECOne">
+            <!-- Image Card 1 -->
+            <div class="cardImageItemECOne previewSlotECOne" data-preview="1" id="cardImageItem1ECOne">
+              <div class="headerCardItemECOne">
+                <span class="iconEditECOne"
+                  ><img
+                    src="../assets/developerHMExplorecategory1/Notches.svg"
+                    alt=""
+                /></span>
+                <span class="textImageNumECOne">Image 1</span>
+                <button class="btnMenuECOne">
+                  <img
+                    src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="bodyCardItemECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 18.svg"
+                  alt="Lehenga"
+                  class="thumbImageECOne"
+                />
+                <div class="infoCardItemECOne">
+                  <span class="labelItemECOne">Label</span>
+                  <span class="valueItemECOne">Lehenga</span>
+                  <span class="statusTextECOne">Active status</span>
+                </div>
+                <label class="toggleSwitchECOne">
+                  <input type="checkbox" class="toggleInputECOne" checked />
+                  <span class="sliderECOne"></span>
+                </label>
               </div>
             </div>
 
-            <div class="DHMFO-add-card">
-              <div class="DHMFO-plus">+</div>
-              <p>Add New Category</p>
-              <small>Create a New Category for Offer</small>
+            <!-- Image Card 2 -->
+            <div class="cardImageItemECOne previewSlotECOne" data-preview="2" id="cardImageItem2ECOne">
+              <div class="headerCardItemECOne">
+                <span class="iconEditECOne"
+                  ><img
+                    src="../assets/developerHMExplorecategory1/Notches.svg"
+                    alt=""
+                /></span>
+                <span class="textImageNumECOne">Image 2</span>
+                <button class="btnMenuECOne">
+                  <img
+                    src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="bodyCardItemECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 19.svg"
+                  alt="Men"
+                  class="thumbImageECOne"
+                />
+                <div class="infoCardItemECOne">
+                  <span class="labelItemECOne">Label</span>
+                  <span class="valueItemECOne">Men</span>
+                  <span class="statusTextECOne">Active status</span>
+                </div>
+                <label class="toggleSwitchECOne">
+                  <input type="checkbox" class="toggleInputECOne" checked />
+                  <span class="sliderECOne"></span>
+                </label>
+              </div>
             </div>
-          </div>
+
+            <!-- Image Card 3 -->
+            <div class="cardImageItemECOne previewSlotECOne" data-preview="3" id="cardImageItem3ECOne">
+              <div class="headerCardItemECOne">
+                <span class="iconEditECOne"
+                  ><img
+                    src="../assets/developerHMExplorecategory1/Notches.svg"
+                    alt=""
+                /></span>
+                <span class="textImageNumECOne">Image 3</span>
+                <button class="btnMenuECOne">
+                  <img
+                    src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="bodyCardItemECOne">
+                <img
+                  src="../assets/developerHMExplorecategory1/Rectangle 20.svg"
+                  alt="Stole"
+                  class="thumbImageECOne"
+                />
+                <div class="infoCardItemECOne">
+                  <span class="labelItemECOne">Label</span>
+                  <span class="valueItemECOne">Stole</span>
+                  <span class="statusTextECOne">Active status</span>
+                </div>
+                <label class="toggleSwitchECOne">
+                  <input type="checkbox" class="toggleInputECOne" checked />
+                  <span class="sliderECOne"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Image Card 4 -->
+            <div class="cardImageItemECOne previewSlotECOne" data-preview="4" id="cardImageItem4ECOne">
+              <div class="headerCardItemECOne">
+                <span class="iconEditECOne"
+                  ><img
+                    src="../assets/developerHMExplorecategory1/Notches.svg"
+                    alt=""
+                /></span>
+                <span class="textImageNumECOne">Image 4</span>
+                <button class="btnMenuECOne">
+                  <img
+                    src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="bodyCardItemECOne">
+                <img
+                  src="../assets/master/hand-carved-wooden-floral-wall-panel-indian-antique.svg"
+                  alt="Saree"
+                  class="thumbImageECOne"
+                />
+                <div class="infoCardItemECOne">
+                  <span class="labelItemECOne">Label</span>
+                  <span class="valueItemECOne">Saree</span>
+                  <span class="statusTextECOne">Active status</span>
+                </div>
+                <label class="toggleSwitchECOne">
+                  <input type="checkbox" class="toggleInputECOne" checked />
+                  <span class="sliderECOne"></span>
+                </label>
+              </div>
+            </div>
+          </section>
         </div>
-
+        <!-- SECTION 2 -->
         <div class="DHMFOsection2-wrapper">
+
           <div class="DHMFOp-title">
             <h3 class="DHMFOsection2-title">Section 2 - Offer details</h3>
-            <img
-              src="../assets/developerHMFestiveOffers/edit.svg"
-              class="section2-edit"
-            />
+            <img src="../assets/developerHMFestiveOffers/edit.svg" class="section2-edit"/>
           </div>
 
+          <!-- VIEW MODE -->
           <div class="DHMFOsection2-body">
+
             <div class="DHMFOform-group">
               <label>Upload Cover Image</label>
-
               <div class="DHMFOcover-image">
-                <img src="../assets/developerHMFestiveOffers/cover-img.png" />
+                <img src="../assets/developerHMFestiveOffers/cover-img.png"/>
               </div>
             </div>
 
@@ -857,125 +978,116 @@
               <label>Coupon Code</label>
               <p>FIRST500</p>
             </div>
+
           </div>
-          <!-- SECTION 2 EDIT FORM -->
-          <div
-            class="DHMFOES-section-2 DHMFOES-section-2-edit"
-            style="display: none"
-          >
+
+          <!-- EDIT MODE -->
+          <div class="DHMFOES-section-2-edit" style="display:none">
+
             <div class="DHMFOES-section-2-form-group">
               <label>Upload Cover Image</label>
-
               <div class="DHMFOcover-image" id="editUploadBox2">
-                <img id="editImagePreview2" />
-                <input
-                  type="file"
-                  id="editCoverImage2"
-                  accept="image/*"
-                  hidden
-                />
+                <img id="editImagePreview"/>
+                <div id="editImagePreview" class="trash-icon"><img src="../assets/developerHMFestiveOffers/Trash.svg" alt=""></div>
+                <input type="file" id="editCoverImage2" accept="image/*" hidden>
               </div>
             </div>
 
             <div class="DHMFOES-section-2-form-group">
               <label>Discount Amount</label>
-              <input type="text" id="editDiscountAmount" />
+              <input type="text" id="editDiscountAmount">
             </div>
 
             <div class="DHMFOES-section-2-form-group">
               <label>Enter the condition</label>
-              <input type="text" id="editConditionField" />
+              <input type="text" id="editConditionField">
             </div>
 
             <div class="DHMFOES-section-2-form-group">
-              <label>Enter the Sub-condition (if applicable)</label>
-              <input type="text" id="editSubConditionField" />
+              <label>Enter the Sub-condition</label>
+              <input type="text" id="editSubConditionField">
             </div>
 
             <div class="DHMFOES-section-2-form-group">
               <label>Enter Coupon Code</label>
-              <input type="text" id="editCouponCode" />
+              <input type="text" id="editCouponCode">
             </div>
 
             <div class="DHMFOES-btn-group">
-              <button class="DHMFOES-publishBtn" id="editSaveBtn">Save</button>
-              <button class="DHMFOES-delete-btn" id="editCancelBtn">
-                Cancel
-              </button>
+              <button id="editSaveBtn" class="DHMFOES-publishBtn">Save</button>
+              <button id="editCancelBtn" class="DHMFOES-delete-btn">Cancel</button>
             </div>
+
+          </div>
+
+        </div>
+        <!-- ===== ADD CATEGORY MODAL ===== -->
+
+        <div class="modalOverlayECOne" id="modalOverlayECOne">
+          <div class="modalBoxECOne">
+            <div class="modalHeaderECOne">
+              <h3>Add an Category Image</h3>
+              <span class="modalCloseECOne" id="modalCloseECOne"
+                ><img src="../assets/developerHMExplorecategory1/X (1).svg" alt=""
+              /></span>
+            </div>
+
+            <input type="file" id="imageUploadECOne" accept="image/*" hidden />
+            <div class="uploadBoxECOne" id="uploadBoxECOne">
+              <p id="uploadTextECOne">Upload Cover Image or<br />drag & drop</p>
+            </div>
+            <div class="errorECOne" id="imageErrorECOne"></div>
+
+            <div class="uploadHintECOne">
+              Recommended size : 1920px × 1080px | Max 2MB
+            </div>
+
+            <label class="modalLabelECOne">Label</label>
+            <input
+              class="modalInputECOne"
+              id="labelInputECOne"
+              placeholder="Lehenga"
+            />
+            <div class="errorECOne" id="labelErrorECOne"></div>
+
+            <label class="modalLabelECOne">Enter CTA Link</label>
+            <input
+              class="modalInputECOne"
+              id="ctaInputECOne"
+              placeholder="https://store.example.com/collection/products"
+            />
+            <div class="errorECOne" id="ctaErrorECOne"></div>
+
+            <button class="modalSaveBtnECOne" id="modalSaveBtnECOne">Save</button>
           </div>
         </div>
-      </div>
-      <div class="DHMFOpopup-overlay" id="DHMFOofferPopup">
-        <div class="DHMFOcatalog-card">
-          <div class="DHMFOpopup-heading">
-            <span class="DHMFOpopup-title">Add New Festive Offer</span>
-            <button
-              class="DHMFOpopup-close-btn"
-              id="DHMFOpopupCloseBtn"
-              type="button"
-            >
-              &times;
-            </button>
-          </div>
-          <div class="DHMFOupload-box" id="DHMFOuploadBox">
-            <input type="file" id="DHMFOcoverImage" accept="image/*" hidden />
 
-            <div class="DHMFOupload-content" id="DHMFOuploadContent">
-              <div class="DHMFOupload-icon">
-                <img src="../assets/developerHMFestiveOffersES/upload.svg" />
-              </div>
-              <p>Upload Cover Image or drag & drop</p>
-              <span>Recommended size: 1920px 1080px</span>
-            </div>
-
-            <img id="DHMFOimagePreview" class="DHMFOpreview-img" />
-            <button
-              class="DHMFOimg-edit-btn"
-              id="DHMFOimgEditBtn"
-              type="button"
-            >
-              <img
-                src="../assets/developerHMFestiveOffers/dots.svg"
-                alt="Edit"
-              />
-              <div class="DHMFOimg-edit-dropdown" id="DHMFOimgEditDropdown">
-                <span id="DHMFOchangeImageBtn">Change Image</span>
-              </div>
-            </button>
-          </div>
-          <small class="DHMFOerror" id="DHMFOimageError"></small>
-          <span class="DHMFOsmall">Recommended size: 1920px 1080px</span>
-          <div class="DHMFOinnerbox">
-            <div class="DHMFOinnerbox-form-group">
-              <label>Image Name</label>
-              <input
-                type="text"
-                id="DHMFOimageName"
-                placeholder="Wooden Toys"
-              />
-              <small class="DHMFOerror" id="DHMFOnnameError"></small>
-            </div>
-
-            <div class="DHMFOinnerbox-form-group">
-              <label>Enter CTA Link</label>
-              <input
-                type="text"
-                id="DHMFOctaLink"
-                placeholder="https://store.example.com/collection/products"
-              />
-              <small class="DHMFOerror" id="DHMFOlinkError"></small>
-            </div>
-
-            <div class="DHMFObtn-group">
-              <button type="submit" class="DHMFOpublish-btn">Publish</button>
-              <button type="button" class="DHMFOdelete-btn" id="DHMFOdeleteBtn">
-                Delete
-              </button>
-            </div>
-          </div>
+        <div class="ECOne-floating-add-btn">
+          <img src="../assets/developerHMArtisanStory/plus.svg" alt="add" />
         </div>
       </div>
+
+        <!-- CARD ACTION MENU -->
+        <div class="cardActionMenuECOne" id="cardActionMenuECOne">
+          <div class="cardActionItemECOne deleteActionECOne">Delete</div>
+          <div class="cardActionItemECOne editActionECOne">Edit</div>
+        </div>
+        <!-- SUCCESS MODAL -->
+        <div class="publishSuccessModalECOne" id="publishSuccessModalECOne">
+          <div class="publishSuccessBoxECOne">
+            Published Successfully 🎉
+          </div>
+        </div>
+
+        <!-- ERROR TOAST -->
+        <div class="publishErrorToastECOne" id="publishErrorToastECOne">
+          <span id="publishErrorTextECOne"></span>
+          <span class="closeToastECOne" id="closeToastECOne">✕</span>
+        </div>
+
+        
+
+    </div>
     </div>
     <script src="../javascript/developerHMFestiveOffers.js"></script>
     <script src="../javascript/developerSidebarnavbar.js"></script>

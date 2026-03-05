@@ -1,9 +1,88 @@
+const editBtn=document.querySelector(".section2-edit");
+const viewSection=document.querySelector(".DHMFOsection2-body");
+const editSection=document.querySelector(".DHMFOES-section-2-edit");
+
+const editDiscount=document.getElementById("editDiscountAmount");
+const editCondition=document.getElementById("editConditionField");
+const editSubCondition=document.getElementById("editSubConditionField");
+const editCoupon=document.getElementById("editCouponCode");
+
+const saveBtn=document.getElementById("editSaveBtn");
+const cancelBtn=document.getElementById("editCancelBtn");
+
+const editUploadBox=document.getElementById("editUploadBox2");
+const editFileInput=document.getElementById("editCoverImage2");
+const editPreview=document.getElementById("editImagePreview");
+
+editBtn.addEventListener("click",function(){
+
+
+const p=viewSection.querySelectorAll("p");
+const img=viewSection.querySelector(".DHMFOcover-image img");
+
+
+editDiscount.value=p[0].textContent;
+editCondition.value=p[1].textContent;
+editSubCondition.value=p[2].textContent;
+editCoupon.value=p[3].textContent;
+
+editPreview.src=img.src;
+editPreview.style.display="block";
+
+viewSection.style.display="none";
+editSection.style.display="block";
+
+});
+
+editUploadBox.addEventListener("click",()=>{
+editFileInput.click();
+});
+
+editFileInput.addEventListener("change",function(){
+
+const file=this.files[0];
+if(!file) return;
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+editPreview.src=e.target.result;
+}
+
+reader.readAsDataURL(file);
+
+});
+
+saveBtn.addEventListener("click",function(){
+
+const p=viewSection.querySelectorAll("p");
+const img=viewSection.querySelector(".DHMFOcover-image img");
+
+p[0].textContent=editDiscount.value;
+p[1].textContent=editCondition.value;
+p[2].textContent=editSubCondition.value;
+p[3].textContent=editCoupon.value;
+
+img.src=editPreview.src;
+
+editSection.style.display="none";
+viewSection.style.display="block";
+
+});
+
+cancelBtn.addEventListener("click",function(){
+
+editSection.style.display="none";
+viewSection.style.display="block";
+
+});
 // Navigation Bar Interaction
 // HAMBURGER OPEN/CLOSE
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 var mobileBack = document.querySelector(".mobile-back-button");
+const plusIcon=document.querySelector(".ECOne-floating-add-btn");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
@@ -13,438 +92,559 @@ hamburger?.addEventListener("click", () => {
     document.querySelector("body").style.overflow = "hidden";
     window.scrollTo(0, 0);
     mobileBack.style.display = "none";
+    plusIcon.style.display="none";
+
   } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector("body").style.overflow = "auto";
     document.querySelector(".bottom-nav").style.display = "flex";
     mobileBack.style.display = "flex";
+    plusIcon.style.display="flex";
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const openPopupBtn = document.querySelector(".DHMFO-add-card");
-  const popup = document.getElementById("DHMFOofferPopup");
-  const deleteBtn = document.getElementById("DHMFOdeleteBtn");
-  const container = document.querySelector(".DHMFOcontainer");
+const modalOverlayECOne = document.getElementById("modalOverlayECOne");
+const modalCloseECOne = document.getElementById("modalCloseECOne");
+const modalSaveBtnECOne = document.getElementById("modalSaveBtnECOne");
+const imageUploadECOne = document.getElementById("imageUploadECOne");
+const uploadBoxECOne = document.getElementById("uploadBoxECOne");
+const labelInputECOne = document.getElementById("labelInputECOne");
+const ctaInputECOne = document.getElementById("ctaInputECOne");
+const imageErrorECOne = document.getElementById("imageErrorECOne");
+const labelErrorECOne = document.getElementById("labelErrorECOne");
+const ctaErrorECOne = document.getElementById("ctaErrorECOne");
+const floatingAddBtnECOne = document.querySelector(".ECOne-floating-add-btn");
+const imageListContainerECOne = document.querySelector(".sectionImageListECOne");
+/* OPEN MODAL */
+btnAddNewECOne.addEventListener("click", () => {
+    modalOverlayECOne.style.display = "flex";
+    document.body.classList.add("bodyModalOpenECOne");
+});
 
-  const uploadBox = document.getElementById("DHMFOuploadBox");
-  const fileInput = document.getElementById("DHMFOcoverImage");
-  const uploadContent = document.getElementById("DHMFOuploadContent");
-  const previewImg = document.getElementById("DHMFOimagePreview");
+floatingAddBtnECOne.addEventListener("click", () => {
+    modalOverlayECOne.style.display = "flex";
+    document.body.classList.add("bodyModalOpenECOne");
+});
+/* CLOSE MODAL */
+modalCloseECOne.addEventListener("click", closeModalECOne);
 
-  const imageName = document.getElementById("DHMFOimageName");
-  const ctaLink = document.getElementById("DHMFOctaLink");
 
-  const imageError = document.getElementById("DHMFOimageError");
-  const nameError = document.getElementById("DHMFOnnameError");
-  const linkError = document.getElementById("DHMFOlinkError");
+/* CLICK OUTSIDE CLOSE */
+modalOverlayECOne.addEventListener("click", (e) => {
+    if(e.target === modalOverlayECOne){
+       closeModalECOne();
+    }
+});
 
-  const publishBtn = document.querySelector(".DHMFOpublish-btn");
+// upload click handler
+uploadBoxECOne.addEventListener("click",()=>{
+    imageUploadECOne.click();
+});
 
-  //Offer Title Edit
-  const offerTitleText = document.getElementById("DHMFOofferTitleText");
-  const offerTitleInput = document.getElementById("DHMFOofferTitleInput");
-  const offerTitleEditBtn = document.getElementById("DHMFOofferTitleEditBtn");
+// 
+let uploadedFileECOne = null;
+imageUploadECOne.addEventListener("change",(e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
 
-  if (offerTitleEditBtn && offerTitleText && offerTitleInput) {
-    offerTitleEditBtn.addEventListener("click", function () {
-      offerTitleInput.value = offerTitleText.textContent.trim();
-      offerTitleText.style.display = "none";
-      offerTitleInput.style.display = "block";
-      offerTitleInput.focus();
+    /* TYPE VALIDATION */
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+
+    if(!allowedTypes.includes(file.type)){
+        showError(imageErrorECOne,"Only JPG, PNG or WEBP images are allowed");
+        imageUploadECOne.value = "";
+        return;
+    }
+
+    /* SIZE VALIDATION */
+    if(file.size > 2 * 1024 * 1024){
+        showError(imageErrorECOne,"Image must be less than 2MB");
+        return;
+    }
+
+    uploadedFileECOne = file;
+    hideError(imageErrorECOne);
+
+    /* REMOVE OLD PREVIEW */
+    const oldImg = uploadBoxECOne.querySelector("img");
+    if(oldImg) oldImg.remove();
+
+    const oldRemoveBtn = uploadBoxECOne.querySelector(".removeImageBtnECOne");
+    if(oldRemoveBtn) oldRemoveBtn.remove();
+
+    /* CREATE PREVIEW */
+    const img = document.createElement("img");
+    img.className = "uploadPreviewImgECOne";
+    img.src = URL.createObjectURL(file);
+
+    /* CREATE REMOVE BUTTON */
+    const removeBtn = document.createElement("div");
+    removeBtn.className = "removeImageBtnECOne";
+    removeBtn.innerHTML = "✕";
+
+    removeBtn.addEventListener("click",(e)=>{
+        e.stopPropagation();
+        uploadedFileECOne = null;
+        imageUploadECOne.value = "";
+        img.remove();
+        removeBtn.remove();
+        uploadTextECOne.style.display = "block";
     });
 
-    offerTitleInput.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const newValue = offerTitleInput.value.trim();
-        if (newValue !== "") {
-          offerTitleText.textContent = newValue;
-        }
-        offerTitleInput.style.display = "none";
-        offerTitleText.style.display = "block";
-      }
-    });
+    uploadBoxECOne.appendChild(img);
+    uploadBoxECOne.appendChild(removeBtn);
 
-    offerTitleInput.addEventListener("blur", function () {
-      const newValue = offerTitleInput.value.trim();
-      if (newValue !== "") {
-        offerTitleText.textContent = newValue;
-      }
-      offerTitleInput.style.display = "none";
-      offerTitleText.style.display = "block";
-    });
-  }
+    uploadTextECOne.style.display = "none";
+});
 
-  function handleMobileHeading() {
-    const existingHeading = document.querySelector(
-      ".DHMFOmobile-create-heading",
+labelInputECOne.addEventListener("blur",()=>{
+    if(labelInputECOne.value.trim() === ""){
+        showError(labelErrorECOne,"Label is required");
+        labelInputECOne.classList.add("inputErrorECOne");
+    }else{
+        hideError(labelErrorECOne);
+        labelInputECOne.classList.remove("inputErrorECOne");
+    }
+});
+
+ctaInputECOne.addEventListener("blur",()=>{
+    const value = ctaInputECOne.value.trim();
+
+    if(value === ""){
+        showError(ctaErrorECOne,"CTA link is required");
+        ctaInputECOne.classList.add("inputErrorECOne");
+    }
+    else if(!isValidURL(value)){
+        showError(ctaErrorECOne,"Enter valid URL (https://example.com)");
+        ctaInputECOne.classList.add("inputErrorECOne");
+    }
+    else{
+        hideError(ctaErrorECOne);
+        ctaInputECOne.classList.remove("inputErrorECOne");
+    }
+});
+
+function isValidURL(url) {
+    const pattern = new RegExp(
+        '^(https?:\\/\\/)' +                 // require http or https
+        '((([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}))' + // domain
+        '(\\/[^\\s]*)?$'                      // optional path
     );
+    return pattern.test(url);
+}
 
-    if (window.innerWidth <= 595) {
-      if (!existingHeading) {
-        const heading = document.createElement("h3");
-        heading.textContent = "Create New Offer";
-        heading.classList.add("DHMFOmobile-create-heading");
-        uploadBox.parentNode.insertBefore(heading, uploadBox);
-      }
-      uploadBox.style.padding = "20px";
-    } else {
-      if (existingHeading) existingHeading.remove();
-      uploadBox.style.padding = "";
-    }
-  }
+// save button for pop up 
+modalSaveBtnECOne.addEventListener("click",()=>{
 
-  handleMobileHeading();
-  window.addEventListener("resize", handleMobileHeading);
-
-  function openPopup() {
-    if (window.innerWidth <= 595) {
-      container.style.display = "none";
-      popup.style.display = "block";
-      popup.style.position = "fixed";
-      popup.style.top = "0";
-      popup.style.left = "0";
-      popup.style.width = "100%";
-      popup.style.height = "100vh";
-      popup.style.background = "#ffffff";
-      popup.style.zIndex = "9999";
-    } else {
-      popup.classList.add("active");
-    }
-  }
-
-  function closePopup() {
-    if (window.innerWidth <= 595) {
-      container.style.display = "block";
-      popup.style.display = "none";
-    } else {
-      popup.classList.remove("active");
-    }
-
-    fileInput.value = "";
-    previewImg.src = "";
-    previewImg.style.display = "none";
-    uploadContent.style.display = "block";
-    uploadBox.style.padding = "";
-    imageName.value = "";
-    ctaLink.value = "";
-    imageError.textContent = "";
-    nameError.textContent = "";
-    linkError.textContent = "";
-    const imgEditBtnClose = document.getElementById("DHMFOimgEditBtn");
-    if (imgEditBtnClose) {
-      imgEditBtnClose.classList.remove("visible");
-      document.getElementById("DHMFOimgEditDropdown")?.classList.remove("open");
-    }
-  }
-
-  openPopupBtn.addEventListener("click", openPopup);
-  deleteBtn.addEventListener("click", closePopup);
-
-  // X Close Button
-  const popupCloseBtn = document.getElementById("DHMFOpopupCloseBtn");
-  if (popupCloseBtn) {
-    popupCloseBtn.addEventListener("click", function () {
-      popup._editTargetCard = null;
-      closePopup();
-    });
-  }
-
-  // Image edit overlay button & mini dropdown
-  const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
-  const imgEditDropdown = document.getElementById("DHMFOimgEditDropdown");
-  const changeImageBtn = document.getElementById("DHMFOchangeImageBtn");
-
-  if (imgEditBtn && imgEditDropdown && changeImageBtn) {
-    imgEditBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      imgEditDropdown.classList.toggle("open");
-    });
-
-    changeImageBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      imgEditDropdown.classList.remove("open");
-      fileInput.click();
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!imgEditBtn.contains(e.target)) {
-        imgEditDropdown.classList.remove("open");
-      }
-    });
-  }
-
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup && window.innerWidth > 595) closePopup();
-  });
-
-  uploadBox.addEventListener("click", function () {
-    fileInput.click();
-  });
-
-  fileInput.addEventListener("change", function () {
-    const file = fileInput.files[0];
-    if (file) previewImage(file);
-  });
-
-  uploadBox.addEventListener("dragover", function (e) {
-    e.preventDefault();
-  });
-
-  uploadBox.addEventListener("drop", function (e) {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    if (file) previewImage(file);
-  });
-
-  function previewImage(file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      previewImg.src = e.target.result;
-      previewImg.style.display = "block";
-      uploadContent.style.display = "none";
-      uploadBox.style.padding = "0";
-      const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
-      if (imgEditBtn) imgEditBtn.classList.add("visible");
-    };
-    reader.readAsDataURL(file);
-  }
-
-  imageName.addEventListener("keydown", function (e) {
-    const value = imageName.value;
-    if (e.key >= "0" && e.key <= "9") e.preventDefault();
-    if (e.key === " " && value.length === 0) e.preventDefault();
-  });
-
-  imageName.addEventListener("input", function () {
-    imageName.value = imageName.value.replace(/[^A-Za-z\s]/g, "");
-  });
-
-  publishBtn.addEventListener("click", function () {
     let valid = true;
 
-    imageError.textContent = "";
-    nameError.textContent = "";
-    linkError.textContent = "";
-
-    const urlPattern = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?$/;
-
-    if (!previewImg.src) {
-      imageError.textContent = "Cover image is required";
-      valid = false;
+    if(!uploadedFileECOne){
+        showError(imageErrorECOne,"Image is required");
+        valid = false;
     }
 
-    if (imageName.value.trim() === "") {
-      nameError.textContent = "Image name is required";
-      valid = false;
+    if(labelInputECOne.value.trim() === ""){
+        showError(labelErrorECOne,"Label is required");
+        labelInputECOne.classList.add("inputErrorECOne");
+        valid = false;
     }
 
-    if (ctaLink.value.trim() === "") {
-      linkError.textContent = "CTA link is required";
-      valid = false;
-    } else if (!urlPattern.test(ctaLink.value.trim())) {
-      linkError.textContent = "Enter a valid URL starting with http or https";
-      valid = false;
-    }
+const ctaValue = ctaInputECOne.value.trim();
 
-    if (!valid) return;
+if(ctaValue === ""){
+    showError(ctaErrorECOne,"CTA link is required");
+    ctaInputECOne.classList.add("inputErrorECOne");
+    valid = false;
+}
+else if(!isValidURL(ctaValue)){
+    showError(ctaErrorECOne,"Enter valid URL (https://example.com)");
+    ctaInputECOne.classList.add("inputErrorECOne");
+    valid = false;
+}
 
-    if (popup._editTargetCard) {
-      const card = popup._editTargetCard;
+    if(!valid) return;
 
-      const cardImg = card.querySelector(".DHMFO-image-wrap img");
-      const cardName = card.querySelector(".DHMFO-card-body p");
-      const cardLink = card.querySelector(".DHMFO-card-body a");
+    /* SUCCESS → CLOSE + RESET */
+    addNewImageCardECOne();
+    closeModalECOne();
+    updatePublishButtonStateECOne();
+    updatePreviewFromCardsECOne();
 
-      if (cardImg) cardImg.src = previewImg.src;
-      if (cardName) cardName.textContent = imageName.value.trim();
-      if (cardLink) {
-        cardLink.href = ctaLink.value.trim();
-        cardLink.textContent = ctaLink.value.trim();
-      }
+});
 
-      popup._editTargetCard = null;
-      closePopup();
-      return;
-    }
+function closeModalECOne(){
+    modalOverlayECOne.style.display = "none";
+    document.body.classList.remove("bodyModalOpenECOne");
+    resetModalFormECOne();
+}
+function resetModalFormECOne(){
 
-    const grid = document.querySelector(".DHMFO-category-grid");
-    const addCard = document.querySelector(".DHMFO-add-card");
-    const totalCards =
-      document.querySelectorAll(".DHMFO-category-card").length + 1;
+    /* INPUT RESET */
+    labelInputECOne.value = "";
+    ctaInputECOne.value = "";
 
-    const newCard = document.createElement("div");
-    newCard.classList.add("DHMFO-category-card");
+    /* FILE RESET */
+    uploadedFileECOne = null;
+    imageUploadECOne.value = "";
 
-    newCard.innerHTML = `
-      <div class="DHMFO-image-wrap">
-        <img src="${previewImg.src}" />
-        <span class="DHMFO-edit-btn">
-          <img src="../assets/developerHMTopCattegories/edit.svg" />
-        </span>
-      </div>
-      <div class="DHMFO-card-body">
-        <div class="DHMFO-card-top">
-          <div>
-            <h4>Category ${totalCards}</h4>
-            <p>${imageName.value.trim()}</p>
-          </div>
-          <label class="DHMFO-switch">
-            <input type="checkbox" checked />
-            <span class="DHMFO-slider"></span>
-          </label>
+    /* REMOVE IMAGE PREVIEW */
+    const oldImg = uploadBoxECOne.querySelector("img");
+    if(oldImg) oldImg.remove();
+    const oldRemoveBtn = uploadBoxECOne.querySelector(".removeImageBtnECOne");
+if(oldRemoveBtn) oldRemoveBtn.remove();
+
+    /* SHOW UPLOAD TEXT AGAIN */
+    uploadTextECOne.style.display = "block";
+
+    /* CLEAR ERRORS */
+    hideError(imageErrorECOne);
+    hideError(labelErrorECOne);
+    hideError(ctaErrorECOne);
+
+    /* REMOVE ERROR BORDERS */
+    labelInputECOne.classList.remove("inputErrorECOne");
+    ctaInputECOne.classList.remove("inputErrorECOne");
+}
+
+function showError(el,msg){
+    el.style.display = "block";
+    el.innerText = msg;
+}
+
+function hideError(el){
+    el.style.display = "none";
+}
+function addNewImageCardECOne(){
+
+    // Count existing cards
+    const existingCards = document.querySelectorAll(".cardImageItemECOne");
+    const newIndex = existingCards.length + 1;
+
+    // Create main card div
+    const card = document.createElement("div");
+    card.className = "cardImageItemECOne";
+    card.id = "cardImageItem" + newIndex + "ECOne";
+
+    // Create image URL
+    const imageURL = URL.createObjectURL(uploadedFileECOne);
+
+    card.innerHTML = `
+        <div class="headerCardItemECOne">
+            <span class="iconEditECOne">
+                <img src="../assets/developerHMExplorecategory1/Notches.svg" />
+            </span>
+            <span class="textImageNumECOne">Image ${newIndex}</span>
+            <button class="btnMenuECOne">
+                <img src="../assets/developerHMExplorecategory1/DotsThreeOutlineVertical.svg" />
+            </button>
         </div>
-        <span class="DHMFO-cta-title">CTA Link</span>
-        <a href="${ctaLink.value.trim()}" target="_blank">${ctaLink.value.trim()}</a>
-      </div>
+
+        <div class="bodyCardItemECOne">
+            <img src="${imageURL}" class="thumbImageECOne" />
+            
+            <div class="infoCardItemECOne">
+                <span class="labelItemECOne">Label</span>
+                <span class="valueItemECOne">${labelInputECOne.value}</span>
+                <span class="statusTextECOne">Active status</span>
+            </div>
+
+            <label class="toggleSwitchECOne">
+                <input type="checkbox" class="toggleInputECOne"  />
+                <span class="sliderECOne"></span>
+            </label>
+        </div>
     `;
 
-    grid.insertBefore(newCard, addCard);
-    closePopup();
-  });
+    // Append to container
+    imageListContainerECOne.appendChild(card);
+}
 
-  const section2EditBtn = document.querySelector(".section2-edit");
-  const section2View = document.querySelector(".DHMFOsection2-body");
-  const section2Edit = document.querySelector(".DHMFOES-section-2-edit");
+const previewSlotsECOne = [
+  document.querySelector("#previewSlot1"),
+  document.querySelector("#previewSlot2"),
+  document.querySelector("#previewSlot3"),
+  document.querySelector("#previewSlot4")
+];
 
-  const editDiscount = document.getElementById("editDiscountAmount");
-  const editCondition = document.getElementById("editConditionField");
-  const editSubCondition = document.getElementById("editSubConditionField");
-  const editCoupon = document.getElementById("editCouponCode");
+function updatePreviewFromCardsECOne(){
 
-  const editUploadBox = document.getElementById("editUploadBox2");
-  const editFileInput = document.getElementById("editCoverImage2");
-  const editPreview = document.getElementById("editImagePreview2");
+    const previewSlots = [
+        document.getElementById("previewSlot1"),
+        document.getElementById("previewSlot2"),
+        document.getElementById("previewSlot3"),
+        document.getElementById("previewSlot4")
+    ];
 
-  const editSaveBtn = document.getElementById("editSaveBtn");
-  const editCancelBtn = document.getElementById("editCancelBtn");
+    const cards = document.querySelectorAll(".cardImageItemECOne");
 
-  if (section2EditBtn && section2View && section2Edit) {
-    section2EditBtn.addEventListener("click", function () {
-      const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
-      const viewImage = section2View.querySelector(".DHMFOcover-image img");
-
-      editDiscount.value = paragraphs[0]?.textContent.trim() || "";
-      editCondition.value = paragraphs[1]?.textContent.trim() || "";
-      editSubCondition.value = paragraphs[2]?.textContent.trim() || "";
-      editCoupon.value = paragraphs[3]?.textContent.trim() || "";
-
-      editPreview.src = viewImage?.src || "";
-      editPreview.style.display = "block";
-
-      section2View.style.display = "none";
-      section2Edit.style.display = "block";
+    // Reset all preview slots first
+    previewSlots.forEach(slot=>{
+        slot.style.display = "none";
     });
 
-    if (editUploadBox && editFileInput) {
-      editUploadBox.addEventListener("click", function () {
-        editFileInput.click();
-      });
+    let slotIndex = 0;
 
-      editFileInput.addEventListener("change", function () {
-        const file = this.files[0];
-        if (!file) return;
+    cards.forEach(card=>{
 
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          editPreview.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
+        const toggle = card.querySelector(".toggleInputECOne");
 
-    if (editSaveBtn) {
-      editSaveBtn.addEventListener("click", function () {
-        const paragraphs = section2View.querySelectorAll(".DHMFOform-group p");
-        const viewImage = section2View.querySelector(".DHMFOcover-image img");
+        if(toggle.checked && slotIndex < previewSlots.length){
 
-        if (paragraphs.length >= 4) {
-          paragraphs[0].textContent = editDiscount.value.trim();
-          paragraphs[1].textContent = editCondition.value.trim();
-          paragraphs[2].textContent = editSubCondition.value.trim();
-          paragraphs[3].textContent = editCoupon.value.trim();
+            const imgSrc = card.querySelector(".thumbImageECOne").src;
+            const label = card.querySelector(".valueItemECOne").innerText;
+
+            const slot = previewSlots[slotIndex];
+
+            slot.style.display = "block";
+            slot.querySelector("img").src = imgSrc;
+            slot.querySelector(".tagLabelECOne").innerText = label;
+
+            slotIndex++;
+
         }
 
-        if (viewImage && editPreview.src) {
-          viewImage.src = editPreview.src;
-        }
+    });
 
-        section2Edit.style.display = "none";
-        section2View.style.display = "block";
-      });
-    }
+}
+const cardActionMenuECOne = document.getElementById("cardActionMenuECOne");
+let selectedCardECOne = null;
 
-    if (editCancelBtn) {
-      editCancelBtn.addEventListener("click", function () {
-        section2Edit.style.display = "none";
-        section2View.style.display = "block";
-      });
-    }
-  }
+/* OPEN MENU */
+document.addEventListener("click", function(e){
 
-  function openCardEditPopup(card) {
-    const cardImg = card.querySelector(".DHMFO-image-wrap img");
-    const cardName = card.querySelector(".DHMFO-card-body p");
-    const cardLink = card.querySelector(".DHMFO-card-body a");
+    // if clicked on three dot button
+    const menuBtn = e.target.closest(".btnMenuECOne");
 
-    imageName.value = cardName ? cardName.textContent.trim() : "";
-    ctaLink.value = cardLink ? cardLink.getAttribute("href") : "";
-
-    if (cardImg && cardImg.src) {
-      previewImg.src = cardImg.src;
-      previewImg.style.display = "block";
-      uploadContent.style.display = "none";
-      uploadBox.style.padding = "0";
-      const imgEditBtn = document.getElementById("DHMFOimgEditBtn");
-      if (imgEditBtn) imgEditBtn.classList.add("visible");
-    }
-
-    imageError.textContent = "";
-    nameError.textContent = "";
-    linkError.textContent = "";
-
-    popup._editTargetCard = card;
-
-    openPopup();
-  }
-
-  function handleCardEditBtnClick(e) {
-    const editBtn = e.target.closest(".DHMFO-edit-btn");
-    if (!editBtn) return;
-
-    const card = editBtn.closest(".DHMFO-category-card");
-    if (!card) return;
-
+    if(menuBtn){
     e.stopPropagation();
-    openCardEditPopup(card);
-  }
 
-  const categoryGrid = document.querySelector(".DHMFO-category-grid");
-  if (categoryGrid) {
-    categoryGrid.addEventListener("click", handleCardEditBtnClick);
-  }
+    selectedCardECOne = menuBtn.closest(".cardImageItemECOne");
 
-  deleteBtn.removeEventListener("click", closePopup);
-  deleteBtn.addEventListener("click", function () {
-    if (popup._editTargetCard) {
-      popup._editTargetCard.remove();
-      popup._editTargetCard = null;
+    const rect = menuBtn.getBoundingClientRect();
+
+    cardActionMenuECOne.style.top = rect.bottom + window.scrollY + "px";
+    cardActionMenuECOne.style.left = rect.left + window.scrollX - 100 + "px";
+
+    /* CHECK TOGGLE STATE */
+    const toggle = selectedCardECOne.querySelector(".toggleInputECOne");
+    const deleteBtn = document.querySelector(".deleteActionECOne");
+
+    if(toggle.checked){
+        deleteBtn.classList.add("deleteDisabledECOne");
+    }else{
+        deleteBtn.classList.remove("deleteDisabledECOne");
     }
-    closePopup();
-  });
 
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup && window.innerWidth > 595) {
-      popup._editTargetCard = null;
+    cardActionMenuECOne.style.display = "block";
+}
+    else{
+        cardActionMenuECOne.style.display = "none";
     }
-  });
+});
+
+document.querySelector(".deleteActionECOne")
+.addEventListener("click", function(){
+
+    if(this.classList.contains("deleteDisabledECOne")){
+        showPublishError("Active images cannot be deleted. Turn off the toggle first.");
+        return;
+    }
+
+    if(selectedCardECOne){
+        selectedCardECOne.remove();
+        cardActionMenuECOne.style.display = "none";
+        updateImageNumbersECOne();
+        updatePublishButtonStateECOne();
+        updatePreviewFromCardsECOne();
+    }
+});
+document.querySelector(".editActionECOne")
+.addEventListener("click", function(){
+
+    if(!selectedCardECOne) return;
+
+    const labelValue = selectedCardECOne
+        .querySelector(".valueItemECOne")
+        .innerText;
+
+    labelInputECOne.value = labelValue;
+
+    modalOverlayECOne.style.display = "flex";
+    document.body.classList.add("bodyModalOpenECOne");
+
+    cardActionMenuECOne.style.display = "none";
+});
+function updateImageNumbersECOne(){
+    const cards = document.querySelectorAll(".cardImageItemECOne");
+
+    cards.forEach((card,index)=>{
+        const numberText = card.querySelector(".textImageNumECOne");
+        numberText.innerText = "Image " + (index + 1);
+    });
+}
+
+const publishBtnECOne = document.getElementById("btnPublishECOne");
+const successModalECOne = document.getElementById("publishSuccessModalECOne");
+const errorToastECOne = document.getElementById("publishErrorToastECOne");
+const errorTextECOne = document.getElementById("publishErrorTextECOne");
+const closeToastECOne = document.getElementById("closeToastECOne");
+
+publishBtnECOne.addEventListener("click", function(){
+
+    if(publishBtnECOne.disabled){
+        showPublishError("Exactly 4 active images required to publish.");
+        return;
+    }
+
+    successModalECOne.style.display = "flex";
+
+    setTimeout(()=>{
+        successModalECOne.style.display = "none";
+    },3000);
+});
+
+function showPublishError(message){
+    errorTextECOne.innerText = message;
+    errorToastECOne.style.display = "flex";
+
+    setTimeout(()=>{
+        errorToastECOne.style.display = "none";
+    },3000);
+}
+
+closeToastECOne.addEventListener("click", function(){
+    errorToastECOne.style.display = "none";
+});
+
+function handleToggleChangeECOne(){
+
+    const cards = document.querySelectorAll(".cardImageItemECOne");
+    const toggles = document.querySelectorAll(".toggleInputECOne");
+
+    let checkedCount = 0;
+
+    toggles.forEach(toggle=>{
+        if(toggle.checked) checkedCount++;
+    });
+
+    /* LIMIT = 4 */
+    if(checkedCount > 4){
+        this.checked = false;
+        showPublishError("Only 4 images can be active. Turn one off to activate another.");
+        return;
+    }
+
+    /* SHOW PUBLISH BUTTON IF ANY OFF */
+    const publishBtn = document.getElementById("btnPublishECOne");
+
+    if(checkedCount < 4){
+        publishBtn.style.display = "inline-block";
+        publishBtn.classList.add("disabledPublishECOne");
+        publishBtn.disabled = true;
+    }
+
+    /* ENABLE WHEN EXACTLY 4 */
+    if(checkedCount === 4){
+        publishBtn.style.display = "inline-block";
+        publishBtn.classList.remove("disabledPublishECOne");
+        publishBtn.disabled = false;
+    }
+}
+document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("toggleInputECOne")) {
+        const toggles = document.querySelectorAll(".cardImageItemECOne .toggleInputECOne");
+
+        // Max 4 active images
+        let checkedCount = 0;
+        toggles.forEach(t => { if(t.checked) checkedCount++; });
+        if (checkedCount > 4) {
+            e.target.checked = false;
+            showPublishError("Only 4 images can be active. Turn one off to activate another.");
+            return;
+        }
+
+        updatePublishButtonStateECOne();
+        updatePreviewFromCardsECOne();
+    }
+});
+function updatePublishButtonStateECOne(){
+
+    const publishBtn = document.getElementById("btnPublishECOne");
+    const toggles = document.querySelectorAll(".toggleInputECOne");
+
+    let activeCount = 0;
+
+    toggles.forEach(toggle=>{
+        if(toggle.checked) activeCount++;
+    });
+
+    // If no cards → hide
+    if(toggles.length === 0){
+        publishBtn.style.display = "none";
+        return;
+    }
+
+    // Show publish button
+    publishBtn.style.display = "inline-block";
+
+    // Enable only when exactly 4 active
+    if(activeCount === 4){
+        publishBtn.disabled = false;
+        publishBtn.classList.remove("disabledPublishECOne");
+    }else{
+        publishBtn.disabled = true;
+        publishBtn.classList.add("disabledPublishECOne");
+    }
+}
+
+const categoryInput = document.getElementById("inputCategoryTitleECOne");
+const editBtn2 = document.getElementById("editCategoryTitleECOne");
+const publishBtn = document.getElementById("publishCategoryTitleECOne");
+
+let originalTitle = categoryInput.value;
+
+/* CLICK EDIT */
+editBtn2.addEventListener("click", function () {
+
+    categoryInput.disabled = false;
+
+    /* focus + select all text */
+    categoryInput.focus();
+    categoryInput.select();
+
+});
+
+/* SHOW PUBLISH ONLY WHEN TEXT CHANGES */
+categoryInput.addEventListener("input", function () {
+
+    if (categoryInput.value.trim() !== originalTitle) {
+        publishBtn.style.display = "inline-block";
+    } else {
+        publishBtn.style.display = "none";
+    }
+
+});
+
+/* CLICK PUBLISH */
+publishBtn.addEventListener("click", function () {
+
+    if (categoryInput.value.trim() === "") {
+        alert("Category title cannot be empty");
+        return;
+    }
+
+    categoryInput.disabled = true;
+
+    originalTitle = categoryInput.value;
+
+    publishBtn.style.display = "none";
 });
 
 document
   .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(4)")
-  .classList.add("sidebar-active");
+  ?.classList.add("sidebar-active");
 
 document
   .querySelector("#account-menu .mobile-dropdown:nth-child(4) .dropdown-header")
-  .classList.add("dropdown-header-active");
+  ?.classList.add("dropdown-header-active");
+

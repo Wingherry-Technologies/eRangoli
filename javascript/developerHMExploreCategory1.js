@@ -189,6 +189,8 @@ else if(!isValidURL(ctaValue)){
     /* SUCCESS → CLOSE + RESET */
     addNewImageCardECOne();
     closeModalECOne();
+    updatePublishButtonStateECOne();
+    updatePreviewFromCardsECOne();
 
 });
 
@@ -279,7 +281,53 @@ function addNewImageCardECOne(){
     imageListContainerECOne.appendChild(card);
 }
 
+const previewSlotsECOne = [
+  document.querySelector("#previewSlot1"),
+  document.querySelector("#previewSlot2"),
+  document.querySelector("#previewSlot3"),
+  document.querySelector("#previewSlot4")
+];
 
+function updatePreviewFromCardsECOne(){
+
+    const previewSlots = [
+        document.getElementById("previewSlot1"),
+        document.getElementById("previewSlot2"),
+        document.getElementById("previewSlot3"),
+        document.getElementById("previewSlot4")
+    ];
+
+    const cards = document.querySelectorAll(".cardImageItemECOne");
+
+    // Reset all preview slots first
+    previewSlots.forEach(slot=>{
+        slot.style.display = "none";
+    });
+
+    let slotIndex = 0;
+
+    cards.forEach(card=>{
+
+        const toggle = card.querySelector(".toggleInputECOne");
+
+        if(toggle.checked && slotIndex < previewSlots.length){
+
+            const imgSrc = card.querySelector(".thumbImageECOne").src;
+            const label = card.querySelector(".valueItemECOne").innerText;
+
+            const slot = previewSlots[slotIndex];
+
+            slot.style.display = "block";
+            slot.querySelector("img").src = imgSrc;
+            slot.querySelector(".tagLabelECOne").innerText = label;
+
+            slotIndex++;
+
+        }
+
+    });
+
+}
 const cardActionMenuECOne = document.getElementById("cardActionMenuECOne");
 let selectedCardECOne = null;
 
@@ -290,17 +338,27 @@ document.addEventListener("click", function(e){
     const menuBtn = e.target.closest(".btnMenuECOne");
 
     if(menuBtn){
-        e.stopPropagation();
+    e.stopPropagation();
 
-        selectedCardECOne = menuBtn.closest(".cardImageItemECOne");
+    selectedCardECOne = menuBtn.closest(".cardImageItemECOne");
 
-        const rect = menuBtn.getBoundingClientRect();
+    const rect = menuBtn.getBoundingClientRect();
 
-        cardActionMenuECOne.style.top = rect.bottom + window.scrollY + "px";
-        cardActionMenuECOne.style.left = rect.left + window.scrollX - 150 + "px";
+    cardActionMenuECOne.style.top = rect.bottom + window.scrollY + "px";
+    cardActionMenuECOne.style.left = rect.left + window.scrollX - 100 + "px";
 
-        cardActionMenuECOne.style.display = "block";
+    /* CHECK TOGGLE STATE */
+    const toggle = selectedCardECOne.querySelector(".toggleInputECOne");
+    const deleteBtn = document.querySelector(".deleteActionECOne");
+
+    if(toggle.checked){
+        deleteBtn.classList.add("deleteDisabledECOne");
+    }else{
+        deleteBtn.classList.remove("deleteDisabledECOne");
     }
+
+    cardActionMenuECOne.style.display = "block";
+}
     else{
         cardActionMenuECOne.style.display = "none";
     }
@@ -309,10 +367,17 @@ document.addEventListener("click", function(e){
 document.querySelector(".deleteActionECOne")
 .addEventListener("click", function(){
 
+    if(this.classList.contains("deleteDisabledECOne")){
+        showPublishError("Active images cannot be deleted. Turn off the toggle first.");
+        return;
+    }
+
     if(selectedCardECOne){
         selectedCardECOne.remove();
         cardActionMenuECOne.style.display = "none";
         updateImageNumbersECOne();
+        updatePublishButtonStateECOne();
+        updatePreviewFromCardsECOne();
     }
 });
 document.querySelector(".editActionECOne")
@@ -348,41 +413,15 @@ const closeToastECOne = document.getElementById("closeToastECOne");
 
 publishBtnECOne.addEventListener("click", function(){
 
-    const cards = document.querySelectorAll(".cardImageItemECOne");
-
-    // If no cards
-    if(cards.length === 0){
-        showPublishError("At least 4 images must be added.");
+    if(publishBtnECOne.disabled){
+        showPublishError("Exactly 4 active images required to publish.");
         return;
     }
 
-    // If not exactly 4 cards
-    if(cards.length !== 4){
-        showPublishError("Exactly 4 images must be present to publish.");
-        return;
-    }
-
-    // Count checked toggles
-    let checkedCount = 0;
-    cards.forEach(card=>{
-        const toggle = card.querySelector(".toggleInputECOne");
-        if(toggle.checked){
-            checkedCount++;
-        }
-    });
-
-    // If not all 4 checked
-    if(checkedCount !== 4){
-        showPublishError("All 4 images must be active to publish.");
-        return;
-    }
-
-    // SUCCESS
     successModalECOne.style.display = "flex";
 
     setTimeout(()=>{
         successModalECOne.style.display = "none";
-        window.location.href = "../html/developerHMDashboard.html";
     },3000);
 });
 
@@ -397,6 +436,130 @@ function showPublishError(message){
 
 closeToastECOne.addEventListener("click", function(){
     errorToastECOne.style.display = "none";
+});
+
+function handleToggleChangeECOne(){
+
+    const cards = document.querySelectorAll(".cardImageItemECOne");
+    const toggles = document.querySelectorAll(".toggleInputECOne");
+
+    let checkedCount = 0;
+
+    toggles.forEach(toggle=>{
+        if(toggle.checked) checkedCount++;
+    });
+
+    /* LIMIT = 4 */
+    if(checkedCount > 4){
+        this.checked = false;
+        showPublishError("Only 4 images can be active. Turn one off to activate another.");
+        return;
+    }
+
+    /* SHOW PUBLISH BUTTON IF ANY OFF */
+    const publishBtn = document.getElementById("btnPublishECOne");
+
+    if(checkedCount < 4){
+        publishBtn.style.display = "inline-block";
+        publishBtn.classList.add("disabledPublishECOne");
+        publishBtn.disabled = true;
+    }
+
+    /* ENABLE WHEN EXACTLY 4 */
+    if(checkedCount === 4){
+        publishBtn.style.display = "inline-block";
+        publishBtn.classList.remove("disabledPublishECOne");
+        publishBtn.disabled = false;
+    }
+}
+document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("toggleInputECOne")) {
+        const toggles = document.querySelectorAll(".cardImageItemECOne .toggleInputECOne");
+
+        // Max 4 active images
+        let checkedCount = 0;
+        toggles.forEach(t => { if(t.checked) checkedCount++; });
+        if (checkedCount > 4) {
+            e.target.checked = false;
+            showPublishError("Only 4 images can be active. Turn one off to activate another.");
+            return;
+        }
+
+        updatePublishButtonStateECOne();
+        updatePreviewFromCardsECOne();
+    }
+});
+function updatePublishButtonStateECOne(){
+
+    const publishBtn = document.getElementById("btnPublishECOne");
+    const toggles = document.querySelectorAll(".toggleInputECOne");
+
+    let activeCount = 0;
+
+    toggles.forEach(toggle=>{
+        if(toggle.checked) activeCount++;
+    });
+
+    // If no cards → hide
+    if(toggles.length === 0){
+        publishBtn.style.display = "none";
+        return;
+    }
+
+    // Show publish button
+    publishBtn.style.display = "inline-block";
+
+    // Enable only when exactly 4 active
+    if(activeCount === 4){
+        publishBtn.disabled = false;
+        publishBtn.classList.remove("disabledPublishECOne");
+    }else{
+        publishBtn.disabled = true;
+        publishBtn.classList.add("disabledPublishECOne");
+    }
+}
+
+const categoryInput = document.getElementById("inputCategoryTitleECOne");
+const editBtn = document.getElementById("editCategoryTitleECOne");
+const publishBtn = document.getElementById("publishCategoryTitleECOne");
+
+let originalTitle = categoryInput.value;
+
+/* CLICK EDIT */
+editBtn.addEventListener("click", function () {
+
+    categoryInput.disabled = false;
+
+    /* focus + select all text */
+    categoryInput.focus();
+    categoryInput.select();
+
+});
+
+/* SHOW PUBLISH ONLY WHEN TEXT CHANGES */
+categoryInput.addEventListener("input", function () {
+
+    if (categoryInput.value.trim() !== originalTitle) {
+        publishBtn.style.display = "inline-block";
+    } else {
+        publishBtn.style.display = "none";
+    }
+
+});
+
+/* CLICK PUBLISH */
+publishBtn.addEventListener("click", function () {
+
+    if (categoryInput.value.trim() === "") {
+        alert("Category title cannot be empty");
+        return;
+    }
+
+    categoryInput.disabled = true;
+
+    originalTitle = categoryInput.value;
+
+    publishBtn.style.display = "none";
 });
 
 document

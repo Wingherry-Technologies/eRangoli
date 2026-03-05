@@ -339,6 +339,7 @@ body {
     overflow: hidden;
     transition: box-shadow 0.2s ease;
     padding: 10px;
+     position: relative;
 }
 
 .cardImageItemECOne:hover {
@@ -647,18 +648,19 @@ body {
 
 .cardActionMenuECOne{
     position:absolute;
-    width:160px;
+    width:100px;
+    top: 35px;
+    right: 10px;
     background:#ffffff;
     border-radius:4px;
     border:1px solid #D9D9D9;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
     padding:10px;
     display:none;
     z-index:9999;
 }
 
 .cardActionItemECOne{
-    font-size:18px;
+    font-size:10px;
     margin-bottom:10px;
     cursor:pointer;
     padding: 5px;
@@ -893,4 +895,41 @@ body {
     .tagLabelECOne{
         right: 3px;
     }
+}
+.btnPublishECOne{
+    display:none;
+}
+
+.disabledPublishECOne{
+    background:#b7c6d8;
+    cursor:not-allowed;
+}
+.inputWrapperECOne{
+  position:relative;
+  width:100%;
+}
+
+.inputCategoryECOne{
+  padding-right:40px;
+}
+
+.editCategoryBtnECOne{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.publishCategoryBtnECOne{
+  margin-top:10px;
+  background-color: #0E8BF3;
+  border: none;
+  outline: none;
+  color:white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }

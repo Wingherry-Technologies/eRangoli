@@ -683,18 +683,37 @@
       </header>
 
       <!-- Category Title Section -->
-      <section class="sectionCategoryTitleECOne">
-        <label for="inputCategoryTitleECOne" class="labelECOne"
-          >Category Title</label
-        >
-        <input
-          type="text"
-          id="inputCategoryTitleECOne"
-          class="inputCategoryECOne"
-          value="Exclusive Crafted Fashion"
-          disabled
-        />
-      </section>
+<section class="sectionCategoryTitleECOne">
+
+  <label for="inputCategoryTitleECOne" class="labelECOne">
+    Category Title
+  </label>
+
+  <div class="inputWrapperECOne">
+
+    <input
+      type="text"
+      id="inputCategoryTitleECOne"
+      class="inputCategoryECOne"
+      value="Exclusive Crafted Fashion"
+      disabled
+    />
+
+    <button id="editCategoryTitleECOne" class="editCategoryBtnECOne">
+      <img src="../assets/developerHMExplorecategory1/PencilSimple (2).svg" alt="edit"/>
+    </button>
+
+  </div>
+
+  <button
+    id="publishCategoryTitleECOne"
+    class="publishCategoryBtnECOne"
+    style="display:none"
+  >
+    Publish
+  </button>
+
+</section>
 
       <!-- Preview Section -->
       <section class="sectionPreviewECOne">
@@ -709,7 +728,7 @@
           <!-- Image Grid -->
           <div class="gridImagesECOne">
             <!-- Large Left Card -->
-            <div class="cardImageLargeECOne">
+            <div class="cardImageLargeECOne" id="previewSlot1">
               <img
                 src="../assets/developerHMExplorecategory1/Rectangle 18.svg"
                 alt="Lehenga"
@@ -724,7 +743,7 @@
             <!-- Right Grid Container -->
             <div class="gridRightECOne">
               <!-- Top Row -->
-              <div class="cardImageSmallECOne">
+              <div class="cardImageSmallECOne" id="previewSlot2">
                 <img
                   src="../assets/developerHMExplorecategory1/Rectangle 19.svg"
                   alt="Men"
@@ -736,7 +755,7 @@
                 </div>
               </div>
 
-              <div class="cardImageSmallECOne">
+              <div class="cardImageSmallECOne" id="previewSlot3">
                 <img
                   src="../assets/developerHMExplorecategory1/Rectangle 20.svg"
                   alt="Stoles"
@@ -749,9 +768,9 @@
               </div>
 
               <!-- Bottom Row -->
-              <div class="cardImageWideECOne">
+              <div class="cardImageWideECOne" id="previewSlot4">
                 <img
-                  src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+                  src="../assets/master/hand-carved-wooden-floral-wall-panel-indian-antique.svg"
                   alt="Sarees"
                   class="imgCardECOne"
                 />
@@ -776,7 +795,7 @@
       <!-- Image List Cards Section -->
       <section class="sectionImageListECOne">
         <!-- Image Card 1 -->
-        <div class="cardImageItemECOne" id="cardImageItem1ECOne">
+        <div class="cardImageItemECOne previewSlotECOne" data-preview="1" id="cardImageItem1ECOne">
           <div class="headerCardItemECOne">
             <span class="iconEditECOne"
               ><img
@@ -793,7 +812,7 @@
           </div>
           <div class="bodyCardItemECOne">
             <img
-              src="../assets/developerHMExplorecategory1/Rectangle 34628384.svg"
+              src="../assets/developerHMExplorecategory1/Rectangle 18.svg"
               alt="Lehenga"
               class="thumbImageECOne"
             />
@@ -810,7 +829,7 @@
         </div>
 
         <!-- Image Card 2 -->
-        <div class="cardImageItemECOne" id="cardImageItem2ECOne">
+        <div class="cardImageItemECOne previewSlotECOne" data-preview="2" id="cardImageItem2ECOne">
           <div class="headerCardItemECOne">
             <span class="iconEditECOne"
               ><img
@@ -827,7 +846,7 @@
           </div>
           <div class="bodyCardItemECOne">
             <img
-              src="../assets/developerHMExplorecategory1/Rectangle 351.svg"
+              src="../assets/developerHMExplorecategory1/Rectangle 19.svg"
               alt="Men"
               class="thumbImageECOne"
             />
@@ -844,7 +863,7 @@
         </div>
 
         <!-- Image Card 3 -->
-        <div class="cardImageItemECOne" id="cardImageItem3ECOne">
+        <div class="cardImageItemECOne previewSlotECOne" data-preview="3" id="cardImageItem3ECOne">
           <div class="headerCardItemECOne">
             <span class="iconEditECOne"
               ><img
@@ -861,7 +880,7 @@
           </div>
           <div class="bodyCardItemECOne">
             <img
-              src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+              src="../assets/developerHMExplorecategory1/Rectangle 20.svg"
               alt="Stole"
               class="thumbImageECOne"
             />
@@ -878,7 +897,7 @@
         </div>
 
         <!-- Image Card 4 -->
-        <div class="cardImageItemECOne" id="cardImageItem4ECOne">
+        <div class="cardImageItemECOne previewSlotECOne" data-preview="4" id="cardImageItem4ECOne">
           <div class="headerCardItemECOne">
             <span class="iconEditECOne"
               ><img
@@ -895,7 +914,7 @@
           </div>
           <div class="bodyCardItemECOne">
             <img
-              src="../assets/developerHMExplorecategory1/Rectangle 34628384 (1).svg"
+              src="../assets/master/hand-carved-wooden-floral-wall-panel-indian-antique.svg"
               alt="Saree"
               class="thumbImageECOne"
             />
@@ -959,22 +978,22 @@
     </div>
 
     <!-- CARD ACTION MENU -->
-<div class="cardActionMenuECOne" id="cardActionMenuECOne">
-  <div class="cardActionItemECOne deleteActionECOne">Delete</div>
-  <div class="cardActionItemECOne editActionECOne">Edit</div>
-</div>
-<!-- SUCCESS MODAL -->
-<div class="publishSuccessModalECOne" id="publishSuccessModalECOne">
-  <div class="publishSuccessBoxECOne">
-    Published Successfully 🎉
-  </div>
-</div>
+    <div class="cardActionMenuECOne" id="cardActionMenuECOne">
+      <div class="cardActionItemECOne deleteActionECOne">Delete</div>
+      <div class="cardActionItemECOne editActionECOne">Edit</div>
+    </div>
+    <!-- SUCCESS MODAL -->
+    <div class="publishSuccessModalECOne" id="publishSuccessModalECOne">
+      <div class="publishSuccessBoxECOne">
+        Published Successfully 🎉
+      </div>
+    </div>
 
-<!-- ERROR TOAST -->
-<div class="publishErrorToastECOne" id="publishErrorToastECOne">
-  <span id="publishErrorTextECOne"></span>
-  <span class="closeToastECOne" id="closeToastECOne">✕</span>
-</div>
+    <!-- ERROR TOAST -->
+    <div class="publishErrorToastECOne" id="publishErrorToastECOne">
+      <span id="publishErrorTextECOne"></span>
+      <span class="closeToastECOne" id="closeToastECOne">✕</span>
+    </div>
     <script src="../javascript/developerHMExploreCategory1.js"></script>
     <script src="../javascript/developerSidebarnavbar.js"></script>
   </body>
