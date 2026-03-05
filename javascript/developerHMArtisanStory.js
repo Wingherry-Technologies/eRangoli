@@ -4,7 +4,7 @@ const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 var mobileBack = document.querySelector(".mobile-back-button");
-const plusIcon=document.querySelector(".floating-add-btn");
+const plusIcon = document.querySelector(".floating-add-btn");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
@@ -14,17 +14,15 @@ hamburger?.addEventListener("click", () => {
     document.querySelector("body").style.overflow = "hidden";
     window.scrollTo(0, 0);
     mobileBack.style.display = "none";
-    plusIcon.style.display="none";
-
+    plusIcon.style.display = "none";
   } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector("body").style.overflow = "auto";
     document.querySelector(".bottom-nav").style.display = "flex";
     mobileBack.style.display = "flex";
-    plusIcon.style.display="flex";
+    plusIcon.style.display = "flex";
   }
 });
-
 
 function showToast(message) {
   const toast = document.getElementById("customToast");
@@ -105,7 +103,9 @@ document.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const card = e.target.closest(".artisan-card");
 
-    if (card.classList.contains("fixed-card")) {
+    // Count total artisan cards dynamically
+    const totalCards = document.querySelectorAll(".artisan-card").length;
+    if (totalCards <= 4) {
       showToast("Unable to delete as minimum 4 Artisan should be there");
       return;
     }
@@ -125,8 +125,15 @@ document.addEventListener("change", (e) => {
     const checkbox = e.target;
     const card = checkbox.closest(".artisan-card");
 
-    if (card.classList.contains("fixed-card")) {
-      checkbox.checked = !checkbox.checked;
+    const allToggles = document.querySelectorAll(
+      ".artisan-card .switch input[type='checkbox']",
+    );
+    const activeCount = Array.from(allToggles).filter(
+      (cb) => cb.checked,
+    ).length;
+
+    if (!checkbox.checked && activeCount < 4) {
+      checkbox.checked = true;
       showToast("Unable to inactive as minimum 4 Artisan should be active");
     }
   }
@@ -197,18 +204,18 @@ function openEditPopup(card) {
   // Pre-fill image
   const cardImg = card.querySelector(".artisan-img-box img");
   if (cardImg) {
-  editImageDataUrl = cardImg.src;
+    editImageDataUrl = cardImg.src;
 
-  uploadPreview.innerHTML = `
+    uploadPreview.innerHTML = `
     <div class="preview-wrapper">
       <img src="${cardImg.src}" />
       <span class="remove-img" id="removeImageBtn">&times;</span>
     </div>
   `;
-} else {
-  editImageDataUrl = null;
-  uploadPreview.innerHTML = "";
-}
+  } else {
+    editImageDataUrl = null;
+    uploadPreview.innerHTML = "";
+  }
 
   clearAllErrors();
   setCancelButtonVisibility(true);

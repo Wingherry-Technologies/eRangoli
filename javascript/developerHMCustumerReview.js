@@ -4,7 +4,7 @@ const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
 var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 var mobileBack = document.querySelector(".mobile-back-button");
-const plusIcon=document.querySelector(".CR-floating-add-btn");
+const plusIcon = document.querySelector(".CR-floating-add-btn");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
@@ -14,14 +14,13 @@ hamburger?.addEventListener("click", () => {
     document.querySelector("body").style.overflow = "hidden";
     window.scrollTo(0, 0);
     mobileBack.style.display = "none";
-    plusIcon.style.display="none";
-
+    plusIcon.style.display = "none";
   } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
     document.querySelector("body").style.overflow = "auto";
     document.querySelector(".bottom-nav").style.display = "flex";
     mobileBack.style.display = "flex";
-    plusIcon.style.display="flex";
+    plusIcon.style.display = "flex";
   }
 });
 
@@ -94,7 +93,7 @@ function resetPopup() {
   CRUploadPreview.classList.remove("has-image");
   CRUploadInput.value = "";
 
-  CRStarInputs.forEach(s => s.classList.remove("filled"));
+  CRStarInputs.forEach((s) => s.classList.remove("filled"));
 }
 
 CRAddBtn?.addEventListener("click", () => {
@@ -118,14 +117,12 @@ CRPopup.addEventListener("click", (e) => {
 ===================================== */
 
 CRUploadInput.addEventListener("change", function () {
-
   const file = this.files[0];
   if (!file) return;
 
   const reader = new FileReader();
 
   reader.onload = function (e) {
-
     CRUploadPreview.innerHTML = `
       <img src="${e.target.result}" />
       <span class="CR-remove-photo">✖</span>
@@ -138,7 +135,6 @@ CRUploadInput.addEventListener("change", function () {
 });
 
 CRUploadPreview.addEventListener("click", function (e) {
-
   const removeBtn = e.target.closest(".CR-remove-photo");
 
   if (removeBtn) {
@@ -146,7 +142,6 @@ CRUploadPreview.addEventListener("click", function (e) {
     CRUploadPreview.classList.remove("has-image");
     CRUploadInput.value = "";
   }
-
 });
 
 /* =====================================
@@ -155,8 +150,7 @@ CRUploadPreview.addEventListener("click", function (e) {
 
 CRStarInputs.forEach((star, index) => {
   star.addEventListener("click", () => {
-
-    CRStarInputs.forEach(s => s.classList.remove("filled"));
+    CRStarInputs.forEach((s) => s.classList.remove("filled"));
 
     for (let i = 0; i <= index; i++) {
       CRStarInputs[i].classList.add("filled");
@@ -172,11 +166,10 @@ CRStarInputs.forEach((star, index) => {
 ===================================== */
 
 function clearErrors() {
-  document.querySelectorAll(".CR-error").forEach(e => e.textContent = "");
+  document.querySelectorAll(".CR-error").forEach((e) => (e.textContent = ""));
 }
 
 function validate() {
-
   clearErrors();
   let valid = true;
 
@@ -212,7 +205,32 @@ function validate() {
     valid = false;
   }
 
+  if (!editCard) {
+    const hasImage = CRUploadPreview.classList.contains("has-image");
+    if (!hasImage) {
+      let uploadError = document.getElementById("CRUploadError");
+      if (!uploadError) {
+        uploadError = document.createElement("span");
+        uploadError.className = "CR-error";
+        uploadError.id = "CRUploadError";
+        CRUploadPreview.closest(".CR-popup-left").appendChild(uploadError);
+      }
+      uploadError.textContent = "Profile photo is required.";
+      valid = false;
+    }
+  }
+
   return valid;
+}
+
+/* =====================================
+   HELPER: COUNT ACTIVE CARDS
+===================================== */
+
+function getActiveCardCount() {
+  return document.querySelectorAll(
+    ".CR-card:not(.CR-template) .CR-switch input:checked",
+  ).length;
 }
 
 /* =====================================
@@ -239,18 +257,19 @@ CRConfirmOk.addEventListener("click", () => {
 ===================================== */
 
 document.addEventListener("click", function (e) {
-
   if (e.target.classList.contains("CR-edit-btn")) {
-
     editCard = e.target.closest(".CR-card");
 
-    const nameEl = editCard.querySelector(".CR-name") ||
+    const nameEl =
+      editCard.querySelector(".CR-name") ||
       editCard.querySelector(".CR-info div:nth-child(1) p");
 
-    const productEl = editCard.querySelector(".CR-product") ||
+    const productEl =
+      editCard.querySelector(".CR-product") ||
       editCard.querySelector(".CR-info div:nth-child(2) p");
 
-    const reviewEl = editCard.querySelector(".CR-review-text") ||
+    const reviewEl =
+      editCard.querySelector(".CR-review-text") ||
       editCard.querySelector(".CR-review p");
 
     CRCustomerName.value = nameEl.innerText;
@@ -274,10 +293,13 @@ document.addEventListener("click", function (e) {
   }
 
   if (e.target.classList.contains("CR-delete-btn")) {
-
     const card = e.target.closest(".CR-card");
 
-    if (card.classList.contains("CR-fixed")) {
+    const isActive = card.querySelector(".CR-switch input")?.checked;
+
+    const activeCount = getActiveCardCount();
+
+    if (isActive && activeCount <= 4) {
       showToast("Minimum 4 reviews required. Cannot delete.");
       return;
     }
@@ -287,34 +309,31 @@ document.addEventListener("click", function (e) {
     });
   }
 });
+
 /* =====================================
-   TOGGLE CONTROL (ONLY FIXED CARDS)
+   TOGGLE CONTROL
 ===================================== */
 
 document.addEventListener("change", function (e) {
-
   const toggle = e.target;
 
   if (!toggle.matches(".CR-switch input")) return;
 
-  const card = toggle.closest(".CR-card");
+  if (!toggle.checked) {
+    const activeCount = getActiveCardCount();
 
-  // 🚨 Only block fixed 4 cards
-  if (card.classList.contains("CR-fixed")) {
-
-    // Force toggle back ON
-    toggle.checked = true;
-
-    showToast("Unable to inactive as minimum 4 reviews should be active");
+    if (activeCount < 4) {
+      toggle.checked = true;
+      showToast("Unable to inactive as minimum 4 reviews should be active");
+    }
   }
-
 });
+
 /* =====================================
    TOAST
 ===================================== */
 
 function showToast(message) {
-
   const toast = document.createElement("div");
   toast.className = "CR-toast";
   toast.textContent = message;
@@ -335,7 +354,6 @@ function showToast(message) {
 ===================================== */
 
 function handlePublish() {
-
   if (!validate()) return;
 
   if (editCard) {
@@ -348,15 +366,16 @@ function handlePublish() {
 }
 
 function updateCard(card) {
-
-  const nameEl = card.querySelector(".CR-name") ||
+  const nameEl =
+    card.querySelector(".CR-name") ||
     card.querySelector(".CR-info div:nth-child(1) p");
 
-  const productEl = card.querySelector(".CR-product") ||
+  const productEl =
+    card.querySelector(".CR-product") ||
     card.querySelector(".CR-info div:nth-child(2) p");
 
-  const reviewEl = card.querySelector(".CR-review-text") ||
-    card.querySelector(".CR-review p");
+  const reviewEl =
+    card.querySelector(".CR-review-text") || card.querySelector(".CR-review p");
 
   nameEl.innerText = CRCustomerName.value;
   productEl.innerText = CRProduct.value;
@@ -378,7 +397,6 @@ function updateCard(card) {
 }
 
 function createCard() {
-
   const newCard = CRCardTemplate.cloneNode(true);
   newCard.removeAttribute("id");
   newCard.style.display = "flex";
@@ -386,8 +404,10 @@ function createCard() {
 
   const today = new Date();
   const formattedDate =
-    String(today.getDate()).padStart(2, '0') + '/' +
-    String(today.getMonth() + 1).padStart(2, '0') + '/' +
+    String(today.getDate()).padStart(2, "0") +
+    "/" +
+    String(today.getMonth() + 1).padStart(2, "0") +
+    "/" +
     today.getFullYear();
 
   newCard.querySelector(".CR-date").innerText = formattedDate;
@@ -402,8 +422,7 @@ function createCard() {
   }
 
   const fixedCards = document.querySelectorAll(".CR-fixed");
-  fixedCards[fixedCards.length - 1]
-    .insertAdjacentElement("afterend", newCard);
+  fixedCards[fixedCards.length - 1].insertAdjacentElement("afterend", newCard);
 }
 
 CRPublishBtn.addEventListener("click", handlePublish);
