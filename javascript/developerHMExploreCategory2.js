@@ -442,6 +442,20 @@ function bindCardEvents(card) {
 
   toggle.addEventListener("change", () => {
     if (toggle.checked) {
+      const currentOnCount = Array.from(
+        sectionImageList.querySelectorAll(".toggleInputECTwo"),
+      ).filter((t) => t.checked).length;
+
+      if (currentOnCount > 4) {
+        toggle.checked = false;
+        showPopupECTwo(
+          "error",
+          "exactly 4 card should be toggled on",
+          "bottom",
+        );
+        return;
+      }
+
       if (!card.dataset.previewSlot || card.dataset.previewSlot === "none") {
         card.dataset.previewSlot = findFreePreviewSlot();
       }
@@ -574,7 +588,7 @@ btnPublishECTwo.addEventListener("click", () => {
     const needed = 4 - onCount;
     showPopupECTwo(
       "error",
-      `Toggle ON at least ${needed} more image${needed > 1 ? "s" : ""} before publishing. (${onCount}/4 active)`,
+      `Turn ON ${needed} more image${needed > 1 ? "s" : ""} to publish (${onCount}/4)`,
       "bottom",
     );
     return;
@@ -587,7 +601,14 @@ btnPublishECTwo.addEventListener("click", () => {
 });
 
 btnDiscardECTwo.addEventListener("click", () => {
-  location.reload();
+  const allCards = Array.from(
+    sectionImageList.querySelectorAll(".cardImageItemECTwo"),
+  );
+  allCards.forEach((card) => {
+    const toggle = card.querySelector(".toggleInputECTwo");
+    if (toggle) toggle.checked = false;
+  });
+  updatePreview();
 });
 
 const globalPopupEl = document.getElementById("globalPopupECTwo");
