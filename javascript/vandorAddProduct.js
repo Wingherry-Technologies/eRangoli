@@ -2764,6 +2764,7 @@ function validateVariants() {
   let valid = true;
 
   document.querySelectorAll(".variant-container").forEach(variant => {
+    if (variant.style.display === "none") return;
 
     const color = variant.querySelector(".color-select");
     const size = variant.querySelector(".variant-size-select, .variant-size-input");
@@ -2820,7 +2821,7 @@ document.addEventListener("blur", function(e){
 }, true);
 
 function hasVariants() {
-  return document.querySelectorAll(".variant-container").length > 0;
+  return document.querySelectorAll(".variant-container:not([style*='display: none'])").length > 0;
 }
 
 // validate main image 
@@ -2850,6 +2851,7 @@ function validateVariantImages() {
 
   document.querySelectorAll(".variant-container").forEach(variant => {
 
+    if (variant.style.display === "none") return;
     const uploads = variant.querySelectorAll(".variant-upload");
     let imageCount = 0;
 
