@@ -917,3 +917,6 @@ input[type="file"] {
   border-radius: 6px;
   cursor: pointer;
 }
+.variant-upload.error{
+  border:2px solid #e53935;
+}

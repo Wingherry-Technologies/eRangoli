@@ -2112,6 +2112,10 @@ const measurementHTML = buildMeasurementHTML();
       </div>
 
       <div class="form-grid">
+      <div class="form-group">
+  <label class="form-label">Price (₹) <span class="required">*</span></label>
+  <input type="text" class="form-input variant-price-input" placeholder="1200">
+</div>
         <div class="form-group">
           <label class="form-label">Colours Available</label>
           <div class="color-selector">
@@ -2227,22 +2231,69 @@ const COLOR_MAP = {
   "Beige": "#d7ccc8"
 };
 
-document.addEventListener("change", function (e) {
-  if (!e.target.classList.contains("color-select")) return;
+document.addEventListener("change", function(e){
+
+  if(!e.target.classList.contains("color-select")) return;
 
   const select = e.target;
-  const colorValue = select.value;
-  const colorBox = select
-    .closest(".color-selector")
-    .querySelector(".color-swatch");
+  const selectedColor = select.value;
 
-  if (!colorValue) {
-    colorBox.style.backgroundColor = "";
-    return;
+  if(!selectedColor) return;
+
+  const swatch = select.closest(".color-selector")?.querySelector(".color-swatch");
+
+  // MAIN COLOR
+  const mainColorSelect = document.querySelector("#dynamicFields .color-select");
+  const mainColorName = mainColorSelect ? mainColorSelect.value : null;
+  const mainColor = mainColorName ? COLOR_MAP[mainColorName] : null;
+
+  // VARIANT vs MAIN
+  if(mainColor && selectedColor === mainColor && !select.closest("#dynamicFields")){
+     
+     alert("Variant color cannot be same as main product color");
+
+     select.value="";
+     if(swatch) swatch.style.backgroundColor="";
+
+     return;
   }
 
-  colorBox.style.backgroundColor = COLOR_MAP[colorValue] || colorValue;
+  // VARIANT vs VARIANT
+  let duplicate = false;
+
+  document.querySelectorAll(".variant-container .color-select").forEach(el=>{
+      if(el !== select && el.value === selectedColor){
+         duplicate = true;
+      }
+  });
+
+  if(duplicate){
+     alert("This color is already used in another variant");
+
+     select.value="";
+     if(swatch) swatch.style.backgroundColor="";
+
+     return;
+  }
+
+  if(swatch){
+     swatch.style.backgroundColor = selectedColor;
+  }
+
+  clearError(select);
+
 });
+// document.addEventListener("change", function(e){
+
+//   if(!e.target.classList.contains("color-select")) return;
+
+//   const select = e.target;
+
+//   if(select.value){
+//      clearError(select);
+//   }
+
+// });
 
 // CONDITIONAL VALIDATION: availableForReturnRefund → refundDays
 document.addEventListener("change", function (e) {
@@ -2575,8 +2626,10 @@ if (!validateMainImage()) {
   }
 
   // Variant quantity validation
-if (!validateVariantQuantities()) {
-  isValid = false;
+if (hasVariants()) {
+  if (!validateVariants()) {
+    isValid = false;
+  }
 }
   // Product details
   productMandatoryFields.forEach(obj => {
@@ -2610,10 +2663,7 @@ if (!validateVariantQuantities()) {
     }
     return;
   }
-  if (!getDeepestSelectedCategory()) {
-  showError(lvl1, "Please complete category selection");
-  isValid = false;
-}
+
 // ✅ SHOW CONFIRMATION POPUP
   finalConfirmModal.classList.remove("hidden");
 
@@ -2690,21 +2740,88 @@ function validateImages() {
 }
 
 // 
-function validateVariantQuantities() {
+// function validateVariantQuantities() {
+//   let valid = true;
+
+//   document.querySelectorAll(".quantity-input").forEach((input) => {
+//     if (!input.value.trim()) {
+//       showError(input, "Total quantity is required");
+//       valid = false;
+//     } else {
+//       clearError(input);
+//     }
+//   });
+
+//   return valid;
+// }
+document.addEventListener("input", function(e){
+  if(e.target.classList.contains("variant-price-input")){
+    e.target.value = e.target.value.replace(/[^0-9]/g,"");
+  }
+});
+function validateVariants() {
+
   let valid = true;
 
-  document.querySelectorAll(".quantity-input").forEach((input) => {
-    if (!input.value.trim()) {
-      showError(input, "Total quantity is required");
+  document.querySelectorAll(".variant-container").forEach(variant => {
+
+    const color = variant.querySelector(".color-select");
+    const size = variant.querySelector(".variant-size-select, .variant-size-input");
+    const price = variant.querySelector(".variant-price-input");
+    const qty = variant.querySelector(".quantity-input");
+
+    if (color && !color.value) {
+  showError(color, "Color is required");
+  valid = false;
+} else {
+  clearError(color);
+}
+
+    if (size && !size.value) {
+  showError(size, "Size is required");
+  valid = false;
+} else {
+  clearError(size);
+}
+
+    if (price && !price.value.trim()) {
+      showError(price, "Price is required");
       valid = false;
-    } else {
-      clearError(input);
     }
+
+    if (qty && !qty.value.trim()) {
+      showError(qty, "Total quantity is required");
+      valid = false;
+    }
+
   });
+
+  // validate images AFTER fields
+  if (!validateVariantImages()) {
+    valid = false;
+  }
 
   return valid;
 }
+document.addEventListener("blur", function(e){
 
+  if(e.target.classList.contains("variant-price-input") ||
+     e.target.classList.contains("quantity-input") ||
+     e.target.classList.contains("variant-size-select")){
+
+      if(!e.target.value){
+         showError(e.target,"This field is required");
+      } else {
+         clearError(e.target);
+      }
+
+  }
+
+}, true);
+
+function hasVariants() {
+  return document.querySelectorAll(".variant-container").length > 0;
+}
 
 // validate main image 
 function validateMainImage() {
@@ -2726,6 +2843,47 @@ function validateMainImage() {
   errorDiv.style.display = "none";
   return true;
 }
+
+function validateVariantImages() {
+
+  let valid = true;
+
+  document.querySelectorAll(".variant-container").forEach(variant => {
+
+    const uploads = variant.querySelectorAll(".variant-upload");
+    let imageCount = 0;
+
+    uploads.forEach(box => {
+      if (box.classList.contains("has-image")) {
+        imageCount++;
+      }
+    });
+
+    // remove old error
+    variant.querySelectorAll(".variant-image-error").forEach(e => e.remove());
+
+    uploads.forEach(box => box.classList.remove("error"));
+
+    if (imageCount < 4) {
+
+      valid = false;
+
+      uploads.forEach(box => box.classList.add("error"));
+
+      const error = document.createElement("div");
+      error.className = "error-text variant-image-error";
+      error.innerText = "Please upload at least 4 images for this variant";
+
+      const group = variant.querySelector(".variant-upload-grid").parentElement;
+      group.appendChild(error);
+
+    }
+
+  });
+
+  return valid;
+}
+
 
 // Restore dynamic fields on browser back navigation
 window.addEventListener("pageshow", function (e) {
