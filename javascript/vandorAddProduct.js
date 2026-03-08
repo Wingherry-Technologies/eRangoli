@@ -1851,6 +1851,7 @@ variantMeasurementField = resolvedFields.find(f =>
         swatch.className = "color-swatch";
 
         input = document.createElement("select");
+        input.name = field.name;
         input.className = "form-select color-select";
         input.innerHTML = `<option value="">Select ${field.label}</option>`;
         field.options.forEach(color => {
@@ -1868,6 +1869,7 @@ variantMeasurementField = resolvedFields.find(f =>
       }
 
       input = document.createElement("select");
+      input.name = field.name;
       input.className = "form-select";
       input.innerHTML = `<option value="">Select ${field.label}</option>`;
       field.options.forEach(opt => {
@@ -1876,6 +1878,7 @@ variantMeasurementField = resolvedFields.find(f =>
 
     } else {
       input = document.createElement("input");
+      input.name = field.name;
       input.type = "text";
       input.className = "form-input";
       input.placeholder = field.placeholder || "";
@@ -2193,6 +2196,83 @@ function updateVariantMeasurementFields() {
     }
   });
 }
+
+function getMainSizeAndPrice(){
+
+  if(!variantMeasurementField) return null;
+
+  const measurementName = variantMeasurementField.name;
+
+  const mainSize = document.querySelector(
+    `#dynamicFields select[name="${measurementName}"], 
+     #dynamicFields input[name="${measurementName}"]`
+  );
+
+  const mainPrice = document.querySelector(
+    '#dynamicFields input[placeholder="₹ 2499"]'
+  );
+
+  if(!mainSize || !mainPrice) return null;
+
+  return {
+    size: mainSize.value.trim(),
+    price: mainPrice.value.trim()
+  };
+
+}
+
+document.addEventListener("change", function(e){
+
+  const sizeSelect = e.target.closest(".variant-size-select, .variant-size-input");
+  if(!sizeSelect) return;
+
+  const variant = sizeSelect.closest(".variant-container");
+  const priceInput = variant.querySelector(".variant-price-input");
+
+  const mainData = getMainSizeAndPrice();
+  if(!mainData) return;
+
+  const variantSize = sizeSelect.value.trim();
+
+  if(variantSize === mainData.size){
+
+    priceInput.value = mainData.price;
+    priceInput.readOnly = true;
+
+    clearError(priceInput);
+
+  } else {
+
+    priceInput.value = "";
+    priceInput.readOnly = false;
+
+  }
+
+});
+
+document.addEventListener("input", function(e){
+
+  const mainPrice = document.querySelector('#dynamicFields input[placeholder="₹ 2499"]');
+  if(e.target !== mainPrice) return;
+
+  const mainData = getMainSizeAndPrice();
+  if(!mainData) return;
+
+  document.querySelectorAll(".variant-container").forEach(variant=>{
+
+    const size = variant.querySelector(".variant-size-select, .variant-size-input");
+    const price = variant.querySelector(".variant-price-input");
+
+    if(!size || !price) return;
+
+    if(size.value.trim() === mainData.size){
+       price.value = mainData.price;
+       price.readOnly = true;
+    }
+
+  });
+
+});
 
 document.addEventListener("click", (e) => {
   const deleteBtn = e.target.closest(".delete-variant");
