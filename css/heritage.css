@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nova+Cut&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
 margin:0;
@@ -290,8 +289,7 @@ color: #3A3F45;
 
 .craftLegacy-contentGrid{
 display:grid;
-/* grid-template-columns:1fr 1fr; */
-/* gap:20px; */
+
 background:#8e6f6f;
 border-radius: 16px;
 padding: 10px;
@@ -347,40 +345,523 @@ grid-area: img4;
 }
 
 
-/* BOTTOM SECTION */
-
+    /* BOTTOM SECTION */
 .craftLegacy-recognitionSection{
 margin-top:40px;
 background:#8e6f6f;
-padding:30px;
+    padding:40px;
 border-radius:10px;
 color:#fff;
 }
 
 .craftLegacy-recognitionTitle{
-margin-bottom:20px;
+margin-bottom:30px;
+font-size:32px;
+font-weight:500;
 }
 
 .craftLegacy-recognitionGrid{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:20px;
+grid-template-columns: 1fr 1fr;
+gap:40px;
+align-items:start;
 }
 
 .craftLegacy-recognitionText{
-line-height:1.7;
+line-height:1.8;
+font-size:15px;
 }
 
 .craftLegacy-recognitionImages{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin-bottom:25px;
 }
 
 .craftLegacy-recImg{
 width:100%;
-border-radius:5px;
+height:140px;
+object-fit:cover;
+border-radius:8px;
 }
+/* ===== EMH ARTISAN STATES SECTION ===== */
+
+.EMH-artisanStates-wrapper {
+  margin: auto 80px;
+  padding: 60px 10px;
+  background-color: #efdfdfb8;
+}
+
+.EMH-artisanStates-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.EMH-artisanStates-title {
+  font-family: Playfair;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  color: #c24b4b;
+  margin-bottom: 14px;
+}
+
+.EMH-artisanStates-subtitle {
+  font-family: Nunito Sans;
+  font-size: 15px;
+  line-height: 26px;
+  color: #3A3F45;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* TABS */
+
+.EMH-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.EMH-artisanStates-tabs {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 6px 4px;           
+  align-items: center;
+  margin-bottom: 0;           
+}
+
+/* Individual tab */
+.EMH-tab {
+  flex-shrink: 0;            
+  scroll-snap-align: start;   
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+  color: #3A3F45;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.EMH-tab-active {
+  background: #8b3e3e;
+  color: #fff;
+}
+
+/* Arrow buttons */
+.EMH-nav {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  /* color: #5a3a3a; */
+  cursor: pointer;
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+.EMH-nav img{
+    width: 15px;
+    height: 15px;
+} 
+
+
+
+.EMH-nav.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ARTISAN CARDS */
+
+.EMH-artisanCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.EMH-card-dark {
+  background: #7a4a4a;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 35px;
+  gap: 30px;
+}
+
+.EMH-card-light {
+  background: transparent;
+  border-radius: 0;
+  margin-bottom: 18px;
+  padding: 35px;
+  gap: 30px;
+}
+
+/* IMAGE BLOCK */
+
+.EMH-card-imageBlock {
+  position: relative;
+}
+
+.EMH-card-imageBlock-left {
+  overflow: visible;
+  height: 350px;
+}
+
+.EMH-card-imageBlock-right {
+  overflow: visible;
+  height: 350px;
+}
+
+.EMH-card-mainImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+
+
+
+.EMH-card-thumbOverlay {
+  position: absolute;
+  bottom: -35px;
+  left: -35px;
+  width: 150px;
+  height: 160px;
+  border: 10px solid #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.EMH-thumb-bottomLeft {
+  right: -20px;
+  left: auto;
+}
+
+.EMH-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.EMH-card-nameTag {
+
+  margin-left: 8rem;
+}
+
+.EMH-nameTag-right {
+  right: 12px;
+  left: auto;
+}
+
+.EMH-nameTag-name {
+  display: block;
+  font-family: Nunito Sans;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  
+}
+
+.EMH-nameTag-role {
+  display: block;
+  font-family: Nunito Sans;
+  font-size: 11px;
+  color: #e8c8c8;
+  
+}
+
+/* TEXT BLOCK */
+
+.EMH-card-textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.EMH-card-dark .EMH-card-textBlock p {
+  font-family: Nunito Sans;
+  font-size: 15px;
+  line-height: 26px;
+  color: #fff;
+  text-align: justify;
+}
+
+.EMH-card-light .EMH-card-textBlock p {
+  font-family: Nunito Sans;
+  font-size: 15px;
+  line-height: 26px;
+  color: #3A3F45;
+  text-align: justify;
+}
+
+.EMH-readMore {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 4px;
+  text-align: end;
+}
+
+.EMH-readMore-dark {
+  color: #A10404;
+  font-weight: 600;
+
+}
+
+.EMH-Card-Second{
+    grid-template-columns: 1fr 1fr;
+}
+
+.EMH-card-nameTag-second{
+    text-align: end;
+    margin-right: 9rem;
+    color: #3A3F45;
+}
+.EMH-card-nameTag-second .EMH-nameTag-name,
+.EMH-card-nameTag-second .EMH-nameTag-role{
+    color: #3A3F45; 
+}
+
+.EMH-readMore-second{
+    text-align: start;
+}
+.EMH-artisanCard-Third{
+    background-color: transparent;
+}
+.EMH-artisanCard-Third .EMH-readMore,
+.EMH-artisanCard-Fifth .EMH-readMore{
+    color: #A10404;
+    font-weight: 600;
+}
+
+.EMH-artisanCard-Third .EMH-nameTag-name,
+.EMH-artisanCard-Third .EMH-nameTag-role{
+    color: #3A3F45; 
+}
+
+.EMH-card-dark .EMH-card-textBlock-Third p{
+    color: #3A3F45;
+}
+.EMH-artisanCard-Fourth{
+    background-color: #8A6E6E;
+    border-radius: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+.EMH-artisanCard-Fourth .EMH-card-nameTag{
+    margin-left: 0;
+    margin-right: 9rem;
+    text-align: end;
+
+}
+.EMH-artisanCard-Fourth .EMH-card-textBlock p{
+    color: #fff;
+}
+.EMH-artisanCard-Fourth .EMH-readMore{
+    color: #fff;
+    font-weight: 500;
+    text-align: start;
+}
+
+.EMH-artisanCard-Fifth{
+    background-color: transparent;
+    border-radius: unset;
+}
+.EMH-artisanCard-Fifth .EMH-nameTag-name,
+.EMH-artisanCard-Fifth .EMH-nameTag-role{
+    color: #3A3F45; 
+}
+
+.EMH-artisanCard-Fifth .EMH-card-textBlock p{
+    color: #3A3F45;
+}
+.EMH-Card-Sixth{
+    grid-template-columns: 1fr 1fr;
+}
+/* TABLET */
+
+@media (max-width: 1024px) {
+
+  /* ── Tab slider ── */
+  .EMH-artisanStates-tabs {
+    overflow: hidden;        
+    flex-wrap: nowrap;       
+  }
+
+  .EMH-tab {
+    
+    width: calc((100% - 2 * 20px) / 3);
+    padding: 10px 0;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .EMH-artisanCard,
+  .EMH-Card-Second,
+  .EMH-artisanCard-Third,
+  .EMH-artisanCard-Fourth,
+  .EMH-artisanCard-Fifth,
+  .EMH-Card-Sixth {
+    
+    gap: 20px;
+  }
+
+  .EMH-card-thumbOverlay {
+    width: 110px;
+    height: 120px;
+    bottom: -25px;
+    left: -15px;
+    border-width: 6px;
+  }
+
+  .EMH-thumb-bottomLeft {
+    right: -15px;
+    left: auto;
+  }
+
+
+  .EMH-card-nameTag {
+    margin-left: 6rem;
+  }
+
+  .EMH-card-nameTag-second {
+    margin-right: 100px;
+    margin-left: 0;
+    
+  }
+
+ 
+
+  .EMH-card-dark,
+  .EMH-card-light {
+    padding: 25px;
+  }
+
+
+  .EMH-artisanStates-wrapper {
+    margin: auto 30px;
+    padding: 40px 10px;
+  }
+
+  .small-images{
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .small-images img {
+    width: 100%;       
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+.EMH-artisanCard-Fourth .EMH-card-nameTag{
+    margin-left: 0;
+    margin-right: 100px;
+    text-align: end;
+
+}
+}
+
+
+
+/* MOBILE */
+
+@media (max-width: 595px) {
+  .EMH-artisanStates-title {
+    font-size: 24px;
+  }
+  .EMH-artisanCard {
+    grid-template-columns: 1fr;
+  }
+  .EMH-card-imageBlock-left .EMH-card-mainImg,
+  .EMH-card-imageBlock-right .EMH-card-mainImg {
+    border-radius: 10px 10px 0 0;
+  }
+  .EMH-artisanStates-tabs {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .EMH-tab {
+    flex: 1 1 40%;
+  }
+  .craftLegacy-topSection{
+    grid-template-columns:1fr;
+  }
+
+   .EMH-artisanCard,
+  .EMH-Card-Second,
+  .EMH-artisanCard-Third,
+  .EMH-artisanCard-Fourth,
+  .EMH-artisanCard-Fifth,
+  .EMH-Card-Sixth {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .EMH-card-imageBlock-left,
+  .EMH-card-imageBlock-right {
+    /* height: 280px; */
+    order: -1;        /* hamesha pehle */
+  }
+  .EMH-card-light{
+    padding: 20px;
+  }
+
+    .EMH-artisanStates-wrapper {
+        margin: auto 15px;
+        padding: 40px 10px;
+    }
+
+     /* Tab slider mobile */
+  .EMH-artisanStates-tabs {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .EMH-tab {
+    width: calc((100% - 20px) / 2);  
+    padding: 10px 0;
+    text-align: center;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+
+  /* Wrapper */
+  .EMH-artisanStates-wrapper {
+    margin: auto 15px;
+    padding: 30px 10px;
+  }
+
+  
+}
+
 
 
 
@@ -388,9 +869,6 @@ border-radius:5px;
 
 @media(max-width:1024px){
 
-.craftLegacy-topSection{
-grid-template-columns:1fr;
-}
 
 .craftLegacy-contentGrid{
 grid-template-columns:1fr;
