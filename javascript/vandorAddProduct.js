@@ -2071,6 +2071,21 @@ document.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   }
 });
+function getPriceFromExistingSize(size){
+
+  const mainData = getMainSizeAndPrice();
+
+  if(mainData && mainData.size === size){
+     return mainData.price;
+  }
+
+  if(window.sizePriceMap && window.sizePriceMap[size]){
+     return window.sizePriceMap[size];
+  }
+
+  return null;
+
+}
 
 // Variants
 let variantCount = 1;
@@ -2087,7 +2102,7 @@ function createVariant(number) {
   div.className = "variant-container";
   div.dataset.variant = number;
 
-const measurementHTML = buildMeasurementHTML();
+  const measurementHTML = buildMeasurementHTML();
 
   div.innerHTML = `
     <div class="variant-header">
@@ -2103,54 +2118,62 @@ const measurementHTML = buildMeasurementHTML();
       <div class="form-group">
         <label class="form-label">Product Image</label>
         <div class="variant-upload-grid">
-          ${Array(6).fill(0).map((_, i) => `
+          ${Array(6)
+            .fill(0)
+            .map(
+              (_, i) => `
             <div class="upload-box variant-upload" data-variant-upload="${i}">
               <img class="upload-box-icon" src="../assets/vendorAddProduct/UploadSimple.svg" alt="">
               <span class="upload-box-text">Upload</span>
               <img class="preview-image" alt="Preview">
               <input type="file" accept="image/*">
             </div>
-          `).join("")}
+          `,
+            )
+            .join("")}
         </div>
       </div>
 
       <div class="form-grid">
-      <div class="form-group">
+
+${measurementHTML}
+
+<div class="form-group">
+  <label class="form-label">Colours Available</label>
+  <div class="color-selector">
+    <div class="color-swatch"></div>
+    <select class="form-select color-select">
+      <option value="" selected disabled>Select color</option>
+      <option value="#e53935">Red</option>
+      <option value="#880e4f">Maroon</option>
+      <option value="#1e88e5">Blue</option>
+      <option value="#1a237e">Navy Blue</option>
+      <option value="#43a047">Green</option>
+      <option value="#212121">Black</option>
+      <option value="#f5f5f5">White</option>
+      <option value="#fdd835">Yellow</option>
+      <option value="#e91e63">Pink</option>
+      <option value="#8e24aa">Purple</option>
+      <option value="#fb8c00">Orange</option>
+      <option value="#ffc107">Gold</option>
+      <option value="#90a4ae">Silver</option>
+      <option value="#6d4c41">Brown</option>
+      <option value="#d7ccc8">Beige</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
   <label class="form-label">Price (₹) <span class="required">*</span></label>
   <input type="text" class="form-input variant-price-input" placeholder="1200">
 </div>
-        <div class="form-group">
-          <label class="form-label">Colours Available</label>
-          <div class="color-selector">
-            <div class="color-swatch"></div>
-            <select class="form-select color-select">
-              <option value="" selected disabled>Select color</option>
-              <option value="#e53935">Red</option>
-              <option value="#880e4f">Maroon</option>
-              <option value="#1e88e5">Blue</option>
-              <option value="#1a237e">Navy Blue</option>
-              <option value="#43a047">Green</option>
-              <option value="#212121">Black</option>
-              <option value="#f5f5f5">White</option>
-              <option value="#fdd835">Yellow</option>
-              <option value="#e91e63">Pink</option>
-              <option value="#8e24aa">Purple</option>
-              <option value="#fb8c00">Orange</option>
-              <option value="#ffc107">Gold</option>
-              <option value="#90a4ae">Silver</option>
-              <option value="#6d4c41">Brown</option>
-              <option value="#d7ccc8">Beige</option>
-            </select>
-          </div>
-        </div>
 
-        ${measurementHTML}
+<div class="form-group full-width">
+  <label class="form-label">Total Quantity <span class="required">*</span></label>
+  <input type="text" class="form-input quantity-input" placeholder="112">
+</div>
 
-        <div class="form-group full-width">
-          <label class="form-label">Total Quantity <span class="required">*</span></label>
-          <input type="text" class="form-input quantity-input" placeholder="112">
-        </div>
-      </div>
+</div>
     </div>
   `;
   return div;
@@ -2226,28 +2249,37 @@ document.addEventListener("change", function(e){
   const sizeSelect = e.target.closest(".variant-size-select, .variant-size-input");
   if(!sizeSelect) return;
 
+  checkAllVariantCombinations(sizeSelect);
+
   const variant = sizeSelect.closest(".variant-container");
   const priceInput = variant.querySelector(".variant-price-input");
 
-  const mainData = getMainSizeAndPrice();
-  if(!mainData) return;
+  const variantSize = sizeSelect.value.trim();   // ⭐ FIX
 
-  const variantSize = sizeSelect.value.trim();
+  const existingPrice = getPriceFromExistingSize(variantSize);
 
-  if(variantSize === mainData.size){
+//   if(existingPrice){
 
-    priceInput.value = mainData.price;
-    priceInput.readOnly = true;
+//    priceInput.value = existingPrice;
 
-    clearError(priceInput);
+// } else {
 
-  } else {
+//    priceInput.value = "";
 
-    priceInput.value = "";
-    priceInput.readOnly = false;
+// }
 
-  }
+// priceInput.readOnly = true; // allow editing always if dont want then make true
+if(existingPrice){
 
+   priceInput.value = existingPrice;
+   priceInput.readOnly = true;   // lock price
+
+} else {
+
+   priceInput.value = "";
+   priceInput.readOnly = false;  // allow manual entry
+
+}
 });
 
 document.addEventListener("input", function(e){
@@ -2266,9 +2298,9 @@ document.addEventListener("input", function(e){
     if(!size || !price) return;
 
     if(size.value.trim() === mainData.size){
-       price.value = mainData.price;
-       price.readOnly = true;
-    }
+   price.value = mainData.price;
+   price.readOnly = false;
+}
 
   });
 
@@ -2316,51 +2348,13 @@ document.addEventListener("change", function(e){
   if(!e.target.classList.contains("color-select")) return;
 
   const select = e.target;
-  const selectedColor = select.value;
-
-  if(!selectedColor) return;
-
   const swatch = select.closest(".color-selector")?.querySelector(".color-swatch");
 
-  // MAIN COLOR
-  const mainColorSelect = document.querySelector("#dynamicFields .color-select");
-  const mainColorName = mainColorSelect ? mainColorSelect.value : null;
-  const mainColor = mainColorName ? COLOR_MAP[mainColorName] : null;
-
-  // VARIANT vs MAIN
-  if(mainColor && selectedColor === mainColor && !select.closest("#dynamicFields")){
-     
-     alert("Variant color cannot be same as main product color");
-
-     select.value="";
-     if(swatch) swatch.style.backgroundColor="";
-
-     return;
-  }
-
-  // VARIANT vs VARIANT
-  let duplicate = false;
-
-  document.querySelectorAll(".variant-container .color-select").forEach(el=>{
-      if(el !== select && el.value === selectedColor){
-         duplicate = true;
-      }
-  });
-
-  if(duplicate){
-     alert("This color is already used in another variant");
-
-     select.value="";
-     if(swatch) swatch.style.backgroundColor="";
-
-     return;
-  }
-
   if(swatch){
-     swatch.style.backgroundColor = selectedColor;
+     swatch.style.backgroundColor = select.value;
   }
 
-  clearError(select);
+  checkAllVariantCombinations(select);
 
 });
 // document.addEventListener("change", function(e){
@@ -2687,7 +2681,60 @@ function validateAddressSelection() {
     return true; 
   }
 }
+function checkAllVariantCombinations(changedField){
 
+  const combinations = new Set();
+
+  // MAIN PRODUCT
+  const mainColorName = document.querySelector("#dynamicFields .color-select")?.value;
+  const mainColor = COLOR_MAP[mainColorName];
+
+  const mainData = getMainSizeAndPrice();
+
+  if(mainColor && mainData?.size){
+     combinations.add(mainData.size + "_" + mainColor);
+  }
+
+  let valid = true;
+
+  document.querySelectorAll(".variant-container").forEach(variant=>{
+
+     const colorSelect = variant.querySelector(".color-select");
+     const sizeSelect = variant.querySelector(".variant-size-select, .variant-size-input");
+
+     const color = colorSelect?.value;
+     const size = sizeSelect?.value;
+
+     if(!color || !size) return;
+
+     const key = size + "_" + color;
+
+     if(combinations.has(key)){
+
+        alert("Same Size + Color combination already exists");
+
+        // reset ONLY changed field
+        if(changedField === colorSelect){
+           colorSelect.value="";
+           const swatch = colorSelect.closest(".color-selector")?.querySelector(".color-swatch");
+           if(swatch) swatch.style.backgroundColor="";
+        }
+
+        if(changedField === sizeSelect){
+           sizeSelect.value="";
+        }
+
+        valid = false;
+
+     } else {
+        combinations.add(key);
+     }
+
+  });
+
+  return valid;
+
+}
 
 const savePreviewBtn = document.querySelector(".save-preview-btn");
 const finalConfirmModal = document.getElementById("finalConfirmModal");
@@ -2707,9 +2754,15 @@ if (!validateMainImage()) {
 
   // Variant quantity validation
 if (hasVariants()) {
+
   if (!validateVariants()) {
     isValid = false;
   }
+
+  if (!validateVariantCombinations()) {
+    isValid = false;
+  }
+
 }
   // Product details
   productMandatoryFields.forEach(obj => {
@@ -2720,7 +2773,9 @@ if (hasVariants()) {
     }
   });
 
- 
+ if(!checkAllVariantCombinations()){
+   isValid = false;
+}
 
   // Dynamic fields
   if (!validateDynamicFields()) {
@@ -2884,6 +2939,41 @@ function validateVariants() {
 
   return valid;
 }
+function validateVariantCombinations(){
+
+  const combinations = new Set();
+  let valid = true;
+
+  document.querySelectorAll(".variant-container").forEach(variant => {
+
+    const color = variant.querySelector(".color-select")?.value;
+    const size = variant.querySelector(".variant-size-select, .variant-size-input")?.value;
+
+    if(!color || !size) return;
+
+    const key = size + "_" + color;
+
+    if(combinations.has(key)){
+
+      alert("Same Size and Color combination already exists in another variant");
+
+      const colorField = variant.querySelector(".color-select");
+      const sizeField = variant.querySelector(".variant-size-select, .variant-size-input");
+
+      showError(colorField,"Duplicate variant combination");
+      showError(sizeField,"Duplicate variant combination");
+
+      valid = false;
+
+    } else {
+      combinations.add(key);
+    }
+
+  });
+
+  return valid;
+
+}
 document.addEventListener("blur", function(e){
 
   if(e.target.classList.contains("variant-price-input") ||
@@ -2903,7 +2993,25 @@ document.addEventListener("blur", function(e){
 function hasVariants() {
   return document.querySelectorAll(".variant-container:not([style*='display: none'])").length > 0;
 }
+document.addEventListener("input", function(e){
 
+  if(!e.target.classList.contains("variant-price-input")) return;
+
+  const variant = e.target.closest(".variant-container");
+  const sizeField = variant.querySelector(".variant-size-select, .variant-size-input");
+
+  if(!sizeField) return;
+
+  const size = sizeField.value.trim();
+  const price = e.target.value.trim();
+
+  if(size && price){
+     // store price by size
+     window.sizePriceMap = window.sizePriceMap || {};
+     window.sizePriceMap[size] = price;
+  }
+
+});
 // validate main image 
 function validateMainImage() {
   const errorDiv = document.getElementById("imageError");
