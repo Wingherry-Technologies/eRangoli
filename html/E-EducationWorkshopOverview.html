@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="../css/E-EducationWorkshopOverview.css" />
   </head>
   <body>
-    <!-- ===========================
-       EDO Page Wrapper
-  =========================== -->
+    <!-- EDO Page Wrapper-->
     <div class="EDO-page-wrapper">
       <div class="EDO-back-link">
         <a href="#" class="EDO-back-anchor">
@@ -24,17 +22,9 @@
 
       <!-- EDO Main Layout: Left Content + Right Sidebar -->
       <div class="EDO-layout">
-        <!-- ===========================
-           EDO LEFT CONTENT COLUMN
-      =========================== -->
+
+        <!--EDO LEFT CONTENT COLUMN-->
         <div class="EDO-main-content">
-          <!-- EDO Back to Search -->
-          <!-- <div class="EDO-back-link">
-          <a href="#" class="EDO-back-anchor">
-            <span class="EDO-back-arrow"><img src="../assets/e-EducationWorkOverview/ArrowLeft (2).svg" alt=""></span>
-            Back to search
-          </a>
-        </div> -->
 
           <!-- EDO Workshop Header -->
           <div class="EDO-workshop-header">
@@ -53,18 +43,16 @@
 
           <!-- EDO Workshop Hero Image -->
           <div class="EDO-hero-image-wrapper">
+            <button class="EDO-slider-btn EDO-prev" id="EDO-prevBtn"><img src="../assets/e-EducationWorkOverview/CaretCircleLeft.svg" alt=""></button>
+            <img
+              src="../assets/e-EducationWorkOverview/Rectangle 34628468.svg"
+              class="EDO-hero-image"
+              id="EDO-heroImage"
+            />
+            <button class="EDO-slider-btn EDO-next" id="EDO-nextBtn"><img src="../assets/e-EducationWorkOverview/CaretCircleRight (1).svg" alt=""></button>
+          </div>
 
-  <button class="EDO-slider-btn EDO-prev" id="EDO-prevBtn"><img src="../assets/e-EducationWorkOverview/CaretCircleLeft.svg" alt=""></button>
-
-  <img
-    src="../assets/e-EducationWorkOverview/Rectangle 34628468.svg"
-    class="EDO-hero-image"
-    id="EDO-heroImage"
-  />
-
-  <button class="EDO-slider-btn EDO-next" id="EDO-nextBtn"><img src="../assets/e-EducationWorkOverview/CaretCircleRight (1).svg" alt=""></button>
-
-</div>
+          <!-- *** MOBILE-ONLY: Booking card injected here via order *** -->
 
           <!-- EDO About the Workshop -->
           <div class="EDO-section">
@@ -337,21 +325,20 @@
             </div>
           </div>
           <!-- END EDO FAQ Section -->
+
         </div>
         <!-- END EDO LEFT CONTENT COLUMN -->
 
-        <!-- ===========================
-           EDO RIGHT SIDEBAR COLUMN
-      =========================== -->
+        <!--EDO RIGHT SIDEBAR COLUMN-->
         <div class="EDO-sidebar">
           <!-- EDO Sticky Sidebar Inner -->
           <div class="EDO-sidebar-sticky">
+
             <!-- EDO Booking Card -->
             <div class="EDO-booking-card">
               <!-- EDO Date & Availability Row -->
               <div class="EDO-booking-date-row">
                 <div class="EDO-booking-date-icon">
-                  <!-- Placeholder calendar icon -->
                   <span class="EDO-icon-placeholder EDO-icon-calendar"
                     ><img
                       src="../assets/e-EducationWorkOverview/CalendarBlank.svg"
@@ -409,7 +396,7 @@
                 </span>
               </div>
               <div class="EDO-view-venues">
-                <a href="#" class="EDO-view-venues-link">view all venues</a>
+                <a href="#" class="EDO-view-venues-link" id="EDO-viewVenuesLink">view all venues</a>
               </div>
 
               <!-- EDO Price Box -->
@@ -464,28 +451,23 @@
               </p>
 
               <!-- EDO About Image Stack -->
-              <!-- Layout: full-width | 2-col side-by-side | full-width -->
               <div class="EDO-about-images">
-                <!-- Image 1: Full width (warm woven textile) -->
+                <!-- Image 1: Full width -->
                 <img
                   src="../assets/e-EducationWorkOverview/Rectangle 34628470.svg"
                   alt="Woven Textile Display"
                   class="EDO-about-img-full"
                 />
 
-                <!-- Image 2: Two images side by side -->
+                <!-- Image 2 -->
                 <div class="EDO-about-img-row">
                   <img
                     src="../assets/e-EducationWorkOverview/Rectangle 34628471.svg"
                     alt="Loom Detail"
                   />
-                  <!-- <img
-                  src="https://placehold.co/300x120/d8e8c0/5a8a4a?text=Weaving+Process"
-                  alt="Weaving Process"
-                /> -->
                 </div>
 
-                <!-- Image 3: Full width (hands on loom) -->
+                <!-- Image 3: Full width -->
                 <img
                   src="../assets/e-EducationWorkOverview/Rectangle 34628473.svg"
                   alt="Hands on Loom"
@@ -494,14 +476,182 @@
               </div>
             </div>
             <!-- END EDO About Us Card -->
+
           </div>
           <!-- END EDO Sidebar Sticky Inner -->
         </div>
         <!-- END EDO RIGHT SIDEBAR COLUMN -->
+
       </div>
       <!-- END EDO Layout -->
     </div>
     <!-- END EDO Page Wrapper -->
+
+
+    <!-- EDO Venues Modal -->
+<div class="EDO-venues-overlay" id="EDO-venuesOverlay" aria-hidden="true">
+  <div class="EDO-venues-modal" id="EDO-venuesModal" role="dialog" aria-modal="true" aria-labelledby="EDO-venuesModalTitle">
+
+    <!-- EDO Venues Modal Header -->
+    <div class="EDO-venues-header">
+      <div class="EDO-venues-header-top">
+        <h2 class="EDO-venues-title" id="EDO-venuesModalTitle">Venues</h2>
+        <button class="EDO-venues-close" id="EDO-venuesClose" aria-label="Close venues modal"><img src="../assets/e-EducationWorkOverview/X (2).svg" alt=""></button>
+      </div>
+      <div class="EDO-venues-date-row">
+        <span class="EDO-venues-date-chevron"><img src="../assets/e-EducationWorkOverview/CaretDown.svg" alt=""></span>
+        <span class="EDO-venues-date-text">Sat, 28th Feb 2026 &nbsp;|&nbsp; 03:30pm</span>
+      </div>
+    </div>
+
+    <!-- EDO State Filter Tabs -->
+    <div class="EDO-venues-tabs" id="EDO-venuesTabs">
+      <button class="EDO-venues-tab EDO-venues-tab-active" data-state="maharashtra">Maharashtra</button>
+      <button class="EDO-venues-tab" data-state="andhra">Andhra Pradesh</button>
+      <button class="EDO-venues-tab" data-state="orisaa">Orisaa</button>
+      <button class="EDO-venues-tab" data-state="karnataka">Karnataka</button>
+      <button class="EDO-venues-tab" data-state="gujarat">Gujarat</button>
+    </div>
+
+    <!-- EDO Venues List Content -->
+    <div class="EDO-venues-body" id="EDO-venuesBody">
+
+      <!-- Maharashtra -->
+      <div class="EDO-venues-state-content EDO-venues-state-active" data-state="maharashtra">
+
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Pune <span class="EDO-venue-city-count">(5 venues)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Sun and Sand Hotel</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Grand Mehfil In</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Tim Horton</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Backyard Palms</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Irani Cafe</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Mumbai <span class="EDO-venue-city-count">(3 venues)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Cafe Coffee Day</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Le Santosa</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Gardenia Palms</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Nagpur <span class="EDO-venue-city-count">(1 venue)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Radisson Blu</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Nashik <span class="EDO-venue-city-count">(1 venue)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Embassy Suites</p>
+            <p class="EDO-venue-address">The Heritage Loom House,Block C, Artisan Cluster,Old Fort Road,Chanderi, MP 473446, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- END Maharashtra -->
+
+      <!-- Andhra Pradesh -->
+      <div class="EDO-venues-state-content" data-state="andhra">
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Hyderabad <span class="EDO-venue-city-count">(2 venues)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Hotel Taj Krishna</p>
+            <p class="EDO-venue-address">Road No. 1, Banjara Hills, Hyderabad, AP 500034, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Novotel Hyderabad</p>
+            <p class="EDO-venue-address">Hitech City, Madhapur, Hyderabad, AP 500081, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orisaa -->
+      <div class="EDO-venues-state-content" data-state="orisaa">
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Bhubaneswar <span class="EDO-venue-city-count">(1 venue)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Mayfair Convention</p>
+            <p class="EDO-venue-address">8-B, Jaydev Vihar, Bhubaneswar, Odisha 751015, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karnataka -->
+      <div class="EDO-venues-state-content" data-state="karnataka">
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Bangalore <span class="EDO-venue-city-count">(2 venues)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">The Lalit Ashok</p>
+            <p class="EDO-venue-address">Kumara Krupa High Grounds, Bengaluru, Karnataka 560001, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Sheraton Grand</p>
+            <p class="EDO-venue-address">26/1 Dr Rajkumar Road, Rajajinagar, Bengaluru, Karnataka 560055, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gujarat -->
+      <div class="EDO-venues-state-content" data-state="gujarat">
+        <div class="EDO-venue-city-group">
+          <h3 class="EDO-venue-city">Ahmedabad <span class="EDO-venue-city-count">(1 venue)</span></h3>
+          <div class="EDO-venue-item">
+            <p class="EDO-venue-name">Hyatt Regency</p>
+            <p class="EDO-venue-address">Ashram Road, Ahmedabad, Gujarat 380009, India.</p>
+            <a href="#" class="EDO-venue-view-link">View Location</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END EDO Venues Body -->
+
+  </div>
+</div>
+<!-- END EDO Venues Modal -->
 
     <script src="../javascript/E-EducationWorkshopOverview.js"></script>
   </body>

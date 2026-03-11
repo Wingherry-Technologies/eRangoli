@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +5,6 @@
 }
 
 body {
-  
   font-size: 14px;
   color: #222222;
   background-color: #ffffff;
@@ -66,11 +64,9 @@ button {
   font-weight: 400;
 }
 
-
-
-.EDO-back-arrow img{
+.EDO-back-arrow img {
   width: 20px;
-    height: 20px;
+  height: 20px;
 }
 
 /*EDO Workshop Header */
@@ -81,7 +77,7 @@ button {
 .EDO-workshop-title {
   font-size: 24px;
   font-weight: 700;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.35;
   margin-bottom: 4px;
 }
@@ -89,9 +85,8 @@ button {
 .EDO-author-name {
   font-size: 15px;
   font-weight: 400;
-  color: #716B6B;
+  color: #716b6b;
   margin-bottom: 20px;
-
 }
 
 .EDO-meta-tags {
@@ -126,7 +121,7 @@ button {
 /*EDO Hero Image */
 .EDO-hero-image-wrapper {
   width: 100%;
-  height: 420px; 
+  height: 420px;
   margin-bottom: 24px;
   border-radius: 16px;
   overflow: hidden;
@@ -135,22 +130,22 @@ button {
 
 .EDO-hero-image {
   width: 100%;
-   height: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.EDO-hero-image-wrapper{
+.EDO-hero-image-wrapper {
   position: relative;
 }
 
 /* Slider Buttons */
 
-.EDO-slider-btn{
+.EDO-slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background :transparent;
+  background: transparent;
   border: none;
   /* color: #fff; */
   font-size: 22px;
@@ -160,16 +155,15 @@ button {
   cursor: pointer;
 }
 
-.EDO-prev{
+.EDO-prev {
   left: 10px;
 }
 
-.EDO-next{
+.EDO-next {
   right: 10px;
 }
 
-
-.EDO-slider-btn.disabled{
+.EDO-slider-btn.disabled {
   opacity: 0.3;
   pointer-events: none;
 }
@@ -182,13 +176,13 @@ button {
 .EDO-section-title {
   font-size: 20px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 10px;
 }
 
 .EDO-section-para {
   font-size: 15px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.65;
   margin-bottom: 15px;
   text-align: justify;
@@ -227,7 +221,7 @@ button {
 .EDO-rating-score {
   font-size: 28px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1;
 }
 
@@ -258,7 +252,7 @@ button {
 /* EDO Review Photo Thumbnails */
 .EDO-review-gallery {
   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 8px;
   margin-bottom: 6px;
   flex-wrap: wrap;
@@ -279,7 +273,7 @@ button {
 
 .EDO-view-all-link {
   font-size: 13px;
-  color: #716B6B;
+  color: #716b6b;
   text-decoration: none;
 }
 
@@ -288,84 +282,82 @@ button {
 }
 
 /* Review Card */
-.EDO-review-card{
-  border:1px solid #D9D9D9;
-  border-radius:8px;
-  padding:16px;
-  background:#fff;
-  margin-bottom:12px;
+.EDO-review-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 12px;
 }
 
-
-.EDO-review-container{
-  display:flex;
-  gap:12px;
+.EDO-review-container {
+  display: flex;
+  gap: 12px;
 }
 
 /* Avatar */
-.EDO-reviewer-avatar img{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  object-fit:cover;
+.EDO-reviewer-avatar img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Right Content */
-.EDO-review-content{
-  flex:1;
+.EDO-review-content {
+  flex: 1;
 }
 
 /* Top Row */
-.EDO-review-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:6px;
+.EDO-review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
-
-.EDO-reviewer-info{
-  display:flex;
-  align-items:center;
-  gap:15px;
+.EDO-reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.EDO-reviewer-name{
-  font-size:14px;
-  font-weight:600;
-  color:#222;
+.EDO-reviewer-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
 }
 
 /* Stars */
-.EDO-reviewer-stars{
-  display:flex;
+.EDO-reviewer-stars {
+  display: flex;
   gap: 4px;
 }
 
-.EDO-star{
-  font-size:13px;
-  color:#D0D0D0;
+.EDO-star {
+  font-size: 13px;
+  color: #d0d0d0;
 }
-.EDO-star img{
+.EDO-star img {
   width: 10px;
-  height:10px;
-}   
+  height: 10px;
+}
 
-.EDO-star.filled{
-  color:#F5B301;
+.EDO-star.filled {
+  color: #f5b301;
 }
 
 /* Date */
-.EDO-review-date{
-  font-size:12px;
-  color:#999;
+.EDO-review-date {
+  font-size: 12px;
+  color: #999;
 }
 
 /* Review text */
-.EDO-review-text{
-  font-size:13px;
-  color:#444;
-  line-height:1.6;
+.EDO-review-text {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
 }
 
 /*EDO FAQ Section */
@@ -374,7 +366,7 @@ button {
 }
 
 .EDO-faq-item {
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 .EDO-faq-item:first-of-type {
@@ -392,11 +384,9 @@ button {
   cursor: pointer;
   text-align: left;
   font-size: 16px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   font-weight: 400;
 }
-
-
 
 .EDO-faq-number {
   font-weight: 400;
@@ -444,7 +434,7 @@ button {
 
 /*EDO Booking Card */
 .EDO-booking-card {
-  border: 1px solid #8E8989;
+  border: 1px solid #8e8989;
   border-radius: 12px;
   padding: 16px;
   background: #ffffff;
@@ -477,7 +467,7 @@ button {
   flex: 1;
   font-size: 14px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   word-spacing: 3px;
   line-height: 1.5;
 }
@@ -508,16 +498,16 @@ button {
 }
 
 .EDO-info-text {
-    font-size: 14px;
+  font-size: 14px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.5;
 }
 
 .EDO-location-row .EDO-info-text {
-    font-size: 14px;
+  font-size: 14px;
   font-weight: 400;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.55;
 }
 
@@ -529,10 +519,9 @@ button {
 .EDO-view-venues-link {
   font-size: 12px;
   font-weight: 400;
-  color: #FD0000;
+  color: #fd0000;
   text-decoration: none;
 }
-
 
 /* EDO Price Box */
 .EDO-price-box {
@@ -543,7 +532,7 @@ button {
   display: block;
   font-size: 25px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
   line-height: 1.2;
 }
 
@@ -557,13 +546,13 @@ button {
 .EDO-old-price {
   font-size: 13px;
   font-weight: 400;
-  color: #716B6B;
+  color: #716b6b;
   text-decoration: line-through;
 }
 
 .EDO-discount-badge {
   font-size: 12px;
-  color: #FD0000;
+  color: #fd0000;
   font-weight: 400;
 }
 
@@ -575,7 +564,7 @@ button {
 
 .EDO-btn-enroll {
   flex: 1;
-  background-color: #A10404;
+  background-color: #a10404;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -585,34 +574,31 @@ button {
   transition: background 0.2s ease;
 }
 
-
-
 .EDO-btn-gift {
   flex: 1;
   background-color: #ffffff;
-  color:#3F3F3F;
-  border: 1px solid #716B6B;
+  color: #3f3f3f;
+  border: 1px solid #716b6b;
   border-radius: 5px;
   padding: 10px 0;
   font-size: 13px;
   font-weight: 500;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
-
-
 
 /*EDO About Us Card */
 .EDO-about-card {
-  
   border-radius: 16px;
   padding: 16px;
-  background: #FEF6F6;
+  background: #fef6f6;
 }
 
 .EDO-about-title {
   font-size: 20px;
   font-weight: 700;
-  color: #3F3F3F;
+  color: #3f3f3f;
   margin-bottom: 25px;
 }
 
@@ -641,22 +627,22 @@ button {
 .EDO-brand-name {
   font-size: 20px;
   font-weight: 600;
-  color: #3F3F3F;
+  color: #3f3f3f;
 }
 
 .EDO-brand-sub {
   font-size: 12px;
   font-weight: 400;
 
-  color: #716B6B;
+  color: #716b6b;
 }
 
 /* EDO About Description Paragraphs */
 .EDO-about-para {
   font-size: 15px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   word-spacing: 13px;
-  line-height: 2.00;
+  line-height: 2;
   margin-bottom: 10px;
   text-align: justify;
 }
@@ -665,13 +651,11 @@ button {
   margin-bottom: 12px;
 }
 
-
 .EDO-about-images {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-
 
 .EDO-about-img-full {
   width: 100%;
@@ -680,7 +664,6 @@ button {
   border-radius: 5px;
   display: block;
 }
-
 
 .EDO-about-img-row {
   display: grid;
@@ -704,36 +687,325 @@ button {
   border-radius: 5px;
   display: block;
 }
+/*EDO VENUES MODAL STYLES*/
 
+/* Overlay */
+.EDO-venues-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9000;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.EDO-venues-overlay.EDO-venues-overlay-open {
+  display: flex;
+}
+
+/* Modal Box */
+.EDO-venues-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+/* Modal Header */
+.EDO-venues-header {
+  padding: 20px 20px 0 20px;
+  flex-shrink: 0;
+}
+
+.EDO-venues-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.EDO-venues-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3F3F3F;
+  line-height: 1.2;
+}
+
+.EDO-venues-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #555555;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.EDO-venues-close img{
+    width: 18px;
+    height: 18px;
+}
+
+/* Date Row */
+.EDO-venues-date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.EDO-venues-date-chevron {
+  font-size: 20px;
+  color: #716B6B;
+  line-height: 1;
+}
+.EDO-venues-date-chevron img{
+    width: 14px;
+    height: 14px;
+}
+
+.EDO-venues-date-text {
+  font-size: 16px;
+  color: #716B6B;
+  font-weight: 400;
+}
+
+/* State Filter Tabs */
+.EDO-venues-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 20px;
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.EDO-venues-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.EDO-venues-tab {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555555;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.EDO-venues-tab:hover {
+  color: #222222;
+  background: #f7f7f7;
+}
+
+.EDO-venues-tab.EDO-venues-tab-active {
+  background-color: #a10404;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Scrollable Venue List Body */
+.EDO-venues-body {
+  overflow-y: auto;
+  padding: 20px 20px 24px 20px;
+  flex: 1;
+}
+
+/* State Content Panels */
+.EDO-venues-state-content {
+  display: none;
+}
+
+.EDO-venues-state-content.EDO-venues-state-active {
+  display: block;
+}
+
+/* City Group */
+.EDO-venue-city-group {
+  margin-bottom: 4px;
+}
+
+.EDO-venue-city-group + .EDO-venue-city-group {
+  border-top: 1px solid #8E8989;
+  padding-top: 16px;
+}
+
+.EDO-venue-city {
+  font-size: 24px;
+  font-weight: 700;
+  color: #A10404;
+  margin-bottom: 14px;
+}
+
+.EDO-venue-city-count {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Venue Item */
+.EDO-venue-item {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+
+}
+
+.EDO-venue-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.EDO-venue-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.EDO-venue-address {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+
+.EDO-venue-view-link {
+  font-size: 12px;
+  color: #FD0000;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.EDO-venue-view-link:hover {
+  opacity: 0.75;
+}
+
+body.EDO-no-scroll {
+  overflow: hidden;
+}
+
+
+/* EDO Venues Modal Scrollbar */
+.EDO-venues-body {
+  scrollbar-width: thin;
+  scrollbar-color: #716B6B transparent;
+}
+
+.EDO-venues-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.EDO-venues-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.EDO-venues-body::-webkit-scrollbar-thumb {
+  background-color: #716B6B;
+  border-radius: 10px;
+}
+
+.EDO-venues-body::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0;
+}
+
+/* Responsive */
+@media (max-width: 595px) {
+  .EDO-venues-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .EDO-venues-modal {
+    border-radius: 16px;
+    width: 100%;
+  }
+}
 /*
    EDO Responsive Adjustments */
 
-
-@media (max-width:1024px) {
-    .EDO-page-wrapper {
+@media (max-width: 1024px) {
+  .EDO-page-wrapper {
     padding: 20px;
-    }
-    
+  }
 }
+
 @media (max-width: 595px) {
+
+    .EDO-faq-section{
+        width: 100%;
+    }
   .EDO-page-wrapper {
     padding: 16px 20px 40px 20px;
   }
 
   .EDO-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
+  .EDO-sidebar,
   .EDO-sidebar-sticky {
-    position: static;
+    display: contents;
   }
-  .EDO-review-gallery{
+
+  .EDO-main-content {
+    display: contents;
+  }
+
+  .EDO-workshop-header {
+    order: 1;
+  }
+  .EDO-hero-image-wrapper {
+    order: 2;
+    margin-bottom: 20px;
+  }
+  .EDO-booking-card {
+    order: 3;
+    margin-bottom: 20px;
+  }
+
+  .EDO-section {
+    order: 4;
+  }
+
+  .EDO-about-card {
+    order: 10;
+    margin-bottom: 20px;
+  }
+
+  .EDO-section.EDO-reviews-section {
+    order: 11;
+  }
+  .EDO-section.EDO-faq-section {
+    order: 12;
+  }
+
+  .EDO-review-gallery {
     grid-template-columns: 1fr 1fr;
   }
-
-
-  
 }
-
-
-
