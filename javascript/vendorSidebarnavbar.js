@@ -58,3 +58,31 @@ profileClicks.forEach(profileClick => {
         window.location.href="../html/vendorpersonaldetails.html"
     })
 });
+
+const subscribeMain=document.querySelector(".subscribe-main-container");
+const subscribeCross=document.querySelector(".subscribe-cross");
+const erSubscribe=document.querySelector(".er-subscribe>button");
+const subscribeEmail=document.getElementById("subscribe-email")
+
+erSubscribe.onclick=()=>{
+    subscribeMain.style.display="flex";
+}
+subscribeCross.onclick=()=>{
+    subscribeMain.style.display="none";
+    document.querySelector(".subscribe-error-message").style.display="none";
+    subscribeEmail.value="";
+}
+
+const subscribeButton=document.querySelector(".subscribe-btn");
+subscribeButton.onclick=()=>{
+    if (subscribeEmail.value === "" || !subscribeEmail.checkValidity()){
+        document.querySelector(".subscribe-error-message").style.display="block";
+        return;
+    }
+    else{
+        alert("Thank you for subscribing!");
+        document.querySelector(".subscribe-error-message").style.display="none";
+        subscribeEmail.value="";
+        subscribeMain.style.display="none";
+    }
+}
