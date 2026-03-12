@@ -95,17 +95,58 @@ body {
   font-weight: 400;
 }
 
+.back-to-search-mob {
+  display: none;
+}
+
 @media (max-width: 1024px) and (min-width: 420px) {
   .EEUW-workshop-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (max-width: 595px) {
+  body {
+    background-color: #f7f7f7;
+    background-image: none;
+  }
+  .EEUW-back-search,
+  .EEUW-title {
+    display: none;
+  }
+  .back-to-search-mob {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    padding: 30px 20px;
+    background: #ffffff;
+  }
+  .back-to-search-mob > img {
+    height: 20px;
+  }
+  .back-to-search-mob > span {
+    color: #3f3f3f;
+  }
+  .EEUW-container {
+    padding: 20px;
+  }
+}
 @media (max-width: 420px) {
   .EEUW-workshop-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .EEUW-title {
     font-size: 20px;
+  }
+
+  .EEUW-card img {
+    height: 165px;
+    width: 100%;
+  }
+
+  .EEUW-container {
+    padding: 20px;
   }
 }

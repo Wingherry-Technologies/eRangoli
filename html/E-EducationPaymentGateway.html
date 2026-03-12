@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Gateway</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/E-EducationPaymentGateway.css" />
+  </head>
+  <body>
+    <div class="EEPGS-main-section">
+      <div
+        class="EEPGS-back-to-search"
+        onclick="window.location.href = '../html/productcatalog.html'"
+      >
+        <img src="../assets/paymentgateway/ArrowLeft.svg" alt="" />
+        <span>Back to Search</span>
+      </div>
+      <div class="EEPGS-imageandpayment">
+        <div class="EEPGS-image-display">
+          <div class="EEPGS-discount-block">
+            <span>50%</span>
+            <span>OFF on furniture</span>
+            <span>Handcrafted Finds to Elevate Every Corner.</span>
+          </div>
+        </div>
+        <div class="EEPGS-payment-display">
+          <ul class="EEPGS-option-block">
+            <li class="EEPGS-active-option" id="EEPGS-upi-list">
+              <span>UPI</span>
+              <img src="../assets/paymentgateway/Group 267.svg" alt="" />
+            </li>
+            <li id="EEPGS-card-list">
+              <span>Cards</span>
+              <img src="../assets/paymentgateway/Group 242.svg" alt="" />
+            </li>
+            <li id="EEPGS-netbanking-list">
+              <span>Net Banking</span>
+              <img src="../assets/paymentgateway/Group 242-1.svg" alt="" />
+            </li>
+          </ul>
+          <div class="EEPGS-payment-block">
+            <div
+              class="EEPGS-payment-method-display"
+              id="EEPGS-upi-payment-method"
+              style="display: block"
+            >
+              <div class="EEPGS-scan-block">
+                <span>Scan the QR</span>
+                <div class="EEPGS-QR-image-block">
+                  <img
+                    src="../assets/paymentgateway/Rectangle 412.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="EEPGS-upi-method">
+                <span>Pay with UPI ID</span>
+
+                <div class="EEPGS-upi-input-block">
+                  <input
+                    id="EEPGS-upiInput"
+                    type="text"
+                    placeholder="example@bank"
+                  />
+                </div>
+
+                <p id="EEPGS-upiStatus" class="EEPGS-upi-status"></p>
+
+                <button id="EEPGS-upiBtn" disabled>Verify & Pay</button>
+              </div>
+            </div>
+            <div
+              class="EEPGS-payment-method-display"
+              id="EEPGS-card-payment-method"
+              style="display: none"
+            >
+              <div class="EEPGS-card-block">
+                <span>Add a new card</span>
+                <div class="EEPGS-payment-inputs">
+                  <div class="EEPGS-form-group">
+                    <input
+                      id="EEPGS-cardName"
+                      type="text"
+                      placeholder="Enter Name on Card"
+                    />
+                    <span class="EEPGS-error" id="EEPGS-nameError"></span>
+                  </div>
+
+                  <div class="EEPGS-form-group">
+                    <input
+                      id="EEPGS-cardNumber"
+                      type="text"
+                      placeholder="Card Number"
+                      maxlength="16"
+                    />
+                    <span class="EEPGS-error" id="EEPGS-cardNumberError"></span>
+                  </div>
+
+                  <div class="EEPGS-card-expiry-cvv">
+                    <div class="EEPGS-form-group-2">
+                      <input
+                        id="EEPGS-cardExpiry"
+                        type="text"
+                        placeholder="MM/YY"
+                        maxlength="5"
+                      />
+                      <span class="EEPGS-error" id="EEPGS-expiryError"></span>
+                    </div>
+                    <div class="EEPGS-form-group-2">
+                      <input
+                        id="EEPGS-cardCVV"
+                        type="text"
+                        placeholder="CVV"
+                        maxlength="3"
+                      />
+                      <span class="EEPGS-error" id="EEPGS-cvvError"></span>
+                    </div>
+                  </div>
+                  <button id="EEPGS-payBtn">Pay</button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="EEPGS-payment-method-display"
+              id="EEPGS-netbanking-method"
+              style="display: none"
+            >
+              <div class="EEPGS-netbanking-block">
+                <div class="EEPGS-search-bar-main">
+                  <img
+                    src="../assets/paymentgateway/MagnifyingGlass.svg"
+                    alt=""
+                  />
+                  <input
+                    type="search"
+                    placeholder="Search Bank"
+                    id="EEPGS-bankSearch"
+                  />
+                </div>
+                <div class="EEPGS-bank-names-main">
+                  <div class="EEPGS-common-bank">
+                    <span>Commonly used</span>
+                    <ul id="EEPGS-commonBanksList">
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417.svg"
+                            alt=""
+                          />
+                          <span>State Bank of India</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (1).svg"
+                            alt=""
+                          />
+                          <span>Axis Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (2).svg"
+                            alt=""
+                          />
+                          <span>ICICI Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li class="EEPGS-last-bank">
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (3).svg"
+                            alt=""
+                          />
+                          <span>Kotak Mahindra Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="EEPGS-common-bank">
+                    <span>All Banks</span>
+                    <ul id="EEPGS-allBanksList">
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (4).svg"
+                            alt=""
+                          />
+                          <span>IDBI Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (5).svg"
+                            alt=""
+                          />
+                          <span>Bank of Maharashtra</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417.svg"
+                            alt=""
+                          />
+                          <span>State Bank of India</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (1).svg"
+                            alt=""
+                          />
+                          <span>Axis Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (2).svg"
+                            alt=""
+                          />
+                          <span>ICICI Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/Rectangle 417 (3).svg"
+                            alt=""
+                          />
+                          <span>Kotak Mahindra Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/punjab-national-bank-logo-png_seeklogo-505512-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Punjab National Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/bob-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Bank of Baroda</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/cb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Canara Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/ubi-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Union Bank of India</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/BANKINDIA.NS-e3d88e01-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Bank of India</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/cb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Central Bank of India</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/INDIANB.NS-a686632c-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Indian Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/iob-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Indian Overseas Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/pasb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Punjab and Sind Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/ucob-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>UCO Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/HDB-bb6241fe-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>HDFC Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/ib-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>IndusInd Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/yb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Yes Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/fd-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Federal Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/db-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Dhanlaxmi Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/png-clipart-karur-vysya-bank-logo-round-bank-logos-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Karur Vysya Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/kb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Karnataka Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/rblb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>RBL Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/sib-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>South Indian Bank </span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/AUBANK.NS-1d52c885-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>AU Small Finance Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/dbsb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>DBS Bank India Limited</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/sfb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>ESAF Small Finance Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li>
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/usfb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Utkarsh Small Finance Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                      <li class="EEPGS-last-bank">
+                        <div class="EEPGS-bank-name">
+                          <img
+                            src="../assets/paymentgateway/bb-removebg-preview.png"
+                            alt=""
+                          />
+                          <span>Bandhan Bank</span>
+                        </div>
+                        <img src="../assets/paymentgateway/Vector.svg" alt="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div
+      class="EEPGS-all-modal-main"
+      id="EEPGS-processing-modal"
+      style="display: none"
+    >
+      <div class="EEPGS-processing-modal-content">
+        <h2>Processing Your Payment</h2>
+        <img src="../assets/paymentgateway/Rangoli (for Diwali).gif" alt="" />
+        <div>
+          <p>This will take a few seconds</p>
+          <p>Please Wait</p>
+        </div>
+        <button>Cancel</button>
+      </div>
+    </div>
+
+    <!-- Success Modal Popup -->
+
+    <div
+      class="EEPGS-success-modal-main"
+      id="EEPGS-success-modal"
+      style="display: none"
+    >
+      <div class="EEPGS-success-modal-content">
+        <h2>Payment is Success !</h2>
+        <img src="../assets/paymentgateway/success.gif" alt="" />
+        <div class="EEPGS-order-placed">
+          <img src="../assets/paymentgateway/confetti.gif" alt="" />
+          <span>You order has been Placed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Failed Modal Popup -->
+
+    <div
+      class="EEPGS-failed-modal-main"
+      id="EEPGS-failed-modal"
+      style="display: none"
+    >
+      <div class="EEPGS-failed-modal-content">
+        <img src="../assets/paymentgateway/WarningCircle.svg" alt="" />
+        <h2>Payment Failed !</h2>
+        <div class="EEPGS-order-failed">
+          <span
+            >Hey, seems like there was some trouble. We are there with
+            you.</span
+          >
+          <span>You can try again </span>
+        </div>
+        <button id="EEPGS-try-again">Try Again</button>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationPaymentGateway.js"></script>
+  </body>
+</html>

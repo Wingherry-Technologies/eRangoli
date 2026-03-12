@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Overview</title>
+    <link rel="stylesheet" href="../css/E-EducationTicketOverview.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EETO-back-to-search-mob" onclick="window.location.href = '#'">
+      <img src="../assets/paymentgateway/ArrowLeft.svg" alt="" />
+      <span>Ticket Overview</span>
+    </div>
+    <div class="EETO-container">
+      <div class="EETO-back-to-search" onclick="window.location.href = '#'">
+        <img src="../assets/paymentgateway/ArrowLeft.svg" alt="" />
+        <span>Back to Search</span>
+      </div>
+
+      <section class="EETO-ticket-wrapper">
+        <h1 class="EETO-title">Ticket Overview</h1>
+
+        <div class="EETO-event-info">
+          <h2>Sun and Sand Hotel | Pune</h2>
+          <p>Sat, 28th Feb 2026 | 3:30 pm</p>
+        </div>
+
+        <div class="EETO-ticket-container">
+          <!-- LEFT SIDE -->
+          <div class="EETO-ticket-info">
+            <h3>M Ticket</h3>
+            <p class="EETO-subtitle">Save Planet Save Paper</p>
+
+            <div class="EETO-info-box">
+              <h4>M Ticket Information</h4>
+
+              <ol>
+                <li>
+                  Customers can view and access their booked ticket(s) from the
+                  "My Bookings" or "Profile" section on the app or mobile
+                  website.
+                </li>
+                <li>
+                  It is mandatory to display the M-Ticket from the app/mobile
+                  web at the venue entry gate for verification.
+                </li>
+                <li>No printed or physical ticket is required for entry.</li>
+                <li>
+                  Please carry a valid photo ID for verification, if requested
+                  at the venue.
+                </li>
+                <li>
+                  Screenshots of tickets may not be accepted; kindly show the
+                  live ticket from the app/mobile web.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE -->
+          <div class="EETO-ticket-details">
+            <h3>Ticket Details</h3>
+
+            <div class="EETO-cart">
+              <div class="EETO-cart-header">
+                <p>Your Cart</p>
+                <span id="EETO-ticket-count">2 Tickets</span>
+              </div>
+
+              <div class="EETO-ticket-item">
+                <img
+                  src="../assets/E-EducationTicketOverview/img.png"
+                  class="EETO-event-img"
+                />
+
+                <div class="EETO-event-text">
+                  <h4>Threads of Tradition: Frame Loom.....</h4>
+                  <p class="EETO-author">by Manohar Khake</p>
+                  <p>Date - Sat, 28th Feb 2026</p>
+                  <p>Time - 03:30pm</p>
+                  <p class="EETO-price">Price - ₹2,499</p>
+                </div>
+
+                <div class="EETO-qty-delete">
+                  <img
+                    src="../assets/E-EducationTicketOverview/delete.png"
+                    class="EETO-delete"
+                    id="EETO-delete-btn"
+                  />
+
+                  <div class="EETO-qty">
+                    <button id="EETO-qty-minus">−</button>
+                    <span id="EETO-qty-value">2</span>
+                    <button id="EETO-qty-plus">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COUPON -->
+              <div class="EETO-coupon">
+                <div class="EETO-coupon-left">
+                  <img src="../assets/E-EducationTicketOverview/coupon.png" />
+                  <input
+                    type="text"
+                    class="EETO-coupon-input"
+                    id="EETO-coupon-input"
+                    value="FIRST500"
+                    placeholder="Enter coupon code"
+                    maxlength="20"
+                  />
+                </div>
+                <button class="EETO-apply" id="EETO-apply-btn">Apply</button>
+              </div>
+
+              <!-- PRICE DETAILS -->
+              <div class="EETO-price-box">
+                <div class="EETO-row">
+                  <span>Subtotal</span>
+                  <span id="EETO-subtotal">₹4,998</span>
+                </div>
+                <div class="EETO-row">
+                  <span>Platform fee</span>
+                  <span>₹0</span>
+                </div>
+                <div class="EETO-row">
+                  <span>Discount</span>
+                  <span id="EETO-discount">₹0</span>
+                </div>
+                <div class="EETO-row">
+                  <span>GST</span>
+                  <span id="EETO-gst">₹450</span>
+                </div>
+                <div class="EETO-row EETO-total">
+                  <span>Payable</span>
+                  <span id="EETO-payable">₹5,448</span>
+                </div>
+              </div>
+
+              <button class="EETO-proceed">Proceed</button>
+            </div>
+
+            <!-- TOAST -->
+            <div class="EETO-toast" id="EETO-toast">
+              <span id="EETO-toast-msg">Invalid Coupon Code</span>
+              <button class="EETO-toast-close" id="EETO-toast-close">
+                &#x2715;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EMPTY CART — shown when ticket-wrapper is hidden -->
+      <div class="EETO-empty-cart" id="EETO-empty-cart">
+        <img
+          src="../assets/E-EducationTicketOverview/cart.png"
+          alt="Empty Cart"
+        />
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationTicketOverview.js"></script>
+  </body>
+</html>
