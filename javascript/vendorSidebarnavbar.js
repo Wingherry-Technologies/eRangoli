@@ -86,3 +86,6 @@ subscribeButton.onclick=()=>{
         subscribeMain.style.display="none";
     }
 }
+document.querySelector(".logout-button").addEventListener("click",()=>{
+    window.location.href='../html/vendorlogin.html'
+})
