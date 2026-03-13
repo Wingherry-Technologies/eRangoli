@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch Video</title>
+    <link rel="stylesheet" href="../css/E-EducationWatchVideo.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EEWV-back-to-search-mob" onclick="window.location.href = '#'">
+      <img src="../assets/E-EducationUpcomingWorkshop/back.png" alt="" />
+      <span>Watch Video</span>
+    </div>
+    <div class="EEWV-container">
+      <div class="EEWV-back-search">
+        <img src="../assets/E-EducationUpcomingWorkshop/back.png" alt="" />
+        <span>Back to search</span>
+      </div>
+      <h1 class="EEWV-main-title">Watch the making of Pottery</h1>
+      <div class="EEWV-container-mid">
+        <div class="EEWV-video-wrapper" id="EEWV-videoWrapper">
+          <video
+            id="EEWV-mainVideo"
+            poster="../assets/E-EducationWatchVideo/img-1.png"
+          >
+            <source src="assets/pottery-video.mp4" type="video/mp4" />
+          </video>
+          <div
+            class="EEWV-video-click-overlay"
+            id="EEWV-videoClickOverlay"
+          ></div>
+          <div class="EEWV-custom-controls" id="EEWV-customControls">
+            <div class="EEWV-ctrl-title">Watch the making of Pottery</div>
+            <div class="EEWV-ctrl-progress-wrap">
+              <div class="EEWV-ctrl-progress-track" id="EEWV-progressTrack">
+                <div
+                  class="EEWV-ctrl-progress-fill"
+                  id="EEWV-progressFill"
+                ></div>
+                <div
+                  class="EEWV-ctrl-progress-thumb"
+                  id="EEWV-progressThumb"
+                ></div>
+              </div>
+              <span class="EEWV-ctrl-time" id="EEWV-timeDisplay"
+                >0:00 / 0:00</span
+              >
+            </div>
+            <div class="EEWV-ctrl-row">
+              <div class="EEWV-ctrl-left">
+                <button
+                  class="EEWV-ctrl-btn"
+                  id="EEWV-playPauseBtn"
+                  title="Play / Pause"
+                >
+                  <img
+                    src="../assets/E-EducationWatchVideo/pause.png"
+                    alt="Pause"
+                    id="EEWV-playPauseIcon"
+                  />
+                </button>
+                <button
+                  class="EEWV-ctrl-btn"
+                  id="EEWV-prevBtn"
+                  title="Previous"
+                >
+                  <img
+                    src="../assets/E-EducationWatchVideo/previous.png"
+                    alt="Previous"
+                  />
+                </button>
+                <button class="EEWV-ctrl-btn" id="EEWV-nextBtn" title="Next">
+                  <img
+                    src="../assets/E-EducationWatchVideo/next.png"
+                    alt="Next"
+                  />
+                </button>
+              </div>
+              <div class="EEWV-ctrl-right">
+                <button class="EEWV-ctrl-btn" id="EEWV-soundBtn" title="Sound">
+                  <img
+                    src="../assets/E-EducationWatchVideo/sound.png"
+                    alt="Sound"
+                    id="EEWV-soundIcon"
+                  />
+                </button>
+                <button
+                  class="EEWV-ctrl-btn"
+                  id="EEWV-messageBtn"
+                  title="Comments"
+                >
+                  <img
+                    src="../assets/E-EducationWatchVideo/message.png"
+                    alt="Message"
+                  />
+                </button>
+                <button
+                  class="EEWV-ctrl-btn"
+                  id="EEWV-fullscreenBtn"
+                  title="Fullscreen"
+                >
+                  <img
+                    src="../assets/E-EducationWatchVideo/fullscreen.png"
+                    alt="Fullscreen"
+                  />
+                </button>
+                <button
+                  class="EEWV-ctrl-btn"
+                  id="EEWV-menuBtn"
+                  title="More Options"
+                >
+                  <img
+                    src="../assets/E-EducationWatchVideo/menu.png"
+                    alt="Menu"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="EEWV-video-desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu
+          risus a consequat. Morbi scelerisque est nisl, id imperdiet quam
+          efficitur vitae. Sed tempor congue cursus.
+        </p>
+      </div>
+      <h2 class="EEWV-section-title">Other Videos</h2>
+      <div class="EEWV-videos-grid">
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-2.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-3.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-4.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-5.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-6.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+        <div class="EEWV-video-card">
+          <div class="EEWV-thumb">
+            <img src="../assets/E-EducationWatchVideo/img-7.png" />
+            <div class="EEWV-play-btn">▶</div>
+          </div>
+          <div class="EEWV-card-info">
+            <h4>Oil Painting for beginners</h4>
+            <p>By Author Name</p>
+            <span>10k Views • 1 hour ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationWatchVideo.js"></script>
+  </body>
+</html>

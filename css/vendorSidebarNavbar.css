@@ -1228,7 +1228,7 @@ nav{
         margin-top: 65px;
         width: 70px;
         z-index: 99;
-        height: max-content;
+        height: 90vh;
     }
 
     /* Hide welcome text */
@@ -1256,6 +1256,14 @@ nav{
         display: none;
     }
 
+    .sidebar-main-vendor.collapsed .logout-main-desktop{
+        justify-content: center;
+    }
+
+    .sidebar-main-vendor.collapsed .logout-main-desktop>span{
+        display: none;
+    }
+
     /* OVERLAY OPEN sidebar */
     .sidebar-main-vendor.open {
         width: 300px;
@@ -1266,7 +1274,7 @@ nav{
         background-color: #B9E0DB;
         border-radius: 0px 10px 0px 0px;
         z-index: 99;
-        height: max-content;
+        height: 100vh;
     }
     .sidebar-main-vendor.open .hamberger-sidebar>img:last-child{
         display: none;
@@ -1287,6 +1295,9 @@ nav{
     }
 
     .sidebar-main-vendor.open ul > li > img {
+        display: block;
+    }
+    .sidebar-main-vendor.open .logout-main-desktop>span{
         display: block;
     }
 }
@@ -1349,6 +1360,7 @@ nav{
   padding-bottom: 20px;
   font-family: Nunito Sans, sans-serif;
   margin-top: 20px;
+  position: relative;
 }
 
 /* Inner container */
@@ -1438,8 +1450,8 @@ nav{
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: #d9d9d9;
+  text-wrap: nowrap;
 }
 
 /* Subscribe box */
@@ -1479,6 +1491,126 @@ nav{
 .mobile-back-button{
     display: none;
 }
+.devpart{
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.er-copy a{
+  text-decoration: none;
+  color: #d9d9d9;
+  font-weight: 700;
+  padding-right: 10px;
+}
+/* Subscribe  */
+.subscribe-main-container{
+  position: absolute;
+  left: 0px;
+  top: -50px;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width:425px) {
+    .subscribe-main-container{
+        top: 250px;
+    }
+}
+.subscribe-main-container-content{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  max-width: 800px;
+  width: 99%;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+.subscribe-cross{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.subscribe-heading{
+  height: 100px;
+  background-image: url("../assets/login/Rectangle\ 398.svg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0px 0px;
+}
+.subscribe-heading>h2{
+  color:black;
+  width: 70%;
+  text-align: center;
+}
+.subscribe-sub-content{
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.subscribe-subhead{
+  color: #3F3F3f;
+  text-align: center;
+  font-size: 600;
+  font-size: 15px;
+}
+
+.subscribe-input-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.subscribe-input-container input{
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #DEE1E6;
+  border-radius: 5px;
+  outline: none;
+}
+.subscribe-input-container button{
+  padding: 10px 30px;
+  background-color: #21A593;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.subscribe-error-message{
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+.logout-main-desktop{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0px 10px;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.logout-main-desktop>img {
+  filter: invert(100%);
+  height: 20px;
+}
+.logout-main-desktop>span{
+    color: black;
+    cursor: pointer;
+}
+
 /* ---------- RESPONSIVE ---------- */
 
 /* Tablets */

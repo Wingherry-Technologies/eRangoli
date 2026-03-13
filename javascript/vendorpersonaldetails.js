@@ -24,6 +24,10 @@ hamburger?.addEventListener("click", () => {
   }
 });
 
+document.querySelector(".logout-main-desktop").addEventListener("click",()=>{
+  window.location.href='../html/vendorlogin.html';
+})
+
 document.querySelector("#sidebar-main-vendor ul>li:nth-child(1)").classList.add("sidebar-active");
 
 document.querySelector("#account-menu li:nth-child(7) .dropdown-header").classList.add("dropdown-header-active");
