@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,7 +13,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   background-color: #f5f0f0;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
 }
 
 /* ── Page title ── */
@@ -71,12 +73,7 @@ body {
   z-index: 2;
 }
 
-
-
-
-
 .mandala-logo {
-
   overflow: hidden;
 }
 
@@ -219,4 +216,3 @@ body {
   margin-top: 2px;
   letter-spacing: 0.2px;
 }
-

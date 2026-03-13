@@ -20,7 +20,7 @@
     pause: "../assets/E-EducationWatchVideo/pause.png",
     play: "../assets/E-EducationWatchVideo/playcircle.png",
     sound: "../assets/E-EducationWatchVideo/sound.png",
-    mute: "../assets/E-EducationWatchVideo/playcircle.png",
+    mute: "../assets/E-EducationWatchVideo/mute.png",
   };
 
   let isScrubbing = false;
