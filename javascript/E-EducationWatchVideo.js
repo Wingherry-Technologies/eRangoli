@@ -21,6 +21,8 @@
     play: "../assets/E-EducationWatchVideo/playcircle.png",
     sound: "../assets/E-EducationWatchVideo/sound.png",
     mute: "../assets/E-EducationWatchVideo/mute.png",
+    fullscreen: "../assets/E-EducationWatchVideo/fullscreen.png",
+    exitFullscreen: "../assets/E-EducationWatchVideo/fullscreen.png",
   };
 
   let isScrubbing = false;
@@ -82,6 +84,156 @@
     }
   }
 
+  function getFullscreenElement() {
+    return (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement ||
+      null
+    );
+  }
+
+  function isFullscreen() {
+    return !!getFullscreenElement();
+  }
+
+  function requestFullscreenOn(el) {
+    if (el.requestFullscreen) return el.requestFullscreen();
+    if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+    if (el.mozRequestFullScreen) return el.mozRequestFullScreen();
+    if (el.msRequestFullscreen) return el.msRequestFullscreen();
+    return Promise.reject(new Error("Fullscreen API not supported"));
+  }
+
+  function exitFullscreenDoc() {
+    if (document.exitFullscreen) return document.exitFullscreen();
+    if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+    if (document.mozCancelFullScreen) return document.mozCancelFullScreen();
+    if (document.msExitFullscreen) return document.msExitFullscreen();
+    return Promise.reject(new Error("Exit fullscreen API not supported"));
+  }
+
+  function applyFallbackFullscreen() {
+    wrapper.style.cssText = `
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      z-index: 2147483647 !important;
+      border-radius: 0 !important;
+      background: #000 !important;
+    `;
+    video.style.cssText = `
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+    `;
+    wrapper.classList.add("EEWV-is-fullscreen");
+    document.body.style.overflow = "hidden";
+  }
+
+  function removeFallbackFullscreen() {
+    wrapper.style.cssText = "";
+    video.style.cssText = "";
+    wrapper.classList.remove("EEWV-is-fullscreen");
+    document.body.style.overflow = "";
+  }
+
+  let usingFallbackFS = false;
+  const originalVideoHeight = video.style.height || "";
+  function removeVideoFixedHeight() {
+    video.style.height = "";
+    video.style.maxHeight = "none";
+  }
+  function restoreVideoFixedHeight() {
+    video.style.height = originalVideoHeight;
+    video.style.maxHeight = "";
+  }
+
+  function lockLandscape() {
+    try {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(() => {});
+      }
+    } catch (_) {}
+  }
+
+  function unlockOrientation() {
+    try {
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    } catch (_) {}
+  }
+
+  function toggleFullscreen() {
+    if (isFullscreen() || usingFallbackFS) {
+      if (usingFallbackFS) {
+        removeFallbackFullscreen();
+        restoreVideoFixedHeight();
+        unlockOrientation();
+        usingFallbackFS = false;
+      } else {
+        exitFullscreenDoc().catch(() => {
+          removeFallbackFullscreen();
+          restoreVideoFixedHeight();
+          unlockOrientation();
+          usingFallbackFS = false;
+        });
+      }
+      return;
+    }
+
+    requestFullscreenOn(wrapper)
+      .then(() => {
+        removeVideoFixedHeight();
+        lockLandscape();
+      })
+      .catch(() => {
+        requestFullscreenOn(video)
+          .then(() => {
+            removeVideoFixedHeight();
+            lockLandscape();
+          })
+          .catch(() => {
+            usingFallbackFS = true;
+            removeVideoFixedHeight();
+            applyFallbackFullscreen();
+            lockLandscape();
+          });
+      });
+  }
+
+  function updateFullscreenUI() {
+    const inFS = isFullscreen() || usingFallbackFS;
+    wrapper.classList.toggle("EEWV-is-fullscreen", inFS);
+    if (!inFS) {
+      restoreVideoFixedHeight();
+      unlockOrientation();
+    }
+  }
+  [
+    "fullscreenchange",
+    "webkitfullscreenchange",
+    "mozfullscreenchange",
+    "MSFullscreenChange",
+  ].forEach((evt) => {
+    document.addEventListener(evt, updateFullscreenUI);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && usingFallbackFS) {
+      removeFallbackFullscreen();
+      restoreVideoFixedHeight();
+      unlockOrientation();
+      usingFallbackFS = false;
+    }
+  });
+
   playPauseBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     togglePlayPause();
@@ -132,7 +284,7 @@
     { passive: true },
   );
 
-  document.addEventListener("touchend", (e) => {
+  document.addEventListener("touchend", () => {
     if (isScrubbing) isScrubbing = false;
   });
 
@@ -155,17 +307,11 @@
 
   fullscreenBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (!document.fullscreenElement) {
-      (wrapper.requestFullscreen || wrapper.webkitRequestFullscreen).call(
-        wrapper,
-      );
-    } else {
-      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
-    }
+    toggleFullscreen();
   });
 
   document.addEventListener("keydown", (e) => {
-    if (["Space", "ArrowLeft", "ArrowRight", "KeyM"].includes(e.code)) {
+    if (["Space", "ArrowLeft", "ArrowRight", "KeyM", "KeyF"].includes(e.code)) {
       e.preventDefault();
     }
     switch (e.code) {
@@ -183,6 +329,9 @@
         break;
       case "KeyM":
         soundBtn.click();
+        break;
+      case "KeyF":
+        toggleFullscreen();
         break;
     }
   });
