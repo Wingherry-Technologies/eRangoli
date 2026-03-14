@@ -216,3 +216,49 @@ body {
   margin-top: 2px;
   letter-spacing: 0.2px;
 }
+@media (min-width:595px) and (max-width:1024px){
+
+.ticket-wrapper{
+  width:90%;
+  max-width:746px;
+  height:auto;
+  aspect-ratio:746/260;
+}
+
+.ticket-left,
+.ticket-right{
+  background-size:100% 100%;
+}
+
+.event-title{
+  font-size: 15px;
+}
+.right-body{
+  padding: 30px 40px 30px 15px;
+}
+}
+
+
+@media (max-width: 594px) {
+
+  body {
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+  }
+
+  .ticket-wrapper {
+    transform: rotate(90deg);
+    transform-origin: center center;
+    width: 746px;
+    height: 260px;
+    margin-top: calc((746px - 260px) / 2);
+    margin-bottom: calc((746px - 260px) / 2);
+    flex-shrink: 0;
+  }
+}
