@@ -7,7 +7,31 @@
     box-sizing: border-box;
     font-family: Nunito Sans;
 }
+.backtosearch{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.back-search{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#444;
+    font-size:16px;
+    cursor:pointer;
+    padding:10px 0;
+}
 
+.back-icon img{
+    width: 20px;
+    padding-top: 6px;
+}
+
+.back-search:hover{
+    color:#000;
+}
 .mygiftbx {
     display: flex;
     justify-content: center;
