@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Workshop Courses</title>
+    <link rel="stylesheet" href="../css/E-EducationAdminWorkshopCourses.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EEAWC-container">
+      <!-- Header -->
+      <div class="EEAWC-header">Workshop Courses</div>
+
+      <!-- Card -->
+      <div class="EEAWC-card">
+        <!-- Top Row -->
+        <div class="EEAWC-card-header">
+          <div class="EEAWC-left">
+            <span class="EEAWC-title">Workshop</span>
+            <span class="EEAWC-count">12 Ongoing</span>
+          </div>
+
+          <div class="EEAWC-right">
+            <img
+              id="EEAWC-filterBtn"
+              src="../assets/E-EducationAdminShortWorkshop/filter.png"
+            />
+            <img
+              id="EEAWC-sortBtn"
+              src="../assets/E-EducationAdminShortWorkshop/sort.png"
+            />
+          </div>
+        </div>
+
+        <!-- FILTER POPUP -->
+        <div id="EEAWC-filterPopup" class="EEAWC-popup">
+          <div class="EEAWC-popup-content">
+            <h3 class="EEAWC-popup-header">Filter</h3>
+
+            <div class="EEAWC-filter-group">
+              <p>Status</p>
+
+              <div class="EEAWC-filter-options">
+                <label>
+                  <input type="checkbox" value="Live" />
+                  Live
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Draft" />
+                  Draft
+                </label>
+
+                <label>
+                  <input type="checkbox" value="Archived" />
+                  Archived
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SORT POPUP -->
+        <div id="EEAWC-sortPopup" class="EEAWC-popup">
+          <div class="EEAWC-popup-content">
+            <h3 class="EEAWC-popup-header">Sort By</h3>
+
+            <p>Date (Latest First)</p>
+            <p>Date (Oldest First)</p>
+            <p>Amount (High to Low)</p>
+            <p>Amount (Low to High)</p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="EEAWC-divider"></div>
+
+        <!-- Table -->
+        <div class="EEAWC-table">
+          <!-- Header Row -->
+          <div class="EEAWC-row EEAWC-header-row">
+            <div>Workshop Name</div>
+            <div>Date</div>
+            <div>Location</div>
+            <div>Enrolled</div>
+            <div>Amount</div>
+            <div class="EEAWC-status-col">Status</div>
+            <div>Action</div>
+          </div>
+
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Art Workshop</span>
+            </div>
+            <div>10/02/26</div>
+            <div>Delhi</div>
+            <div>300</div>
+            <div>₹20,000</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-draft">Draft</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Cooking Basics</span>
+            </div>
+            <div>01/01/26</div>
+            <div>Bangalore</div>
+            <div><span class="EEAWC-green">80</span>/200</div>
+            <div>₹15,000</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-archived">Archived</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAWC-row">
+            <div class="EEAWC-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>15/02/26</div>
+            <div>Mumbai, MH</div>
+            <div>456</div>
+            <div>₹40,199</div>
+            <div class="EEAWC-status-col">
+              <span class="EEAWC-live">Live</span>
+            </div>
+            <div>
+              <img
+                class="EEAWC-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationAdminWorkshopCourses.js"></script>
+  </body>
+</html>
