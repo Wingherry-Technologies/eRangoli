@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Ticket</title>
+<link rel="stylesheet" href="../css/E-EducationSelectTime.css">
+</head>
+<body>
+
+<a class="ESTP-back" href="#">
+<img src="../assets/E-EducationSelectVenue/ArrowLeft.svg" alt="">  Back to search
+</a>
+
+<div class="ESTP-page">
+  <div class="ESTP-title">Threads of Tradition: Frame Loom Weaving with Master Artisans</div>
+
+  <div class="ESTP-venue-bar">
+    <div class="ESTP-venue-name">Sun and Sand Hotel &nbsp;| Pune</div>
+    <div class="ESTP-venue-datetime ESTP-hidden" id="ESTP-venue-datetime"></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="ESTP-card" id="ESTP-datetime-card">
+    <div class="ESTP-section-label">Select &nbsp;date</div>
+
+    <div class="ESTP-date-row">
+      <button class="ESTP-date-option" data-date="Sat, 28th Feb 2026">Sat, 28th Feb 2026</button>
+      <button class="ESTP-date-option" data-date="Sun, 1st March 2026">Sun, 1st March 2026</button>
+    </div>
+
+    <div class="ESTP-section-label">Select &nbsp;Time</div>
+
+    <div class="ESTP-time-row">
+      <button class="ESTP-time-option" data-time="3:30 pm">3:30 PM</button>
+      <button class="ESTP-time-option" data-time="5:00 pm">5:00 PM</button>
+      <button class="ESTP-time-option" data-time="6:30 pm">6:30 PM</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="ESTP-card ESTP-hidden" id="ESTP-ticket-card">
+    <div class="ESTP-section-label">Select &nbsp;Tickets</div>
+
+    <div class="ESTP-ticket-row">
+
+      <button class="ESTP-ticket-btn" id="ESTP-btn-individual" data-ticket="individual">
+        Individual
+      </button>
+
+      <button class="ESTP-ticket-btn" id="ESTP-btn-group" data-ticket="group">
+        Group
+      </button>
+
+      <div class="ESTP-group-counter ESTP-hidden" id="ESTP-group-counter">
+        <button class="ESTP-counter-btn" id="ESTP-dec-btn" data-change="-1" disabled>−</button>
+        <span class="ESTP-counter-val" id="ESTP-group-count">2</span>
+        <button class="ESTP-counter-btn" data-change="1">+</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAY -->
+  <div class="ESTP-pay-card ESTP-hidden" id="ESTP-pay-card">
+
+    <div>
+      <div class="ESTP-pay-label">Total Payable Amount</div>
+      <div class="ESTP-pay-tax" id="ESTP-pay-tax">₹0 + Taxes</div>
+      <div class="ESTP-pay-total" id="ESTP-pay-total">₹0</div>
+    </div>
+
+    <button class="ESTP-pay-btn" id="ESTP-pay-btn" disabled>Pay</button>
+
+  </div>
+</div>
+
+<script src="../javascript/E-EducationSelectTime.js"></script>
+</body>
+</html>
