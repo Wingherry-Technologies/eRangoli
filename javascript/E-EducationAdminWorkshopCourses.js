@@ -152,3 +152,30 @@ document.addEventListener("DOMContentLoaded", function () {
   // INITIAL COUNT
   updateCount();
 });
+
+function updateMobCount() {
+  const mobCount = document.querySelector(".EEAWC-mob-count");
+  if (!mobCount) return;
+
+  const mobItems = document.querySelectorAll(".EEAWC-acc-item");
+  mobCount.innerText = `${mobItems.length} Ongoing`;
+}
+
+updateMobCount();
+
+const accHeaders = document.querySelectorAll(".EEAWC-acc-header");
+
+accHeaders.forEach((header) => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector(".EEAWC-arrow");
+
+    body.classList.toggle("active");
+    item.classList.toggle("active");
+
+    arrow.style.transform = body.classList.contains("active")
+      ? "rotate(180deg)"
+      : "rotate(0deg)";
+  });
+});

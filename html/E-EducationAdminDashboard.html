@@ -10,6 +10,10 @@
       href="../assets/master/eRangoli 2-1.svg"
       type="image/x-icon"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   </head>
 
@@ -27,7 +31,7 @@
               </div>
               <span class="EEAD-adminSalesStatLabel">Total Sales</span>
             </div>
-            <div class="EEAD-adminSalesStatValue">26,14,945</div>
+            <div class="EEAD-adminSalesStatValue">26,945</div>
             <div class="EEAD-adminSalesStatFooter">
               <span class="EEAD-adminSalesStatChange">
                 <img
@@ -56,7 +60,7 @@
               </div>
               <span class="EEAD-adminSalesStatLabel">Profit</span>
             </div>
-            <div class="EEAD-adminSalesStatValue">6,14,945</div>
+            <div class="EEAD-adminSalesStatValue">14,945</div>
             <div class="EEAD-adminSalesStatFooter">
               <span class="EEAD-adminSalesStatChange">
                 <img
@@ -139,12 +143,17 @@
             <div>
               <h3>Today's Active Workshops</h3>
             </div>
-            <select onchange="updateOrders(this.value)">
-              <option>Daily</option>
-              <option selected>Weekly</option>
-              <option>Monthly</option>
-              <option>Annually</option>
-            </select>
+            <div class="EEAD-custom-select" id="EEAD-select-orders">
+              <div class="EEAD-select-trigger">
+                Weekly <span class="EEAD-select-arrow">&#9662;</span>
+              </div>
+              <ul class="EEAD-select-dropdown">
+                <li data-value="Daily">Daily</li>
+                <li data-value="Weekly" class="active">Weekly</li>
+                <li data-value="Monthly">Monthly</li>
+                <li data-value="Annually">Annually</li>
+              </ul>
+            </div>
           </div>
           <p class="EEAD-subtitle">Earning Report Lorem Ipsum</p>
 
@@ -185,12 +194,17 @@
               <div>
                 <h3>Revenue Data</h3>
               </div>
-              <select onchange="updateRevenue(this.value)">
-                <option>Daily</option>
-                <option selected>Weekly</option>
-                <option>Monthly</option>
-                <option>Annually</option>
-              </select>
+              <div class="EEAD-custom-select" id="EEAD-select-revenue">
+                <div class="EEAD-select-trigger">
+                  Weekly <span class="EEAD-select-arrow">&#9662;</span>
+                </div>
+                <ul class="EEAD-select-dropdown">
+                  <li data-value="Daily">Daily</li>
+                  <li data-value="Weekly" class="active">Weekly</li>
+                  <li data-value="Monthly">Monthly</li>
+                  <li data-value="Annually">Annually</li>
+                </ul>
+              </div>
             </div>
             <p class="EEAD-subtitle">Monitor your revenue growth</p>
             <div class="EEAD-revenue-line">
@@ -214,12 +228,17 @@
           <div class="EEAD-card EEAD-revenue-card">
             <div class="EEAD-card-header">
               <h3>Revenue Amount</h3>
-              <select>
-                <option>Daily</option>
-                <option selected>Weekly</option>
-                <option>Monthly</option>
-                <option>Annually</option>
-              </select>
+              <div class="EEAD-custom-select" id="EEAD-select-amount">
+                <div class="EEAD-select-trigger">
+                  Weekly <span class="EEAD-select-arrow">&#9662;</span>
+                </div>
+                <ul class="EEAD-select-dropdown">
+                  <li data-value="Daily">Daily</li>
+                  <li data-value="Weekly" class="active">Weekly</li>
+                  <li data-value="Monthly">Monthly</li>
+                  <li data-value="Annually">Annually</li>
+                </ul>
+              </div>
             </div>
 
             <div class="EEAD-donutWrapper">

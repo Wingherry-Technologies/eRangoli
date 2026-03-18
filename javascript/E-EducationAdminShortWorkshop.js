@@ -152,3 +152,30 @@ document.addEventListener("DOMContentLoaded", function () {
   // INITIAL COUNT
   updateCount();
 });
+
+/* MOBILE COUNT */
+function updateMobCount() {
+  const mobCount = document.querySelector(".EEASW-mob-count");
+  if (!mobCount) return;
+  const mobItems = document.querySelectorAll(".EEASW-acc-item");
+  mobCount.innerText = `${mobItems.length} Ongoing`;
+}
+
+updateMobCount();
+
+const accHeaders = document.querySelectorAll(".EEASW-acc-header");
+
+accHeaders.forEach((header) => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector(".EEASW-arrow");
+
+    body.classList.toggle("active");
+    item.classList.toggle("active");
+
+    arrow.style.transform = body.classList.contains("active")
+      ? "rotate(180deg)"
+      : "rotate(0deg)";
+  });
+});

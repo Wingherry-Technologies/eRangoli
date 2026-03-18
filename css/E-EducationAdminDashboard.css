@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -124,14 +122,90 @@ body {
 }
 
 .EEAD-card-header select {
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  color: #6c63ff;
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 4px 4px;
+  display: none;
+}
+
+/* Custom Dropdown */
+.EEAD-custom-select {
+  position: relative;
+  display: inline-block;
   margin-bottom: 4px;
+  min-width: 90px;
+  user-select: none;
+}
+
+.EEAD-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #6828e7;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+
+.EEAD-select-trigger:hover {
+  border-color: #6828e7;
+}
+
+.EEAD-select-arrow {
+  font-size: 10px;
+  color: #6828e7;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.EEAD-custom-select.open .EEAD-select-arrow {
+  transform: rotate(180deg);
+}
+
+.EEAD-select-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  list-style: none;
+  padding: 4px 15px;
+  margin: 0;
+  min-width: 100%;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.EEAD-custom-select.open .EEAD-select-dropdown {
+  display: block;
+}
+
+.EEAD-select-dropdown li {
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #3f3f3f;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  border-radius: 4px;
+}
+
+.EEAD-select-dropdown li:hover {
+  background: #f3eeff;
+  color: #6828e7;
+}
+
+.EEAD-select-dropdown li.active {
+  background: #6828e7;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .EEAD-card-header option {
@@ -140,7 +214,7 @@ body {
   border: 1px solid #d9d9d9;
 }
 
-canvas {
+canvas:not(#EEAD-revenueDonutChart) {
   height: 260px !important;
   margin-top: 1rem;
 }
@@ -149,6 +223,8 @@ canvas {
   height: 195px !important;
   width: 195px !important;
   margin-top: -17px !important;
+  display: block;
+  flex-shrink: 0;
 }
 
 .EEAD-order-header {
@@ -247,6 +323,8 @@ canvas {
   position: relative;
   z-index: 1;
   transform: translateY(9px);
+  flex-shrink: 0;
+  align-self: center;
 }
 
 .EEAD-revenue-legend {
@@ -311,8 +389,71 @@ canvas {
   margin-top: 5px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) and (min-width: 595px) {
+  .EEAD-order-body {
+    flex-direction: column;
+  }
+  .EEAD-order-info {
+    flex-direction: row;
+  }
   .EEAD-dashboard {
     grid-template-columns: 1fr;
+  }
+  .EEAD-adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 595px) {
+  .EEAD-wrapper {
+    padding: 15px;
+  }
+
+  .EEAD-adminSalesStatsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+  }
+
+  .EEAD-adminSalesStatCard {
+    min-width: 0;
+  }
+  .EEAD-order-body {
+    flex-direction: column;
+  }
+
+  .EEAD-order-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .EEAD-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .EEAD-revenue-line {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .EEAD-donutWrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  #EEAD-revenueDonutChart {
+    width: 150px !important;
+    height: 150px !important;
+    margin-top: -13px !important;
+  }
+  .EEAD-card {
+    overflow: hidden;
+  }
+  .EEAD-adminSalesStatValue {
+    margin-left: 0;
+  }
+  .EEAD-adminSalesStatIcon {
+    width: 29px;
+    height: 29px;
   }
 }

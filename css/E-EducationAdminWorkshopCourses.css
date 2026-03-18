@@ -187,3 +187,156 @@ body {
 .EEAWC-table::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
+
+.EEAWC-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .EEAWC-table {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .EEAWC-row {
+    min-width: 900px;
+  }
+
+  .EEAWC-row div {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 595px) {
+  .EEAWC-container {
+    display: none;
+  }
+
+  .EEAWC-mobile {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .EEAWC-mobile-itmes {
+    margin: 10px;
+    background-color: #fff;
+  }
+
+  body {
+    background: #f5f5f5;
+  }
+
+  .EEAWC-acc-item {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .EEAWC-acc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .EEAWC-acc-header .EEAWC-workshop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .EEAWC-acc-header img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  .EEAWC-arrow {
+    width: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .EEAWC-acc-body {
+    display: none;
+    padding: 12px;
+  }
+
+  .EEAWC-acc-body.active {
+    display: block;
+  }
+
+  .EEAWC-acc-body div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .EEAWC-acc-body div span:first-child {
+    color: #3f3f3f;
+    justify-self: start;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .EEAWC-acc-body div span:nth-child(2) {
+    justify-self: center;
+    text-align: center;
+    font-weight: 400;
+    color: #3f3f3f;
+  }
+
+  .EEAWC-acc-body div span:nth-child(3) {
+    justify-self: end;
+  }
+
+  .EEAWC-acc-item.active {
+    border: 1px solid #0f8df340;
+  }
+
+  .EEAWC-acc-item.active .EEAWC-acc-body {
+    border-top: 1px solid #0f8df340;
+  }
+
+  .EEAWC-Mob-header {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 1rem;
+    color: #3f3f3f;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .EEAWC-mob-count {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: #716b6b;
+    font-weight: 400;
+  }
+
+  .EEAWC-mob-edit {
+    width: 16px;
+    justify-self: end;
+    cursor: pointer;
+  }
+
+  .EEAWC-mob-live {
+    color: rgba(0, 150, 5, 1) !important;
+  }
+
+  .EEAWC-mob-draft {
+    color: rgba(18, 144, 247, 1) !important;
+  }
+
+  .EEAWC-mob-archived {
+    color: rgba(236, 140, 36, 1) !important;
+  }
+
+  .EEAWC-mob-green {
+    color: #009605 !important;
+  }
+}

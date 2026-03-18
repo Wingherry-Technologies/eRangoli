@@ -317,3 +317,40 @@ new Chart(document.getElementById("EEAD-revenueDonutChart"), {
     },
   },
 });
+
+document.querySelectorAll(".EEAD-custom-select").forEach(function (select) {
+  var trigger = select.querySelector(".EEAD-select-trigger");
+  var dropdown = select.querySelector(".EEAD-select-dropdown");
+  var items = select.querySelectorAll("li");
+
+  trigger.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var isOpen = select.classList.contains("open");
+    document.querySelectorAll(".EEAD-custom-select").forEach(function (s) {
+      s.classList.remove("open");
+    });
+    if (!isOpen) select.classList.add("open");
+  });
+
+  items.forEach(function (item) {
+    item.addEventListener("click", function () {
+      items.forEach(function (i) {
+        i.classList.remove("active");
+      });
+      item.classList.add("active");
+      trigger.innerHTML =
+        item.textContent + ' <span class="EEAD-select-arrow">&#9662;</span>';
+      select.classList.remove("open");
+
+      var val = item.getAttribute("data-value");
+      if (select.id === "EEAD-select-orders") updateOrders(val);
+      if (select.id === "EEAD-select-revenue") updateRevenue(val);
+    });
+  });
+});
+
+document.addEventListener("click", function () {
+  document.querySelectorAll(".EEAD-custom-select").forEach(function (s) {
+    s.classList.remove("open");
+  });
+});
