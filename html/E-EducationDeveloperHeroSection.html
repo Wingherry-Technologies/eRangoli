@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Education Developer Hero Section</title>
+    <link rel="stylesheet" href="../css/E-EducationDeveloperHeroSection.css" />
+  </head>
+  <body>
+    <div class="EDHSpage-wrapper">
+      <!-- Card 1: Hero Section -->
+      <div class="EDHScard">
+        <div class="EDHScard-header">
+          <h2>Hero Section</h2>
+        </div>
+
+        <div class="EDHScontent">
+          <div class="EDHSsection-row">
+            <span class="EDHSlabel">Core Content</span>
+
+            <div>
+              <button
+                class="EDHSpublish-btn"
+                id="EDHSpublishHeroBtn"
+                style="display: none"
+              >
+                Publish
+              </button>
+              <button class="EDHSedit-btn" id="EDHSeditHeroBtn">Edit</button>
+            </div>
+          </div>
+
+          <!-- EDIT MODE -->
+          <div id="EDHSeditMode" style="display: none">
+            <div class="EDHSform-group">
+              <label>Heading</label>
+              <input
+                type="text"
+                id="EDHSheroHeading"
+                placeholder="Experience India's Colours, Textures & Traditions."
+              />
+              <span class="EDHSerror-message"></span>
+            </div>
+
+            <div class="EDHSform-group">
+              <label>Sub Text</label>
+              <input
+                type="text"
+                id="EDHSheroSubText"
+                placeholder="Join  the interactive sessions with the award winning national artisans. We bridge the gap between ancient traditions and the modern creative minds. "
+              />
+              <span class="EDHSerror-message"></span>
+            </div>
+
+            <div class="EDHSform-group">
+              <label>Primary CTA Link</label>
+              <input
+                type="text"
+                id="EDHSheroCta"
+                placeholder="https://store.example.com/collection/products"
+              />
+              <span class="EDHSerror-message"></span>
+            </div>
+
+            <div class="EDHSform-group">
+              <label>Secondary CTA Link</label>
+              <input
+                type="text"
+                id="EDHSheroSecondaryCta"
+                placeholder="https://store.example.com/collection/products"
+              />
+              <span class="EDHSerror-message"></span>
+            </div>
+          </div>
+
+          <!-- VIEW MODE -->
+          <div id="EDHSviewMode">
+            <div class="EDHSfield-block">
+              <div class="EDHSfield-label">Heading</div>
+              <div class="EDHSfield-value" id="EDHSviewHeading"></div>
+            </div>
+
+            <div class="EDHSfield-block">
+              <div class="EDHSfield-label">Sub Text</div>
+              <div class="EDHSfield-value" id="EDHSviewSubText"></div>
+            </div>
+
+            <div class="EDHSfield-block">
+              <div class="EDHSfield-label">Primary CTA Link</div>
+              <div class="EDHSfield-value" id="EDHSviewCta"></div>
+            </div>
+
+            <div class="EDHSfield-block">
+              <div class="EDHSfield-label">Secondary CTA Link</div>
+              <div class="EDHSfield-value" id="EDHSviewSecondaryCta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Hero Images -->
+      <div class="EDHSimages-card">
+        <div class="EDHSimages-header">
+          <div class="EDHSimages-title">
+            <h3>Hero Images</h3>
+            <span>(Minimum 3 images or videos)</span>
+          </div>
+          <button class="EDHSpublish-btn" id="EDHS-publish-btn">Publish</button>
+        </div>
+
+        <div class="EDHSimage-grid">
+          <!-- Tile 1 -->
+          <div class="EDHSimg-tile-wrapper">
+            <div class="EDHSimg-tile" id="EDHStile1">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+                alt="Weaving loom"
+              />
+              <span
+                class="EDHStile-menu-btn"
+                onclick="EDHStoggleDropdown('EDHSdd1')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
+              </span>
+              <div class="EDHStile-dropdown" id="EDHSdd1">
+                <button class="EDHSdelete">Delete</button>
+                <button class="EDHSupload-existing">Upload</button>
+              </div>
+            </div>
+            <div class="EDHSimg-caption">Recommended size: 1920px 1080px</div>
+          </div>
+
+
+
+          <!-- Add Tile -->
+          <div class="EDHSimg-tile-wrapper">
+<div class="EDHSadd-tile EDHSadd-media-box" id="EDHSaddTile">
+
+    <div class="EDHSadd-icon">+</div>
+
+    <!-- POPUP -->
+    <div class="EDHSmedia-popup">
+
+      <button class="EDHSmedia-option">Image</button>
+
+      <button class="EDHSmedia-option">Video</button>
+
+    </div>
+
+  </div>
+
+            <input
+              type="file"
+              id="EDHSimageInput"
+              accept="image/*,video/*"
+              style="display: none"
+            />
+            <input
+              type="file"
+              id="EDHSexistingMediaInput"
+              accept="image/*,video/*"
+              style="display: none"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Min Media Error Popup -->
+    <div class="EDHS-error-popup" id="EDHS-minCategoryPopup">
+      <span class="EDHS-error-text">
+        Please upload at least 3 media files.
+      </span>
+      <button class="EDHS-error-close" id="EDHS-closeMinPopup">×</button>
+    </div>
+
+    <script src="../javascript/E-EducationDeveloperHeroSection.js"></script>
+  </body>
+</html>
