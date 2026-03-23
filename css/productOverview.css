@@ -362,6 +362,21 @@ body {
   margin-bottom: 40px;
 }
 
+.ProductDetailsInfo{
+  padding-bottom: 40px;
+}
+.ProductDetailsHeadingTitle{
+      font-size: 15px;
+    color: #a10404;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.ProductDetailsList{
+    font-size: 14px;
+    font-weight: 400;
+    color: #3F3F3F;
+    list-style: none;
+}
 .sectionHeader {
   display: flex;
   justify-content: space-between;
@@ -492,7 +507,10 @@ body {
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
+}
+.productOverviewDetailsList.returnPolicies{
+  list-style: decimal;
 }
 
 
