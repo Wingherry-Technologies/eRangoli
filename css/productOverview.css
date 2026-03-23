@@ -490,13 +490,20 @@ body {
 .productOverviewDetailsList {
   list-style: decimal;
   padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.productOverviewDetailsList li {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-  line-height: 1.8;
+
+.productOverviewDetailsList li>span:first-child{
+  display: inline-block;
+  width: 22%;
+  height: 100%;
+}
+.productOverviewDetailsList li>span:last-child{
+  display: inline-block;
+  width: 77%;
 }
 
 .productOverviewDetailsSection .productOverviewDetailsList li {
@@ -504,11 +511,19 @@ body {
 }
 
 .productOverviewDetailsSection .productOverviewDetailsList li:first-child {
-  display: list-item;
+  display: flex;
 }
 
 .productOverviewDetailsSection.expanded .productOverviewDetailsList li {
-  display: list-item;
+  display: flex;
+}
+.productOverviewDetailsList li {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3F3F3F;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .productOverviewReviewsSection {
