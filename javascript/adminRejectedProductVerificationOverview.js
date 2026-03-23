@@ -54,7 +54,7 @@ function APVOSetupFiveItemToggle(type, listSelector) {
   if (!header || !list || !icon) return;
 
   const items = list.querySelectorAll("li");
-  const LIMIT = 5;
+  const LIMIT = 1;
 
   if (items.length <= LIMIT) {
     icon.style.display = "none";
@@ -100,7 +100,7 @@ verifyYes.addEventListener("click", () => {
   verifyModal.classList.remove("active");
   showSuccessAndRedirect(
     document.getElementById("verifySuccess"),
-    "../html/adminPMProductVerification.html"
+    "../html/adminPMProductVerification.html",
   );
 });
 const APVOApproveBtn = document.querySelector(".APVOApproveButton");
@@ -122,7 +122,7 @@ APVOApproveBtn.addEventListener("click", () => {
 approveYes.addEventListener("click", () => {
   approveModal.classList.remove("active");
 
-  // direct redirect 
+  // direct redirect
   window.location.href = "../html/adminAddCompanyProfit.html";
 });
 // const APVOrejectBtn = document.querySelector(".APVORejectButton");
@@ -189,20 +189,65 @@ rejectYes.addEventListener("click", () => {
   rejectModal.classList.remove("active");
   showSuccessAndRedirect(
     document.getElementById("rejectSuccess"),
-    "../html/adminPMProductVerification.html"
+    "../html/adminPMProductVerification.html",
   );
 });
 
 rejectNo.addEventListener("click", () => {
   rejectModal.classList.remove("active");
 });
-document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(2)").classList.add("sidebar-active");
-document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)").classList.add("active");
-document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)>li:nth-child(4)").classList.add("submenu-active-highlight");
+document
+  .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(2)")
+  .classList.add("sidebar-active");
+document
+  .querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)")
+  .classList.add("active");
+document
+  .querySelector(".sidebar-main-vendor ul>ul:nth-of-type(1)>li:nth-child(4)")
+  .classList.add("submenu-active-highlight");
 
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header")
+  .classList.add("dropdown-header-active");
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(2)")
+  .classList.add("active-mobile-submenu");
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(2) li:nth-child(4)")
+  .classList.add("submenu-active-page");
 
-document.querySelector("#account-menu .mobile-dropdown:nth-child(2) .dropdown-header").classList.add("dropdown-header-active");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(2)").classList.add("active-mobile-submenu");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(2) li:nth-child(4)").classList.add("submenu-active-page");
+document.addEventListener("DOMContentLoaded", function () {
+  const allSections = document.querySelectorAll(".APVOProductDetailsInfo");
 
+  allSections.forEach((section) => {
+    const header = section.querySelector(".APVOToggleHeader");
+    const icon = section.querySelector(".APVOToggleIcon");
+    const items = section.querySelectorAll(".productOverviewDetailsList li");
 
+    if (!header || items.length === 0) return;
+
+    let isOpen = false;
+
+    items.forEach((item, index) => {
+      if (index !== 0) item.style.display = "none";
+    });
+
+    header.addEventListener("click", function () {
+      isOpen = !isOpen;
+
+      items.forEach((item, index) => {
+        if (isOpen) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = index === 0 ? "flex" : "none";
+        }
+      });
+
+      if (icon) {
+        icon.src = isOpen
+          ? "../assets/vendorProductPreview/Minus.svg"
+          : "../assets/vendorProductPreview/Plus.svg";
+      }
+    });
+  });
+});
