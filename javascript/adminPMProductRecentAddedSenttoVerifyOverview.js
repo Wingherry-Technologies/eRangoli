@@ -54,7 +54,7 @@ function APVSVSetupFiveItemToggle(type, listSelector) {
   if (!header || !list || !icon) return;
 
   const items = list.querySelectorAll("li");
-  const LIMIT = 5;
+  const LIMIT = 1;
 
   if (items.length <= LIMIT) {
     icon.style.display = "none";
@@ -191,4 +191,40 @@ APVSVApproveYesLive?.addEventListener("click", () => {
   APVSVApproveModalLive.classList.remove("active");
   document.querySelector(".APVSVMainContentBeyond").style.display = "none";
   APVSVApproveSuccessLive.classList.add("active");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const allSections = document.querySelectorAll(".APVOProductDetailsInfo");
+
+  allSections.forEach((section) => {
+    const header = section.querySelector(".APVSVToggleHeader");
+    const icon = section.querySelector(".APVSVToggleIcon");
+    const items = section.querySelectorAll(".productOverviewDetailsList li");
+
+    if (!header || items.length === 0) return;
+
+    let isOpen = false;
+
+    items.forEach((item, index) => {
+      if (index !== 0) item.style.display = "none";
+    });
+
+    header.addEventListener("click", function () {
+      isOpen = !isOpen;
+
+      items.forEach((item, index) => {
+        if (isOpen) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = index === 0 ? "flex" : "none";
+        }
+      });
+
+      if (icon) {
+        icon.src = isOpen
+          ? "../assets/vendorProductPreview/Minus.svg"
+          : "../assets/vendorProductPreview/Plus.svg";
+      }
+    });
+  });
 });

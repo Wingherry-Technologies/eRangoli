@@ -50,7 +50,7 @@ body {
 }
 
 .APVOLiveStatus {
-  background-color: #5B82A2;
+  background-color: #5b82a2;
   color: #ffffff;
   padding: 6px 22px;
   border-radius: 8px;
@@ -208,7 +208,7 @@ body {
 .APVODetailsHeading {
   font-size: 16px;
   font-weight: 500;
-  color: #0F8DF3;
+  color: #0f8df3;
   margin-bottom: 3px;
 }
 
@@ -255,7 +255,7 @@ body {
 .APVOPoliciesHeading {
   font-size: 16px;
   font-weight: 500;
-  color: #0F8DF3;
+  color: #0f8df3;
   margin-bottom: 5px;
 }
 
@@ -653,7 +653,7 @@ body {
 
 .APVOExtraLabel {
   font-weight: 600;
-  color: #0F8DF3;
+  color: #0f8df3;
   min-width: 120px;
 }
 
@@ -669,7 +669,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-.APVOColorrow{
+.APVOColorrow {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -724,7 +724,7 @@ body {
     font-size: 14px;
   }
 
-  .APVOMobileHeader{
+  .APVOMobileHeader {
     justify-content: flex-end;
   }
 
@@ -849,3 +849,40 @@ body {
   }
 }
 
+.productOverviewDetailsList {
+  list-style: decimal;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.productOverviewDetailsList li > span:first-child {
+  display: inline-block;
+  width: 22%;
+  height: 100%;
+}
+.productOverviewDetailsList li > span:last-child {
+  display: inline-block;
+  width: 77%;
+}
+
+.productOverviewDetailsSection .productOverviewDetailsList li {
+  display: none;
+}
+
+.productOverviewDetailsSection .productOverviewDetailsList li:first-child {
+  display: flex;
+}
+
+.productOverviewDetailsSection.expanded .productOverviewDetailsList li {
+  display: flex;
+}
+.productOverviewDetailsList li {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
