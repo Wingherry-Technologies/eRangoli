@@ -86,6 +86,96 @@ function DPOSetupFiveItemToggle(type, listSelector) {
 }
 
 
+/* Product Information Toggle */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const infoHeader = document.querySelector(".DPOProductInfoHeader");
+  const infoSection = document.querySelector(".DPOProductInfoSection");
+  const icon = document.querySelector(".DPOProductInfoToggleIcon");
+
+  if (!infoHeader) return;
+
+  let expanded = false;
+
+  infoHeader.addEventListener("click", () => {
+    expanded = !expanded;
+
+    infoSection.classList.toggle("expanded");
+
+    icon.src = expanded
+      ? "../assets/vendorProductPreview/Minus.svg"
+      : "../assets/vendorProductPreview/Plus.svg";
+  });
+});
+
+/* Additional Information Toggle (show first 3 items only) */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".DPOAdditionalInfoHeader");
+  const section = document.querySelector(".DPOAdditionalInfoSection");
+  const icon = document.querySelector(".DPOAdditionalInfoToggleIcon");
+  const items = document.querySelectorAll(".DPOAdditionalInfoList li");
+
+  if (!header || !items.length) return;
+
+  const LIMIT = 3;
+
+  // agar 3 ya kam items hain → icon hide
+  if (items.length <= LIMIT) {
+    icon.style.display = "none";
+    return;
+  }
+
+  // initially collapse state
+  section.classList.add("collapsed");
+
+  let expanded = false;
+
+  header.addEventListener("click", () => {
+    expanded = !expanded;
+
+    section.classList.toggle("collapsed");
+
+    icon.src = expanded
+      ? "../assets/vendorProductPreview/Minus.svg"
+      : "../assets/vendorProductPreview/Plus.svg";
+  });
+});
+
+/* Care Instructions Toggle */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".DPOCareInfoHeader");
+  const section = document.querySelector(".DPOCareInfoSection");
+  const icon = document.querySelector(".DPOCareInfoToggleIcon");
+  const items = document.querySelectorAll(".DPOCareInfoList li");
+
+  if (!header || !items.length) return;
+
+  const LIMIT = 3;
+
+  // agar 3 ya kam items hain → icon hide
+  if (items.length <= LIMIT) {
+    icon.style.display = "none";
+    return;
+  }
+
+  section.classList.add("collapsed");
+
+  let expanded = false;
+
+  header.addEventListener("click", () => {
+    expanded = !expanded;
+
+    section.classList.toggle("collapsed");
+
+    icon.src = expanded
+      ? "../assets/vendorProductPreview/Minus.svg"
+      : "../assets/vendorProductPreview/Plus.svg";
+  });
+});
+
+
 // send to admin
 const sendToAdminBtn = document.querySelector(".DPOSendToAdminButton");
 
