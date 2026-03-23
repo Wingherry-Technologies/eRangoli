@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.EDPGpage-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.EDPGcard {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.EDPGcard-header {
+  padding: 20px 24px 16px;
+}
+
+.EDPGcard-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3b8af5;
+}
+
+.EDPGcontent {
+  padding: 0 24px 24px;
+}
+
+.EDPGsection-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0 12px 0px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.EDPGsection-row .EDPGlabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.EDPGedit-btn {
+  background: none;
+  border: none;
+  color: #0f8df3;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.EDPGfield-block {
+  padding: 16px 0 4px;
+}
+
+.EDPGfield-block + .EDPGfield-block {
+  border-top: none;
+}
+
+.EDPGfield-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3f3f3f;
+  margin-bottom: 4px;
+}
+
+.EDPGfield-value {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+  line-height: 1.5;
+  background: #ebf3f9;
+  padding: 10px;
+  border-radius: 6px;
+  /* width: 60%; */
+  min-height: 38px;
+}
+
+.EDPGfield-value--multiline p {
+  margin-bottom: 10px;
+}
+
+.EDPGfield-value--multiline p:last-child {
+  margin-bottom: 0;
+}
+
+.EDPGimages-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px 24px 28px;
+  margin-top: 20px;
+}
+
+.EDPGimages-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.EDPGimages-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.EDPGimages-title h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+.EDPGimages-title span {
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
+}
+
+.EDPGpublish-btn {
+  background: #3b8af5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  cursor: pointer;
+}
+
+.EDPGimage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.EDPGimg-tile {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.EDPGimg-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.EDPGtile-menu-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.EDPGtile-menu-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.EDPGtile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 10;
+  min-width: 110px;
+  display: none;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+}
+
+.EDPGtile-dropdown.open {
+  display: block;
+}
+
+.EDPGtile-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  color: #222;
+}
+
+.EDPGtile-dropdown button:hover {
+  background: #1290f7;
+  color: #ffffff;
+}
+
+.EDPGimg-tile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.EDPGimg-tile,
+.EDPGadd-tile {
+  height: 180px;
+}
+
+.EDPGadd-tile {
+  aspect-ratio: 16/10;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #f7f7f7;
+}
+
+.EDPGadd-icon {
+  width: 40px;
+  height: 40px;
+  background: #3b8af5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+  user-select: none;
+}
+
+.EDPGform-group {
+  margin-bottom: 20px;
+}
+
+.EDPGform-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.EDPGform-group input,
+.EDPGform-group textarea {
+  width: 60%;
+  padding: 10px;
+  background: #ebf3f9;
+  border: none;
+  border-radius: 6px;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  color: #3f3f3f;
+  resize: vertical;
+}
+
+.EDPGform-group textarea {
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.EDPGerror-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.EDPGinput-error {
+  border: 1px solid red !important;
+}
+
+.EDPGimg-tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.EDPG-error-popup {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f7e4e4;
+  color: #ff0000;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 280px;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+.EDPG-error-text {
+  font-size: 14px;
+}
+
+.EDPG-error-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ff0000;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) and (min-width: 595px) {
+  .EDPGimage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .EDPGimg-tile,
+  .EDPGadd-tile {
+    aspect-ratio: 1 / 1;
+  }
+
+  .EDPGform-group input,
+  .EDPGform-group textarea {
+    width: 100%;
+  }
+
+  .EDPGfield-value {
+    width: 100%;
+  }
+}
+
+@media (max-width: 595px) {
+  body {
+    background: #fff;
+  }
+
+  .EDPGimage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .EDPGcontent {
+    border-top: 1px solid #0f8df3;
+    padding-top: 20px;
+  }
+
+  .EDPGimg-tile,
+  .EDPGadd-tile {
+    aspect-ratio: 1 / 1;
+  }
+
+  .EDPGpage-wrapper {
+    padding: 0;
+  }
+
+  .EDPGimages-title span {
+    display: none;
+  }
+
+  .EDPGform-group input,
+  .EDPGform-group textarea {
+    width: 100%;
+  }
+
+  .EDPGform-group label {
+    margin-top: 10px;
+  }
+
+  .EDPGcard-header {
+    display: none;
+  }
+
+  .EDPGfield-value {
+    width: 100%;
+  }
+}

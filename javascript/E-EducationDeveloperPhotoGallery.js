@@ -1,0 +1,231 @@
+function EDPGtoggleDropdown(id) {
+  const all = document.querySelectorAll(".EDPGtile-dropdown");
+  all.forEach(function (dropdown) {
+    if (dropdown.id !== id) {
+      dropdown.classList.remove("open");
+    }
+  });
+  const current = document.getElementById(id);
+  if (current) {
+    current.classList.toggle("open");
+  }
+}
+
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".EDPGimg-tile")) {
+    document
+      .querySelectorAll(".EDPGtile-dropdown")
+      .forEach(function (d) {
+        d.classList.remove("open");
+      });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editBtn = document.getElementById("EDPGeditHeroBtn");
+  const publishBtn = document.getElementById("EDPGpublishHeroBtn");
+
+  const viewMode = document.getElementById("EDPGviewMode");
+  const editMode = document.getElementById("EDPGeditMode");
+
+  const headingInput = document.getElementById("EDPGheroHeading");
+  const subTextInput = document.getElementById("EDPGheroSubText");
+  const titleInput = document.getElementById("EDPGheroTitle");
+  const subText2Input = document.getElementById("EDPGheroSubText2");
+
+  const viewHeading = document.getElementById("EDPGviewHeading");
+  const viewSubText = document.getElementById("EDPGviewSubText");
+  const viewTitle = document.getElementById("EDPGviewTitle");
+  const viewSubText2 = document.getElementById("EDPGviewSubText2");
+
+  // Bind delete/set-on-home for initial tiles
+  bindTileActions();
+
+  // EDIT BUTTON
+  editBtn.addEventListener("click", function () {
+    editMode.style.display = "block";
+    viewMode.style.display = "none";
+    editBtn.style.display = "none";
+    publishBtn.style.display = "inline-block";
+
+    headingInput.value = viewHeading.textContent.trim();
+    subTextInput.value = viewSubText.innerText.trim();
+    titleInput.value = viewTitle.textContent.trim();
+    subText2Input.value = viewSubText2.innerText.trim();
+  });
+
+  // VALIDATIONS
+  function validateTextField(input, message) {
+    const errorSpan = input.nextElementSibling;
+    const value = input.value.trim();
+
+    if (value === "") {
+      errorSpan.textContent = message;
+      input.classList.add("EDPGinput-error");
+      return false;
+    }
+
+    errorSpan.textContent = "";
+    input.classList.remove("EDPGinput-error");
+    return true;
+  }
+
+  // PUBLISH BUTTON (Content Card)
+  publishBtn.addEventListener("click", function () {
+    let isValid = true;
+
+    if (!validateTextField(headingInput, "Heading is required")) isValid = false;
+    if (!validateTextField(subTextInput, "Sub Text is required")) isValid = false;
+    if (!validateTextField(titleInput, "Title is required")) isValid = false;
+    if (!validateTextField(subText2Input, "Sub Text is required")) isValid = false;
+
+    if (isValid) {
+      viewHeading.textContent = headingInput.value.trim();
+
+      // Render subtext paragraphs
+      const subLines = subTextInput.value.trim().split(/\n+/).filter(Boolean);
+      viewSubText.innerHTML = subLines.map(function (line) {
+        return "<p>" + escapeHtml(line) + "</p>";
+      }).join("");
+
+      viewTitle.textContent = titleInput.value.trim();
+
+      const sub2Lines = subText2Input.value.trim().split(/\n+/).filter(Boolean);
+      viewSubText2.innerHTML = sub2Lines.map(function (line) {
+        return "<p>" + escapeHtml(line) + "</p>";
+      }).join("");
+
+      editMode.style.display = "none";
+      viewMode.style.display = "block";
+      publishBtn.style.display = "none";
+      editBtn.style.display = "inline-block";
+    }
+  });
+
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(text));
+    return div.innerHTML;
+  }
+
+  // IMAGE GRID - ADD TILE
+  const addTile = document.getElementById("EDPGaddTile");
+  const imageInput = document.getElementById("EDPGimageInput");
+  const imageGrid = document.querySelector(".EDPGimage-grid");
+
+  // MINIMUM 3 MEDIA VALIDATION
+  const heroPublishBtn = document.getElementById("EDPG-publish-btn");
+  const minPopup = document.getElementById("EDPG-minCategoryPopup");
+  const closeMinPopup = document.getElementById("EDPG-closeMinPopup");
+
+  if (heroPublishBtn) {
+    heroPublishBtn.addEventListener("click", function () {
+      const mediaTiles = document.querySelectorAll(
+        ".EDPGimg-tile-wrapper .EDPGimg-tile"
+      );
+
+      if (mediaTiles.length < 3) {
+        minPopup.style.display = "flex";
+        return;
+      }
+
+      alert("Hero media published successfully!");
+    });
+  }
+
+  if (closeMinPopup) {
+    closeMinPopup.addEventListener("click", function () {
+      minPopup.style.display = "none";
+    });
+  }
+
+  // ADD TILE: clicking "+" directly opens file upload
+  if (addTile && imageInput && imageGrid) {
+    addTile.addEventListener("click", function () {
+      imageInput.click();
+    });
+
+    imageInput.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) {
+        imageInput.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "EDPGimg-tile-wrapper";
+
+        const uniqueId = Date.now();
+        const tileId = "EDPGtile" + uniqueId;
+        const dropdownId = "EDPGdd" + uniqueId;
+
+        let mediaElement = "";
+
+        if (file.type.startsWith("image/")) {
+          mediaElement = '<img src="' + event.target.result + '" alt="Gallery Media" />';
+        } else if (file.type.startsWith("video/")) {
+          mediaElement =
+            '<video controls>' +
+            '<source src="' + event.target.result + '" type="' + file.type + '">' +
+            "Your browser does not support the video tag." +
+            "</video>";
+        }
+
+        wrapper.innerHTML =
+          '<div class="EDPGimg-tile" id="' + tileId + '">' +
+            mediaElement +
+            '<span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown(\'' + dropdownId + '\')">' +
+              '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'18\' height=\'18\' viewBox=\'0 0 256 256\'%3E%3Ccircle cx=\'128\' cy=\'60\' r=\'16\' fill=\'%23fff\'/%3E%3Ccircle cx=\'128\' cy=\'128\' r=\'16\' fill=\'%23fff\'/%3E%3Ccircle cx=\'128\' cy=\'196\' r=\'16\' fill=\'%23fff\'/%3E%3C/svg%3E" alt="menu" />' +
+            "</span>" +
+            '<div class="EDPGtile-dropdown" id="' + dropdownId + '">' +
+              '<button class="EDPGset-home">Set on Home</button>' +
+              '<button class="EDPGdelete">Delete</button>' +
+            "</div>" +
+          "</div>";
+
+        wrapper.querySelector(".EDPGdelete").addEventListener("click", function (e) {
+          e.stopPropagation();
+          wrapper.remove();
+        });
+
+        wrapper.querySelector(".EDPGset-home").addEventListener("click", function (e) {
+          e.stopPropagation();
+          EDPGtoggleDropdown(dropdownId);
+        });
+
+        imageGrid.insertBefore(wrapper, addTile.parentElement);
+        imageInput.value = "";
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Bind actions for initial static tiles
+  function bindTileActions() {
+    document.querySelectorAll(".EDPGtile-dropdown .EDPGdelete").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const tileWrapper = btn.closest(".EDPGimg-tile-wrapper");
+        if (tileWrapper) {
+          tileWrapper.remove();
+        }
+      });
+    });
+
+    document.querySelectorAll(".EDPGtile-dropdown .EDPGset-home").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const dropdown = btn.closest(".EDPGtile-dropdown");
+        if (dropdown) {
+          dropdown.classList.remove("open");
+        }
+      });
+    });
+  }
+});
