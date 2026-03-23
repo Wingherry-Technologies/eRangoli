@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.page-wrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #0f8df3;
+  padding-bottom: 10px;
+}
+
+.list {
+  list-style: none;
+}
+
+.list li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.list li div {
+  display: contents;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3f3f3f;
+  justify-self: start;
+}
+
+.count {
+  font-size: 13px;
+  font-weight: 400;
+  color: #3f3f3f;
+  justify-self: center;
+  text-align: left;
+  min-width: 110px;
+}
+
+.edit-icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 50%;
+  background: #eef6ff;
+  cursor: pointer;
+  justify-self: end;
+}
+
+@media (max-width: 595px) {
+  .list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .count {
+    grid-column: 1 / 2;
+    justify-self: start;
+    min-width: auto;
+    font-size: 12px;
+  }
+
+  .edit-icon {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+  .page-wrapper {
+    padding: 0;
+  }
+}

@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.EEASW-container {
+  padding: 20px;
+}
+
+/* Header */
+.EEASW-header {
+  background: #ffffff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Card */
+.EEASW-card {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Top Row */
+.EEASW-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.EEASW-left .EEASW-title {
+  font-weight: 700;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.EEASW-left .EEASW-count {
+  color: gray;
+}
+
+.EEASW-right img {
+  width: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Divider */
+.EEASW-divider {
+  height: 1px;
+  background: rgba(15, 141, 243, 1);
+  margin: 10px 0;
+}
+
+/* Table */
+.EEASW-table {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.EEASW-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.EEASW-header-row {
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #d9d9d9;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 5;
+}
+
+/* Workshop */
+.EEASW-workshop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.EEASW-workshop img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* Status Colors */
+.EEASW-live {
+  color: rgba(0, 150, 5, 1);
+}
+
+.EEASW-draft {
+  color: rgba(18, 144, 247, 1);
+}
+
+.EEASW-archived {
+  color: rgba(236, 140, 36, 1);
+}
+
+/* Enrolled */
+.EEASW-green {
+  color: rgba(0, 150, 5, 1);
+}
+
+/* Edit */
+.EEASW-edit {
+  width: 16px;
+  cursor: pointer;
+}
+
+/* POPUP */
+.EEASW-popup {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  display: none;
+  z-index: 100;
+}
+
+.EEASW-popup-content {
+  padding: 15px;
+}
+
+.EEASW-popup h3 {
+  margin-bottom: 10px;
+}
+
+.EEASW-filter-group {
+  margin-bottom: 10px;
+}
+
+.EEASW-filter-group p {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.EEASW-popup p {
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.EEASW-filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.EEASW-popup-header {
+  border-bottom: 1px solid #0f8df3;
+  padding-bottom: 5px;
+}
+
+/* Scrollbar */
+.EEASW-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.EEASW-table::-webkit-scrollbar-button {
+  display: none;
+}
+
+.EEASW-table::-webkit-scrollbar-track {
+  background: #f1f3f7;
+  border-radius: 10px;
+}
+
+.EEASW-table::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.EEASW-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .EEASW-table {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .EEASW-row {
+    min-width: 900px; /* important */
+  }
+
+  /* text wrap na ho */
+  .EEASW-row div {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 595px) {
+  .EEASW-container {
+    display: none;
+  }
+  .EEASW-mobile {
+    display: block;
+    padding-top: 10px;
+  }
+  .EEASW-mobile-itmes {
+    margin: 10px;
+    background-color: #fff;
+  }
+  body {
+    background: #f5f5f5;
+  }
+
+  /* ACCORDION ITEM */
+  .EEASW-acc-item {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .EEASW-acc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  /* WORKSHOP */
+  .EEASW-acc-header .EEASW-workshop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .EEASW-acc-header img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  /* ARROW */
+  .EEASW-arrow {
+    width: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  /* BODY */
+  .EEASW-acc-body {
+    display: none;
+    padding: 12px;
+  }
+
+  .EEASW-acc-body.active {
+    display: block;
+  }
+
+  /* ROW STYLE — always 3 fixed columns: label | value | icon */
+  .EEASW-acc-body div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  /* LABEL — col 1, left aligned */
+  .EEASW-acc-body div span:first-child {
+    color: #3f3f3f;
+    justify-self: start;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  /* VALUE — col 2, perfectly centered */
+  .EEASW-acc-body div span:nth-child(2) {
+    justify-self: center;
+    text-align: center;
+    font-weight: 400;
+    color: #3f3f3f;
+  }
+
+  /* ICON/EDIT — col 3, right aligned */
+  .EEASW-acc-body div span:nth-child(3) {
+    justify-self: end;
+  }
+
+  .EEASW-acc-item.active {
+    border: 1px solid #0f8df340;
+  }
+  .EEASW-acc-item.active .EEASW-acc-body {
+    border-top: 1px solid#0F8DF340;
+  }
+  .EEASW-Mob-header {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 1rem;
+    color: #3f3f3f;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .EEASW-mob-count {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: #716b6b;
+    font-weight: 400;
+  }
+  .EEASW-mob-edit {
+    width: 16px;
+    justify-self: end; /* right side fix */
+    cursor: pointer;
+  }
+  .EEASW-mob-live {
+    color: rgba(0, 150, 5, 1) !important;
+  }
+  .EEASW-mob-draft {
+    color: rgba(18, 144, 247, 1) !important;
+  }
+  .EEASW-mob-archived {
+    color: rgba(236, 140, 36, 1) !important;
+  }
+  .EEASW-mob-green {
+    color: #009605 !important;
+  }
+}

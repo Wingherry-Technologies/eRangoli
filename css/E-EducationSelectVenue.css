@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+}
+
+.ESVP-back-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 40px;
+  font-size: 13px;
+  color: #3F3F3F;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ESVP-back-link img {
+  width: 18px;
+  height: 18px;
+}
+
+.ESVP-title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  padding: 8px 24px 24px;
+  color: #3F3F3F;
+}
+
+.ESVP-state-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0 24px 24px;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.ESVP-state-tab {
+  padding: 8px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #3F3F3F;
+  background: none;
+  white-space: nowrap;
+}
+.ESVP-state-tab.ESVP-active {
+  background: #EFDFDF;
+  color: #3F3F3F;
+  font-weight: 500;
+}
+.ESVP-state-tab:hover:not(.ESVP-active) {
+  background: #f9f9f9;
+}
+
+.ESVP-content {
+  max-width: 630px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.ESVP-select-label {
+  font-size: 16px;
+  color: #716B6B;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.ESVP-state-panel {
+  display: none;
+}
+.ESVP-state-panel.ESVP-visible {
+  display: block;
+}
+
+.ESVP-city-accordion {
+
+  border-radius: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.ESVP-city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 14px;
+  cursor: pointer;
+  background: #F6F6F6;
+  user-select: none;
+  border-radius: 8px;
+}
+.ESVP-city-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3F3F3F;
+}
+.ESVP-city-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s;
+}
+.ESVP-city-accordion.ESVP-open .ESVP-city-arrow {
+  transform: rotate(180deg);
+}
+
+.ESVP-city-body {
+  display: none;
+  padding: 0;
+}
+.ESVP-city-accordion.ESVP-open .ESVP-city-body {
+  display: block;
+}
+
+.ESVP-venue-item {
+  padding: 20px 16px;
+  cursor: pointer;
+
+}
+.ESVP-venue-item:last-child {
+  border-bottom: none;
+}
+.ESVP-venue-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3F3F3F;
+  margin-bottom: 4px;
+}
+.ESVP-venue-address {
+  font-size: 13px;
+  color: #000000;
+  line-height: 1.7;
+  margin-bottom: 4px;
+  word-spacing: 2px;
+  font-weight: 400;
+}
+.ESVP-venue-link {
+  font-size: 13px;
+  color: #FD0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+@media (max-width:1024px){
+  body{
+    background-color: #F6F6F6;
+  }
+  .ESVP-title{
+    font-size: 22px;
+  }
+  .ESVP-state-tab{
+    background-color: #FFFFFF;
+  }
+  .ESVP-state-tabs{
+    gap: 20px;
+    margin-top: 0;
+  }
+  .ESVP-content{
+    margin: 20px auto;
+  }
+  .ESVP-city-header,
+  .ESVP-venue-item
+  {
+    background-color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+  .ESVP-venue-item{
+    border-radius: 8px;
+  }
+    .ESVP-state-tabs{
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+/* @media (max-width:595px) {
+  .ESVP-state-tabs{
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+} */
+  

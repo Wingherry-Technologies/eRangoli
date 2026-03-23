@@ -95,7 +95,7 @@ body {
   font-weight: 400;
 }
 
-.back-to-search-mob {
+.EEUW-back-to-search-mob {
   display: none;
 }
 
@@ -114,7 +114,7 @@ body {
   .EEUW-title {
     display: none;
   }
-  .back-to-search-mob {
+  .EEUW-back-to-search-mob {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -123,10 +123,10 @@ body {
     padding: 30px 20px;
     background: #ffffff;
   }
-  .back-to-search-mob > img {
+  .EEUW-back-to-search-mob > img {
     height: 20px;
   }
-  .back-to-search-mob > span {
+  .EEUW-back-to-search-mob > span {
     color: #3f3f3f;
   }
   .EEUW-container {

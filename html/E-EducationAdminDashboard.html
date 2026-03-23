@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Charts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/E-EducationAdminDashboard.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+
+  <body>
+    <div class="EEAD-main-content-beyond">
+      <div class="EEAD-wrapper">
+        <div class="EEAD-adminSalesStatsRow">
+          <div class="EEAD-adminSalesStatCard">
+            <div class="EEAD-adminSalesStatHeader">
+              <div class="EEAD-adminSalesStatIcon">
+                <img
+                  src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                  alt=""
+                />
+              </div>
+              <span class="EEAD-adminSalesStatLabel">Total Sales</span>
+            </div>
+            <div class="EEAD-adminSalesStatValue">26,945</div>
+            <div class="EEAD-adminSalesStatFooter">
+              <span class="EEAD-adminSalesStatChange">
+                <img
+                  src="../assets/adminSaleDashboard/TrendUp (2).svg"
+                  alt=""
+                />
+                +15.3%
+              </span>
+              <div class="EEAD-adminSalesStatChart">
+                <img
+                  src="../assets/adminSaleDashboard/Vector 11.svg"
+                  alt="chart"
+                  class="EEAD-adminSalesChartImage"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="EEAD-adminSalesStatCard">
+            <div class="EEAD-adminSalesStatHeader">
+              <div class="EEAD-adminSalesStatIcon">
+                <img
+                  src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                  alt=""
+                />
+              </div>
+              <span class="EEAD-adminSalesStatLabel">Profit</span>
+            </div>
+            <div class="EEAD-adminSalesStatValue">14,945</div>
+            <div class="EEAD-adminSalesStatFooter">
+              <span class="EEAD-adminSalesStatChange">
+                <img
+                  src="../assets/adminSaleDashboard/TrendUp (2).svg"
+                  alt=""
+                />
+                +15.3%
+              </span>
+              <div class="EEAD-adminSalesStatChart">
+                <img
+                  src="../assets/adminSaleDashboard/Vector 11.svg"
+                  alt="chart"
+                  class="EEAD-adminSalesChartImage"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="EEAD-adminSalesStatCard">
+            <div class="EEAD-adminSalesStatHeader">
+              <div class="EEAD-adminSalesStatIcon">
+                <img
+                  src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                  alt=""
+                />
+              </div>
+              <span class="EEAD-adminSalesStatLabel">Average Monthly</span>
+            </div>
+            <div class="EEAD-adminSalesStatValue">4,945</div>
+            <div class="EEAD-adminSalesStatFooter">
+              <span class="EEAD-adminSalesStatChange">
+                <img
+                  src="../assets/adminSaleDashboard/TrendUp (2).svg"
+                  alt=""
+                />
+                +15.3%
+              </span>
+              <div class="EEAD-adminSalesStatChart">
+                <img
+                  src="../assets/adminSaleDashboard/Vector 11.svg"
+                  alt="chart"
+                  class="EEAD-adminSalesChartImage"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="EEAD-adminSalesStatCard">
+            <div class="EEAD-adminSalesStatHeader">
+              <div class="EEAD-adminSalesStatIcon">
+                <img
+                  src="../assets/adminSaleDashboard/CurrencyInr (1).svg"
+                  alt=""
+                />
+              </div>
+              <span class="EEAD-adminSalesStatLabel">Turn over</span>
+            </div>
+            <div class="EEAD-adminSalesStatValue">945</div>
+            <div class="EEAD-adminSalesStatFooter">
+              <span class="EEAD-adminSalesStatChange">
+                <img
+                  src="../assets/adminSaleDashboard/TrendUp (2).svg"
+                  alt=""
+                />
+                +15.3%
+              </span>
+              <div class="EEAD-adminSalesStatChart">
+                <img
+                  src="../assets/adminSaleDashboard/Vector 11.svg"
+                  alt="chart"
+                  class="EEAD-adminSalesChartImage"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="EEAD-card">
+          <div class="EEAD-card-header EEAD-order-header">
+            <div>
+              <h3>Today's Active Workshops</h3>
+            </div>
+            <div class="EEAD-custom-select" id="EEAD-select-orders">
+              <div class="EEAD-select-trigger">
+                Weekly <span class="EEAD-select-arrow">&#9662;</span>
+              </div>
+              <ul class="EEAD-select-dropdown">
+                <li data-value="Daily">Daily</li>
+                <li data-value="Weekly" class="active">Weekly</li>
+                <li data-value="Monthly">Monthly</li>
+                <li data-value="Annually">Annually</li>
+              </ul>
+            </div>
+          </div>
+          <p class="EEAD-subtitle">Earning Report Lorem Ipsum</p>
+
+          <div class="EEAD-order-body">
+            <div class="EEAD-order-info">
+              <div class="EEAD-info-item">
+                <div class="EEAD-blue"></div>
+                <div>
+                  <span id="EEAD-receivedTotal">340</span>
+                  <small>Enrolled</small>
+                </div>
+              </div>
+              <div class="EEAD-info-item">
+                <div class="EEAD-purple"></div>
+                <div>
+                  <span id="EEAD-deliveredTotal">230</span>
+                  <small>Attended</small>
+                </div>
+              </div>
+              <div class="EEAD-info-item">
+                <div class="EEAD-pink"></div>
+                <div>
+                  <span id="EEAD-transitTotal">180</span>
+                  <small>Absent</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="EEAD-order-chart">
+              <canvas id="EEAD-orderChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="EEAD-dashboard">
+          <div class="EEAD-card">
+            <div class="EEAD-card-header">
+              <div>
+                <h3>Revenue Data</h3>
+              </div>
+              <div class="EEAD-custom-select" id="EEAD-select-revenue">
+                <div class="EEAD-select-trigger">
+                  Weekly <span class="EEAD-select-arrow">&#9662;</span>
+                </div>
+                <ul class="EEAD-select-dropdown">
+                  <li data-value="Daily">Daily</li>
+                  <li data-value="Weekly" class="active">Weekly</li>
+                  <li data-value="Monthly">Monthly</li>
+                  <li data-value="Annually">Annually</li>
+                </ul>
+              </div>
+            </div>
+            <p class="EEAD-subtitle">Monitor your revenue growth</p>
+            <div class="EEAD-revenue-line">
+              <span class="EEAD-amount">₹ 75,679</span>
+
+              <span class="EEAD-growth">
+                <span
+                  ><img
+                    class="EEAD-arrow"
+                    src="../assets/E-EducationAdminDashboard/growth.png"
+                    alt="growth-up"
+                /></span>
+                1.3%
+              </span>
+
+              <span class="EEAD-compare">VS LAST WEEK</span>
+            </div>
+            <canvas id="EEAD-revenueChart"></canvas>
+          </div>
+
+          <div class="EEAD-card EEAD-revenue-card">
+            <div class="EEAD-card-header">
+              <h3>Revenue Amount</h3>
+              <div class="EEAD-custom-select" id="EEAD-select-amount">
+                <div class="EEAD-select-trigger">
+                  Weekly <span class="EEAD-select-arrow">&#9662;</span>
+                </div>
+                <ul class="EEAD-select-dropdown">
+                  <li data-value="Daily">Daily</li>
+                  <li data-value="Weekly" class="active">Weekly</li>
+                  <li data-value="Monthly">Monthly</li>
+                  <li data-value="Annually">Annually</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="EEAD-donutWrapper">
+              <img
+                src="../assets/E-EducationAdminDashboard/Ellipse 1.png"
+                class="EEAD-donutBg"
+                alt="donut bg"
+              />
+              <canvas id="EEAD-revenueDonutChart"></canvas>
+            </div>
+
+            <div class="EEAD-revenue-legend">
+              <div class="EEAD-legend-item">
+                <span class="EEAD-dot EEAD-workshop"></span>
+                Workshop Courses
+              </div>
+              <div class="EEAD-legend-item">
+                <span class="EEAD-dot EEAD-short"></span>
+                Short Workshop
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascript/E-EducationAdminDashboard.js"></script>
+  </body>
+</html>

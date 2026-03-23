@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Workshop</title>
+    <link rel="stylesheet" href="../css/E-EducationAdminUpcomingWorkshop.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EEAUW-container">
+      <!-- Header -->
+      <div class="EEAUW-header">Upcoming Workshop</div>
+
+      <!-- Card -->
+      <div class="EEAUW-card">
+        <!-- Top Row -->
+        <div class="EEAUW-card-header">
+          <div class="EEAUW-left">
+            <span class="EEAUW-title">Workshop</span>
+            <span class="EEAUW-count">12 Ongoing</span>
+          </div>
+
+          <div class="EEAUW-right">
+            <img
+              id="EEAUW-filterBtn"
+              src="../assets/E-EducationAdminShortWorkshop/filter.png"
+            />
+            <img
+              id="EEAUW-sortBtn"
+              src="../assets/E-EducationAdminShortWorkshop/sort.png"
+            />
+          </div>
+        </div>
+
+        <!-- FILTER POPUP -->
+        <div id="EEAUW-filterPopup" class="EEAUW-popup">
+          <div class="EEAUW-popup-content">
+            <div class="EEAUW-popup-header">
+              <h3>Filter</h3>
+            </div>
+
+            <div class="EEAUW-filter-group">
+              <p>Type</p>
+              <div class="EEAUW-filter-options">
+                <label><input type="checkbox" value="Short" /> Short</label>
+                <label><input type="checkbox" value="Long" /> Long</label>
+              </div>
+            </div>
+
+            <div class="EEAUW-filter-group">
+              <p>Location</p>
+              <div class="EEAUW-filter-options">
+                <label
+                  ><input type="checkbox" value="Mumbai, MH" /> Mumbai</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SORT POPUP -->
+        <div id="EEAUW-sortPopup" class="EEAUW-popup">
+          <div class="EEAUW-popup-content">
+            <div class="EEAUW-popup-header">
+              <h3>Sort</h3>
+            </div>
+
+            <p onclick="sortTable('price')">Price Low → High</p>
+            <p onclick="sortTable('date')">Date Latest</p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="EEAUW-divider"></div>
+
+        <!-- Table -->
+        <div class="EEAUW-table">
+          <!-- Header Row -->
+          <div class="EEAUW-row EEAUW-header-row">
+            <div>Workshop Name</div>
+            <div>Type</div>
+            <div>Duration</div>
+            <div>Location</div>
+            <div>Price</div>
+            <div>Scheduled</div>
+            <div>Action</div>
+          </div>
+
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>15/03/26</div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>
+              <img
+                src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                alt="Calendar"
+                class="calendar"
+              />
+            </div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>15/03/26</div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>
+              <img
+                src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                alt="Calendar"
+                class="calendar"
+              />
+            </div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>15/03/26</div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>
+              <img
+                src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                alt="Calendar"
+                class="calendar"
+              />
+            </div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>15/03/26</div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+          <div class="EEAUW-row">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <div>Short</div>
+            <div>Duration</div>
+            <div>Mumbai, MH</div>
+            <div>₹1199</div>
+            <div>
+              <img
+                src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                alt="Calendar"
+                class="calendar"
+              />
+            </div>
+            <div>
+              <img
+                class="EEAUW-edit"
+                src="../assets/E-EducationAdminShortWorkshop/edit.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="EEAUW-mobile">
+      <div class="EEAUW-Mob-header">Upcoming Workshop</div>
+      <div class="EEAUW-mob-count">8 ongoings</div>
+
+      <div class="EEAUW-mobile-itmes">
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div>
+              <span>Scheduled</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                  alt="calendar"
+                  class="EEAUW-mob-calendar" /></span
+              ><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div><span>Scheduled</span><span>15/02/26</span><span></span></div>
+          </div>
+        </div>
+        <div class="EEAUW-acc-item">
+          <!-- HEADER -->
+          <div class="EEAUW-acc-header">
+            <div class="EEAUW-workshop">
+              <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
+              <span>Pottery Making</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminShortWorkshop/down.png"
+              class="EEAUW-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEAUW-acc-body">
+            <div>
+              <span>Type</span><span>Short</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/edit.png"
+                  alt="Edit"
+                  class="EEAUW-mob-edit"
+              /></span>
+            </div>
+            <div><span>Duration</span><span>02:30mins</span><span></span></div>
+            <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
+            <div><span>Price</span><span>₹1199</span><span></span></div>
+            <div>
+              <span>Scheduled</span
+              ><span
+                ><img
+                  src="../assets/E-EducationAdminShortWorkshop/calendar.png"
+                  alt="calendar"
+                  class="EEAUW-mob-calendar" /></span
+              ><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationAdminUpcomingWorkshop.js"></script>
+  </body>
+</html>

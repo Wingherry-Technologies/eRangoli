@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito Sans;
+}
+.backtosearch{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.back-search{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#444;
+    font-size:16px;
+    cursor:pointer;
+    padding:10px 0;
+}
+
+.back-icon img{
+    width: 20px;
+    padding-top: 6px;
+}
+
+.back-search:hover{
+    color:#000;
+}
+.mygiftbx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.workshop-container {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 6px;
+}
+
+.title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-family: Nunito Sans;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #3F3F3F;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #3F3F3F;
+    margin-bottom: 15px;
+    font-family: Nunito Sans;
+    font-weight: 400;
+    font-style: Regular;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+}
+
+.section-title {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #3F3F3F;
+    font-family: Nunito Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    line-height: 32px;
+    letter-spacing: 0%;
+    text-align: left;
+
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #716B6B;
+    font-family: Nunito Sans;
+    font-weight: 400;
+    font-style: Regular;
+    line-height: 20px;
+    letter-spacing: 0%;
+
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #F6F6F6;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    font-family: Nunito Sans;
+    font-weight: 400;
+    font-style: Regular;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #3F3F3F;
+}
+
+input:focus,
+textarea:focus {
+    background: #e9e9e9;
+}
+
+textarea {
+    resize: none;
+}
+
+.note {
+    font-size: 11px;
+    color: #A10404;
+    text-align: center;
+    font-family: Nunito Sans;
+    font-weight: 400;
+    font-style: Regular;
+    line-height: 32px;
+    letter-spacing: 0%;
+    margin-bottom: 8px;
+}
+.subbtn{
+    display: flex;
+    justify-content: center;
+}
+.submit-btn {
+    width: 100%;
+    background: #A10404;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    max-width: 400px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    background: #8f0000;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Responsive */
+
+@media (max-width:480px) {
+
+    .workshop-container {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+}

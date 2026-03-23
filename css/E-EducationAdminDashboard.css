@@ -1,0 +1,459 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans";
+}
+
+body {
+  background: #ebeef3;
+}
+
+.EEAD-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.EEAD-adminSalesStatsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.EEAD-adminSalesStatCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+}
+
+.EEAD-adminSalesStatHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.EEAD-adminSalesStatIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1290f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.EEAD-adminSalesStatIcon img {
+  width: 16px;
+  height: 16px;
+}
+
+.EEAD-adminSalesStatLabel {
+  font-size: 13px;
+  color: #636161;
+  font-weight: 400;
+}
+
+.EEAD-adminSalesStatValue {
+  font-size: 24px;
+  font-weight: 500;
+  color: #3f3f3f;
+  margin-bottom: 12px;
+  margin-left: 3rem;
+}
+
+.EEAD-adminSalesStatFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.EEAD-adminSalesStatChange {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #8e8989;
+  font-weight: 500;
+}
+
+.EEAD-adminSalesStatChart {
+  flex: 1;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.EEAD-adminSalesChartImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.EEAD-dashboard {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 20px;
+}
+
+.EEAD-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.EEAD-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #6828e7;
+}
+
+.EEAD-card-header h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.EEAD-card-header select {
+  display: none;
+}
+
+/* Custom Dropdown */
+.EEAD-custom-select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4px;
+  min-width: 90px;
+  user-select: none;
+}
+
+.EEAD-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #6828e7;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+
+.EEAD-select-trigger:hover {
+  border-color: #6828e7;
+}
+
+.EEAD-select-arrow {
+  font-size: 10px;
+  color: #6828e7;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.EEAD-custom-select.open .EEAD-select-arrow {
+  transform: rotate(180deg);
+}
+
+.EEAD-select-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  list-style: none;
+  padding: 4px 15px;
+  margin: 0;
+  min-width: 100%;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.EEAD-custom-select.open .EEAD-select-dropdown {
+  display: block;
+}
+
+.EEAD-select-dropdown li {
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #3f3f3f;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  border-radius: 4px;
+}
+
+.EEAD-select-dropdown li:hover {
+  background: #f3eeff;
+  color: #6828e7;
+}
+
+.EEAD-select-dropdown li.active {
+  background: #6828e7;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.EEAD-card-header option {
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+}
+
+canvas:not(#EEAD-revenueDonutChart) {
+  height: 260px !important;
+  margin-top: 1rem;
+}
+
+#EEAD-revenueDonutChart {
+  height: 195px !important;
+  width: 195px !important;
+  margin-top: -17px !important;
+  display: block;
+  flex-shrink: 0;
+}
+
+.EEAD-order-header {
+  align-items: flex-start;
+}
+
+.EEAD-subtitle {
+  font-size: 12px;
+  color: #9aa0ac;
+  margin: 4px 0 0;
+}
+
+.EEAD-order-body {
+  display: flex;
+  gap: 25px;
+  margin-top: 12px;
+}
+
+.EEAD-order-info {
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.EEAD-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.EEAD-info-item div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.EEAD-info-item span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.EEAD-info-item small {
+  font-size: 11px;
+  color: #8b8b8b;
+  margin-top: 2px;
+}
+.EEAD-blue {
+  background: #339af0;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+}
+.EEAD-purple {
+  background: #845ef7;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+}
+.EEAD-pink {
+  background: #f06595;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+}
+
+.EEAD-order-chart {
+  flex: 1;
+  height: 260px;
+  width: 100%;
+}
+
+.EEAD-revenue-card {
+  text-align: center;
+}
+
+.EEAD-donutWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.EEAD-donutBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.EEAD-donutWrapper canvas {
+  position: relative;
+  z-index: 1;
+  transform: translateY(9px);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.EEAD-revenue-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.EEAD-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.EEAD-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.EEAD-dot.EEAD-workshop {
+  background: #15ebe0;
+}
+
+.EEAD-dot.EEAD-short {
+  background: #7b5dd6;
+}
+
+.EEAD-revenue-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.EEAD-amount {
+  font-size: 28px;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.EEAD-growth {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(4, 206, 0, 1);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.EEAD-compare {
+  color: #9aa0ac;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.EEAD-arrow {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+@media (max-width: 1024px) and (min-width: 595px) {
+  .EEAD-order-body {
+    flex-direction: column;
+  }
+  .EEAD-order-info {
+    flex-direction: row;
+  }
+  .EEAD-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .EEAD-adminSalesStatsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 595px) {
+  .EEAD-wrapper {
+    padding: 15px;
+  }
+
+  .EEAD-adminSalesStatsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+  }
+
+  .EEAD-adminSalesStatCard {
+    min-width: 0;
+  }
+  .EEAD-order-body {
+    flex-direction: column;
+  }
+
+  .EEAD-order-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .EEAD-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .EEAD-revenue-line {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .EEAD-donutWrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  #EEAD-revenueDonutChart {
+    width: 150px !important;
+    height: 150px !important;
+    margin-top: -13px !important;
+  }
+  .EEAD-card {
+    overflow: hidden;
+  }
+  .EEAD-adminSalesStatValue {
+    margin-left: 0;
+  }
+  .EEAD-adminSalesStatIcon {
+    width: 29px;
+    height: 29px;
+  }
+}
