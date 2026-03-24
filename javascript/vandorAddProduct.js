@@ -2259,7 +2259,7 @@ function handleFileUpload(file, container, preview) {
     container.classList.remove("error");
     addDeleteButton(container, preview);
     validateImages();
-    validateSubImages();
+    // validateSubImages();
   };
   reader.readAsDataURL(file);
 }
@@ -2966,22 +2966,22 @@ function validateMainImage() {
   return true;
 }
 
-function validateSubImages() {
-  const boxes = document.querySelectorAll(".upload-box");
-  let hasImage = false;
-  boxes.forEach(box => { if (box.classList.contains("has-image")) hasImage = true; });
+// function validateSubImages() {
+//   const boxes = document.querySelectorAll(".upload-box");
+//   let hasImage = false;
+//   boxes.forEach(box => { if (box.classList.contains("has-image")) hasImage = true; });
 
-  if (!hasImage) {
-    boxes.forEach(b => b.classList.add("error"));
-    document.getElementById("imageError").innerText = "At least one image is required";
-    document.getElementById("imageError").style.display = "block";
-    return false;
-  }
+//   if (!hasImage) {
+//     boxes.forEach(b => b.classList.add("error"));
+//     document.getElementById("imageError").innerText = "At least one image is required";
+//     document.getElementById("imageError").style.display = "block";
+//     return false;
+//   }
 
-  boxes.forEach(b => b.classList.remove("error"));
-  document.getElementById("imageError").style.display = "none";
-  return true;
-}
+//   boxes.forEach(b => b.classList.remove("error"));
+//   document.getElementById("imageError").style.display = "none";
+//   return true;
+// }
 
 function validateImages() {
   let count = 0;
@@ -3264,7 +3264,7 @@ savePreviewBtn.addEventListener("click", function () {
   if (!validateMainImage())        isValid = false;
 
   // 2. Sub images
-  if (!validateSubImages())        isValid = false;
+  // if (!validateSubImages())        isValid = false;
 
   // 3. Variants (only when variants exist)
   if (hasVariants()) {
