@@ -302,6 +302,23 @@ function setupFiveItemToggle(type, listSelector) {
       : "../assets/vendorProductPreview/Plus.svg";
   });
 }
+document.querySelectorAll(".productOverviewDetailsSection").forEach(section => {
+  const toggleIcon = section.querySelector(".sectionToggleIcon");
+
+  if (!toggleIcon) return;
+
+  toggleIcon.addEventListener("click", () => {
+    section.classList.toggle("expanded");
+
+    // Change icon
+    if (section.classList.contains("expanded")) {
+      toggleIcon.src = "../assets/productOverview/Minus.svg";
+    } else {
+      toggleIcon.src = "../assets/productOverview/PlusSign.svg";
+    }
+  });
+});
+
 
 document.querySelector("#sidebar-main-vendor ul>li:nth-child(2)").classList.add("sidebar-active");
 
