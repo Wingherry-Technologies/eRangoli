@@ -698,6 +698,16 @@ input[type="radio"] {
 .pd-page-btn img {
   max-width: 40px;
 }
+@media (max-width:1339px) {
+  .SBS-submenu.level-2:hover{
+    left: -80px;
+  }
+}
+@media (max-width:1279px) {
+  .SBS-submenu.level-2:hover{
+    left: -100px;
+  }
+}
 @media (max-width:1260px) {
     .products.pd-grid {
       gap: 8px;
@@ -725,6 +735,16 @@ input[type="radio"] {
   .pd-price .off {
     font-size: 10px !important;
   }
+}
+@media (max-width:1235px) {
+  .SBS-submenu.level-2:hover{
+    left: -130px;
+  }
+}
+@media (max-width:926px) {
+    .SBS-submenu.level-2:hover{
+      left: -100px;
+    }
 }
 
 /* TABLET — horizontal layout (481px–899px) */
