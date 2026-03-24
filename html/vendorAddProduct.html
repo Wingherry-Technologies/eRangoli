@@ -525,7 +525,7 @@
                     </div>
 
                     <p class="image-info-text">
-                    * You need to add at least 4 images. Pay attention to the quality of the
+                    * You need to add at least 1 images. Pay attention to the quality of the
                     pictures you add, comply with the background color standards. Pictures must
                     be in certain dimensions. Notice that the product shows all the details
                     </p>
@@ -617,6 +617,118 @@
                 </div>
             </div>
         </div>
+
+        <div class="info-section">
+  <div class="section-header">
+    <h3>Product Information</h3>
+    <button type="button" class="add-another-btn" data-section="product">+ Add another</button>
+  </div>
+
+  <div class="info-container" id="productInfoContainer">
+    <div class="info-row">
+
+      <div class="input-group">
+        <label>Enter Field Name *</label>
+        <input type="text" class="field-name" maxlength="50">
+        <span class="error-text name-error"></span>
+      </div>
+
+      <div class="textarea-group">
+        <label>Write Description *</label>
+        <textarea class="field-desc" maxlength="1000"></textarea>
+        <div class="char-count">0/1000</div>
+        <span class="error-text desc-error"></span>
+      </div>
+
+      <!-- <span class="error-text"></span> -->
+    </div>
+  </div>
+</div>
+
+<div class="info-section">
+  <div class="section-header">
+    <h3>Additional Information</h3>
+    <button type="button" class="add-another-btn" data-section="additional">+ Add another</button>
+  </div>
+
+  <div class="info-container" id="additionalInfoContainer">
+    <div class="info-row">
+
+      <div class="input-group">
+        <label>Enter Field Name *</label>
+        <input type="text" class="field-name" maxlength="50">
+        <span class="error-text name-error"></span>
+      </div>
+
+      <div class="textarea-group">
+        <label>Write Description *</label>
+        <textarea class="field-desc" maxlength="1000"></textarea>
+        <div class="char-count">0/1000</div>
+        <span class="error-text desc-error"></span>
+      </div>
+
+      <!-- <span class="error-text"></span> -->
+    </div>
+  </div>
+</div> 
+
+<div class="info-section">
+  <div class="section-header">
+    <h3>Care Information</h3>
+    <button type="button" class="add-another-btn" data-section="care">+ Add another</button>
+  </div>
+
+  <div class="info-container" id="careInfoContainer">
+    <div class="info-row">
+
+      <div class="input-group">
+        <label>Enter Field Name *</label>
+        <input type="text" class="field-name" maxlength="50">
+        <span class="error-text name-error"></span>
+      </div>
+
+      <div class="textarea-group">
+        <label>Write Description *</label>
+        <textarea class="field-desc" maxlength="1000"></textarea>
+        <div class="char-count">0/1000</div>
+        <span class="error-text desc-error"></span>
+      </div>
+
+      <!-- <span class="error-text"></span> -->
+    </div>
+  </div>
+</div>
+
+<div class="info-section">
+  <div class="section-header">
+    <h3>Return / Exchange Policy</h3>
+
+    <!-- ✅ ADD THIS BUTTON -->
+    <button type="button" class="add-another-btn" data-section="return">
+      + Add Another
+    </button>
+  </div>
+
+  <div class="info-container" id="returnInfoContainer">
+
+    <div class="info-row">
+
+      <div class="form-group textarea-group full-width">
+        <label>Write Description <span class="required">*</span></label>
+
+        <!-- ✅ IMPORTANT CLASS -->
+        <textarea class="field-desc" maxlength="1000"></textarea>
+
+        <div class="char-count">0/1000</div>
+
+        <!-- ✅ ERROR MESSAGE -->
+        <span class="error-text desc-error"></span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
         <div class="section">
             <div class="section-header">
@@ -717,7 +829,7 @@
 
                         <div class="form-group full-width">
                             <label class="form-label">Total Quantity</label>
-                            <input type="text" class="form-input " placeholder="120">
+                            <input type="text" class="form-input quantity-input" placeholder="120">
                         </div>
                     </div>
                    </div> 

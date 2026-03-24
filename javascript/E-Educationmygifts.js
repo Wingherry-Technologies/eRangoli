@@ -13,9 +13,6 @@ const message = document.getElementById("message").value.trim();
 
 document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
-
-/* NAME VALIDATION */
-
 if(name === ""){
 document.getElementById("nameError").innerText="Name is required";
 isValid=false;
@@ -25,9 +22,6 @@ document.getElementById("nameError").innerText="Only letters allowed";
 isValid=false;
 }
 
-
-/* MOBILE VALIDATION */
-
 if(mobile === ""){
 document.getElementById("mobileError").innerText="Mobile number required";
 isValid=false;
@@ -36,9 +30,6 @@ else if(!/^[6-9]\d{9}$/.test(mobile)){
 document.getElementById("mobileError").innerText="Enter valid 10 digit number";
 isValid=false;
 }
-
-
-/* EMAIL VALIDATION */
 
 if(email === ""){
 document.getElementById("emailError").innerText="Email required";
@@ -50,15 +41,10 @@ isValid=false;
 }
 
 
-/* MESSAGE VALIDATION */
-
 if(message === ""){
 document.getElementById("messageError").innerText="Message required";
 isValid=false;
 }
-
-
-/* SUCCESS */
 
 if(isValid){
 alert("Form Submitted Successfully");
