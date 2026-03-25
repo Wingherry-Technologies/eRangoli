@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var publishBtn = document.getElementById("EEDSW-publishBtn");
-  var addBtn = document.getElementById("EEDSW-addBtn");
-  var floatingBtn = document.querySelector(".EEDSW-floating-plus-btn");
-  var popup = document.getElementById("EEDSW-addProductPopup");
-  var closePopupBtn = document.getElementById("EEDSW-closePopup");
-  var tableBody = document.getElementById("EEDSW-tableBody");
-  var faqContainer = document.getElementById("EEDSW-mobileFaqContainer");
-  var searchInput = document.getElementById("EEDSW-searchInput");
-  var noResults = document.getElementById("EEDSW-noResults");
-  var addProductBtn = document.getElementById("EEDSW-addProductBtn");
-  var validationMsg = document.getElementById("EEDSW-validationMsg");
-  var toaster = document.getElementById("EEDSW-toaster");
-  var toasterMsg = document.getElementById("EEDSW-toaster-msg");
-  var mobCountEl = document.getElementById("EEDSW-mob-count");
-  var minError = document.getElementById("EEDSW-minError");
-  var minErrorMob = document.getElementById("EEDSW-minErrorMob");
+  var publishBtn = document.getElementById("EEDWC-publishBtn");
+  var addBtn = document.getElementById("EEDWC-addBtn");
+  var floatingBtn = document.querySelector(".EEDWC-floating-plus-btn");
+  var popup = document.getElementById("EEDWC-addProductPopup");
+  var closePopupBtn = document.getElementById("EEDWC-closePopup");
+  var tableBody = document.getElementById("EEDWC-tableBody");
+  var faqContainer = document.getElementById("EEDWC-mobileFaqContainer");
+  var searchInput = document.getElementById("EEDWC-searchInput");
+  var noResults = document.getElementById("EEDWC-noResults");
+  var addProductBtn = document.getElementById("EEDWC-addProductBtn");
+  var validationMsg = document.getElementById("EEDWC-validationMsg");
+  var toaster = document.getElementById("EEDWC-toaster");
+  var toasterMsg = document.getElementById("EEDWC-toaster-msg");
+  var mobCountEl = document.getElementById("EEDWC-mob-count");
+  var minError = document.getElementById("EEDWC-minError");
+  var minErrorMob = document.getElementById("EEDWC-minErrorMob");
 
   var toasterTimer = null;
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateCount() {
     var count = tableBody.querySelectorAll("tr").length;
 
-    var desktopCount = document.querySelector(".EEDSW-count");
+    var desktopCount = document.querySelector(".EEDWC-count");
     if (desktopCount) desktopCount.textContent = count + " Products";
 
     if (mobCountEl) mobCountEl.textContent = count + " Products";
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var rows = tableBody.querySelectorAll("tr");
 
     rows.forEach(function (row) {
-      var imgEl = row.querySelector(".EEDSW-product-img");
-      var nameEl = row.querySelector(".EEDSW-product-info span");
+      var imgEl = row.querySelector(".EEDWC-product-img");
+      var nameEl = row.querySelector(".EEDWC-product-info span");
       var cells = row.querySelectorAll("td");
 
       var imgSrc = imgEl ? imgEl.src : "";
@@ -70,57 +70,57 @@ document.addEventListener("DOMContentLoaded", function () {
       var price = cells[3] ? cells[3].textContent.trim() : "";
 
       var faqItem = document.createElement("div");
-      faqItem.classList.add("EEDSW-faq-item");
+      faqItem.classList.add("EEDWC-faq-item");
 
       faqItem.innerHTML =
-        '<button class="EEDSW-faq-question">' +
-        '<div class="EEDSW-faq-title">' +
+        '<button class="EEDWC-faq-question">' +
+        '<div class="EEDWC-faq-title">' +
         '<img src="' +
         imgSrc +
-        '" class="EEDSW-product-img" />' +
-        '<div class="EEDSW-faq-user-text">' +
-        '<span class="EEDSW-faq-username">' +
+        '" class="EEDWC-product-img" />' +
+        '<div class="EEDWC-faq-user-text">' +
+        '<span class="EEDWC-faq-username">' +
         name +
         "</span>" +
         "</div>" +
         "</div>" +
         '<img src="../assets/adminProductRecentlyAdded/CaretDown.svg" />' +
         "</button>" +
-        '<div class="EEDSW-faq-answer">' +
-        '<div class="EEDSW-faq-row">' +
+        '<div class="EEDWC-faq-answer">' +
+        '<div class="EEDWC-faq-row">' +
         "<span>Date</span><span>" +
         date +
         "</span>" +
         "</div>" +
-        '<div class="EEDSW-faq-row">' +
+        '<div class="EEDWC-faq-row">' +
         "<span>Duration</span><span>" +
         duration +
         "</span>" +
         "</div>" +
-        '<div class="EEDSW-faq-row">' +
+        '<div class="EEDWC-faq-row">' +
         "<span>Price</span><span>" +
         price +
         "</span>" +
         "</div>" +
-        '<div class="EEDSW-faq-row">' +
+        '<div class="EEDWC-faq-row">' +
         "<span>Action</span>" +
         "<span>" +
         '<img src="../assets/develoeprHMExclusiveProducts/delete.svg" ' +
-        'class="EEDSW-delete-icon EEDSW-mob-del-icon" />' +
+        'class="EEDWC-delete-icon EEDWC-mob-del-icon" />' +
         "</span>" +
         "</div>" +
         "</div>";
 
-      var question = faqItem.querySelector(".EEDSW-faq-question");
+      var question = faqItem.querySelector(".EEDWC-faq-question");
       question.addEventListener("click", function () {
         var isActive = faqItem.classList.contains("active");
-        faqContainer.querySelectorAll(".EEDSW-faq-item").forEach(function (el) {
+        faqContainer.querySelectorAll(".EEDWC-faq-item").forEach(function (el) {
           el.classList.remove("active");
         });
         if (!isActive) faqItem.classList.add("active");
       });
 
-      var mobDelIcon = faqItem.querySelector(".EEDSW-mob-del-icon");
+      var mobDelIcon = faqItem.querySelector(".EEDWC-mob-del-icon");
       mobDelIcon.addEventListener("click", function (e) {
         e.stopPropagation();
         var currentCount = tableBody.querySelectorAll("tr").length;
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   tableBody.addEventListener("click", function (e) {
-    if (e.target.classList.contains("EEDSW-delete-icon")) {
+    if (e.target.classList.contains("EEDWC-delete-icon")) {
       var row = e.target.closest("tr");
       if (!row) return;
 
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.addEventListener("input", function () {
       var query = this.value.trim().toLowerCase();
       var items = document.querySelectorAll(
-        "#EEDSW-productList .EEDSW-product-item",
+        "#EEDWC-productList .EEDWC-product-item",
       );
       var visibleCount = 0;
 
@@ -211,10 +211,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var tr = document.createElement("tr");
     tr.innerHTML =
       "<td>" +
-      '<div class="EEDSW-product-info">' +
+      '<div class="EEDWC-product-info">' +
       '<img src="' +
       imgSrc +
-      '" class="EEDSW-product-img" />' +
+      '" class="EEDWC-product-img" />' +
       "<span>" +
       name +
       "</span>" +
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
       price +
       "</td>" +
       "<td>" +
-      '<img src="../assets/develoeprHMExclusiveProducts/delete.svg" class="EEDSW-delete-icon" />' +
+      '<img src="../assets/develoeprHMExclusiveProducts/delete.svg" class="EEDWC-delete-icon" />' +
       "</td>";
     return tr;
   }
@@ -238,20 +238,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (addProductBtn) {
     addProductBtn.addEventListener("click", function () {
       var checkedItems = document.querySelectorAll(
-        "#EEDSW-productList .EEDSW-product-item input[type='checkbox']:checked",
+        "#EEDWC-productList .EEDWC-product-item input[type='checkbox']:checked",
       );
 
       if (checkedItems.length === 0) {
-        addProductBtn.classList.add("EEDSW-btn-error");
+        addProductBtn.classList.add("EEDWC-btn-error");
         if (validationMsg) validationMsg.classList.add("show");
         setTimeout(function () {
-          addProductBtn.classList.remove("EEDSW-btn-error");
+          addProductBtn.classList.remove("EEDWC-btn-error");
         }, 600);
         return;
       }
 
       checkedItems.forEach(function (checkbox) {
-        var item = checkbox.closest(".EEDSW-product-item");
+        var item = checkbox.closest(".EEDWC-product-item");
         var name = item.dataset.name || "Product Name";
         var date = item.dataset.date || "15/02/2026";
         var duration = item.dataset.duration || "2 hrs 30min";
@@ -277,9 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   document.addEventListener("change", function (e) {
-    if (e.target.closest("#EEDSW-productList")) {
+    if (e.target.closest("#EEDWC-productList")) {
       if (validationMsg) validationMsg.classList.remove("show");
-      if (addProductBtn) addProductBtn.classList.remove("EEDSW-btn-error");
+      if (addProductBtn) addProductBtn.classList.remove("EEDWC-btn-error");
     }
   });
 
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (searchInput) searchInput.value = "";
 
     document
-      .querySelectorAll("#EEDSW-productList .EEDSW-product-item")
+      .querySelectorAll("#EEDWC-productList .EEDWC-product-item")
       .forEach(function (item) {
         if (item.dataset.added !== "true") {
           item.style.display = "flex";
@@ -297,6 +297,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (noResults) noResults.style.display = "none";
     if (validationMsg) validationMsg.classList.remove("show");
-    if (addProductBtn) addProductBtn.classList.remove("EEDSW-btn-error");
+    if (addProductBtn) addProductBtn.classList.remove("EEDWC-btn-error");
   }
 });
