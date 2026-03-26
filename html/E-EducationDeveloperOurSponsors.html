@@ -13,37 +13,72 @@
   </head>
   <body>
     <div class="EEASW-container">
-      <!-- Header -->
       <div class="EEASW-header">
         <div class="center-header">
           <span class="heading">Our Sponsors</span>
-          <button class="edit">Edit</button>
+          <button class="edit" id="headerEditBtn">Edit</button>
+          <button class="edit" id="headerPublishBtn" style="display:none;">Publish</button>
         </div>
-        <div class="block">
-          <div class="label">Heading</div>
-          <div class="value">
-            Master the <span class="red">Heritage</span> : Learn from the
-            masters
+
+        <!-- VIEW MODE (default) -->
+        <div id="headerViewMode">
+          <div class="block">
+            <div class="label">Heading</div>
+            <div class="value" id="viewHeading">
+              Master the <span class="red">Heritage</span> : Learn from the masters
+            </div>
+          </div>
+          <div class="block">
+            <div class="label">Sub-text</div>
+            <div class="value" id="viewSubText">
+              Join the interactive sessions with the award winning national
+              artisans. We bridge the gap between ancient traditions and the
+              modern creative minds.
+            </div>
           </div>
         </div>
-        <div class="block">
-          <div class="label">Sub-text</div>
-          <div class="value">
-            Join the interactive sessions with the award winning national
-            artisans. We bridge the gap between ancient traditions and the
-            modern creative minds.
+
+        <!-- EDIT MODE (hidden by default) -->
+        <div id="headerEditMode" style="display:none;">
+          <div class="block">
+            <div class="label">Heading</div>
+            <input
+              type="text"
+              id="editHeading"
+              class="value"
+              style="width:100%; border:1px solid #ddd; background:#ebf3f9;"
+              placeholder="Enter heading"
+            />
+            <span
+              id="headingError"
+              class="EEASW-error-msg"
+              style="display:none;"
+            ></span>
+          </div>
+          <div class="block">
+            <div class="label">Sub-text</div>
+            <textarea
+              id="editSubText"
+              class="value"
+              style="width:100%; border:1px solid #ddd; background:#ebf3f9; min-height:60px; resize:vertical;"
+              placeholder="Enter sub-text"
+            ></textarea>
+            <span
+              id="subTextError"
+              class="EEASW-error-msg"
+              style="display:none;"
+            ></span>
           </div>
         </div>
       </div>
 
-      <!-- Card -->
+      <!-- Card  -->
       <div class="EEASW-card">
-        <!-- Top Row -->
         <div class="EEASW-card-header">
           <div class="EEASW-center">
             <div class="EEASW-left">
               <span class="EEASW-title">Sponsors List</span>
-              <span class="EEASW-count">12 Partners</span>
+              <span class="EEASW-count" id="partnerCount">12 Partners</span>
             </div>
             <div class="right">
               <button class="add-new-btn">+ Add New</button>
@@ -51,12 +86,9 @@
           </div>
         </div>
 
-        <!-- Divider -->
         <div class="EEASW-divider"></div>
 
-        <!-- Table -->
         <div class="EEASW-table">
-          <!-- Header Row -->
           <div class="EEASW-row EEASW-header-row">
             <div>Sposors Name</div>
             <div>Featured on</div>
@@ -70,10 +102,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -83,10 +112,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -96,10 +122,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -109,10 +132,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -122,10 +142,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -135,10 +152,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -148,10 +162,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -161,10 +172,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -174,10 +182,7 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
           <div class="EEASW-row">
@@ -187,17 +192,14 @@
             </div>
             <div class="date">15/02/26</div>
             <div>
-              <img
-                class="EEASW-delete"
-                src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-              />
+              <img class="EEASW-delete" src="../assets/E-EducationDeveloperOurSponsors/delete.png" />
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Accordian -->
+    <!-- Mobile Accordion  -->
     <div class="EEAUW-mobile">
       <div class="EEAUW-mobile-itmes">
         <div class="EEAUW-acc-item">
@@ -206,21 +208,12 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
@@ -230,21 +223,12 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
@@ -254,21 +238,12 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
@@ -278,21 +253,12 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
@@ -302,21 +268,12 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
@@ -326,34 +283,21 @@
               <img src="../assets/E-EducationDeveloperOurSponsors/img.png" />
               <span>ITI Education Trust</span>
             </div>
-            <img
-              src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEAUW-arrow"
-            />
+            <img src="../assets/E-EducationAdminShortWorkshop/down.png" class="EEAUW-arrow" />
           </div>
-
           <div class="EEAUW-acc-body">
             <div>
-              <span>Featured on</span><span>15/02/26</span
-              ><span
-                ><img
-                  src="../assets/E-EducationDeveloperOurSponsors/delete.png"
-                  alt="Edit"
-                  class="EEAUW-mob-delete"
-              /></span>
+              <span>Featured on</span><span>15/02/26</span>
+              <span><img src="../assets/E-EducationDeveloperOurSponsors/delete.png" alt="Edit" class="EEAUW-mob-delete" /></span>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <img
-          class="EEDWC-floating-plus-btn"
-          src="../assets/adminSalesDiscount/plus.svg"
-          alt="Add"
-        />
+        <img class="EEDWC-floating-plus-btn" src="../assets/adminSalesDiscount/plus.svg" alt="Add" />
       </div>
     </div>
-    <!-- Popup Modal -->
+
     <div class="EEASW-modal" id="sponsorModal">
       <div class="EEASW-modal-content">
         <div class="EEASW-modal-header">
@@ -365,40 +309,57 @@
           <div class="row">
             <div class="field">
               <label>Enter Organization Name</label>
-              <input type="text" placeholder="DPS School" />
+           
+              <input type="text" id="orgName" placeholder="DPS School" />
+              
+              <span id="orgNameError" class="EEASW-error-msg" style="display:none;"></span>
             </div>
             <div class="field">
               <label>Branch</label>
-              <input type="text" placeholder="Thane" />
+              
+              <input type="text" id="branchName" placeholder="Thane" />
+              
+              <span id="branchNameError" class="EEASW-error-msg" style="display:none;"></span>
             </div>
           </div>
 
           <div class="row">
             <div class="field">
               <label>Select City</label>
-              <select>
-                <option>Mumbai</option>
+              
+              <select id="citySelect">
+                <option value="">Select City</option>
               </select>
+              
+              <span id="cityError" class="EEASW-error-msg" style="display:none;"></span>
             </div>
             <div class="field">
               <label>Select State</label>
-              <select>
-                <option>Maharashtra</option>
+             
+              <select id="stateSelect">
+                <option value="">Select State</option>
               </select>
+              
+              <span id="stateError" class="EEASW-error-msg" style="display:none;"></span>
             </div>
           </div>
 
           <div class="row">
             <div class="field">
               <label>Upload Logo</label>
+              
               <input type="file" id="logoUpload" hidden />
               <div class="upload-box" id="uploadBox">Upload here</div>
+              
+              <span id="logoError" class="EEASW-error-msg" style="display:none;"></span>
             </div>
-            <button class="publish-btn">Publish</button>
+           
+            <button class="publish-btn" id="publishModalBtn">Publish</button>
           </div>
         </div>
       </div>
     </div>
+
     <script src="../javascript/E-EducationDeveloperOurSponsors.js"></script>
   </body>
 </html>

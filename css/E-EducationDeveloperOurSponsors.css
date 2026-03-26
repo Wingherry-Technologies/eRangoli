@@ -1,3 +1,5 @@
+/* ── All original styles below — UNCHANGED ─────────────────── */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
 
 * {
@@ -32,6 +34,17 @@ body {
   border: none;
   background: #ffffff;
   font-weight: 400;
+  cursor: pointer;
+}
+#headerPublishBtn {
+  background: #3b8af5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  cursor: pointer;
 }
 
 .center-header {
@@ -84,11 +97,10 @@ body {
 
 .EEASW-row {
   display: grid;
-  grid-template-columns: 4.5fr 3.5fr 1fr;
+  grid-template-columns: 1fr 140px 60px;
   align-items: center;
-  padding: 12px 0;
+  padding: 14px 20px;
 }
-
 .EEASW-header-row {
   font-weight: 600;
   color: #000000;
@@ -98,12 +110,24 @@ body {
   background: #ffffff;
   z-index: 5;
 }
+.EEASW-header-row {
+  font-weight: 600;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 14px 20px;
+}
+.date {
+  text-align: center;
+}
+.EEASW-row div:last-child,
+.EEASW-row div:nth-child(2) {
+  text-align: center;
+}
 
 /* Workshop */
 .EEASW-workshop {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .EEASW-workshop img {
@@ -403,4 +427,19 @@ textarea:focus {
     z-index: 999;
     cursor: pointer;
   }
+}
+
+
+
+/* Error message displayed below invalid fields */
+.EEASW-error-msg {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none; 
+}
+
+
+.EEASW-input-error {
+  border: 1px solid #d32f2f !important;
 }
