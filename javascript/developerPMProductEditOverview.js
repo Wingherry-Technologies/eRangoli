@@ -1287,6 +1287,55 @@ function getDeepestSelectedCategory() {
 
 
 /************************************
+ * VALIDATE CATEGORY SELECTION
+ *
+ * Every visible (non-hidden) dropdown must have a value selected.
+ * Shows an error on the first dropdown that is visible but empty.
+ ************************************/
+function validateCategorySelection() {
+  // Each level: the wrapper tells us if it's visible, the select tells us if it has a value
+  const levels = [
+    { wrap: lvl1Wrap, select: lvl1, message: "Please select Main Category"     },
+    { wrap: lvl2Wrap, select: lvl2, message: "Please select Category"          },
+    { wrap: lvl3Wrap, select: lvl3, message: "Please select Sub Category"      },
+    { wrap: lvl4Wrap, select: lvl4, message: "Please select Sub Sub Category"  }
+  ];
+
+  // Clear any previous category errors first
+  levels.forEach(({ select }) => clearError(select));
+
+  let isValid = true;
+
+  for (const { wrap, select, message } of levels) {
+    // Skip levels that are hidden (not required at this depth)
+    if (wrap.classList.contains("hidden")) continue;
+
+    if (!select.value) {
+      showError(select, message);
+      isValid = false;
+      break; // show error on the first empty visible level and stop
+    }
+  }
+
+  // Also check: a visible level was reached but dynamic fields were never loaded
+  // (means the user stopped mid-chain without picking the deepest level)
+  if (isValid && !getDeepestSelectedCategory()) {
+    showError(lvl1, "Please complete category selection");
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+// Live: clear category error as soon as a select gets a value
+[lvl1, lvl2, lvl3, lvl4].forEach(sel => {
+  sel.addEventListener("change", () => {
+    if (sel.value) clearError(sel);
+  });
+});
+
+
+/************************************
  * SAVE BUTTON & FINAL CONFIRM MODAL
  ************************************/
 const savePreviewBtn       = document.querySelector(".save-preview-btn");
@@ -1303,17 +1352,14 @@ savePreviewBtn.addEventListener("click", () => {
   // 2. Minimum 4 total images
   if (!validateImages()) isValid = false;
 
-  // 3. Product name, description, category level 1
+  // 3. Product name, description
   productMandatoryFields.forEach(obj => {
     const field = document.getElementById(obj.id);
     if (!field.value.trim()) { showError(field, obj.message); isValid = false; }
   });
 
-  // 4. Category must have a selection
-  if (!getDeepestSelectedCategory()) {
-    showError(lvl1, "Please complete category selection");
-    isValid = false;
-  }
+  // 4. Every visible category dropdown must have a value
+  if (!validateCategorySelection()) isValid = false;
 
   // 5. Dynamic category fields
   if (!validateDynamicFields()) isValid = false;
@@ -1386,6 +1432,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // 4. Existing product images
   setTimeout(() => loadExistingImages(editProductData.images), 400);
 });
+
 
 /* =====================================================
    GLOBAL SAFE EXPORT
