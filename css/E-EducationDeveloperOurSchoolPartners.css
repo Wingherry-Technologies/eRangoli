@@ -13,12 +13,12 @@ body {
   background: #ebeef3;
 }
 
-.EEASW-container {
+.EDOSP-container {
   padding: 20px;
 }
 
 /* Header */
-.EEASW-header {
+.EDOSP-header {
   background: #ffffff;
   padding: 14px 20px;
   border-radius: 10px;
@@ -56,38 +56,38 @@ body {
 }
 
 /* Card */
-.EEASW-card {
+.EDOSP-card {
   margin-top: 20px;
   background: #fff;
   border-radius: 10px;
   padding: 15px;
 }
 
-.EEASW-left .EEASW-title {
+.EDOSP-left .EDOSP-title {
   font-weight: 700;
   margin-right: 10px;
   font-size: 18px;
 }
 
-.EEASW-left .EEASW-count {
+.EDOSP-left .EDOSP-count {
   color: gray;
 }
 
-.EEASW-right img {
+.EDOSP-right img {
   width: 18px;
   margin-left: 10px;
   cursor: pointer;
 }
 
 /* Divider */
-.EEASW-divider {
+.EDOSP-divider {
   height: 1px;
   background: rgba(15, 141, 243, 1);
   margin: 10px 0;
 }
 
 /* Table */
-.EEASW-table {
+.EDOSP-table {
   width: 100%;
   max-height: 500px;
   overflow-y: auto;
@@ -95,13 +95,13 @@ body {
   scrollbar-width: thin;
 }
 
-.EEASW-row {
+.EDOSP-row {
   display: grid;
   grid-template-columns: 1fr 140px 60px;
   align-items: center;
   padding: 14px 20px;
 }
-.EEASW-header-row {
+.EDOSP-header-row {
   font-weight: 600;
   color: #000000;
   border-bottom: 1px solid #d9d9d9;
@@ -110,7 +110,7 @@ body {
   background: #ffffff;
   z-index: 5;
 }
-.EEASW-header-row {
+.EDOSP-header-row {
   font-weight: 600;
   border-bottom: 1px solid #e5e5e5;
   padding: 14px 20px;
@@ -118,30 +118,30 @@ body {
 .date {
   text-align: center;
 }
-.EEASW-row div:last-child,
-.EEASW-row div:nth-child(2) {
+.EDOSP-row div:last-child,
+.EDOSP-row div:nth-child(2) {
   text-align: center;
 }
 
 /* Workshop */
-.EEASW-workshop {
+.EDOSP-workshop {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.EEASW-workshop img {
+.EDOSP-workshop img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
 }
 
-.EEASW-delete {
+.EDOSP-delete {
   width: 17px;
   cursor: pointer;
 }
 
-.EEASW-center {
+.EDOSP-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,7 +184,7 @@ body {
   border: 1px solid #ebf3f9;
 }
 
-.EEASW-workshop span,
+.EDOSP-workshop span,
 .date {
   color: #3f3f3f;
   font-weight: 400;
@@ -195,7 +195,7 @@ body {
 }
 
 /* Modal */
-.EEASW-modal {
+.EDOSP-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -209,14 +209,14 @@ body {
   overflow-y: auto;
 }
 
-.EEASW-modal-content {
+.EDOSP-modal-content {
   background: #fff;
   width: 700px;
   border-radius: 10px;
   padding: 20px;
 }
 
-.EEASW-modal-header {
+.EDOSP-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -229,7 +229,7 @@ body {
   font-size: 20px;
 }
 
-.EEASW-modal-body .row {
+.EDOSP-modal-body .row {
   display: flex;
   gap: 20px;
   margin-top: 15px;
@@ -281,20 +281,20 @@ textarea:focus {
   box-shadow: none;
 }
 
-.EEAUW-mobile,
-.EEDWC-floating-plus-btn {
+.EDOSP-mobile,
+.EDOSP-floating-plus-btn {
   display: none;
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
-  .EEASW-table {
+  .EDOSP-table {
     overflow: auto;
   }
-  .EEASW-modal-content {
+  .EDOSP-modal-content {
     width: 90%;
   }
 
-  .EEASW-modal-body .row {
+  .EDOSP-modal-body .row {
     flex-direction: column;
   }
 
@@ -306,12 +306,12 @@ textarea:focus {
 }
 
 @media (max-width: 595px) {
-  .EEASW-modal-content {
+  .EDOSP-modal-content {
     width: 90%;
     padding: 15px;
   }
 
-  .EEASW-modal-body .row {
+  .EDOSP-modal-body .row {
     flex-direction: column;
     gap: 12px;
   }
@@ -330,19 +330,19 @@ textarea:focus {
   .upload-box {
     width: 100%;
   }
-  .EEASW-card {
+  .EDOSP-card {
     display: none;
   }
-  .EEAUW-mobile {
+  .EDOSP-mobile {
     display: block;
     padding: 10px;
   }
 
-  .EEAUW-mobile-itmes {
+  .EDOSP-mobile-itmes {
     background: #fff;
   }
   /* ACCORDION ITEM */
-  .EEAUW-acc-item {
+  .EDOSP-acc-item {
     background: #fff;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -350,7 +350,7 @@ textarea:focus {
   }
 
   /* HEADER */
-  .EEAUW-acc-header {
+  .EDOSP-acc-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -359,35 +359,35 @@ textarea:focus {
   }
 
   /* WORKSHOP */
-  .EEAUW-acc-header .EEAUW-workshop {
+  .EDOSP-acc-header .EDOSP-workshop {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .EEAUW-acc-header img {
+  .EDOSP-acc-header img {
     width: 25px;
     height: 25px;
     border-radius: 50%;
   }
 
   /* ARROW */
-  .EEAUW-arrow {
+  .EDOSP-arrow {
     width: 18px;
     transition: transform 0.3s ease;
   }
 
   /* BODY */
-  .EEAUW-acc-body {
+  .EDOSP-acc-body {
     display: none;
     padding: 12px;
   }
 
-  .EEAUW-acc-body.active {
+  .EDOSP-acc-body.active {
     display: block;
   }
 
-  .EEAUW-acc-body div {
+  .EDOSP-acc-body div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -395,29 +395,29 @@ textarea:focus {
     font-size: 14px;
   }
 
-  .EEAUW-acc-body div span:first-child {
+  .EDOSP-acc-body div span:first-child {
     color: #3f3f3f;
     justify-self: start;
     text-align: left;
     font-weight: 600;
   }
-  .EEAUW-acc-item.active {
+  .EDOSP-acc-item.active {
     border: 1px solid #0f8df340;
   }
-  .EEAUW-acc-item.active .EEAUW-acc-body {
+  .EDOSP-acc-item.active .EDOSP-acc-body {
     border-top: 1px solid#0F8DF340;
   }
-  .EEASW-container {
+  .EDOSP-container {
     padding: 10px;
   }
-  .EEAUW-mob-delete {
+  .EDOSP-mob-delete {
     width: 17px;
     margin-top: 5px;
   }
   body {
     background: #f5f5f5;
   }
-  .EEDWC-floating-plus-btn {
+  .EDOSP-floating-plus-btn {
     display: flex;
     position: fixed;
     bottom: 86px;
@@ -435,7 +435,7 @@ textarea:focus {
 
 
 /* Error message displayed below invalid fields */
-.EEASW-error-msg {
+.EDOSP-error-msg {
   color: #d32f2f;
   font-size: 12px;
   margin-top: 4px;
@@ -443,6 +443,6 @@ textarea:focus {
 }
 
 
-.EEASW-input-error {
+.EDOSP-input-error {
   border: 1px solid #d32f2f !important;
 }

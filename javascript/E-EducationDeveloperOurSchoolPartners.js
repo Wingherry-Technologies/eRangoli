@@ -1,4 +1,3 @@
-
 (function initHeaderEditPublish() {
   const editBtn    = document.getElementById("headerEditBtn");
   const publishBtn = document.getElementById("headerPublishBtn");
@@ -98,7 +97,7 @@
 const modal     = document.getElementById("sponsorModal");
 const closeModal = document.getElementById("closeModal");
 const addNewBtn  = document.querySelector(".add-new-btn");
-const floatingPlusBtn = document.querySelector(".EEDWC-floating-plus-btn");
+const floatingPlusBtn = document.querySelector(".EDOSP-floating-plus-btn");
 
 function openModal() {
   modal.style.display = "flex";
@@ -119,18 +118,18 @@ window.addEventListener("click", function (e) {
 });
 
 // Mobile accordion (existing logic — untouched)
-document.querySelectorAll(".EEAUW-acc-header").forEach(function (header) {
+document.querySelectorAll(".EDOSP-acc-header").forEach(function (header) {
   header.addEventListener("click", function () {
-    const item = this.closest(".EEAUW-acc-item");
-    const body  = item.querySelector(".EEAUW-acc-body");
-    const arrow = item.querySelector(".EEAUW-arrow");
+    const item = this.closest(".EDOSP-acc-item");
+    const body  = item.querySelector(".EDOSP-acc-body");
+    const arrow = item.querySelector(".EDOSP-arrow");
 
     const isActive = item.classList.contains("active");
 
-    document.querySelectorAll(".EEAUW-acc-item").forEach(function (i) {
+    document.querySelectorAll(".EDOSP-acc-item").forEach(function (i) {
       i.classList.remove("active");
-      i.querySelector(".EEAUW-acc-body").classList.remove("active");
-      const a = i.querySelector(".EEAUW-arrow");
+      i.querySelector(".EDOSP-acc-body").classList.remove("active");
+      const a = i.querySelector(".EDOSP-arrow");
       if (a) a.style.transform = "rotate(0deg)";
     });
 
@@ -365,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updatePartnerCount() {
     const desktopRows = document.querySelectorAll(
-      ".EEASW-table .EEASW-row:not(.EEASW-header-row)"
+      ".EDOSP-table .EDOSP-row:not(.EDOSP-header-row)"
     );
 
     if (countEl) {
@@ -378,15 +377,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // DESKTOP DELETE (sync with mobile)
   // ===============================
 
-  document.querySelectorAll(".EEASW-delete").forEach(function (icon, index) {
+  document.querySelectorAll(".EDOSP-delete").forEach(function (icon, index) {
 
     icon.addEventListener("click", function () {
 
       const desktopRows = document.querySelectorAll(
-        ".EEASW-table .EEASW-row:not(.EEASW-header-row)"
+        ".EDOSP-table .EDOSP-row:not(.EDOSP-header-row)"
       );
 
-      const mobileRows = document.querySelectorAll(".EEAUW-acc-item");
+      const mobileRows = document.querySelectorAll(".EDOSP-acc-item");
 
       if (desktopRows[index]) {
         desktopRows[index].remove();
@@ -406,15 +405,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // MOBILE DELETE (sync with desktop)
   // ===============================
 
-  document.querySelectorAll(".EEAUW-mob-delete").forEach(function (icon, index) {
+  document.querySelectorAll(".EDOSP-mob-delete").forEach(function (icon, index) {
 
     icon.addEventListener("click", function () {
 
       const desktopRows = document.querySelectorAll(
-        ".EEASW-table .EEASW-row:not(.EEASW-header-row)"
+        ".EDOSP-table .EDOSP-row:not(.EDOSP-header-row)"
       );
 
-      const mobileRows = document.querySelectorAll(".EEAUW-acc-item");
+      const mobileRows = document.querySelectorAll(".EDOSP-acc-item");
 
       if (mobileRows[index]) {
         mobileRows[index].remove();
