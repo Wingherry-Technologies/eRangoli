@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Short Workshop</title>
-    <link rel="stylesheet" href="../css/E-EducationAdminShortWorkshop.css" />
+    <link
+      rel="stylesheet"
+      href="../css/E-EducationDeveloperShortWorkshopTable.css"
+    />
     <link
       rel="shortcut icon"
       href="../assets/master/eRangoli 2-1.svg"
@@ -12,40 +15,43 @@
     />
   </head>
   <body>
-    <div class="EEASW-container">
+    <div class="EEDSWT-container">
       <!-- Header -->
-      <div class="EEASW-header">Short Workshop</div>
+      <div class="EEDSWT-heading-part">
+        <div class="EEDSWT-header">Short Workshop</div>
+        <button class="EEDSWT-add">+ Add</button>
+      </div>
 
       <!-- Card -->
-      <div class="EEASW-card">
+      <div class="EEDSWT-card">
         <!-- Top Row -->
-        <div class="EEASW-card-header">
-          <div class="EEASW-left">
-            <span class="EEASW-title">Workshop</span>
-            <span class="EEASW-count">12 Ongoing</span>
+        <div class="EEDSWT-card-header">
+          <div class="EEDSWT-left">
+            <span class="EEDSWT-title">Workshop</span>
+            <span class="EEDSWT-count">12 Ongoing</span>
           </div>
 
-          <div class="EEASW-right">
+          <div class="EEDSWT-right">
             <img
-              id="EEASW-filterBtn"
+              id="EEDSWT-filterBtn"
               src="../assets/E-EducationAdminShortWorkshop/filter.png"
             />
             <img
-              id="EEASW-sortBtn"
+              id="EEDSWT-sortBtn"
               src="../assets/E-EducationAdminShortWorkshop/sort.png"
             />
           </div>
         </div>
 
         <!-- FILTER POPUP -->
-        <div id="EEASW-filterPopup" class="EEASW-popup">
-          <div class="EEASW-popup-content">
-            <h3 class="EEASW-popup-header">Filter</h3>
+        <div id="EEDSWT-filterPopup" class="EEDSWT-popup">
+          <div class="EEDSWT-popup-content">
+            <h3 class="EEDSWT-popup-header">Filter</h3>
 
-            <div class="EEASW-filter-group">
+            <div class="EEDSWT-filter-group">
               <p>Status</p>
 
-              <div class="EEASW-filter-options">
+              <div class="EEDSWT-filter-options">
                 <label>
                   <input type="checkbox" value="Live" />
                   Live
@@ -66,9 +72,9 @@
         </div>
 
         <!-- SORT POPUP -->
-        <div id="EEASW-sortPopup" class="EEASW-popup">
-          <div class="EEASW-popup-content">
-            <h3 class="EEASW-popup-header">Sort By</h3>
+        <div id="EEDSWT-sortPopup" class="EEDSWT-popup">
+          <div class="EEDSWT-popup-content">
+            <h3 class="EEDSWT-popup-header">Sort By</h3>
 
             <p>Date (Latest First)</p>
             <p>Date (Oldest First)</p>
@@ -78,23 +84,23 @@
         </div>
 
         <!-- Divider -->
-        <div class="EEASW-divider"></div>
+        <div class="EEDSWT-divider"></div>
 
         <!-- Table -->
-        <div class="EEASW-table">
+        <div class="EEDSWT-table">
           <!-- Header Row -->
-          <div class="EEASW-row EEASW-header-row">
+          <div class="EEDSWT-row EEDSWT-header-row">
             <div>Workshop Name</div>
             <div>Date</div>
             <div>Location</div>
             <div>Enrolled</div>
             <div>Amount</div>
-            <div class="EEASW-status-col">Status</div>
+            <div class="EEDSWT-status-col">Status</div>
             <div>Action</div>
           </div>
 
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -102,18 +108,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Art Workshop</span>
             </div>
@@ -121,37 +127,37 @@
             <div>Delhi</div>
             <div>300</div>
             <div>₹20,000</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-draft">Draft</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-draft">Draft</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Cooking Basics</span>
             </div>
             <div>01/01/26</div>
             <div>Bangalore</div>
-            <div><span class="EEASW-green">80</span>/200</div>
+            <div><span class="EEDSWT-green">80</span>/200</div>
             <div>₹15,000</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-archived">Archived</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-archived">Archived</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -159,18 +165,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -178,18 +184,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -197,18 +203,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -216,18 +222,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -235,18 +241,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -254,18 +260,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -273,18 +279,18 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
           </div>
-          <div class="EEASW-row">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-row">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
@@ -292,12 +298,12 @@
             <div>Mumbai, MH</div>
             <div>456</div>
             <div>₹40,199</div>
-            <div class="EEASW-status-col">
-              <span class="EEASW-live">Live</span>
+            <div class="EEDSWT-status-col">
+              <span class="EEDSWT-live">Live</span>
             </div>
             <div>
               <img
-                class="EEASW-edit"
+                class="EEDSWT-edit"
                 src="../assets/E-EducationAdminShortWorkshop/edit.png"
               />
             </div>
@@ -305,116 +311,123 @@
         </div>
       </div>
     </div>
-    <div class="EEASW-mobile">
-      <div class="EEASW-Mob-header">Upcoming Workshop</div>
-      <div class="EEASW-mob-count">8 ongoings</div>
+    <div class="EEDSWT-mobile">
+      <div class="EEDSWT-Mob-header">Upcoming Workshop</div>
+      <div class="EEDSWT-mob-count">8 ongoings</div>
 
-      <div class="EEASW-mobile-itmes">
-        <div class="EEASW-acc-item">
+      <div class="EEDSWT-mobile-itmes">
+        <div class="EEDSWT-acc-item">
           <!-- HEADER -->
-          <div class="EEASW-acc-header">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-acc-header">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
             <img
               src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEASW-arrow"
+              class="EEDSWT-arrow"
             />
           </div>
 
           <!-- BODY -->
-          <div class="EEASW-acc-body">
+          <div class="EEDSWT-acc-body">
             <div>
               <span>Date</span><span>15/02/26</span
               ><span
                 ><img
                   src="../assets/E-EducationAdminShortWorkshop/edit.png"
                   alt="Edit"
-                  class="EEASW-mob-edit"
+                  class="EEDSWT-mob-edit"
               /></span>
             </div>
             <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
             <div><span>Enrolled</span><span>459</span><span></span></div>
             <div><span>Price</span><span>₹40,199</span><span></span></div>
             <div>
-              <span>Status</span><span class="EEASW-mob-live">Live</span
+              <span>Status</span><span class="EEDSWT-mob-live">Live</span
               ><span></span>
             </div>
           </div>
         </div>
-        <div class="EEASW-acc-item">
+        <div class="EEDSWT-acc-item">
           <!-- HEADER -->
-          <div class="EEASW-acc-header">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-acc-header">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
             <img
               src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEASW-arrow"
+              class="EEDSWT-arrow"
             />
           </div>
 
           <!-- BODY -->
-          <div class="EEASW-acc-body">
+          <div class="EEDSWT-acc-body">
             <div>
               <span>Date</span><span>15/02/26</span
               ><span
                 ><img
                   src="../assets/E-EducationAdminShortWorkshop/edit.png"
                   alt="Edit"
-                  class="EEASW-mob-edit"
+                  class="EEDSWT-mob-edit"
               /></span>
             </div>
             <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
             <div><span>Enrolled</span><span>459</span><span></span></div>
             <div><span>Price</span><span>₹40,199</span><span></span></div>
             <div>
-              <span>Status</span><span class="EEASW-mob-draft">Draft</span
+              <span>Status</span><span class="EEDSWT-mob-draft">Draft</span
               ><span></span>
             </div>
           </div>
         </div>
-        <div class="EEASW-acc-item">
+        <div class="EEDSWT-acc-item">
           <!-- HEADER -->
-          <div class="EEASW-acc-header">
-            <div class="EEASW-workshop">
+          <div class="EEDSWT-acc-header">
+            <div class="EEDSWT-workshop">
               <img src="../assets/E-EducationAdminShortWorkshop/img.png" />
               <span>Pottery Making</span>
             </div>
             <img
               src="../assets/E-EducationAdminShortWorkshop/down.png"
-              class="EEASW-arrow"
+              class="EEDSWT-arrow"
             />
           </div>
 
           <!-- BODY -->
-          <div class="EEASW-acc-body">
+          <div class="EEDSWT-acc-body">
             <div>
               <span>Date</span><span>15/02/26</span
               ><span
                 ><img
                   src="../assets/E-EducationAdminShortWorkshop/edit.png"
                   alt="Edit"
-                  class="EEASW-mob-edit"
+                  class="EEDSWT-mob-edit"
               /></span>
             </div>
             <div><span>Location</span><span>Mumbai, MH</span><span></span></div>
             <div>
               <span>Enrolled</span
-              ><span><span class="EEASW-mob-green">80</span>/459</span
+              ><span><span class="EEDSWT-mob-green">80</span>/459</span
               ><span></span>
             </div>
             <div><span>Price</span><span>₹40,199</span><span></span></div>
             <div>
-              <span>Status</span><span class="EEASW-mob-archived">Archived</span
-              ><span></span>
+              <span>Status</span
+              ><span class="EEDSWT-mob-archived">Archived</span><span></span>
             </div>
           </div>
         </div>
       </div>
+      <div>
+        <img
+          class="EEDSWT-floating-plus-btn"
+          src="../assets/adminSalesDiscount/plus.svg"
+          alt="Add"
+        />
+      </div>
     </div>
-    <script src="../javascript/E-EducationAdminShortWorkshop.js"></script>
+    <script src="../javascript/E-EducationDeveloperShortWorkshopTable.js"></script>
   </body>
 </html>
