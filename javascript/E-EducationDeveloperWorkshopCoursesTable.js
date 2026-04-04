@@ -1,0 +1,194 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const filterBtn = document.getElementById("EEDWCT-filterBtn");
+  const sortBtn = document.getElementById("EEDWCT-sortBtn");
+
+  const filterPopup = document.getElementById("EEDWCT-filterPopup");
+  const sortPopup = document.getElementById("EEDWCT-sortPopup");
+
+  const table = document.querySelector(".EEDWCT-table");
+  const countText = document.querySelector(".EEDWCT-count");
+
+  let rows = Array.from(
+    document.querySelectorAll(
+      ".EEDWCT-table .EEDWCT-row:not(.EEDWCT-header-row)",
+    ),
+  );
+
+  function updateCount() {
+    const visibleRows = rows.filter((row) => row.style.display !== "none");
+
+    countText.innerText = visibleRows.length + " Ongoing";
+  }
+
+  function checkNoRows() {
+    const visibleRows = rows.filter((row) => row.style.display !== "none");
+
+    let noRow = document.getElementById("EEDWCT-noRow");
+
+    if (visibleRows.length === 0) {
+      if (!noRow) {
+        noRow = document.createElement("div");
+        noRow.id = "EEDWCT-noRow";
+        noRow.className = "EEDWCT-row";
+        noRow.style.textAlign = "center";
+        noRow.style.padding = "20px";
+        noRow.innerHTML = "No rows found";
+
+        table.appendChild(noRow);
+      }
+    } else {
+      if (noRow) noRow.remove();
+    }
+  }
+
+  filterBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    filterPopup.style.display =
+      filterPopup.style.display === "block" ? "none" : "block";
+
+    sortPopup.style.display = "none";
+  });
+
+  sortBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    sortPopup.style.display =
+      sortPopup.style.display === "block" ? "none" : "block";
+
+    filterPopup.style.display = "none";
+  });
+
+  document.addEventListener("click", function () {
+    filterPopup.style.display = "none";
+    sortPopup.style.display = "none";
+  });
+
+  const checkboxes = document.querySelectorAll(
+    "#EEDWCT-filterPopup input[type='checkbox']",
+  );
+
+  checkboxes.forEach((box) => {
+    box.addEventListener("change", function () {
+      const selected = Array.from(checkboxes)
+        .filter((c) => c.checked)
+        .map((c) => c.value);
+
+      rows.forEach((row) => {
+        const status = row
+          .querySelector(".EEDWCT-status-col span")
+          .innerText.trim();
+
+        if (selected.length === 0 || selected.includes(status)) {
+          row.style.display = "grid";
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      updateCount();
+      checkNoRows();
+    });
+  });
+
+  const sortOptions = document.querySelectorAll("#EEDWCT-sortPopup p");
+
+  sortOptions.forEach((option) => {
+    option.addEventListener("click", function () {
+      const text = option.innerText;
+
+      if (text.includes("Latest")) {
+        rows.sort((a, b) => {
+          return getDate(b) - getDate(a);
+        });
+      }
+
+      if (text.includes("Oldest")) {
+        rows.sort((a, b) => {
+          return getDate(a) - getDate(b);
+        });
+      }
+
+      if (text.includes("High to Low") && text.includes("Amount")) {
+        rows.sort((a, b) => {
+          return getAmount(b) - getAmount(a);
+        });
+      }
+
+      if (text.includes("Low to High") && text.includes("Amount")) {
+        rows.sort((a, b) => {
+          return getAmount(a) - getAmount(b);
+        });
+      }
+
+      renderRows();
+    });
+  });
+
+  function getDate(row) {
+    const dateText = row.children[1].innerText;
+    const parts = dateText.split("/");
+
+    return new Date("20" + parts[2], parts[1] - 1, parts[0]);
+  }
+
+  function getAmount(row) {
+    const text = row.children[4].innerText.replace(/[₹,]/g, "");
+    return parseInt(text);
+  }
+
+  function renderRows() {
+    rows.forEach((row) => table.appendChild(row));
+  }
+
+  updateCount();
+});
+
+function updateMobCount() {
+  const mobCount = document.querySelector(".EEDWCT-mob-count");
+  if (!mobCount) return;
+  const mobItems = document.querySelectorAll(".EEDWCT-acc-item");
+  mobCount.innerText = `${mobItems.length} Ongoing`;
+}
+
+updateMobCount();
+
+const accHeaders = document.querySelectorAll(".EEDWCT-acc-header");
+
+accHeaders.forEach((header) => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector(".EEDWCT-arrow");
+
+    body.classList.toggle("active");
+    item.classList.toggle("active");
+
+    arrow.style.transform = body.classList.contains("active")
+      ? "rotate(180deg)"
+      : "rotate(0deg)";
+  });
+});
+
+const modal = document.getElementById("sponsorModal");
+const closeModal = document.getElementById("closeModal");
+const addNewBtn = document.querySelector(".add-new-btn");
+const floatingPlusBtn = document.querySelector(".EEDWCT-floating-plus-btn");
+
+function openModal() {
+  modal.style.display = "flex";
+  clearAllModalErrors();
+  resetModalFields();
+}
+
+function closeModalFn() {
+  modal.style.display = "none";
+}
+
+if (addNewBtn) addNewBtn.addEventListener("click", openModal);
+if (floatingPlusBtn) floatingPlusBtn.addEventListener("click", openModal);
+if (closeModal) closeModal.addEventListener("click", closeModalFn);
+
+window.addEventListener("click", function (e) {
+  if (e.target === modal) closeModalFn();
+});

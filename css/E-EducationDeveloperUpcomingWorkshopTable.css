@@ -11,24 +11,24 @@ body {
   background: #ebeef3;
 }
 
-.EEDSWT-container {
+.EEDUWT-container {
   padding: 20px;
 }
 
 /* Header */
-.EEDSWT-heading-part {
+.EEDUWT-heading-part {
   display: flex;
   justify-content: space-between;
   background: #ffffff;
   padding: 14px 20px;
   border-radius: 10px;
 }
-.EEDSWT-header {
+.EEDUWT-header {
   font-weight: 700;
   font-size: 20px;
 }
 
-.EEDSWT-add {
+.EEDUWT-add {
   background: #0e8bf3;
   color: #fff;
   border: none;
@@ -38,45 +38,46 @@ body {
 }
 
 /* Card */
-.EEDSWT-card {
+.EEDUWT-card {
   margin-top: 20px;
   background: #fff;
   border-radius: 10px;
   padding: 15px;
+  position: relative;
 }
 
 /* Top Row */
-.EEDSWT-card-header {
+.EEDUWT-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.EEDSWT-left .EEDSWT-title {
+.EEDUWT-left .EEDUWT-title {
   font-weight: 700;
   margin-right: 10px;
   font-size: 18px;
 }
 
-.EEDSWT-left .EEDSWT-count {
+.EEDUWT-left .EEDUWT-count {
   color: gray;
 }
 
-.EEDSWT-right img {
+.EEDUWT-right img {
   width: 18px;
   margin-left: 10px;
   cursor: pointer;
 }
 
 /* Divider */
-.EEDSWT-divider {
+.EEDUWT-divider {
   height: 1px;
   background: rgba(15, 141, 243, 1);
   margin: 10px 0;
 }
 
 /* Table */
-.EEDSWT-table {
+.EEDUWT-table {
   width: 100%;
   max-height: 500px;
   overflow-y: auto;
@@ -84,14 +85,30 @@ body {
   scrollbar-width: thin;
 }
 
-.EEDSWT-row {
+/* Scrollbar */
+.EEDUWT-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.EEDUWT-table::-webkit-scrollbar-track {
+  background: #f1f3f7;
+  border-radius: 10px;
+}
+
+.EEDUWT-table::-webkit-scrollbar-thumb {
+  background: #0f8df3;
+  border-radius: 10px;
+}
+
+/* Rows */
+.EEDUWT-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
   align-items: center;
   padding: 12px 0;
 }
 
-.EEDSWT-header-row {
+.EEDUWT-header-row {
   font-weight: 600;
   color: #555;
   border-bottom: 1px solid #d9d9d9;
@@ -102,221 +119,253 @@ body {
 }
 
 /* Workshop */
-.EEDSWT-workshop {
+.EEDUWT-workshop {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.EEDSWT-workshop img {
+.EEDUWT-workshop img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
 }
 
-/* Status Colors */
-.EEDSWT-live {
-  color: rgba(0, 150, 5, 1);
-}
-
-.EEDSWT-draft {
-  color: rgba(18, 144, 247, 1);
-}
-
-.EEDSWT-archived {
-  color: rgba(236, 140, 36, 1);
-}
-
-/* Enrolled */
-.EEDSWT-green {
-  color: rgba(0, 150, 5, 1);
-}
-
-/* Edit */
-.EEDSWT-edit {
+/* Edit & Calendar */
+.EEDUWT-edit,
+.calendar {
   width: 16px;
   cursor: pointer;
 }
 
 /* POPUP */
-.EEDSWT-popup {
+
+.EEDUWT-popup {
   position: absolute;
   top: 60px;
   right: 20px;
-  width: 220px;
+  width: 240px;
   background: #fff;
   border-radius: 10px;
   display: none;
   z-index: 100;
+
+  /* NEW */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: popupFade 0.2s ease;
 }
 
-.EEDSWT-popup-content {
+.EEDUWT-popup-content {
   padding: 15px;
 }
 
-.EEDSWT-popup h3 {
+.EEDUWT-popup-header {
+  border-bottom: 1px solid #0f8df3;
+  padding-bottom: 5px;
   margin-bottom: 10px;
 }
 
-.EEDSWT-filter-group {
-  margin-bottom: 10px;
+.EEDUWT-popup h3 {
+  font-size: 16px;
 }
 
-.EEDSWT-filter-group p {
+.EEDUWT-filter-group {
+  margin-bottom: 12px;
+}
+
+.EEDUWT-filter-group p {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  font-size: 14px;
 }
 
-.EEDSWT-popup p {
-  cursor: pointer;
-  padding: 5px 0;
-}
-
-.EEDSWT-filter-options {
+/* Filter options align FIX */
+.EEDUWT-filter-options {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.EEDSWT-popup-header {
-  border-bottom: 1px solid #0f8df3;
-  padding-bottom: 5px;
-}
-
-/* Scrollbar */
-.EEDSWT-table::-webkit-scrollbar {
-  width: 8px;
-}
-
-.EEDSWT-table::-webkit-scrollbar-button {
-  display: none;
-}
-
-.EEDSWT-table::-webkit-scrollbar-track {
-  background: #f1f3f7;
-  border-radius: 10px;
-}
-
-.EEDSWT-table::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-}
-
-.EEDSWT-mobile,
-.EEDSWT-floating-plus-btn {
-  display: none;
-}
-
-/* Modal */
-.EDOSP-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #3f3f3fcc;
-  display: none;
-  justify-content: center;
+.EEDUWT-filter-options label {
+  display: flex;
   align-items: center;
-  z-index: 1000;
-  overflow-y: auto;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.EDOSP-modal-content {
+/* Sort / clickable */
+.EEDUWT-popup p {
+  cursor: pointer;
+  padding: 6px;
+  font-size: 14px;
+}
+
+/* Hover */
+.EEDUWT-popup p:hover {
+  background: #f5f7fb;
+  border-radius: 5px;
+}
+
+.EEDUWT-mobile {
+  display: none;
+}
+
+/* Animation */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CALENDAR POPUP */
+
+.EEDUWT-cal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+}
+
+.EEDUWT-cal-overlay.active {
+  display: block;
+}
+
+/* Calendar card */
+.EEDUWT-cal-popup {
+  position: fixed;
   background: #fff;
-  width: 700px;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  padding: 16px;
+  width: 280px;
+  z-index: 1000;
+  animation: popupFade 0.2s ease;
+  display: none;
 }
 
-.EDOSP-modal-header {
+.EEDUWT-cal-popup.active {
+  display: block;
+}
+
+/* Month navigation */
+.EEDUWT-cal-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #0f8df3;
-  padding-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.close-btn {
+.EEDUWT-cal-nav span {
+  font-weight: 700;
+  font-size: 15px;
+  color: #222;
+}
+
+.EEDUWT-cal-nav button {
+  background: none;
+  border: none;
   cursor: pointer;
-  font-size: 20px;
-}
-
-.EDOSP-modal-body .row {
-  display: flex;
-  gap: 20px;
-  margin-top: 15px;
-}
-
-.field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.field input,
-.field select {
-  padding: 10px;
+  font-size: 18px;
+  color: #0f8df3;
+  padding: 2px 8px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  background: #ebf3f9;
+  transition: background 0.15s;
 }
 
-.publish-btn {
-  flex: 1;
-  height: 42px;
-  background: #0f8df3;
-  color: #fff;
+.EEDUWT-cal-nav button:hover {
+  background: #e8f4fe;
+}
+
+/* Day-of-week headers */
+.EEDUWT-cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.EEDUWT-cal-days span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f8df3;
+  padding: 4px 0;
+}
+
+/* Date buttons grid */
+.EEDUWT-cal-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.EEDUWT-cal-dates button {
+  background: none;
   border: none;
   border-radius: 6px;
-  margin-top: 22px;
+  padding: 7px 4px;
+  font-size: 13px;
   cursor: pointer;
+  color: #222;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  font-family: "Nunito Sans";
 }
 
-.upload-box {
-  background: #ebf3f9;
-  border: 1px solid #ebf3f9;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #7a7a7a;
+.EEDUWT-cal-dates button:hover:not(:disabled) {
+  background: #e8f4fe;
+  color: #0f8df3;
 }
 
-.upload-box:hover {
-  border: 1px solid #0f8df3;
+.EEDUWT-cal-dates button.selected {
+  background: #0f8df3;
+  color: #fff;
+  font-weight: 700;
 }
 
-input:focus,
-select:focus,
-button:focus,
-textarea:focus {
-  outline: none;
-  box-shadow: none;
+.EEDUWT-cal-dates button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.EEDUWT-cal-dates button.empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+.EEDUWT-floating-plus-btn {
+  display: none;
 }
 
 @media (max-width: 1024px) and (min-width: 595px) {
-  .EEDSWT-table {
+  .EEDUWT-table {
     overflow-x: auto;
     overflow-y: auto;
   }
 
-  .EEDSWT-row {
+  .EEDUWT-row {
     min-width: 900px;
   }
 
-  .EEDSWT-row div {
+  .EEDUWT-row div {
     white-space: nowrap;
   }
 }
 
 @media (max-width: 595px) {
-  .EEDSWT-container {
+  .EEDUWT-container {
     display: none;
   }
-  .EEDSWT-mobile {
+  .EEDUWT-mobile {
     display: block;
     padding-top: 10px;
   }
-  .EEDSWT-mobile-itmes {
+  .EEDUWT-mobile-itmes {
     margin: 10px;
     background-color: #fff;
   }
@@ -325,7 +374,7 @@ textarea:focus {
   }
 
   /* ACCORDION ITEM */
-  .EEDSWT-acc-item {
+  .EEDUWT-acc-item {
     background: #fff;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -333,7 +382,7 @@ textarea:focus {
   }
 
   /* HEADER */
-  .EEDSWT-acc-header {
+  .EEDUWT-acc-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -342,35 +391,35 @@ textarea:focus {
   }
 
   /* WORKSHOP */
-  .EEDSWT-acc-header .EEDSWT-workshop {
+  .EEDUWT-acc-header .EEDUWT-workshop {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .EEDSWT-acc-header img {
+  .EEDUWT-acc-header img {
     width: 25px;
     height: 25px;
     border-radius: 50%;
   }
 
   /* ARROW */
-  .EEDSWT-arrow {
+  .EEDUWT-arrow {
     width: 18px;
     transition: transform 0.3s ease;
   }
 
   /* BODY */
-  .EEDSWT-acc-body {
+  .EEDUWT-acc-body {
     display: none;
     padding: 12px;
   }
 
-  .EEDSWT-acc-body.active {
+  .EEDUWT-acc-body.active {
     display: block;
   }
 
-  .EEDSWT-acc-body div {
+  .EEDUWT-acc-body div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -378,31 +427,31 @@ textarea:focus {
     font-size: 14px;
   }
 
-  .EEDSWT-acc-body div span:first-child {
+  .EEDUWT-acc-body div span:first-child {
     color: #3f3f3f;
     justify-self: start;
     text-align: left;
     font-weight: 600;
   }
 
-  .EEDSWT-acc-body div span:nth-child(2) {
+  .EEDUWT-acc-body div span:nth-child(2) {
     justify-self: center;
     text-align: center;
     font-weight: 400;
     color: #3f3f3f;
   }
 
-  .EEDSWT-acc-body div span:nth-child(3) {
+  .EEDUWT-acc-body div span:nth-child(3) {
     justify-self: end;
   }
 
-  .EEDSWT-acc-item.active {
+  .EEDUWT-acc-item.active {
     border: 1px solid #0f8df340;
   }
-  .EEDSWT-acc-item.active .EEDSWT-acc-body {
+  .EEDUWT-acc-item.active .EEDUWT-acc-body {
     border-top: 1px solid#0F8DF340;
   }
-  .EEDSWT-Mob-header {
+  .EEDUWT-Mob-header {
     background: #ffffff;
     padding: 20px;
     margin-bottom: 1rem;
@@ -410,31 +459,27 @@ textarea:focus {
     font-weight: 700;
     font-size: 18px;
   }
-  .EEDSWT-mob-count {
+  .EEDUWT-mob-count {
     display: flex;
     justify-content: flex-end;
     padding-right: 10px;
     color: #716b6b;
     font-weight: 400;
   }
-  .EEDSWT-mob-edit {
+  .EEDUWT-mob-edit {
     width: 16px;
     justify-self: end;
     cursor: pointer;
   }
-  .EEDSWT-mob-live {
-    color: rgba(0, 150, 5, 1) !important;
+  .EEDUWT-mob-calendar {
+    width: 16px;
+    cursor: pointer;
   }
-  .EEDSWT-mob-draft {
-    color: rgba(18, 144, 247, 1) !important;
+
+  .EEDUWT-cal-popup {
+    width: 260px;
   }
-  .EEDSWT-mob-archived {
-    color: rgba(236, 140, 36, 1) !important;
-  }
-  .EEDSWT-mob-green {
-    color: #009605 !important;
-  }
-  .EEDSWT-floating-plus-btn {
+  .EEDUWT-floating-plus-btn {
     display: flex;
     position: fixed;
     bottom: 86px;
