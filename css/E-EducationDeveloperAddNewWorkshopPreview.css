@@ -1,0 +1,1071 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  color: #222222;
+  background-color: #EBEEF3;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* EDO Layout Structure */
+
+.EDANWP-page-wrapper {
+  width: 100%;
+  padding: 10px 30px 10px 30px;
+}
+
+.EDANWP-layout {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 40px;
+  align-items: start;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px 20px;
+    border-radius: 16px;
+}
+.EDANWP-main-content {
+  min-width: 0;
+  width: 100%;
+}
+
+/*EDO Back Link */
+.EDANWP-back-link {
+  margin-bottom: 30px;
+}
+
+.EDANWP-back-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #333333;
+  font-weight: 400;
+}
+
+.EDANWP-back-arrow img {
+  width: 20px;
+  height: 20px;
+}
+
+/*EDO Workshop Header */
+.EDANWP-workshop-header {
+  margin-bottom: 10px;
+}
+
+.EDANWP-workshop-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3f3f3f;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.EDANWP-author-name {
+  font-size: 15px;
+  font-weight: 400;
+  color: #716b6b;
+  margin-bottom: 20px;
+}
+
+.EDANWP-meta-tags {
+  font-size: 13px;
+  color: #555555;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.EDANWP-meta-label {
+  color: #000000;
+  font-weight: 500;
+}
+
+.EDANWP-meta-link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.EDANWP-meta-link:hover {
+  color: #222222;
+}
+
+.EDANWP-meta-separator {
+  display: inline-block;
+  width: 8px;
+}
+
+/*EDO Hero Image */
+.EDANWP-hero-image-wrapper {
+  width: 100%;
+  height: 420px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.EDANWP-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.EDANWP-hero-image-wrapper {
+  position: relative;
+}
+
+/* Slider Buttons */
+
+.EDANWP-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  /* color: #fff; */
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.EDANWP-prev {
+  left: 10px;
+}
+
+.EDANWP-next {
+  right: 10px;
+}
+
+.EDANWP-slider-btn.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/*EDO Content Sections */
+.EDANWP-section {
+  margin-bottom: 40px;
+}
+
+.EDANWP-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+  margin-bottom: 10px;
+}
+
+.EDANWP-section-para {
+  font-size: 15px;
+  color: #3f3f3f;
+  line-height: 1.65;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.EDANWP-section-para:last-child {
+  margin-bottom: 0;
+}
+
+/* EDO Bullet List */
+.EDANWP-bullet-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.EDANWP-bullet-list li {
+  font-size: 13.5px;
+  color: #333333;
+  line-height: 1.7;
+  margin-bottom: 2px;
+}
+
+/*EDO Customer Reviews Section */
+.EDANWP-reviews-section {
+  margin-bottom: 24px;
+}
+
+/* EDO Rating Summary Row */
+.EDANWP-rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.EDANWP-rating-score {
+  font-size: 28px;
+  font-weight: 600;
+  color: #3f3f3f;
+  line-height: 1;
+}
+
+.EDANWP-rating-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.EDANWP-star {
+  font-size: 17px;
+  color: #cccccc;
+}
+
+.EDANWP-star.EDANWP-star-filled {
+  color: #f5a623;
+}
+
+.EDANWP-star.EDANWP-star-half {
+  color: #f5a623;
+  opacity: 1;
+}
+
+.EDANWP-review-count {
+  font-size: 13px;
+  color: #666666;
+}
+
+/* EDO Review Photo Thumbnails */
+.EDANWP-review-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.EDANWP-gallery-thumb {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+}
+
+.EDANWP-view-all-link-wrap {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.EDANWP-view-all-link {
+  font-size: 13px;
+  color: #716b6b;
+  text-decoration: none;
+}
+
+.EDANWP-view-all-link:hover {
+  color: #111111;
+}
+
+/* Review Card */
+.EDANWP-review-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 12px;
+}
+
+.EDANWP-review-container {
+  display: flex;
+  gap: 12px;
+}
+
+/* Avatar */
+.EDANWP-reviewer-avatar img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Right Content */
+.EDANWP-review-content {
+  flex: 1;
+}
+
+/* Top Row */
+.EDANWP-review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.EDANWP-reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.EDANWP-reviewer-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Stars */
+.EDANWP-reviewer-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.EDANWP-star {
+  font-size: 13px;
+  color: #d0d0d0;
+}
+.EDANWP-star img {
+  width: 10px;
+  height: 10px;
+}
+
+.EDANWP-star.filled {
+  color: #f5b301;
+}
+
+/* Date */
+.EDANWP-review-date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Review text */
+.EDANWP-review-text {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/*EDO FAQ Section */
+.EDANWP-faq-section {
+  margin-bottom: 40px;
+}
+
+.EDANWP-faq-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.EDANWP-faq-item:first-of-type {
+  border-top: none;
+}
+
+.EDANWP-faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  color: #3f3f3f;
+  font-weight: 400;
+}
+
+.EDANWP-faq-number {
+  font-weight: 400;
+  color: #333333;
+  min-width: 18px;
+}
+
+.EDANWP-faq-q-text {
+  flex: 1;
+}
+
+.EDANWP-faq-icon {
+  font-size: 28px;
+  font-weight: 300;
+  color: #000000;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.EDANWP-faq-question[aria-expanded="true"] .EDANWP-faq-icon {
+  transform: rotate(45deg);
+}
+
+.EDANWP-faq-answer {
+  padding: 0 4px 14px 26px;
+  font-size: 13px;
+  color: #444444;
+  line-height: 1.65;
+}
+
+.EDANWP-faq-answer[hidden] {
+  display: none;
+}
+
+/*EDO Sidebar Styles */
+.EDANWP-sidebar {
+  width: 100%;
+  min-width: 0;
+}
+
+.EDANWP-sidebar-sticky {
+  position: sticky;
+  top: 20px;
+}
+
+/*EDO Booking Card */
+.EDANWP-booking-card {
+  border: 1px solid #8e8989;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+  margin-bottom: 18px;
+}
+
+/* EDO Date Row */
+.EDANWP-booking-date-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+  /* padding-bottom: 10px; */
+}
+
+.EDANWP-booking-date-icon {
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.EDANWP-info-icon img,
+.EDANWP-booking-date-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.EDANWP-booking-date-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  word-spacing: 3px;
+  line-height: 1.5;
+}
+
+.EDANWP-available-badge {
+  font-size: 13px;
+  color: #009605;
+  font-weight: 400;
+  white-space: nowrap;
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+/* EDO Info Rows */
+.EDANWP-booking-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #333333;
+}
+
+.EDANWP-info-icon {
+  font-size: 13px;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.EDANWP-info-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  line-height: 1.5;
+}
+
+.EDANWP-location-row .EDANWP-info-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+  line-height: 1.55;
+}
+
+.EDANWP-view-venues {
+  margin-bottom: 15px;
+  padding-left: 21px;
+}
+
+.EDANWP-view-venues-link {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fd0000;
+  text-decoration: none;
+}
+
+/* EDO Price Box */
+.EDANWP-price-box {
+  margin-bottom: 12px;
+}
+
+.EDANWP-current-price {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+  color: #3f3f3f;
+  line-height: 1.2;
+}
+
+.EDANWP-price-old-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+
+.EDANWP-old-price {
+  font-size: 13px;
+  font-weight: 400;
+  color: #716b6b;
+  text-decoration: line-through;
+}
+
+.EDANWP-discount-badge {
+  font-size: 12px;
+  color: #fd0000;
+  font-weight: 400;
+}
+
+/* EDO CTA Buttons */
+.EDANWP-cta-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.EDANWP-btn-enroll {
+  flex: 1;
+  background-color: #8E8989;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.EDANWP-btn-gift {
+  flex: 1;
+  background-color: #ffffff;
+  color: #3f3f3f;
+  border: 1px solid #716b6b;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/*EDO About Us Card */
+.EDANWP-about-card {
+  border-radius: 16px;
+  padding: 16px;
+  background: #fef6f6;
+}
+
+.EDANWP-about-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3f3f3f;
+  margin-bottom: 25px;
+}
+
+/* EDO Brand Row */
+.EDANWP-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+.EDANWP-brand-logo-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.EDANWP-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.EDANWP-brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f3f3f;
+}
+
+.EDANWP-brand-sub {
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #716b6b;
+}
+
+/* EDO About Description Paragraphs */
+.EDANWP-about-para {
+  font-size: 15px;
+  color: #3f3f3f;
+  word-spacing: 13px;
+  line-height: 2;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.EDANWP-about-para:last-of-type {
+  margin-bottom: 12px;
+}
+
+.EDANWP-about-images {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.EDANWP-about-img-full {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+.EDANWP-about-img-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.EDANWP-about-img-row img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+/* Bottom full-width image */
+.EDANWP-about-img-bottom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+/*EDO VENUES MODAL STYLES*/
+
+/* Overlay */
+.EDANWP-venues-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 9000;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.EDANWP-venues-overlay.EDANWP-venues-overlay-open {
+  display: flex;
+}
+
+/* Modal Box */
+.EDANWP-venues-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+/* Modal Header */
+.EDANWP-venues-header {
+  padding: 20px 20px 0 20px;
+  flex-shrink: 0;
+}
+
+.EDANWP-venues-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.EDANWP-venues-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3F3F3F;
+  line-height: 1.2;
+}
+
+.EDANWP-venues-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #555555;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.EDANWP-venues-close img{
+    width: 18px;
+    height: 18px;
+}
+
+/* Date Row */
+.EDANWP-venues-date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.EDANWP-venues-date-chevron {
+  font-size: 20px;
+  color: #716B6B;
+  line-height: 1;
+}
+.EDANWP-venues-date-chevron img{
+    width: 14px;
+    height: 14px;
+}
+
+.EDANWP-venues-date-text {
+  font-size: 16px;
+  color: #716B6B;
+  font-weight: 400;
+}
+
+/* State Filter Tabs */
+.EDANWP-venues-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 20px;
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.EDANWP-venues-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.EDANWP-venues-tab {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555555;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.EDANWP-venues-tab:hover {
+  color: #222222;
+  background: #f7f7f7;
+}
+
+.EDANWP-venues-tab.EDANWP-venues-tab-active {
+  background-color: #a10404;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Scrollable Venue List Body */
+.EDANWP-venues-body {
+  overflow-y: auto;
+  padding: 20px 20px 24px 20px;
+  flex: 1;
+}
+
+/* State Content Panels */
+.EDANWP-venues-state-content {
+  display: none;
+}
+
+.EDANWP-venues-state-content.EDANWP-venues-state-active {
+  display: block;
+}
+
+/* City Group */
+.EDANWP-venue-city-group {
+  margin-bottom: 4px;
+}
+
+.EDANWP-venue-city-group + .EDANWP-venue-city-group {
+  border-top: 1px solid #8E8989;
+  padding-top: 16px;
+}
+
+.EDANWP-venue-city {
+  font-size: 24px;
+  font-weight: 700;
+  color: #A10404;
+  margin-bottom: 14px;
+}
+
+.EDANWP-venue-city-count {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Venue Item */
+.EDANWP-venue-item {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+
+}
+
+.EDANWP-venue-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.EDANWP-venue-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.EDANWP-venue-address {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+
+.EDANWP-venue-view-link {
+  font-size: 12px;
+  color: #FD0000;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.EDANWP-venue-view-link:hover {
+  opacity: 0.75;
+}
+
+body.EDANWP-no-scroll {
+  overflow: hidden;
+}
+
+
+/* EDO Venues Modal Scrollbar */
+.EDANWP-venues-body {
+  scrollbar-width: thin;
+  scrollbar-color: #716B6B transparent;
+}
+
+.EDANWP-venues-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.EDANWP-venues-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.EDANWP-venues-body::-webkit-scrollbar-thumb {
+  background-color: #716B6B;
+  border-radius: 10px;
+}
+
+.EDANWP-venues-body::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0;
+}
+
+/* Responsive */
+@media (max-width: 595px) {
+  .EDANWP-venues-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .EDANWP-venues-modal {
+    border-radius: 16px;
+    width: 100%;
+  }
+}
+/*
+   EDO Responsive Adjustments */
+
+@media (max-width: 1024px) {
+  .EDANWP-page-wrapper {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 595px) {
+
+    .EDANWP-faq-section{
+        width: 100%;
+    }
+  .EDANWP-page-wrapper {
+    padding: 16px 20px 40px 20px;
+  }
+
+  .EDANWP-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .EDANWP-sidebar,
+  .EDANWP-sidebar-sticky {
+    display: contents;
+  }
+
+  .EDANWP-main-content {
+    display: contents;
+  }
+
+  .EDANWP-workshop-header {
+    order: 1;
+  }
+  .EDANWP-hero-image-wrapper {
+    order: 2;
+    margin-bottom: 20px;
+  }
+  .EDANWP-booking-card {
+    order: 3;
+    margin-bottom: 20px;
+  }
+
+  .EDANWP-section {
+    order: 4;
+  }
+
+  .EDANWP-about-card {
+    order: 10;
+    margin-bottom: 20px;
+  }
+
+  .EDANWP-section.EDANWP-reviews-section {
+    order: 11;
+  }
+  .EDANWP-section.EDANWP-faq-section {
+    order: 12;
+  }
+
+  .EDANWP-review-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* EDANWP Preview Header */
+.EDANWP-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px 20px;
+    border-radius: 16px;
+}
+
+.EDANWP-preview-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.EDANWP-preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.EDANWP-btn-edit {
+  background: #ffffff;
+  color: #3f3f3f;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 6px;
+  padding: 7px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.EDANWP-btn-edit:hover {
+  border-color: #888;
+  color: #111;
+}
+
+.EDANWP-btn-publish {
+  background: #1a6ef5;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.EDANWP-btn-publish:hover {
+  background: #155fd4;
+}

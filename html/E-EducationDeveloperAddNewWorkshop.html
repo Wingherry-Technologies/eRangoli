@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Workshop</title>
+  <link rel="stylesheet" href="../css/E-EducationDeveloperAddNewWorkshop.css" />
+</head>
+<body>
+  <div class="EANW-page-wrapper">
+
+    <!-- Top Header -->
+    <div class="EANW-top-header">
+      <h1 class="EANW-page-title">Add New Workshop</h1>
+      <div class="EANW-top-actions">
+        <button type="button" class="EANW-btn EANW-btn-outline" id="EANW-preview-btn">Preview</button>
+        <button type="button" class="EANW-btn EANW-btn-primary" id="EANW-publish-btn">Publish</button>
+      </div>
+    </div>
+
+    <form id="EANW-main-form" novalidate>
+
+      <!-- SECTION 1: Workshop Brief -->
+      <div class="EANW-section-card" id="EANW-section-brief">
+        <div class="EANW-section-header">
+          <span class="EANW-section-title">Workshop Brief</span>
+          <button type="button" class="EANW-btn EANW-btn-primary EANW-save-btn" data-section="brief">Save</button>
+        </div>
+
+        <!-- Image Upload Row -->
+        <div class="EANW-image-upload-row">
+          <div class="EANW-cover-upload-wrap">
+            <input type="file" id="EANW-cover-image-input" class="EANW-file-input" accept="image/*" />
+<label for="EANW-cover-image-input"
+  class="EANW-cover-upload-label"
+  id="EANW-cover-label">
+
+  <span class="EANW-remove-image-btn EANW-hidden"
+        id="EANW-remove-cover-btn">✕</span>
+
+  <img id="EANW-cover-preview"
+       class="EANW-img-preview EANW-hidden"
+       src=""
+       alt="Cover Preview"/>
+
+  <span class="EANW-upload-placeholder"
+        id="EANW-cover-placeholder">
+        Upload Cover Image
+  </span>
+
+</label>
+          </div>
+<div class="EANW-add-images-wrap">
+
+  <div class="EANW-add-images-grid"
+       id="EANW-add-images-grid">
+
+    <label for="EANW-add-images-input"
+           class="EANW-add-images-label"
+           id="EANW-add-images-tile">
+
+      <span class="EANW-plus-icon">+</span>
+      <span>Add Images</span>
+
+    </label>
+
+  </div>
+
+  <input type="file"
+         id="EANW-add-images-input"
+         class="EANW-file-input"
+         accept="image/*" />
+
+</div>
+        </div>
+
+        <!-- Workshop Name + Expertise -->
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-workshop-name">Enter Workshop Name</label>
+            <input type="text" id="EANW-workshop-name" name="EANW-workshop-name" class="EANW-input" placeholder="Threads of Tradition: Frame Loom Weaving" />
+            <div class="EANW-error-msg" id="EANW-err-workshop-name"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-expertise">Expertise</label>
+            <input type="text" id="EANW-expertise" name="EANW-expertise" class="EANW-input" placeholder="Weaving" />
+            <div class="EANW-error-msg" id="EANW-err-expertise"></div>
+          </div>
+        </div>
+
+        <!-- Languages + Age Group -->
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-languages">Select Languages</label>
+            <div class="EANW-multiselect-wrap" id="EANW-languages-wrap">
+              <div class="EANW-multiselect-display" id="EANW-languages-display" tabindex="0">
+                <span class="EANW-multiselect-placeholder" id="EANW-lang-placeholder">Select languages</span>
+                <span class="EANW-multiselect-arrow">▾</span>
+              </div>
+              <div class="EANW-multiselect-dropdown EANW-hidden" id="EANW-languages-dropdown">
+                <label class="EANW-multi-opt"><input type="checkbox" value="English" class="EANW-lang-cb"/> English</label>
+                <label class="EANW-multi-opt"><input type="checkbox" value="Hindi" class="EANW-lang-cb"/> Hindi</label>
+                <label class="EANW-multi-opt"><input type="checkbox" value="Marathi" class="EANW-lang-cb"/> Marathi</label>
+                <label class="EANW-multi-opt"><input type="checkbox" value="Telugu" class="EANW-lang-cb"/> Telugu</label>
+                <label class="EANW-multi-opt"><input type="checkbox" value="Tamil" class="EANW-lang-cb"/> Tamil</label>
+                <label class="EANW-multi-opt"><input type="checkbox" value="Kannada" class="EANW-lang-cb"/> Kannada</label>
+              </div>
+            </div>
+            <div class="EANW-error-msg" id="EANW-err-languages"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-age-group">Select Age Group</label>
+            <select id="EANW-age-group" name="EANW-age-group" class="EANW-select">
+              <option value="">All age group</option>
+              <option value="kids">Kids (5–12)</option>
+              <option value="teens">Teens (13–17)</option>
+              <option value="adults">Adults (18+)</option>
+              <option value="seniors">Seniors (60+)</option>
+            </select>
+            <div class="EANW-error-msg" id="EANW-err-age-group"></div>
+          </div>
+        </div>
+
+        <!-- Price Individual + Group -->
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-price-individual">Enter Price (Individual)</label>
+            <input type="text" id="EANW-price-individual" name="EANW-price-individual" class="EANW-input" placeholder="₹1,299" />
+            <div class="EANW-error-msg" id="EANW-err-price-individual"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-price-group">Enter Price (Group)</label>
+            <input type="text" id="EANW-price-group" name="EANW-price-group" class="EANW-input" placeholder="₹1,499" />
+            <div class="EANW-error-msg" id="EANW-err-price-group"></div>
+          </div>
+        </div>
+
+        <!-- Type + Broadcast -->
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-type">Select Type</label>
+            <select id="EANW-type" name="EANW-type" class="EANW-select">
+              <option value="">Short Workshop</option>
+              <option value="short">Short Workshop</option>
+              <option value="full-day">Full Day Workshop</option>
+              <option value="multi-day">Multi Day Workshop</option>
+              <option value="series">Series</option>
+            </select>
+            <div class="EANW-error-msg" id="EANW-err-type"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-broadcast">Select the Broadcast</label>
+            <select id="EANW-broadcast" name="EANW-broadcast" class="EANW-select">
+              <option value="">Upcoming</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="live">Live</option>
+              <option value="recorded">Recorded</option>
+            </select>
+            <div class="EANW-error-msg" id="EANW-err-broadcast"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Add Venue and Time -->
+      <div class="EANW-section-card" id="EANW-section-venue">
+        <div class="EANW-section-header">
+          <span class="EANW-section-title">Add Venue and Time</span>
+          <button type="button" class="EANW-btn EANW-btn-primary EANW-save-btn" data-section="venue">Save</button>
+        </div>
+
+        <div id="EANW-venues-container">
+
+          <!-- Venue 1 — static HTML  -->
+          <div class="EANW-venue-block" id="EANW-venue-block-1" data-venue-num="1">
+
+            <div class="EANW-venue-header">
+              <span class="EANW-venue-title">Venue 1</span>
+              <div class="EANW-venue-header-actions">
+                <button type="button" class="EANW-add-another-link" id="EANW-add-venue-btn">Add another</button>
+              </div>
+            </div>
+
+            <div class="EANW-venue-two-col">
+
+              <!-- LEFT COLUMN -->
+              <div class="EANW-venue-left">
+
+                <div class="EANW-field-group">
+                  <label class="EANW-label">Select State</label>
+                  <select id="EANW-state-1" class="EANW-select EANW-venue-state">
+                    <option value="">Select State</option>
+                    <option value="Maharshtra">Maharshtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  </select>
+                  <div class="EANW-error-msg" id="EANW-err-state-1"></div>
+                </div>
+
+                <div class="EANW-field-group">
+                  <label class="EANW-label">Enter Venue Name</label>
+                  <input type="text" id="EANW-venue-name-1" class="EANW-input" />
+                  <div class="EANW-error-msg" id="EANW-err-venue-name-1"></div>
+                </div>
+
+                <div class="EANW-roe">
+                  <div class="EANW-field-group">
+                    <label class="EANW-label">Select Start Date</label>
+                    <input type="date" id="EANW-start-date-1" class="EANW-input" />
+                    <div class="EANW-error-msg" id="EANW-err-start-date-1"></div>
+                  </div>
+                  <div class="EANW-field-group">
+                    <label class="EANW-label">Select End Date</label>
+                    <input type="date" id="EANW-end-date-1" class="EANW-input" />
+                    <div class="EANW-error-msg" id="EANW-err-end-date-1"></div>
+                  </div>
+                </div>
+
+                <div class="EANW-roe">
+                  <div class="EANW-field-group">
+                    <label class="EANW-label">Select Start time</label>
+                    <div class="EANW-time-wrap">
+<input type="text"
+       id="EANW-start-time-1"
+       class="EANW-input EANW-time-input"
+       placeholder="12:30:00"
+       maxlength="8">
+  <span class="EANW-time-format"
+        id="EANW-start-time-format-1">AM</span>
+</div>
+                    <div class="EANW-error-msg" id="EANW-err-start-time-1"></div>
+                  </div>
+                  <div class="EANW-field-group">
+                    <label class="EANW-label">Select End time</label>
+                    <div class="EANW-time-wrap">
+<input type="text"
+       id="EANW-end-time-1"
+       class="EANW-input EANW-time-input"
+       placeholder="03:00:00"
+       maxlength="8">
+  <span class="EANW-time-format"
+        id="EANW-end-time-format-1">PM</span>
+</div>
+                    <div class="EANW-error-msg" id="EANW-err-end-time-1"></div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- RIGHT COLUMN -->
+              <div class="EANW-venue-right">
+
+                <div class="EANW-field-group">
+                  <label class="EANW-label">Select City</label>
+                  <select id="EANW-city-1" class="EANW-select EANW-venue-city">
+                    <option value="">Select City</option>
+                  </select>
+                  <div class="EANW-error-msg" id="EANW-err-city-1"></div>
+                </div>
+
+                <div class="EANW-field-group">
+                  <label class="EANW-label">Enter Venue Address</label>
+                  <textarea id="EANW-venue-address-1" class="EANW-textarea" style="min-height:120px"></textarea>
+                  <div class="EANW-error-msg" id="EANW-err-venue-address-1"></div>
+                </div>
+
+                <div class="EANW-field-group">
+                  <label class="EANW-label">Enter Venue gmap link</label>
+                  <input type="text" id="EANW-gmap-1" class="EANW-input" />
+                  <div class="EANW-error-msg" id="EANW-err-gmap-1"></div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <!-- /Venue 1 -->
+
+        </div>
+
+      </div>
+
+      <!-- SECTION 3: Workshop Details -->
+      <div class="EANW-section-card" id="EANW-section-details">
+        <div class="EANW-section-header">
+          <span class="EANW-section-title">Workshop Details</span>
+          <button type="button" class="EANW-btn EANW-btn-primary EANW-save-btn" data-section="details">Save</button>
+        </div>
+
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-about-workshop">Write about the Workshop</label>
+            <textarea id="EANW-about-workshop" name="EANW-about-workshop" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-about-workshop"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-topics">Write Topics to be Learnt</label>
+            <textarea id="EANW-topics" name="EANW-topics" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-topics"></div>
+          </div>
+        </div>
+
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-who-can-join">Write who can join</label>
+            <textarea id="EANW-who-can-join" name="EANW-who-can-join" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-who-can-join"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-highlights">Write Workshop Highlights</label>
+            <textarea id="EANW-highlights" name="EANW-highlights" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-highlights"></div>
+          </div>
+        </div>
+
+        <div class="EANW-form-grid">
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-takeaway">Write about the takeaway from workshop</label>
+            <textarea id="EANW-takeaway" name="EANW-takeaway" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-takeaway"></div>
+          </div>
+          <div class="EANW-field-group">
+            <label class="EANW-label" for="EANW-organizer">Write about the organizer/Artisan</label>
+            <textarea id="EANW-organizer" name="EANW-organizer" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-organizer"></div>
+          </div>
+        </div>
+
+        <!-- Product Images -->
+        <div class="EANW-field-group EANW-full-width">
+          <label class="EANW-label">Upload Pictures of the products</label>
+          <div class="EANW-product-images-row">
+            <div class="EANW-product-img-box">
+              <input type="file" id="EANW-product-img-1" class="EANW-file-input" accept="image/*" />
+              <label for="EANW-product-img-1" class="EANW-product-img-label">
+                <span class="EANW-remove-image-btn EANW-hidden" id="EANW-remove-prod-1">✕</span>
+                <img id="EANW-product-preview-1" class="EANW-img-preview EANW-hidden" src="" alt="" />
+                <span class="EANW-upload-placeholder" id="EANW-prod-ph-1">Upload Image</span>
+              </label>
+            </div>
+            <div class="EANW-product-img-box">
+              <input type="file" id="EANW-product-img-2" class="EANW-file-input" accept="image/*" />
+              <label for="EANW-product-img-2" class="EANW-product-img-label">
+                <span class="EANW-remove-image-btn EANW-hidden" id="EANW-remove-prod-2">✕</span>
+                <img id="EANW-product-preview-2" class="EANW-img-preview EANW-hidden" src="" alt="" />
+                <span class="EANW-upload-placeholder" id="EANW-prod-ph-2">Upload Image</span>
+              </label>
+            </div>
+            <div class="EANW-product-img-box">
+              <input type="file" id="EANW-product-img-3" class="EANW-file-input" accept="image/*" />
+              <label for="EANW-product-img-3" class="EANW-product-img-label">
+                <span class="EANW-remove-image-btn EANW-hidden" id="EANW-remove-prod-3">✕</span>
+                <img id="EANW-product-preview-3" class="EANW-img-preview EANW-hidden" src="" alt="" />
+                <span class="EANW-upload-placeholder" id="EANW-prod-ph-3">Upload Image</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Frequently Asked Questions -->
+      <div class="EANW-section-card" id="EANW-section-faq">
+        <div class="EANW-section-header">
+          <span class="EANW-section-title">Frequently asked questions</span>
+          <button type="button" class="EANW-btn EANW-btn-primary EANW-save-btn" data-section="faq">Save</button>
+        </div>
+
+        <div class="EANW-faq-header-row">
+          <span></span>
+          <button type="button" class="EANW-add-another-link" id="EANW-add-faq-btn">Add another</button>
+        </div>
+
+        <div id="EANW-faq-container">
+
+          <!-- FAQ 1 — static HTML -->
+          <div class="EANW-faq-block" id="EANW-faq-block-1">
+            <label class="EANW-faq-q-label" for="EANW-faq-q-1">Write a question -1</label>
+            <input type="text" id="EANW-faq-q-1" name="EANW-faq-q-1" class="EANW-input" placeholder="Write the content here" />
+            <div class="EANW-error-msg" id="EANW-err-faq-q-1"></div>
+            <label class="EANW-faq-a-label" for="EANW-faq-a-1">Write answer -1</label>
+            <textarea id="EANW-faq-a-1" name="EANW-faq-a-1" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-faq-a-1"></div>
+          </div>
+
+          <!-- FAQ 2 — static HTML -->
+          <div class="EANW-faq-block" id="EANW-faq-block-2">
+            <label class="EANW-faq-q-label" for="EANW-faq-q-2">Write a question -2</label>
+            <input type="text" id="EANW-faq-q-2" name="EANW-faq-q-2" class="EANW-input" placeholder="Write the content here" />
+            <div class="EANW-error-msg" id="EANW-err-faq-q-2"></div>
+            <label class="EANW-faq-a-label" for="EANW-faq-a-2">Write answer -2</label>
+            <textarea id="EANW-faq-a-2" name="EANW-faq-a-2" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-faq-a-2"></div>
+          </div>
+
+          <!-- FAQ 3 — static HTML -->
+          <div class="EANW-faq-block" id="EANW-faq-block-3">
+            <label class="EANW-faq-q-label" for="EANW-faq-q-3">Write a question -3</label>
+            <input type="text" id="EANW-faq-q-3" name="EANW-faq-q-3" class="EANW-input" placeholder="Write the content here" />
+            <div class="EANW-error-msg" id="EANW-err-faq-q-3"></div>
+            <label class="EANW-faq-a-label" for="EANW-faq-a-3">Write answer -3</label>
+            <textarea id="EANW-faq-a-3" name="EANW-faq-a-3" class="EANW-textarea" placeholder="Write the content here"></textarea>
+            <div class="EANW-error-msg" id="EANW-err-faq-a-3"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="../javascript/E-EducationDeveloperAddNewWorkshop.js"></script>
+</body>
+</html>
