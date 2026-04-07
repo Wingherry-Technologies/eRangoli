@@ -24,7 +24,12 @@ body {
 }
 
 .EDHScard-header {
-  padding: 20px 24px 16px;
+  padding: 15px 10px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ border-bottom: 1px solid #3b8af5;
 }
 
 .EDHScard-header h2 {
@@ -32,7 +37,7 @@ body {
   font-weight: 700;
   color: #000000;
   padding-bottom: 10px;
-  border-bottom: 1px solid #3b8af5;
+ 
 }
 
 .EDHScontent {
@@ -44,7 +49,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0px 0 12px 0px;
-  border-bottom: 1px solid #e8e8e8;
 }
 
 .EDHSsection-row .EDHSlabel {
@@ -86,7 +90,7 @@ body {
   background: #ebf3f9;
   padding: 10px;
   border-radius: 6px;
-  width: 60%;
+  width: 100%;
   min-height: 38px;
 }
 

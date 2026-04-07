@@ -41,18 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Bind delete/set-on-home for initial tiles
   bindTileActions();
 
-  // EDIT BUTTON
-  editBtn.addEventListener("click", function () {
-    editMode.style.display = "block";
-    viewMode.style.display = "none";
-    editBtn.style.display = "none";
-    publishBtn.style.display = "inline-block";
 
-    headingInput.value = viewHeading.textContent.trim();
-    subTextInput.value = viewSubText.innerText.trim();
-    titleInput.value = viewTitle.textContent.trim();
-    subText2Input.value = viewSubText2.innerText.trim();
-  });
 
   // VALIDATIONS
   function validateTextField(input, message) {
@@ -71,36 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // PUBLISH BUTTON (Content Card)
-  publishBtn.addEventListener("click", function () {
-    let isValid = true;
 
-    if (!validateTextField(headingInput, "Heading is required")) isValid = false;
-    if (!validateTextField(subTextInput, "Sub Text is required")) isValid = false;
-    if (!validateTextField(titleInput, "Title is required")) isValid = false;
-    if (!validateTextField(subText2Input, "Sub Text is required")) isValid = false;
-
-    if (isValid) {
-      viewHeading.textContent = headingInput.value.trim();
-
-      // Render subtext paragraphs
-      const subLines = subTextInput.value.trim().split(/\n+/).filter(Boolean);
-      viewSubText.innerHTML = subLines.map(function (line) {
-        return "<p>" + escapeHtml(line) + "</p>";
-      }).join("");
-
-      viewTitle.textContent = titleInput.value.trim();
-
-      const sub2Lines = subText2Input.value.trim().split(/\n+/).filter(Boolean);
-      viewSubText2.innerHTML = sub2Lines.map(function (line) {
-        return "<p>" + escapeHtml(line) + "</p>";
-      }).join("");
-
-      editMode.style.display = "none";
-      viewMode.style.display = "block";
-      publishBtn.style.display = "none";
-      editBtn.style.display = "inline-block";
-    }
-  });
 
   function escapeHtml(text) {
     const div = document.createElement("div");
@@ -129,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      alert("Hero media published successfully!");
+    
     });
   }
 
