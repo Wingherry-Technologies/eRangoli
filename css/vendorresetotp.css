@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans" ;
+}
+
+.vendorLoginPage {
+    min-height: 100vh;
+    background: linear-gradient(rgba(30,10,10,0.55), rgba(30,10,10,0.55)),
+                url('../assets/login/vendorRBg.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .vendorLoginCard {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 60px 50px 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .vendorLoginTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5C5C5C;
+    margin-bottom: 8px;
+  }
+
+  .vendorLoginSubtitle {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .vendorLoginOtpWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 3rem;
+  }
+
+  .vendorLoginOtpInput {
+    width: 36px;
+    height: 44px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a1a1a;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+
+  .vendorLoginOtpInput:focus { border-bottom-color: #a10404; }
+  .vendorLoginOtpInput.vendorLoginInputError { border-bottom-color: #a10404 !important; }
+  .vendorLoginOtpInput.vendorLoginInputSuccess { border-bottom-color: #1aa329 !important; }
+
+  .vendorLoginError {
+    font-size: 11px;
+    color: #a10404;
+    min-height: 16px;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .vendorLoginSuccess {
+    font-size: 11px;
+    color: #1aa329;
+    min-height: 16px;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .vendorLoginButton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: #a10404;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: background 0.2s;
+  }
+
+  .vendorLoginButton:disabled { cursor: default; }
+
+  .vendorLoginResendSection {
+    margin-top: 18px;
+    font-size: 11px;
+    color: #0250D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .vendorLoginResendBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    color: #B60554;
+    cursor: default;
+  }
+
+  .vendorLoginResendBtn:not(:disabled) {
+    color: #B60554;
+    cursor: pointer;
+  }
+
+
+  @media (max-width:595px) {
+    .vendorLoginPage{
+      padding: 0px;
+      background: none;
+    }
+    .vendorLoginCard {
+      max-width: 100%;
+      border-radius: 0px;
+      min-height: 90vh;
+    }
+  }

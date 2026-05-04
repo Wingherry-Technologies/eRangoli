@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OTP Verification</title>
+<link rel="stylesheet" href="../css/vendorresetotp.css">
+<link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+</head>
+<body>
+
+<div class="vendorLoginPage">
+  <div class="vendorLoginCard">
+
+
+    <h2 class="vendorLoginTitle">Enter OTP</h2>
+    <p class="vendorLoginSubtitle">
+      Enter the 6-digit code sent to your registered mobile number
+    </p>
+
+    <div class="vendorLoginOtpWrapper">
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+    </div>
+
+    <p class="vendorLoginError" id="vendorLoginError"></p>
+    <p class="vendorLoginSuccess" id="vendorLoginSuccess">OTP verified successfully!</p>
+
+    <button class="vendorLoginButton" id="vendorLoginButton">Verify &amp; Proceed</button>
+
+    <div class="vendorLoginResendSection">
+      <span>Resend code</span>
+      <button class="vendorLoginResendBtn" id="vendorLoginResendBtn" disabled>00:31</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="../javascript/vendorresetotp.js"></script>
+</body>
+</html>

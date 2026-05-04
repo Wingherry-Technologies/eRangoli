@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (forgotLink) {
     forgotLink.addEventListener("click", function (e) {
       e.preventDefault();
-      loginPage.style.display = "none";
-      resetPage.style.display = "flex";
+      window.location.href = "../html/vendorreset.html";
     });
   }
 
@@ -84,14 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let approved = true;
 
-function validateAllowedChars(el) {
-  el.addEventListener("keypress", function (e) {
-    if (!/^[A-Za-z0-9_-]+$/.test(e.key)) e.preventDefault();
-  });
-}
-
-validateAllowedChars(document.getElementById("vendorLoginMobile"));
-validateAllowedChars(document.getElementById("vendorResetUser"));
 
 // Vendor Registered Check
 

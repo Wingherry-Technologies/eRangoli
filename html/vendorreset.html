@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="../css/vendorreset.css">
+    <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon">
+</head>
+<body>
+        <!-- RESET PASSWORD SCREEN -->
+    <div class="vendorResetPage" id="vendorResetPage">
+      <div class="vendorResetCard">
+        <h2 class="vendorResetTitle">Reset Password</h2>
+        <p class="vendorResetText">
+          Please enter your registered mobile number to<br />
+          reset your password
+        </p>
+
+        <form id="vendorResetForm">
+          <div class="vendorResetGroup">
+            <label class="vendorResetLabel" for="vendorResetUser">
+              Enter Mobile Number
+            </label>
+            <input
+              type="text"
+              id="vendorResetUser"
+              class="vendorResetInput"
+              placeholder="8855447755"
+            />
+            <span id="vendorResetUserError" class="vendorLoginError"></span>
+          </div>
+
+          <button type="submit" class="vendorResetButton">
+            Get OTP
+          </button>
+        </form>
+
+        <a href="../html/vendorlogin.html" class="vendorResetBack" id="vendorResetBack">
+          Back to login
+        </a>
+      </div>
+    </div>
+    <script src="../javascript/vendorreset.js"></script>
+</body>
+</html>
