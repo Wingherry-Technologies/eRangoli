@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OTP Verification</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Nunito Sans", sans-serif; }
+
+  .vendorLoginPage {
+    min-height: 100vh;
+    background: linear-gradient(rgba(30,10,10,0.55), rgba(30,10,10,0.55)),
+                url('../assets/login/vendorRBg.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .vendorLoginCard {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 60px 50px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+
+  .vendorLoginTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .vendorLoginSubtitle {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .vendorLoginOtpWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 3rem;
+  }
+
+  .vendorLoginOtpInput {
+    width: 36px;
+    height: 44px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a1a1a;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+
+  .vendorLoginOtpInput:focus { border-bottom-color: #a10404; }
+  .vendorLoginOtpInput.vendorLoginInputError { border-bottom-color: #a10404 !important; }
+  .vendorLoginOtpInput.vendorLoginInputSuccess { border-bottom-color: #1aa329 !important; }
+
+  .vendorLoginError {
+    font-size: 11px;
+    color: #a10404;
+    min-height: 16px;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .vendorLoginSuccess {
+    font-size: 11px;
+    color: #1aa329;
+    min-height: 16px;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .vendorLoginButton {
+    width: 100%;
+    padding: 11px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #a10404;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+    transition: background 0.2s;
+  }
+
+  .vendorLoginButton:disabled { cursor: default; }
+
+  .vendorLoginResendSection {
+    margin-top: 18px;
+    font-size: 11px;
+    color: #888888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .vendorLoginResendBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    color: #B60554;
+    cursor: default;
+  }
+
+  .vendorLoginResendBtn:not(:disabled) {
+    color: #0250d9;
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    .vendorLoginCard { padding: 32px 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="vendorLoginPage">
+  <div class="vendorLoginCard">
+
+
+    <h2 class="vendorLoginTitle">Enter OTP</h2>
+    <p class="vendorLoginSubtitle">
+      Enter the 6-digit code sent to your registered mobile number
+    </p>
+
+    <div class="vendorLoginOtpWrapper">
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+      <input class="vendorLoginOtpInput" maxlength="1" inputmode="numeric" />
+    </div>
+
+    <p class="vendorLoginError" id="vendorLoginError"></p>
+    <p class="vendorLoginSuccess" id="vendorLoginSuccess">OTP verified successfully!</p>
+
+    <button class="vendorLoginButton" id="vendorLoginButton">Verify &amp; Proceed</button>
+
+    <div class="vendorLoginResendSection">
+      <span>Resend code</span>
+      <button class="vendorLoginResendBtn" id="vendorLoginResendBtn" disabled>00:31</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const correctOtp = "123456";
+
+  const inputs = document.querySelectorAll(".vendorLoginOtpInput");
+  const btn = document.getElementById("vendorLoginButton");
+  const errEl = document.getElementById("vendorLoginError");
+  const successEl = document.getElementById("vendorLoginSuccess");
+  const resendBtn = document.getElementById("vendorLoginResendBtn");
+
+  let timerVal = 31;
+  let timerInterval = null;
+
+  function startTimer() {
+    clearInterval(timerInterval);
+    timerVal = 31;
+    resendBtn.disabled = true;
+    timerInterval = setInterval(function () {
+      timerVal--;
+      const m = String(Math.floor(timerVal / 60)).padStart(2, "0");
+      const s = String(timerVal % 60).padStart(2, "0");
+      resendBtn.textContent = m + ":" + s;
+      if (timerVal <= 0) {
+        clearInterval(timerInterval);
+        resendBtn.disabled = false;
+        resendBtn.textContent = "Resend";
+      }
+    }, 1000);
+  }
+
+  startTimer();
+
+  resendBtn.addEventListener("click", function () {
+    if (!resendBtn.disabled) {
+      inputs.forEach(function (i) {
+        i.value = "";
+        i.className = "vendorLoginOtpInput";
+      });
+      errEl.style.display = "none";
+      successEl.style.display = "none";
+      btn.style.background = "#a10404";
+      btn.textContent = "Verify & Proceed";
+      btn.disabled = false;
+      inputs[0].focus();
+      startTimer();
+    }
+  });
+
+  inputs.forEach(function (input, idx) {
+    input.addEventListener("focus", function () {
+      this.style.borderBottomColor = "#a10404";
+    });
+    input.addEventListener("blur", function () {
+      if (!this.value) this.style.borderBottomColor = "#d0d0d0";
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Backspace") {
+        if (this.value) {
+          this.value = "";
+        } else if (idx > 0) {
+          inputs[idx - 1].focus();
+          inputs[idx - 1].value = "";
+        }
+        errEl.style.display = "none";
+        successEl.style.display = "none";
+      }
+    });
+    input.addEventListener("input", function () {
+      const val = this.value.replace(/[^0-9]/g, "");
+      this.value = val ? val[val.length - 1] : "";
+      if (this.value && idx < inputs.length - 1) {
+        inputs[idx + 1].focus();
+      }
+      errEl.style.display = "none";
+      successEl.style.display = "none";
+    });
+    input.addEventListener("paste", function (e) {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData)
+        .getData("text").replace(/[^0-9]/g, "");
+      pasted.split("").forEach(function (ch, i) {
+        if (inputs[idx + i]) inputs[idx + i].value = ch;
+      });
+      const nextIdx = Math.min(idx + pasted.length, inputs.length - 1);
+      inputs[nextIdx].focus();
+    });
+  });
+
+  inputs[0].focus();
+
+  btn.addEventListener("click", function () {
+    const entered = Array.from(inputs).map(i => i.value).join("");
+    if (entered.length < 6) {
+      errEl.textContent = "Please enter all 6 digits.";
+      errEl.style.display = "block";
+      successEl.style.display = "none";
+      return;
+    }
+    if (entered === correctOtp) {
+      errEl.style.display = "none";
+      successEl.style.display = "block";
+      inputs.forEach(i => i.classList.add("vendorLoginInputSuccess"));
+      btn.style.background = "#1aa329";
+      btn.textContent = "Verified!";
+      btn.disabled = true;
+    } else {
+      successEl.style.display = "none";
+      errEl.textContent = "Incorrect OTP. Please try again.";
+      errEl.style.display = "block";
+      inputs.forEach(i => i.classList.add("vendorLoginInputError"));
+      inputs[0].focus();
+    }
+  });
+</script>
+</body>
+</html>
