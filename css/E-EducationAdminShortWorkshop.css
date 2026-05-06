@@ -73,7 +73,7 @@ body {
 
 .EEASW-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 0.5fr;
   align-items: center;
   padding: 12px 0;
 }
@@ -117,12 +117,6 @@ body {
 /* Enrolled */
 .EEASW-green {
   color: rgba(0, 150, 5, 1);
-}
-
-/* Edit */
-.EEASW-edit {
-  width: 16px;
-  cursor: pointer;
 }
 
 /* POPUP */
@@ -270,10 +264,9 @@ body {
     display: block;
   }
 
-  /* ROW STYLE — always 3 fixed columns: label | value | icon */
   .EEASW-acc-body div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     margin-bottom: 8px;
     font-size: 14px;
@@ -321,11 +314,7 @@ body {
     color: #716b6b;
     font-weight: 400;
   }
-  .EEASW-mob-edit {
-    width: 16px;
-    justify-self: end; /* right side fix */
-    cursor: pointer;
-  }
+
   .EEASW-mob-live {
     color: rgba(0, 150, 5, 1) !important;
   }

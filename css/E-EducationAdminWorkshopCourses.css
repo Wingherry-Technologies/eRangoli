@@ -73,7 +73,7 @@ body {
 
 .EEAWC-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 0.5fr;
   align-items: center;
   padding: 12px 0;
 }
@@ -117,12 +117,6 @@ body {
 /* Enrolled */
 .EEAWC-green {
   color: rgba(0, 150, 5, 1);
-}
-
-/* Edit */
-.EEAWC-edit {
-  width: 16px;
-  cursor: pointer;
 }
 
 /* POPUP */
@@ -269,7 +263,7 @@ body {
 
   .EEAWC-acc-body div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     margin-bottom: 8px;
     font-size: 14px;
@@ -316,12 +310,6 @@ body {
     padding-right: 10px;
     color: #716b6b;
     font-weight: 400;
-  }
-
-  .EEAWC-mob-edit {
-    width: 16px;
-    justify-self: end;
-    cursor: pointer;
   }
 
   .EEAWC-mob-live {

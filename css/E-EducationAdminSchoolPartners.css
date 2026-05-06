@@ -165,12 +165,6 @@ body {
   border-radius: 50%;
 }
 
-/* Edit */
-.EEASP-edit {
-  width: 16px;
-  cursor: pointer;
-}
-
 /* POPUP COMMON */
 .EEASP-filter-popup,
 .EEASP-sort-popup {
@@ -368,7 +362,7 @@ body {
 
   .EEASP-acc-body > div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     margin-bottom: 8px;
     font-size: 14px;
@@ -390,7 +384,7 @@ body {
 
   .EEASP-acc-body > div.action-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
@@ -433,11 +427,7 @@ body {
     color: #716b6b;
     font-weight: 400;
   }
-  .EEASP-mob-edit {
-    width: 16px;
-    justify-self: end;
-    cursor: pointer;
-  }
+
   .EEASP-mob-switch {
     position: relative;
     display: inline-block;

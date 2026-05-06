@@ -90,7 +90,7 @@ body {
 /* Rows */
 .EEAUW-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr 0.5fr;
   align-items: center;
   padding: 12px 0;
 }
@@ -118,8 +118,8 @@ body {
   border-radius: 50%;
 }
 
-/* Edit & Calendar */
-.EEAUW-edit,
+/* Calendar */
+
 .calendar {
   width: 16px;
   cursor: pointer;
@@ -405,7 +405,7 @@ body {
 
   .EEAUW-acc-body div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     margin-bottom: 8px;
     font-size: 14px;
@@ -450,11 +450,7 @@ body {
     color: #716b6b;
     font-weight: 400;
   }
-  .EEAUW-mob-edit {
-    width: 16px;
-    justify-self: end;
-    cursor: pointer;
-  }
+
   .EEAUW-mob-calendar {
     width: 16px;
     cursor: pointer;
