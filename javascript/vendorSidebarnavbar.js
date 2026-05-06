@@ -59,33 +59,69 @@ profileClicks.forEach(profileClick => {
     })
 });
 
-const subscribeMain=document.querySelector(".subscribe-main-container");
-const subscribeCross=document.querySelector(".subscribe-cross");
-const erSubscribe=document.querySelector(".er-subscribe>button");
-const subscribeEmail=document.getElementById("subscribe-email")
+// const subscribeMain=document.querySelector(".subscribe-main-container");
+// const subscribeCross=document.querySelector(".subscribe-cross");
+// const erSubscribe=document.querySelector(".er-subscribe>button");
+// const subscribeEmail=document.getElementById("subscribe-email")
 
-erSubscribe.onclick=()=>{
-    subscribeMain.style.display="flex";
-}
-subscribeCross.onclick=()=>{
-    subscribeMain.style.display="none";
-    document.querySelector(".subscribe-error-message").style.display="none";
-    subscribeEmail.value="";
-}
+// erSubscribe.onclick=()=>{
+//     subscribeMain.style.display="flex";
+// }
+// subscribeCross.onclick=()=>{
+//     subscribeMain.style.display="none";
+//     document.querySelector(".subscribe-error-message").style.display="none";
+//     subscribeEmail.value="";
+// }
 
-const subscribeButton=document.querySelector(".subscribe-btn");
-subscribeButton.onclick=()=>{
-    if (subscribeEmail.value === "" || !subscribeEmail.checkValidity()){
-        document.querySelector(".subscribe-error-message").style.display="block";
-        return;
-    }
-    else{
-        alert("Thank you for subscribing!");
-        document.querySelector(".subscribe-error-message").style.display="none";
-        subscribeEmail.value="";
-        subscribeMain.style.display="none";
-    }
-}
-document.querySelector(".logout-button").addEventListener("click",()=>{
-    window.location.href='../html/vendorlogin.html'
-})
+// const subscribeButton=document.querySelector(".subscribe-btn");
+// subscribeButton.onclick=()=>{
+//     if (subscribeEmail.value === "" || !subscribeEmail.checkValidity()){
+//         document.querySelector(".subscribe-error-message").style.display="block";
+//         return;
+//     }
+//     else{
+//         alert("Thank you for subscribing!");
+//         document.querySelector(".subscribe-error-message").style.display="none";
+//         subscribeEmail.value="";
+//         subscribeMain.style.display="none";
+//     }
+// }
+
+const logoutMain = document.querySelector(".logout-main-desktop");
+const logoutPopup = document.getElementById("logoutPopup");
+const cancelBtn = document.getElementById("cancelBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+/* Open Popup */
+logoutMain.addEventListener("click", () => {
+    logoutPopup.style.display = "flex";
+});
+
+/* Close Popup */
+cancelBtn.addEventListener("click", () => {
+    logoutPopup.style.display = "none";
+});
+
+/* Logout */
+logoutBtn.addEventListener("click", () => {
+    window.location.href = "../html/vendorlogin.html";
+});
+
+const logoutPopup1 = document.getElementById("logoutPopup");
+const cancelBtn1 = document.getElementById("cancelBtn");
+const logoutBtn1 = document.getElementById("logoutBtn");
+
+/* Open Popup */
+document.querySelector(".logout-button").addEventListener("click", () => {
+    logoutPopup1.style.display = "flex";
+});
+
+/* Close Popup */
+cancelBtn1.addEventListener("click", () => {
+    logoutPopup1.style.display = "none";
+});
+
+/* Logout */
+logoutBtn1.addEventListener("click", () => {
+    window.location.href = "../html/vendorlogin.html";
+});
