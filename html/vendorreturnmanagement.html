@@ -975,7 +975,7 @@
                     <td>₹1,800</td>
                     <td>15/12/25</td>
                     <td>Wrong Item</td>
-                    <td><span class="order-status refunded">Refunded</span></td>
+                    <td><span class="order-status accepted">Accepted</span></td>
                     <td>
                       <img
                         src="../assets/vendorOrderManagement/arrow.svg"
@@ -1074,7 +1074,7 @@
                     <td>₹1,600</td>
                     <td>17/12/25</td>
                     <td>Late Delivery</td>
-                    <td><span class="order-status refunded">Refunded</span></td>
+                    <td><span class="order-status accepted">Accepted</span></td>
                     <td>
                       <img
                         src="../assets/vendorOrderManagement/arrow.svg"
@@ -1206,7 +1206,7 @@
                     <td>₹1,900</td>
                     <td>21/12/25</td>
                     <td>Wrong Product</td>
-                    <td><span class="order-status refunded">Refunded</span></td>
+                    <td><span class="order-status accepted">Accepted</span></td>
                     <td>
                       <img
                         src="../assets/vendorOrderManagement/arrow.svg"
@@ -1263,186 +1263,159 @@
           </div>
 
           <!-- Return Details Popup -->
+<!-- Return Details Popup (Received) -->
 <div id="received-popup" class="modal-popup-main">
-  <div class="modal-popup-content-main">
+  <div class="modal-popup-content-main rp-modal">
 
     <!-- HEADER -->
-    <div class="order-header">
-      <div class="header-part">
-        <h3>
-          Return Details <span class="order-date">17/12/25</span>
-        </h3>
-        <button class="close-btn">×</button>
+    <div class="rp-header">
+      <div class="rp-header-top">
+        <span class="rp-title">Product Return Details</span>
+        <button class="close-btn rp-close">×</button>
       </div>
-
-      <div class="border-sep"></div>
-
-      <div class="order-statusbar">
-        <small>#79967776</small>
-        <span class="status-pill received">Received</span>
+      <div class="rp-header-meta">
+        <p class="rp-order-id">#79967776</p>
+        <span class="rp-status-pill">Received</span>
       </div>
+      <div class="rp-divider"></div>
     </div>
 
-    <!-- BODY -->
-    <div class="order-body">
+    <!-- BODY: 2-column grid on desktop -->
+    <div class="rp-body">
 
-      <!-- LEFT COLUMN -->
-      <div class="left-col">
-
-        <!-- PRODUCT DETAILS -->
-        <div class="card-out">
-          <h4>Product Details</h4>
-          <div class="card">
-            <div class="product-row">
-              <img src="../assets/vendorOrderManagement/img.svg" alt="product" />
-
-              <div class="product-info">
-                <small>#79967776</small>
-                <strong>Handcrafted Wooden Beer Mug</strong>
-
-                <div class="meta-row">
-                  <span>Qty : 2</span>
-                  <span>Size : L</span>
-                </div>
-
-                <div class="meta-row">
-                  <span>Finish : Glossy</span>
-                  <span>Colour : Brown</span>
-                </div>
-              </div>
+      <!-- 1. Product Details -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Product Details</h4>
+        <div class="rp-card">
+          <div class="rp-product-row">
+            <img class="rp-product-img" src="../assets/vendorOrderManagement/img.svg" alt="product" />
+            <div class="rp-product-info">
+              <span class="rp-pid">#79967776</span>
+              <strong class="rp-pname">Paithani peacock print saree</strong>
+              <div class="rp-meta"><span>Qty : 2</span></div>
+              <div class="rp-meta"><span>Size : One size</span></div>
+              <div class="rp-meta"><span>Colour : Navy Blue</span></div>
             </div>
           </div>
         </div>
-
-        <!-- CUSTOMER PHOTOS -->
-        <div class="card-out">
-          <h4>Customer Photos</h4>
-          <div class="card photo-grid">
-            <img src="../assets/vendorOrderManagement/img.svg" />
-            <img src="../assets/vendorOrderManagement/img.svg" />
-            <img src="../assets/vendorOrderManagement/img.svg" />
-          </div>
-        </div>
-
-        <!-- RETURN ORDER DETAILS -->
-        <div class="card-out">
-          <h4>Return Order Details</h4>
-          <div class="card info-grid">
-
-            <div>
-              <label>Accepted</label>
-              <p>Yes</p>
-            </div>
-
-            <div>
-              <label>Return ID</label>
-              <p>72775854</p>
-            </div>
-
-            <div class="full-width">
-              <label>Reason</label>
-              <p>
-                Damaged Item Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- UPDATE BY DELIVERY PARTNER -->
-        <div class="card-out">
-          <h4>Update by Delivery Partner</h4>
-          <div class="card info-grid">
-
-            <div>
-              <label>Pick up on</label>
-              <p>14/12/25</p>
-            </div>
-
-            <div>
-              <label>Quality Check</label>
-              <p>Approved</p>
-            </div>
-
-            <div>
-              <label>Expected Return Delivery</label>
-              <p>24/12/25</p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- RETURN ORDER STATUS -->
-        <div class="card-out">
-          <h4>Return Order Status</h4>
-          <div class="card status-grid">
-
-            <div>
-              <label>Return received</label>
-              <select>
-                <option>Yes</option>
-                <option>No</option>
-              </select>
-            </div>
-
-            <div>
-              <label>Return received date</label>
-              <input type="date" />
-            </div>
-
-          </div>
-        </div>
-
       </div>
 
-      <!-- RIGHT COLUMN -->
-      <div class="right-col">
-
-        <!-- PAYMENT -->
-        <div class="card-out">
-          <h4>Payment</h4>
-          <div class="card">
-            <p class="paid-text">Paid by Paypal</p>
-            <h2>₹ 5,110</h2>
-            <small>Transaction ID</small>
-            <p>124547586970889</p>
+      <!-- 2. Customer Return Order Details -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Customer Return Order Details</h4>
+        <div class="rp-card">
+          <div class="rp-label-field">
+            <label class="rp-field-label">Return ID</label>
+            <p class="rp-field-value">#72775854</p>
+          </div>
+          <div class="rp-label-field">
+            <label class="rp-field-label">Reason</label>
+            <p class="rp-field-value">Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="rp-photo-grid">
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
           </div>
         </div>
-
-        <!-- CUSTOMER DETAILS -->
-        <div class="card-out">
-          <h4>Customer Details</h4>
-          <div class="card">
-            <small>Name</small>
-            <p>Pawan Singh</p>
-
-            <small>Customer ID</small>
-            <p>23453689</p>
-          </div>
-        </div>
-
-        <!-- RETURN PRODUCT REVIEW -->
-        <div class="card-out">
-          <h4>Return Product Review</h4>
-          <div class="card">
-            <p>Product is fine and label is attached</p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- 3. Logistic Quality Check -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Logistic Quality Check</h4>
+        <div class="rp-card">
+          <div class="rp-three-col">
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Pickup on</label>
+              <p class="rp-field-value">14/12/25</p>
+            </div>
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Quality Check</label>
+              <p class="rp-field-value">Approved</p>
+            </div>
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Exp Return Delivery</label>
+              <p class="rp-field-value">24/12/25</p>
+            </div>
+          </div>
+          <div class="rp-label-field">
+            <label class="rp-field-label">Notes</label>
+            <p class="rp-field-value">Slight broken on edge Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="rp-photo-grid">
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Transit Details -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Transit details</h4>
+        <div class="rp-card rp-transit-card">
+          <label class="rp-field-label rp-teal">Logistic details</label>
+          <p class="rp-field-value rp-transit-location">Received at xyz warehouse</p>
+          <p class="rp-field-value">on 20/12/25</p>
+          <p class="rp-field-value">at 5:50pm</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- FOOTER ACTIONS -->
-    <div class="modal-footer">
-  <button class="secondary-btn" id="reject-from-received">Reject</button>
-  <button class="primary-btn" id="mark-as-packed">Proceed Return</button>
-</div>
 
+    <!-- Reason Section (hidden by default) -->
+<div class="rp-reason-section" id="rp-reason-section" style="display:none;">
+  <div class="rp-divider" style="margin-bottom:14px;"></div>
+  
+  <p class="rp-reason-heading">Approve the Refund</p>
 
+  <div class="rp-reason-field">
+    <label class="rp-reason-label">Write reason for cancellation</label>
+    <textarea 
+      id="rp-reason-textarea" 
+      class="rp-reason-textarea" 
+      placeholder="Write a reason here"
+    ></textarea>
+    <span class="rp-reason-error" id="rp-reason-error">Please write a reason for cancellation.</span>
+  </div>
+
+  <div class="rp-upload-section">
+    <label class="rp-reason-label">Upload Photos</label>
+    <div class="rp-upload-grid">
+      <label class="rp-upload-box">
+        <input type="file" accept="image/*" class="rp-file-input" />
+        <div class="rp-upload-preview" id="rp-preview-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#aaa" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+          <span>Upload</span>
+        </div>
+      </label>
+      <label class="rp-upload-box">
+        <input type="file" accept="image/*" class="rp-file-input" />
+        <div class="rp-upload-preview" id="rp-preview-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#aaa" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+          <span>Upload</span>
+        </div>
+      </label>
+      <label class="rp-upload-box">
+        <input type="file" accept="image/*" class="rp-file-input" />
+        <div class="rp-upload-preview" id="rp-preview-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#aaa" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+          <span>Upload</span>
+        </div>
+      </label>
+    </div>
   </div>
 </div>
 
+    <!-- FOOTER -->
+    <div class="rp-footer">
+      <button class="rp-btn-approve" id="mark-as-packed">Approve</button>
+      <button class="rp-btn-cancel" id="reject-from-received">Cancel</button>
+    </div>
+
+  </div>
+</div>
 
           <!-- REFUNDED POPUP -->
 <div id="refunded-popup" class="modal-popup-main">
@@ -1622,6 +1595,199 @@
   </div>
 </div>
 
+<!-- =============================================
+  RETURN TRANSPORT TRACKING POPUP (RTT)
+  
+  WHERE TO PASTE:
+  In your vendor return management HTML file,
+  paste this just before the closing </body> tag
+  (or right after the rejected-popup closing div).
+  
+  CLASS/ID NAMING: All prefixed with RTT 
+  to avoid conflicts with existing vendor styles.
+============================================= -->
+
+<div class="RTTOverlay" id="returnTrackingPopup">
+  <div class="RTTModal">
+
+    <!-- Close button -->
+    <button class="RTTClose" id="rttClose">×</button>
+
+    <!-- Title -->
+    <h2 class="RTTTitle">Return Transport Tracking</h2>
+
+    <!-- Mobile-only order ID -->
+    <span class="RTTMobOrderId">#7696969060770</span>
+
+    <!-- Divider line (teal on desktop, grey on mobile) -->
+    <div class="RTTLine"></div>
+
+    <!-- Header: Order ID + Route (hidden on mobile) -->
+    <div class="RTTHeader">
+      <span class="RTTOrderId">#7696969060770</span>
+      <span>From West Bengal to Karnataka</span>
+    </div>
+
+    <!-- Timeline -->
+    <div class="RTTTimeline">
+
+      <div class="RTTItem active">
+        <span class="RTTDot"></span>
+        <div>
+          <p>Departure from west bengal</p>
+          <small>on Thu, 4 Dec<br />05:30am</small>
+        </div>
+      </div>
+
+      <div class="RTTItem active">
+        <span class="RTTDot"></span>
+        <div>
+          <p>Arrived at xyz warehouse</p>
+          <small>on Sat, 6 Dec<br />05:30am</small>
+        </div>
+      </div>
+
+      <div class="RTTItem active">
+        <span class="RTTDot"></span>
+        <div>
+          <p>Departure from abc warehouse</p>
+          <small>on Sun, 7 Dec<br />05:30am</small>
+        </div>
+      </div>
+
+      <div class="RTTItem active">
+        <span class="RTTDot"></span>
+        <div>
+          <p>Arrived at karnataka warehouse</p>
+          <small>on Sun, 7 Dec<br />05:30am</small>
+        </div>
+      </div>
+
+      <div class="RTTItem">
+        <span class="RTTDot"></span>
+        <div>
+          <p>Delivered to Pawan Singh</p>
+          <small>on Sun, 7 Dec<br />05:30am</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- =============================================
+  ACCEPTED POPUP
+
+============================================= -->
+
+<div id="accepted-popup" class="modal-popup-main">
+  <div class="modal-popup-content-main rp-modal">
+
+    <!-- HEADER -->
+    <div class="rp-header">
+      <div class="rp-header-top">
+        <span class="rp-title">Product Return Details</span>
+        <button class="close-btn rp-close">×</button>
+      </div>
+      <div class="rp-header-meta">
+        <p class="rp-order-id">#79967776</p>
+        <span class="rp-status-pill">Accepted</span>
+      </div>
+      <div class="rp-divider"></div>
+    </div>
+
+    <!-- BODY: 2-column grid on desktop -->
+    <div class="rp-body">
+
+      <!-- 1. Product Details -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Product Details</h4>
+        <div class="rp-card">
+          <div class="rp-product-row">
+            <img class="rp-product-img" src="../assets/vendorOrderManagement/img.svg" alt="product" />
+            <div class="rp-product-info">
+              <span class="rp-pid">#79967776</span>
+              <strong class="rp-pname">Paithani peacock print saree</strong>
+              <div class="rp-meta"><span>Qty : 2</span></div>
+              <div class="rp-meta"><span>Size : One size</span></div>
+              <div class="rp-meta"><span>Colour : Navy Blue</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Customer Return Order Details -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Customer Return Order Details</h4>
+        <div class="rp-card">
+          <div class="rp-label-field">
+            <label class="rp-field-label">Return ID</label>
+            <p class="rp-field-value">#72775854</p>
+          </div>
+          <div class="rp-label-field">
+            <label class="rp-field-label">Reason</label>
+            <p class="rp-field-value">Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="rp-photo-grid">
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Logistic Quality Check -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Logistic Quality Check</h4>
+        <div class="rp-card">
+          <div class="rp-three-col">
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Pickup on</label>
+              <p class="rp-field-value">14/12/25</p>
+            </div>
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Quality Check</label>
+              <p class="rp-field-value">Approved</p>
+            </div>
+            <div class="rp-label-field">
+              <label class="rp-field-label rp-teal">Exp Return Delivery</label>
+              <p class="rp-field-value">24/12/25</p>
+            </div>
+          </div>
+          <div class="rp-label-field">
+            <label class="rp-field-label">Notes</label>
+            <p class="rp-field-value">Slight broken on edge Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Damaged Item Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="rp-photo-grid">
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+            <img src="../assets/vendorOrderManagement/img.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Transit Details — with Track Here link -->
+      <div class="rp-section">
+        <h4 class="rp-section-title">Transit details</h4>
+        <div class="rp-card rp-transit-card">
+          <label class="rp-field-label rp-teal">Logistic details</label>
+          <div class="rp-track-row">
+            <div>
+              <p class="rp-field-value rp-transit-location">Received at xyz warehouse</p>
+              <p class="rp-field-value">on 20/12/25</p>
+              <p class="rp-field-value">at 5:50pm</p>
+            </div>
+            <a class="rp-track-link" href="#" target="_blank">Track Here</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- NO FOOTER BUTTONS for accepted status -->
+
+  </div>
+</div>
 
           <!-- Mobile view Table Section -->
 
@@ -1827,7 +1993,7 @@
                     <div><span>Reason</span><span>Damaged Item</span></div>
                     <div>
                       <span>Status</span
-                      ><span class="order-status refunded">Refunded</span>
+                      ><span class="order-status accepted">Accepted</span>
                     </div>
                   </div>
 

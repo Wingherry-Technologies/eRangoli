@@ -139,8 +139,163 @@ function closeAllPopups() {
 function openPopupByStatus(statusEl) {
   if (!statusEl) return;
 
+  if (statusEl.classList.contains("approved")) {
+    const popup = document.getElementById("received-popup");
+    if (!popup) return;
+
+    const statusPill = popup.querySelector(".rp-status-pill");
+    if (statusPill) {
+      statusPill.textContent = "Approved";
+      statusPill.className = "rp-status-pill approved";
+    }
+
+    const approveBtn = popup.querySelector("#mark-as-packed");
+    if (approveBtn) {
+      approveBtn.textContent = "Approved";
+      approveBtn.style.backgroundColor = "#13685D";
+      approveBtn.style.color = "#ffffff";
+      approveBtn.style.cursor = "not-allowed";
+      approveBtn.style.opacity = "1";
+      approveBtn.disabled = true;
+    }
+
+    const cancelBtn = popup.querySelector("#reject-from-received");
+    if (cancelBtn) {
+      cancelBtn.textContent = "Cancel";
+      cancelBtn.disabled = true;
+      cancelBtn.style.cursor = "not-allowed";
+      cancelBtn.style.opacity = "0.5";
+      cancelBtn.style.backgroundColor = "";
+      cancelBtn.style.color = "";
+      cancelBtn.style.border = "";
+    }
+
+    const reasonSection = document.getElementById("rp-reason-section");
+    if (reasonSection) reasonSection.style.display = "none";
+
+    popup.classList.add("active");
+    return;
+  }
+
+  if (statusEl.classList.contains("cancelled")) {
+    const popup = document.getElementById("received-popup");
+    if (!popup) return;
+
+    // Update status pill to "Cancelled"
+    const statusPill = popup.querySelector(".rp-status-pill");
+    if (statusPill) {
+      statusPill.textContent = "Cancelled";
+      statusPill.className = "rp-status-pill cancelled";
+    }
+
+    // Approve button → original green design, text "Approve", disabled (faded)
+    const approveBtn = popup.querySelector("#mark-as-packed");
+    if (approveBtn) {
+      approveBtn.textContent = "Approve";
+      approveBtn.style.backgroundColor = "#13685D";
+      approveBtn.style.color = "#ffffff";
+      approveBtn.style.border = "none";
+      approveBtn.style.cursor = "not-allowed";
+      approveBtn.style.opacity = "0.5";
+      approveBtn.disabled = true;
+    }
+
+    // Cancel button → white bg, #13685D text, #13685D border, disabled
+    const cancelBtn = popup.querySelector("#reject-from-received");
+    if (cancelBtn) {
+      cancelBtn.textContent = "Cancelled";
+      cancelBtn.style.backgroundColor = "#ffffff";
+      cancelBtn.style.color = "#13685D";
+      cancelBtn.style.border = "1.5px solid #13685D";
+      cancelBtn.style.cursor = "not-allowed";
+      cancelBtn.style.opacity = "1";
+      cancelBtn.disabled = true;
+    }
+
+    // Show reason section with dummy read-only data
+    const reasonSection = document.getElementById("rp-reason-section");
+    if (reasonSection) {
+      reasonSection.style.display = "block";
+
+      // Update heading
+      const heading = reasonSection.querySelector(".rp-reason-heading");
+      if (heading) heading.textContent = "Reason for Cancellation";
+
+      // Set dummy reason text, read-only
+      const textarea = reasonSection.querySelector("#rp-reason-textarea");
+      if (textarea) {
+        textarea.value = "The item was found to be severely damaged beyond repair. The product packaging was completely torn and the artwork surface had deep scratches. Customer requested a full cancellation of the return process.";
+        textarea.disabled = true;
+        textarea.style.cursor = "not-allowed";
+        textarea.style.backgroundColor = "#f5f5f5";
+        textarea.style.color = "#555";
+      }
+
+      // Hide error message
+      const errorMsg = document.getElementById("rp-reason-error");
+      if (errorMsg) errorMsg.classList.remove("rp-error-visible");
+
+      // Pull images from Customer Return Order Details section (2nd rp-section)
+      const customerPhotos = popup.querySelectorAll(".rp-section:nth-child(2) .rp-photo-grid img");
+      const uploadPreviews = reasonSection.querySelectorAll(".rp-upload-preview");
+
+      uploadPreviews.forEach((preview, i) => {
+        const oldImg = preview.querySelector(".rp-uploaded-img");
+        if (oldImg) oldImg.remove();
+
+        const svg = preview.querySelector("svg");
+        const span = preview.querySelector("span");
+        if (svg) svg.style.display = "none";
+        if (span) span.style.display = "none";
+
+        const img = document.createElement("img");
+        img.src = customerPhotos[i] ? customerPhotos[i].src : "../assets/vendorOrderManagement/img.svg";
+        img.classList.add("rp-uploaded-img");
+        preview.appendChild(img);
+      });
+
+      // Disable file inputs
+      reasonSection.querySelectorAll(".rp-file-input").forEach(input => {
+        input.disabled = true;
+      });
+    }
+
+    popup.classList.add("active");
+    return;
+  }
+
   if (statusEl.classList.contains("received")) {
-    document.getElementById("received-popup")?.classList.add("active");
+    const popup = document.getElementById("received-popup");
+    if (!popup) return;
+
+    const statusPill = popup.querySelector(".rp-status-pill");
+    if (statusPill) {
+      statusPill.textContent = "Received";
+      statusPill.className = "rp-status-pill";
+    }
+
+    const approveBtn = popup.querySelector("#mark-as-packed");
+    if (approveBtn) {
+      approveBtn.textContent = "Approve";
+      approveBtn.style.backgroundColor = "";
+      approveBtn.style.color = "";
+      approveBtn.style.cursor = "";
+      approveBtn.style.opacity = "";
+      approveBtn.disabled = false;
+    }
+
+    const cancelBtn = popup.querySelector("#reject-from-received");
+    if (cancelBtn) {
+      cancelBtn.textContent = "Cancel";
+      cancelBtn.disabled = false;
+      cancelBtn.style.backgroundColor = "";
+      cancelBtn.style.color = "";
+      cancelBtn.style.border = "";
+      cancelBtn.style.cursor = "";
+      cancelBtn.style.opacity = "";
+    }
+
+    popup.classList.add("active");
   }
 
   if (statusEl.classList.contains("rejected")) {
@@ -149,6 +304,10 @@ function openPopupByStatus(statusEl) {
 
   if (statusEl.classList.contains("refunded")) {
     document.getElementById("refunded-popup")?.classList.add("active");
+  }
+
+  if (statusEl.classList.contains("accepted")) {
+    document.getElementById("accepted-popup")?.classList.add("active");
   }
 }
 
@@ -162,7 +321,7 @@ document.querySelectorAll(".show-popup-btn").forEach(btn => {
     const row = btn.closest("tr");
     if (!row) return;
 
-    const statusEl = row.querySelector(".received, .rejected, .refunded");
+    const statusEl = row.querySelector(".received, .rejected, .refunded, .approved, .cancelled, .accepted");
     if (!statusEl) return;
 
     currentItem = row;
@@ -180,7 +339,7 @@ document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
     const faqItem = btn.closest(".faq-answer");
     if (!faqItem) return;
 
-    const statusEl = faqItem.querySelector(".received, .rejected, .refunded");
+    const statusEl = faqItem.querySelector(".received, .rejected, .refunded, .approved, .cancelled, .accepted");
     if (!statusEl) return;
 
     currentItem = faqItem;
@@ -188,60 +347,178 @@ document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
   });
 });
 
+
 /*************************************************
-  RECEIVED → MARK AS PACKED
+  RECEIVED → APPROVE BUTTON
 *************************************************/
 const markAsPackedBtn = document.getElementById("mark-as-packed");
 if (markAsPackedBtn) {
   markAsPackedBtn.addEventListener("click", () => {
-    if (!currentItem) return;
-
-    const packedDate = document.querySelector(
-      "#received-popup input[type='date']"
-    );
-
-    if (!packedDate || !packedDate.value) {
-      alert("Please select Packed date");
-      return;
+    if (currentItem) {
+      const statusEl = currentItem.querySelector(".order-status");
+      if (statusEl) {
+        statusEl.textContent = "Approved";
+        statusEl.className = "order-status approved";
+      }
     }
-
-    const statusEl = currentItem.querySelector(
-      ".received, .order-status"
-    );
-
-    if (!statusEl) return;
-
-    statusEl.textContent = "Packed";
-    statusEl.className = "order-status packed";
-
-    packedDate.value = "";
     closeAllPopups();
+    alert("Return has been approved successfully.");
   });
 }
 /*************************************************
   RECEIVED → REJECT ACTION
 *************************************************/
+/*************************************************
+  RECEIVED → CANCEL BUTTON
+*************************************************/
 const rejectFromReceivedBtn = document.getElementById("reject-from-received");
 
 if (rejectFromReceivedBtn) {
   rejectFromReceivedBtn.addEventListener("click", () => {
-    if (!currentItem) return;
+    const reasonSection = document.getElementById("rp-reason-section");
+    const approveBtn = document.getElementById("mark-as-packed");
+    const textarea = document.getElementById("rp-reason-textarea");
+    const errorMsg = document.getElementById("rp-reason-error");
 
-    // update status in table or mobile faq
-    const statusEl = currentItem.querySelector(".order-status");
-    if (!statusEl) return;
+    // If reason section not yet visible, show it and disable approve
+    if (reasonSection.style.display === "none" || reasonSection.style.display === "") {
+      reasonSection.style.display = "block";
+      approveBtn.disabled = true;
 
-    statusEl.textContent = "Rejected";
-    statusEl.classList.remove("received", "refunded", "packed");
-    statusEl.classList.add("rejected");
+      // Scroll to reason section
+      reasonSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return;
+    }
 
-    // show confirmation
-    alert("Return has been rejected successfully.");
+    // If reason section already visible, validate textarea
+    const reasonValue = textarea.value.trim();
 
-    // close popup
+    if (!reasonValue) {
+      textarea.classList.add("rp-error-border");
+      errorMsg.classList.add("rp-error-visible");
+      return;
+    }
+
+    // Valid — close popup and show success
+    textarea.classList.remove("rp-error-border");
+    errorMsg.classList.remove("rp-error-visible");
+
+    // Reset for next open
+    textarea.value = "";
+    reasonSection.style.display = "none";
+    approveBtn.disabled = false;
+
+    // Reset file previews
+    document.querySelectorAll(".rp-upload-preview").forEach(preview => {
+      const uploaded = preview.querySelector(".rp-uploaded-img");
+      if (uploaded) uploaded.remove();
+      preview.querySelector("svg").style.display = "block";
+      preview.querySelector("span").style.display = "block";
+    });
+
+      if (currentItem) {
+      const statusEl = currentItem.querySelector(".order-status");
+      if (statusEl) {
+        statusEl.textContent = "Cancelled";
+        statusEl.className = "order-status cancelled";
+      }
+    }
     closeAllPopups();
+    alert("Return has been cancelled successfully.");
   });
 }
+
+/*************************************************
+  FILE UPLOAD PREVIEW
+*************************************************/
+document.querySelectorAll(".rp-file-input").forEach((input, index) => {
+  input.addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const previewId = `rp-preview-${index + 1}`;
+    const preview = document.getElementById(previewId);
+    if (!preview) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      // Remove old uploaded img if any
+      const oldImg = preview.querySelector(".rp-uploaded-img");
+      if (oldImg) oldImg.remove();
+
+      // Hide icon and label
+      preview.querySelector("svg").style.display = "none";
+      preview.querySelector("span").style.display = "none";
+
+      // Show image
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.classList.add("rp-uploaded-img");
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+/*************************************************
+  RESET REASON SECTION WHEN POPUP CLOSES
+*************************************************/
+document.querySelectorAll("#received-popup .close-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const reasonSection = document.getElementById("rp-reason-section");
+    const approveBtn = document.getElementById("mark-as-packed");
+    const cancelBtn = document.getElementById("reject-from-received");
+    const textarea = document.getElementById("rp-reason-textarea");
+    const errorMsg = document.getElementById("rp-reason-error");
+    const statusPill = document.querySelector("#received-popup .rp-status-pill");
+
+    if (reasonSection) reasonSection.style.display = "none";
+
+    if (approveBtn) {
+      approveBtn.disabled = false;
+      approveBtn.textContent = "Approve";
+      approveBtn.style.backgroundColor = "";
+      approveBtn.style.color = "";
+      approveBtn.style.cursor = "";
+      approveBtn.style.opacity = "";
+    }
+    if (cancelBtn) {
+      cancelBtn.disabled = false;
+      cancelBtn.textContent = "Cancel";
+      cancelBtn.style.backgroundColor = "";
+      cancelBtn.style.color = "";
+      cancelBtn.style.border = "";
+      cancelBtn.style.cursor = "";
+      cancelBtn.style.opacity = "";
+    }
+    if (statusPill) {
+      statusPill.textContent = "Received";
+      statusPill.className = "rp-status-pill";
+    }
+    if (textarea) {
+      textarea.value = "";
+      textarea.disabled = false;
+      textarea.style.cursor = "";
+      textarea.style.backgroundColor = "";
+    }
+    if (errorMsg) errorMsg.classList.remove("rp-error-visible");
+
+    // Re-enable file inputs
+    document.querySelectorAll(".rp-file-input").forEach(input => {
+      input.disabled = false;
+    });
+
+    document.querySelectorAll(".rp-reason-textarea").forEach(t => t.classList.remove("rp-error-border"));
+    document.querySelectorAll(".rp-upload-preview").forEach(preview => {
+      const uploaded = preview.querySelector(".rp-uploaded-img");
+      if (uploaded) uploaded.remove();
+      const svg = preview.querySelector("svg");
+      const span = preview.querySelector("span");
+      if (svg) svg.style.display = "block";
+      if (span) span.style.display = "block";
+    });
+  });
+});
 
 /*************************************************
   REJECTED → CONFIRM REJECT
@@ -593,3 +870,42 @@ document
 document
   .querySelector("#account-menu li:nth-child(4) .dropdown-header")
   .classList.add("dropdown-header-active");
+
+/* =============================================
+   RETURN TRANSPORT TRACKING POPUP (RTT)
+   Opens when "Track Here" link is clicked
+   inside the accepted-popup transit section
+============================================= */
+
+const rttOverlay = document.getElementById("returnTrackingPopup");
+const rttCloseBtn = document.getElementById("rttClose");
+
+// Open RTT popup on "Track Here" click
+
+document.addEventListener("click", function (e) {
+  const trackLink = e.target.closest(".rp-track-link");
+  if (!trackLink) return;
+
+  e.preventDefault();
+  // Close accepted popup first
+  const acceptedPopup = document.getElementById("accepted-popup");
+  if (acceptedPopup) acceptedPopup.classList.remove("active");
+
+  if (rttOverlay) rttOverlay.classList.add("active");
+});
+
+// Close on × button
+if (rttCloseBtn) {
+  rttCloseBtn.addEventListener("click", () => {
+    rttOverlay.classList.remove("active");
+  });
+}
+
+// Close on overlay background click
+if (rttOverlay) {
+  rttOverlay.addEventListener("click", (e) => {
+    if (e.target === rttOverlay) {
+      rttOverlay.classList.remove("active");
+    }
+  });
+}

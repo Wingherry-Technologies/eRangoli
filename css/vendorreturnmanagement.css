@@ -533,6 +533,12 @@ tbody tr td > .creame {
   padding: 5px 12px;
   border-radius: 3px;
 }
+.order-status.accepted {
+  background-color: #0F8DF3;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
 .order-status.received {
   background-color: #5da960;
   color: white !important;
@@ -1430,5 +1436,802 @@ tbody tr td > .creame {
 
   .modal-footer button {
     width: 100%;
+  }
+}
+
+
+/* =============================================
+   RECEIVED POPUP REDESIGN (rp-* prefix)
+   Only affects #received-popup
+============================================= */
+
+#received-popup .modal-popup-content-main.rp-modal {
+  width: 780px;
+  max-width: 96vw;
+  padding: 20px 22px 16px;
+  border-radius: 14px;
+  position: relative;
+  background: #fff;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Header */
+#received-popup .rp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+
+}
+
+#received-popup .rp-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    padding-bottom: 10px;
+  border-bottom: 1px solid #28c76f;
+}
+
+#received-popup .rp-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+#received-popup .rp-close {
+  position: static;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+  line-height: 1;
+  padding: 0;
+}
+
+/* ID on left, badge on right */
+#received-popup .rp-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+#received-popup .rp-order-id {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+#received-popup .rp-status-pill {
+  background: #28c76f;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+#received-popup .rp-status-pill.approved {
+  background: #13685D;
+  color: #fff;
+}
+
+#received-popup .rp-status-pill.cancelled {
+  background: #dc3545;
+  color: #fff;
+}
+
+#received-popup .rp-status-pill.cancelled {
+  background: #dc3545;
+  color: #fff;
+}
+
+
+
+/* Body: 2-column grid on desktop */
+#received-popup .rp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* Section wrapper */
+#received-popup .rp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#received-popup .rp-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Card */
+#received-popup .rp-card {
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#received-popup .rp-transit-card {
+  gap: 4px;
+}
+
+/* Product row */
+#received-popup .rp-product-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+#received-popup .rp-product-img {
+  width: 120px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#received-popup .rp-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#received-popup .rp-pid {
+  font-size: 11px;
+  color: #21a593;
+  font-weight: 500;
+}
+
+#received-popup .rp-pname {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: block;
+  margin-top: 2px;
+}
+
+#received-popup .rp-meta {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Label + value */
+#received-popup .rp-label-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#received-popup .rp-field-label {
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+}
+
+#received-popup .rp-field-label.rp-teal {
+  color: #21a593;
+}
+
+#received-popup .rp-field-value {
+  font-size: 13px;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#received-popup .rp-transit-location {
+  font-weight: 600;
+}
+
+/* Three-column row inside logistic card */
+#received-popup .rp-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Photo grid */
+#received-popup .rp-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+#received-popup .rp-photo-grid img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Footer — right aligned */
+#received-popup .rp-footer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #eee;
+}
+
+#received-popup .rp-btn-approve {
+  background: #21a593;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#received-popup .rp-btn-approve:hover {
+  background: #179b87;
+}
+
+#received-popup .rp-btn-cancel {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#received-popup .rp-btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+/* Scrollbar */
+#received-popup .rp-modal::-webkit-scrollbar {
+  width: 5px;
+}
+#received-popup .rp-modal::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Tablet: stack to 1 column */
+@media (max-width: 640px) {
+  #received-popup .rp-body {
+    grid-template-columns: 1fr;
+  }
+
+  #received-popup .rp-three-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+
+  /* #received-popup .rp-product-row {
+    flex-direction: column;
+  } */
+
+  #received-popup .rp-product-img {
+    /* width: 100%; */
+    /* height: 130px; */
+  }
+}
+
+.order-status.approved {
+  background-color: #13685D;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+/* =============================================
+   REASON / CANCELLATION SECTION
+============================================= */
+.rp-reason-heading {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.rp-reason-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.rp-reason-label {
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
+.rp-reason-textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #1a1a1a;
+  resize: none;
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.rp-reason-textarea:focus {
+  border-color: #21a593;
+}
+
+.rp-reason-textarea.rp-error-border {
+  border-color: #e74c3c;
+}
+
+.rp-reason-error {
+  font-size: 11px;
+  color: #e74c3c;
+  display: none;
+}
+
+.rp-reason-error.rp-error-visible {
+  display: block;
+}
+
+/* Upload grid */
+.rp-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rp-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.rp-upload-box {
+  cursor: pointer;
+  display: block;
+}
+
+.rp-upload-box input[type="file"] {
+  display: none;
+}
+
+.rp-upload-preview {
+  width: 100%;
+  height: 80px;
+  border: 1.5px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #fafafa;
+  overflow: hidden;
+  position: relative;
+}
+
+.rp-upload-preview span {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.rp-upload-preview img.rp-uploaded-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Disable approve button style */
+#received-popup .rp-btn-approve:disabled {
+  background: #a0c8c3;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Reason section spans full width inside the 2-col grid */
+#received-popup .rp-reason-section {
+  grid-column: 1 / -1;
+}
+
+.order-status.cancelled {
+  background-color: #13685D;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+/* =============================================
+   ACCEPTED POPUP — mirrors received-popup layout
+============================================= */
+#accepted-popup .modal-popup-content-main {
+  background: #fff;
+  border-radius: 16px;
+  width: 680px;
+  max-width: 96vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+}
+
+#accepted-popup .rp-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#accepted-popup .rp-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+#accepted-popup .rp-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#accepted-popup .rp-order-id {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+#accepted-popup .rp-status-pill {
+  background: #0F8DF3;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+#accepted-popup .rp-divider {
+  height: 1px;
+  background: #eee;
+  margin: 12px 0;
+}
+
+#accepted-popup .rp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+#accepted-popup .rp-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+#accepted-popup .rp-card {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#accepted-popup .rp-product-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+#accepted-popup .rp-product-img {
+  width: 120px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#accepted-popup .rp-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#accepted-popup .rp-pid {
+  font-size: 11px;
+  color: #21a593;
+  font-weight: 500;
+}
+
+#accepted-popup .rp-pname {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: block;
+  margin-top: 2px;
+}
+
+#accepted-popup .rp-meta {
+  font-size: 12px;
+  color: #555;
+}
+
+#accepted-popup .rp-label-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#accepted-popup .rp-field-label {
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+}
+
+#accepted-popup .rp-field-label.rp-teal {
+  color: #21a593;
+}
+
+#accepted-popup .rp-field-value {
+  font-size: 13px;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#accepted-popup .rp-transit-card {
+  gap: 4px;
+}
+
+#accepted-popup .rp-transit-location {
+  font-weight: 600;
+}
+
+#accepted-popup .rp-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+#accepted-popup .rp-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+#accepted-popup .rp-photo-grid img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Track Here link row */
+#accepted-popup .rp-track-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+#accepted-popup .rp-track-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F8DF3;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#accepted-popup .rp-track-link:hover {
+  text-decoration: underline;
+}
+
+/* No footer for accepted popup */
+#accepted-popup .rp-footer {
+  display: none;
+}
+
+/* Scrollbar */
+#accepted-popup .rp-modal::-webkit-scrollbar {
+  width: 5px;
+}
+#accepted-popup .rp-modal::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  #accepted-popup .rp-body {
+    grid-template-columns: 1fr;
+  }
+  #accepted-popup .modal-popup-content-main {
+    width: 96vw;
+    padding: 16px;
+  }
+}
+
+/* =============================================
+   RETURN TRANSPORT TRACKING POPUP (RTT)
+   Renamed from admin TT classes → RTT prefix
+   to avoid conflicts with vendor page styles
+============================================= */
+
+.RTTOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.RTTOverlay.active {
+  display: flex;
+}
+
+.RTTModal {
+  background: #fff;
+  width: 420px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 24px 20px 20px;
+  position: relative;
+  text-align: center;
+}
+
+.RTTClose {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #3f3f3f;
+  line-height: 1;
+  background: none;
+  border: none;
+}
+
+.RTTClose:hover {
+  color: #000;
+}
+
+.RTTTitle {
+  font-weight: 600;
+  color: #000000;
+  font-size: 17px;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.RTTMobOrderId {
+  display: none;
+  font-size: 12px;
+  color: #3f3f3f;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.RTTLine {
+  height: 1px;
+  background: #21a593;
+  margin: 10px 0 14px;
+}
+
+.RTTHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #3f3f3f;
+  margin-bottom: 18px;
+}
+
+.RTTOrderId {
+  font-size: 12px;
+  color: #3f3f3f;
+}
+
+.RTTTimeline {
+  position: relative;
+  padding-left: 23px;
+  max-width: 220px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.RTTTimeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  height: calc(100% - 55px);
+  width: 2px;
+  background: #d9d9d9;
+}
+
+.RTTItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.RTTItem > div {
+  padding-top: 1px;
+}
+
+.RTTDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d1d5db;
+  flex-shrink: 0;
+  margin-left: -22px;
+  margin-top: 7px;
+}
+
+.RTTItem.active .RTTDot {
+  background: #21a593;
+  margin-top: 6px;
+}
+
+.RTTItem p {
+  font-size: 14px;
+  color: #3f3f3f;
+  font-weight: 400;
+  margin: 0;
+}
+
+.RTTItem small {
+  font-size: 12px;
+  color: #716b6b;
+  font-weight: 400;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .RTTModal {
+    margin: 0.8rem;
+    border-radius: 12px;
+    padding: 20px 16px;
+  }
+  .RTTMobOrderId {
+    display: block;
+  }
+  .RTTOrderId {
+    display: none;
+  }
+  .RTTLine {
+    border: 1px solid #d9d9d9;
+    background: none;
   }
 }
