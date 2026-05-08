@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Magazine</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f1f3f6;
+      padding:20px;
+    }
+
+    .main-content{
+      width:100%;
+    }
+
+    /* SECTION CARD */
+
+    .content-card{
+      background:#ffffff;
+      border-radius:4px;
+      padding:18px 24px;
+      margin-bottom:20px;
+    }
+
+    .card-title{
+      font-size:18px;
+      font-weight:600;
+      color:#111;
+      margin-bottom:16px;
+    }
+
+    .title-line{
+      width:100%;
+      height:2px;
+      background:#8bc3ff;
+      margin-bottom:8px;
+    }
+
+    /* LIST */
+
+    .content-list{
+      width:100%;
+    }
+
+    .content-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:24px 0;
+    }
+
+    .left-side{
+      display:flex;
+      align-items:center;
+      gap:120px;
+      width:100%;
+    }
+
+    .section-name{
+      min-width:180px;
+      font-size:16px;
+      font-weight:600;
+      color:#3d3d3d;
+    }
+
+    .section-date{
+      font-size:13px;
+      color:#666;
+    }
+
+    /* EDIT BUTTON */
+
+    .edit-btn{
+      width:30px;
+      height:30px;
+      min-width:30px;
+      border-radius:50%;
+      border:none;
+      background:#edf5fb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .edit-btn:hover{
+      background:#dceeff;
+    }
+
+    .edit-btn img{
+      width:14px;
+      height:14px;
+      object-fit:contain;
+    }
+
+    /* TABLET VIEW */
+
+    @media(max-width:768px){
+
+      body{
+        padding:14px;
+      }
+
+      .content-card{
+        padding:18px 16px;
+      }
+
+      .card-title{
+        font-size:17px;
+      }
+
+      .content-item{
+        padding:20px 0;
+      }
+
+      .left-side{
+        gap:40px;
+      }
+
+      .section-name{
+        min-width:auto;
+        font-size:15px;
+      }
+
+      .section-date{
+        font-size:12px;
+      }
+
+      .edit-btn{
+        width:28px;
+        height:28px;
+      }
+    }
+
+    /* MOBILE VIEW */
+
+    @media(max-width:480px){
+
+      body{
+        padding:10px;
+      }
+
+      .content-card{
+        padding:16px 14px;
+        border-radius:6px;
+      }
+
+      .card-title{
+        font-size:16px;
+        margin-bottom:14px;
+      }
+
+      .content-item{
+        padding:16px 0;
+        align-items:flex-start;
+      }
+
+      .left-side{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:4px;
+      }
+
+      .section-name{
+        font-size:14px;
+        font-weight:600;
+      }
+
+      .section-date{
+        font-size:11px;
+      }
+
+      .edit-btn{
+        width:26px;
+        height:26px;
+      }
+
+      .edit-btn img{
+        width:12px;
+        height:12px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="main-content">
+
+    <!-- MAIN PAGE -->
+
+    <div class="content-card">
+
+      <h2 class="card-title">e-Magazine Main Page</h2>
+
+      <div class="title-line"></div>
+
+      <div class="content-list">
+
+        <div class="content-item">
+
+          <div class="left-side">
+
+            <div class="section-name">
+              Section 1
+            </div>
+
+            <div class="section-date">
+              Edited today
+            </div>
+
+          </div>
+
+          <button class="edit-btn" onclick="editContent('Section 1')">
+
+            <!-- GIVE YOUR LOCAL SVG PATH -->
+            <img src="images/edit.svg" alt="edit">
+
+          </button>
+
+        </div>
+
+        <div class="content-item">
+
+          <div class="left-side">
+
+            <div class="section-name">
+              Section 2
+            </div>
+
+            <div class="section-date">
+              edited on 15/02/92
+            </div>
+
+          </div>
+
+          <button class="edit-btn" onclick="editContent('Section 2')">
+
+            <img src="images/edit.svg" alt="edit">
+
+          </button>
+
+        </div>
+
+        <div class="content-item">
+
+          <div class="left-side">
+
+            <div class="section-name">
+              Section 3
+            </div>
+
+            <div class="section-date">
+              Edited today
+            </div>
+
+          </div>
+
+          <button class="edit-btn" onclick="editContent('Section 3')">
+
+            <img src="images/edit.svg" alt="edit">
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SUB PAGE -->
+
+    <div class="content-card">
+
+      <h2 class="card-title">e-Magazine Sub Page</h2>
+
+      <div class="title-line"></div>
+
+      <div class="content-list">
+
+        <div class="content-item">
+
+          <div class="left-side">
+
+            <div class="section-name">
+              All Artisans
+            </div>
+
+            <div class="section-date">
+              Added today
+            </div>
+
+          </div>
+
+          <button class="edit-btn" onclick="editContent('All Artisans')">
+
+            <img src="images/edit.svg" alt="edit">
+
+          </button>
+
+        </div>
+
+        <div class="content-item">
+
+          <div class="left-side">
+
+            <div class="section-name">
+              Artisan Story
+            </div>
+
+            <div class="section-date">
+              Edited today
+            </div>
+
+          </div>
+
+          <button class="edit-btn" onclick="editContent('Artisan Story')">
+
+            <img src="images/edit.svg" alt="edit">
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function editContent(section){
+
+      alert(section + " edit clicked");
+
+    }
+
+  </script>
+
+</body>
+</html>

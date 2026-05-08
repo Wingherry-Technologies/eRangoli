@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>E‑Magazine Editor</title>
+
+<style>
+ @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Nunito Sans";
+}
+
+body{
+  background:#edf0f5;
+  overflow:hidden;
+}
+
+img{
+  max-width:100%;
+}
+
+.main-wrapper{
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ================= HEADER ================= */
+
+.top-header{
+  width:100%;
+  height:70px;
+  min-height:70px;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.header-title{
+  font-size:32px;
+  font-weight:700;
+  color:#111;
+}
+
+.header-section{
+  font-size:18px;
+  color:#666;
+}
+
+.publish-btn{
+  background:#1f8fff;
+  color:#fff;
+  border:none;
+  min-width:130px;
+  height:44px;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:500;
+}
+
+.publish-btn:hover{
+  background:#0c7ceb;
+}
+
+/* ================= BODY ================= */
+
+.editor-layout{
+  flex:1;
+  display:flex;
+  overflow:hidden;
+}
+
+/* ================= LEFT PANEL ================= */
+
+.left-panel{
+  width:380px;
+  min-width:380px;
+  background:#f8f8f8;
+  border-right:1px solid #e5e5e5;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.left-panel::-webkit-scrollbar,
+.right-panel::-webkit-scrollbar{
+  width:6px;
+}
+
+.left-panel::-webkit-scrollbar-thumb,
+.right-panel::-webkit-scrollbar-thumb{
+  background:#d2d2d2;
+  border-radius:30px;
+}
+
+.template-card{
+  width:100%;
+  background:#fff;
+  border:3px solid transparent;
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:18px;
+  cursor:pointer;
+  position:relative;
+  transition:0.3s;
+}
+
+.template-card.active{
+  border-color:#4daeff;
+}
+
+.template-card.active::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:6px;
+  height:100%;
+  /* background:#1f8fff; */
+}
+
+.template-card:hover{
+  transform:translateY(-2px);
+}
+
+.template-card img{
+  width:100%;
+  display:block;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.right-panel{
+  flex:1;
+  background:#fff;
+  padding:25px;
+  overflow-y:auto;
+}
+
+.template-content{
+  display:none;
+}
+
+.template-content.active{
+  display:block;
+}
+
+/* ================= CONTENT ================= */
+
+.content-block{
+  margin-bottom:40px;
+}
+
+.block-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.block-title{
+  font-size:18px;
+  font-weight:700;
+  color:#333;
+}
+
+.action-icons{
+  display:flex;
+  gap:10px;
+}
+
+.icon-btn{
+  width:34px;
+  height:34px;
+  border:none;
+  background:#f2f7ff;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.icon-btn img{
+  width:15px;
+}
+
+.input-title,
+.text-area,
+.small-input{
+  width:100%;
+  border:1px solid #dcdcdc;
+  /* border: none; */
+  border-radius:5px;
+  padding:10px 8px;
+  outline:none;
+}
+
+.input-title{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+.small-input{
+  margin-bottom:12px;
+  font-size:15px;
+}
+
+.text-area{
+  resize:none;
+  min-height:130px;
+  line-height:1.8;
+  font-size:15px;
+  color:#555;
+}
+
+.section-heading{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:12px;
+  color:#444;
+}
+
+/* ================= IMAGE UPLOAD ================= */
+
+.image-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:18px;
+  margin:30px 0;
+}
+
+.upload-box{
+  position:relative;
+  background:#d9d9d9;
+  border-radius:5px;
+  overflow:hidden;
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#444;
+  font-size:18px;
+}
+
+.upload-box.small{
+  min-height:220px;
+}
+
+.upload-box input{
+  display:none;
+}
+
+.upload-label{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  padding:20px;
+}
+
+.preview-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.delete-image{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:35px;
+  height:35px;
+  border:none;
+  background:#ff3b3b;
+  color:#fff;
+  border-radius:50%;
+  cursor:pointer;
+  display:none;
+}
+
+.upload-box.has-image .delete-image{
+  display:block;
+}
+
+/* ================= VALIDATION ================= */
+
+.error{
+  color:red;
+  font-size:13px;
+  margin-top:6px;
+}
+
+.input-error{
+  border-color:red;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:991px){
+
+  body{
+    overflow:auto;
+  }
+
+  .main-wrapper{
+    height:auto;
+  }
+
+  .editor-layout{
+    flex-direction:column;
+  }
+
+  .left-panel{
+    width:100%;
+    min-width:100%;
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    overflow-y:hidden;
+  }
+
+  .template-card{
+    min-width:260px;
+    margin-bottom:0;
+  }
+
+  .right-panel{
+    padding:16px;
+  }
+
+  .header-title{
+    font-size:22px;
+  }
+
+  .header-section{
+    font-size:14px;
+  }
+
+  .publish-btn{
+    min-width:100px;
+    height:40px;
+    font-size:14px;
+  }
+
+  .image-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .image-grid .upload-box:first-child{
+    grid-column:1 / -1;
+  }
+
+  .upload-box,
+  .upload-box.small{
+    min-height:160px;
+  }
+
+  .input-title{
+    font-size:20px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .top-header{
+    padding:0 12px;
+  }
+
+  .header-title{
+    font-size:16px;
+  }
+
+  .header-section{
+    font-size:11px;
+  }
+
+  .publish-btn{
+    min-width:80px;
+    height:36px;
+    font-size:12px;
+  }
+
+  .left-panel{
+    padding:12px;
+  }
+
+  .template-card{
+    min-width:180px;
+  }
+
+  .right-panel{
+    padding:12px;
+  }
+
+  .block-title{
+    font-size:14px;
+  }
+
+  .input-title{
+    font-size:16px;
+  }
+
+  .small-input,
+  .text-area{
+    font-size:12px;
+  }
+
+  .section-heading{
+    font-size:13px;
+  }
+
+  .upload-box,
+  .upload-box.small{
+    min-height:120px;
+    font-size:13px;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- ================= HEADER ================= -->
+
+  <div class="top-header">
+
+    <div class="header-left">
+      <div class="header-title">e‑Magazine</div>
+      <div class="header-section" id="sectionName">(Section 1)</div>
+    </div>
+
+    <button class="publish-btn" onclick="publishMagazine()">
+      Publish
+    </button>
+
+  </div>
+
+  <!-- ================= MAIN ================= -->
+
+  <div class="editor-layout">
+
+    <!-- ================= LEFT ================= -->
+
+    <div class="left-panel">
+
+      <div class="template-card active"
+           data-template="section1"
+           data-name="Section 1">
+
+        <img src="../assets/e-magzinesection/E- Magazzine - design 2 (2) 2.png" alt="">
+
+      </div>
+
+      <div class="template-card"
+           data-template="section2"
+           data-name="Section 2">
+
+        <img src="../assets/e-magzinesection/E- Magazzine - design 2 (2) 1.png" alt="">
+
+      </div>
+
+      <div class="template-card"
+           data-template="section3"
+           data-name="Section 3">
+
+        <img src="../assets/e-magzinesection/E- Magazzine - design 2 (2) 3.png" alt="">
+
+      </div>
+
+    </div>
+
+    <!-- ================= RIGHT ================= -->
+
+    <div class="right-panel">
+
+      <!-- ================= SECTION 1 ================= -->
+
+      <div class="template-content active" id="section1">
+
+        <div class="content-block">
+
+          <div class="block-header">
+            <div class="block-title">Title 1</div>
+          </div>
+
+          <input type="text"
+                 class="input-title required-field"
+                 placeholder="Enter Title"
+                 value="The Hands Behind the Heritage">
+
+          <div class="section-heading">Section 1.1</div>
+
+          <textarea class="text-area required-field"
+                    placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </textarea>
+
+        </div>
+
+        <div class="image-grid">
+
+          <div class="upload-box" id="box1">
+
+            <label class="upload-label">
+              Upload Image 1.1
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box1')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box1')">
+              ×
+            </button>
+
+          </div>
+
+          <div class="upload-box small" id="box2">
+
+            <label class="upload-label">
+              Upload Image 1.2
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box2')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box2')">
+              ×
+            </button>
+
+          </div>
+
+          <div class="upload-box small" id="box3">
+
+            <label class="upload-label">
+              Upload Image 1.3
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box3')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box3')">
+              ×
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= SECTION 2 ================= -->
+
+      <div class="template-content" id="section2">
+
+        <div class="content-block">
+
+          <div class="block-header">
+            <div class="block-title">Title 3</div>
+          </div>
+
+          <input type="text"
+                 class="input-title required-field"
+                 value="Celebrating India's Regional Craft Legacy">
+
+          <input type="text"
+                 class="small-input required-field"
+                 value="Artisan of the month">
+
+          <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </textarea>
+
+        </div>
+
+        <div class="image-grid">
+
+          <div class="upload-box" id="box4">
+            <label class="upload-label">
+              Upload Image 3.1
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box4')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box4')">
+              ×
+            </button>
+          </div>
+
+          <div class="upload-box small" id="box5">
+            <label class="upload-label">
+              Upload Image 3.2
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box5')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box5')">
+              ×
+            </button>
+          </div>
+
+          <div class="upload-box small" id="box6">
+            <label class="upload-label">
+              Upload Image 3.3
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box6')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box6')">
+              ×
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= SECTION 3 ================= -->
+
+      <div class="template-content" id="section3">
+
+        <div class="content-block">
+
+          <div class="block-header">
+            <div class="block-title">Title 5</div>
+          </div>
+
+          <input type="text"
+                 class="input-title required-field"
+                 value="A Journey Through India's Artisan States">
+
+          <input type="text"
+                 class="small-input required-field"
+                 value="Andhra Pradesh, Maharashtra, Orisa, Karnataka, Gujarat">
+
+          <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </textarea>
+
+        </div>
+
+        <div class="image-grid">
+
+          <div class="upload-box" id="box7">
+            <label class="upload-label">
+              Upload Artisan Image 1.1
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box7')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box7')">
+              ×
+            </button>
+          </div>
+
+          <div class="upload-box small" id="box8">
+            <label class="upload-label">
+              Upload Product Image 1.2
+              <input type="file"
+                     accept="image/*"
+                     onchange="previewImage(event,'box8')">
+            </label>
+
+            <button class="delete-image"
+                    onclick="deleteImage('box8')">
+              ×
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* ======================================================
+   SECTION SWITCHING
+====================================================== */
+
+const cards = document.querySelectorAll(".template-card");
+const sections = document.querySelectorAll(".template-content");
+const sectionName = document.getElementById("sectionName");
+
+cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        cards.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        sections.forEach(section => {
+            section.classList.remove("active");
+        });
+
+        card.classList.add("active");
+
+        const target = card.getAttribute("data-template");
+
+        document
+            .getElementById(target)
+            .classList.add("active");
+
+        sectionName.innerText =
+            "(" + card.getAttribute("data-name") + ")";
+
+    });
+
+});
+
+
+/* ======================================================
+   IMAGE PREVIEW
+====================================================== */
+
+function previewImage(event, boxId) {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    /* IMAGE VALIDATION */
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+
+        alert("Only JPG, PNG and WEBP images are allowed");
+
+        event.target.value = "";
+
+        return;
+    }
+
+    /* MAX SIZE 5MB */
+
+    if (file.size > 5 * 1024 * 1024) {
+
+        alert("Image size should be below 5MB");
+
+        event.target.value = "";
+
+        return;
+    }
+
+    const box = document.getElementById(boxId);
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+
+        box.classList.add("has-image");
+
+        box.innerHTML = `
+
+            <img src="${e.target.result}"
+                 class="preview-image">
+
+            <button class="delete-image"
+                    onclick="deleteImage('${boxId}')">
+                ×
+            </button>
+
+            <input type="file"
+                   accept="image/*"
+                   style="display:none"
+                   onchange="previewImage(event,'${boxId}')">
+
+        `;
+    };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* ======================================================
+   DELETE IMAGE
+====================================================== */
+
+function deleteImage(boxId) {
+
+    const box = document.getElementById(boxId);
+
+    box.classList.remove("has-image");
+
+    box.innerHTML = `
+
+        <label class="upload-label">
+
+            Upload Image
+
+            <input type="file"
+                   accept="image/*"
+                   onchange="previewImage(event,'${boxId}')">
+
+        </label>
+
+        <button class="delete-image"
+                onclick="deleteImage('${boxId}')">
+            ×
+        </button>
+
+    `;
+}
+
+
+/* ======================================================
+   INPUT VALIDATION
+====================================================== */
+
+function validateInputs() {
+
+    let isValid = true;
+
+    const requiredFields =
+        document.querySelectorAll(".required-field");
+
+    requiredFields.forEach(field => {
+
+        field.classList.remove("input-error");
+
+        const value = field.value.trim();
+
+        /* EMPTY VALIDATION */
+
+        if (value === "") {
+
+            field.classList.add("input-error");
+
+            isValid = false;
+        }
+
+        /* TITLE VALIDATION */
+
+        if (
+            field.classList.contains("title-input") &&
+            value.length < 3
+        ) {
+
+            field.classList.add("input-error");
+
+            isValid = false;
+        }
+
+        /* TEXTAREA VALIDATION */
+
+        if (
+            field.tagName === "TEXTAREA" &&
+            value.length < 20
+        ) {
+
+            field.classList.add("input-error");
+
+            isValid = false;
+        }
+
+    });
+
+    return isValid;
+}
+
+
+/* ======================================================
+   IMAGE VALIDATION
+====================================================== */
+
+function validateImages() {
+
+    let imageBoxes =
+        document.querySelectorAll(".upload-box");
+
+    let uploadedCount = 0;
+
+    imageBoxes.forEach(box => {
+
+        if (box.classList.contains("has-image")) {
+
+            uploadedCount++;
+        }
+
+    });
+
+    if (uploadedCount === 0) {
+
+        alert("Please upload at least one image");
+
+        return false;
+    }
+
+    return true;
+}
+
+
+/* ======================================================
+   PUBLISH VALIDATION
+====================================================== */
+
+function publishMagazine() {
+
+    const inputsValid = validateInputs();
+
+    if (!inputsValid) {
+
+        alert("Please fill all required fields properly");
+
+        return;
+    }
+
+    const imagesValid = validateImages();
+
+    if (!imagesValid) {
+
+        return;
+    }
+
+    /* SUCCESS */
+
+    alert("Magazine Published Successfully");
+
+}
+
+
+/* ======================================================
+   REALTIME VALIDATION
+====================================================== */
+
+document
+    .querySelectorAll(".required-field")
+    .forEach(field => {
+
+        field.addEventListener("input", () => {
+
+            if (field.value.trim() !== "") {
+
+                field.classList.remove("input-error");
+            }
+
+        });
+
+    });
+</script>
+
+</body>
+</html>

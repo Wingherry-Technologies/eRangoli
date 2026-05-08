@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Artisan Story</title>
+
+<style>
+
+ @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Nunito Sans";
+}
+
+body{
+    background:#edf0f5;
+    padding:14px;
+}
+
+/* ================= MAIN ================= */
+
+.main-container{
+    width:100%;
+    background:#fff;
+    border-radius:8px;
+    padding:18px;
+}
+
+/* ================= HEADER ================= */
+
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:100;
+    padding-bottom:12px;
+}
+
+.page-title{
+    font-size:30px;
+    font-weight:700;
+    color:#222;
+}
+
+.publish-btn{
+    min-width:120px;
+    height:42px;
+    border:none;
+    border-radius:5px;
+    background:#1f8fff;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.publish-btn:hover{
+    background:#0d7ceb;
+}
+
+/* ================= LAYOUT ================= */
+
+.content-layout{
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+}
+
+/* ================= LEFT SIDE ================= */
+
+.left-panel{
+    width:34%;
+}
+
+.preview-image{
+    width:100%;
+    border-radius:4px;
+    overflow:hidden;
+    margin-bottom:14px;
+}
+
+.preview-image img{
+    width:100%;
+    display:block;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.right-panel{
+    flex:1;
+}
+
+/* ================= TOP DETAILS ================= */
+
+.top-details{
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+    margin-bottom:30px;
+}
+
+.artisan-photo{
+    width:160px;
+    min-width:120px;
+    height:150px;
+    background:#d8d8d8;
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#555;
+    position:relative;
+    overflow:hidden;
+}
+
+.artisan-photo input{
+    display:none;
+}
+
+.artisan-photo label{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    padding:10px;
+}
+
+.artisan-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.details-content{
+    flex:1;
+}
+
+.info-row{
+    margin-bottom:18px;
+}
+
+.info-title{
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:#333;
+}
+
+.info-input{
+    width:100%;
+    border:1px solid #dcdcdc;
+    /* border: none; */
+    border-radius:4px;
+    padding:10px 8px;
+    font-size:14px;
+    outline:none;
+}
+
+.text-area{
+    width:100%;
+    border:1px solid #dcdcdc;
+    border-radius:4px;
+    padding:12px;
+    min-height:120px;
+    resize:none;
+    outline:none;
+    line-height:1.8;
+}
+
+/* ================= SECTION ================= */
+
+.section-block{
+    margin-bottom:34px;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-size:15px;
+    font-weight:700;
+    color:#333;
+}
+
+.edit-icon{
+    width:14px;
+    cursor:pointer;
+}
+
+.line{
+    width:100%;
+    height:1px;
+    background:#d8d8d8;
+    margin:20px 0;
+}
+
+/* ================= IMAGE GRID ================= */
+
+.image-grid-large{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:18px;
+}
+
+.image-grid-large .big{
+    grid-column:1 / -1;
+    min-height:220px;
+}
+
+.image-grid-medium{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:18px;
+}
+
+.image-grid-bottom{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:14px;
+    margin-top:20px;
+}
+
+.image-box{
+    min-height:160px;
+    background:#d9d9d9;
+    border-radius:4px;
+    overflow:hidden;
+    position:relative;
+}
+
+.image-box.big{
+    min-height:230px;
+}
+
+.image-box label{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    cursor:pointer;
+    color:#555;
+    padding:12px;
+}
+
+.image-box input{
+    display:none;
+}
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.delete-btn{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:red;
+    color:#fff;
+    cursor:pointer;
+    display:none;
+}
+
+.image-box.has-image .delete-btn{
+    display:block;
+}
+
+/* ================= FOOTER BUTTON ================= */
+
+.footer-btn{
+    margin-top:40px;
+}
+
+.footer-btn button{
+    width:100%;
+    height:44px;
+    border:none;
+    border-radius:5px;
+    background:#1f8fff;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+}
+
+/* ================= VALIDATION ================= */
+
+.input-error{
+    border:1px solid red !important;
+}
+
+/* ================= MOBILE ================= */
+
+/* =====================================================
+   TABLET RESPONSIVE
+===================================================== */
+
+@media(max-width:991px){
+
+    body{
+        padding:10px;
+        background:#edf0f5;
+    }
+
+    .main-container{
+        padding:14px;
+        border-radius:8px;
+    }
+
+    /* HEADER */
+
+    .top-header{
+        padding-bottom:10px;
+        margin-bottom:18px;
+    }
+
+    .page-title{
+        font-size:18px;
+        font-weight:700;
+    }
+
+    .publish-btn{
+        min-width:95px;
+        height:34px;
+        font-size:12px;
+        border-radius:4px;
+    }
+
+    /* MAIN LAYOUT */
+
+    .content-layout{
+        flex-direction:row;
+        gap:18px;
+        align-items:flex-start;
+    }
+
+    /* LEFT SIDE */
+
+    .left-panel{
+        width:34%;
+        min-width:34%;
+    }
+
+    .preview-image{
+        margin-bottom:0;
+    }
+
+    .preview-image img{
+        border-radius:4px;
+    }
+
+    /* RIGHT SIDE */
+
+    .right-panel{
+        flex:1;
+    }
+
+    /* TOP DETAILS */
+
+    .top-details{
+        gap:16px;
+        margin-bottom:24px;
+    }
+
+    .artisan-photo{
+        width:110px;
+        min-width:110px;
+        height:135px;
+        font-size:12px;
+    }
+
+    .details-content{
+        flex:1;
+    }
+
+    .info-row{
+        margin-bottom:14px;
+    }
+
+    .info-title{
+        font-size:12px;
+        margin-bottom:5px;
+    }
+
+    .info-input{
+        font-size:12px;
+        padding:9px 10px;
+    }
+
+    .text-area{
+        font-size:12px;
+        min-height:95px;
+        line-height:1.7;
+        padding:10px;
+    }
+
+    /* SECTION */
+
+    .section-block{
+        margin-bottom:24px;
+    }
+
+    .section-title{
+        font-size:13px;
+    }
+
+    .edit-icon{
+        width:12px;
+    }
+
+    /* IMAGE GRID */
+
+    .image-grid-large{
+        gap:10px;
+    }
+
+    .image-grid-medium{
+        gap:10px;
+    }
+
+    .image-grid-bottom{
+        gap:10px;
+    }
+
+    .image-box.big{
+        min-height:170px;
+    }
+
+    .image-box{
+        min-height:110px;
+    }
+
+    .image-box label{
+        font-size:11px;
+        line-height:1.5;
+    }
+
+    /* FOOTER */
+
+    .footer-btn{
+        margin-top:30px;
+    }
+
+    .footer-btn button{
+        height:38px;
+        font-size:13px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    body{
+        padding:0;
+        background:#f3f3f3;
+    }
+
+    .main-container{
+        padding:12px;
+        border-radius:0;
+        min-height:100vh;
+    }
+
+    /* HEADER */
+
+    .top-header{
+        margin-bottom:16px;
+        padding-bottom:8px;
+    }
+
+    .page-title{
+        font-size:15px;
+        font-weight:700;
+    }
+
+    .publish-btn{
+        min-width:78px;
+        height:30px;
+        font-size:11px;
+        border-radius:4px;
+    }
+
+    /* MAIN LAYOUT */
+
+    .content-layout{
+        flex-direction:column;
+        gap:14px;
+    }
+
+    /* LEFT PANEL */
+
+    .left-panel{
+        width:100%;
+        display: none;
+    }
+
+    .preview-image{
+        width:100%;
+    }
+
+    .preview-image img{
+        width:100%;
+        border-radius:4px;
+    }
+
+    /* RIGHT PANEL */
+
+    .right-panel{
+        width:100%;
+    }
+
+    /* TOP DETAILS */
+
+    .top-details{
+        flex-direction:column;
+        gap:16px;
+        margin-bottom:20px;
+    }
+
+    .artisan-photo{
+        width:100px;
+        min-width:100px;
+        height:115px;
+        font-size:11px;
+    }
+
+    .details-content{
+        width:100%;
+    }
+
+    .info-row{
+        margin-bottom:14px;
+    }
+
+    .info-title{
+        font-size:11px;
+        margin-bottom:4px;
+    }
+
+    .info-input{
+        padding:8px 9px;
+        font-size:11px;
+    }
+
+    .text-area{
+        padding:10px;
+        font-size:11px;
+        line-height:1.7;
+        min-height:90px;
+    }
+
+    /* SECTION */
+
+    .section-block{
+        margin-bottom:22px;
+    }
+
+    .section-title{
+        font-size:12px;
+    }
+
+    .section-header{
+        margin-bottom:8px;
+    }
+
+    .edit-icon{
+        width:11px;
+    }
+
+    .line{
+        margin:16px 0;
+    }
+
+    /* IMAGE GRID */
+
+    .image-grid-large{
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-top:14px;
+    }
+
+    .image-grid-medium{
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-top:14px;
+    }
+
+    .image-grid-bottom{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        margin-top:14px;
+    }
+
+    .image-grid-bottom .big{
+        grid-column:1 / -1;
+    }
+
+    .image-box.big{
+        min-height:140px;
+    }
+
+    .image-box{
+        min-height:95px;
+        border-radius:4px;
+    }
+
+    .image-box label{
+        font-size:10px;
+        line-height:1.4;
+        padding:10px;
+    }
+
+    .delete-btn{
+        width:24px;
+        height:24px;
+        font-size:12px;
+    }
+
+    /* FOOTER BUTTON */
+
+    .footer-btn{
+        margin-top:24px;
+    }
+
+    .footer-btn button{
+        height:38px;
+        font-size:12px;
+        border-radius:4px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="top-header">
+
+        <div class="page-title">
+            Artisan story
+        </div>
+
+        <button class="publish-btn"
+                onclick="publishPage()">
+            Publish
+        </button>
+
+    </div>
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="content-layout">
+
+        <!-- ================= LEFT ================= -->
+
+        <div class="left-panel">
+
+            <div class="preview-image">
+                <img src="../assets/e-magzinesection/E- Magazzine - Explore - design 3 (1) 1.png" alt="">
+            </div>
+
+        </div>
+
+        <!-- ================= RIGHT ================= -->
+
+        <div class="right-panel">
+
+            <!-- ================= TOP DETAILS ================= -->
+
+            <div class="top-details">
+
+                <div class="artisan-photo image-box"
+                     id="artisanPhoto">
+
+                    <label>
+
+                        Artisan <br> Photo
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'artisanPhoto')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('artisanPhoto')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="details-content">
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            Name of Artisan
+                        </div>
+
+                        <input type="text"
+                               class="info-input required-field"
+                               value="Bhupesh Bhandar">
+
+                    </div>
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            Expertise
+                        </div>
+
+                        <input type="text"
+                               class="info-input required-field"
+                               value="Weaving">
+
+                    </div>
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            Twitter link
+                        </div>
+
+                        <input type="text"
+                               class="info-input required-field">
+
+                    </div>
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            Facebook link
+                        </div>
+
+                        <input type="text"
+                               class="info-input required-field">
+
+                    </div>
+
+                    <div class="info-row">
+
+                        <div class="info-title">
+                            Instagram Link
+                        </div>
+
+                        <input type="text"
+                               class="info-input required-field">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <!-- ================= SECTION 1 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Section 1
+                    </div>
+
+                    <img src="../assets/e-magzinesection/PencilSimple.svg"
+                         class="edit-icon">
+
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= SECTION 2 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Section 2
+                    </div>
+
+                    <img src="../assets/e-magzinesection/PencilSimple.svg"
+                         class="edit-icon">
+
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= IMAGE GRID ================= -->
+
+            <div class="image-grid-large">
+
+                <div class="image-box big"
+                     id="img1">
+
+                    <label>
+
+                        Upload <br> Image 1
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img1')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img1')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img2">
+
+                    <label>
+
+                        Upload <br> Image 2
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img2')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img2')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img3">
+
+                    <label>
+
+                        Upload <br> Image 3
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img3')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img3')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img4">
+
+                    <label>
+
+                        Upload <br> Image 4
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img4')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img4')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img5">
+
+                    <label>
+
+                        Upload <br> Image 5
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img5')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img5')">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ================= SECTION 3 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Section 3
+                    </div>
+
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= TITLE ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:12px;">
+                    Title 1
+                </div>
+
+                <input type="text"
+                       class="info-input required-field"
+                       value="Celebrating India's Regional Craft Legacy">
+
+            </div>
+
+            <!-- ================= SECTION 4 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:12px;">
+                    Section 4
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= IMAGES ================= -->
+
+            <div class="image-grid-bottom">
+
+                <div class="image-box big"
+                     id="img6">
+
+                    <label>
+
+                        Upload <br> Image 6
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img6')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img6')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img7">
+
+                    <label>
+
+                        Upload <br> Image 7
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img7')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img7')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img8">
+
+                    <label>
+
+                        Upload <br> Image 8
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img8')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img8')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img9">
+
+                    <label>
+
+                        Upload <br> Image 9
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img9')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img9')">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ================= SECTION 5 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:12px;">
+                    Section 5
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= SECTION 6 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:12px;">
+                    Section 6
+                </div>
+
+                <textarea class="text-area required-field"></textarea>
+
+            </div>
+
+            <!-- ================= SHOP DETAILS ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:18px;">
+                    Section 7 - Shop Details
+                </div>
+
+                <div class="info-row">
+
+                    <div class="info-title">
+                        Shop Name
+                    </div>
+
+                    <input type="text"
+                           class="info-input required-field"
+                           value="Sanskruti Collection">
+
+                </div>
+
+                <div class="info-row">
+
+                    <div class="info-title">
+                        Shop Address
+                    </div>
+
+                    <textarea class="text-area required-field"></textarea>
+
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <!-- ================= TITLE 2 ================= -->
+
+            <div class="section-block">
+
+                <div class="section-title"
+                     style="margin-bottom:12px;">
+                    Title 2
+                </div>
+
+                <input type="text"
+                       class="info-input required-field"
+                       value="Best Sellers">
+
+            </div>
+
+            <!-- ================= FINAL GRID ================= -->
+
+            <div class="image-grid-bottom">
+
+                <div class="image-box big"
+                     id="img10">
+
+                    <label>
+
+                        Upload <br> Image 10
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img10')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img10')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img11">
+
+                    <label>
+
+                        Upload <br> Image 11
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img11')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img11')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img12">
+
+                    <label>
+
+                        Upload <br> Image 12
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img12')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img12')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img13">
+
+                    <label>
+
+                        Upload <br> Image 13
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img13')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img13')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img14">
+
+                    <label>
+
+                        Upload <br> Image 14
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img14')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img14')">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="image-box"
+                     id="img15">
+
+                    <label>
+
+                        Upload <br> Image 15
+
+                        <input type="file"
+                               accept="image/*"
+                               onchange="previewImage(event,'img15')">
+
+                    </label>
+
+                    <button class="delete-btn"
+                            onclick="deleteImage('img15')">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ================= FOOTER ================= -->
+<!-- 
+            <div class="footer-btn">
+
+                <button onclick="publishPage()">
+                    Publish
+                </button>
+
+            </div> -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ================= IMAGE PREVIEW ================= */
+
+function previewImage(event, boxId){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "image/jpg"
+    ];
+
+    if(!allowedTypes.includes(file.type)){
+
+        alert("Only JPG, PNG, WEBP allowed");
+
+        return;
+    }
+
+    if(file.size > 5 * 1024 * 1024){
+
+        alert("Image size must be below 5MB");
+
+        return;
+    }
+
+    const box = document.getElementById(boxId);
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        box.classList.add("has-image");
+
+        box.innerHTML = `
+
+            <img src="${e.target.result}">
+
+            <button class="delete-btn"
+                    onclick="deleteImage('${boxId}')">
+                ×
+            </button>
+
+            <input type="file"
+                   accept="image/*"
+                   style="display:none"
+                   onchange="previewImage(event,'${boxId}')">
+
+        `;
+
+    }
+
+    reader.readAsDataURL(file);
+
+}
+
+/* ================= DELETE IMAGE ================= */
+
+function deleteImage(boxId){
+
+    const box = document.getElementById(boxId);
+
+    box.classList.remove("has-image");
+
+    box.innerHTML = `
+
+        <label>
+
+            Upload Image
+
+            <input type="file"
+                   accept="image/*"
+                   onchange="previewImage(event,'${boxId}')">
+
+        </label>
+
+        <button class="delete-btn"
+                onclick="deleteImage('${boxId}')">
+            ×
+        </button>
+
+    `;
+
+}
+
+/* ================= VALIDATION ================= */
+
+function publishPage(){
+
+    let valid = true;
+
+    const fields =
+        document.querySelectorAll(".required-field");
+
+    fields.forEach(field => {
+
+        field.classList.remove("input-error");
+
+        if(field.value.trim() === ""){
+
+            valid = false;
+
+            field.classList.add("input-error");
+
+        }
+
+    });
+
+    if(!valid){
+
+        alert("Please fill all required fields");
+
+        return;
+
+    }
+
+    const uploadedImages =
+        document.querySelectorAll(".has-image");
+
+    if(uploadedImages.length === 0){
+
+        alert("Please upload at least one image");
+
+        return;
+
+    }
+
+    alert("Published Successfully");
+
+}
+
+</script>
+
+</body>
+</html>
