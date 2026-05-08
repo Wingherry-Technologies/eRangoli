@@ -543,14 +543,24 @@ tbody tr td > .creame {
   border-radius: 8px;
   height: fit-content;
 }
-.packed-order {
-  background-color: #3281db;
+.intransit-order {
+  background-color: #B55E7D;
   color: white !important;
-  padding: 5px 18px;
+  padding: 5px 12px;
   border-radius: 3px;
   color: #ffffff;
   font-size: 13px;
   padding: 6px 14px;
+  border-radius: 8px;
+  height: fit-content;
+}
+.packed-order {
+  background-color: #3281db;
+  color: white !important;
+  padding: 6px 22px;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 13px;
   border-radius: 8px;
   height: fit-content;
 }
@@ -1212,7 +1222,7 @@ tbody tr td > .creame {
    STATUS PILL
 ========================= */
 .status-pill.received {
-  /* background: #28c76f; */
+  background: #28c76f;
   color: #ffffff;
   font-size: 13px;
   padding: 6px 14px;
@@ -1223,6 +1233,15 @@ tbody tr td > .creame {
 
 .status-pill.delivered {
   background: #ff9437;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+.status-pill.in-transit {
+  background: #B55E7D;
   color: #ffffff;
   font-size: 13px;
   padding: 6px 14px;
@@ -1293,6 +1312,63 @@ tbody tr td > .creame {
   height: 100%;
   background-color: #F5F5F5;
   border: 1px solid #D9D9D9;
+}
+.card-out.review{
+  margin-top: 10px;
+}
+.card.delivered{
+  justify-content: flex-start;
+  gap: 5px;
+}
+.review-ratings{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  height: 80px;
+}
+
+@media (max-width:1024px) {
+  .review-ratings .actual-ratings{
+    flex-direction: column;
+  }
+  .review-ratings{
+    height: 100px;
+  }
+}
+@media (max-width:768px) {
+  .review-ratings{
+    height: 100%;
+  }
+  .review-ratings .actual-ratings{
+    padding: 18px 15px;
+  }
+}
+.review-ratings .actual-ratings{
+  border: 1px solid #D9D9D9;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+.review-ratings .actual-ratings>span{
+  color: #3F3F3F;
+  font-size: 20px;
+  font-weight: 500;
+}
+.review-comments{
+  border: 1px solid #D9D9D9;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 100%;
+  color: #3F3F3F;
 }
 
 /* =========================

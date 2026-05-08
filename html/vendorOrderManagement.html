@@ -991,7 +991,7 @@
                     <td>Kalamkari</td>
                     <td>15</td>
                     <td>
-                      <span class="order-status received-orders">Received</span>
+                      <span class="order-status intransit-order">In-transit</span>
                     </td>
                     <td>16/12/25</td>
                     <td>20/12/25</td>
@@ -1413,11 +1413,6 @@
 
                   <span class="status-pill packed">Packed</span>
                 </div>
-<<<<<<< HEAD
-        
-                <span class="status-pill received received-orders">Received</span>
-=======
->>>>>>> beba43dafdaa580aab51b22379743a4083ac3fae
               </div>
 
               <!-- BODY -->
@@ -1567,11 +1562,7 @@
 
                   <span class="status-pill delivered">Delivered</span>
                 </div>
-<<<<<<< HEAD
         
-                <span class="status-pill packed packed-order">Packed</span>
-=======
->>>>>>> beba43dafdaa580aab51b22379743a4083ac3fae
               </div>
 
               <!-- BODY -->
@@ -1639,40 +1630,14 @@
                       <div class="status-grid">
                         <div>
                           <label>Packed on</label>
-                          <input type="text" value="14/12/25" readonly />
+                          <input type="date" value="2025-12-14" readonly />
                         </div>
 
                         <div>
                           <label>Pick Up</label>
-                          <input type="text" value="17/12/25" readonly />
-                        </div>
-
-                        <div>
-                          <label>Delivered on</label>
-                          <input type="text" value="23/12/25" readonly />
+                          <input type="date" value="2025-12-18" id="pickup-date" readonly />
                         </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <!-- REVIEWS -->
-                  <div class="card-out">
-                    <h4>Reviews</h4>
-
-                    <div class="card review-card">
-                      <div class="review-rating">
-                        <span class="star">★</span>
-                        <strong>4.5</strong>
-                      </div>
-
-                      <p class="review-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Curabitur sodales risus a dui luctus fringilla. Sed
-                        vehicula in lorem quis ultrices. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit. Curabitur sodales
-                        risus a dui luctus fringilla. Sed vehicula in lorem quis
-                        ultrices.
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -1703,7 +1668,181 @@
                       <p>23453689</p>
                     </div>
                   </div>
+
+                  <!-- DELIVERY -->
+                  <div class="card-out">
+                    <h4>Delivery</h4>
+
+                    <div class="card delivered">
+                      <label>Delivered on</label>
+                      <p>20-12-2025</p>
+                    </div>
+                  </div>
                 </div>
+
+
+                
+              </div>
+                              <!-- REVIEW BUTTON -->
+                 <div class="card-out review">
+                  <h4>Review</h4>
+                  <div class="review-ratings">
+                    <div class="actual-ratings">
+                      <img src="../assets/vendorOrderManagement/star.svg" alt="">
+                      <span>4.5</span>
+                    </div>
+                    <div class="review-comments">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi similique voluptatem ex dolorum praesentium ab corporis, reiciendis tempora, minima eum excepturi deleniti iusto in rem quae. Rerum accusantium ex ipsa.
+                    </div>
+                  </div>
+                 </div>
+            </div>
+          </div>
+
+          <!-- Delivered Popup Sections -->
+          <div id="intransit-popup" class="modal-popup-main">
+            <div class="modal-popup-content-main">
+              <!-- HEADER -->
+              <div class="order-header">
+                <div class="header-part">
+                  <h3>
+                    Order Details <span class="order-date">14/12/25</span>
+                  </h3>
+                  <button class="close-btn">×</button>
+                </div>
+
+                <div class="border-sep"></div>
+
+                <div class="order-statusbar">
+                  <div class="order-progress">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                  </div>
+
+                  <span class="status-pill in-transit">In transit</span>
+                </div>
+        
+              </div>
+
+              <!-- BODY -->
+              <div class="order-body">
+                <!-- LEFT COLUMN -->
+                <div class="left-col">
+                  <!-- PRODUCT DETAILS -->
+                  <div class="card-out">
+                    <h4>Product Details</h4>
+
+                    <div class="card">
+                      <div class="product-row">
+                        <img
+                          src="../assets/vendorOrderManagement/img.svg"
+                          alt="product"
+                        />
+
+                        <div class="product-info">
+                          <small>#79967776</small>
+                          <strong>Handcrafted Wooden Beer Mug</strong>
+
+                          <div class="meta-row">
+                            <span>Qty : 2</span>
+                            <span>Size : L</span>
+                          </div>
+
+                          <div class="meta-row">
+                            <span>Finish : Glossy</span>
+                            <span>Colour : Brown</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- EXPECTED DATE -->
+                  <div class="card-out">
+                    <h4>Expected Date</h4>
+
+                    <div class="card">
+                      <div class="date-grid">
+                        <div>
+                          <label>Packaging</label>
+                          <p>15/02/25 - 17/02/25</p>
+                        </div>
+
+                        <div>
+                          <label>Pick Up</label>
+                          <p>15/02/25 - 17/02/25</p>
+                        </div>
+
+                        <div>
+                          <label>Delivery</label>
+                          <p>20/02/25 - 23/02/25</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- UPDATE ORDER STATUS -->
+                  <div class="card-out">
+                    <h4>Update Order status</h4>
+
+                    <div class="card">
+                      <div class="status-grid">
+                        <div>
+                          <label>Packed on</label>
+                          <input type="date" value="2025-12-14" readonly />
+                        </div>
+
+                        <div>
+                          <label>Pick Up</label>
+                          <input type="date" value="2025-12-18" id="pickup-date" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="right-col">
+                  <!-- PAYMENT -->
+                  <div class="card-out">
+                    <h4>Payment</h4>
+
+                    <div class="card">
+                      <p class="paid-text">Paid by Paypal</p>
+                      <h2>₹ 5,110</h2>
+                      <small>Transaction ID</small>
+                      <p>124547586970889</p>
+                    </div>
+                  </div>
+
+                  <!-- CUSTOMER DETAILS -->
+                  <div class="card-out">
+                    <h4>Customer Details</h4>
+
+                    <div class="card">
+                      <small>Name</small>
+                      <p>Pawan Singh</p>
+
+                      <small>Customer ID</small>
+                      <p>23453689</p>
+                    </div>
+                  </div>
+
+                  <!-- DELIVERY -->
+                  <div class="card-out">
+                    <h4>Delivery</h4>
+
+                    <div class="card delivered">
+                      <label>Delivered on</label>
+                      <p>-</p>
+                    </div>
+                  </div>
+                </div>
+
+
+                
               </div>
             </div>
           </div>

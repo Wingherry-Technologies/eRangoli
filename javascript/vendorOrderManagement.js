@@ -140,6 +140,8 @@ function openPopupByStatus(status) {
     document.getElementById("packed-popup").classList.add("active");
   } else if (status.classList.contains("delivered-order")) {
     document.getElementById("delivered-popup").classList.add("active");
+  } else if (status.classList.contains("intransit-order")) {
+    document.getElementById("intransit-popup").classList.add("active");
   }
 }
 

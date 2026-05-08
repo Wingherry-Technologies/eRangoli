@@ -87,41 +87,41 @@ profileClicks.forEach(profileClick => {
 //     }
 // }
 
-const logoutMain = document.querySelector(".logout-main-desktop");
-const logoutPopup = document.getElementById("logoutPopup");
-const cancelBtn = document.getElementById("cancelBtn");
-const logoutBtn = document.getElementById("logoutBtn");
+// const logoutMain = document.querySelector(".logout-main-desktop");
+// const logoutPopup = document.getElementById("logoutPopup");
+// const cancelBtn = document.getElementById("cancelBtn");
+// const logoutBtn = document.getElementById("logoutBtn");
 
-/* Open Popup */
-logoutMain.addEventListener("click", () => {
-    logoutPopup.style.display = "flex";
-});
+// /* Open Popup */
+// logoutMain.addEventListener("click", () => {
+//     logoutPopup.style.display = "flex";
+// });
 
-/* Close Popup */
-cancelBtn.addEventListener("click", () => {
-    logoutPopup.style.display = "none";
-});
+// /* Close Popup */
+// cancelBtn.addEventListener("click", () => {
+//     logoutPopup.style.display = "none";
+// });
 
-/* Logout */
-logoutBtn.addEventListener("click", () => {
-    window.location.href = "../html/vendorlogin.html";
-});
+// /* Logout */
+// logoutBtn.addEventListener("click", () => {
+//     window.location.href = "../html/vendorlogin.html";
+// });
 
-const logoutPopup1 = document.getElementById("logoutPopup");
-const cancelBtn1 = document.getElementById("cancelBtn");
-const logoutBtn1 = document.getElementById("logoutBtn");
+// const logoutPopup1 = document.getElementById("logoutPopup");
+// const cancelBtn1 = document.getElementById("cancelBtn");
+// const logoutBtn1 = document.getElementById("logoutBtn");
 
-/* Open Popup */
-document.querySelector(".logout-button").addEventListener("click", () => {
-    logoutPopup1.style.display = "flex";
-});
+// /* Open Popup */
+// document.querySelector(".logout-button").addEventListener("click", () => {
+//     logoutPopup1.style.display = "flex";
+// });
 
-/* Close Popup */
-cancelBtn1.addEventListener("click", () => {
-    logoutPopup1.style.display = "none";
-});
+// /* Close Popup */
+// cancelBtn1.addEventListener("click", () => {
+//     logoutPopup1.style.display = "none";
+// });
 
-/* Logout */
-logoutBtn1.addEventListener("click", () => {
-    window.location.href = "../html/vendorlogin.html";
-});
+// /* Logout */
+// logoutBtn1.addEventListener("click", () => {
+//     window.location.href = "../html/vendorlogin.html";
+// });
