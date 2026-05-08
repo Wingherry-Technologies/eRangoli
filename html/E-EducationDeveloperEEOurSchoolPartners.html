@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Partners</title>
+    <link
+      rel="stylesheet"
+      href="../css/E-EducationDeveloperEEOurSchoolPartners.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EEDEEOSP-container">
+      <!-- Header -->
+      <div class="EEDEEOSP-heading-part">
+        <div class="EEDEEOSP-header">School Partners</div>
+        <button class="EEDEEOSP-add">+ Add</button>
+      </div>
+
+      <!-- Card -->
+      <div class="EEDEEOSP-card">
+        <!-- Top Row -->
+        <div class="EEDEEOSP-card-header">
+          <div class="EEDEEOSP-left">
+            <span class="EEDEEOSP-title">School List</span>
+            <span class="EEDEEOSP-count"></span>
+          </div>
+
+          <div class="EEDEEOSP-right">
+            <img
+              id="EEDEEOSP-filterBtn"
+              src="../assets/E-EducationAdminShortWorkshop/filter.png"
+            />
+            <img
+              id="EEDEEOSP-sortBtn"
+              src="../assets/E-EducationAdminShortWorkshop/sort.png"
+            />
+          </div>
+        </div>
+
+        <!-- FILTER POPUP -->
+        <div class="EEDEEOSP-filter-popup" id="EEDEEOSP-filterPopup">
+          <div class="EEDEEOSP-filter-header">Filter</div>
+
+          <div class="EEDEEOSP-filter-group">
+            <label>Branch</label>
+            <select>
+              <option>All</option>
+              <option>Thane</option>
+              <option>Pune</option>
+            </select>
+          </div>
+
+          <div class="EEDEEOSP-filter-group">
+            <label>City</label>
+            <select>
+              <option>All</option>
+              <option>Mumbai</option>
+              <option>Delhi</option>
+            </select>
+          </div>
+
+          <div class="EEDEEOSP-filter-group">
+            <label>State</label>
+            <select>
+              <option>All</option>
+              <option>Maharashtra</option>
+              <option>Delhi</option>
+            </select>
+          </div>
+
+          <div class="EEDEEOSP-filter-actions">
+            <button class="EEDEEOSP-clear">Clear</button>
+            <button class="EEDEEOSP-apply">Apply</button>
+          </div>
+        </div>
+
+        <!-- SORT POPUP -->
+        <div class="EEDEEOSP-sort-popup" id="EEDEEOSP-sortPopup">
+          <div class="EEDEEOSP-sort-header">Sort By</div>
+
+          <div class="EEDEEOSP-sort-option">
+            <input type="radio" name="sort" id="nameAsc" checked />
+            <label for="nameAsc">School Name (A-Z)</label>
+          </div>
+
+          <div class="EEDEEOSP-sort-option">
+            <input type="radio" name="sort" id="nameDesc" />
+            <label for="nameDesc">School Name (Z-A)</label>
+          </div>
+
+          <div class="EEDEEOSP-sort-option">
+            <input type="radio" name="sort" id="city" />
+            <label for="city">City</label>
+          </div>
+
+          <div class="EEDEEOSP-sort-option">
+            <input type="radio" name="sort" id="state" />
+            <label for="state">State</label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="EEDEEOSP-divider"></div>
+
+        <!-- Table -->
+        <div class="EEDEEOSP-table">
+          <!-- Header Row -->
+          <div class="EEDEEOSP-row EEDEEOSP-header-row">
+            <div>School Name</div>
+            <div>Branch</div>
+            <div>City</div>
+            <div>State</div>
+            <div>Action</div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Banglore</div>
+            <div>Karnataka</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="EEDEEOSP-row">
+            <div class="EEDEEOSP-school">
+              <img
+                src="../assets/E-EducationAdminSchoolPartners/img.png"
+                alt="School"
+              />
+              <span>Delhi Public School</span>
+            </div>
+            <div>Thane</div>
+            <div>Mumbai</div>
+            <div>Maharashtra</div>
+            <div class="EEDEEOSP-action">
+              <label class="EEDEEOSP-switch">
+                <input type="checkbox" checked />
+                <span class="EEDEEOSP-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="EEDEEOSP-mobile">
+      <div class="EEDEEOSP-Mob-header">School Partner</div>
+      <div class="EEDEEOSP-mob-count"></div>
+
+      <div class="EEDEEOSP-mobile-itmes">
+        <div class="EEDEEOSP-acc-item">
+          <!-- HEADER -->
+          <div class="EEDEEOSP-acc-header">
+            <div class="EEDEEOSP-workshop">
+              <img src="../assets/E-EducationAdminSchoolPartners/img.png" />
+              <span>Delhi Public School</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminSchoolPartners/down.png"
+              class="EEDEEOSP-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEDEEOSP-acc-body">
+            <div><span>Branch</span><span>Thane</span></div>
+            <div><span>City</span><span>Mumbai</span><span></span></div>
+            <div><span>State</span><span>Maharshatra</span><span></span></div>
+            <div class="action-row">
+              <span>Action</span>
+              <div class="EEDEEOSP-mob-action">
+                <label class="EEDEEOSP-mob-switch">
+                  <input type="checkbox" checked />
+                  <span class="EEDEEOSP-mob-slider"></span>
+                </label>
+              </div>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="EEDEEOSP-acc-item">
+          <!-- HEADER -->
+          <div class="EEDEEOSP-acc-header">
+            <div class="EEDEEOSP-workshop">
+              <img src="../assets/E-EducationAdminSchoolPartners/img.png" />
+              <span>Delhi Public School</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminSchoolPartners/down.png"
+              class="EEDEEOSP-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEDEEOSP-acc-body">
+            <div><span>Branch</span><span>Thane</span></div>
+            <div><span>City</span><span>Mumbai</span><span></span></div>
+            <div><span>State</span><span>Maharshatra</span><span></span></div>
+            <div class="action-row">
+              <span>Action</span>
+              <div class="EEDEEOSP-mob-action">
+                <label class="EEDEEOSP-mob-switch">
+                  <input type="checkbox" checked />
+                  <span class="EEDEEOSP-mob-slider"></span>
+                </label>
+              </div>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="EEDEEOSP-acc-item">
+          <!-- HEADER -->
+          <div class="EEDEEOSP-acc-header">
+            <div class="EEDEEOSP-workshop">
+              <img src="../assets/E-EducationAdminSchoolPartners/img.png" />
+              <span>Delhi Public School</span>
+            </div>
+            <img
+              src="../assets/E-EducationAdminSchoolPartners/down.png"
+              class="EEDEEOSP-arrow"
+            />
+          </div>
+
+          <!-- BODY -->
+          <div class="EEDEEOSP-acc-body">
+            <div><span>Branch</span><span>Thane</span></div>
+            <div><span>City</span><span>Mumbai</span><span></span></div>
+            <div><span>State</span><span>Maharshatra</span><span></span></div>
+            <div class="action-row">
+              <span>Action</span>
+              <div class="EEDEEOSP-mob-action">
+                <label class="EEDEEOSP-mob-switch">
+                  <input type="checkbox" checked />
+                  <span class="EEDEEOSP-mob-slider"></span>
+                </label>
+              </div>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img
+          class="EEDEEOSP-floating-plus-btn"
+          src="../assets/adminSalesDiscount/plus.svg"
+          alt="Add"
+        />
+      </div>
+    </div>
+    <div class="EEDEEOSP-modal" id="sponsorModal">
+      <div class="EEDEEOSP-modal-content">
+        <div class="EEDEEOSP-modal-header">
+          <h3>Our Sponsor Partners</h3>
+          <span class="close-btn" id="closeModal">&times;</span>
+        </div>
+
+        <div class="EEDEEOSP-modal-body">
+          <div class="row">
+            <div class="field">
+              <label>Enter Organization Name</label>
+
+              <input type="text" id="orgName" placeholder="DPS School" />
+
+              <span
+                id="orgNameError"
+                class="EEDEEOSP-error-msg"
+                style="display: none"
+              ></span>
+            </div>
+            <div class="field">
+              <label>Branch</label>
+
+              <input type="text" id="branchName" placeholder="Thane" />
+
+              <span
+                id="branchNameError"
+                class="EEDEEOSP-error-msg"
+                style="display: none"
+              ></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Select City</label>
+
+              <select id="citySelect">
+                <option value="">Select City</option>
+              </select>
+
+              <span
+                id="cityError"
+                class="EEDEEOSP-error-msg"
+                style="display: none"
+              ></span>
+            </div>
+            <div class="field">
+              <label>Select State</label>
+
+              <select id="stateSelect">
+                <option value="">Select State</option>
+              </select>
+
+              <span
+                id="stateError"
+                class="EEDEEOSP-error-msg"
+                style="display: none"
+              ></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Upload Logo</label>
+
+              <input type="file" id="logoUpload" hidden />
+              <div class="upload-box" id="uploadBox">Upload here</div>
+
+              <span
+                id="logoError"
+                class="EEDEEOSP-error-msg"
+                style="display: none"
+              ></span>
+            </div>
+
+            <button class="publish-btn" id="publishModalBtn">Publish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/E-EducationDeveloperEEOurSchoolPartners.js"></script>
+  </body>
+</html>
