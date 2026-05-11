@@ -5,440 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E‑Magazine Editor</title>
+  <link rel="stylesheet" href="../css/e-magzinesection1.css">
   <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon" />
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Nunito Sans";
-    }
-
-    body {
-      background: #edf0f5;
-      overflow: hidden;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .main-wrapper {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ================= HEADER ================= */
-
-    .top-header {
-      width: 100%;
-      height: 70px;
-      min-height: 70px;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .header-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #111;
-    }
-
-    .header-section {
-      font-size: 16px;
-      color: #666;
-    }
-
-    .publish-btn {
-      background: #1f8fff;
-      color: #fff;
-      border: none;
-      min-width: 130px;
-      height: 44px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    .publish-btn:hover {
-      background: #0c7ceb;
-    }
-
-    /* ================= BODY ================= */
-
-    .editor-layout {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    }
-
-    /* ================= LEFT PANEL ================= */
-
-    .left-panel {
-      width: 380px;
-      min-width: 380px;
-      background: #f8f8f8;
-      border-right: 1px solid #e5e5e5;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .left-panel::-webkit-scrollbar,
-    .right-panel::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .left-panel::-webkit-scrollbar-thumb,
-    .right-panel::-webkit-scrollbar-thumb {
-      background: #d2d2d2;
-      border-radius: 30px;
-    }
-
-    .template-card {
-      width: 100%;
-      background: #fff;
-      border: 3px solid transparent;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 18px;
-      cursor: pointer;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .template-card.active {
-      border-color: #4daeff;
-    }
-
-    .template-card.active::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      /* background:#1f8fff; */
-    }
-
-    .template-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .template-card img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ================= RIGHT PANEL ================= */
-
-    .right-panel {
-      flex: 1;
-      background: #fff;
-      padding: 25px;
-      overflow-y: auto;
-    }
-
-    .template-content {
-      display: none;
-    }
-
-    .template-content.active {
-      display: block;
-    }
-
-    /* ================= CONTENT ================= */
-
-    .content-block {
-      margin-bottom: 40px;
-    }
-
-    .block-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .block-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .action-icons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .icon-btn {
-      width: 34px;
-      height: 34px;
-      border: none;
-      background: #f2f7ff;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .icon-btn img {
-      width: 15px;
-    }
-
-    .input-title,
-    .text-area,
-    .small-input {
-      width: 100%;
-      border: 1px solid #dcdcdc;
-      /* border: none; */
-      border-radius: 5px;
-      padding: 10px 8px;
-      outline: none;
-    }
-
-    .input-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .small-input {
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
-
-    .text-area {
-      resize: none;
-      min-height: 130px;
-      line-height: 1.8;
-      font-size: 15px;
-      color: #555;
-    }
-
-    .section-heading {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #444;
-    }
-
-    /* ================= IMAGE UPLOAD ================= */
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 18px;
-      margin: 30px 0;
-    }
-
-    .upload-box {
-      position: relative;
-      background: #d9d9d9;
-      border-radius: 5px;
-      overflow: hidden;
-      min-height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #444;
-      font-size: 18px;
-    }
-
-    .upload-box.small {
-      min-height: 220px;
-    }
-
-    .upload-box input {
-      display: none;
-    }
-
-    .upload-label {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 20px;
-    }
-
-    .preview-image {
-      width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .delete-image {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 35px;
-      height: 35px;
-      border: none;
-      background: #ff3b3b;
-      color: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-    }
-
-    .upload-box.has-image .delete-image {
-      display: block;
-    }
-
-    /* ================= VALIDATION ================= */
-
-    .error {
-      color: red;
-      font-size: 13px;
-      margin-top: 6px;
-    }
-
-    .input-error {
-      border-color: red;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:991px) {
-
-      body {
-        overflow: auto;
-      }
-
-      .main-wrapper {
-        height: auto;
-      }
-
-      .editor-layout {
-        flex-direction: column;
-      }
-
-      .left-panel {
-        width: 100%;
-        min-width: 100%;
-        display: flex;
-        gap: 14px;
-        overflow-x: auto;
-        overflow-y: hidden;
-      }
-
-      .template-card {
-        min-width: 260px;
-        margin-bottom: 0;
-      }
-
-      .right-panel {
-        padding: 16px;
-      }
-
-      .header-title {
-        font-size: 22px;
-      }
-
-      .header-section {
-        font-size: 14px;
-      }
-
-      .publish-btn {
-        min-width: 100px;
-        height: 40px;
-        font-size: 14px;
-      }
-
-      .image-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .image-grid .upload-box:first-child {
-        grid-column: 1 / -1;
-      }
-
-      .upload-box,
-      .upload-box.small {
-        min-height: 160px;
-      }
-
-      .input-title {
-        font-size: 20px;
-      }
-
-    }
-
-    @media(max-width:600px) {
-
-      .top-header {
-        padding: 0 12px;
-      }
-
-      .header-title {
-        font-size: 16px;
-      }
-
-      .header-section {
-        font-size: 11px;
-      }
-
-      .publish-btn {
-        min-width: 80px;
-        height: 36px;
-        font-size: 12px;
-      }
-
-      .left-panel {
-        padding: 12px;
-      }
-
-      .template-card {
-        min-width: 180px;
-      }
-
-      .right-panel {
-        padding: 12px;
-      }
-
-      .block-title {
-        font-size: 14px;
-      }
-
-      .input-title {
-        font-size: 16px;
-      }
-
-      .small-input,
-      .text-area {
-        font-size: 12px;
-      }
-
-      .section-heading {
-        font-size: 13px;
-      }
-
-      .upload-box,
-      .upload-box.small {
-        min-height: 120px;
-        font-size: 13px;
-      }
-
-    }
-  </style>
 </head>
 
 <body>
@@ -494,31 +63,96 @@
 
         <!-- ================= SECTION 1 ================= -->
 
+
+
         <div class="template-content active" id="section1">
+
+          <!-- ================= TITLE 1 ================= -->
 
           <div class="content-block">
 
+            <!-- TITLE HEADER -->
+
             <div class="block-header">
+
               <div class="block-title">Title 1</div>
+
+              <!-- TITLE EDIT -->
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
             </div>
 
-            <input type="text" class="input-title required-field" placeholder="Enter Title"
+            <!-- TITLE INPUT -->
+
+            <input type="text" class="input-title required-field" readonly placeholder="Enter Title"
               value="The Hands Behind the Heritage">
 
-            <div class="section-heading">Section 1.1</div>
+            <!-- SECTION 1.1 -->
 
-            <textarea class="text-area required-field" placeholder="Enter content">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </textarea>
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 1.1</div>
+
+              <!-- SECTION EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+            <!-- SECTION 1.2 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 1.2</div>
+
+              <!-- SECTION EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+            <!-- SECTION 1.3 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 1.3</div>
+
+              <!-- SECTION EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
 
           </div>
 
+          <!-- ================= IMAGE GRID ================= -->
+
           <div class="image-grid">
 
-            <div class="upload-box" id="box1">
+            <!-- IMAGE 1 -->
+
+            <div class="upload-box large" id="box1">
 
               <label class="upload-label">
                 Upload Image 1.1
+
                 <input type="file" accept="image/*" onchange="previewImage(event,'box1')">
               </label>
 
@@ -528,10 +162,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
             </div>
 
+            <!-- IMAGE 2 -->
+
             <div class="upload-box small" id="box2">
 
               <label class="upload-label">
                 Upload Image 1.2
+
                 <input type="file" accept="image/*" onchange="previewImage(event,'box2')">
               </label>
 
@@ -541,10 +178,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
             </div>
 
+            <!-- IMAGE 3 -->
+
             <div class="upload-box small" id="box3">
 
               <label class="upload-label">
                 Upload Image 1.3
+
                 <input type="file" accept="image/*" onchange="previewImage(event,'box3')">
               </label>
 
@@ -556,62 +196,484 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
           </div>
 
+          <!-- ================= TITLE 2 ================= -->
+
+          <div class="content-block">
+
+            <!-- TITLE HEADER -->
+
+            <div class="block-header">
+
+              <div class="block-title">Title 2</div>
+
+              <!-- TITLE EDIT -->
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <!-- TITLE INPUT -->
+
+            <input type="text" class="input-title required-field" readonly placeholder="Enter Title"
+              value="More Than Makers — Storytellers of Tradition">
+
+            <!-- SECTION 2.1 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 2.1</div>
+
+              <!-- SECTION EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+            <!-- SECTION 2.2 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 2.2</div>
+
+              <!-- SECTION EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly placeholder="Enter content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+          </div>
+
         </div>
+
+
 
         <!-- ================= SECTION 2 ================= -->
 
         <div class="template-content" id="section2">
 
+          <!-- ================= TITLE 3 ================= -->
+
           <div class="content-block">
 
+            <!-- TITLE HEADER -->
+
             <div class="block-header">
+
               <div class="block-title">Title 3</div>
+
+              <!-- TITLE EDIT -->
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
             </div>
 
-            <input type="text" class="input-title required-field" value="Celebrating India's Regional Craft Legacy">
+            <!-- TITLE INPUT -->
 
-            <input type="text" class="small-input required-field" value="Artisan of the month">
+            <input type="text" class="input-title required-field" readonly
+              value="Celebrating India's Regional Craft Legacy">
 
-            <textarea class="text-area required-field">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </textarea>
+            <!-- ================= SUB TITLE ================= -->
+
+            <div class="section-heading-wrapper">
+
+              <!-- SUB TITLE LABEL -->
+              <div class="section-heading">
+                Sub Title
+              </div>
+
+              <!-- EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <!-- SUB TITLE INPUT -->
+
+            <input type="text" class="small-input required-field" readonly value="Artisan of the month">
+
+            <!-- ================= DESCRIPTION ================= -->
+
+            <div class="section-heading-wrapper">
+
+              <!-- DESCRIPTION LABEL -->
+              <div class="section-heading">
+                Description
+              </div>
+
+              <!-- EDIT -->
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna.
+  </textarea>
 
           </div>
 
-          <div class="image-grid">
+          <!-- ================= IMAGE GRID ================= -->
 
-            <div class="upload-box" id="box4">
+          <div class="image-grid image-grid-3">
+
+            <!-- IMAGE 3.1 -->
+
+            <div class="upload-box large" id="box4">
+
               <label class="upload-label">
                 Upload Image 3.1
+
                 <input type="file" accept="image/*" onchange="previewImage(event,'box4')">
               </label>
 
               <button class="delete-image" onclick="deleteImage('box4')">
                 ×
               </button>
+
             </div>
 
-            <div class="upload-box small" id="box5">
+
+            <!-- RIGHT SIDE CONTENT -->
+
+            <div class="content-block artisan-content">
+
+              <!-- EDIT BUTTON -->
+
+              <div class="block-header">
+
+                <div></div>
+
+                <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                  <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+                </button>
+
+              </div>
+
+
+              <!-- NAME -->
+
+              <div class="section-heading">
+                Name of Artisan
+              </div>
+
+              <input type="text" class="small-input required-field" readonly value="Bhupesh Bhandar">
+
+
+              <!-- EXPERTISE -->
+
+              <div class="section-heading">
+                Expertise
+              </div>
+
+              <input type="text" class="small-input required-field" readonly value="Weaving">
+
+            </div>
+
+          </div>
+
+
+          <!-- ================= TITLE 3.1 ================= -->
+
+          <div class="content-block">
+
+            <div class="block-header">
+
+              <div class="block-title">Section 3.1</div>
+
+              <!-- EDIT -->
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna.
+    </textarea>
+
+          </div>
+
+
+          <!-- ================= IMAGE GRID 2 ================= -->
+
+          <div class="image-grid second-grid">
+
+            <!-- IMAGE 3.2 -->
+
+            <div class="upload-box tall" id="box7">
+
               <label class="upload-label">
                 Upload Image 3.2
-                <input type="file" accept="image/*" onchange="previewImage(event,'box5')">
+
+                <input type="file" accept="image/*" onchange="previewImage(event,'box7')">
               </label>
 
-              <button class="delete-image" onclick="deleteImage('box5')">
+              <button class="delete-image" onclick="deleteImage('box7')">
                 ×
               </button>
+
             </div>
 
-            <div class="upload-box small" id="box6">
+            <!-- RIGHT SIDE -->
+
+            <div class="right-grid">
+
+              <!-- IMAGE 3.3 -->
+
+              <div class="upload-box horizontal" id="box8">
+
+                <label class="upload-label">
+                  Upload Image 3.3
+
+                  <input type="file" accept="image/*" onchange="previewImage(event,'box8')">
+                </label>
+
+                <button class="delete-image" onclick="deleteImage('box8')">
+                  ×
+                </button>
+
+              </div>
+
+              <!-- BOTTOM -->
+
+              <div class="bottom-grid">
+
+                <!-- IMAGE 3.4 -->
+
+                <div class="upload-box small" id="box9">
+
+                  <label class="upload-label">
+                    Upload Image 3.4
+
+                    <input type="file" accept="image/*" onchange="previewImage(event,'box9')">
+                  </label>
+
+                  <button class="delete-image" onclick="deleteImage('box9')">
+                    ×
+                  </button>
+
+                </div>
+
+                <!-- IMAGE 3.5 -->
+
+                <div class="upload-box small" id="box10">
+
+                  <label class="upload-label">
+                    Upload Image 3.5
+
+                    <input type="file" accept="image/*" onchange="previewImage(event,'box10')">
+                  </label>
+
+                  <button class="delete-image" onclick="deleteImage('box10')">
+                    ×
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ================= TITLE 4 ================= -->
+
+          <div class="content-block">
+
+            <!-- HEADER -->
+
+            <div class="block-header">
+
+              <div class="block-title">Title 4</div>
+
+              <!-- EDIT -->
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <!-- INPUT -->
+
+            <input type="text" class="input-title required-field" readonly value="The Hands Behind the Heritage">
+
+            <!-- SECTION 4.1 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 4.1</div>
+
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl.
+    </textarea>
+
+            <!-- SECTION 4.2 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 4.2</div>
+
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl.
+    </textarea>
+
+            <!-- SECTION 4.3 -->
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 4.3</div>
+
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl.
+    </textarea>
+
+          </div>
+
+
+          <!-- ================= IMAGE GRID 4 ================= -->
+
+          <div class="image-grid grid-four">
+
+            <!-- IMAGE 4.1 -->
+
+            <div class="upload-box medium" id="box11">
+
               <label class="upload-label">
-                Upload Image 3.3
-                <input type="file" accept="image/*" onchange="previewImage(event,'box6')">
+                Upload Image 4.1
+
+                <input type="file" accept="image/*" onchange="previewImage(event,'box11')">
               </label>
 
-              <button class="delete-image" onclick="deleteImage('box6')">
+              <button class="delete-image" onclick="deleteImage('box11')">
                 ×
               </button>
+
             </div>
+
+            <!-- IMAGE 4.2 -->
+
+            <div class="upload-box medium" id="box12">
+
+              <label class="upload-label">
+                Upload Image 4.2
+
+                <input type="file" accept="image/*" onchange="previewImage(event,'box12')">
+              </label>
+
+              <button class="delete-image" onclick="deleteImage('box12')">
+                ×
+              </button>
+
+            </div>
+
+            <!-- IMAGE 4.3 -->
+
+            <div class="upload-box medium" id="box13">
+
+              <label class="upload-label">
+                Upload Image 4.3
+
+                <input type="file" accept="image/*" onchange="previewImage(event,'box13')">
+              </label>
+
+              <button class="delete-image" onclick="deleteImage('box13')">
+                ×
+              </button>
+
+            </div>
+
+            <!-- IMAGE 4.4 -->
+
+            <div class="upload-box medium" id="box14">
+
+              <label class="upload-label">
+                Upload Image 4.4
+
+                <input type="file" accept="image/*" onchange="previewImage(event,'box14')">
+              </label>
+
+              <button class="delete-image" onclick="deleteImage('box14')">
+                ×
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ================= SECTION 4.4 ================= -->
+
+          <div class="content-block">
+
+            <div class="section-heading-wrapper">
+
+              <div class="section-heading">Section 4.4</div>
+
+              <button class="edit-btn small-edit" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </textarea>
+
+          </div>
+
+
+          <!-- ================= TITLE 5 ================= -->
+
+          <div class="content-block">
+
+            <div class="block-header">
+
+              <div class="block-title">Title 5</div>
+
+              <button class="edit-btn" onclick="toggleSectionEdit(this)">
+                <img src="../assets/e-magzinesection/PencilSimple.svg" alt="">
+              </button>
+
+            </div>
+
+            <textarea class="text-area required-field" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
 
           </div>
 
@@ -621,48 +683,140 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         <div class="template-content" id="section3">
 
-          <div class="content-block">
+  <!-- =========================
+        MAIN TITLE SECTION
+  ========================== -->
 
-            <div class="block-header">
-              <div class="block-title">Title 5</div>
-            </div>
+  <div class="content-block">
 
-            <input type="text" class="input-title required-field" value="A Journey Through India's Artisan States">
+    <div class="block-header">
+      <div class="block-title">Title 5</div>
+    </div>
 
-            <input type="text" class="small-input required-field"
-              value="Andhra Pradesh, Maharashtra, Orisa, Karnataka, Gujarat">
+    <input type="text"
+      class="input-title required-field"
+      value="A Journey Through India's Artisan States">
 
-            <textarea class="text-area required-field">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </textarea>
+    <div class="section-label">Sub-Title 5</div>
 
-          </div>
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae.
+    </textarea>
 
-          <div class="image-grid">
+    <div class="section-label">States</div>
 
-            <div class="upload-box" id="box7">
-              <label class="upload-label">
-                Upload Artisan Image 1.1
-                <input type="file" accept="image/*" onchange="previewImage(event,'box7')">
-              </label>
+    <input type="text"
+      class="small-input required-field"
+      value="Andhra Pradesh, Maharashtra, Orisa, Karnataka, Gujarat">
 
-              <button class="delete-image" onclick="deleteImage('box7')">
-                ×
-              </button>
-            </div>
+  </div>
 
-            <div class="upload-box small" id="box8">
-              <label class="upload-label">
-                Upload Product Image 1.2
-                <input type="file" accept="image/*" onchange="previewImage(event,'box8')">
-              </label>
 
-              <button class="delete-image" onclick="deleteImage('box8')">
-                ×
-              </button>
-            </div>
+  <!-- =========================
+        ARTISANS HEADER
+  ========================== -->
 
-          </div>
+  <div class="block-header artisan-main-header">
+    <div class="block-title">Artisans</div>
+
+    <button class="add-btn">
+      + Add new
+    </button>
+  </div>
+
+
+  <!-- =========================================================
+        ARTISAN 1
+  ========================================================== -->
+
+  <div class="artisan-block">
+
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 1</div>
+
+      <div class="action-icons">
+
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
+
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
+
+</div>
+    </div>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.
+    </textarea>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris.
+    </textarea>
+
+
+    <!-- IMAGE + DETAILS -->
+
+    <div class="artisan-flex">
+
+      <!-- LEFT IMAGE -->
+
+      <div class="upload-box artisan-image" id="box7">
+
+        <label class="upload-label">
+          Upload Artisan Image 1.1
+
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box7')">
+        </label>
+
+        <button class="delete-image"
+          onclick="deleteImage('box7')">
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- RIGHT DETAILS -->
+
+      <div class="artisan-details">
+
+        <div class="detail-group">
+          <label>Name of Artisan</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
+
+        <div class="detail-group">
+          <label>Expertise</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="upload-box small product-image" id="box8">
+
+          <label class="upload-label">
+            Upload Product Image 1.2
+
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box8')">
+          </label>
+
+          <button class="delete-image"
+            onclick="deleteImage('box8')">
+            ×
+          </button>
 
         </div>
 
@@ -672,338 +826,580 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
   </div>
 
-  <script>
-
-    /* ======================================================
-       SECTION SWITCHING
-    ====================================================== */
-
-    const cards = document.querySelectorAll(".template-card");
-    const sections = document.querySelectorAll(".template-content");
-    const sectionName = document.getElementById("sectionName");
-
-    cards.forEach(card => {
-
-      card.addEventListener("click", () => {
-
-        cards.forEach(item => {
-          item.classList.remove("active");
-        });
-
-        sections.forEach(section => {
-          section.classList.remove("active");
-        });
-
-        card.classList.add("active");
-
-        const target = card.getAttribute("data-template");
-
-        document
-          .getElementById(target)
-          .classList.add("active");
-
-        sectionName.innerText =
-          "(" + card.getAttribute("data-name") + ")";
-
-      });
-
-    });
 
 
-    /* ======================================================
-       IMAGE PREVIEW
-    ====================================================== */
+  <!-- =========================================================
+        ARTISAN 2
+  ========================================================== -->
 
-    function previewImage(event, boxId) {
+  <div class="artisan-block">
 
-      const file = event.target.files[0];
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 2</div>
 
-      if (!file) return;
+      <div class="action-icons">
 
-      /* IMAGE VALIDATION */
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
 
-      const allowedTypes = [
-        "image/jpeg",
-        "image/jpg",
-        "image/png",
-        "image/webp"
-      ];
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
 
-      if (!allowedTypes.includes(file.type)) {
+</div>
+    </div>
 
-        alert("Only JPG, PNG and WEBP images are allowed");
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.
+    </textarea>
 
-        event.target.value = "";
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris.
+    </textarea>
 
-        return;
-      }
+    <div class="artisan-flex">
 
-      /* MAX SIZE 5MB */
-
-      if (file.size > 5 * 1024 * 1024) {
-
-        alert("Image size should be below 5MB");
-
-        event.target.value = "";
-
-        return;
-      }
-
-      const box = document.getElementById(boxId);
-
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-
-        box.classList.add("has-image");
-
-        box.innerHTML = `
-
-            <img src="${e.target.result}"
-                 class="preview-image">
-
-            <button class="delete-image"
-                    onclick="deleteImage('${boxId}')">
-                ×
-            </button>
-
-            <input type="file"
-                   accept="image/*"
-                   style="display:none"
-                   onchange="previewImage(event,'${boxId}')">
-
-        `;
-      };
-
-      reader.readAsDataURL(file);
-    }
-
-
-    /* ======================================================
-       DELETE IMAGE
-    ====================================================== */
-
-    function deleteImage(boxId) {
-
-      const box = document.getElementById(boxId);
-
-      box.classList.remove("has-image");
-
-      box.innerHTML = `
+      <div class="upload-box artisan-image" id="box9">
 
         <label class="upload-label">
+          Upload Artisan Image 2.1
 
-            Upload Image
-
-            <input type="file"
-                   accept="image/*"
-                   onchange="previewImage(event,'${boxId}')">
-
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box9')">
         </label>
 
         <button class="delete-image"
-                onclick="deleteImage('${boxId}')">
-            ×
+          onclick="deleteImage('box9')">
+          ×
         </button>
 
-    `;
-    }
+      </div>
 
+      <div class="artisan-details">
 
-    /* ======================================================
-       INPUT VALIDATION
-    ====================================================== */
+        <div class="detail-group">
+          <label>Name of Artisan</label>
 
-    function validateInputs() {
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
 
-      let isValid = true;
+        <div class="detail-group">
+          <label>Expertise</label>
 
-      const requiredFields =
-        document.querySelectorAll(".required-field");
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
 
-      requiredFields.forEach(field => {
+        <div class="upload-box small product-image" id="box10">
 
-        field.classList.remove("input-error");
+          <label class="upload-label">
+            Upload Product Image 2.2
 
-        const value = field.value.trim();
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box10')">
+          </label>
 
-        /* EMPTY VALIDATION */
+          <button class="delete-image"
+            onclick="deleteImage('box10')">
+            ×
+          </button>
 
-        if (value === "") {
+        </div>
 
-          field.classList.add("input-error");
+      </div>
 
-          isValid = false;
-        }
+    </div>
 
-        /* TITLE VALIDATION */
+  </div>
 
-        if (
-          field.classList.contains("title-input") &&
-          value.length < 3
-        ) {
 
-          field.classList.add("input-error");
 
-          isValid = false;
-        }
+  <!-- =========================================================
+        ARTISAN 3
+  ========================================================== -->
 
-        /* TEXTAREA VALIDATION */
+  <div class="artisan-block">
 
-        if (
-          field.tagName === "TEXTAREA" &&
-          value.length < 20
-        ) {
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 3</div>
 
-          field.classList.add("input-error");
+      <div class="action-icons">
 
-          isValid = false;
-        }
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
 
-      });
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
 
-      return isValid;
-    }
+</div>
+    </div>
 
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris.
+    </textarea>
 
-    /* ======================================================
-       IMAGE VALIDATION
-    ====================================================== */
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris.
+    </textarea>
 
-    function validateImages() {
+    <div class="artisan-flex">
 
-      let imageBoxes =
-        document.querySelectorAll(".upload-box");
+      <div class="upload-box artisan-image" id="box11">
 
-      let uploadedCount = 0;
+        <label class="upload-label">
+          Upload Artisan Image 3.1
 
-      imageBoxes.forEach(box => {
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box11')">
+        </label>
 
-        if (box.classList.contains("has-image")) {
+        <button class="delete-image"
+          onclick="deleteImage('box11')">
+          ×
+        </button>
 
-          uploadedCount++;
-        }
+      </div>
 
-      });
+      <div class="artisan-details">
 
-      if (uploadedCount === 0) {
+        <div class="detail-group">
+          <label>Name of Artisan</label>
 
-        alert("Please upload at least one image");
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
 
-        return false;
-      }
+        <div class="detail-group">
+          <label>Expertise</label>
 
-      return true;
-    }
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
 
+        <div class="upload-box small product-image" id="box12">
 
-    /* ======================================================
-       PUBLISH VALIDATION
-    ====================================================== */
+          <label class="upload-label">
+            Upload Product Image 3.2
 
-    function publishMagazine() {
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box12')">
+          </label>
 
-      const inputsValid = validateInputs();
+          <button class="delete-image"
+            onclick="deleteImage('box12')">
+            ×
+          </button>
 
-      if (!inputsValid) {
+        </div>
 
-        alert("Please fill all required fields properly");
+      </div>
 
-        return;
-      }
+    </div>
 
-      const imagesValid = validateImages();
+  </div>
 
-      if (!imagesValid) {
 
-        return;
-      }
 
-      /* SUCCESS */
+  <!-- =========================================================
+        ARTISAN 4
+  ========================================================== -->
 
-      alert("Magazine Published Successfully");
+  <div class="artisan-block">
 
-    }
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 4</div>
 
+      <div class="action-icons">
 
-    /* ======================================================
-       REALTIME VALIDATION
-    ====================================================== */
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
 
-    document
-      .querySelectorAll(".required-field")
-      .forEach(field => {
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
 
-        field.addEventListener("input", () => {
+</div>
+    </div>
 
-          if (field.value.trim() !== "") {
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae.
+    </textarea>
 
-            field.classList.remove("input-error");
-          }
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisi, id imperdiet quam efficitur vitae.
+    </textarea>
 
-        });
+    <div class="artisan-flex">
 
-      });
+      <div class="upload-box artisan-image" id="box13">
 
-/* ==========================================
-   OPEN SELECTED SECTION FROM FIRST PAGE
-========================================== */
+        <label class="upload-label">
+          Upload Artisan Image 4.1
 
-window.addEventListener("DOMContentLoaded", () => {
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box13')">
+        </label>
 
-  const urlParams = new URLSearchParams(window.location.search);
+        <button class="delete-image"
+          onclick="deleteImage('box13')">
+          ×
+        </button>
 
-  const selectedSection = urlParams.get("section");
+      </div>
 
-  if (!selectedSection) return;
+      <div class="artisan-details">
 
-  // remove active from all cards
-  cards.forEach(card => {
-    card.classList.remove("active");
-  });
+        <div class="detail-group">
+          <label>Name of Artisan</label>
 
-  // remove active from all sections
-  sections.forEach(section => {
-    section.classList.remove("active");
-  });
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
 
-  // find matching card
-  const activeCard = document.querySelector(
-    `.template-card[data-template="${selectedSection}"]`
-  );
+        <div class="detail-group">
+          <label>Expertise</label>
 
-  // find matching section
-  const activeSection =
-    document.getElementById(selectedSection);
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
 
-  if (activeCard && activeSection) {
+        <div class="upload-box small product-image" id="box14">
 
-    // activate selected
-    activeCard.classList.add("active");
+          <label class="upload-label">
+            Upload Product Image 4.2
 
-    activeSection.classList.add("active");
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box14')">
+          </label>
 
-    // update heading
-    sectionName.innerText =
-      "(" + activeCard.getAttribute("data-name") + ")";
+          <button class="delete-image"
+            onclick="deleteImage('box14')">
+            ×
+          </button>
 
-    // auto scroll selected card into view
-    activeCard.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center"
-    });
+        </div>
 
-    // scroll right panel top
-    activeSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
+      </div>
 
-}); 
-  </script>
+    </div>
 
+  </div>
+
+
+
+  <!-- =========================================================
+        ARTISAN 5
+  ========================================================== -->
+
+  <div class="artisan-block">
+
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 5</div>
+
+      <div class="action-icons">
+
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
+
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
+
+</div>
+    </div>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+    <div class="artisan-flex">
+
+      <div class="upload-box artisan-image" id="box15">
+
+        <label class="upload-label">
+          Upload Artisan Image 5.1
+
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box15')">
+        </label>
+
+        <button class="delete-image"
+          onclick="deleteImage('box15')">
+          ×
+        </button>
+
+      </div>
+
+      <div class="artisan-details">
+
+        <div class="detail-group">
+          <label>Name of Artisan</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
+
+        <div class="detail-group">
+          <label>Expertise</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
+
+        <div class="upload-box small product-image" id="box16">
+
+          <label class="upload-label">
+            Upload Product Image 5.2
+
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box16')">
+          </label>
+
+          <button class="delete-image"
+            onclick="deleteImage('box16')">
+            ×
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================================================
+        ARTISAN 6
+  ========================================================== -->
+
+  <div class="artisan-block">
+
+    <div class="artisan-header">
+      <div class="artisan-title">Artisan 6</div>
+
+      <div class="action-icons">
+
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
+
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
+
+</div>
+    </div>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat.
+    </textarea>
+
+    <div class="artisan-flex">
+
+      <div class="upload-box artisan-image" id="box17">
+
+        <label class="upload-label">
+          Upload Artisan Image 6.1
+
+          <input type="file"
+            accept="image/*"
+            onchange="previewImage(event,'box17')">
+        </label>
+
+        <button class="delete-image"
+          onclick="deleteImage('box17')">
+          ×
+        </button>
+
+      </div>
+
+      <div class="artisan-details">
+
+        <div class="detail-group">
+          <label>Name of Artisan</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Bhupesh Bhandar">
+        </div>
+
+        <div class="detail-group">
+          <label>Expertise</label>
+
+          <input type="text"
+            class="small-input required-field"
+            value="Weaving">
+        </div>
+
+        <div class="upload-box small product-image" id="box18">
+
+          <label class="upload-label">
+            Upload Product Image 6.2
+
+            <input type="file"
+              accept="image/*"
+              onchange="previewImage(event,'box18')">
+          </label>
+
+          <button class="delete-image"
+            onclick="deleteImage('box18')">
+            ×
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+<!-- =========================================
+   HIDDEN ARTISAN TEMPLATE
+========================================= -->
+
+<template id="artisanTemplate">
+
+  <div class="artisan-block">
+
+    <div class="artisan-header">
+
+      <div class="artisan-title">
+        Artisan
+      </div>
+
+      <div class="action-icons">
+
+  <img src="../assets/e-magzinesection/PencilSimple.svg"
+       class="action-svg edit-artisan"
+       alt="Edit">
+
+  <img src="../assets/e-magzinesection/TrashSimple.svg"
+       class="action-svg delete-artisan"
+       alt="Delete">
+
+</div>
+
+    </div>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </textarea>
+
+    <textarea class="text-area required-field">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </textarea>
+
+    <div class="artisan-flex">
+
+      <!-- LEFT IMAGE -->
+
+      <div class="upload-box artisan-image">
+
+        <label class="upload-label">
+
+          Upload Artisan Image
+
+          <input type="file"
+                 accept="image/*">
+
+        </label>
+
+        <button class="delete-image">
+          ×
+        </button>
+
+      </div>
+
+      <!-- RIGHT DETAILS -->
+
+      <div class="artisan-details">
+
+        <div class="detail-group">
+
+          <label>Name of Artisan</label>
+
+          <input type="text"
+                 class="small-input required-field">
+
+        </div>
+
+        <div class="detail-group">
+
+          <label>Expertise</label>
+
+          <input type="text"
+                 class="small-input required-field">
+
+        </div>
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="upload-box small product-image">
+
+          <label class="upload-label">
+
+            Upload Product Image
+
+            <input type="file"
+                   accept="image/*">
+
+          </label>
+
+          <button class="delete-image">
+            ×
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</template>
+      </div>
+
+    </div>
+
+  </div>
+
+<script src="../javascript/e-magzinesection1.js"></script>
 </body>
 
 </html>

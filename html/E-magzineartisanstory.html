@@ -198,7 +198,7 @@
         }
 
         .edit-icon {
-            width: 14px;
+            width: 20px;
             cursor: pointer;
         }
 
@@ -216,6 +216,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 14px;
             margin-top: 18px;
+            margin-bottom: 18px;
         }
 
         .image-grid-large .big {
@@ -312,6 +313,21 @@
             border: 1px solid red !important;
         }
 
+        /* ==========================================
+   ACTIVE EDIT FIELD
+========================================== */
+
+.editing{
+  border: 2px solid #1f8fff !important;
+  background: #f7fbff !important;
+  transition: 0.2s;
+}
+
+/* OPTIONAL FOCUS EFFECT */
+
+.editing:focus{
+  box-shadow: 0 0 0 3px rgba(31,143,255,0.15);
+}
         /* ================= MOBILE ================= */
 
         /* =====================================================
@@ -905,7 +921,7 @@
                         <div class="section-title">
                             Section 3
                         </div>
-
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
 
                     <textarea class="text-area required-field"></textarea>
@@ -915,11 +931,12 @@
                 <!-- ================= TITLE ================= -->
 
                 <div class="section-block">
-
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:12px;">
                         Title 1
                     </div>
-
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                    </div>
                     <input type="text" class="info-input required-field"
                         value="Celebrating India's Regional Craft Legacy">
 
@@ -929,10 +946,12 @@
 
                 <div class="section-block">
 
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:12px;">
                         Section 4
                     </div>
-
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                    </div>
                     <textarea class="text-area required-field"></textarea>
 
                 </div>
@@ -1010,11 +1029,12 @@
                 <!-- ================= SECTION 5 ================= -->
 
                 <div class="section-block">
-
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:12px;">
                         Section 5
                     </div>
-
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                    </div>
                     <textarea class="text-area required-field"></textarea>
 
                 </div>
@@ -1022,9 +1042,11 @@
                 <!-- ================= SECTION 6 ================= -->
 
                 <div class="section-block">
-
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:12px;">
                         Section 6
+                    </div>
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
 
                     <textarea class="text-area required-field"></textarea>
@@ -1034,11 +1056,12 @@
                 <!-- ================= SHOP DETAILS ================= -->
 
                 <div class="section-block">
-
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:18px;">
                         Section 7 - Shop Details
                     </div>
-
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                    </div>
                     <div class="info-row">
 
                         <div class="info-title">
@@ -1066,9 +1089,11 @@
                 <!-- ================= TITLE 2 ================= -->
 
                 <div class="section-block">
-
+                    <div class="section-header">
                     <div class="section-title" style="margin-bottom:12px;">
                         Title 2
+                    </div>
+                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
 
                     <input type="text" class="info-input required-field" value="Best Sellers">
@@ -1195,139 +1220,344 @@
 
     <script>
 
-        /* ================= IMAGE PREVIEW ================= */
+        /* ======================================================
+   MAKE ALL FIELDS READONLY INITIALLY
+====================================================== */
 
-        function previewImage(event, boxId) {
+window.addEventListener("DOMContentLoaded", () => {
 
-            const file = event.target.files[0];
+  const fields =
+    document.querySelectorAll(
+      ".info-input, .text-area"
+    );
 
-            if (!file) return;
+  fields.forEach(field => {
 
-            const allowedTypes = [
-                "image/jpeg",
-                "image/png",
-                "image/webp",
-                "image/jpg"
-            ];
+    field.setAttribute(
+      "readonly",
+      true
+    );
 
-            if (!allowedTypes.includes(file.type)) {
+  });
 
-                alert("Only JPG, PNG, WEBP allowed");
+});
 
-                return;
-            }
 
-            if (file.size > 5 * 1024 * 1024) {
+/* ======================================================
+   EDIT SECTION
+====================================================== */
 
-                alert("Image size must be below 5MB");
+document.addEventListener("click", (e) => {
 
-                return;
-            }
+  if (
+    e.target.classList.contains(
+      "edit-icon"
+    )
+  ) {
 
-            const box = document.getElementById(boxId);
+    const sectionBlock =
+      e.target.closest(
+        ".section-block"
+      ) ||
+      e.target.closest(
+        ".top-details"
+      );
 
-            const reader = new FileReader();
+    if (!sectionBlock) return;
 
-            reader.onload = function (e) {
+    const fields =
+      sectionBlock.querySelectorAll(
+        "input, textarea"
+      );
 
-                box.classList.add("has-image");
+    fields.forEach(field => {
 
-                box.innerHTML = `
+      if (field.type !== "file") {
 
-            <img src="${e.target.result}">
+        field.removeAttribute(
+          "readonly"
+        );
 
-            <button class="delete-btn"
-                    onclick="deleteImage('${boxId}')">
-                ×
-            </button>
+        field.classList.add(
+          "editing"
+        );
 
-            <input type="file"
-                   accept="image/*"
-                   style="display:none"
-                   onchange="previewImage(event,'${boxId}')">
+      }
 
-        `;
+    });
 
-            }
+  }
 
-            reader.readAsDataURL(file);
+});
 
-        }
 
-        /* ================= DELETE IMAGE ================= */
+/* ======================================================
+   PREVENT DIRECT EDIT
+====================================================== */
 
-        function deleteImage(boxId) {
+document.addEventListener("click", (e) => {
 
-            const box = document.getElementById(boxId);
+  const field =
+    e.target.closest(
+      "input, textarea"
+    );
 
-            box.classList.remove("has-image");
+  if (!field) return;
 
-            box.innerHTML = `
+  if (field.type === "file") return;
 
-        <label>
+  if (
+    !field.classList.contains(
+      "editing"
+    )
+  ) {
 
-            Upload Image
+    field.blur();
 
-            <input type="file"
-                   accept="image/*"
-                   onchange="previewImage(event,'${boxId}')">
+    alert(
+      "Please click edit icon first"
+    );
 
-        </label>
+  }
+
+});
+
+
+/* ======================================================
+   BLOCK TYPING WITHOUT EDIT
+====================================================== */
+
+document.addEventListener("keydown", (e) => {
+
+  const field =
+    document.activeElement;
+
+  if (
+    field &&
+    (
+      field.tagName === "INPUT" ||
+      field.tagName === "TEXTAREA"
+    )
+  ) {
+
+    if (field.type === "file")
+      return;
+
+    if (e.key === "Tab")
+      return;
+
+    if (
+      !field.classList.contains(
+        "editing"
+      )
+    ) {
+
+      e.preventDefault();
+
+    }
+
+  }
+
+});
+
+
+/* ======================================================
+   IMAGE PREVIEW
+====================================================== */
+
+function previewImage(event, boxId) {
+
+  const file =
+    event.target.files[0];
+
+  if (!file) return;
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/jpg"
+  ];
+
+  if (
+    !allowedTypes.includes(
+      file.type
+    )
+  ) {
+
+    alert(
+      "Only JPG, PNG, WEBP allowed"
+    );
+
+    return;
+
+  }
+
+  if (
+    file.size >
+    5 * 1024 * 1024
+  ) {
+
+    alert(
+      "Image size must be below 5MB"
+    );
+
+    return;
+
+  }
+
+  const box =
+    document.getElementById(
+      boxId
+    );
+
+  const reader =
+    new FileReader();
+
+  reader.onload =
+    function (e) {
+
+      box.classList.add(
+        "has-image"
+      );
+
+      box.innerHTML = `
+
+        <img src="${e.target.result}">
 
         <button class="delete-btn"
                 onclick="deleteImage('${boxId}')">
             ×
         </button>
 
-    `;
+        <input type="file"
+               accept="image/*"
+               style="display:none"
+               onchange="previewImage(event,'${boxId}')">
 
-        }
+      `;
 
-        /* ================= VALIDATION ================= */
+    };
 
-        function publishPage() {
+  reader.readAsDataURL(file);
 
-            let valid = true;
+}
 
-            const fields =
-                document.querySelectorAll(".required-field");
 
-            fields.forEach(field => {
+/* ======================================================
+   DELETE IMAGE
+====================================================== */
 
-                field.classList.remove("input-error");
+function deleteImage(boxId) {
 
-                if (field.value.trim() === "") {
+  const confirmDelete =
+    confirm(
+      "Are you sure you want to delete this image?"
+    );
 
-                    valid = false;
+  if (!confirmDelete)
+    return;
 
-                    field.classList.add("input-error");
+  const box =
+    document.getElementById(
+      boxId
+    );
 
-                }
+  box.classList.remove(
+    "has-image"
+  );
 
-            });
+  box.innerHTML = `
 
-            if (!valid) {
+    <label>
 
-                alert("Please fill all required fields");
+      Upload Image
 
-                return;
+      <input type="file"
+             accept="image/*"
+             onchange="previewImage(event,'${boxId}')">
 
-            }
+    </label>
 
-            const uploadedImages =
-                document.querySelectorAll(".has-image");
+    <button class="delete-btn"
+            onclick="deleteImage('${boxId}')">
+        ×
+    </button>
 
-            if (uploadedImages.length === 0) {
+  `;
 
-                alert("Please upload at least one image");
+  alert(
+    "Image deleted successfully"
+  );
 
-                return;
+}
 
-            }
 
-            alert("Published Successfully");
+/* ======================================================
+   PUBLISH VALIDATION
+====================================================== */
 
-        }
+function publishPage() {
+
+  let valid = true;
+
+  const fields =
+    document.querySelectorAll(
+      ".required-field"
+    );
+
+  fields.forEach(field => {
+
+    field.classList.remove(
+      "input-error"
+    );
+
+    if (
+      field.value.trim() === ""
+    ) {
+
+      valid = false;
+
+      field.classList.add(
+        "input-error"
+      );
+
+    }
+
+  });
+
+  if (!valid) {
+
+    alert(
+      "Please fill all required fields"
+    );
+
+    return;
+
+  }
+
+  const uploadedImages =
+    document.querySelectorAll(
+      ".has-image"
+    );
+
+  if (
+    uploadedImages.length === 0
+  ) {
+
+    alert(
+      "Please upload at least one image"
+    );
+
+    return;
+
+  }
+
+  alert(
+    "Published Successfully"
+  );
+
+}
 
     </script>
 
