@@ -5,79 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Gallery</title>
     <link rel="stylesheet" href="../css/E-EducationDeveloperPhotoGallery.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="EDPGpage-wrapper">
-
       <!-- Card 1: Photo Gallery Content -->
       <div class="EDPGcard">
         <div class="EDPGcard-header">
-          <h2>Photo Gallery</h2>
-          <button class="EDPGpublish-btn" id="EDPGpublishHeroBtn" >Publish</button>
+          <span class="EDPGcard-heading">Photo Gallery</span>
+          <button class="EDPGedit-btn" id="EDPGeditHeroBtn">Edit</button>
+          <button
+            class="EDPGpublish-btn"
+            id="EDPGpublishHeroBtn"
+            style="display: none"
+          >
+            Publish
+          </button>
         </div>
 
         <div class="EDPGcontent">
-          <div class="EDPGsection-row">
-            <!-- <span class="EDPGlabel">Core Content</span> -->
-            <div>
-              
-              <!-- <button class="EDPGedit-btn" id="EDPGeditHeroBtn">Edit</button> -->
-            </div>
-          </div>
-
-          <!-- EDIT MODE -->
-          <div id="EDPGeditMode" style="display: none;">
-            <div class="EDPGform-group">
-              <label>Heading</label>
-              <input type="text" id="EDPGheroHeading" placeholder="Crafted with Passion, Captured in Moments." />
-              <span class="EDPGerror-message"></span>
-            </div>
-
-            <div class="EDPGform-group">
-              <label>Sub Text</label>
-              <textarea id="EDPGheroSubText" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet."></textarea>
-              <span class="EDPGerror-message"></span>
-            </div>
-
-            <div class="EDPGform-group">
-              <label>Title</label>
-              <input type="text" id="EDPGheroTitle" placeholder="The Hands Behind the Heritage" />
-              <span class="EDPGerror-message"></span>
-            </div>
-
-            <div class="EDPGform-group">
-              <label>Sub Text</label>
-              <textarea id="EDPGheroSubText2" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.&#10;&#10;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris."></textarea>
-              <span class="EDPGerror-message"></span>
-            </div>
-          </div>
-
-          <!-- VIEW MODE -->
+          <!-- VIEW MODE (default) -->
           <div id="EDPGviewMode">
             <div class="EDPGfield-block">
               <div class="EDPGfield-label">Heading</div>
-              <div class="EDPGfield-value" id="EDPGviewHeading">"Crafted with Passion, Captured in Moments."</div>
+              <div class="EDPGfield-value" id="EDPGviewHeading">
+                "Crafted with Passion, Captured in Moments."
+              </div>
             </div>
 
             <div class="EDPGfield-block">
               <div class="EDPGfield-label">Sub Text</div>
-              <div class="EDPGfield-value EDPGfield-value--multiline" id="EDPGviewSubText">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.</p>
+              <div
+                class="EDPGfield-value EDPGfield-value--multiline"
+                id="EDPGviewSubText"
+              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  ornare eu risus a consequat. Morbi scelerisque est nisl, id
+                  imperdiet quam efficitur vitae. Sed tempor congue cursus.
+                  Maecenas nulla nunc, imperdiet eget molestie sed, dictum a
+                  mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut
+                  rutrum non diam id aliquet.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  ornare eu risus a consequat. Morbi scelerisque est nisl, id
+                  imperdiet quam efficitur vitae. Sed tempor congue cursus.
+                  Maecenas nulla nunc, imperdiet eget molestie sed, dictum a
+                  mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut
+                  rutrum non diam id aliquet.
+                </p>
               </div>
             </div>
 
             <div class="EDPGfield-block">
               <div class="EDPGfield-label">Title</div>
-              <div class="EDPGfield-value" id="EDPGviewTitle">"The Hands Behind the Heritage"</div>
+              <div class="EDPGfield-value" id="EDPGviewTitle">
+                "The Hands Behind the Heritage"
+              </div>
             </div>
 
             <div class="EDPGfield-block">
               <div class="EDPGfield-label">Sub Text</div>
-              <div class="EDPGfield-value EDPGfield-value--multiline" id="EDPGviewSubText2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut rutrum non diam id aliquet.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare eu risus a consequat. Morbi scelerisque est nisl, id imperdiet quam efficitur vitae. Sed tempor congue cursus. Maecenas nulla nunc, imperdiet eget molestie sed, dictum a mauris.</p>
+              <div
+                class="EDPGfield-value EDPGfield-value--multiline"
+                id="EDPGviewSubText2"
+              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  ornare eu risus a consequat. Morbi scelerisque est nisl, id
+                  imperdiet quam efficitur vitae. Sed tempor congue cursus.
+                  Maecenas nulla nunc, imperdiet eget molestie sed, dictum a
+                  mauris. Vivamus in vulputate mauris. Sed quis mollis magna. Ut
+                  rutrum non diam id aliquet.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  ornare eu risus a consequat. Morbi scelerisque est nisl, id
+                  imperdiet quam efficitur vitae. Sed tempor congue cursus.
+                  Maecenas nulla nunc, imperdiet eget molestie sed, dictum a
+                  mauris.
+                </p>
               </div>
+            </div>
+          </div>
+
+          <!-- EDIT MODE (hidden by default) -->
+          <div id="EDPGeditMode" style="display: none">
+            <div class="EDPGfield-block">
+              <div class="EDPGfield-label">Heading</div>
+              <input
+                type="text"
+                id="EDPGheroHeading"
+                class="EDPGfield-value"
+                style="width: 100%; border: 1px solid #ddd; background: #ebf3f9"
+                placeholder="Enter heading"
+              />
+              <span
+                id="EDPGheadingError"
+                class="EDPGerror-message"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="EDPGfield-block">
+              <div class="EDPGfield-label">Sub Text</div>
+              <textarea
+                id="EDPGheroSubText"
+                class="EDPGfield-value"
+                style="
+                  width: 100%;
+                  border: 1px solid #ddd;
+                  background: #ebf3f9;
+                  min-height: 60px;
+                  resize: vertical;
+                "
+                placeholder="Enter sub-text"
+              ></textarea>
+              <span
+                id="EDPGsubTextError"
+                class="EDPGerror-message"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="EDPGfield-block">
+              <div class="EDPGfield-label">Title</div>
+              <input
+                type="text"
+                id="EDPGheroTitle"
+                class="EDPGfield-value"
+                style="width: 100%; border: 1px solid #ddd; background: #ebf3f9"
+                placeholder="Enter title"
+              />
+              <span
+                id="EDPGtitleError"
+                class="EDPGerror-message"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="EDPGfield-block">
+              <div class="EDPGfield-label">Sub Text</div>
+              <textarea
+                id="EDPGheroSubText2"
+                class="EDPGfield-value"
+                style="
+                  width: 100%;
+                  border: 1px solid #ddd;
+                  background: #ebf3f9;
+                  min-height: 60px;
+                  resize: vertical;
+                "
+                placeholder="Enter sub-text"
+              ></textarea>
+              <span
+                id="EDPGsubText2Error"
+                class="EDPGerror-message"
+                style="display: none"
+              ></span>
             </div>
           </div>
         </div>
@@ -94,13 +184,21 @@
         </div>
 
         <div class="EDPGimage-grid">
-
           <!-- Tile 1 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile1">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Rectangle 34628369.svg" alt="Pottery" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd1')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Rectangle 34628369.svg"
+                alt="Pottery"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd1')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd1">
                 <button class="EDPGset-home">Set on Home</button>
@@ -112,9 +210,18 @@
           <!-- Tile 2 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile2">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249316.svg" alt="Weaving" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd2')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249316.svg"
+                alt="Weaving"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd2')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd2">
                 <button class="EDPGset-home">Set on Home</button>
@@ -126,9 +233,18 @@
           <!-- Tile 3 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile3">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249317.svg" alt="Children crafts" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd3')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249317.svg"
+                alt="Children crafts"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd3')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd3">
                 <button class="EDPGset-home">Set on Home</button>
@@ -140,9 +256,18 @@
           <!-- Tile 4 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile4">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249319.svg" alt="Art class" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd4')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249319.svg"
+                alt="Art class"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd4')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd4">
                 <button class="EDPGset-home">Set on Home</button>
@@ -154,9 +279,18 @@
           <!-- Tile 5 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile5">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249320.svg" alt="Handcraft" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd5')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249320.svg"
+                alt="Handcraft"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd5')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd5">
                 <button class="EDPGset-home">Set on Home</button>
@@ -168,9 +302,18 @@
           <!-- Tile 6 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile6">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249321.svg" alt="Glass painting" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd6')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249321.svg"
+                alt="Glass painting"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd6')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd6">
                 <button class="EDPGset-home">Set on Home</button>
@@ -182,9 +325,18 @@
           <!-- Tile 7 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile7">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249322.svg" alt="Clay work" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd7')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249322.svg"
+                alt="Clay work"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd7')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd7">
                 <button class="EDPGset-home">Set on Home</button>
@@ -196,9 +348,18 @@
           <!-- Tile 8 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile8">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249323.svg" alt="Workshop" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd8')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249323.svg"
+                alt="Workshop"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd8')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd8">
                 <button class="EDPGset-home">Set on Home</button>
@@ -210,9 +371,18 @@
           <!-- Tile 9 -->
           <div class="EDPGimg-tile-wrapper">
             <div class="EDPGimg-tile" id="EDPGtile9">
-              <img src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249324.svg" alt="Decorative" />
-              <span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown('EDPGdd9')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E" alt="menu" />
+              <img
+                src="../assets/E-EducationDeveloperPhotoGallery/Group 2055249324.svg"
+                alt="Decorative"
+              />
+              <span
+                class="EDPGtile-menu-btn"
+                onclick="EDPGtoggleDropdown('EDPGdd9')"
+              >
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E"
+                  alt="menu"
+                />
               </span>
               <div class="EDPGtile-dropdown" id="EDPGdd9">
                 <button class="EDPGset-home">Set on Home</button>
@@ -226,9 +396,13 @@
             <div class="EDPGadd-tile" id="EDPGaddTile">
               <div class="EDPGadd-icon">+</div>
             </div>
-            <input type="file" id="EDPGimageInput" accept="image/*,video/*" style="display: none;" />
+            <input
+              type="file"
+              id="EDPGimageInput"
+              accept="image/*,video/*"
+              style="display: none"
+            />
           </div>
-
         </div>
       </div>
     </div>

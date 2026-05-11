@@ -1,5 +1,97 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var publishBtn = document.getElementById("EEDSW-publishBtn");
+  // ── Header Edit / Publish logic (Photo Gallery style) ──
+  (function initHeaderEditPublish() {
+    var editBtn = document.getElementById("EEDSW-editHeroBtn");
+    var publishBtn = document.getElementById("EEDSW-publishBtn");
+    var viewMode = document.getElementById("EEDSW-headerViewMode");
+    var editMode = document.getElementById("EEDSW-headerEditMode");
+
+    if (!editBtn || !publishBtn || !viewMode || !editMode) return;
+
+    function showHeaderError(spanId, message) {
+      var span = document.getElementById(spanId);
+      if (span) {
+        span.textContent = message;
+        span.style.display = "block";
+      }
+    }
+
+    function clearHeaderError(spanId) {
+      var span = document.getElementById(spanId);
+      if (span) {
+        span.textContent = "";
+        span.style.display = "none";
+      }
+    }
+
+    // Switch to edit mode
+    editBtn.addEventListener("click", function () {
+      document.getElementById("EEDSW-heroSubTitle").value = document
+        .getElementById("EEDSW-viewSubTitle")
+        .textContent.trim();
+      viewMode.style.display = "none";
+      editMode.style.display = "block";
+      editBtn.style.display = "none";
+      publishBtn.style.display = "inline-block";
+      clearHeaderError("EEDSW-subTitleError");
+    });
+
+    // Switch to view mode on Publish (also runs existing min-row check)
+    publishBtn.addEventListener("click", function () {
+      // Minimum rows check (existing logic) — use getElementById to avoid forward-ref issue
+      var tb = document.getElementById("EEDSW-tableBody");
+      var toasterEl = document.getElementById("EEDSW-toaster");
+      var toasterMsgEl = document.getElementById("EEDSW-toaster-msg");
+      if (tb && tb.querySelectorAll("tr").length < 6) {
+        if (toasterMsgEl)
+          toasterMsgEl.textContent = "minimum 6 rows are required";
+        if (toasterEl) {
+          toasterEl.classList.add("show");
+          setTimeout(function () {
+            toasterEl.classList.remove("show");
+          }, 3500);
+        }
+        return;
+      }
+
+      // Header field validation
+      var subTitleVal = document
+        .getElementById("EEDSW-heroSubTitle")
+        .value.trim();
+      if (!subTitleVal) {
+        showHeaderError("EEDSW-subTitleError", "Sub-title cannot be empty.");
+        document
+          .getElementById("EEDSW-heroSubTitle")
+          .classList.add("EEDSW-input-error");
+        return;
+      }
+      clearHeaderError("EEDSW-subTitleError");
+      document
+        .getElementById("EEDSW-heroSubTitle")
+        .classList.remove("EEDSW-input-error");
+
+      // Update view
+      document.getElementById("EEDSW-viewSubTitle").textContent = subTitleVal;
+      editMode.style.display = "none";
+      viewMode.style.display = "block";
+      publishBtn.style.display = "none";
+      editBtn.style.display = "inline-block";
+    });
+
+    // Blur validation
+    document
+      .getElementById("EEDSW-heroSubTitle")
+      .addEventListener("blur", function () {
+        if (!this.value.trim()) {
+          showHeaderError("EEDSW-subTitleError", "Sub-title cannot be empty.");
+          this.classList.add("EEDSW-input-error");
+        } else {
+          clearHeaderError("EEDSW-subTitleError");
+          this.classList.remove("EEDSW-input-error");
+        }
+      });
+  })();
+
   var addBtn = document.getElementById("EEDSW-addBtn");
   var floatingBtn = document.querySelector(".EEDSW-floating-plus-btn");
   var popup = document.getElementById("EEDSW-addProductPopup");
@@ -140,14 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   syncMobileFaq();
   updateCount();
-
-  if (publishBtn) {
-    publishBtn.addEventListener("click", function () {
-      if (tableBody.querySelectorAll("tr").length < 6) {
-        showToaster("minimum 6 rows are required");
-      }
-    });
-  }
 
   tableBody.addEventListener("click", function (e) {
     if (e.target.classList.contains("EEDSW-delete-icon")) {

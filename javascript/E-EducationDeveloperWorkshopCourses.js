@@ -1,5 +1,97 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var publishBtn = document.getElementById("EEDWC-publishBtn");
+  // ── Header Edit / Publish logic (matching Short Workshop style) ──
+  (function initHeaderEditPublish() {
+    var editBtn = document.getElementById("EEDWC-editHeroBtn");
+    var publishBtn = document.getElementById("EEDWC-publishBtn");
+    var viewMode = document.getElementById("EEDWC-headerViewMode");
+    var editMode = document.getElementById("EEDWC-headerEditMode");
+
+    if (!editBtn || !publishBtn || !viewMode || !editMode) return;
+
+    function showHeaderError(spanId, message) {
+      var span = document.getElementById(spanId);
+      if (span) {
+        span.textContent = message;
+        span.style.display = "block";
+      }
+    }
+
+    function clearHeaderError(spanId) {
+      var span = document.getElementById(spanId);
+      if (span) {
+        span.textContent = "";
+        span.style.display = "none";
+      }
+    }
+
+    // Switch to edit mode
+    editBtn.addEventListener("click", function () {
+      document.getElementById("EEDWC-heroSubTitle").value = document
+        .getElementById("EEDWC-viewSubTitle")
+        .textContent.trim();
+      viewMode.style.display = "none";
+      editMode.style.display = "block";
+      editBtn.style.display = "none";
+      publishBtn.style.display = "inline-block";
+      clearHeaderError("EEDWC-subTitleError");
+    });
+
+    // Switch to view mode on Publish (also runs existing min-row check)
+    publishBtn.addEventListener("click", function () {
+      // Minimum rows check
+      var tb = document.getElementById("EEDWC-tableBody");
+      var toasterEl = document.getElementById("EEDWC-toaster");
+      var toasterMsgEl = document.getElementById("EEDWC-toaster-msg");
+      if (tb && tb.querySelectorAll("tr").length < 6) {
+        if (toasterMsgEl)
+          toasterMsgEl.textContent = "minimum 6 rows are required";
+        if (toasterEl) {
+          toasterEl.classList.add("show");
+          setTimeout(function () {
+            toasterEl.classList.remove("show");
+          }, 3500);
+        }
+        return;
+      }
+
+      // Header field validation
+      var subTitleVal = document
+        .getElementById("EEDWC-heroSubTitle")
+        .value.trim();
+      if (!subTitleVal) {
+        showHeaderError("EEDWC-subTitleError", "Sub-title cannot be empty.");
+        document
+          .getElementById("EEDWC-heroSubTitle")
+          .classList.add("EEDWC-input-error");
+        return;
+      }
+      clearHeaderError("EEDWC-subTitleError");
+      document
+        .getElementById("EEDWC-heroSubTitle")
+        .classList.remove("EEDWC-input-error");
+
+      // Update view
+      document.getElementById("EEDWC-viewSubTitle").textContent = subTitleVal;
+      editMode.style.display = "none";
+      viewMode.style.display = "block";
+      publishBtn.style.display = "none";
+      editBtn.style.display = "inline-block";
+    });
+
+    // Blur validation
+    document
+      .getElementById("EEDWC-heroSubTitle")
+      .addEventListener("blur", function () {
+        if (!this.value.trim()) {
+          showHeaderError("EEDWC-subTitleError", "Sub-title cannot be empty.");
+          this.classList.add("EEDWC-input-error");
+        } else {
+          clearHeaderError("EEDWC-subTitleError");
+          this.classList.remove("EEDWC-input-error");
+        }
+      });
+  })();
+
   var addBtn = document.getElementById("EEDWC-addBtn");
   var floatingBtn = document.querySelector(".EEDWC-floating-plus-btn");
   var popup = document.getElementById("EEDWC-addProductPopup");
@@ -140,14 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   syncMobileFaq();
   updateCount();
-
-  if (publishBtn) {
-    publishBtn.addEventListener("click", function () {
-      if (tableBody.querySelectorAll("tr").length < 6) {
-        showToaster("minimum 6 rows are required");
-      }
-    });
-  }
 
   tableBody.addEventListener("click", function (e) {
     if (e.target.classList.contains("EEDWC-delete-icon")) {

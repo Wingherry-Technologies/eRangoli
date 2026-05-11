@@ -1,3 +1,133 @@
+// ── Header Edit / Publish logic (mirrors Our School Partners exactly) ──
+(function initHeaderEditPublish() {
+  const editBtn = document.getElementById("EDPGeditHeroBtn");
+  const publishBtn = document.getElementById("EDPGpublishHeroBtn");
+  const viewMode = document.getElementById("EDPGviewMode");
+  const editMode = document.getElementById("EDPGeditMode");
+
+  if (!editBtn || !publishBtn || !viewMode || !editMode) return;
+
+  function showError(spanId, message) {
+    const span = document.getElementById(spanId);
+    if (span) {
+      span.textContent = message;
+      span.style.display = "block";
+    }
+  }
+
+  function clearError(spanId) {
+    const span = document.getElementById(spanId);
+    if (span) {
+      span.textContent = "";
+      span.style.display = "none";
+    }
+  }
+
+  // Switch to edit mode
+  editBtn.addEventListener("click", function () {
+    document.getElementById("EDPGheroHeading").value = document
+      .getElementById("EDPGviewHeading")
+      .textContent.trim();
+    document.getElementById("EDPGheroSubText").value = document
+      .getElementById("EDPGviewSubText")
+      .innerText.trim();
+    document.getElementById("EDPGheroTitle").value = document
+      .getElementById("EDPGviewTitle")
+      .textContent.trim();
+    document.getElementById("EDPGheroSubText2").value = document
+      .getElementById("EDPGviewSubText2")
+      .innerText.trim();
+
+    viewMode.style.display = "none";
+    editMode.style.display = "block";
+    editBtn.style.display = "none";
+    publishBtn.style.display = "inline-block";
+
+    [
+      "EDPGheadingError",
+      "EDPGsubTextError",
+      "EDPGtitleError",
+      "EDPGsubText2Error",
+    ].forEach(clearError);
+  });
+
+  // Switch to view mode on Publish
+  publishBtn.addEventListener("click", function () {
+    const headingVal = document.getElementById("EDPGheroHeading").value.trim();
+    const subTextVal = document.getElementById("EDPGheroSubText").value.trim();
+    const titleVal = document.getElementById("EDPGheroTitle").value.trim();
+    const subText2Val = document
+      .getElementById("EDPGheroSubText2")
+      .value.trim();
+
+    let valid = true;
+
+    if (!headingVal) {
+      showError("EDPGheadingError", "Heading cannot be empty.");
+      valid = false;
+    } else clearError("EDPGheadingError");
+
+    if (!subTextVal) {
+      showError("EDPGsubTextError", "Sub-text cannot be empty.");
+      valid = false;
+    } else clearError("EDPGsubTextError");
+
+    if (!titleVal) {
+      showError("EDPGtitleError", "Title cannot be empty.");
+      valid = false;
+    } else clearError("EDPGtitleError");
+
+    if (!subText2Val) {
+      showError("EDPGsubText2Error", "Sub-text cannot be empty.");
+      valid = false;
+    } else clearError("EDPGsubText2Error");
+
+    if (!valid) return;
+
+    // Update view
+    document.getElementById("EDPGviewHeading").textContent = headingVal;
+    document.getElementById("EDPGviewSubText").textContent = subTextVal;
+    document.getElementById("EDPGviewTitle").textContent = titleVal;
+    document.getElementById("EDPGviewSubText2").textContent = subText2Val;
+
+    editMode.style.display = "none";
+    viewMode.style.display = "block";
+    publishBtn.style.display = "none";
+    editBtn.style.display = "inline-block";
+  });
+
+  // Blur-based validation
+  document
+    .getElementById("EDPGheroHeading")
+    .addEventListener("blur", function () {
+      if (!this.value.trim())
+        showError("EDPGheadingError", "Heading cannot be empty.");
+      else clearError("EDPGheadingError");
+    });
+  document
+    .getElementById("EDPGheroSubText")
+    .addEventListener("blur", function () {
+      if (!this.value.trim())
+        showError("EDPGsubTextError", "Sub-text cannot be empty.");
+      else clearError("EDPGsubTextError");
+    });
+  document
+    .getElementById("EDPGheroTitle")
+    .addEventListener("blur", function () {
+      if (!this.value.trim())
+        showError("EDPGtitleError", "Title cannot be empty.");
+      else clearError("EDPGtitleError");
+    });
+  document
+    .getElementById("EDPGheroSubText2")
+    .addEventListener("blur", function () {
+      if (!this.value.trim())
+        showError("EDPGsubText2Error", "Sub-text cannot be empty.");
+      else clearError("EDPGsubText2Error");
+    });
+})();
+
+// ── Tile dropdown toggle (global, used by inline onclick) ──
 function EDPGtoggleDropdown(id) {
   const all = document.querySelectorAll(".EDPGtile-dropdown");
   all.forEach(function (dropdown) {
@@ -13,60 +143,15 @@ function EDPGtoggleDropdown(id) {
 
 document.addEventListener("click", function (e) {
   if (!e.target.closest(".EDPGimg-tile")) {
-    document
-      .querySelectorAll(".EDPGtile-dropdown")
-      .forEach(function (d) {
-        d.classList.remove("open");
-      });
+    document.querySelectorAll(".EDPGtile-dropdown").forEach(function (d) {
+      d.classList.remove("open");
+    });
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const editBtn = document.getElementById("EDPGeditHeroBtn");
-  const publishBtn = document.getElementById("EDPGpublishHeroBtn");
-
-  const viewMode = document.getElementById("EDPGviewMode");
-  const editMode = document.getElementById("EDPGeditMode");
-
-  const headingInput = document.getElementById("EDPGheroHeading");
-  const subTextInput = document.getElementById("EDPGheroSubText");
-  const titleInput = document.getElementById("EDPGheroTitle");
-  const subText2Input = document.getElementById("EDPGheroSubText2");
-
-  const viewHeading = document.getElementById("EDPGviewHeading");
-  const viewSubText = document.getElementById("EDPGviewSubText");
-  const viewTitle = document.getElementById("EDPGviewTitle");
-  const viewSubText2 = document.getElementById("EDPGviewSubText2");
-
   // Bind delete/set-on-home for initial tiles
   bindTileActions();
-
-
-
-  // VALIDATIONS
-  function validateTextField(input, message) {
-    const errorSpan = input.nextElementSibling;
-    const value = input.value.trim();
-
-    if (value === "") {
-      errorSpan.textContent = message;
-      input.classList.add("EDPGinput-error");
-      return false;
-    }
-
-    errorSpan.textContent = "";
-    input.classList.remove("EDPGinput-error");
-    return true;
-  }
-
-  // PUBLISH BUTTON (Content Card)
-
-
-  function escapeHtml(text) {
-    const div = document.createElement("div");
-    div.appendChild(document.createTextNode(text));
-    return div.innerHTML;
-  }
 
   // IMAGE GRID - ADD TILE
   const addTile = document.getElementById("EDPGaddTile");
@@ -81,15 +166,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (heroPublishBtn) {
     heroPublishBtn.addEventListener("click", function () {
       const mediaTiles = document.querySelectorAll(
-        ".EDPGimg-tile-wrapper .EDPGimg-tile"
+        ".EDPGimg-tile-wrapper .EDPGimg-tile",
       );
-
       if (mediaTiles.length < 3) {
         minPopup.style.display = "flex";
         return;
       }
-
-    
     });
   }
 
@@ -127,36 +209,51 @@ document.addEventListener("DOMContentLoaded", function () {
         let mediaElement = "";
 
         if (file.type.startsWith("image/")) {
-          mediaElement = '<img src="' + event.target.result + '" alt="Gallery Media" />';
+          mediaElement =
+            '<img src="' + event.target.result + '" alt="Gallery Media" />';
         } else if (file.type.startsWith("video/")) {
           mediaElement =
-            '<video controls>' +
-            '<source src="' + event.target.result + '" type="' + file.type + '">' +
+            "<video controls>" +
+            '<source src="' +
+            event.target.result +
+            '" type="' +
+            file.type +
+            '">' +
             "Your browser does not support the video tag." +
             "</video>";
         }
 
         wrapper.innerHTML =
-          '<div class="EDPGimg-tile" id="' + tileId + '">' +
-            mediaElement +
-            '<span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown(\'' + dropdownId + '\')">' +
-              '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'18\' height=\'18\' viewBox=\'0 0 256 256\'%3E%3Ccircle cx=\'128\' cy=\'60\' r=\'16\' fill=\'%23fff\'/%3E%3Ccircle cx=\'128\' cy=\'128\' r=\'16\' fill=\'%23fff\'/%3E%3Ccircle cx=\'128\' cy=\'196\' r=\'16\' fill=\'%23fff\'/%3E%3C/svg%3E" alt="menu" />' +
-            "</span>" +
-            '<div class="EDPGtile-dropdown" id="' + dropdownId + '">' +
-              '<button class="EDPGset-home">Set on Home</button>' +
-              '<button class="EDPGdelete">Delete</button>' +
-            "</div>" +
+          '<div class="EDPGimg-tile" id="' +
+          tileId +
+          '">' +
+          mediaElement +
+          '<span class="EDPGtile-menu-btn" onclick="EDPGtoggleDropdown(\'' +
+          dropdownId +
+          "')\">" +
+          "<img src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='60' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='16' fill='%23fff'/%3E%3Ccircle cx='128' cy='196' r='16' fill='%23fff'/%3E%3C/svg%3E\" alt=\"menu\" />" +
+          "</span>" +
+          '<div class="EDPGtile-dropdown" id="' +
+          dropdownId +
+          '">' +
+          '<button class="EDPGset-home">Set on Home</button>' +
+          '<button class="EDPGdelete">Delete</button>' +
+          "</div>" +
           "</div>";
 
-        wrapper.querySelector(".EDPGdelete").addEventListener("click", function (e) {
-          e.stopPropagation();
-          wrapper.remove();
-        });
+        wrapper
+          .querySelector(".EDPGdelete")
+          .addEventListener("click", function (e) {
+            e.stopPropagation();
+            wrapper.remove();
+          });
 
-        wrapper.querySelector(".EDPGset-home").addEventListener("click", function (e) {
-          e.stopPropagation();
-          EDPGtoggleDropdown(dropdownId);
-        });
+        wrapper
+          .querySelector(".EDPGset-home")
+          .addEventListener("click", function (e) {
+            e.stopPropagation();
+            EDPGtoggleDropdown(dropdownId);
+          });
 
         imageGrid.insertBefore(wrapper, addTile.parentElement);
         imageInput.value = "";
@@ -168,24 +265,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Bind actions for initial static tiles
   function bindTileActions() {
-    document.querySelectorAll(".EDPGtile-dropdown .EDPGdelete").forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const tileWrapper = btn.closest(".EDPGimg-tile-wrapper");
-        if (tileWrapper) {
-          tileWrapper.remove();
-        }
+    document
+      .querySelectorAll(".EDPGtile-dropdown .EDPGdelete")
+      .forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const tileWrapper = btn.closest(".EDPGimg-tile-wrapper");
+          if (tileWrapper) tileWrapper.remove();
+        });
       });
-    });
 
-    document.querySelectorAll(".EDPGtile-dropdown .EDPGset-home").forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const dropdown = btn.closest(".EDPGtile-dropdown");
-        if (dropdown) {
-          dropdown.classList.remove("open");
-        }
+    document
+      .querySelectorAll(".EDPGtile-dropdown .EDPGset-home")
+      .forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const dropdown = btn.closest(".EDPGtile-dropdown");
+          if (dropdown) dropdown.classList.remove("open");
+        });
       });
-    });
   }
 });

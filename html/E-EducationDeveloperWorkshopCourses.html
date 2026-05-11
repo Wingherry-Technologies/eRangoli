@@ -19,17 +19,51 @@
       <h3>Workshop Courses</h3>
     </div>
     <div class="EEDWC-page-wrapper">
-      <div class="EEDWC-page-header" id="EEDWC-page-header">
-        <div class="page-heading">
-          <h3>Workshop Courses</h3>
-          <button class="EEDWC-publish-btn" id="EEDWC-publishBtn">
-            Publish
-          </button>
+      <div class="EEDWC-page-header EEDWC-header-card" id="EEDWC-page-header">
+        <div class="EEDWC-header-card-header">
+          <span class="EEDWC-header-card-heading">Workshop Courses</span>
+          <div class="EEDWC-header-btn-group">
+            <button class="EEDWC-header-edit-btn" id="EEDWC-editHeroBtn">
+              Edit
+            </button>
+            <button
+              class="EEDWC-publish-btn EEDWC-header-publish-btn"
+              id="EEDWC-publishBtn"
+              style="display: none"
+            >
+              Publish
+            </button>
+          </div>
         </div>
-        <div class="divider"></div>
-        <div class="block">
-          <div class="label">Enter sub-title</div>
-          <div class="value">Crafted with Passion, Captured in Moments.</div>
+
+        <div class="EEDWC-header-content">
+          <!-- VIEW MODE (default) -->
+          <div id="EEDWC-headerViewMode">
+            <div class="EEDWC-header-field-block">
+              <div class="EEDWC-header-field-label">Enter sub-title</div>
+              <div class="EEDWC-header-field-value" id="EEDWC-viewSubTitle">
+                Crafted with Passion, Captured in Moments.
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT MODE (hidden by default) -->
+          <div id="EEDWC-headerEditMode" style="display: none">
+            <div class="EEDWC-header-field-block">
+              <div class="EEDWC-header-field-label">Enter sub-title</div>
+              <input
+                type="text"
+                id="EEDWC-heroSubTitle"
+                class="EEDWC-header-field-value EEDWC-header-field-input"
+                placeholder="Enter sub-title"
+              />
+              <span
+                id="EEDWC-subTitleError"
+                class="EEDWC-header-error-message"
+                style="display: none"
+              ></span>
+            </div>
+          </div>
         </div>
       </div>
 

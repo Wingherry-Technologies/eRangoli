@@ -18,18 +18,53 @@
     <div class="EEDSW-page-header-mob">
       <h3>Short Workshop</h3>
     </div>
+
     <div class="EEDSW-page-wrapper">
-      <div class="EEDSW-page-header" id="EEDSW-page-header">
-        <div class="page-heading">
-          <h3>Short Workshop</h3>
-          <button class="EEDSW-publish-btn" id="EEDSW-publishBtn">
-            Publish
-          </button>
+      <div class="EEDSW-page-header EEDSW-header-card" id="EEDSW-page-header">
+        <div class="EEDSW-header-card-header">
+          <span class="EEDSW-header-card-heading">Short Workshop</span>
+          <div class="EEDSW-header-btn-group">
+            <button class="EEDSW-header-edit-btn" id="EEDSW-editHeroBtn">
+              Edit
+            </button>
+            <button
+              class="EEDSW-publish-btn EEDSW-header-publish-btn"
+              id="EEDSW-publishBtn"
+              style="display: none"
+            >
+              Publish
+            </button>
+          </div>
         </div>
-        <div class="divider"></div>
-        <div class="block">
-          <div class="label">Enter sub-title</div>
-          <div class="value">Crafted with Passion, Captured in Moments.</div>
+
+        <div class="EEDSW-header-content">
+          <!-- VIEW MODE (default) -->
+          <div id="EEDSW-headerViewMode">
+            <div class="EEDSW-header-field-block">
+              <div class="EEDSW-header-field-label">Enter sub-title</div>
+              <div class="EEDSW-header-field-value" id="EEDSW-viewSubTitle">
+                Crafted with Passion, Captured in Moments.
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT MODE (hidden by default) -->
+          <div id="EEDSW-headerEditMode" style="display: none">
+            <div class="EEDSW-header-field-block">
+              <div class="EEDSW-header-field-label">Enter sub-title</div>
+              <input
+                type="text"
+                id="EEDSW-heroSubTitle"
+                class="EEDSW-header-field-value EEDSW-header-field-input"
+                placeholder="Enter sub-title"
+              />
+              <span
+                id="EEDSW-subTitleError"
+                class="EEDSW-header-error-message"
+                style="display: none"
+              ></span>
+            </div>
+          </div>
         </div>
       </div>
 
