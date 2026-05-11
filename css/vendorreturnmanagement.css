@@ -534,13 +534,19 @@ tbody tr td > .creame {
   border-radius: 3px;
 }
 .order-status.accepted {
-  background-color: #0F8DF3;
+  background-color: #0f8df3;
   color: white !important;
   padding: 5px 12px;
   border-radius: 3px;
 }
 .order-status.received {
   background-color: #5da960;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+.order-status.under-review {
+  background-color: #8e8989;
   color: white !important;
   padding: 5px 12px;
   border-radius: 3px;
@@ -1439,7 +1445,6 @@ tbody tr td > .creame {
   }
 }
 
-
 /* =============================================
    RECEIVED POPUP REDESIGN (rp-* prefix)
    Only affects #received-popup
@@ -1462,14 +1467,13 @@ tbody tr td > .creame {
   flex-direction: column;
   gap: 6px;
   margin-bottom: 4px;
-
 }
 
 #received-popup .rp-header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-    padding-bottom: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #28c76f;
 }
 
@@ -1514,7 +1518,7 @@ tbody tr td > .creame {
 }
 
 #received-popup .rp-status-pill.approved {
-  background: #13685D;
+  background: #13685d;
   color: #fff;
 }
 
@@ -1527,8 +1531,6 @@ tbody tr td > .creame {
   background: #dc3545;
   color: #fff;
 }
-
-
 
 /* Body: 2-column grid on desktop */
 #received-popup .rp-body {
@@ -1718,17 +1720,13 @@ tbody tr td > .creame {
     grid-template-columns: 1fr 1fr;
   }
 
-
-
   /* #received-popup .rp-product-row {
     flex-direction: column;
   } */
-
-
 }
 
 .order-status.approved {
-  background-color: #13685D;
+  background-color: #13685d;
   color: white !important;
   padding: 5px 12px;
   border-radius: 3px;
@@ -1855,7 +1853,7 @@ tbody tr td > .creame {
 }
 
 .order-status.cancelled {
-  background-color: #13685D;
+  background-color: #13685d;
   color: white !important;
   padding: 5px 12px;
   border-radius: 3px;
@@ -1891,6 +1889,7 @@ tbody tr td > .creame {
   align-items: center;
   gap: 10px;
   margin-top: 8px;
+  justify-content: space-between;
 }
 
 #accepted-popup .rp-order-id {
@@ -1900,7 +1899,7 @@ tbody tr td > .creame {
 }
 
 #accepted-popup .rp-status-pill {
-  background: #0F8DF3;
+  background: #0f8df3;
   color: #fff;
   font-size: 12px;
   padding: 4px 14px;
@@ -2039,7 +2038,7 @@ tbody tr td > .creame {
 #accepted-popup .rp-track-link {
   font-size: 13px;
   font-weight: 600;
-  color: #0F8DF3;
+  color: #0f8df3;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;

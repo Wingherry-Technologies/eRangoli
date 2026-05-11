@@ -129,7 +129,7 @@ let currentItem = null; // active table row OR faq item
   CLOSE ALL POPUPS
 *************************************************/
 function closeAllPopups() {
-  popups.forEach(popup => popup.classList.remove("active"));
+  popups.forEach((popup) => popup.classList.remove("active"));
   currentItem = null;
 }
 
@@ -224,7 +224,8 @@ function openPopupByStatus(statusEl) {
       // Set dummy reason text, read-only
       const textarea = reasonSection.querySelector("#rp-reason-textarea");
       if (textarea) {
-        textarea.value = "The item was found to be severely damaged beyond repair. The product packaging was completely torn and the artwork surface had deep scratches. Customer requested a full cancellation of the return process.";
+        textarea.value =
+          "The item was found to be severely damaged beyond repair. The product packaging was completely torn and the artwork surface had deep scratches. Customer requested a full cancellation of the return process.";
         textarea.disabled = true;
         textarea.style.cursor = "not-allowed";
         textarea.style.backgroundColor = "#f5f5f5";
@@ -236,8 +237,11 @@ function openPopupByStatus(statusEl) {
       if (errorMsg) errorMsg.classList.remove("rp-error-visible");
 
       // Pull images from Customer Return Order Details section (2nd rp-section)
-      const customerPhotos = popup.querySelectorAll(".rp-section:nth-child(2) .rp-photo-grid img");
-      const uploadPreviews = reasonSection.querySelectorAll(".rp-upload-preview");
+      const customerPhotos = popup.querySelectorAll(
+        ".rp-section:nth-child(2) .rp-photo-grid img",
+      );
+      const uploadPreviews =
+        reasonSection.querySelectorAll(".rp-upload-preview");
 
       uploadPreviews.forEach((preview, i) => {
         const oldImg = preview.querySelector(".rp-uploaded-img");
@@ -249,13 +253,15 @@ function openPopupByStatus(statusEl) {
         if (span) span.style.display = "none";
 
         const img = document.createElement("img");
-        img.src = customerPhotos[i] ? customerPhotos[i].src : "../assets/vendorOrderManagement/img.svg";
+        img.src = customerPhotos[i]
+          ? customerPhotos[i].src
+          : "../assets/vendorOrderManagement/img.svg";
         img.classList.add("rp-uploaded-img");
         preview.appendChild(img);
       });
 
       // Disable file inputs
-      reasonSection.querySelectorAll(".rp-file-input").forEach(input => {
+      reasonSection.querySelectorAll(".rp-file-input").forEach((input) => {
         input.disabled = true;
       });
     }
@@ -295,7 +301,22 @@ function openPopupByStatus(statusEl) {
       cancelBtn.style.opacity = "";
     }
 
+    // Reset all sections
+    popup.querySelectorAll(".rp-section").forEach((section) => {
+      section.style.display = "block";
+    });
+
+    // Show buttons again
+    if (approveBtn) {
+      approveBtn.style.display = "inline-flex";
+    }
+
+    if (cancelBtn) {
+      cancelBtn.style.display = "inline-flex";
+    }
+
     popup.classList.add("active");
+    return;
   }
 
   if (statusEl.classList.contains("rejected")) {
@@ -309,19 +330,66 @@ function openPopupByStatus(statusEl) {
   if (statusEl.classList.contains("accepted")) {
     document.getElementById("accepted-popup")?.classList.add("active");
   }
+  if (statusEl.classList.contains("under-review")) {
+    const popup = document.getElementById("received-popup");
+    if (!popup) return;
+
+    // Status
+    const statusPill = popup.querySelector(".rp-status-pill");
+
+    if (statusPill) {
+      statusPill.textContent = "Under Review";
+      statusPill.style.background = "#8e8989";
+      statusPill.style.color = "#fff";
+    }
+
+    // Hide all sections first
+    popup.querySelectorAll(".rp-section").forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Show only Product Details section
+    const sections = popup.querySelectorAll(".rp-section");
+
+    if (sections[0]) {
+      sections[0].style.display = "block";
+    }
+
+    // Show only Customer Return Order Details section
+    if (sections[1]) {
+      sections[1].style.display = "block";
+    }
+
+    // Hide only approve and cancel buttons
+    const approveBtn = popup.querySelector("#mark-as-packed");
+    const cancelBtn = popup.querySelector("#reject-from-received");
+
+    if (approveBtn) {
+      approveBtn.style.display = "none";
+    }
+
+    if (cancelBtn) {
+      cancelBtn.style.display = "none";
+    }
+
+    popup.classList.add("active");
+    return;
+  }
 }
 
 /*************************************************
   DESKTOP TABLE ROW POPUP
 *************************************************/
-document.querySelectorAll(".show-popup-btn").forEach(btn => {
+document.querySelectorAll(".show-popup-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     closeAllPopups();
 
     const row = btn.closest("tr");
     if (!row) return;
 
-    const statusEl = row.querySelector(".received, .rejected, .refunded, .approved, .cancelled, .accepted");
+    const statusEl = row.querySelector(
+      ".received, .under-review, .rejected, .refunded, .approved, .cancelled, .accepted",
+    );
     if (!statusEl) return;
 
     currentItem = row;
@@ -332,21 +400,22 @@ document.querySelectorAll(".show-popup-btn").forEach(btn => {
 /*************************************************
   MOBILE FAQ POPUP
 *************************************************/
-document.querySelectorAll(".open-modal-popup-mobile").forEach(btn => {
+document.querySelectorAll(".open-modal-popup-mobile").forEach((btn) => {
   btn.addEventListener("click", () => {
     closeAllPopups();
 
     const faqItem = btn.closest(".faq-answer");
     if (!faqItem) return;
 
-    const statusEl = faqItem.querySelector(".received, .rejected, .refunded, .approved, .cancelled, .accepted");
+    const statusEl = faqItem.querySelector(
+      ".received, .under-review, .rejected, .refunded, .approved, .cancelled, .accepted",
+    );
     if (!statusEl) return;
 
     currentItem = faqItem;
     openPopupByStatus(statusEl);
   });
 });
-
 
 /*************************************************
   RECEIVED → APPROVE BUTTON
@@ -381,7 +450,10 @@ if (rejectFromReceivedBtn) {
     const errorMsg = document.getElementById("rp-reason-error");
 
     // If reason section not yet visible, show it and disable approve
-    if (reasonSection.style.display === "none" || reasonSection.style.display === "") {
+    if (
+      reasonSection.style.display === "none" ||
+      reasonSection.style.display === ""
+    ) {
       reasonSection.style.display = "block";
       approveBtn.disabled = true;
 
@@ -409,14 +481,14 @@ if (rejectFromReceivedBtn) {
     approveBtn.disabled = false;
 
     // Reset file previews
-    document.querySelectorAll(".rp-upload-preview").forEach(preview => {
+    document.querySelectorAll(".rp-upload-preview").forEach((preview) => {
       const uploaded = preview.querySelector(".rp-uploaded-img");
       if (uploaded) uploaded.remove();
       preview.querySelector("svg").style.display = "block";
       preview.querySelector("span").style.display = "block";
     });
 
-      if (currentItem) {
+    if (currentItem) {
       const statusEl = currentItem.querySelector(".order-status");
       if (statusEl) {
         statusEl.textContent = "Cancelled";
@@ -463,14 +535,16 @@ document.querySelectorAll(".rp-file-input").forEach((input, index) => {
 /*************************************************
   RESET REASON SECTION WHEN POPUP CLOSES
 *************************************************/
-document.querySelectorAll("#received-popup .close-btn").forEach(btn => {
+document.querySelectorAll("#received-popup .close-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const reasonSection = document.getElementById("rp-reason-section");
     const approveBtn = document.getElementById("mark-as-packed");
     const cancelBtn = document.getElementById("reject-from-received");
     const textarea = document.getElementById("rp-reason-textarea");
     const errorMsg = document.getElementById("rp-reason-error");
-    const statusPill = document.querySelector("#received-popup .rp-status-pill");
+    const statusPill = document.querySelector(
+      "#received-popup .rp-status-pill",
+    );
 
     if (reasonSection) reasonSection.style.display = "none";
 
@@ -494,6 +568,8 @@ document.querySelectorAll("#received-popup .close-btn").forEach(btn => {
     if (statusPill) {
       statusPill.textContent = "Received";
       statusPill.className = "rp-status-pill";
+      statusPill.style.background = "";
+      statusPill.style.color = "";
     }
     if (textarea) {
       textarea.value = "";
@@ -504,12 +580,14 @@ document.querySelectorAll("#received-popup .close-btn").forEach(btn => {
     if (errorMsg) errorMsg.classList.remove("rp-error-visible");
 
     // Re-enable file inputs
-    document.querySelectorAll(".rp-file-input").forEach(input => {
+    document.querySelectorAll(".rp-file-input").forEach((input) => {
       input.disabled = false;
     });
 
-    document.querySelectorAll(".rp-reason-textarea").forEach(t => t.classList.remove("rp-error-border"));
-    document.querySelectorAll(".rp-upload-preview").forEach(preview => {
+    document
+      .querySelectorAll(".rp-reason-textarea")
+      .forEach((t) => t.classList.remove("rp-error-border"));
+    document.querySelectorAll(".rp-upload-preview").forEach((preview) => {
       const uploaded = preview.querySelector(".rp-uploaded-img");
       if (uploaded) uploaded.remove();
       const svg = preview.querySelector("svg");
@@ -529,7 +607,7 @@ if (rejectBtn) {
     if (!currentItem) return;
 
     const statusEl = currentItem.querySelector(
-      ".order-status, .received, .refunded"
+      ".order-status, .received, .refunded",
     );
 
     if (!statusEl) return;
@@ -550,7 +628,7 @@ if (refundBtn) {
     if (!currentItem) return;
 
     const statusEl = currentItem.querySelector(
-      ".order-status, .received, .packed"
+      ".order-status, .received, .packed",
     );
 
     if (!statusEl) return;
@@ -565,19 +643,18 @@ if (refundBtn) {
 /*************************************************
   CLOSE BUTTONS
 *************************************************/
-document.querySelectorAll(".close-btn").forEach(btn => {
+document.querySelectorAll(".close-btn").forEach((btn) => {
   btn.addEventListener("click", closeAllPopups);
 });
 
 /*************************************************
   CLICK OUTSIDE TO CLOSE (OPTIONAL)
 *************************************************/
-popups.forEach(popup => {
-  popup.addEventListener("click", e => {
+popups.forEach((popup) => {
+  popup.addEventListener("click", (e) => {
     if (e.target === popup) closeAllPopups();
   });
 });
-
 
 // Search Functionality
 // Unified Search (Table + FAQ)
