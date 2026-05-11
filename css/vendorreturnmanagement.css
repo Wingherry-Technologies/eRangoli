@@ -527,12 +527,7 @@ tbody tr td > .creame {
   padding: 5px 14px;
   border-radius: 3px;
 }
-.order-status.refunded {
-  background-color: #825da9;
-  color: white !important;
-  padding: 5px 12px;
-  border-radius: 3px;
-}
+
 .order-status.accepted {
   background-color: #0f8df3;
   color: white !important;

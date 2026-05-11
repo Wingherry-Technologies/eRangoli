@@ -323,9 +323,9 @@ function openPopupByStatus(statusEl) {
     document.getElementById("rejected-popup")?.classList.add("active");
   }
 
-  if (statusEl.classList.contains("refunded")) {
-    document.getElementById("refunded-popup")?.classList.add("active");
-  }
+  // if (statusEl.classList.contains("refunded")) {
+  //   document.getElementById("refunded-popup")?.classList.add("active");
+  // }
 
   if (statusEl.classList.contains("accepted")) {
     document.getElementById("accepted-popup")?.classList.add("active");
