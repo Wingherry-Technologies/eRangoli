@@ -596,6 +596,10 @@ body {
     border-radius: 0;
   }
 
+  .EEDWC-header-btn-group {
+    display: none;
+  }
+
   .EEDWC-header-field-value {
     width: 100%;
   }
@@ -681,5 +685,30 @@ body {
     justify-content: flex-end;
     margin: 10px 20px 0 0;
     font-size: 12px;
+  }
+
+  .EEDWC-mobile-header-actions {
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .EEDWC-mobile-header-actions button {
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .EEDWC-mobile-header-actions .EEDWC-header-edit-btn {
+    background: #1677ff;
+    color: #ffffff;
+  }
+
+  .EEDWC-mobile-header-actions .EEDWC-header-publish-btn {
+    background: #1677ff;
+    color: #ffffff;
   }
 }

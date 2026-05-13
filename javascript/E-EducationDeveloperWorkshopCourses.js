@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var publishBtn = document.getElementById("EEDWC-publishBtn");
     var viewMode = document.getElementById("EEDWC-headerViewMode");
     var editMode = document.getElementById("EEDWC-headerEditMode");
+    var mobileEditBtn = document.getElementById("EEDWC-mobileEditBtn");
+    var mobilePublishBtn = document.getElementById("EEDWC-mobilePublishBtn");
 
     if (!editBtn || !publishBtn || !viewMode || !editMode) return;
 
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       clearHeaderError("EEDWC-subTitleError");
     });
 
-    // Switch to view mode on Publish (also runs existing min-row check)
+    // Switch to view mode on Publish
     publishBtn.addEventListener("click", function () {
       // Minimum rows check
       var tb = document.getElementById("EEDWC-tableBody");
@@ -77,7 +79,19 @@ document.addEventListener("DOMContentLoaded", function () {
       publishBtn.style.display = "none";
       editBtn.style.display = "inline-block";
     });
+    // Mobile Edit button
+    if (mobileEditBtn) {
+      mobileEditBtn.addEventListener("click", function () {
+        editBtn.click();
+      });
+    }
 
+    // Mobile Publish button
+    if (mobilePublishBtn) {
+      mobilePublishBtn.addEventListener("click", function () {
+        publishBtn.click();
+      });
+    }
     // Blur validation
     document
       .getElementById("EEDWC-heroSubTitle")
