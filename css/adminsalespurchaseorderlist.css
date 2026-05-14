@@ -455,14 +455,21 @@ body {
 .Initiate-refund {
   color: #6a5cff;
 }
-.refunded {
+.refunded,
+.accepted,
+.approved {
   color: #0abf53;
 }
 .rejected {
   color: #ff3b3b;
 }
-.approved-refund {
+.approved-refund,
+.received,
+.initiate-refund {
   color: #6a5cff;
+}
+.under-review {
+  color: #8e8989;
 }
 
 /* modal pop up  */
