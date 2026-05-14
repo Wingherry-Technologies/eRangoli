@@ -9,10 +9,10 @@ body {
   background: #ebeef3;
 }
 
+
 .EEAD-wrapper {
   height: 100%;
   overflow-y: auto;
-  padding: 30px;
 }
 
 .EEAD-adminSalesStatsRow {
@@ -99,6 +99,7 @@ body {
   display: grid;
   grid-template-columns: 1.4fr 0.6fr;
   gap: 20px;
+  padding-bottom: 20px;
 }
 
 .EEAD-card {
@@ -398,6 +399,7 @@ canvas:not(#EEAD-revenueDonutChart) {
   }
   .EEAD-dashboard {
     grid-template-columns: 1fr;
+    padding-bottom: 20px;
   }
   .EEAD-adminSalesStatsRow {
     grid-template-columns: repeat(2, 1fr);
@@ -428,6 +430,7 @@ canvas:not(#EEAD-revenueDonutChart) {
 
   .EEAD-dashboard {
     grid-template-columns: 1fr;
+    padding-bottom: 70px;
   }
 
   .EEAD-revenue-line {

@@ -1110,6 +1110,8 @@ nav{
     background-image: url("../assets/vendorSidebar/image\ 9.svg");
     background-color: #1290F6;
     width: 100%;
+    position: sticky;
+    top: 0px;
 }
 .welcome-sidebar{
     display: flex;
@@ -1231,7 +1233,7 @@ nav{
         margin-top: 75px;
         width: 70px;
         z-index: 99;
-        height: max-content;
+        height: 100%;
     }
 
     /* Hide welcome text */
