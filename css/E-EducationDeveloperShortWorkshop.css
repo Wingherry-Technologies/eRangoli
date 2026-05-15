@@ -14,7 +14,7 @@ body {
 .EEDSW-page-wrapper {
   height: 100%;
   overflow-y: auto;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 .EEDSW-toaster {
