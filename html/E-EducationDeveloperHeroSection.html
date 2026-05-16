@@ -166,24 +166,20 @@
               </li>
 
               <!-- E_MAGAZINE MANAGEMENT -->
-              <li
-                class="mobile-dropdown"
-                onclick="
-                  window.location.href = '../html/E-magzinemainpage.html'
-                "
-              >
+              <li class="mobile-dropdown">
                 <div class="dropdown-header">
                   <div class="mobile-icon-main">
                     <div class="mobile-icon">
-                      <img
-                        src="../assets/vendorSidebar/ClipboardText (1).svg"
-                        alt=""
-                      />
+                      <img src="../assets/vendorSidebar/Package.svg" alt="" />
                     </div>
                     <span>E-Magazine</span>
                   </div>
                   <img class="arrow" src="../assets/master/CaretDown.svg" />
                 </div>
+                <ul class="mobile-submenu">
+                  <li onclick="window.location.href ='../html/E-magzinemainpage.html'">Homepage Management</li>
+                  <li onclick="window.location.href ='../html/E-magzineartisanlist.html'">Artisan List</li>
+                </ul>
               </li>
              
 
@@ -727,16 +723,21 @@
           </ul>
 
           <!-- E-magazine  Management -->
-          <li
-            class="has-submenu"
-            onclick="window.location.href = '../html/E-magzinemainpage.html'"
-          >
+          <li class="has-submenu" data-menu="magazine">
             <div class="image-head">
-              <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+              <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
               <span>E-Magazine</span>
             </div>
-            <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+            <img
+              src="../assets/vendorSidebar/CaretRight.svg"
+              class="caret"
+              alt=""
+            />
           </li>
+          <ul class="submenu" data-submenu="magazine">
+                  <li onclick="window.location.href ='../html/E-magzinemainpage.html'">Homepage Management</li>
+                  <li onclick="window.location.href ='../html/E-magzineartisanlist.html'">Artisan List</li>
+          </ul>
         </ul>
       </article>
     </section>

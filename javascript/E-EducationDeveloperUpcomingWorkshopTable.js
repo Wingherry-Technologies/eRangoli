@@ -345,10 +345,10 @@ accHeaders.forEach((header) => {
 
 document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(5)").classList.add("sidebar-active");
 document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)").classList.add("active");
-document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(2)").classList.add("submenu-active-highlight");
+document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(5)").classList.add("submenu-active-highlight");
 
 
 document.querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header").classList.add("dropdown-header-active");
 document.querySelector("#account-menu .mobile-dropdown:nth-child(5)").classList.add("active-mobile-submenu");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5) li:nth-child(2)").classList.add("submenu-active-page");
+document.querySelector("#account-menu .mobile-dropdown:nth-child(5) li:nth-child(5)").classList.add("submenu-active-page");
 
