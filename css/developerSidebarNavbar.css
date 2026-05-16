@@ -1110,6 +1110,8 @@ nav{
     background-image: url("../assets/vendorSidebar/image\ 9.svg");
     background-color: #1290F6;
     width: 100%;
+    position: sticky;
+    top: 0px;
 }
 .welcome-sidebar{
     display: flex;
