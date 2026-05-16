@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #eef1f5;
+}
+
+.WS-container {
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+.WS-header {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.WS-header-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.WS-header-left h3 {
+  font-size: 13px;
+  color: #222;
+  font-weight: 600;
+}
+
+.WS-header-left span {
+  font-size: 11px;
+  color: #999;
+}
+
+/* LIST */
+
+.WS-list {
+  width: 100%;
+}
+
+/* ITEM */
+
+.WS-item {
+  border-bottom: 1px solid #efefef;
+}
+
+.WS-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.WS-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.WS-left img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.WS-title {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* TOGGLE */
+
+.WS-switch {
+  position: relative;
+  width: 34px;
+  height: 18px;
+}
+
+.WS-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.WS-slider {
+  position: absolute;
+  inset: 0;
+  background: #8d8d8d;
+  border-radius: 30px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.WS-slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: white;
+  transition: .3s;
+}
+
+.WS-switch input:checked + .WS-slider {
+  background: #2da7ff;
+}
+
+.WS-switch input:checked + .WS-slider::before {
+  transform: translateX(16px);
+}
+
+/* DROPDOWN */
+
+.WS-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: .4s ease;
+  background: #fff;
+}
+
+.WS-item.open .WS-dropdown {
+  max-height: 400px;
+}
+
+.WS-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 14px;
+  border-top: 1px solid #f2f2f2;
+}
+
+.WS-row span {
+  font-size: 13px;
+  color: #666;
+}
+
+.WS-row p {
+  font-size: 13px;
+  color: #777;
+}
+
+.WS-value-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.WS-value-edit img {
+  width: 13px;
+  height: 13px;
+  opacity: 0.6;
+}
+
+/* FLOAT BUTTON */
+
+.WS-add-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #2da7ff;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}

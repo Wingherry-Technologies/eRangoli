@@ -6,679 +6,696 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Artisan Story</title>
+    <link rel="stylesheet" href="../css/e-magzineartisanstory.css">
     <link rel="shortcut icon" href="../assets/master/eRangoli 2-1.svg" type="image/x-icon" />
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+    <link rel="stylesheet" href="../css/developerSidebarNavbar.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Nunito Sans";
-        }
-
-        body {
-            background: #edf0f5;
-            padding: 14px;
-        }
-
-        /* ================= MAIN ================= */
-
-        .main-container {
-            width: 100%;
-            background: #fff;
-            border-radius: 8px;
-            padding: 18px;
-        }
-
-        /* ================= HEADER ================= */
-
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 22px;
-            position: sticky;
-            top: 0;
-            background: #fff;
-            z-index: 100;
-            padding-bottom: 12px;
-        }
-
-        .page-title {
-            font-size: 30px;
-            font-weight: 700;
-            color: #222;
-        }
-
-        .publish-btn {
-            min-width: 120px;
-            height: 42px;
-            border: none;
-            border-radius: 5px;
-            background: #1f8fff;
-            color: #fff;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        .publish-btn:hover {
-            background: #0d7ceb;
-        }
-
-        /* ================= LAYOUT ================= */
-
-        .content-layout {
-            display: flex;
-            gap: 22px;
-            align-items: flex-start;
-        }
-
-        /* ================= LEFT SIDE ================= */
-
-        .left-panel {
-            width: 34%;
-        }
-
-        .preview-image {
-            width: 100%;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 14px;
-        }
-
-        .preview-image img {
-            width: 100%;
-            display: block;
-        }
-
-        /* ================= RIGHT SIDE ================= */
-
-        .right-panel {
-            flex: 1;
-        }
-
-        /* ================= TOP DETAILS ================= */
-
-        .top-details {
-            display: flex;
-            gap: 22px;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .artisan-photo {
-            width: 160px;
-            min-width: 120px;
-            height: 150px;
-            background: #d8d8d8;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #555;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .artisan-photo input {
-            display: none;
-        }
-
-        .artisan-photo label {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .artisan-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .details-content {
-            flex: 1;
-        }
-
-        .info-row {
-            margin-bottom: 18px;
-        }
-
-        .info-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #333;
-        }
-
-        .info-input {
-            width: 100%;
-            border: 1px solid #dcdcdc;
-            /* border: none; */
-            border-radius: 4px;
-            padding: 10px 8px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .text-area {
-            width: 100%;
-            border: 1px solid #dcdcdc;
-            border-radius: 4px;
-            padding: 12px;
-            min-height: 120px;
-            resize: none;
-            outline: none;
-            line-height: 1.8;
-        }
-
-        /* ================= SECTION ================= */
-
-        .section-block {
-            margin-bottom: 34px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .edit-icon {
-            width: 20px;
-            cursor: pointer;
-        }
-
-        .line {
-            width: 100%;
-            height: 1px;
-            background: #d8d8d8;
-            margin: 20px 0;
-        }
-
-        /* ================= IMAGE GRID ================= */
-
-        .image-grid-large {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-top: 18px;
-            margin-bottom: 18px;
-        }
-
-        .image-grid-large .big {
-            grid-column: 1 / -1;
-            min-height: 220px;
-        }
-
-        .image-grid-medium {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-top: 18px;
-        }
-
-        .image-grid-bottom {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .image-box {
-            min-height: 160px;
-            background: #d9d9d9;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .image-box.big {
-            min-height: 230px;
-        }
-
-        .image-box label {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            color: #555;
-            padding: 12px;
-        }
-
-        .image-box input {
-            display: none;
-        }
-
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            border: none;
-            border-radius: 50%;
-            background: red;
-            color: #fff;
-            cursor: pointer;
-            display: none;
-        }
-
-        .image-box.has-image .delete-btn {
-            display: block;
-        }
-
-        /* ================= FOOTER BUTTON ================= */
-
-        .footer-btn {
-            margin-top: 40px;
-        }
-
-        .footer-btn button {
-            width: 100%;
-            height: 44px;
-            border: none;
-            border-radius: 5px;
-            background: #1f8fff;
-            color: #fff;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        /* ================= VALIDATION ================= */
-
-        .input-error {
-            border: 1px solid red !important;
-        }
-
-        /* ==========================================
-   ACTIVE EDIT FIELD
-========================================== */
-
-.editing{
-  border: 2px solid #1f8fff !important;
-  background: #f7fbff !important;
-  transition: 0.2s;
-}
-
-/* OPTIONAL FOCUS EFFECT */
-
-.editing:focus{
-  box-shadow: 0 0 0 3px rgba(31,143,255,0.15);
-}
-        /* ================= MOBILE ================= */
-
-        /* =====================================================
-   TABLET RESPONSIVE
-===================================================== */
-
-        @media(max-width:991px) {
-
-            body {
-                padding: 10px;
-                background: #edf0f5;
-            }
-
-            .main-container {
-                padding: 14px;
-                border-radius: 8px;
-            }
-
-            /* HEADER */
-
-            .top-header {
-                padding-bottom: 10px;
-                margin-bottom: 18px;
-            }
-
-            .page-title {
-                font-size: 18px;
-                font-weight: 700;
-            }
-
-            .publish-btn {
-                min-width: 95px;
-                height: 34px;
-                font-size: 12px;
-                border-radius: 4px;
-            }
-
-            /* MAIN LAYOUT */
-
-            .content-layout {
-                flex-direction: row;
-                gap: 18px;
-                align-items: flex-start;
-            }
-
-            /* LEFT SIDE */
-
-            .left-panel {
-                width: 34%;
-                min-width: 34%;
-            }
-
-            .preview-image {
-                margin-bottom: 0;
-            }
-
-            .preview-image img {
-                border-radius: 4px;
-            }
-
-            /* RIGHT SIDE */
-
-            .right-panel {
-                flex: 1;
-            }
-
-            /* TOP DETAILS */
-
-            .top-details {
-                gap: 16px;
-                margin-bottom: 24px;
-            }
-
-            .artisan-photo {
-                width: 110px;
-                min-width: 110px;
-                height: 135px;
-                font-size: 12px;
-            }
-
-            .details-content {
-                flex: 1;
-            }
-
-            .info-row {
-                margin-bottom: 14px;
-            }
-
-            .info-title {
-                font-size: 12px;
-                margin-bottom: 5px;
-            }
-
-            .info-input {
-                font-size: 12px;
-                padding: 9px 10px;
-            }
-
-            .text-area {
-                font-size: 12px;
-                min-height: 95px;
-                line-height: 1.7;
-                padding: 10px;
-            }
-
-            /* SECTION */
-
-            .section-block {
-                margin-bottom: 24px;
-            }
-
-            .section-title {
-                font-size: 13px;
-            }
-
-            .edit-icon {
-                width: 12px;
-            }
-
-            /* IMAGE GRID */
-
-            .image-grid-large {
-                gap: 10px;
-            }
-
-            .image-grid-medium {
-                gap: 10px;
-            }
-
-            .image-grid-bottom {
-                gap: 10px;
-            }
-
-            .image-box.big {
-                min-height: 170px;
-            }
-
-            .image-box {
-                min-height: 110px;
-            }
-
-            .image-box label {
-                font-size: 11px;
-                line-height: 1.5;
-            }
-
-            /* FOOTER */
-
-            .footer-btn {
-                margin-top: 30px;
-            }
-
-            .footer-btn button {
-                height: 38px;
-                font-size: 13px;
-            }
-
-        }
-
-
-        /* =====================================================
-   MOBILE RESPONSIVE
-===================================================== */
-
-        @media(max-width:600px) {
-
-            body {
-                padding: 0;
-                background: #f3f3f3;
-            }
-
-            .main-container {
-                padding: 12px;
-                border-radius: 0;
-                min-height: 100vh;
-            }
-
-            /* HEADER */
-
-            .top-header {
-                margin-bottom: 16px;
-                padding-bottom: 8px;
-            }
-
-            .page-title {
-                font-size: 15px;
-                font-weight: 700;
-            }
-
-            .publish-btn {
-                min-width: 78px;
-                height: 30px;
-                font-size: 11px;
-                border-radius: 4px;
-            }
-
-            /* MAIN LAYOUT */
-
-            .content-layout {
-                flex-direction: column;
-                gap: 14px;
-            }
-
-            /* LEFT PANEL */
-
-            .left-panel {
-                width: 100%;
-                display: none;
-            }
-
-            .preview-image {
-                width: 100%;
-            }
-
-            .preview-image img {
-                width: 100%;
-                border-radius: 4px;
-            }
-
-            /* RIGHT PANEL */
-
-            .right-panel {
-                width: 100%;
-            }
-
-            /* TOP DETAILS */
-
-            .top-details {
-                flex-direction: column;
-                gap: 16px;
-                margin-bottom: 20px;
-            }
-
-            .artisan-photo {
-                width: 100px;
-                min-width: 100px;
-                height: 115px;
-                font-size: 11px;
-            }
-
-            .details-content {
-                width: 100%;
-            }
-
-            .info-row {
-                margin-bottom: 14px;
-            }
-
-            .info-title {
-                font-size: 11px;
-                margin-bottom: 4px;
-            }
-
-            .info-input {
-                padding: 8px 9px;
-                font-size: 11px;
-            }
-
-            .text-area {
-                padding: 10px;
-                font-size: 11px;
-                line-height: 1.7;
-                min-height: 90px;
-            }
-
-            /* SECTION */
-
-            .section-block {
-                margin-bottom: 22px;
-            }
-
-            .section-title {
-                font-size: 12px;
-            }
-
-            .section-header {
-                margin-bottom: 8px;
-            }
-
-            .edit-icon {
-                width: 11px;
-            }
-
-            .line {
-                margin: 16px 0;
-            }
-
-            /* IMAGE GRID */
-
-            .image-grid-large {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                margin-top: 14px;
-            }
-
-            .image-grid-medium {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                margin-top: 14px;
-            }
-
-            .image-grid-bottom {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-                margin-top: 14px;
-            }
-
-            .image-grid-bottom .big {
-                grid-column: 1 / -1;
-            }
-
-            .image-box.big {
-                min-height: 140px;
-            }
-
-            .image-box {
-                min-height: 95px;
-                border-radius: 4px;
-            }
-
-            .image-box label {
-                font-size: 10px;
-                line-height: 1.4;
-                padding: 10px;
-            }
-
-            .delete-btn {
-                width: 24px;
-                height: 24px;
-                font-size: 12px;
-            }
-
-            /* FOOTER BUTTON */
-
-            .footer-btn {
-                margin-top: 24px;
-            }
-
-            .footer-btn button {
-                height: 38px;
-                font-size: 12px;
-                border-radius: 4px;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
 
-    <div class="main-container">
+    <nav>
+        <div class="logo-section">
+            <img id="desktop-erangoli-logo" onclick="window.location.href = '../html/index.html'"
+                src="../assets/master/eRangoli 2.svg" alt="" />
+            <img id="mobile-erangoli-logo" onclick="window.location.href = '../html/index.html'"
+                src="../assets/master/eRangoli 2-1.svg" alt="" style="z-index: 99999 !important" />
+            <ul id="desktop-suggestions" class="suggestions-box"></ul>
+        </div>
+
+        <!-- HAMBURGER (Mobile Only) -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <img src="../assets/master/List.svg" alt="" />
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu">
+            <div class="welcome-main-section" id="welcome-section">
+                <div class="image-section">
+                    <div class="circle-image">
+                        <img src="../assets/vendorSidebar/Group 2055248221.svg" alt="" />
+                    </div>
+                </div>
+                <div class="welcome-text-section">
+                    <span>Welcome !</span>
+                    <a id="welcome-name">Sanskriti Collection</a>
+                </div>
+            </div>
+
+            <div class="main-bottom-section">
+                <div class="sub-section">
+                    <ul class="mobile-nav-menu1" id="account-menu">
+                        <!-- DASHBOARD -->
+                        <li class="mobile-dropdown" onclick="
+                  window.location.href = '../html/developerDashboard.html'
+                ">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                                    </div>
+                                    <span>Dashboard</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                        </li>
+
+                        <!-- PRODUCT MANAGEMENT -->
+                        <li class="mobile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                                    </div>
+                                    <span>Product Management</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                            <ul class="mobile-submenu">
+                                <li onclick="
+                      window.location.href =
+                        '../html/developerPMRecentlyAddedList.html'
+                    ">
+                                    Products Recently Added
+                                </li>
+                                <li onclick="
+                      window.location.href =
+                        '../html/developerPMProductCategories.html'
+                    ">
+                                    Product Categories
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- ORDER MANAGEMENT -->
+                        <li class="mobile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+                                    </div>
+                                    <span>Vendor Management</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                            <ul class="mobile-submenu">
+                                <li onclick="
+                      window.location.href =
+                        '../html/developerVMVendorVerfication.html'
+                    ">
+                                    Vendor Verification
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- HOME PAGE MANAGEMENT -->
+                        <li class="mobile-dropdown" onclick="
+                  window.location.href = '../html/developerHMDashboard.html'
+                ">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+                                    </div>
+                                    <span>Home Page Management</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                        </li>
+
+                        <!-- E-EDUCATION MANAGEMENT -->
+                        <li class="mobile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                                    </div>
+                                    <span>E-Education</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                            <ul class="mobile-submenu">
+                                <li onclick="window.location.href ='../html/E-EducationDeveloeprDashboard.html'">
+                                    Dashboard</li>
+                                <li onclick="window.location.href ='../html/E-EducationDeveloperHMDashboard.html'">
+                                    Homepage Management</li>
+                                <li onclick="window.location.href ='../html/E-EducationDeveloperEEShortWorkshop.html'">
+                                    Short Workshop</li>
+                                <li
+                                    onclick="window.location.href ='../html/E-EducationDeveloperEEWorkshopCourses.html'">
+                                    Workshop Courses</li>
+                                <li
+                                    onclick="window.location.href ='../html/E-EducationDeveloperEEUpcomingWorkshop.html'">
+                                    Upcoming Workshop</li>
+                                <li
+                                    onclick="window.location.href ='../html/E-EducationDeveloperEEOurSchoolPartners.html'">
+                                    School Partners</li>
+                            </ul>
+                        </li>
+
+                        <!-- E_MAGAZINE MANAGEMENT -->
+                        <li class="mobile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                                    </div>
+                                    <span>E-Magazine</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                            <ul class="mobile-submenu">
+                                <li onclick="window.location.href ='../html/E-magzinemainpage.html'">Homepage Management
+                                </li>
+                                <li onclick="window.location.href ='../html/E-magzineartisanlist.html'">Artisan List
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <!-- My Profile -->
+                        <li class="mobile-dropdown" onclick="
+                  window.location.href = '../html/developerMyProfile.html'
+                ">
+                            <div class="dropdown-header">
+                                <div class="mobile-icon-main">
+                                    <div class="mobile-icon">
+                                        <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
+                                    </div>
+                                    <span>My Profile</span>
+                                </div>
+                                <img class="arrow" src="../assets/master/CaretDown.svg" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mobile-logout-section">
+                <div class="mobile-logout-sub">
+                    <div class="version">
+                        <span>eRangoli Version 1.0.0</span>
+                    </div>
+                    <div class="logout-button">
+                        <img src="../assets/master/SignOut.svg" alt="" />
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <div class="menu-section">
+            <div class="round-button" id="round-button-notification">
+                <span class="number-of-round" id="number-of-notification">3</span>
+                <img src="../assets/master/Bell.svg" alt="" />
+            </div>
+
+            <div class="round-button" id="round-button-order">
+                <span class="number-of-round" id="number-of-cart">4</span>
+                <img src="../assets/vendorSidebar/ClipboardText-1.svg" alt="" />
+            </div>
+
+            <div class="user-profile-icon" id="user-profile-icon">
+                <div class="img-name">
+                    <div class="circle-image">
+                        <img src="../assets/adminSidebar/Group 2055248221.svg" alt="" />
+                    </div>
+                    <div class="admin-name">
+                        <span id="user-name">Kristin Winget</span>
+                        <span id="role-name">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification-main-box">
+            <ul>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="notification-main-box" id="notification-main-box">
+        <div class="notification-main-box-content">
+            <div class="notification-main-head-box">
+                <span>Notifications</span>
+                <img id="notification-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+            </div>
+            <ul>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            We are also taking orders for ready to wear saree, 20% off on
+                            orders before 31st dec.
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Order Popup -->
+    <div class="notification-main-box" id="order-main-box">
+        <div class="notification-main-box-content">
+            <div class="notification-main-head-box">
+                <span>New Order</span>
+                <img id="order-cross" src="../assets/vendorSidebar/X.svg" alt="" />
+            </div>
+            <ul>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-content">
+                    <div>
+                        <img src="../assets/master/Rectangle 34627068.svg" alt="" />
+                    </div>
+                    <div class="contents-noti">
+                        <span>13/12/25</span>
+                        <div class="noti-head">
+                            New Collection of Kalamkari Saree is Live
+                        </div>
+                        <div class="noti-content">
+                            <div class="size-list-price">
+                                <span>Size: S</span>
+                                <span>Qty: 2</span>
+                            </div>
+                            <div class="order-list-price">
+                                <span>Price: ₹5400</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="bottom-nav" aria-label="Mobile navigation">
+        <a href="index.html" class="bottom-nav__item">
+            <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+            <span class="bottom-nav__label">Dashboard</span>
+        </a>
+
+        <a href="#" class="bottom-nav__item1" id="bottom-nav-orders">
+            <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+            <span class="bottom-bar-numbers">2</span>
+            <span class="bottom-nav__label">Orders</span>
+        </a>
+
+        <a href="#" class="bottom-nav__item1" id="bottom-nav-notification">
+            <img src="../assets/master/notificationnav.svg" alt="" />
+            <span class="bottom-bar-numbers">3</span>
+            <span class="bottom-nav__label">Notifications</span>
+        </a>
+
+        <a href="#" class="bottom-nav__item1" id="bottom-nav-cart"
+            onclick="window.location.href = '../html/adminMyProfile.html'">
+            <img src="../assets/vendorSidebar/UserCircle.svg" alt="" />
+            <span class="bottom-nav__label">My Profile</span>
+        </a>
+    </div>
+
+    <!-- Sidebar -->
+    <section class="sidebar-main-vendor collapsed" id="sidebar-main-vendor">
+        <article>
+            <div class="welcome-sidebar-main">
+                <div class="welcome-sidebar">
+                    <span>Welcome!</span>
+                    <span>Administration</span>
+                </div>
+                <div class="hamberger-sidebar" id="sidebarToggle">
+                    <img src="../assets/vendorSidebar/ArrowFatLinesRight.svg" alt="" />
+                    <img src="../assets/vendorSidebar/Group 2055249123.svg" alt="" />
+                </div>
+            </div>
+
+            <ul>
+                <!-- Dashboard -->
+                <li class="has-submenu" onclick="window.location.href = '../html/developerDashboard.html'">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/GridFour.svg" alt="" />
+                        <span>Dashboard</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+                </li>
+
+                <!-- Product Management -->
+                <li class="has-submenu" data-menu="product">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/Package.svg" alt="" />
+                        <span>Product Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="" />
+                </li>
+                <ul class="submenu" data-submenu="product">
+                    <li onclick="
+                window.location.href =
+                  '../html/developerPMRecentlyAddedList.html'
+              ">
+                        Products Recently Added
+                    </li>
+                    <li onclick="
+                window.location.href =
+                  '../html/developerPMProductCategories.html'
+              ">
+                        Product Categories
+                    </li>
+                </ul>
+
+                <!-- Vendor Management -->
+                <li class="has-submenu" data-menu="vendor">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+                        <span>Vendor Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="" />
+                </li>
+                <ul class="submenu" data-submenu="vendor">
+                    <li onclick="
+                window.location.href =
+                  '../html/developerVMVendorVerfication.html'
+              ">
+                        Vendor Verification
+                    </li>
+                </ul>
+
+                <!-- Home Page  Management -->
+                <li class="has-submenu" onclick="window.location.href = '../html/developerHMDashboard.html'">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText (1).svg" alt="" />
+                        <span>Homepage Management</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" alt="" />
+                </li>
+
+                <!-- E-Education Management -->
+                <li class="has-submenu" data-menu="education">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+                        <span>E-Education</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="" />
+                </li>
+                <ul class="submenu" data-submenu="education">
+                    <li onclick="window.location.href ='../html/E-EducationDeveloeprDashboard.html'">Dashboard</li>
+                    <li onclick="window.location.href ='../html/E-EducationDeveloperHMDashboard.html'">Homepage
+                        Management</li>
+                    <li onclick="window.location.href ='../html/E-EducationDeveloperEEShortWorkshop.html'">Short
+                        Workshop</li>
+                    <li onclick="window.location.href ='../html/E-EducationDeveloperEEWorkshopCourses.html'">Workshop
+                        Courses</li>
+                    <li onclick="window.location.href ='../html/E-EducationDeveloperEEUpcomingWorkshop.html'">Upcoming
+                        Workshop</li>
+                    <li onclick="window.location.href ='../html/E-EducationDeveloperEEOurSchoolPartners.html'">School
+                        Partners</li>
+                </ul>
+
+                <!-- E-magazine  Management -->
+                <li class="has-submenu" data-menu="magazine">
+                    <div class="image-head">
+                        <img src="../assets/vendorSidebar/ClipboardText.svg" alt="" />
+                        <span>E-Magazine</span>
+                    </div>
+                    <img src="../assets/vendorSidebar/CaretRight.svg" class="caret" alt="" />
+                </li>
+                <ul class="submenu" data-submenu="magazine">
+                    <li onclick="window.location.href ='../html/E-magzinemainpage.html'">Homepage Management</li>
+                    <li onclick="window.location.href ='../html/E-magzineartisanlist.html'">Artisan List</li>
+                </ul>
+            </ul>
+        </article>
+    </section>
+
+    <div class="main-content-beyond">
 
         <!-- ================= HEADER ================= -->
 
@@ -932,10 +949,10 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:12px;">
-                        Title 1
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:12px;">
+                            Title 1
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
                     <input type="text" class="info-input required-field"
                         value="Celebrating India's Regional Craft Legacy">
@@ -947,10 +964,10 @@
                 <div class="section-block">
 
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:12px;">
-                        Section 4
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:12px;">
+                            Section 4
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
                     <textarea class="text-area required-field"></textarea>
 
@@ -1030,10 +1047,10 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:12px;">
-                        Section 5
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:12px;">
+                            Section 5
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
                     <textarea class="text-area required-field"></textarea>
 
@@ -1043,10 +1060,10 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:12px;">
-                        Section 6
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:12px;">
+                            Section 6
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
 
                     <textarea class="text-area required-field"></textarea>
@@ -1057,10 +1074,10 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:18px;">
-                        Section 7 - Shop Details
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:18px;">
+                            Section 7 - Shop Details
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
                     <div class="info-row">
 
@@ -1090,10 +1107,10 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                    <div class="section-title" style="margin-bottom:12px;">
-                        Title 2
-                    </div>
-                    <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
+                        <div class="section-title" style="margin-bottom:12px;">
+                            Title 2
+                        </div>
+                        <img src="../assets/e-magzinesection/PencilSimple.svg" class="edit-icon">
                     </div>
 
                     <input type="text" class="info-input required-field" value="Best Sellers">
@@ -1218,348 +1235,9 @@
 
     </div>
 
-    <script>
 
-        /* ======================================================
-   MAKE ALL FIELDS READONLY INITIALLY
-====================================================== */
-
-window.addEventListener("DOMContentLoaded", () => {
-
-  const fields =
-    document.querySelectorAll(
-      ".info-input, .text-area"
-    );
-
-  fields.forEach(field => {
-
-    field.setAttribute(
-      "readonly",
-      true
-    );
-
-  });
-
-});
-
-
-/* ======================================================
-   EDIT SECTION
-====================================================== */
-
-document.addEventListener("click", (e) => {
-
-  if (
-    e.target.classList.contains(
-      "edit-icon"
-    )
-  ) {
-
-    const sectionBlock =
-      e.target.closest(
-        ".section-block"
-      ) ||
-      e.target.closest(
-        ".top-details"
-      );
-
-    if (!sectionBlock) return;
-
-    const fields =
-      sectionBlock.querySelectorAll(
-        "input, textarea"
-      );
-
-    fields.forEach(field => {
-
-      if (field.type !== "file") {
-
-        field.removeAttribute(
-          "readonly"
-        );
-
-        field.classList.add(
-          "editing"
-        );
-
-      }
-
-    });
-
-  }
-
-});
-
-
-/* ======================================================
-   PREVENT DIRECT EDIT
-====================================================== */
-
-document.addEventListener("click", (e) => {
-
-  const field =
-    e.target.closest(
-      "input, textarea"
-    );
-
-  if (!field) return;
-
-  if (field.type === "file") return;
-
-  if (
-    !field.classList.contains(
-      "editing"
-    )
-  ) {
-
-    field.blur();
-
-    alert(
-      "Please click edit icon first"
-    );
-
-  }
-
-});
-
-
-/* ======================================================
-   BLOCK TYPING WITHOUT EDIT
-====================================================== */
-
-document.addEventListener("keydown", (e) => {
-
-  const field =
-    document.activeElement;
-
-  if (
-    field &&
-    (
-      field.tagName === "INPUT" ||
-      field.tagName === "TEXTAREA"
-    )
-  ) {
-
-    if (field.type === "file")
-      return;
-
-    if (e.key === "Tab")
-      return;
-
-    if (
-      !field.classList.contains(
-        "editing"
-      )
-    ) {
-
-      e.preventDefault();
-
-    }
-
-  }
-
-});
-
-
-/* ======================================================
-   IMAGE PREVIEW
-====================================================== */
-
-function previewImage(event, boxId) {
-
-  const file =
-    event.target.files[0];
-
-  if (!file) return;
-
-  const allowedTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/webp",
-    "image/jpg"
-  ];
-
-  if (
-    !allowedTypes.includes(
-      file.type
-    )
-  ) {
-
-    alert(
-      "Only JPG, PNG, WEBP allowed"
-    );
-
-    return;
-
-  }
-
-  if (
-    file.size >
-    5 * 1024 * 1024
-  ) {
-
-    alert(
-      "Image size must be below 5MB"
-    );
-
-    return;
-
-  }
-
-  const box =
-    document.getElementById(
-      boxId
-    );
-
-  const reader =
-    new FileReader();
-
-  reader.onload =
-    function (e) {
-
-      box.classList.add(
-        "has-image"
-      );
-
-      box.innerHTML = `
-
-        <img src="${e.target.result}">
-
-        <button class="delete-btn"
-                onclick="deleteImage('${boxId}')">
-            ×
-        </button>
-
-        <input type="file"
-               accept="image/*"
-               style="display:none"
-               onchange="previewImage(event,'${boxId}')">
-
-      `;
-
-    };
-
-  reader.readAsDataURL(file);
-
-}
-
-
-/* ======================================================
-   DELETE IMAGE
-====================================================== */
-
-function deleteImage(boxId) {
-
-  const confirmDelete =
-    confirm(
-      "Are you sure you want to delete this image?"
-    );
-
-  if (!confirmDelete)
-    return;
-
-  const box =
-    document.getElementById(
-      boxId
-    );
-
-  box.classList.remove(
-    "has-image"
-  );
-
-  box.innerHTML = `
-
-    <label>
-
-      Upload Image
-
-      <input type="file"
-             accept="image/*"
-             onchange="previewImage(event,'${boxId}')">
-
-    </label>
-
-    <button class="delete-btn"
-            onclick="deleteImage('${boxId}')">
-        ×
-    </button>
-
-  `;
-
-  alert(
-    "Image deleted successfully"
-  );
-
-}
-
-
-/* ======================================================
-   PUBLISH VALIDATION
-====================================================== */
-
-function publishPage() {
-
-  let valid = true;
-
-  const fields =
-    document.querySelectorAll(
-      ".required-field"
-    );
-
-  fields.forEach(field => {
-
-    field.classList.remove(
-      "input-error"
-    );
-
-    if (
-      field.value.trim() === ""
-    ) {
-
-      valid = false;
-
-      field.classList.add(
-        "input-error"
-      );
-
-    }
-
-  });
-
-  if (!valid) {
-
-    alert(
-      "Please fill all required fields"
-    );
-
-    return;
-
-  }
-
-  const uploadedImages =
-    document.querySelectorAll(
-      ".has-image"
-    );
-
-  if (
-    uploadedImages.length === 0
-  ) {
-
-    alert(
-      "Please upload at least one image"
-    );
-
-    return;
-
-  }
-
-  alert(
-    "Published Successfully"
-  );
-
-}
-
-    </script>
+    <script src="../javascript/e-magzineartisanstory.js"></script>
+    <script src="../javascript/developerSidebarnavbar.js"></script>
 
 </body>
 

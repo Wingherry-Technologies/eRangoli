@@ -1,0 +1,696 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Padauk:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans";
+}
+
+body {
+    background: #edf0f5;
+    /* padding: 14px; */
+}
+
+/* ================= MAIN ================= */
+
+.main-content-beyond {
+    max-width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    height: 100vh;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+/* ================= HEADER ================= */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 100;
+    padding-bottom: 12px;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+}
+
+.publish-btn {
+    min-width: 120px;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+    background: #1f8fff;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.publish-btn:hover {
+    background: #0d7ceb;
+}
+
+/* ================= LAYOUT ================= */
+
+.content-layout {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    height: calc(100vh - 110px);
+    overflow: hidden;
+}
+
+/* ================= LEFT SIDE ================= */
+
+.left-panel {
+    width: 34%;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.left-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px;
+}
+
+.preview-image {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.preview-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.right-panel {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* Optional Scrollbar */
+.right-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px;
+}
+
+/* ================= TOP DETAILS ================= */
+
+.top-details {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.artisan-photo {
+    width: 160px;
+    min-width: 120px;
+    height: 150px;
+    background: #d8d8d8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #555;
+    position: relative;
+    overflow: hidden;
+}
+
+.artisan-photo input {
+    display: none;
+}
+
+.artisan-photo label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.artisan-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details-content {
+    flex: 1;
+}
+
+.info-row {
+    margin-bottom: 18px;
+}
+
+.info-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.info-input {
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    /* border: none; */
+    border-radius: 4px;
+    padding: 10px 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.text-area {
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 12px;
+    min-height: 120px;
+    resize: none;
+    outline: none;
+    line-height: 1.8;
+}
+
+/* ================= SECTION ================= */
+
+.section-block {
+    margin-bottom: 34px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+}
+
+.edit-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+    margin: 20px 0;
+}
+
+/* ================= IMAGE GRID ================= */
+
+.image-grid-large {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.image-grid-large .big {
+    grid-column: 1 / -1;
+    min-height: 220px;
+}
+
+.image-grid-medium {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.image-grid-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.image-box {
+    min-height: 160px;
+    background: #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-box.big {
+    min-height: 230px;
+}
+
+.image-box label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    padding: 12px;
+}
+
+.image-box input {
+    display: none;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: red;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.image-box.has-image .delete-btn {
+    display: block;
+}
+
+/* ================= FOOTER BUTTON ================= */
+
+.footer-btn {
+    margin-top: 40px;
+}
+
+.footer-btn button {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 5px;
+    background: #1f8fff;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* ================= VALIDATION ================= */
+
+.input-error {
+    border: 1px solid red !important;
+}
+
+/* ==========================================
+   ACTIVE EDIT FIELD
+========================================== */
+
+.editing {
+    border: 2px solid #1f8fff !important;
+    background: #f7fbff !important;
+    transition: 0.2s;
+}
+
+/* OPTIONAL FOCUS EFFECT */
+
+.editing:focus {
+    box-shadow: 0 0 0 3px rgba(31, 143, 255, 0.15);
+}
+
+/* ================= MOBILE ================= */
+
+/* =====================================================
+   TABLET RESPONSIVE
+===================================================== */
+
+@media(max-width:991px) {
+
+    body {
+        padding: 10px;
+        background: #edf0f5;
+    }
+
+    .main-content-beyond {
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    /* HEADER */
+
+    .top-header {
+        padding-bottom: 10px;
+        margin-bottom: 18px;
+    }
+
+    .page-title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .publish-btn {
+        min-width: 95px;
+        height: 34px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+
+    /* MAIN LAYOUT */
+
+    .content-layout {
+        flex-direction: row;
+        gap: 18px;
+        align-items: flex-start;
+    }
+
+    /* LEFT SIDE */
+
+    .left-panel {
+        width: 34%;
+        min-width: 34%;
+    }
+
+    .preview-image {
+        margin-bottom: 0;
+    }
+
+    .preview-image img {
+        border-radius: 4px;
+    }
+
+    /* RIGHT SIDE */
+
+    .right-panel {
+        flex: 1;
+    }
+
+    /* TOP DETAILS */
+
+    .top-details {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .artisan-photo {
+        width: 110px;
+        min-width: 110px;
+        height: 135px;
+        font-size: 12px;
+    }
+
+    .details-content {
+        flex: 1;
+    }
+
+    .info-row {
+        margin-bottom: 14px;
+    }
+
+    .info-title {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .info-input {
+        font-size: 12px;
+        padding: 9px 10px;
+    }
+
+    .text-area {
+        font-size: 12px;
+        min-height: 95px;
+        line-height: 1.7;
+        padding: 10px;
+    }
+
+    /* SECTION */
+
+    .section-block {
+        margin-bottom: 24px;
+    }
+
+    .section-title {
+        font-size: 13px;
+    }
+
+    .edit-icon {
+        width: 12px;
+    }
+
+    /* IMAGE GRID */
+
+    .image-grid-large {
+        gap: 10px;
+    }
+
+    .image-grid-medium {
+        gap: 10px;
+    }
+
+    .image-grid-bottom {
+        gap: 10px;
+    }
+
+    .image-box.big {
+        min-height: 170px;
+    }
+
+    .image-box {
+        min-height: 110px;
+    }
+
+    .image-box label {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    /* FOOTER */
+
+    .footer-btn {
+        margin-top: 30px;
+    }
+
+    .footer-btn button {
+        height: 38px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media(max-width:600px) {
+
+    body {
+        padding: 0;
+        background: #f3f3f3;
+    }
+
+    .main-content-beyond {
+        padding: 12px;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    /* HEADER */
+
+    .top-header {
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+    }
+
+    .page-title {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .publish-btn {
+        min-width: 78px;
+        height: 30px;
+        font-size: 11px;
+        border-radius: 4px;
+    }
+
+    /* MAIN LAYOUT */
+
+    .content-layout {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    /* LEFT PANEL */
+
+    .left-panel {
+        width: 100%;
+        display: none;
+    }
+
+    .preview-image {
+        width: 100%;
+    }
+
+    .preview-image img {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    /* RIGHT PANEL */
+
+    .right-panel {
+        width: 100%;
+    }
+
+    /* TOP DETAILS */
+
+    .top-details {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .artisan-photo {
+        width: 100px;
+        min-width: 100px;
+        height: 115px;
+        font-size: 11px;
+    }
+
+    .details-content {
+        width: 100%;
+    }
+
+    .info-row {
+        margin-bottom: 14px;
+    }
+
+    .info-title {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+
+    .info-input {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .text-area {
+        padding: 10px;
+        font-size: 11px;
+        line-height: 1.7;
+        min-height: 90px;
+    }
+
+    /* SECTION */
+
+    .section-block {
+        margin-bottom: 22px;
+    }
+
+    .section-title {
+        font-size: 12px;
+    }
+
+    .section-header {
+        margin-bottom: 8px;
+    }
+
+    .edit-icon {
+        width: 11px;
+    }
+
+    .line {
+        margin: 16px 0;
+    }
+
+    /* IMAGE GRID */
+
+    .image-grid-large {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .image-grid-medium {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .image-grid-bottom {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .image-grid-bottom .big {
+        grid-column: 1 / -1;
+    }
+
+    .image-box.big {
+        min-height: 140px;
+    }
+
+    .image-box {
+        min-height: 95px;
+        border-radius: 4px;
+    }
+
+    .image-box label {
+        font-size: 10px;
+        line-height: 1.4;
+        padding: 10px;
+    }
+
+    .delete-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    /* FOOTER BUTTON */
+
+    .footer-btn {
+        margin-top: 24px;
+    }
+
+    .footer-btn button {
+        height: 38px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+
+}

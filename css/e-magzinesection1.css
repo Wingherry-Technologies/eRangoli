@@ -16,8 +16,8 @@
       max-width: 100%;
     }
 
-    .main-wrapper {
-      width: 100%;
+    .main-content-beyond {
+      max-width: 100%;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -417,7 +417,7 @@
         overflow: auto;
       }
 
-      .main-wrapper {
+      .main-content-beyond {
         height: auto;
       }
 
