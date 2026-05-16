@@ -125,7 +125,7 @@ body {
 }
 
 .EEDWCT-edit {
-  width: 16px;
+  width: 20px;
   cursor: pointer;
 }
 
@@ -281,6 +281,189 @@ textarea:focus {
   box-shadow: none;
 }
 
+/* Popup Modal */
+
+.EEDWCT-modal {
+  position: fixed;
+  inset: 0;
+  background: #3f3f3fcc;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.EEDWCT-modal.active {
+  display: flex;
+}
+
+.EEDWCT-modal-content {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.EEDWCT-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0f8df3;
+  padding-bottom: 10px;
+}
+
+.EEDWCT-modal-header h2 {
+  font-size: 20px;
+  color: #3f3f3f;
+}
+
+.EEDWCT-close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.EEDWCT-modal-body {
+  margin-top: 18px;
+}
+
+.EEDWCT-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.EEDWCT-field label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #3f3f3f;
+  font-weight: 600;
+}
+
+.EEDWCT-field input,
+.EEDWCT-field select {
+  height: 42px;
+  border: none;
+  background: #eef5fb;
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #3f3f3f;
+}
+
+.EEDWCT-field input:focus,
+.EEDWCT-field select:focus {
+  outline: none;
+}
+
+.EEDWCT-continue-btn {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 6px;
+  background: #0f8df3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.EEDWCT-continue-btn:hover {
+  opacity: 0.95;
+}
+
+/* Schedule Workshop Popup */
+
+.EEDWCT-schedule-modal {
+  position: fixed;
+  inset: 0;
+  background: #3f3f3fcc;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.EEDWCT-schedule-modal.active {
+  display: flex;
+}
+
+.EEDWCT-schedule-content {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  animation: popupFade 0.3s ease;
+}
+
+.EEDWCT-schedule-close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Co-ordinator Popup */
+
+.EEDWCT-coordinator-modal {
+  position: fixed;
+  inset: 0;
+  background: #3f3f3fcc;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10002;
+  padding: 20px;
+}
+
+.EEDWCT-coordinator-modal.active {
+  display: flex;
+}
+
+.EEDWCT-coordinator-content {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  animation: popupFade 0.3s ease;
+}
+
+.EEDWCT-coordinator-close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.EEDWCT-draft-btn {
+  width: 100%;
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid #0f8df3;
+  background: #fff;
+  color: #0f8df3;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 @media (max-width: 1024px) and (min-width: 595px) {
   .EEDWCT-table {
     overflow-x: auto;
@@ -429,5 +612,13 @@ textarea:focus {
     align-items: center;
     z-index: 999;
     cursor: pointer;
+  }
+  .EEDWCT-modal-content {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .EEDWCT-modal-header h2 {
+    font-size: 18px;
   }
 }

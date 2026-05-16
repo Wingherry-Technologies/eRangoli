@@ -2,22 +2,20 @@
 // HAMBURGER OPEN/CLOSE
 const hamburger = document.querySelector(".hamburger-menu");
 var mobileMenu = document.getElementById("mobile-menu");
-var hamberMenuIcon=document.querySelector("#hamburger-menu>img");
-
+var hamberMenuIcon = document.querySelector("#hamburger-menu>img");
 
 hamburger?.addEventListener("click", () => {
   mobileMenu.classList.toggle("menu-open");
   // Toggle hamburger icon
   if (mobileMenu.classList.contains("menu-open")) {
     hamberMenuIcon.src = "../assets/master/X.svg";
-    document.querySelector(".bottom-nav").style.display="none"
-    document.querySelector("body").style.overflow="hidden"
+    document.querySelector(".bottom-nav").style.display = "none";
+    document.querySelector("body").style.overflow = "hidden";
     window.scrollTo(0, 0);
-  }
-  else {
+  } else {
     hamberMenuIcon.src = "../assets/master/List.svg";
-    document.querySelector("body").style.overflow="auto";
-    document.querySelector(".bottom-nav").style.display="flex";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".bottom-nav").style.display = "flex";
   }
 });
 
@@ -216,13 +214,125 @@ window.addEventListener("click", function (e) {
   if (e.target === modal) closeModalFn();
 });
 
-document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(5)").classList.add("sidebar-active");
-document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)").classList.add("active");
-document.querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(4)").classList.add("submenu-active-highlight");
+document
+  .querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(5)")
+  .classList.add("sidebar-active");
+document
+  .querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)")
+  .classList.add("active");
+document
+  .querySelector(".sidebar-main-vendor ul>ul:nth-of-type(3)>li:nth-child(4)")
+  .classList.add("submenu-active-highlight");
 
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header")
+  .classList.add("dropdown-header-active");
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(5)")
+  .classList.add("active-mobile-submenu");
+document
+  .querySelector("#account-menu .mobile-dropdown:nth-child(5) li:nth-child(4)")
+  .classList.add("submenu-active-page");
 
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5) .dropdown-header").classList.add("dropdown-header-active");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5)").classList.add("active-mobile-submenu");
-document.querySelector("#account-menu .mobile-dropdown:nth-child(5) li:nth-child(4)").classList.add("submenu-active-page");
+// Add Workshop Popup
 
+const addBtn = document.querySelector(".EEDWCT-add");
+const workshopModal = document.getElementById("EEDWCT-modal");
+const closeWorkshopModal = document.getElementById("EEDWCT-close");
+const floatingBtn = document.querySelector(".EEDWCT-floating-plus-btn");
 
+function openWorkshopModal() {
+  workshopModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeWorkshopPopup() {
+  workshopModal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+if (addBtn) {
+  addBtn.addEventListener("click", openWorkshopModal);
+}
+
+if (floatingBtn) {
+  floatingBtn.addEventListener("click", openWorkshopModal);
+}
+
+if (closeWorkshopModal) {
+  closeWorkshopModal.addEventListener("click", closeWorkshopPopup);
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === workshopModal) {
+    closeWorkshopPopup();
+  }
+});
+
+// Schedule Popup
+
+const firstContinueBtn = document.querySelector(
+  "#EEDWCT-modal .EEDWCT-continue-btn",
+);
+
+const scheduleModal = document.getElementById("EEDWCT-schedule-modal");
+
+const scheduleCloseBtn = document.getElementById("EEDWCT-schedule-close");
+
+if (firstContinueBtn) {
+  firstContinueBtn.addEventListener("click", () => {
+    // First popup hide
+    workshopModal.classList.remove("active");
+
+    // Second popup show
+    scheduleModal.classList.add("active");
+  });
+}
+
+if (scheduleCloseBtn) {
+  scheduleCloseBtn.addEventListener("click", () => {
+    scheduleModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === scheduleModal) {
+    scheduleModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+});
+
+// Coordinator Popup
+
+const scheduleContinueBtn = document.querySelector(
+  "#EEDWCT-schedule-modal .EEDWCT-continue-btn",
+);
+
+const coordinatorModal = document.getElementById("EEDWCT-coordinator-modal");
+
+const coordinatorCloseBtn = document.getElementById("EEDWCT-coordinator-close");
+
+if (scheduleContinueBtn) {
+  scheduleContinueBtn.addEventListener("click", () => {
+    // Schedule popup hide
+    scheduleModal.classList.remove("active");
+
+    // Coordinator popup show
+    coordinatorModal.classList.add("active");
+  });
+}
+
+if (coordinatorCloseBtn) {
+  coordinatorCloseBtn.addEventListener("click", () => {
+    coordinatorModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === coordinatorModal) {
+    coordinatorModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+});

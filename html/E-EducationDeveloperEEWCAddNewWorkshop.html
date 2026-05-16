@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Workshop</title>
+    <link
+      rel="stylesheet"
+      href="../css/E-EducationDeveloperEEWCAddNewWorkshop.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/master/eRangoli 2-1.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="EEDEEWCANW-main-content-beyond">
+      <div class="EEDEEWCANW-page-wrapper">
+        <div class="EEDEEWCANW-top-header">
+          <h1 class="EEDEEWCANW-page-title">Add New Workshop</h1>
+          <div class="EEDEEWCANW-top-actions">
+            <button
+              type="button"
+              class="EEDEEWCANW-btn EEDEEWCANW-btn-outline"
+              id="EEDEEWCANW-preview-btn"
+            >
+              Preview
+            </button>
+            <button
+              type="button"
+              class="EEDEEWCANW-btn EEDEEWCANW-btn-primary"
+              id="EEDEEWCANW-publish-btn"
+            >
+              Publish
+            </button>
+          </div>
+        </div>
+
+        <form id="EEDEEWCANW-main-form" novalidate>
+          <div class="EEDEEWCANW-section-card" id="EEDEEWCANW-section-brief">
+            <div class="EEDEEWCANW-section-header">
+              <span class="EEDEEWCANW-section-title">Workshop Brief</span>
+              <button
+                type="button"
+                class="EEDEEWCANW-btn EEDEEWCANW-btn-primary EEDEEWCANW-save-btn"
+                data-section="brief"
+              >
+                Save
+              </button>
+            </div>
+
+            <div class="EEDEEWCANW-image-upload-row">
+              <div class="EEDEEWCANW-cover-upload-wrap">
+                <input
+                  type="file"
+                  id="EEDEEWCANW-cover-image-input"
+                  class="EEDEEWCANW-file-input"
+                  accept="image/*"
+                />
+                <label
+                  for="EEDEEWCANW-cover-image-input"
+                  class="EEDEEWCANW-cover-upload-label"
+                  id="EEDEEWCANW-cover-label"
+                >
+                  <span
+                    class="EEDEEWCANW-remove-image-btn EEDEEWCANW-hidden"
+                    id="EEDEEWCANW-remove-cover-btn"
+                    >✕</span
+                  >
+
+                  <img
+                    id="EEDEEWCANW-cover-preview"
+                    class="EEDEEWCANW-img-preview EEDEEWCANW-hidden"
+                    src=""
+                    alt="Cover Preview"
+                  />
+
+                  <span
+                    class="EEDEEWCANW-upload-placeholder"
+                    id="EEDEEWCANW-cover-placeholder"
+                  >
+                    Upload Cover Image
+                  </span>
+                </label>
+              </div>
+              <div class="EEDEEWCANW-add-images-wrap">
+                <div
+                  class="EEDEEWCANW-add-images-grid"
+                  id="EEDEEWCANW-add-images-grid"
+                >
+                  <label
+                    for="EEDEEWCANW-add-images-input"
+                    class="EEDEEWCANW-add-images-label"
+                    id="EEDEEWCANW-add-images-tile"
+                  >
+                    <span class="EEDEEWCANW-plus-icon">+</span>
+                    <span>Add Images</span>
+                  </label>
+                </div>
+
+                <input
+                  type="file"
+                  id="EEDEEWCANW-add-images-input"
+                  class="EEDEEWCANW-file-input"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-workshop-name"
+                  >Enter Workshop Name</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-workshop-name"
+                  name="EEDEEWCANW-workshop-name"
+                  class="EEDEEWCANW-input"
+                  placeholder="Threads of Tradition: Frame Loom Weaving"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-workshop-name"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-expertise"
+                  >Expertise</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-expertise"
+                  name="EEDEEWCANW-expertise"
+                  class="EEDEEWCANW-input"
+                  placeholder="Weaving"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-expertise"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-languages"
+                  >Select Languages</label
+                >
+                <div
+                  class="EEDEEWCANW-multiselect-wrap"
+                  id="EEDEEWCANW-languages-wrap"
+                >
+                  <div
+                    class="EEDEEWCANW-multiselect-display"
+                    id="EEDEEWCANW-languages-display"
+                    tabindex="0"
+                  >
+                    <span
+                      class="EEDEEWCANW-multiselect-placeholder"
+                      id="EEDEEWCANW-lang-placeholder"
+                      >Select languages</span
+                    >
+                    <span class="EEDEEWCANW-multiselect-arrow">▾</span>
+                  </div>
+                  <div
+                    class="EEDEEWCANW-multiselect-dropdown EEDEEWCANW-hidden"
+                    id="EEDEEWCANW-languages-dropdown"
+                  >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="English"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      English</label
+                    >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="Hindi"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      Hindi</label
+                    >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="Marathi"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      Marathi</label
+                    >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="Telugu"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      Telugu</label
+                    >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="Tamil"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      Tamil</label
+                    >
+                    <label class="EEDEEWCANW-multi-opt"
+                      ><input
+                        type="checkbox"
+                        value="Kannada"
+                        class="EEDEEWCANW-lang-cb"
+                      />
+                      Kannada</label
+                    >
+                  </div>
+                </div>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-languages"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-age-group"
+                  >Select Age Group</label
+                >
+                <select
+                  id="EEDEEWCANW-age-group"
+                  name="EEDEEWCANW-age-group"
+                  class="EEDEEWCANW-select"
+                >
+                  <option value="">All age group</option>
+                  <option value="kids">Kids (5–12)</option>
+                  <option value="teens">Teens (13–17)</option>
+                  <option value="adults">Adults (18+)</option>
+                  <option value="seniors">Seniors (60+)</option>
+                </select>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-age-group"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label
+                  class="EEDEEWCANW-label"
+                  for="EEDEEWCANW-price-individual"
+                  >Enter Price (Individual)</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-price-individual"
+                  name="EEDEEWCANW-price-individual"
+                  class="EEDEEWCANW-input"
+                  placeholder="₹1,299"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-price-individual"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-price-group"
+                  >Enter Price (Group)</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-price-group"
+                  name="EEDEEWCANW-price-group"
+                  class="EEDEEWCANW-input"
+                  placeholder="₹1,499"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-price-group"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-type"
+                  >Select Type</label
+                >
+                <select
+                  id="EEDEEWCANW-type"
+                  name="EEDEEWCANW-type"
+                  class="EEDEEWCANW-select"
+                >
+                  <option value="">Short Workshop</option>
+                  <option value="short">Short Workshop</option>
+                  <option value="full-day">Full Day Workshop</option>
+                  <option value="multi-day">Multi Day Workshop</option>
+                  <option value="series">Series</option>
+                </select>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-type"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-broadcast"
+                  >Select the Broadcast</label
+                >
+                <select
+                  id="EEDEEWCANW-broadcast"
+                  name="EEDEEWCANW-broadcast"
+                  class="EEDEEWCANW-select"
+                >
+                  <option value="">Upcoming</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="live">Live</option>
+                  <option value="recorded">Recorded</option>
+                </select>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-broadcast"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="EEDEEWCANW-section-card" id="EEDEEWCANW-section-venue">
+            <div class="EEDEEWCANW-section-header">
+              <span class="EEDEEWCANW-section-title">Add Venue and Time</span>
+              <button
+                type="button"
+                class="EEDEEWCANW-btn EEDEEWCANW-btn-primary EEDEEWCANW-save-btn"
+                data-section="venue"
+              >
+                Save
+              </button>
+            </div>
+
+            <div id="EEDEEWCANW-venues-container">
+              <div
+                class="EEDEEWCANW-venue-block"
+                id="EEDEEWCANW-venue-block-1"
+                data-venue-num="1"
+              >
+                <div class="EEDEEWCANW-venue-header">
+                  <span class="EEDEEWCANW-venue-title">Venue 1</span>
+                  <div class="EEDEEWCANW-venue-header-actions">
+                    <button
+                      type="button"
+                      class="EEDEEWCANW-add-another-link"
+                      id="EEDEEWCANW-add-venue-btn"
+                    >
+                      Add another
+                    </button>
+                  </div>
+                </div>
+
+                <div class="EEDEEWCANW-venue-two-col">
+                  <div class="EEDEEWCANW-venue-left">
+                    <div class="EEDEEWCANW-field-group">
+                      <label class="EEDEEWCANW-label">Select State</label>
+                      <select
+                        id="EEDEEWCANW-state-1"
+                        class="EEDEEWCANW-select EEDEEWCANW-venue-state"
+                      >
+                        <option value="">Select State</option>
+                        <option value="Maharshtra">Maharshtra</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      </select>
+                      <div
+                        class="EEDEEWCANW-error-msg"
+                        id="EEDEEWCANW-err-state-1"
+                      ></div>
+                    </div>
+
+                    <div class="EEDEEWCANW-field-group">
+                      <label class="EEDEEWCANW-label">Enter Venue Name</label>
+                      <input
+                        type="text"
+                        id="EEDEEWCANW-venue-name-1"
+                        class="EEDEEWCANW-input"
+                      />
+                      <div
+                        class="EEDEEWCANW-error-msg"
+                        id="EEDEEWCANW-err-venue-name-1"
+                      ></div>
+                    </div>
+
+                    <div class="EEDEEWCANW-roe">
+                      <div class="EEDEEWCANW-field-group">
+                        <label class="EEDEEWCANW-label"
+                          >Select Start Date</label
+                        >
+                        <input
+                          type="date"
+                          id="EEDEEWCANW-start-date-1"
+                          class="EEDEEWCANW-input"
+                        />
+                        <div
+                          class="EEDEEWCANW-error-msg"
+                          id="EEDEEWCANW-err-start-date-1"
+                        ></div>
+                      </div>
+                      <div class="EEDEEWCANW-field-group">
+                        <label class="EEDEEWCANW-label">Select End Date</label>
+                        <input
+                          type="date"
+                          id="EEDEEWCANW-end-date-1"
+                          class="EEDEEWCANW-input"
+                        />
+                        <div
+                          class="EEDEEWCANW-error-msg"
+                          id="EEDEEWCANW-err-end-date-1"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="EEDEEWCANW-roe">
+                      <div class="EEDEEWCANW-field-group">
+                        <label class="EEDEEWCANW-label"
+                          >Select Start time</label
+                        >
+                        <div class="EEDEEWCANW-time-wrap">
+                          <input
+                            type="text"
+                            id="EEDEEWCANW-start-time-1"
+                            class="EEDEEWCANW-input EEDEEWCANW-time-input"
+                            placeholder="12:30:00"
+                            maxlength="8"
+                          />
+                          <span
+                            class="EEDEEWCANW-time-format"
+                            id="EEDEEWCANW-start-time-format-1"
+                            >AM</span
+                          >
+                        </div>
+                        <div
+                          class="EEDEEWCANW-error-msg"
+                          id="EEDEEWCANW-err-start-time-1"
+                        ></div>
+                      </div>
+                      <div class="EEDEEWCANW-field-group">
+                        <label class="EEDEEWCANW-label">Select End time</label>
+                        <div class="EEDEEWCANW-time-wrap">
+                          <input
+                            type="text"
+                            id="EEDEEWCANW-end-time-1"
+                            class="EEDEEWCANW-input EEDEEWCANW-time-input"
+                            placeholder="03:00:00"
+                            maxlength="8"
+                          />
+                          <span
+                            class="EEDEEWCANW-time-format"
+                            id="EEDEEWCANW-end-time-format-1"
+                            >PM</span
+                          >
+                        </div>
+                        <div
+                          class="EEDEEWCANW-error-msg"
+                          id="EEDEEWCANW-err-end-time-1"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="EEDEEWCANW-venue-right">
+                    <div class="EEDEEWCANW-field-group">
+                      <label class="EEDEEWCANW-label">Select City</label>
+                      <select
+                        id="EEDEEWCANW-city-1"
+                        class="EEDEEWCANW-select EEDEEWCANW-venue-city"
+                      >
+                        <option value="">Select City</option>
+                      </select>
+                      <div
+                        class="EEDEEWCANW-error-msg"
+                        id="EEDEEWCANW-err-city-1"
+                      ></div>
+                    </div>
+
+                    <div class="EEDEEWCANW-field-group">
+                      <label class="EEDEEWCANW-label"
+                        >Enter Venue Address</label
+                      >
+                      <textarea
+                        id="EEDEEWCANW-venue-address-1"
+                        class="EEDEEWCANW-textarea"
+                        style="min-height: 120px"
+                      ></textarea>
+                      <div
+                        class="EEDEEWCANW-error-msg"
+                        id="EEDEEWCANW-err-venue-address-1"
+                      ></div>
+                    </div>
+
+                    <div class="EEDEEWCANW-field-group">
+                      <label class="EEDEEWCANW-label"
+                        >Enter Venue gmap link</label
+                      >
+                      <input
+                        type="text"
+                        id="EEDEEWCANW-gmap-1"
+                        class="EEDEEWCANW-input"
+                      />
+                      <div
+                        class="EEDEEWCANW-error-msg"
+                        id="EEDEEWCANW-err-gmap-1"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="EEDEEWCANW-section-card" id="EEDEEWCANW-section-details">
+            <div class="EEDEEWCANW-section-header">
+              <span class="EEDEEWCANW-section-title">Workshop Details</span>
+              <button
+                type="button"
+                class="EEDEEWCANW-btn EEDEEWCANW-btn-primary EEDEEWCANW-save-btn"
+                data-section="details"
+              >
+                Save
+              </button>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-about-workshop"
+                  >Write about the Workshop</label
+                >
+                <textarea
+                  id="EEDEEWCANW-about-workshop"
+                  name="EEDEEWCANW-about-workshop"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-about-workshop"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-topics"
+                  >Write Topics to be Learnt</label
+                >
+                <textarea
+                  id="EEDEEWCANW-topics"
+                  name="EEDEEWCANW-topics"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-topics"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-who-can-join"
+                  >Write who can join</label
+                >
+                <textarea
+                  id="EEDEEWCANW-who-can-join"
+                  name="EEDEEWCANW-who-can-join"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-who-can-join"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-highlights"
+                  >Write Workshop Highlights</label
+                >
+                <textarea
+                  id="EEDEEWCANW-highlights"
+                  name="EEDEEWCANW-highlights"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-highlights"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-takeaway"
+                  >Write about the takeaway from workshop</label
+                >
+                <textarea
+                  id="EEDEEWCANW-takeaway"
+                  name="EEDEEWCANW-takeaway"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-takeaway"
+                ></div>
+              </div>
+              <div class="EEDEEWCANW-field-group">
+                <label class="EEDEEWCANW-label" for="EEDEEWCANW-organizer"
+                  >Write about the organizer/Artisan</label
+                >
+                <textarea
+                  id="EEDEEWCANW-organizer"
+                  name="EEDEEWCANW-organizer"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-organizer"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-field-group EEDEEWCANW-full-width">
+              <label class="EEDEEWCANW-label"
+                >Upload Pictures of the products</label
+              >
+              <div class="EEDEEWCANW-product-images-row">
+                <div class="EEDEEWCANW-product-img-box">
+                  <input
+                    type="file"
+                    id="EEDEEWCANW-product-img-1"
+                    class="EEDEEWCANW-file-input"
+                    accept="image/*"
+                  />
+                  <label
+                    for="EEDEEWCANW-product-img-1"
+                    class="EEDEEWCANW-product-img-label"
+                  >
+                    <span
+                      class="EEDEEWCANW-remove-image-btn EEDEEWCANW-hidden"
+                      id="EEDEEWCANW-remove-prod-1"
+                      >✕</span
+                    >
+                    <img
+                      id="EEDEEWCANW-product-preview-1"
+                      class="EEDEEWCANW-img-preview EEDEEWCANW-hidden"
+                      src=""
+                      alt=""
+                    />
+                    <span
+                      class="EEDEEWCANW-upload-placeholder"
+                      id="EEDEEWCANW-prod-ph-1"
+                      >Upload Image</span
+                    >
+                  </label>
+                </div>
+                <div class="EEDEEWCANW-product-img-box">
+                  <input
+                    type="file"
+                    id="EEDEEWCANW-product-img-2"
+                    class="EEDEEWCANW-file-input"
+                    accept="image/*"
+                  />
+                  <label
+                    for="EEDEEWCANW-product-img-2"
+                    class="EEDEEWCANW-product-img-label"
+                  >
+                    <span
+                      class="EEDEEWCANW-remove-image-btn EEDEEWCANW-hidden"
+                      id="EEDEEWCANW-remove-prod-2"
+                      >✕</span
+                    >
+                    <img
+                      id="EEDEEWCANW-product-preview-2"
+                      class="EEDEEWCANW-img-preview EEDEEWCANW-hidden"
+                      src=""
+                      alt=""
+                    />
+                    <span
+                      class="EEDEEWCANW-upload-placeholder"
+                      id="EEDEEWCANW-prod-ph-2"
+                      >Upload Image</span
+                    >
+                  </label>
+                </div>
+                <div class="EEDEEWCANW-product-img-box">
+                  <input
+                    type="file"
+                    id="EEDEEWCANW-product-img-3"
+                    class="EEDEEWCANW-file-input"
+                    accept="image/*"
+                  />
+                  <label
+                    for="EEDEEWCANW-product-img-3"
+                    class="EEDEEWCANW-product-img-label"
+                  >
+                    <span
+                      class="EEDEEWCANW-remove-image-btn EEDEEWCANW-hidden"
+                      id="EEDEEWCANW-remove-prod-3"
+                      >✕</span
+                    >
+                    <img
+                      id="EEDEEWCANW-product-preview-3"
+                      class="EEDEEWCANW-img-preview EEDEEWCANW-hidden"
+                      src=""
+                      alt=""
+                    />
+                    <span
+                      class="EEDEEWCANW-upload-placeholder"
+                      id="EEDEEWCANW-prod-ph-3"
+                      >Upload Image</span
+                    >
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="EEDEEWCANW-section-card" id="EEDEEWCANW-section-faq">
+            <div class="EEDEEWCANW-section-header">
+              <span class="EEDEEWCANW-section-title"
+                >Frequently asked questions</span
+              >
+              <button
+                type="button"
+                class="EEDEEWCANW-btn EEDEEWCANW-btn-primary EEDEEWCANW-save-btn"
+                data-section="faq"
+              >
+                Save
+              </button>
+            </div>
+
+            <div class="EEDEEWCANW-faq-header-row">
+              <span></span>
+              <button
+                type="button"
+                class="EEDEEWCANW-add-another-link"
+                id="EEDEEWCANW-add-faq-btn"
+              >
+                Add another
+              </button>
+            </div>
+
+            <div id="EEDEEWCANW-faq-container">
+              <div class="EEDEEWCANW-faq-block" id="EEDEEWCANW-faq-block-1">
+                <label class="EEDEEWCANW-faq-q-label" for="EEDEEWCANW-faq-q-1"
+                  >Write a question -1</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-faq-q-1"
+                  name="EEDEEWCANW-faq-q-1"
+                  class="EEDEEWCANW-input"
+                  placeholder="Write the content here"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-q-1"
+                ></div>
+                <label class="EEDEEWCANW-faq-a-label" for="EEDEEWCANW-faq-a-1"
+                  >Write answer -1</label
+                >
+                <textarea
+                  id="EEDEEWCANW-faq-a-1"
+                  name="EEDEEWCANW-faq-a-1"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-a-1"
+                ></div>
+              </div>
+
+              <div class="EEDEEWCANW-faq-block" id="EEDEEWCANW-faq-block-2">
+                <label class="EEDEEWCANW-faq-q-label" for="EEDEEWCANW-faq-q-2"
+                  >Write a question -2</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-faq-q-2"
+                  name="EEDEEWCANW-faq-q-2"
+                  class="EEDEEWCANW-input"
+                  placeholder="Write the content here"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-q-2"
+                ></div>
+                <label class="EEDEEWCANW-faq-a-label" for="EEDEEWCANW-faq-a-2"
+                  >Write answer -2</label
+                >
+                <textarea
+                  id="EEDEEWCANW-faq-a-2"
+                  name="EEDEEWCANW-faq-a-2"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-a-2"
+                ></div>
+              </div>
+
+              <div class="EEDEEWCANW-faq-block" id="EEDEEWCANW-faq-block-3">
+                <label class="EEDEEWCANW-faq-q-label" for="EEDEEWCANW-faq-q-3"
+                  >Write a question -3</label
+                >
+                <input
+                  type="text"
+                  id="EEDEEWCANW-faq-q-3"
+                  name="EEDEEWCANW-faq-q-3"
+                  class="EEDEEWCANW-input"
+                  placeholder="Write the content here"
+                />
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-q-3"
+                ></div>
+                <label class="EEDEEWCANW-faq-a-label" for="EEDEEWCANW-faq-a-3"
+                  >Write answer -3</label
+                >
+                <textarea
+                  id="EEDEEWCANW-faq-a-3"
+                  name="EEDEEWCANW-faq-a-3"
+                  class="EEDEEWCANW-textarea"
+                  placeholder="Write the content here"
+                ></textarea>
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-faq-a-3"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="EEDEEWCANW-section-card"
+            id="EEDEEWCANW-section-coordinator"
+          >
+            <div class="EEDEEWCANW-section-header">
+              <span class="EEDEEWCANW-section-title">Co-ordinator Details</span>
+
+              <button
+                type="button"
+                class="EEDEEWCANW-btn EEDEEWCANW-btn-primary EEDEEWCANW-save-btn"
+                id="EEDEEWCANW-save-coordinator-btn"
+              >
+                Save
+              </button>
+            </div>
+
+            <div
+              class="EEDEEWCANW-field-group"
+              style="justify-content: flex-end; align-items: flex-end"
+            >
+              <button
+                type="button"
+                class="EEDEEWCANW-add-another-link"
+                id="EEDEEWCANW-change-coordinator-btn"
+              >
+                Change
+              </button>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label
+                  class="EEDEEWCANW-label"
+                  for="EEDEEWCANW-coordinator-name"
+                >
+                  Co-ordinator Name
+                </label>
+
+                <input
+                  type="text"
+                  id="EEDEEWCANW-coordinator-name"
+                  class="EEDEEWCANW-input"
+                  placeholder="Enter co-ordinator name"
+                />
+
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-coordinator-name"
+                ></div>
+              </div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label
+                  class="EEDEEWCANW-label"
+                  for="EEDEEWCANW-coordinator-mobile"
+                >
+                  Co-ordinator Mobile Number
+                </label>
+
+                <input
+                  type="text"
+                  id="EEDEEWCANW-coordinator-mobile"
+                  class="EEDEEWCANW-input"
+                  maxlength="10"
+                  placeholder="Enter mobile number"
+                />
+
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-coordinator-mobile"
+                ></div>
+              </div>
+
+              <div></div>
+            </div>
+
+            <div class="EEDEEWCANW-form-grid">
+              <div class="EEDEEWCANW-field-group">
+                <label
+                  class="EEDEEWCANW-label"
+                  for="EEDEEWCANW-alternate-mobile"
+                >
+                  Alternate Mobile Number
+                </label>
+
+                <input
+                  type="text"
+                  id="EEDEEWCANW-alternate-mobile"
+                  class="EEDEEWCANW-input"
+                  maxlength="10"
+                  placeholder="Enter alternate mobile number"
+                />
+
+                <div
+                  class="EEDEEWCANW-error-msg"
+                  id="EEDEEWCANW-err-alternate-mobile"
+                ></div>
+              </div>
+
+              <div></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../javascript/E-EducationDeveloperEEWCAddNewWorkshop.js"></script>
+  </body>
+</html>
