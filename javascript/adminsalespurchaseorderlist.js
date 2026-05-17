@@ -221,7 +221,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const arCloseBtn = document.getElementById("ASPOARCloseBtn");
   const arStatusBadge = document.getElementById("ASPOARStatusBadge");
   const arBankSection = document.getElementById("ASPOARBankSection");
+  const receviedStatus = document.querySelector(".received");
+  const hyphenStatus = document.querySelector(".hyphen");
+  const acceptedStatus = document.querySelector(".accepted");  
 
+// OPEN MODAL FUNCTION (BOTH MOBILE + DESKTOP) 
   function openASPORefundModal() {
     aspoModal.classList.add("active");
 
@@ -230,15 +234,17 @@ document.addEventListener("DOMContentLoaded", function () {
     aspoDeliverySection.style.display = "none";
     aspoActions.style.display = "flex";
   }
-  // MOBILE – Initiate Refund button
+
+// MOBILE – Received button
   document.addEventListener("click", function (e) {
-    const mobileBtn = e.target.closest(".mobile-view-btn.Initiate-refund");
+    const mobileBtn = e.target.closest(".mobile-view-btn.receivedMobileBtn");
     if (!mobileBtn) return;
 
     e.preventDefault();
     openASPORefundModal();
   });
-  // DESKTOP – Action icon click (only Initiate Refund rows)
+
+// DESKTOP – Action icon click for Received status
   document.addEventListener("click", function (e) {
     const actionBtn = e.target.closest(".APMActionButton");
     if (!actionBtn) return;
@@ -246,11 +252,45 @@ document.addEventListener("DOMContentLoaded", function () {
     const row = actionBtn.closest(".APMTableRow");
     if (!row) return;
 
-    const hasInitiateRefund = row.querySelector(".Initiate-refund");
-    if (!hasInitiateRefund) return;
+    const hasReceived = row.querySelector(".received");
+    if (!hasReceived) return;
 
     e.preventDefault();
     openASPORefundModal();
+  });
+
+// MOBILE – Accepted button
+    document.addEventListener("click", function (e) {
+    const mobileBtn = e.target.closest(".mobile-view-btn.acceptedMobileBtn");
+    if (!mobileBtn) return;
+
+    e.preventDefault();
+    openASPORefundModal();
+
+    aspoStatusBadge.textContent = "Accepted";
+    aspoStatusBadge.classList.add("accepted");
+    aspoDeliverySection.style.display = "block";
+    aspoActions.style.display = "none";
+  });
+
+// DESKTOP – Action icon click for Accepted status
+  document.addEventListener("click", function (e) {
+    const actionBtn = e.target.closest(".APMActionButton");
+    if (!actionBtn) return; 
+
+    const row = actionBtn.closest(".APMTableRow");
+    if (!row) return;
+
+    const hasAccepted = row.querySelector(".accepted");
+    if (!hasAccepted) return;
+    e.preventDefault();
+    openASPORefundModal();
+
+    aspoStatusBadge.textContent = "Accepted";
+    aspoStatusBadge.classList.add("accepted");
+    aspoDeliverySection.style.display = "block";
+    aspoActions.style.display = "none";
+
   });
 
   // Close modal
@@ -270,6 +310,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update status badge
     aspoStatusBadge.textContent = "Accepted";
     aspoStatusBadge.classList.add("accepted");
+    receviedStatus.classList.remove("received");
+    receviedStatus.textContent = "Accepted";
+    receviedStatus.classList.add("accepted");
+    hyphenStatus.classList.remove("hyphen");
+    hyphenStatus.textContent = "Under Review";
+    hyphenStatus.classList.add("under-review");
+
+
 
     // Hide action buttons
     aspoActions.style.display = "none";
@@ -278,11 +326,19 @@ document.addEventListener("DOMContentLoaded", function () {
     aspoDeliverySection.style.display = "block";
   });
 
+  
+
   // Reject button functionality
   aspoRejectBtn.addEventListener("click", () => {
     // Just close the modal for now
     aspoModal.classList.remove("active");
+    receviedStatus.classList.remove("received");
+    receviedStatus.textContent = "Rejected";
+    receviedStatus.classList.add("rejected");
   });
+
+  // MOBILE – Action icon click for Rejected status
+ 
 
   /*
    ===========================
@@ -346,8 +402,16 @@ document.addEventListener("DOMContentLoaded", function () {
     payBtn.classList.remove("disabled");
 
     // APPROVED
-    if (row.querySelector(".approved-refund")) {
+    if (row.querySelector(".Initiate-refund")) {
       refundStatus.textContent = "Approved";
+      refundStatus.style.color = "#0abf53";
+
+            const badge = statusModal.querySelector(".ASPOAcceptBtn");
+      if (badge) {
+        badge.textContent = "Approved";
+        badge.style.background = "#0abf53";
+      }
+      
       statusModal.classList.add("active");
     }
 
@@ -355,9 +419,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (row.querySelector(".rejected")) {
       refundStatus.textContent = "Rejected";
       refundStatus.classList.add("refund-rejected");
+      refundStatus.style.color = "#ef4444";
+      
       payBtn.disabled = true;
       payBtn.classList.add("disabled");
       statusModal.classList.add("active");
+
+            const badge = statusModal.querySelector(".ASPOAcceptBtn");
+      if (badge) {
+        badge.textContent = "Rejected";
+        badge.style.background = "#ef4444";
+
+      }
+      
     }
 
     // REFUNDED
@@ -437,7 +511,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // REJECTED
-    if (mobileBtn.classList.contains("rejected")) {
+    if (mobileBtn.classList.contains("rejectedMobileBtn")) {
       refundStatus.textContent = "Rejected";
       refundStatus.classList.add("refund-rejected");
       payBtn.disabled = true;
