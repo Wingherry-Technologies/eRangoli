@@ -493,3 +493,309 @@ body {
     cursor: pointer;
   }
 }
+/* ===== ADD WORKSHOP MODAL ===== */
+
+.EEDUWT-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1050;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.EEDUWT-modal-overlay.active {
+  display: flex;
+}
+
+.EEDUWT-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 440px;
+  max-width: 95vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  animation: popupFade 0.2s ease;
+}
+
+.EEDUWT-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px 10px 22px;
+}
+
+.EEDUWT-modal-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.EEDUWT-modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.EEDUWT-modal-close:hover {
+  color: #000;
+}
+
+.EEDUWT-modal-divider {
+  height: 1px;
+  background: #0F8DF3;
+  margin: 0 22px 16px 22px;
+}
+
+.EEDUWT-modal-body {
+  padding: 0 22px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.EEDUWT-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.EEDUWT-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3F3F3F;
+}
+
+.EEDUWT-input {
+  border: 1px solid #EBF3F9;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: "Nunito Sans";
+  background: #f5f7fb;
+  outline: none;
+  transition: border 0.2s;
+  color: #333;
+}
+
+.EEDUWT-input:focus {
+  border-color: #0f8df3;
+  background: #fff;
+}
+
+.EEDUWT-input.input-error {
+  border-color: #e53935;
+}
+
+/* Price prefix wrapper */
+.EEDUWT-input-prefix-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: #f5f7fb;
+  overflow: hidden;
+  transition: border 0.2s;
+}
+
+.EEDUWT-input-prefix-wrap:focus-within {
+  border-color: #0f8df3;
+  background: #fff;
+}
+
+.EEDUWT-input-prefix-wrap.input-error {
+  border-color: #e53935;
+}
+
+.EEDUWT-prefix {
+  padding: 9px 10px 9px 12px;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+  font-family: "Nunito Sans";
+}
+
+.EEDUWT-input-prefixed {
+  border: none;
+  background: transparent;
+  padding: 9px 12px 9px 0;
+  flex: 1;
+}
+
+.EEDUWT-input-prefixed:focus {
+  border: none;
+  background: transparent;
+}
+
+/* Type checkboxes */
+.EEDUWT-type-checkboxes {
+  display: flex;
+  gap: 20px;
+  padding: 9px 12px;
+  background: #f5f7fb;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+}
+
+.EEDUWT-type-checkboxes.input-error {
+  border-color: #e53935;
+}
+
+.EEDUWT-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.EEDUWT-checkbox-label input[type="checkbox"] {
+  accent-color: #0f8df3;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Select */
+.EEDUWT-select-wrap {
+  position: relative;
+}
+
+.EEDUWT-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-top-color: #555;
+  pointer-events: none;
+  margin-top: 3px;
+}
+
+.EEDUWT-select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  padding: 9px 34px 9px 12px;
+  font-size: 14px;
+  font-family: "Nunito Sans";
+  background: #f5f7fb;
+  outline: none;
+  appearance: none;
+  color: #333;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.EEDUWT-select:focus {
+  border-color: #0f8df3;
+  background: #fff;
+}
+
+.EEDUWT-select.input-error {
+  border-color: #e53935;
+}
+
+/* Error text */
+.EEDUWT-error {
+  font-size: 11.5px;
+  color: #e53935;
+  min-height: 14px;
+  display: block;
+}
+
+/* Buttons */
+.EEDUWT-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.EEDUWT-btn-now {
+  background: #0F8DF3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 15px;
+  font-family: "Nunito Sans";
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.EEDUWT-btn-now:hover {
+  background: #0b7ad6;
+}
+
+.EEDUWT-btn-later {
+  background: #fff;
+  color: #0F8DF3;
+  border: 1px solid #0F8DF3;
+  border-radius: 6px;
+  padding: 11px;
+  font-size: 15px;
+  font-family: "Nunito Sans";
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.EEDUWT-btn-later:hover {
+  background: #e8f4fe;
+}
+
+/* Mobile responsive for modal */
+@media (max-width: 595px) {
+  .EEDUWT-modal {
+    width: 92vw;
+  }
+}
+
+/* ===== SCHEDULE WORKSHOP SECOND POPUP ===== */
+.EEDUWT-date-input {
+  width: 100%;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.EEDUWT-date-input:valid {
+  color: #333;
+}
+
+@media (max-width:595px){
+
+.EEDUWT-modal-overlay{
+    padding:12px;
+    align-items:center;
+}
+
+.EEDUWT-modal{
+    width:100%;
+    max-width:100%;
+    max-height:85vh;
+    border-radius:12px;
+}
+
+.EEDUWT-modal-body{
+    max-height:65vh;
+    overflow-y:auto;
+}
+
+.EEDUWT-modal-actions{
+    position:sticky;
+    bottom:0;
+    background:#fff;
+    padding-top:12px;
+}
+
+}

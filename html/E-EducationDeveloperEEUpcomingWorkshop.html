@@ -994,6 +994,9 @@
           </div>
         </div>
       </div>
+
+
+
     </div>
     <div class="EEDUWT-mobile">
       <div class="EEDUWT-Mob-header">Upcoming Workshop</div>
@@ -1265,6 +1268,211 @@
         />
       </div>
     </div>
+
+          <!-- ADD WORKSHOP MODAL -->
+<div id="EEDUWT-modal-overlay" class="EEDUWT-modal-overlay">
+  <div class="EEDUWT-modal" role="dialog" aria-modal="true" aria-labelledby="EEDUWT-modal-title">
+
+    <!-- Modal Header -->
+    <div class="EEDUWT-modal-header">
+      <h2 id="EEDUWT-modal-title">Upcoming Workshop</h2>
+      <button id="EEDUWT-modal-close" class="EEDUWT-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="EEDUWT-modal-divider"></div>
+
+    <!-- Form Body -->
+    <div class="EEDUWT-modal-body">
+
+      <!-- Workshop Name -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-input-name">Workshop Name</label>
+        <input
+          type="text"
+          id="EEDUWT-input-name"
+          class="EEDUWT-input"
+          placeholder="Workshop Name"
+          autocomplete="off"
+        />
+        <span class="EEDUWT-error" id="EEDUWT-err-name"></span>
+      </div>
+
+      <!-- Type -->
+      <!-- Type -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-input-type">Type</label>
+        <div class="EEDUWT-select-wrap">
+          <select id="EEDUWT-input-type" class="EEDUWT-select">
+            <option value="">Select Type</option>
+            <option value="Short">Short</option>
+            <option value="Long">Long</option>
+          </select>
+        </div>
+        <span class="EEDUWT-error" id="EEDUWT-err-type"></span>
+      </div>
+
+      <!-- Duration -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-input-duration">Duration</label>
+        <input
+          type="text"
+          id="EEDUWT-input-duration"
+          class="EEDUWT-input"
+          placeholder="e.g. 2 30 or 02:30"
+          autocomplete="off"
+          maxlength="10"
+        />
+        <span class="EEDUWT-error" id="EEDUWT-err-duration"></span>
+      </div>
+
+      <!-- Price -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-input-price">Price</label>
+        <div class="EEDUWT-input-prefix-wrap">
+          <span class="EEDUWT-prefix">₹</span>
+          <input
+            type="text"
+            id="EEDUWT-input-price"
+            class="EEDUWT-input EEDUWT-input-prefixed"
+            placeholder="1199"
+            autocomplete="off"
+          />
+        </div>
+        <span class="EEDUWT-error" id="EEDUWT-err-price"></span>
+      </div>
+
+      <!-- Location -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-input-location">Location</label>
+        <div class="EEDUWT-select-wrap">
+          <select id="EEDUWT-input-location" class="EEDUWT-select">
+            <option value="">Select Location</option>
+            <option value="Mumbai,MH">Mumbai,MH</option>
+            <option value="Delhi,DL">Delhi,DL</option>
+            <option value="Bangalore,KA">Bangalore,KA</option>
+            <option value="Pune,MH">Pune,MH</option>
+          </select>
+        </div>
+        <span class="EEDUWT-error" id="EEDUWT-err-location"></span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="EEDUWT-modal-actions">
+        <button id="EEDUWT-btn-schedule-now" class="EEDUWT-btn-now">Schedule Now</button>
+        <button id="EEDUWT-btn-schedule-later" class="EEDUWT-btn-later">Schedule Later</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SCHEDULE WORKSHOP SECOND POPUP -->
+<div id="EEDUWT-schedule-overlay" class="EEDUWT-modal-overlay">
+  <div class="EEDUWT-modal" role="dialog" aria-modal="true">
+
+    <div class="EEDUWT-modal-header">
+      <h2>Schedule Workshop</h2>
+      <button id="EEDUWT-schedule-close" class="EEDUWT-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="EEDUWT-modal-divider"></div>
+
+    <div class="EEDUWT-modal-body">
+
+      <!-- Start Date -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-start-date">Select Start Date</label>
+        <input type="date" id="EEDUWT-start-date" class="EEDUWT-input EEDUWT-date-input" />
+        <span class="EEDUWT-error" id="EEDUWT-err-start"></span>
+      </div>
+
+      <!-- End Date -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-end-date">Select End Date</label>
+        <input type="date" id="EEDUWT-end-date" class="EEDUWT-input EEDUWT-date-input" />
+        <span class="EEDUWT-error" id="EEDUWT-err-end"></span>
+      </div>
+
+      <!-- Duration (auto-filled, read-only) -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-schedule-duration">Enter Duration</label>
+        <input
+          type="text"
+          id="EEDUWT-schedule-duration"
+          class="EEDUWT-input"
+          placeholder="02:30mins"
+          readonly
+        />
+      </div>
+
+      <!-- Continue Button -->
+      <div class="EEDUWT-modal-actions">
+        <button id="EEDUWT-btn-continue" class="EEDUWT-btn-now">Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CO-ORDINATOR DETAILS THIRD POPUP -->
+<div id="EEDUWT-coordinator-overlay" class="EEDUWT-modal-overlay">
+  <div class="EEDUWT-modal" role="dialog" aria-modal="true">
+
+    <div class="EEDUWT-modal-header">
+      <h2>Enter Co-ordinator Details</h2>
+      <button id="EEDUWT-coordinator-close" class="EEDUWT-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="EEDUWT-modal-divider"></div>
+
+    <div class="EEDUWT-modal-body">
+
+      <!-- Co-ordinator Name -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-coord-name">Co-ordinator Name</label>
+        <input
+          type="text"
+          id="EEDUWT-coord-name"
+          class="EEDUWT-input"
+          placeholder="Prashant Malik"
+          autocomplete="off"
+        />
+        <span class="EEDUWT-error" id="EEDUWT-err-coord-name"></span>
+      </div>
+
+      <!-- Co-ordinator Mobile Number -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-coord-mobile">Co-ordinator Mobile Number</label>
+        <input
+          type="text"
+          id="EEDUWT-coord-mobile"
+          class="EEDUWT-input"
+          placeholder="67789 78990"
+          autocomplete="off"
+          maxlength="15"
+        />
+        <span class="EEDUWT-error" id="EEDUWT-err-coord-mobile"></span>
+      </div>
+
+      <!-- Alternate Mobile Number -->
+      <div class="EEDUWT-field-group">
+        <label class="EEDUWT-label" for="EEDUWT-coord-alt">Alternate Mobile Number</label>
+        <input
+          type="text"
+          id="EEDUWT-coord-alt"
+          class="EEDUWT-input"
+          placeholder="67556 48959"
+          autocomplete="off"
+          maxlength="15"
+        />
+        <span class="EEDUWT-error" id="EEDUWT-err-coord-alt"></span>
+      </div>
+
+      <!-- Save Button -->
+      <div class="EEDUWT-modal-actions">
+        <button id="EEDUWT-btn-save" class="EEDUWT-btn-now">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
     </div>
     <script src="../javascript/E-EducationDeveloperUpcomingWorkshopTable.js"></script>
     <script src="../javascript/developerSidebarnavbar.js"></script>
