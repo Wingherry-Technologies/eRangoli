@@ -234,7 +234,106 @@ document
   .querySelector("#account-menu .mobile-dropdown:nth-child(5) li:nth-child(4)")
   .classList.add("submenu-active-page");
 
-// Add Workshop Popup
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+function showError(fieldId, errorId, message) {
+  const field = document.getElementById(fieldId);
+  const error = document.getElementById(errorId);
+  if (field) field.classList.add("EEDWCT-input-error");
+  if (error) error.textContent = message;
+}
+
+function clearError(fieldId, errorId) {
+  const field = document.getElementById(fieldId);
+  const error = document.getElementById(errorId);
+  if (field) field.classList.remove("EEDWCT-input-error");
+  if (error) error.textContent = "";
+}
+
+function clearAllWorkshopErrors() {
+  [
+    "EEDWCT-workshop-name",
+    "EEDWCT-type",
+    "EEDWCT-duration",
+    "EEDWCT-price",
+    "EEDWCT-location",
+  ].forEach((id) => {
+    clearError(id, id + "-error");
+  });
+}
+
+function clearAllScheduleErrors() {
+  ["EEDWCT-start-date", "EEDWCT-end-date", "EEDWCT-schedule-duration"].forEach(
+    (id) => {
+      clearError(id, id + "-error");
+    },
+  );
+}
+
+function clearAllCoordinatorErrors() {
+  [
+    "EEDWCT-coord-name",
+    "EEDWCT-coord-mobile",
+    "EEDWCT-coord-alt-mobile",
+  ].forEach((id) => {
+    clearError(id, id + "-error");
+  });
+}
+
+function resetWorkshopFields() {
+  const name = document.getElementById("EEDWCT-workshop-name");
+  const type = document.getElementById("EEDWCT-type");
+  const duration = document.getElementById("EEDWCT-duration");
+  const price = document.getElementById("EEDWCT-price");
+  const location = document.getElementById("EEDWCT-location");
+  if (name) name.value = "";
+  if (type) type.value = "";
+  if (duration) duration.value = "";
+  if (price) price.value = "";
+  if (location) location.value = "";
+  clearAllWorkshopErrors();
+}
+
+function resetScheduleFields() {
+  const startDate = document.getElementById("EEDWCT-start-date");
+  const endDate = document.getElementById("EEDWCT-end-date");
+  const duration = document.getElementById("EEDWCT-schedule-duration");
+  if (startDate) startDate.value = "";
+  if (endDate) endDate.value = "";
+  if (duration) duration.value = "";
+  clearAllScheduleErrors();
+}
+
+function resetCoordinatorFields() {
+  const name = document.getElementById("EEDWCT-coord-name");
+  const mobile = document.getElementById("EEDWCT-coord-mobile");
+  const altMobile = document.getElementById("EEDWCT-coord-alt-mobile");
+  if (name) name.value = "";
+  if (mobile) mobile.value = "";
+  if (altMobile) altMobile.value = "";
+  clearAllCoordinatorErrors();
+}
+
+// ─── Price Auto-Format (₹XXXX) ────────────────────────────────────────────────
+
+function formatPriceInput(input) {
+  let raw = input.value.replace(/[^\d]/g, "");
+  if (raw.length === 0) {
+    input.value = "";
+    return;
+  }
+  // Format with commas for Indian number system
+  let num = parseInt(raw, 10);
+  let formatted = "₹" + num.toLocaleString("en-IN");
+  input.value = formatted;
+  // Place cursor at end
+  setTimeout(
+    () => input.setSelectionRange(input.value.length, input.value.length),
+    0,
+  );
+}
+
+// ─── Add Workshop Popup ───────────────────────────────────────────────────────
 
 const addBtn = document.querySelector(".EEDWCT-add");
 const workshopModal = document.getElementById("EEDWCT-modal");
@@ -251,43 +350,200 @@ function closeWorkshopPopup() {
   document.body.style.overflow = "auto";
 }
 
-if (addBtn) {
-  addBtn.addEventListener("click", openWorkshopModal);
-}
-
-if (floatingBtn) {
-  floatingBtn.addEventListener("click", openWorkshopModal);
-}
-
-if (closeWorkshopModal) {
+if (addBtn) addBtn.addEventListener("click", openWorkshopModal);
+if (floatingBtn) floatingBtn.addEventListener("click", openWorkshopModal);
+if (closeWorkshopModal)
   closeWorkshopModal.addEventListener("click", closeWorkshopPopup);
-}
 
 window.addEventListener("click", (e) => {
-  if (e.target === workshopModal) {
-    closeWorkshopPopup();
-  }
+  if (e.target === workshopModal) closeWorkshopPopup();
 });
 
-// Schedule Popup
-
-const firstContinueBtn = document.querySelector(
-  "#EEDWCT-modal .EEDWCT-continue-btn",
-);
-
-const scheduleModal = document.getElementById("EEDWCT-schedule-modal");
-
-const scheduleCloseBtn = document.getElementById("EEDWCT-schedule-close");
-
-if (firstContinueBtn) {
-  firstContinueBtn.addEventListener("click", () => {
-    // First popup hide
-    workshopModal.classList.remove("active");
-
-    // Second popup show
-    scheduleModal.classList.add("active");
+// Workshop Name: allow only alphabets and spaces
+const workshopNameInput = document.getElementById("EEDWCT-workshop-name");
+if (workshopNameInput) {
+  workshopNameInput.addEventListener("keypress", (e) => {
+    if (!/[a-zA-Z ]/.test(e.key)) e.preventDefault();
+  });
+  workshopNameInput.addEventListener("input", () => {
+    workshopNameInput.value = workshopNameInput.value.replace(
+      /[^a-zA-Z ]/g,
+      "",
+    );
+    if (workshopNameInput.value.trim())
+      clearError("EEDWCT-workshop-name", "EEDWCT-workshop-name-error");
   });
 }
+
+// Duration: allow only digits and colon, append " mins" while typing
+const workshopDurationInput = document.getElementById("EEDWCT-duration");
+if (workshopDurationInput) {
+  workshopDurationInput.addEventListener("keydown", (e) => {
+    // Allow: digits, colon, Backspace, Delete, Tab, Arrow keys, Home, End
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "Tab",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+    ];
+    if (allowedKeys.includes(e.key)) return;
+    if (!/[\d:]/.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  workshopDurationInput.addEventListener("input", () => {
+    // Strip everything except digits and colon
+    let raw = workshopDurationInput.value
+      .replace(/ mins$/, "")
+      .replace(/[^\d:]/g, "");
+    if (raw.length > 0) {
+      workshopDurationInput.value = raw + " mins";
+      // Place cursor before " mins"
+      const pos = raw.length;
+      workshopDurationInput.setSelectionRange(pos, pos);
+    } else {
+      workshopDurationInput.value = "";
+    }
+    if (raw.trim()) clearError("EEDWCT-duration", "EEDWCT-duration-error");
+  });
+
+  // On focus, position cursor before " mins"
+  workshopDurationInput.addEventListener("focus", () => {
+    if (workshopDurationInput.value.endsWith(" mins")) {
+      const pos = workshopDurationInput.value.length - 5;
+      setTimeout(() => workshopDurationInput.setSelectionRange(pos, pos), 0);
+    }
+  });
+
+  // On click, prevent cursor landing in " mins" suffix
+  workshopDurationInput.addEventListener("click", () => {
+    if (workshopDurationInput.value.endsWith(" mins")) {
+      const maxPos = workshopDurationInput.value.length - 5;
+      if (workshopDurationInput.selectionStart > maxPos) {
+        workshopDurationInput.setSelectionRange(maxPos, maxPos);
+      }
+    }
+  });
+}
+
+// Price auto-format
+const workshopPriceInput = document.getElementById("EEDWCT-price");
+if (workshopPriceInput) {
+  workshopPriceInput.addEventListener("keypress", (e) => {
+    if (!/\d/.test(e.key)) e.preventDefault();
+  });
+  workshopPriceInput.addEventListener("input", () => {
+    formatPriceInput(workshopPriceInput);
+    if (workshopPriceInput.value.trim())
+      clearError("EEDWCT-price", "EEDWCT-price-error");
+  });
+  workshopPriceInput.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      let raw = workshopPriceInput.value.replace(/[^\d]/g, "");
+      raw = raw.slice(0, -1);
+      workshopPriceInput.value = raw;
+      if (raw.length > 0) formatPriceInput(workshopPriceInput);
+    }
+  });
+}
+
+// Type dropdown clear error on change
+const workshopTypeSelect = document.getElementById("EEDWCT-type");
+if (workshopTypeSelect) {
+  workshopTypeSelect.addEventListener("change", () => {
+    if (workshopTypeSelect.value)
+      clearError("EEDWCT-type", "EEDWCT-type-error");
+  });
+}
+
+// Location dropdown clear error on change
+const workshopLocationSelect = document.getElementById("EEDWCT-location");
+if (workshopLocationSelect) {
+  workshopLocationSelect.addEventListener("change", () => {
+    if (workshopLocationSelect.value)
+      clearError("EEDWCT-location", "EEDWCT-location-error");
+  });
+}
+
+// Workshop Continue Button Validation
+const workshopContinueBtn = document.getElementById(
+  "EEDWCT-workshop-continue-btn",
+);
+if (workshopContinueBtn) {
+  workshopContinueBtn.addEventListener("click", () => {
+    clearAllWorkshopErrors();
+    let valid = true;
+
+    const nameVal = workshopNameInput ? workshopNameInput.value.trim() : "";
+    const typeVal = workshopTypeSelect ? workshopTypeSelect.value : "";
+    const durationVal = workshopDurationInput
+      ? workshopDurationInput.value.replace(/ mins$/, "").trim()
+      : "";
+    const priceVal = workshopPriceInput ? workshopPriceInput.value.trim() : "";
+    const locationVal = workshopLocationSelect
+      ? workshopLocationSelect.value
+      : "";
+
+    if (!nameVal) {
+      showError(
+        "EEDWCT-workshop-name",
+        "EEDWCT-workshop-name-error",
+        "Workshop name is required.",
+      );
+      valid = false;
+    } else if (!/^[a-zA-Z ]+$/.test(nameVal)) {
+      showError(
+        "EEDWCT-workshop-name",
+        "EEDWCT-workshop-name-error",
+        "Only alphabets and spaces are allowed.",
+      );
+      valid = false;
+    }
+
+    if (!typeVal) {
+      showError("EEDWCT-type", "EEDWCT-type-error", "Please select a type.");
+      valid = false;
+    }
+
+    if (!durationVal) {
+      showError(
+        "EEDWCT-duration",
+        "EEDWCT-duration-error",
+        "Duration is required.",
+      );
+      valid = false;
+    }
+
+    if (!priceVal) {
+      showError("EEDWCT-price", "EEDWCT-price-error", "Price is required.");
+      valid = false;
+    }
+
+    if (!locationVal) {
+      showError(
+        "EEDWCT-location",
+        "EEDWCT-location-error",
+        "Please select a location.",
+      );
+      valid = false;
+    }
+
+    if (valid) {
+      workshopModal.classList.remove("active");
+      scheduleModal.classList.add("active");
+    }
+  });
+}
+
+// ─── Schedule Popup ────────────────────────────────────────────────────────────
+
+const scheduleModal = document.getElementById("EEDWCT-schedule-modal");
+const scheduleCloseBtn = document.getElementById("EEDWCT-schedule-close");
 
 if (scheduleCloseBtn) {
   scheduleCloseBtn.addEventListener("click", () => {
@@ -303,25 +559,173 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Coordinator Popup
+// Set min date to today for start date
+const startDateInput = document.getElementById("EEDWCT-start-date");
+const endDateInput = document.getElementById("EEDWCT-end-date");
 
-const scheduleContinueBtn = document.querySelector(
-  "#EEDWCT-schedule-modal .EEDWCT-continue-btn",
-);
+function getTodayStr() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
 
-const coordinatorModal = document.getElementById("EEDWCT-coordinator-modal");
-
-const coordinatorCloseBtn = document.getElementById("EEDWCT-coordinator-close");
-
-if (scheduleContinueBtn) {
-  scheduleContinueBtn.addEventListener("click", () => {
-    // Schedule popup hide
-    scheduleModal.classList.remove("active");
-
-    // Coordinator popup show
-    coordinatorModal.classList.add("active");
+if (startDateInput) {
+  startDateInput.min = getTodayStr();
+  startDateInput.addEventListener("change", () => {
+    if (startDateInput.value) {
+      clearError("EEDWCT-start-date", "EEDWCT-start-date-error");
+      // Update end date min to match start date
+      if (endDateInput) {
+        endDateInput.min = startDateInput.value;
+        // If end date is now before start date, clear it
+        if (endDateInput.value && endDateInput.value < startDateInput.value) {
+          endDateInput.value = "";
+          showError(
+            "EEDWCT-end-date",
+            "EEDWCT-end-date-error",
+            "End date must be on or after start date.",
+          );
+        }
+      }
+    }
   });
 }
+
+if (endDateInput) {
+  endDateInput.addEventListener("change", () => {
+    if (endDateInput.value)
+      clearError("EEDWCT-end-date", "EEDWCT-end-date-error");
+  });
+}
+
+// Schedule Duration: allow only digits and colon, append " mins" while typing
+const scheduleDurationInput = document.getElementById(
+  "EEDWCT-schedule-duration",
+);
+if (scheduleDurationInput) {
+  scheduleDurationInput.addEventListener("keydown", (e) => {
+    // Allow: digits, colon, Backspace, Delete, Tab, Arrow keys, Home, End
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "Tab",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+    ];
+    if (allowedKeys.includes(e.key)) return;
+    if (!/[\d:]/.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  scheduleDurationInput.addEventListener("input", () => {
+    // Strip everything except digits and colon
+    let raw = scheduleDurationInput.value
+      .replace(/ mins$/, "")
+      .replace(/[^\d:]/g, "");
+    if (raw.length > 0) {
+      scheduleDurationInput.value = raw + " mins";
+      // Place cursor before " mins"
+      const pos = raw.length;
+      scheduleDurationInput.setSelectionRange(pos, pos);
+    } else {
+      scheduleDurationInput.value = "";
+    }
+    if (raw.trim())
+      clearError("EEDWCT-schedule-duration", "EEDWCT-schedule-duration-error");
+  });
+
+  // On focus, position cursor before " mins"
+  scheduleDurationInput.addEventListener("focus", () => {
+    if (scheduleDurationInput.value.endsWith(" mins")) {
+      const pos = scheduleDurationInput.value.length - 5;
+      setTimeout(() => scheduleDurationInput.setSelectionRange(pos, pos), 0);
+    }
+  });
+
+  // On click, prevent cursor landing in " mins" suffix
+  scheduleDurationInput.addEventListener("click", () => {
+    if (scheduleDurationInput.value.endsWith(" mins")) {
+      const maxPos = scheduleDurationInput.value.length - 5;
+      if (scheduleDurationInput.selectionStart > maxPos) {
+        scheduleDurationInput.setSelectionRange(maxPos, maxPos);
+      }
+    }
+  });
+}
+
+// Schedule Continue Button Validation
+const scheduleContinueBtn = document.getElementById(
+  "EEDWCT-schedule-continue-btn",
+);
+if (scheduleContinueBtn) {
+  scheduleContinueBtn.addEventListener("click", () => {
+    clearAllScheduleErrors();
+    let valid = true;
+    const today = getTodayStr();
+
+    const startVal = startDateInput ? startDateInput.value : "";
+    const endVal = endDateInput ? endDateInput.value : "";
+    const durationVal = scheduleDurationInput
+      ? scheduleDurationInput.value.replace(/ mins$/, "").trim()
+      : "";
+
+    if (!startVal) {
+      showError(
+        "EEDWCT-start-date",
+        "EEDWCT-start-date-error",
+        "Start date is required.",
+      );
+      valid = false;
+    } else if (startVal < today) {
+      showError(
+        "EEDWCT-start-date",
+        "EEDWCT-start-date-error",
+        "Start date cannot be in the past.",
+      );
+      valid = false;
+    }
+
+    if (!endVal) {
+      showError(
+        "EEDWCT-end-date",
+        "EEDWCT-end-date-error",
+        "End date is required.",
+      );
+      valid = false;
+    } else if (startVal && endVal < startVal) {
+      showError(
+        "EEDWCT-end-date",
+        "EEDWCT-end-date-error",
+        "End date must be on or after start date.",
+      );
+      valid = false;
+    }
+
+    if (!durationVal) {
+      showError(
+        "EEDWCT-schedule-duration",
+        "EEDWCT-schedule-duration-error",
+        "Duration is required.",
+      );
+      valid = false;
+    }
+
+    if (valid) {
+      scheduleModal.classList.remove("active");
+      coordinatorModal.classList.add("active");
+    }
+  });
+}
+
+// ─── Coordinator Popup ─────────────────────────────────────────────────────────
+
+const coordinatorModal = document.getElementById("EEDWCT-coordinator-modal");
+const coordinatorCloseBtn = document.getElementById("EEDWCT-coordinator-close");
 
 if (coordinatorCloseBtn) {
   coordinatorCloseBtn.addEventListener("click", () => {
@@ -336,3 +740,127 @@ window.addEventListener("click", (e) => {
     document.body.style.overflow = "auto";
   }
 });
+
+// Coordinator Name: allow only alphabets and spaces
+const coordNameInput = document.getElementById("EEDWCT-coord-name");
+if (coordNameInput) {
+  coordNameInput.addEventListener("keypress", (e) => {
+    if (!/[a-zA-Z ]/.test(e.key)) e.preventDefault();
+  });
+  coordNameInput.addEventListener("input", () => {
+    coordNameInput.value = coordNameInput.value.replace(/[^a-zA-Z ]/g, "");
+    if (coordNameInput.value.trim())
+      clearError("EEDWCT-coord-name", "EEDWCT-coord-name-error");
+  });
+}
+
+// Mobile number: allow only digits, max 10
+const coordMobileInput = document.getElementById("EEDWCT-coord-mobile");
+if (coordMobileInput) {
+  coordMobileInput.addEventListener("keypress", (e) => {
+    if (!/\d/.test(e.key)) e.preventDefault();
+  });
+  coordMobileInput.addEventListener("input", () => {
+    coordMobileInput.value = coordMobileInput.value
+      .replace(/\D/g, "")
+      .slice(0, 10);
+    if (coordMobileInput.value.length === 10)
+      clearError("EEDWCT-coord-mobile", "EEDWCT-coord-mobile-error");
+  });
+}
+
+// Alternate mobile number: allow only digits, max 10
+const coordAltMobileInput = document.getElementById("EEDWCT-coord-alt-mobile");
+if (coordAltMobileInput) {
+  coordAltMobileInput.addEventListener("keypress", (e) => {
+    if (!/\d/.test(e.key)) e.preventDefault();
+  });
+  coordAltMobileInput.addEventListener("input", () => {
+    coordAltMobileInput.value = coordAltMobileInput.value
+      .replace(/\D/g, "")
+      .slice(0, 10);
+    if (!coordAltMobileInput.value || coordAltMobileInput.value.length === 10) {
+      clearError("EEDWCT-coord-alt-mobile", "EEDWCT-coord-alt-mobile-error");
+    }
+  });
+}
+
+function isValidIndianMobile(num) {
+  return /^[6-9]\d{9}$/.test(num);
+}
+
+// Coordinator Continue Button Validation
+const coordinatorContinueBtn = document.getElementById(
+  "EEDWCT-coordinator-continue-btn",
+);
+if (coordinatorContinueBtn) {
+  coordinatorContinueBtn.addEventListener("click", () => {
+    clearAllCoordinatorErrors();
+    let valid = true;
+
+    const nameVal = coordNameInput ? coordNameInput.value.trim() : "";
+    const mobileVal = coordMobileInput ? coordMobileInput.value.trim() : "";
+    const altMobileVal = coordAltMobileInput
+      ? coordAltMobileInput.value.trim()
+      : "";
+
+    if (!nameVal) {
+      showError(
+        "EEDWCT-coord-name",
+        "EEDWCT-coord-name-error",
+        "Co-ordinator name is required.",
+      );
+      valid = false;
+    } else if (!/^[a-zA-Z ]+$/.test(nameVal)) {
+      showError(
+        "EEDWCT-coord-name",
+        "EEDWCT-coord-name-error",
+        "Only alphabets and spaces are allowed.",
+      );
+      valid = false;
+    }
+
+    if (!mobileVal) {
+      showError(
+        "EEDWCT-coord-mobile",
+        "EEDWCT-coord-mobile-error",
+        "Mobile number is required.",
+      );
+      valid = false;
+    } else if (!isValidIndianMobile(mobileVal)) {
+      showError(
+        "EEDWCT-coord-mobile",
+        "EEDWCT-coord-mobile-error",
+        "Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.",
+      );
+      valid = false;
+    }
+
+    if (altMobileVal) {
+      if (!isValidIndianMobile(altMobileVal)) {
+        showError(
+          "EEDWCT-coord-alt-mobile",
+          "EEDWCT-coord-alt-mobile-error",
+          "Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.",
+        );
+        valid = false;
+      } else if (altMobileVal === mobileVal) {
+        showError(
+          "EEDWCT-coord-alt-mobile",
+          "EEDWCT-coord-alt-mobile-error",
+          "Alternate number must be different from the primary mobile number.",
+        );
+        valid = false;
+      }
+    }
+
+    if (valid) {
+      // All forms complete — reset everything
+      coordinatorModal.classList.remove("active");
+      document.body.style.overflow = "auto";
+      resetWorkshopFields();
+      resetScheduleFields();
+      resetCoordinatorFields();
+    }
+  });
+}

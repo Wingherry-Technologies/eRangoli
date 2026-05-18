@@ -1272,37 +1272,50 @@
         <div class="EEDWCT-modal-body">
           <div class="EEDWCT-field">
             <label>Workshop Name</label>
-            <input type="text" placeholder="Pottery Making" />
+            <input
+              type="text"
+              id="EEDWCT-workshop-name"
+              placeholder="Pottery Making"
+            />
+            <span class="EEDWCT-error" id="EEDWCT-workshop-name-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Type</label>
-            <select>
-              <option>Short</option>
-              <option>Long</option>
+            <select id="EEDWCT-type">
+              <option value="">Select Type</option>
+              <option value="Short">Short</option>
+              <option value="Long">Long</option>
             </select>
+            <span class="EEDWCT-error" id="EEDWCT-type-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Duration</label>
-            <input type="text" placeholder="02:30mins" />
+            <input type="text" id="EEDWCT-duration" placeholder="02:30mins" />
+            <span class="EEDWCT-error" id="EEDWCT-duration-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Price</label>
-            <input type="text" placeholder="₹1199" />
+            <input type="text" id="EEDWCT-price" placeholder="₹1199" />
+            <span class="EEDWCT-error" id="EEDWCT-price-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Location</label>
-            <select>
-              <option>Mumbai,MH</option>
-              <option>Delhi</option>
-              <option>Bangalore</option>
+            <select id="EEDWCT-location">
+              <option value="">Select Location</option>
+              <option value="Mumbai,MH">Mumbai,MH</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Bangalore">Bangalore</option>
             </select>
+            <span class="EEDWCT-error" id="EEDWCT-location-error"></span>
           </div>
 
-          <button class="EEDWCT-continue-btn">Continue</button>
+          <button class="EEDWCT-continue-btn" id="EEDWCT-workshop-continue-btn">
+            Continue
+          </button>
         </div>
       </div>
     </div>
@@ -1319,20 +1332,32 @@
         <div class="EEDWCT-modal-body">
           <div class="EEDWCT-field">
             <label>Select Start Date</label>
-            <input type="date" />
+            <input type="date" id="EEDWCT-start-date" />
+            <span class="EEDWCT-error" id="EEDWCT-start-date-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Select End Date</label>
-            <input type="date" />
+            <input type="date" id="EEDWCT-end-date" />
+            <span class="EEDWCT-error" id="EEDWCT-end-date-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Enter Duration</label>
-            <input type="text" placeholder="02:30mins" />
+            <input
+              type="text"
+              id="EEDWCT-schedule-duration"
+              placeholder="02:30mins"
+            />
+            <span
+              class="EEDWCT-error"
+              id="EEDWCT-schedule-duration-error"
+            ></span>
           </div>
 
-          <button class="EEDWCT-continue-btn">Continue</button>
+          <button class="EEDWCT-continue-btn" id="EEDWCT-schedule-continue-btn">
+            Continue
+          </button>
         </div>
       </div>
     </div>
@@ -1349,20 +1374,48 @@
         <div class="EEDWCT-modal-body">
           <div class="EEDWCT-field">
             <label>Co-ordinator Name</label>
-            <input type="text" placeholder="Prashant Malik" />
+            <input
+              type="text"
+              id="EEDWCT-coord-name"
+              placeholder="Prashant Malik"
+            />
+            <span class="EEDWCT-error" id="EEDWCT-coord-name-error"></span>
           </div>
 
           <div class="EEDWCT-field">
             <label>Co-ordinator Mobile Number</label>
-            <input type="text" placeholder="67789 78990" />
+            <input
+              type="text"
+              id="EEDWCT-coord-mobile"
+              placeholder="67789 78990"
+              maxlength="10"
+            />
+            <span class="EEDWCT-error" id="EEDWCT-coord-mobile-error"></span>
           </div>
 
           <div class="EEDWCT-field">
-            <label>Alternate Mobile Number</label>
-            <input type="text" placeholder="67556 48959" />
+            <label
+              >Alternate Mobile Number
+              <span class="EEDWCT-optional">(Optional)</span></label
+            >
+            <input
+              type="text"
+              id="EEDWCT-coord-alt-mobile"
+              placeholder="67556 48959"
+              maxlength="10"
+            />
+            <span
+              class="EEDWCT-error"
+              id="EEDWCT-coord-alt-mobile-error"
+            ></span>
           </div>
 
-          <button class="EEDWCT-continue-btn">Continue</button>
+          <button
+            class="EEDWCT-continue-btn"
+            id="EEDWCT-coordinator-continue-btn"
+          >
+            Continue
+          </button>
 
           <button class="EEDWCT-draft-btn">Save as draft</button>
         </div>

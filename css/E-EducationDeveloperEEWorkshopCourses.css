@@ -464,6 +464,28 @@ textarea:focus {
   margin-top: 10px;
 }
 
+/* Validation Error Styles */
+.EEDWCT-error {
+  display: block;
+  color: #e03232;
+  font-size: 12px;
+  margin-top: 5px;
+  min-height: 16px;
+  font-weight: 500;
+}
+
+.EEDWCT-field input.EEDWCT-input-error,
+.EEDWCT-field select.EEDWCT-input-error {
+  border: 1px solid #e03232 !important;
+  background: #fff5f5 !important;
+}
+
+.EEDWCT-optional {
+  font-weight: 400;
+  color: #999;
+  font-size: 12px;
+}
+
 @media (max-width: 1024px) and (min-width: 595px) {
   .EEDWCT-table {
     overflow-x: auto;
