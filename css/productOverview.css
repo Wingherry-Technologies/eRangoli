@@ -98,7 +98,7 @@ body {
 .productOverviewThumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .productOverviewImageWrapper {
@@ -131,7 +131,7 @@ body {
 .productOverviewMainImage img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
 }
 
 .mainImgArrow {
@@ -686,7 +686,7 @@ body {
 .reviewCardLeft img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .reviewCardRight {
@@ -867,7 +867,7 @@ body {
 .productOverviewSimilarProductImage img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .productOverviewSimilarProductName {
