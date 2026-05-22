@@ -470,7 +470,6 @@ textarea:focus {
   color: #e03232;
   font-size: 12px;
   margin-top: 5px;
-  min-height: 16px;
   font-weight: 500;
 }
 
