@@ -76,4 +76,32 @@ submitReset.addEventListener("click",()=>{
     }
     
 })
+// SHOW / HIDE PASSWORD
+
+const togglePasswordBtns = document.querySelectorAll(".toggle-password");
+
+togglePasswordBtns.forEach((icon) => {
+
+    icon.addEventListener("click", () => {
+
+        const targetInput = document.getElementById(icon.dataset.target);
+
+        if (targetInput.type === "password") {
+
+            targetInput.type = "text";
+
+            icon.src = "../assets/adminLogin/EyeSlash.svg";
+
+        } 
+        else {
+
+            targetInput.type = "password";
+
+            icon.src = "../assets/adminLogin/Eye.svg";
+
+        }
+
+    });
+
+});
 document.querySelector("#account-menu .mobile-dropdown:nth-child(7) .dropdown-header").classList.add("dropdown-header-active");
