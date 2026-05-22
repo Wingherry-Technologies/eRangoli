@@ -1411,6 +1411,143 @@ addToCartBtn.addEventListener("click", function () {
   cartCountMobile.textContent = countMobile + 1;
 });
 
+// Image Popup
+
+const thumbnails = document.querySelectorAll(".productOverviewThumbnail img, #productOverviewMainImg");
+
+const popup = document.querySelector(".productImagePopup");
+
+const popupMainImage = document.getElementById("popupMainImage");
+
+const popupCloseBtn = document.querySelector(".popupCloseBtn");
+
+const popupLeftArrow = document.querySelector(".popupLeftArrow");
+
+const popupRightArrow = document.querySelector(".popupRightArrow");
+
+const popupDots = document.querySelector(".popupDots");
+
+// IMAGE ARRAY
+
+let imageArray = [];
+
+thumbnails.forEach((img) => {
+    imageArray.push(img.src);
+});
+
+let currentIndex1 = 0;
+
+// OPEN POPUP
+
+thumbnails.forEach((img, index) => {
+
+    img.addEventListener("click", () => {
+
+        currentIndex1 = index;
+
+        popup.style.display = "flex";
+
+        document.body.style.overflow = "hidden";
+
+        showPopupImage();
+
+    });
+
+});
+
+// SHOW IMAGE
+
+function showPopupImage(){
+
+    popupMainImage.src = imageArray[currentIndex1];
+
+    createDots();
+
+}
+
+
+// LEFT ARROW
+
+popupLeftArrow.addEventListener("click", () => {
+
+    currentIndex1--;
+
+    if(currentIndex1 < 0){
+        currentIndex1 = imageArray.length - 1;
+    }
+
+    showPopupImage();
+
+});
+
+// RIGHT ARROW
+
+popupRightArrow.addEventListener("click", () => {
+
+    currentIndex1++;
+
+    if(currentIndex1 >= imageArray.length){
+        currentIndex1 = 0;
+    }
+
+    showPopupImage();
+
+});
+
+// CLOSE POPUP
+
+popupCloseBtn.addEventListener("click", () => {
+
+    popup.style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+});
+
+// CREATE DOTS
+
+function createDots(){
+
+    popupDots.innerHTML = "";
+
+    imageArray.forEach((_, index) => {
+
+        const dot = document.createElement("div");
+
+        dot.classList.add("popupDot");
+
+        if(index === currentIndex1){
+            dot.classList.add("activeDot");
+        }
+
+        dot.addEventListener("click", () => {
+
+            currentIndex1 = index;
+
+            showPopupImage();
+
+        });
+
+        popupDots.appendChild(dot);
+
+    });
+
+}
+
+// CLOSE WHEN CLICKING OUTSIDE
+
+popup.addEventListener("click", (e) => {
+
+    if(e.target === popup){
+
+        popup.style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
 
 
 

@@ -1692,4 +1692,110 @@ body {
   }
 }
 
+/* Image Popup */
+
+.productImagePopup{
+    position: fixed;
+    inset: 0;
+    background: rgba(240,240,240,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.popupImageContainer{
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+#popupMainImage{
+    width: 700px;
+    height: 500px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+
+.popupCloseBtn{
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    width: 22px;
+    cursor: pointer;
+}
+
+.popupArrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    font-size: 40px;
+    cursor: pointer;
+    color: #555;
+}
+
+.popupLeftArrow{
+    left: 40px;
+}
+
+.popupRightArrow{
+    right: 40px;
+}
+
+.popupDots{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.popupDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popupDot.activeDot{
+    width: 28px;
+    border-radius: 20px;
+    background: #e85757;
+}
+#productOverviewMainImg{
+  cursor: pointer;
+}
+
+@media(max-width:860px){
+
+    #popupMainImage{
+        max-width: 92%;
+        max-height: 60vh;
+    }
+
+    .popupArrow{
+        font-size: 28px;
+    }
+
+    .popupLeftArrow{
+        left: 10px;
+    }
+
+    .popupRightArrow{
+        right: 10px;
+    }
+
+    .popupCloseBtn{
+        top: 20px;
+        left: 20px;
+    }
+
+}
+
 

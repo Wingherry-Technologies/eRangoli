@@ -205,28 +205,180 @@ accHeaders.forEach((header) => {
   });
 });
 
-// Modal open/close logic
-const modal = document.getElementById("sponsorModal");
-const closeModal = document.getElementById("closeModal");
-const addNewBtn = document.querySelector(".add-new-btn");
-const floatingPlusBtn = document.querySelector(".EEDSWT-floating-plus-btn");
+// // Modal open/close logic
+// const modal = document.getElementById("sponsorModal");
+// const closeModal = document.getElementById("closeModal");
+// const addNewBtn = document.querySelector(".add-new-btn");
+// const floatingPlusBtn = document.querySelector(".EEDSWT-floating-plus-btn");
 
-function openModal() {
-  modal.style.display = "flex";
-  clearAllModalErrors();
-  resetModalFields();
-}
+// function openModal() {
+//   modal.style.display = "flex";
+//   clearAllModalErrors();
+//   resetModalFields();
+// }
 
-function closeModalFn() {
-  modal.style.display = "none";
-}
+// function closeModalFn() {
+//   modal.style.display = "none";
+// }
 
-if (addNewBtn) addNewBtn.addEventListener("click", openModal);
-if (floatingPlusBtn) floatingPlusBtn.addEventListener("click", openModal);
-if (closeModal) closeModal.addEventListener("click", closeModalFn);
+// if (addNewBtn) addNewBtn.addEventListener("click", openModal);
+// if (floatingPlusBtn) floatingPlusBtn.addEventListener("click", openModal);
+// if (closeModal) closeModal.addEventListener("click", closeModalFn);
 
-window.addEventListener("click", function (e) {
-  if (e.target === modal) closeModalFn();
+// window.addEventListener("click", function (e) {
+//   if (e.target === modal) closeModalFn();
+// });
+
+// POPUP OPEN
+
+const addBtn = document.querySelector(".EEDSWT-add");
+const floatingBtn = document.querySelector(".EEDSWT-floating-plus-btn");
+const popupMain = document.querySelector(".add-short-workshop-popup-main");
+const closePopup = document.querySelector(".close-popup");
+
+// OPEN POPUP
+
+addBtn.addEventListener("click", () => {
+    popupMain.style.display = "flex";
+    document.body.style.overflow = "hidden";
+});
+
+floatingBtn.addEventListener("click", () => {
+    popupMain.style.display = "flex";
+    document.body.style.overflow = "hidden";
+});
+
+// CLOSE POPUP
+
+closePopup.addEventListener("click", () => {
+    popupMain.style.display = "none";
+    document.body.style.overflow = "auto";
+});
+
+// CLOSE WHEN CLICKING OUTSIDE
+
+popupMain.addEventListener("click", (e) => {
+
+    if(e.target === popupMain){
+
+        popupMain.style.display = "none";
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
+// VALIDATION
+
+const continueBtn = document.querySelector(".continue-btn");
+
+const workshopName = document.getElementById("workshopName");
+const workshopType = document.getElementById("workshopType");
+const duration = document.getElementById("duration");
+const price = document.getElementById("price");
+const locationField = document.getElementById("location");
+
+// PREVENT SPACE AT BEGINNING
+
+const allInputs = [
+    workshopName,
+    duration,
+    price
+];
+
+allInputs.forEach((input) => {
+
+    input.addEventListener("keydown", (e) => {
+
+        if (e.key === " " && input.value.length === 0) {
+            e.preventDefault();
+        }
+
+    });
+
+});
+
+// CONTINUE BUTTON VALIDATION
+
+continueBtn.addEventListener("click", () => {
+
+    let isValid = true;
+
+    // REMOVE ALL ERRORS FIRST
+
+    document.querySelectorAll(".popup-error").forEach((error) => {
+        error.style.display = "none";
+    });
+
+    document
+        .querySelectorAll(".popup-form-group input, .popup-form-group select")
+        .forEach((field) => {
+            field.classList.remove("input-error");
+        });
+
+    // WORKSHOP NAME
+
+    if (workshopName.value.trim() === "") {
+
+        document.getElementById("workshopName-error").style.display = "block";
+
+        workshopName.classList.add("input-error");
+
+        isValid = false;
+    }
+
+    // TYPE
+
+    if (workshopType.value.trim() === "") {
+
+        document.getElementById("workshopType-error").style.display = "block";
+
+        workshopType.classList.add("input-error");
+
+        isValid = false;
+    }
+
+    // DURATION
+
+    if (duration.value.trim() === "") {
+
+        document.getElementById("duration-error").style.display = "block";
+
+        duration.classList.add("input-error");
+
+        isValid = false;
+    }
+
+    // PRICE
+
+    if (price.value.trim() === "") {
+
+        document.getElementById("price-error").style.display = "block";
+
+        price.classList.add("input-error");
+
+        isValid = false;
+    }
+
+    // LOCATION
+
+    if (locationField.value.trim() === "") {
+
+        document.getElementById("location-error").style.display = "block";
+
+        locationField.classList.add("input-error");
+
+        isValid = false;
+    }
+
+    // SUCCESS
+
+    if (isValid) {
+
+        alert("Workshop Added Successfully");
+
+    }
+
 });
 
 document.querySelector(".sidebar-main-vendor > article > ul >li:nth-of-type(5)").classList.add("sidebar-active");
