@@ -1,3 +1,5 @@
+/* adminAddCompanyProfit.css */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,16 +7,15 @@
 }
 
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #ffffff;
 }
 
+/* ── Topbar ── */
 .topbar {
   display: flex;
   align-items: center;
   gap: 12px;
-  
 }
 
 .back-btn {
@@ -26,9 +27,10 @@ body {
   padding: 4px;
   color: #333;
 }
-.back-btn img{
-    width: 17px;
-    height: 17px;
+
+.back-btn img {
+  width: 17px;
+  height: 17px;
 }
 
 .topbar-title {
@@ -37,6 +39,7 @@ body {
   color: #3F3F3F;
 }
 
+/* ── Page ── */
 .page {
   padding: 24px 16px;
   height: 100%;
@@ -47,16 +50,18 @@ body {
   background: #fff;
   border-radius: 8px;
   width: 100%;
-  max-width: 500px;
+  /* max-width: 860px; */
   overflow: hidden;
 }
 
-/* Section header — exact match to screenshot: light blue-grey bg */
+/* ── Section Header ── */
 .section-header {
   background: #E7F0F9;
   padding: 16px 20px;
   width: 100%;
+  /* max-width: 860px; */
   border-radius: 8px;
+  margin-bottom: 0;
 }
 
 .section-header h2 {
@@ -65,10 +70,20 @@ body {
   color: #3F3F3F;
 }
 
+/* ── Form Body ── */
 .form-body {
   padding: 20px 20px 16px;
 }
 
+/* ── 2-Column Row ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin-bottom: 0;
+}
+
+/* ── Field ── */
 .field {
   margin-bottom: 18px;
 }
@@ -86,18 +101,41 @@ label .star {
   margin-left: 1px;
 }
 
+.label-sub {
+  font-size: 11px;
+  font-weight: 400;
+  color: #8E8989;
+  margin-left: 2px;
+}
+
+/* ── Input Wrap ── */
 .input-wrap {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .rupee {
   position: absolute;
   left: 11px;
-  top: 47%;
+  top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 14px;
   color: #8E8989;
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Calculated rupee amount shown on right inside field */
+.calc-amount {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #8E8989;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 input {
@@ -108,7 +146,7 @@ input {
   font-size: 14px;
   color: #3F3F3F;
   background: #fff;
-  padding: 0 12px;
+  padding: 0 70px 0 12px; /* right padding for calc-amount */
   outline: none;
   transition: border-color 0.15s;
   appearance: none;
@@ -121,21 +159,25 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
-
 input.with-rupee {
   padding-left: 26px;
 }
 
+/* Readonly fields */
 input.readonly {
-  background: #d9d9d9;
-  color: #8e8989;
+  background: #EFF3F7;
+  color: #3F3F3F;
   cursor: default;
-  border-color: #d8d8d8;
+  border-color: #DEE1E6;
+  padding-right: 12px; /* no calc-amount on right for readonly */
 }
 
 input.readonly:focus {
-  border-color: #d8d8d8;
+  border-color: #DEE1E6;
+}
+
+input:focus:not(.readonly) {
+  border-color: #108AF2;
 }
 
 input.error {
@@ -143,6 +185,7 @@ input.error {
   background: #fff8f8;
 }
 
+/* ── Error Text ── */
 .error-text {
   font-size: 12px;
   color: #e53935;
@@ -154,8 +197,19 @@ input.error {
   display: block;
 }
 
+/* ── Margin Text ── */
+.margin-text {
+  font-size: 12px;
+  margin-top: -4px;
+  margin-bottom: 16px;
+  color: #3F3F3F;
+  min-height: 16px;
+}
+
+/* ── Done Button ── */
 .done-btn {
   width: 100%;
+  max-width: 480px;
   height: 46px;
   background: #108AF2;
   color: #ffffff;
@@ -164,13 +218,15 @@ input.error {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 4px;
   transition: background 0.15s;
 }
-#sellingPrice{
-    background-color: #EFF3F7;
+
+.done-btn:hover {
+  background: #0d7ad8;
 }
 
+/* ── Success Popup ── */
 .APVOSuccessScreen {
   position: fixed;
   inset: 0;
@@ -202,29 +258,33 @@ input.error {
   font-weight: 600;
   color: #3f3f3f;
 }
-.margin-text {
-  font-size: 12px;
-  margin-top: 4px;
-  color: #3F3F3F;
-}
 
-@media (max-width: 540px) {
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .page {
     padding: 16px 10px;
   }
+
   .form-body {
     padding: 16px 14px 12px;
   }
+
   .section-header {
     padding: 14px 14px;
   }
 }
-@media (max-width:595px) {
-  .back-btn{
-    display: none;
-  }
-  .topbar-title{
+
+@media (max-width: 595px) {
+  .back-btn {
     display: none;
   }
 
+  .topbar-title {
+    display: none;
+  }
 }

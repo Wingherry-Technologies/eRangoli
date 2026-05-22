@@ -583,91 +583,126 @@
         </article>
     </section>
 
+<!-- adminPMAddCompanyProfit.html -->
 <div class="main-content-beyond">
   <div class="topbar">
     <div class="mobile-back-button">
-              <img
-                onclick="window.history.back()"
-                src="../assets/adminProductOverview/Vector (2).svg"
-                alt=""
-              />
-              <span>Product Selling Details</span>
-            </div>
-  <button class="back-btn"  aria-label="Go back">
-<img src="../assets/adminProductOverview/Vector (2).svg" onclick="window.history.back()" alt="">
-  </button>
-  <span class="topbar-title">Product Selling Details</span>
-</div>
+      <img onclick="window.history.back()" src="../assets/adminProductOverview/Vector (2).svg" alt="" />
+      <span>Product Selling Details</span>
+    </div>
+    <button class="back-btn" aria-label="Go back">
+      <img src="../assets/adminProductOverview/Vector (2).svg" onclick="window.history.back()" alt="">
+    </button>
+    <span class="topbar-title">Product Selling Details</span>
+  </div>
 
-<div class="page">
-        <div class="section-header">
+  <div class="page">
+    <div class="section-header">
       <h2>Enter Product Selling Details</h2>
     </div>
-  <div class="container">
 
+    <div class="container">
+      <div class="form-body">
+        <form id="form" novalidate>
 
+          <!-- Row 1: Vendor Price | GST -->
+          <div class="form-row">
+            <div class="field">
+              <label for="vendorPrice">Vendor Selling Price <span class="star">*</span></label>
+              <div class="input-wrap">
+                <span class="rupee">₹</span>
+                <input type="text" id="vendorPrice" class="readonly with-rupee" value="1,299" readonly tabindex="-1">
+              </div>
+            </div>
 
-    <div class="form-body">
-      <form id="form" novalidate>
-
-        <div class="field">
-          <label for="vendorPrice">Vendor Selling Price *</label>
-          <div class="input-wrap">
-            <span class="rupee">₹</span>
-            <input type="text" id="vendorPrice" class="readonly with-rupee" value="1,299" readonly tabindex="-1">
+            <div class="field">
+              <label for="gst">Enter GST (%) <span class="star">*</span></label>
+              <div class="input-wrap">
+                <input type="number" id="gst" placeholder="e.g. 8" min="0" max="100" step="any" autocomplete="off">
+                <span class="calc-amount" id="gst-amount"></span>
+              </div>
+              <div class="error-text" id="gst-err">Please enter a valid number (0–100)</div>
+            </div>
           </div>
-        </div>
 
-        <div class="field">
-          <label for="gst">Enter GST (%) <span class="star">*</span></label>
-          <div class="input-wrap">
-            <input type="number" id="gst" placeholder="e.g. 8" min="0" max="100" step="any" autocomplete="off">
+          <!-- Row 2: Profit | Discount -->
+          <div class="form-row">
+            <div class="field">
+              <label for="profit">Enter Company Profit (%)</label>
+              <div class="input-wrap">
+                <input type="number" id="profit" placeholder="e.g. 10" min="0" step="any" autocomplete="off">
+                <span class="calc-amount" id="profit-amount"></span>
+              </div>
+              <div class="error-text" id="profit-err">Please enter a valid number (≥ 0)</div>
+            </div>
+
+            <div class="field">
+              <label for="discount">Enter Discount (%)</label>
+              <div class="input-wrap">
+                <input type="number" id="discount" placeholder="e.g. 25" min="0" max="100" step="any" autocomplete="off">
+                <span class="calc-amount" id="discount-amount"></span>
+              </div>
+              <div class="error-text" id="discount-err">Please enter a valid number (0–100)</div>
+            </div>
           </div>
-          <div class="error-text" id="gst-err">Please enter a valid number (0–100)</div>
-        </div>
 
-        <div class="field">
-          <label for="profit">Enter Campany profit (%)</label>
-          <div class="input-wrap">
-            <input type="number" id="profit" placeholder="e.g. 10" min="0" max="100" step="any" autocomplete="off">
+          <!-- Row 3: Without Discount | With Discount -->
+          <div class="form-row">
+            <div class="field">
+              <label for="priceWithoutDiscount">Company Product Selling Price <span class="label-sub">(Without discount)</span></label>
+              <div class="input-wrap">
+                <span class="rupee">₹</span>
+                <input type="text" id="priceWithoutDiscount" class="readonly with-rupee" readonly tabindex="-1" aria-live="polite">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="priceWithDiscount">Company Product Selling Price <span class="label-sub">(With discount)</span></label>
+              <div class="input-wrap">
+                <span class="rupee">₹</span>
+                <input type="text" id="priceWithDiscount" class="readonly with-rupee" readonly tabindex="-1" aria-live="polite">
+              </div>
+            </div>
           </div>
-          <div class="error-text" id="profit-err">Please enter a valid number (0–100)</div>
-        </div>
 
-        <div class="field">
-          <label for="discount">Enter discount (%)</label>
-          <div class="input-wrap">
-            <input type="number" id="discount" placeholder="e.g. 25" min="0" max="100" step="any" autocomplete="off">
+          <!-- Row 4: Other Charges | Final Selling Price -->
+          <div class="form-row">
+            <div class="field">
+              <label for="otherCharges">Other Charges (%)</label>
+              <div class="input-wrap">
+                <input type="number" id="otherCharges" placeholder="e.g. 5" min="0" max="100" step="any" autocomplete="off">
+                <span class="calc-amount" id="otherCharges-amount"></span>
+              </div>
+              <div class="error-text" id="otherCharges-err">Please enter a valid number (0–100)</div>
+            </div>
+
+            <div class="field">
+              <label for="finalPrice">Final Selling Price</label>
+              <div class="input-wrap">
+                <span class="rupee">₹</span>
+                <input type="text" id="finalPrice" class="readonly with-rupee" readonly tabindex="-1" aria-live="polite">
+              </div>
+            </div>
           </div>
-          <div class="error-text" id="discount-err">Please enter a valid number (0–100)</div>
-        </div>
 
-        <div class="field">
-          <label for="sellingPrice">Company Product Selling Price</label>
-          <div class="input-wrap">
-            <span class="rupee">₹</span>
-            <input type="text" id="sellingPrice" class="readonly with-rupee" value="1,299" readonly tabindex="-1" aria-live="polite">
-          </div>
-        </div>
+          <!-- Margin Text -->
+          <div class="margin-text" id="marginText"></div>
 
-        <div class="margin-text" id="marginText">
-  Margin: ₹0
-</div>
+          <!-- Done Button -->
+          <button type="submit" class="done-btn">Done</button>
 
-        <button type="submit" class="done-btn">Done</button>
-
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- SUCCESS POPUP -->
-<div class="APVOSuccessScreen" id="successPopup">
-  <div class="APVOSuccessContent">
-    <img src="../assets/adminVerificationProcess/success.svg" alt="success" />
-    <p>Details saved successfully</p>
+  <!-- SUCCESS POPUP -->
+  <div class="APVOSuccessScreen" id="successPopup">
+    <div class="APVOSuccessContent">
+      <img src="../assets/adminVerificationProcess/success.svg" alt="success" />
+      <p>Details saved successfully</p>
+    </div>
   </div>
-</div>
 </div>
 
 <script src="../javascript/adminPMAddCompanyProfit.js"></script>
