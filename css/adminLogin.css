@@ -229,3 +229,24 @@ input::placeholder {
     height: 110px;
   }
 }
+
+.password-wrapper{
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input{
+  width: 100%;
+  padding-right: 45px;
+  box-sizing: border-box;
+}
+
+.eye-icon{
+  position: absolute;
+  right: 12px;
+  top: 25px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}

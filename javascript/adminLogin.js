@@ -38,8 +38,29 @@ usernameInput.addEventListener("input", function () {
 const passwordInput = document.getElementById("password");
 const passwordError = document.getElementById("passwordError");
 
+// eye toggle
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", function () {
+
+  if (passwordInput.type === "password") {
+
+    passwordInput.type = "text";
+
+    togglePassword.src = "../assets/adminLogin/eyeSlash.svg";
+
+  } else {
+
+    passwordInput.type = "password";
+
+    togglePassword.src = "../assets/adminLogin/eye.svg";
+  }
+});
+
 passwordInput.addEventListener("input", function () {
-  if (this.value.trim() !== "") passwordError.style.display = "none";
+  if (this.value.trim() !== "") {
+    passwordError.style.display = "none";
+  }
 });
 
 // email validation
